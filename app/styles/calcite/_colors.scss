@@ -1,0 +1,118 @@
+/* Standard Grays */
+
+$gray-base: #000 !default; //All Esri Grays are based on solid black
+
+$gray-160: lighten($gray-base, 20%); // #333
+$gray-155: lighten($gray-base, 30%); // #4C4C4C
+$gray-150: lighten($gray-base, 35%); // #57585A
+$gray-145: lighten($gray-base, 44%); // #6C6D70
+$gray-140: lighten($gray-base, 50%); // #7F8183
+$gray-135: lighten($gray-base, 60%); // #929497
+$gray-130: lighten($gray-base, 70%); // #A6A8AB
+$gray-125: lighten($gray-base, 80%); // #CBCBCB
+$gray-120: lighten($gray-base, 88%); // #E0E0DF
+$gray-115: lighten($gray-base, 90%); // #E5E6E7
+$gray-110: lighten($gray-base, 94%); // #EFEEEF
+$gray-105: lighten($gray-base, 96%); // #F2F3F3
+$gray-100: lighten($gray-base, 97%); // #F7F8F8
+
+/* Core Calcite Colors */
+
+$core-blue-1: #D2E9F9;
+$core-blue-2: #BCDAED;
+$core-blue-3: #6CB4E2;
+$core-blue-4: #56A5D8;
+
+$core-yellow-1: #F3EdC7;
+$core-yellow-2: #EFE397;
+$core-yellow-3: #E4D154;
+$core-yellow-4: #D8C34B;
+
+$core-orange-1: #FBE1C2;
+$core-orange-2: #F6CA92;
+$core-orange-3: #EDA959;
+$core-orange-4: #E79C47;
+
+$core-green-1: #D2E9F9; /* WRONG COLOR */
+$core-green-2: #9BC19C;
+$core-green-3: #67A966;
+$core-green-4: #5A9359;
+
+$core-red-1: #F3DED7;
+$core-red-2: #E4A793;
+$core-red-3: #C86A4A;
+$core-red-4: #C6542D;
+
+$core-purple-1: #E5E1EF;
+$core-purple-2: #C4BCDC;
+$core-purple-3: #9081BC;
+$core-purple-4: #7B6CA7;
+
+$core-brown-1: #E8DDD3;
+$core-brown-2: #D2B38F;
+$core-brown-3: #B78A54;
+$core-brown-4: #A57946;
+
+/* Expanded Range */
+
+$exp-blue-1: #69DCFF;
+$exp-blue-2: #00DEE7;
+$exp-blue-3: #2794D9;
+$exp-blue-4: #B3E9F9;
+
+$exp-yellow-1: #FAD817;
+$exp-yellow-2: #FFF000;
+$exp-yellow-3: #C9AF1C;
+
+$exp-orange-1: #FFBC6B;
+$exp-orange-2: #FFCC00;
+$exp-orange-3: #E67E08;
+
+$exp-green-1: #71DE6E;
+$exp-green-2: #A5E800;
+$exp-green-3: #358435;
+
+$exp-red-1: #FF642E;
+$exp-red-2: #FF442E;
+$exp-red-3: #C93100;
+
+$exp-purple-1: #B096FF;
+$exp-purple-2: #F185FF;
+
+$exp-brown-1: #DB8D2F;
+$exp-brown-2: #8A581E;
+
+/* Specialty Colors */
+
+$spec-blue-1: #E1F0FB;
+$spec-blue-2: #D1E9F9; // Same as core-blue-1
+$spec-blue-3: #7FBBDF;
+$spec-blue-5: #C5E5F9;
+$spec-blue-6: #AADBFA;
+$spec-blue-7: #90CDF2;
+$spec-blue-base: #0079C1;
+$spec-blue-dark: #005E95;
+
+$spec-yellow-1: #F4DA6E;
+$spec-yellow-2: #A68D00;
+
+$spec-green-1: #CFEDCC;
+$spec-green-2: #7BB974;
+$spec-green-3: #B0E2B0;
+$spec-green-4: #96CE96;
+$spec-green-5: #7DC17D;
+$spec-green-6: #257824;
+$spec-green-base: #31872E;
+$spec-green-dark: #2B622B;
+
+$spec-red-1: #FFCCBA;
+$spec-red-2: #D94C1D;
+
+
+
+
+
+
+
+
+

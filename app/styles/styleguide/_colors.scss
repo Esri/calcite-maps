@@ -1,0 +1,352 @@
+/* Construct the Swatch Boxes
+---------------------------------------------------------------------------- */
+// This draws the basic block
+.sg-color {
+  background: #fff;
+  border: 1px solid #b3b3b3;
+  display: inline-block;
+  height: 80px;
+  margin: 0 .5em .5em 0;
+  padding: 5px;
+  position: relative;
+  width: 100px;
+}
+// This is for a larger color block
+.sg-lg {
+  width: 200px;
+  height: 100px;
+}
+// This draws the box that will display the color
+.sg-color-swatch {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+// This draws the text box over the swatch
+.sg-color-swatch span {
+  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 5px;
+  color: #fff;
+  font-size: .8em;
+  margin: 0;
+  opacity: 0;
+  padding: 5px 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 88px;
+}
+// This modifies the text box for large swatch boxes
+.sg-lg .sg-color-swatch span {
+  width: 188px;
+}
+.sg-color-swatch:hover span {
+  opacity: 1;
+}
+
+
+/* Color Palette 
+---------------------------------------------------------------------------- */
+.sg-gray-160 .sg-color-swatch {
+  background: $gray-160;
+}
+.sg-gray-155 .sg-color-swatch {
+  background: $gray-155;
+}
+.sg-gray-150 .sg-color-swatch {
+  background: $gray-150;
+}
+.sg-gray-145 .sg-color-swatch {
+  background: $gray-145;
+}
+.sg-gray-140 .sg-color-swatch {
+  background: $gray-140;
+}
+.sg-gray-135 .sg-color-swatch {
+  background: $gray-135;
+}
+.sg-gray-130 .sg-color-swatch {
+  background: $gray-130;
+}
+.sg-gray-125 .sg-color-swatch {
+  background: $gray-125;
+}
+.sg-gray-120 .sg-color-swatch {
+  background: $gray-120;
+}
+.sg-gray-115 .sg-color-swatch {
+  background: $gray-115;
+}
+.sg-gray-110 .sg-color-swatch {
+  background: $gray-110;
+}
+.sg-gray-105 .sg-color-swatch {
+  background: $gray-105;
+}
+.sg-gray-100 .sg-color-swatch {
+  background: $gray-100;
+}
+
+
+.sg-core-blue-1 .sg-color-swatch {
+  background: $core-blue-1;
+}
+.sg-core-blue-2 .sg-color-swatch {
+  background: $core-blue-2;
+}
+.sg-core-blue-3 .sg-color-swatch {
+  background: $core-blue-3;
+}
+.sg-core-blue-4 .sg-color-swatch {
+  background: $core-blue-4;
+}
+
+
+.sg-core-yellow-1 .sg-color-swatch {
+  background: $core-yellow-1;
+}
+.sg-core-yellow-2 .sg-color-swatch {
+  background: $core-yellow-2;
+}
+.sg-core-yellow-3 .sg-color-swatch {
+  background: $core-yellow-3;
+}
+.sg-core-yellow-4 .sg-color-swatch {
+  background: $core-yellow-4;
+}
+
+
+
+.sg-core-orange-1 .sg-color-swatch {
+  background: $core-orange-1;
+}
+.sg-core-orange-2 .sg-color-swatch {
+  background: $core-orange-2;
+}
+.sg-core-orange-3 .sg-color-swatch {
+  background: $core-orange-3;
+}
+.sg-core-orange-4 .sg-color-swatch {
+  background: $core-orange-4;
+}
+
+
+
+.sg-core-green-1 .sg-color-swatch {
+  background: $core-green-1;
+}
+.sg-core-green-2 .sg-color-swatch {
+  background: $core-green-2;
+}
+.sg-core-green-3 .sg-color-swatch {
+  background: $core-green-3;
+}
+.sg-core-green-4 .sg-color-swatch {
+  background: $core-green-4;
+}
+
+
+
+.sg-core-red-1 .sg-color-swatch {
+  background: $core-red-1;
+}
+.sg-core-red-2 .sg-color-swatch {
+  background: $core-red-2;
+}
+.sg-core-red-3 .sg-color-swatch {
+  background: $core-red-3;
+}
+.sg-core-red-4 .sg-color-swatch {
+  background: $core-red-4;
+}
+
+
+
+.sg-core-purple-1 .sg-color-swatch {
+  background: $core-purple-1;
+}
+.sg-core-purple-2 .sg-color-swatch {
+  background: $core-purple-2;
+}
+.sg-core-purple-3 .sg-color-swatch {
+  background: $core-purple-3;
+}
+.sg-core-purple-4 .sg-color-swatch {
+  background: $core-purple-4;
+}
+
+
+
+.sg-core-brown-1 .sg-color-swatch {
+  background: $core-brown-1;
+}
+.sg-core-brown-2 .sg-color-swatch {
+  background: $core-brown-2;
+}
+.sg-core-brown-3 .sg-color-swatch {
+  background: $core-brown-3;
+}
+.sg-core-brown-4 .sg-color-swatch {
+  background: $core-brown-4;
+}
+
+
+
+.sg-exp-blue-1 .sg-color-swatch {
+  background: $exp-blue-1;
+}
+.sg-exp-blue-2 .sg-color-swatch {
+  background: $exp-blue-2;
+}
+.sg-exp-blue-3 .sg-color-swatch {
+  background: $exp-blue-3;
+}
+.sg-exp-blue-4 .sg-color-swatch {
+  background: $exp-blue-4;
+}
+
+.sg-exp-yellow-1 .sg-color-swatch {
+  background: $exp-yellow-1;
+}
+.sg-exp-yellow-2 .sg-color-swatch {
+  background: $exp-yellow-2;
+}
+.sg-exp-yellow-3 .sg-color-swatch {
+  background: $exp-yellow-3;
+}
+
+.sg-exp-orange-1 .sg-color-swatch {
+  background: $exp-orange-1;
+}
+.sg-exp-orange-2 .sg-color-swatch {
+  background: $exp-orange-2;
+}
+.sg-exp-orange-3 .sg-color-swatch {
+  background: $exp-orange-3;
+}
+
+.sg-exp-green-1 .sg-color-swatch {
+  background: $exp-green-1;
+}
+.sg-exp-green-2 .sg-color-swatch {
+  background: $exp-green-2;
+}
+.sg-exp-green-3 .sg-color-swatch {
+  background: $exp-green-3;
+}
+
+.sg-exp-red-1 .sg-color-swatch {
+  background: $exp-red-1;
+}
+.sg-exp-red-2 .sg-color-swatch {
+  background: $exp-red-2;
+}
+.sg-exp-red-3 .sg-color-swatch {
+  background: $exp-red-3;
+}
+
+.sg-exp-purple-1 .sg-color-swatch {
+  background: $exp-purple-1;
+}
+.sg-exp-purple-2 .sg-color-swatch {
+  background: $exp-purple-2;
+}
+
+.sg-exp-brown-1 .sg-color-swatch {
+  background: $exp-brown-1;
+}
+.sg-exp-brown-2 .sg-color-swatch {
+  background: $exp-brown-2;
+}
+
+.sg-spec-blue-1 .sg-color-swatch {
+  background: $spec-blue-1;
+}
+.sg-spec-blue-2 .sg-color-swatch {
+  background: $spec-blue-2;
+}
+.sg-spec-blue-3 .sg-color-swatch {
+  background: $spec-blue-3;
+}
+.sg-spec-blue-5 .sg-color-swatch {
+  background: $spec-blue-5;
+}
+.sg-spec-blue-6 .sg-color-swatch {
+  background: $spec-blue-6;
+}
+.sg-spec-blue-7 .sg-color-swatch {
+  background: $spec-blue-7;
+}
+.sg-spec-blue-base .sg-color-swatch {
+  background: $spec-blue-base;
+}
+.sg-spec-blue-dark .sg-color-swatch {
+  background: $spec-blue-dark;
+}
+
+
+.sg-spec-yellow-1 .sg-color-swatch {
+  background: $spec-yellow-1;
+}
+.sg-spec-yellow-2 .sg-color-swatch {
+  background: $spec-yellow-2;
+}
+
+
+.sg-spec-green-1 .sg-color-swatch {
+  background: $spec-green-1;
+}
+.sg-spec-green-2 .sg-color-swatch {
+  background: $spec-green-2;
+}
+.sg-spec-green-3 .sg-color-swatch {
+  background: $spec-green-3;
+}
+.sg-spec-green-4 .sg-color-swatch {
+  background: $spec-green-4;
+}
+.sg-spec-green-5 .sg-color-swatch {
+  background: $spec-green-5;
+}
+.sg-spec-green-6 .sg-color-swatch {
+  background: $spec-green-6;
+}
+.sg-spec-green-base .sg-color-swatch {
+  background: $spec-green-base;
+}
+.sg-spec-green-dark .sg-color-swatch {
+  background: $spec-green-dark;
+}
+
+
+.sg-spec-red-1 .sg-color-swatch {
+  background: $spec-red-1;
+}
+.sg-spec-red-2 .sg-color-swatch {
+  background: $spec-red-2;
+}
+
+
+
+
+
+
+
+
+
+
+.sg-brand-success .sg-color-swatch {
+  background: #469408;
+}
+.sg-brand-info .sg-color-swatch {
+  background: #029acf;
+}
+.sg-brand-warning .sg-color-swatch {
+  background: #9b479f;
+}
+.sg-brand-danger .sg-color-swatch {
+  background: #d9831f;
+}
+
+
