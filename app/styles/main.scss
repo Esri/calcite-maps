@@ -1,11 +1,12 @@
 $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
 
+// Calcite Modules
+@import "calcite/colors";
+@import "calcite/scaffolding";
+
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
-// Calcite Modules
-@import "calcite/colors";
 
 // Styleguide
 @import "styleguide/utilities";

@@ -1,6 +1,6 @@
 /* Standard Grays */
 
-$gray-base: #000 !default; //All Esri Grays are based on solid black
+$gray-base: #000 !default;
 
 $gray-160: lighten($gray-base, 20%); // #333
 $gray-155: lighten($gray-base, 30%); // #4C4C4C
@@ -109,10 +109,17 @@ $spec-red-1: #FFCCBA;
 $spec-red-2: #D94C1D;
 
 
+/* Bootstrap Colors */
 
+$brand-primary: $spec-blue-base !default;
+$brand-success: $spec-green-base !default;
+$brand-info: $spec-blue-7 !default;
+$brand-warning: $spec-yellow-1 !default;
+$brand-danger: $spec-red-2 !default;
 
-
-
-
-
+$gray-darker: $gray-160 !default; // #222
+$gray-dark: $gray-155 !default;   // #333
+$gray: $gray-130 !default; // #555
+$gray-light: $gray-125 !default; // #777
+$gray-lighter: $gray-110 !default; // #eee
 
