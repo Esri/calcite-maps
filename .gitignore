@@ -4,3 +4,5 @@ dist
 .sass-cache
 bower_components
 test/bower_components
+.DS_Store
+app/styles/.DS_Store
