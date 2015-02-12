@@ -1,9 +1,8 @@
-$icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
-
 // Calcite Modules
 @import "calcite/colors";
 @import "calcite/scaffolding";
 @import "calcite/typography";
+@import "calcite/iconography";
 
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
@@ -14,17 +13,4 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "styleguide/colors";
 @import "styleguide/typography";
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
 
-body {
-  min-height: 2000px;
-}
-
-.navbar-static-top {
-  margin-bottom: 19px;
-}
