@@ -3,6 +3,7 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 // Calcite Modules
 @import "calcite/colors";
 @import "calcite/scaffolding";
+@import "calcite/typography";
 
 // bower:scss
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
@@ -11,7 +12,7 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 // Styleguide
 @import "styleguide/utilities";
 @import "styleguide/colors";
-
+@import "styleguide/typography";
 
 .browsehappy {
   margin: 0.2em 0;
