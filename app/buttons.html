@@ -1,0 +1,294 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Calcite+Bootstrap | Buttons</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Calcite+Bootstrap</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Getting Started</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">Components</a></li>
+            <li><a href="#">Colors</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Customize</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Expo</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <h2 class="page-header">Buttons</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Button Tags</h3>
+                <p>Use the button classes on an <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, or <code>&lt;input&gt;</code> element.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <a class="btn btn-default" href="#" role="button">Link</a>
+                    <button class="btn btn-default" type="submit">Button</button>
+                    <input class="btn btn-default" type="button" value="Input">
+                    <input class="btn btn-default" type="submit" value="Submit">
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        <code>&lt;a class="btn btn-default" href="#" role="button"</code>Link<code>&lt;/a&gt;</code><br>
+                        <code>&lt;button class="btn btn-default" type="submit"</code>Button<code>&lt;/button&gt;</code><br>
+                        <code>&lt;input class="btn btn-default" type="button" value="Input"&gt;</code><br>
+                        <code>&lt;input class="btn btn-default" type="submit" value="Submit"&gt;</code>
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Options</h3>
+                <p>Use any of the available button classes to quickly create a styled button.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <button type="button" class="btn btn-default">Default</button>
+                    <button type="button" class="btn btn-primary">Primary</button>
+                    <button type="button" class="btn btn-success">Success</button>
+                    <button type="button" class="btn btn-info">Info</button>
+                    <button type="button" class="btn btn-warning">Warning</button>
+                    <button type="button" class="btn btn-danger">Danger</button>
+                    <button type="button" class="btn btn-link">Link</button>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;!-- Standard button --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-default"</code>&gt;Default&lt;/button&gt;<br>
+                        <br>
+                        &lt;!-- Provides extra visual weight and identifies the primary action in a set of buttons --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-primary"</code>&gt;Primary&lt;/button&lt;<br>
+                        <br>
+                        &lt;!-- Indicates a successful or positive action --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-success"</code>&gt;Success&lt;/button&gt;<br>
+                        <br>
+                        &lt;!-- Contextual button for informational alert messages --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-info"</code>&gt;Info&lt;/button&gt;<br>
+                        <br>
+                        &lt;!-- Indicates caution should be taken with this action --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-warning"</code>&gt;Warning&lt;/button&gt;<br>
+                        <br>
+                        &lt;!-- Indicates a dangerous or potentially negative action --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-danger"</code>&gt;Danger&lt;/button&gt;<br>
+                        <br>
+                        &lt;!-- Deemphasize a button by making it look like a link while maintaining button behavior --&gt;<br>
+                        &lt;button type="button" <code>class="btn btn-link"</code>&gt;Link&lt;/button&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Sizes</h3>
+                <p>Fancy larger or smaller buttons? Add <code>.btn-lg</code>, <code>.btn-sm</code>, or <code>.btn-xs</code> for additional sizes.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>
+                      <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                      <button type="button" class="btn btn-default btn-lg">Large button</button>
+                    </p>
+                    <p>
+                      <button type="button" class="btn btn-primary">Default button</button>
+                      <button type="button" class="btn btn-default">Default button</button>
+                    </p>
+                    <p>
+                      <button type="button" class="btn btn-primary btn-sm">Small button</button>
+                      <button type="button" class="btn btn-default btn-sm">Small button</button>
+                    </p>
+                    <p>
+                      <button type="button" class="btn btn-primary btn-xs">Extra small button</button>
+                      <button type="button" class="btn btn-default btn-xs">Extra small button</button>
+                    </p>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-primary <code>btn-lg</code>"&gt;Large button&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default <code>btn-lg</code>"&gt;Large button&lt;/button&gt;<br>
+                        &lt;/p&gt;<br>
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-primary"&gt;Default button&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;Default button&lt;/button&gt;<br>
+                        &lt;/p&gt;<br>
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-primary <code>btn-sm</code>"&gt;Small button&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default <code>btn-sm</code>"&gt;Small button&lt;/button&gt;<br>
+                        &lt;/p&gt;<br>
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-primary <code>btn-xs</code>"&gt;Extra small button&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default <code>btn-xs</code>"&gt;Extra small button&lt;/button&gt;<br>
+                        &lt;/p&gt;
+                    </p>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+                    <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;button type="button" class="btn btn-primary btn-lg <code>btn-block</code>"&gt;Block level button&lt;/button&gt;<br>
+                        &lt;button type="button" class="btn btn-default btn-lg <code>btn-block</code>"&gt;Block level button&lt;/button&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->        
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Active State</h3>
+                <p>Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. For <code>&lt;button&gt;</code> elements, this is done via <code>:active</code>. For <code>&lt;a&gt;</code> elements, it's done with <code>.active</code>. However, you may use .active on <code>&lt;button&gt;</code>s (and include the <code>aria-pressed="true"</code> attribute) should you need to replicate the active state programmatically.</p>
+                <p>Add the <code>.active</code> class to &lt;a&gt; buttons.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <button type="button" class="btn btn-primary btn-lg active">Primary button</button>
+                    <button type="button" class="btn btn-default btn-lg active">Button</button>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;button type="button" class="btn btn-primary btn-lg <code>active</code>"&gt;Primary button&lt;/button&gt;<br>
+                        &lt;button type="button" class="btn btn-default btn-lg <code>active</code>"&gt;Button&lt;/button&gt;
+                    </p>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <a href="#" class="btn btn-primary btn-lg active" role="button">Primary link</a>
+                    <a href="#" class="btn btn-default btn-lg active" role="button">Link</a>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;a href="#" class="btn btn-primary btn-lg <code>active</code>" role="button"&gt;Primary link&lt;/a&gt;<br>
+                        &lt;a href="#" class="btn btn-default btn-lg <code>active</code>" role="button"&gt;Link&lt;/a&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Disabled State</h3>
+                <p>Make buttons look unclickable by fading them back with <code>opacity</code>.</p>
+                <p>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</p>
+                <p>Add the <code>.disabled</code> class to <code>&lt;a&gt;</code> buttons.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <button type="button" class="btn btn-lg btn-primary" disabled="disabled">Primary button</button>
+                    <button type="button" class="btn btn-default btn-lg" disabled="disabled">Button</button>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;button type="button" class="btn btn-lg btn-primary" <code>disabled="disabled"</code>&gt;Primary button&lt;/button&gt;<br>
+                        &lt;button type="button" class="btn btn-default btn-lg" <code>disabled="disabled"</code>&gt;Button&lt;/button&gt;
+                    </p>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <a href="#" class="btn btn-primary btn-lg disabled" role="button">Primary link</a>
+                    <a href="#" class="btn btn-default btn-lg disabled" role="button">Link</a>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;a href="#" class="btn btn-primary btn-lg <code>disabled</code>" role="button"&gt;Primary link&lt;/a&gt;<br>
+                        &lt;a href="#" class="btn btn-default btn-lg <code>disabled</code>" role="button"&gt;Link&lt;/a&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+
+    </div> <!-- /container -->
+
+
+
+
+
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
