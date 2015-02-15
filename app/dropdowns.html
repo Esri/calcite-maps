@@ -1,0 +1,243 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Calcite+Bootstrap | Buttons</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Calcite+Bootstrap</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Getting Started</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">Components</a></li>
+            <li><a href="#">Colors</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Customize</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Expo</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <h2 class="page-header">Dropdowns</h2>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Example</h3>
+                <p>Wrap the dropdown's trigger and the dropdown menu within <code>.dropdown</code>, or another element that declares <code>position: relative;</code>. Then add the menu's HTML.</p>
+                <h4>Alignment</h4>
+                <p>By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add <code>.dropdown-menu-right</code> to a <code>.dropdown-menu</code> to right align the dropdown menu.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Dropdown
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;div class="dropdown"&gt;<br>
+                        &nbsp;&nbsp;&lt;button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Dropdown<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li role="presentation"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Headers</h3>
+                <p>Add a header to label sections of actions in any dropdown menu.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                        Dropdown
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="dropdown-header">Dropdown header</li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2"&gt;<br>
+                        &nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;&lt;li role="presentation" class="dropdown-header"&gt;Dropdown header&lt;/li&gt;<br>
+                        &nbsp;&nbsp;...<br>
+                        &lt;/ul&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Divider</h3>
+                <p>Add a divider to separate series of links in a dropdown menu.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
+                        Dropdown
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2"&gt;<br>
+                        &nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;&lt;li role="presentation" class="divider"&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;...<br>
+                        &lt;/ul&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Disabled Menu Items</h3>
+                <p>Add .disabled to a <code>&lt;li&gt;</code> in the dropdown to disable the link.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-expanded="true">
+                        Dropdown
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2"&gt;<br>
+                        &nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;&lt;li role="presentation" class="disabled"&gt;&lt;a role="menuitem" tabindex="-1" href="#"&gt;Disabled link&lt;/a&gt;&lt;/li&gt;
+                        &nbsp;&nbsp;...<br>
+                        &lt;/ul&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+
+    </div> <!-- /container -->
+
+
+
+
+
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
