@@ -1,0 +1,448 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Calcite+Bootstrap | Button Groups</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Calcite+Bootstrap</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Getting Started</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">Components</a></li>
+            <li><a href="#">Colors</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Customize</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Expo</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <h2 class="page-header">Button Dropdowns</h2>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Single button dropdowns</h3>
+                <p>Turn a button into a dropdown toggle with some basic markup changes.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Default <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Primary <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Success <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Info <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Warning <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Danger <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;!-- Single button --&gt;<br>
+                        &lt;div class="btn-group"&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Action &lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="divider"&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Spilt Button Dropdowns</h3>
+                <p>Similarly, create split button dropdowns with the same markup changes, only with a separate button.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default">Default</button>
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary">Primary</button>
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-success">Success</button>
+                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-info">Info</button>
+                      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-warning">Warning</button>
+                      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-danger">Danger</button>
+                      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>               
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;!-- Split button --&gt;<br>
+                        &lt;div class="btn-group"&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-danger"&gt;Action&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="divider"&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Sizing</h3>
+                <p>Button dropdowns work with buttons of all sizes.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="btn-group">
+                        <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                          Large button <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div><!-- /btn-group -->
+
+
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                          Small button <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+
+
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                          Extra small button <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;!-- Large button group --&gt;<br>
+                        &lt;div class="btn-group"&gt;<br>
+                        &nbsp;&nbsp;&lt;button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Large button &lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;<br>
+                        <br>
+                        &lt;!-- Small button group --&gt;<br>
+                        &lt;div class="btn-group"&gt;<br>
+                        &nbsp;&nbsp;&lt;button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Small button &lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;<br>
+                        <br>
+                        &lt;!-- Extra small button group --&gt;<br>
+                        &lt;div class="btn-group"&gt;<br>
+                        &nbsp;&nbsp;&lt;button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Extra small button &lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;...<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Dropup Variation</h3>
+                <p>Trigger dropdown menus above elements by adding <code>.dropup</code> to the parent.</p>
+            </div><!-- /.col-* -->
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                      <div class="btn-group dropup">
+                        <button type="button" class="btn btn-default">Dropup</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <span class="caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div>
+                      <div class="btn-group dropup">
+                        <button type="button" class="btn btn-primary">Right dropup</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <span class="caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div>
+                  </div>
+                  <div class="panel-footer">
+                    <p class="mono">
+                        &lt;div class="btn-group dropup"&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default"&gt;Dropup&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="caret"&gt;&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;<br>
+                        &nbsp;&nbsp;&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;ul class="dropdown-menu" role="menu"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Dropdown menu links --&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;
+                    </p>
+                  </div>
+                </div>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+
+    </div> <!-- /container -->
+
+
+
+
+
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
