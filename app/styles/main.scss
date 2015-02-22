@@ -1,8 +1,10 @@
+// Core variables and mixins
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 @import "calcite/calcite";
 
-// Core variables and mixins
-@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+
 
 // Reset and dependencies
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
@@ -56,3 +58,17 @@
 @import "styleguide/colors";
 @import "styleguide/typography";
 @import "styleguide/header";
+
+.navbar-toggle{
+  float: left;
+  margin-left: $navbar-padding-horizontal;
+}
+
+
+// Reduce the size of the brand type to prevent nav-right buttons from making it wrap
+.navbar-brand {
+  @media (max-width: $screen-sm) {
+    font-size: $font-size-base;
+    padding-left: 0px;
+  }
+}

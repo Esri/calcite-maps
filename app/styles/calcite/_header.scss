@@ -1,0 +1,18 @@
+.cal-header {
+	position: relative;
+	padding: 30px 15px 0px 15px;
+	color: $core-purple-1;
+	background-color: $core-purple-4;
+	h1 {
+		margin-top: 0;
+		padding-bottom: 18px;
+		color: #fff;
+		font-size: 1.9em;
+		font-weight: 400;
+		line-height: 1;
+		@media (max-width: $screen-sm) {
+		    font-size: $font-size-large;
+		    padding-left: 0px;
+		}
+	}
+}
