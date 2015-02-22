@@ -1,0 +1,15 @@
+$lower-navbar-height: 40px;
+
+.lowernav {
+  position: relative;
+  min-height: $lower-navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  // margin-bottom: $navbar-margin-bottom;
+  border-bottom: 1px solid $gray-120;
+  margin-bottom: 20px;
+	.list-inline {
+		padding-top:15px;
+		li {
+			padding-right:10px;
+		}
+	}
+}
