@@ -1,7 +1,6 @@
 // Core variables and mixins
-@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
-
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
 @import "calcite/calcite";
 
 
@@ -71,4 +70,26 @@
     font-size: $font-size-base;
     padding-left: 0px;
   }
+}
+
+
+//== Let's make the footer stick to the bottom when the page is short!
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: ($footer-height + 20px);
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: $footer-height;
+  background-color: #f5f5f5;
+}
+/* This centers the text vertically in the footer */
+.container .text-muted {
+  margin: 18px 0;
 }

@@ -14,25 +14,25 @@ $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
 
-$footer-height: 100px;
+$footer-height: 60px;
 
 //== Let's make the footer stick to the bottom when the page is short!
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: ($footer-height + 20px);
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: $footer-height;
-  background-color: #f5f5f5;
-}
-/* This centers the text vertically in the footer */
-.container .text-muted {
-  margin: 20px 0;
-}
+// html {
+//   position: relative;
+//   min-height: 100%;
+// }
+// body {
+//   margin-bottom: ($footer-height + 20px);
+// }
+// .footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   /* Set the fixed height of the footer here */
+//   height: $footer-height;
+//   background-color: #f5f5f5;
+// }
+// /* This centers the text vertically in the footer */
+// .container .text-muted {
+//   margin: 18px 0;
+// }
