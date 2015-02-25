@@ -9,17 +9,17 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         layout: 'layout.hbs',
-        layoutdir: 'site/source/layouts/',
-        partials: 'site/source/partials/**/*.hbs',
-        helpers: ['site/source/helpers/**/*.js' ]
+        layoutdir: 'app/layouts/',
+        partials: 'app/partials/**/*.hbs',
+        helpers: ['app/helpers/**/*.js' ]
       },
       dev: {
         options: {
-          assets: 'site/build/'
+          assets: 'dist/'
         },
         files: [{
-          cwd: 'site/source/pages',
-          dest: 'site/build',
+          cwd: 'app/pages',
+          dest: 'dist',
           expand: true,
           src: ['**/*.hbs', '**/*.md']
         }]
@@ -29,8 +29,8 @@ module.exports = function(grunt) {
           assets: 'calcite-bootstrap/'
         },
         files: [{
-          cwd: 'site/source/pages',
-          dest: 'site/build',
+          cwd: 'app/pages',
+          dest: 'dist',
           expand: true,
           src: ['**/*.hbs', '**/*.md']
         }]
@@ -38,8 +38,8 @@ module.exports = function(grunt) {
     }
   });
 
-  // Documentation Site Tasks
-  grunt.registerTask('docs', ['assemble:dev']);
+  // compuile
+  grunt.registerTask('compile', ['assemble:dev']);
 
     // Require all grunt modules
   require('load-grunt-tasks')(grunt, {pattern: ['grunt-*', 'assemble']});

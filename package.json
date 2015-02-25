@@ -12,7 +12,7 @@
     "gulp-autoprefixer": "^1.0.1",
     "gulp-cache": "^0.2.2",
     "gulp-csso": "^0.2.6",
-    "gulp-filter": "^1.0.2",
+    "gulp-filter": "~2.0.2",
     "gulp-flatten": "^0.0.4",
     "gulp-if": "^1.2.1",
     "gulp-imagemin": "^1.2.1",
@@ -36,6 +36,7 @@
     "grunt": "^0.4.2",
     "load-grunt-tasks": "^0.4.0",
     "assemble": "^0.4.37",
-    "gulp-grunt": "~0.5.2"
+    "gulp-grunt": "~0.5.2",
+    "run-sequence": "~1.0.2"
   }
 }
