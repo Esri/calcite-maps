@@ -4,9 +4,9 @@
 
 $btn-font-weight:                normal !default;
 
-$btn-default-color:              #333 !default;
+$btn-default-color:              $link-color !default;
 $btn-default-bg:                 #fff !default;
-$btn-default-border:             #ccc !default;
+$btn-default-border:             $link-color !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
@@ -30,3 +30,7 @@ $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 
+// !important is to override the color imposed by navbar when the button is used there.
+.btn-link {
+  color: $link-color !important;
+}
