@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Calcite+Bootstrap Template</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+
+        <div class="nav navbar-right pull-right">
+          <a href="sign-up.html" type="button" class="btn btn-default btn-sm navbar-btn">Sign Up</a>
+          <a href="sign-in.html" type="button" class="btn btn-link btn-sm navbar-btn">Sign In</a>
+        </div><!-- /.navbar-right -->
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">ArcGIS Application</a>
+        </div><!-- /.navbar-header -->
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Documentation</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Forums</a></li>
+          </ul>
+        </div><!--/.navbar -->
+
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="cal-header">
+      <div class="container">
+        <h1>My Organization</h1>
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="dropdown visible-xs-block">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> 
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#l">Nav Link A</a></li>
+              <li><a href="#">Nav Link B</a></li>
+              <li><a href="#">Nav Link C</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Nav Link D</a></li>
+            </ul>
+          </li>
+          <li role="presentation" class="hidden-xs"><a href="#">Nav Link A</a></li>
+          <li role="presentation" class="hidden-xs active"><a href="#">Nav Link B</a></li>
+          <li role="presentation" class="hidden-xs"><a href="#">Nav Link C</a></li>
+          <li role="presentation" class="hidden-xs pull-right"><a href="#">Nav Link D</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lowernav">
+      <div class="container">
+        <ul class="list-inline">
+          <li><a href="#">Lower Nav Link 1</a></li>
+          <li><a href="#">Lower Nav Link 2</a></li>
+          <li><a href="#">Lower Nav Link 3</a></li>
+          <li><a href="#">Lower Nav Link 4</a></li>
+          <li><a href="#">Lower Nav Link 5</a></li>
+        </ul>
+      </div> <!-- /container -->
+    </div> <!-- /.lowernav -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="page-header">
+        <h1>Page Header</h1>
+      </div>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sapien felis, placerat vel cursus at, porttitor non ligula. Sed ac nisl vitae tellus faucibus cursus quis a sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse mattis vitae elit eget gravida.</p>
+      <p>Sed commodo nisi a urna tincidunt finibus. Nunc urna odio, vulputate nec hendrerit quis, mattis eget ante. Ut sed diam at est ultrices malesuada sit amet a elit. Cras non urna sem. Nunc nulla metus, tempor tempus arcu nec, placerat maximus mi. Vivamus vestibulum augue non posuere placerat.</p>
+
+      <button type="button" class="btn btn-default">Default</button>
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-link">Link</button>
+
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
