@@ -2,6 +2,7 @@
 'use strict';
 // generated on 2015-02-10 using generator-gulp-webapp 0.2.0
 var gulp = require('gulp');
+var fs = require('fs');
 require('gulp-grunt')(gulp);
 var runs  = require('run-sequence');
 var $ = require('gulp-load-plugins')();
@@ -14,7 +15,7 @@ gulp.task('compile', function(){
 
 gulp.task('styles', function () {
   var sassPaths = ['./bower_components/bootstrap-sass-official/assets/stylesheets'];
-  return gulp.src('app/styles/main.scss')
+  return gulp.src('app/styles/calcite-bootstrap.scss')
     .pipe($.plumber())
     .pipe($.sass({
       style: 'expanded',
@@ -106,6 +107,35 @@ gulp.task('connect', ['styles'], function () {
 });
 
 
+gulp.task('cdn', function(){
+  var json = fs.readFileSync('gulp-aws.json');
+  var aws = JSON.parse(json);
+  var opts = aws.cdn;
+  // create a new publisher
+  var publisher = $.awspublish.create(opts);
+  var sourceFolder = ['./dist/styles','./dist/fonts','./dist/images'];
+  return gulp.src(sourceFolder)
+    // gulp-awspublish-router defines caching and other options (see above)
+    //.pipe(awspublishRouter(awsPubRouterOpts))
+
+    // publisher will add Content-Length, Content-Type and headers specified above
+    // if not specified it will set x-amz-acl to public-read by default
+    // i think the parallelization was causing it to miss some files
+    .pipe(publisher.publish())
+    // .pipe(publisher.publish(null, { force: true }))
+
+    // delete stuff that has been deleted locally
+    // can't do this because it will kill 1.9
+    //.pipe(publisher.sync())
+
+    // create a cache file to speed up consecutive uploads
+    .pipe(publisher.cache())
+
+     // print upload updates to console
+    .pipe($.awspublish.reporter());
+
+});
+
 gulp.task('serve',  function (done) {
   runs( ['build'], ['watch'], ['open'], done);
 });
@@ -133,6 +163,11 @@ gulp.task('watch', ['connect'], function () {
 gulp.task('reload', function(){
   $.livereload.changed();
 })
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe($.ghPages());
+});
 
 
 gulp.task('build-report', function (done) {
