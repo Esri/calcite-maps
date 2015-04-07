@@ -2,7 +2,10 @@
 	position: relative;
 	padding: 30px 15px 0px 15px;
 	color: $core-purple-1;
-	background-color: $core-purple-4;
+	// background-color: $core-purple-4;
+	background-image: url(../images/header-topo.svg);
+	background-position-x: center;
+	background-size: cover;
 	h1 {
 		margin-top: 0;
 		padding-bottom: 18px;
