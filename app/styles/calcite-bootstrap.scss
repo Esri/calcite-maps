@@ -1,9 +1,7 @@
 // Core variables and mixins
-/*@import "bootstrap/variables";*/
-@import "bootstrap/mixins";
 @import "calcite/calcite";
-
-
+/* @import "bootstrap/variables";*/
+@import "bootstrap/mixins";
 
 // Reset and dependencies
 @import "bootstrap/normalize";
@@ -54,10 +52,6 @@
 
 // Styleguide
 @import "style-guide";
-/*@import "styleguide/utilities";
-@import "styleguide/colors";
-@import "styleguide/typography";
-@import "styleguide/header";*/
 
 .navbar-toggle{
   float: left;
