@@ -18,4 +18,16 @@
 		    padding-left: 0px;
 		}
 	}
+	h2 {
+		margin-top: 0;
+		padding-bottom: 18px;
+		color: #fff;
+		font-size: 1.6em;
+		font-weight: 400;
+		line-height: 1;
+		@media (max-width: $screen-sm) {
+		    font-size: $font-size-large;
+		    padding-left: 0px;
+		}
+	}
 }
