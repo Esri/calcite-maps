@@ -1,12 +1,14 @@
-$lower-navbar-height: 36px;
+$micro-navbar-height: 22px;
 
-.lowernav {
+.micronav {
+	font-size: $font-size-small;
+	background: $gray-120;
   position: relative;
-  min-height: $lower-navbar-height;
+  min-height: $micro-navbar-height;
   border-bottom: 1px solid $gray-120;
   margin-bottom: 0px;
 
-	.nav-pills {
+  .nav-pills {
 	  > li {
 	    + li {
 	      margin-left: 0px;
@@ -18,10 +20,9 @@ $lower-navbar-height: 36px;
 	      &:hover,
 	      &:focus {
 	        color: $link-color;
-	        background-color: $gray-120;
+	        background-color: $gray-130;
 	      }
 	    }
 	  }
 	}
-
 }
