@@ -26,11 +26,15 @@ $nav-pills-active-link-hover-bg:            $component-active-bg !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
 
 //== Custom
+$lower-navbar-height: 36px;
+$micro-navbar-height: 22px;
+
+
 .nav-tabs {
   border-bottom: 0px solid $nav-tabs-link-hover-border-color; // Make the bottom border invisible
   > li {
     margin-bottom: 0px; // Moves tabs to flush bottom of header block
-	margin-right: 6px; // Adds more spacing to the right of each tab
+		margin-right: 6px; // Adds more spacing to the right of each tab
     > a {
       background-color: $nav-tabs-justified-link-border-color; // To add background to non-active tab
       color: #fff; // Changes the default link color of non-active tabs
@@ -38,5 +42,59 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
   }
 }
 
+.secondary-nav {
+  position: relative;
+  min-height: $lower-navbar-height;
+  border-bottom: 1px solid $lighter-gray;
+  margin-bottom: 0px;
+
+	.nav-pills {
+		> li {
+			+ li {
+				margin-left: 0px;
+			}
+			&.active > a {
+	      &,
+	      &:focus {
+	        color: $white;
+	        background-color: $lighter-gray;
+	      }
+	    }
+	    &.active > a {
+	      &:hover {
+	        color: $white !important;
+	        background-color: $lighter-gray;
+	      }
+	    }
+		}
+	}
+}
+
+.micronav {
+	font-size: $font-size-small;
+	background: $lighter-gray;
+  position: relative;
+  min-height: $micro-navbar-height;
+  border-bottom: 1px solid $lighter-gray;
+  margin-bottom: 0px;
+
+  .nav-pills {
+	  > li {
+	    + li {
+	      margin-left: 0px;
+	    }
+
+	    // Active state
+	    &.active > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        color: #fff;
+	        background-color: $light-gray;
+	      }
+	    }
+	  }
+	}
+}
 //== Notes
 // The radius corners on the tabs is removed with the global variable $border-radius-base in _components.
