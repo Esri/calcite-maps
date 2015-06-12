@@ -15,7 +15,7 @@ Calcite Boostrap has three main dependencies. If you already have these on your 
 
 ### Fork the Repository
 
-All the code for Calcite Bootstrap lives [on GitHub](https://github.com/esri/calcite-bootstrap). We use the [fork and pull model](https://help.github.com/articles/using-pull-requests/) to manage contribution.
+All the code for Calcite Bootstrap lives [on GitHub](https://github.com/ArcGIS/calcite-bootstrap). We use the [fork and pull model](https://help.github.com/articles/using-pull-requests/) to manage contribution.
 
 1. Fork the repository so you have your own copy (`$ your-username/calcite-bootstrap`)
 2. Clone the repo locally with `$ git clone https://github.com/your-username/calcite-bootstrap`
