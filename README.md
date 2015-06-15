@@ -14,6 +14,7 @@ Calcite Boostrap has three main dependencies. If you already have these on your 
 3. `$ gem install sass` to install SASS.
 
 Mac Users my want to try
+
 2. `npm install -g grunt-cli` to install Grunt.
 3. `gem install sass` to install SASS.
 
