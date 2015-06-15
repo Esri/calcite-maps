@@ -49,3 +49,15 @@ To run a development environment, just type `$ gulp serve`. You should have a co
 ### Common Tasks
 
 - `$ gulp serve` - serves up local environment at localhost:9000
+
+## Doing the git dance
+
+Please use the practice of creating a new branch for the the task you are working on
+
+`$ git checkout -b calcite-buttons`
+
+Once you are ready to commit, push the changes to your fork.
+
+`$ git push origin calcite-buttons`
+
+Then go to the main repo page and click the button to create a Pull Request.
