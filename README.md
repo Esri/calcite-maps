@@ -36,10 +36,10 @@ Check your configuration: `$ git remote -v`
 
 The results should look like:
 ```
-origin	https://github.com/YourNameHere/calcite-bootstrap.git (fetch)
-origin	https://github.com/YourNameHere/calcite-bootstrap.git (push)
-upstream	https://github.com/ArcGIS/calcite-bootstrap.git (fetch)
-upstream	https://github.com/ArcGIS/calcite-bootstrap.git (push)
+origin	https://github.com/your-username/calcite-bootstrap.git (fetch)
+origin	https://github.com/your-username/calcite-bootstrap.git (push)
+upstream	https://github.com/Esri/calcite-bootstrap.git (fetch)
+upstream	https://github.com/Esri/calcite-bootstrap.git (push)
 ```
 
 ## Development
