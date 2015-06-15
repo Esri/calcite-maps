@@ -28,7 +28,7 @@ All the code for Calcite Bootstrap lives [on GitHub](https://github.com/ArcGIS/c
 
 ### Setting up the Repository
 1. Install npm modules: `$ npm install`
-2. Install bower components: `$ bower install`
+2. Install bower components: `$ npm install -g bower`
 
 ### Git Remote
 You should also add `ArcGIS/calcite-bootstrap` as a remote at this point. We generally call this remote branch 'upstream':
