@@ -48,6 +48,4 @@ To run a development environment, just type `$ gulp serve`. You should have a co
 
 ### Common Tasks
 
-#### Serve Custom Sites UI for Development
-
 - `$ gulp serve` - serves up local environment at localhost:9000

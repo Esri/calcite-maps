@@ -2,55 +2,70 @@
 layout: admin-layout.hbs
 ---
 
-    <div class="container">
-      <div class="page-header">
-        <h2>My Open Data Sites</h2>
-      </div>
+    <div class="container bump-top">
+      <!-- <div class="page-header">
+        <h2>Dashboard</h2>
+      </div> -->
 
-			<div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 ">
-              <h4><a ng-href="http://data4.dc.opendatadev.arcgis.com" target="_blank" href="http://data4.dc.opendatadev.arcgis.com">&nbsp;<strong class="ng-binding"> Sample Site Name</strong> <span class="hidden-xs ng-binding">(sample.dc.opendatadev.arcgis.com)</span></a></h4>
-            </div><!-- /.column -->
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
-              <div class="no-checkedselector ">
-                <div class="form-group">
-                  <label class="control-label ng-scope" translate="">This site is</label>
-                  <div class="btn-group" role="group" aria-label="">
-                    <button class="btn ng-scope btn-danger" ng-class="getPrivateClass(site)" ng-click="makePrivate(site)" translate="">Private</button>
-                    <button class="btn ng-scope btn-default" ng-class="getPublicClass(site)" ng-click="makePublic(site)" translate="">Public</button>
-                  </div>
-                </div>
-              </div>
-            </div><!-- /.column -->
-          </div>
-        </div> <!-- panel-heading -->
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-lg-3 col-xs-12">
-              <a class="btn btn-block btn-default ng-binding" href="{{assets}}examples/site-config.html" type="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Configure Site</a>
-              <a class="btn btn-block btn-default ng-binding" href="{{assets}}examples/site-data.html" type="button"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Manage Site Data</a>
-              <a class="btn btn-block btn-default ng-binding"  href="{{assets}}examples/site-layout.html" type="button"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Design Layout</a>
-              <a ng-show="upgradeAvailable(site)" class="btn btn-block btn-default btn-sm  ng-binding ng-hide" ng-click="upgradeSite(site)" type="button"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Upgrade Site Version</a>
-            </div>
-            <div class="col-lg-2 hidden-xs text-center">
-              <p><span class="big-digits ng-binding">3</span><br><span translate="" class="ng-scope">Groups</span></p>
-            </div><!-- /.column -->
-            <div class="col-lg-2 hidden-xs text-center">
-              <p><span class="big-digits ng-binding">155</span><br><span translate="" class="ng-scope">Items</span></p>
-            </div><!-- /.column -->
-            <div class="col-lg-2 hidden-xs text-center">
-              <p><span class="big-digits ng-binding">144</span><br><span translate="" class="ng-scope">Datasets</span></p>
-            </div>
-            <div class="col-lg-3 col-xs-12">
-              <!-- featureFlag: showSiteListStatus is off -->
-              <a class="btn btn-default btn-block ng-binding" ui-sref="sites.detail.items({id:site.id})" href="#/sites/268/items"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> View Report.</a>
-              <a class="btn btn-default btn-block ng-binding" ng-click="deleteSite(site)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Site</a>
-            </div>
-          </div><!-- /.row -->
-        </div> <!-- /.panel-body -->
-      </div><!-- /.panel -->
+      <div class="row">
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Site Activity
+              <span class="pull-right">
+                <button class="btn btn-default btn-xs" type="submit">Visitors</button>
+                <button class="btn btn-default btn-xs" type="submit">Downloads</button>
+              </span>
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+              Visitors per day for last 7 days. If multiple sites, sum total.
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-* -->
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Data Activity
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+              Most downloaded dataset. # for last seven days. % change over previous 7 days.
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-* -->
+      </div><!-- /.row -->
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Panel heading without title
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+              Panel content
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-* -->
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Panel heading without title
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+              Panel content
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-* -->
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Panel heading without title
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+              Panel content
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+        </div><!-- /.col-* -->
+      </div><!-- /.row -->
 
     </div><!-- /.container -->
 
