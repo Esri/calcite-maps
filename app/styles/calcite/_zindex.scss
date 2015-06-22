@@ -1,8 +1,10 @@
-//-- Z-index master list
-//
+// ┌─────────────────────┐
+// │ Z-Index Master List │
+// └─────────────────────┘
+
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
-//
+
 // Note: These variables are not generated into the Customizer.
 
 $zindex-navbar:            1000 !default;
