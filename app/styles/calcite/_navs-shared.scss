@@ -1,0 +1,9 @@
+// ┌─────────────────────────┐
+// │ Navs - Shared Variables │
+// └─────────────────────────┘
+
+$nav-link-padding:                          6px 15px !default;
+$nav-link-hover-bg:                         transparentize($gray-base, .7) !default;
+
+$nav-disabled-link-color:                   $gray-light !default;
+$nav-disabled-link-hover-color:             $gray-light !default;

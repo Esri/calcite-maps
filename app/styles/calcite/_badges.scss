@@ -1,15 +1,12 @@
-//== Badges
-//
-//##
+// ┌────────┐
+// │ Badges │
+// └────────┘
 
 $badge-color:                 #fff !default;
-//** Linked badge text color on hover
 $badge-link-hover-color:      #fff !default;
 $badge-bg:                    $gray-light !default;
 
-//** Badge text color in active nav link
 $badge-active-color:          $link-color !default;
-//** Badge background color in active nav link
 $badge-active-bg:             #fff !default;
 
 $badge-font-weight:           bold !default;

@@ -1,12 +1,14 @@
-//== Buttons
-//
-//## For each of Bootstrap's buttons, define text, background and border color.
+// ┌─────────┐
+// │ Buttons │
+// └─────────┘
+
+// $link-color variable is set in the scaffolding.scss file
 
 $btn-font-weight:                normal !default;
 
-$btn-default-color:              $link-color !default;
+$btn-default-color:              	$link-color !default;
 $btn-default-bg:                 #fff !default;
-$btn-default-border:             $link-color !default;
+$btn-default-border:            	$link-color !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
@@ -30,7 +32,11 @@ $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 
-// !important is to override the color imposed by navbar when the button is used there.
+// ┌─────────────┐
+// │ Custom SASS │
+// └─────────────┘
+
+// Link normally uses gray. This rule forces btn-link to always use the color defined for links.
 .btn-link {
   color: $link-color !important;
 }
