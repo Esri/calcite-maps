@@ -1,4 +1,5 @@
 // Calcite Module Variables
+
 @import "colors";
 @import "scaffolding";
 @import "typography";
@@ -16,7 +17,6 @@
 @import "navs-shared";
 @import "navs-tabs";
 @import "navs-pills";
-@import "navs-custom";
 @import "pagination";
 @import "pager";
 @import "jumbotron";
@@ -37,6 +37,3 @@
 @import "close";
 @import "code";
 @import "type";
-
-// Custom SASS modules
-@import "header";
