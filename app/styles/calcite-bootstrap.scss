@@ -1,5 +1,6 @@
 // Core variables and mixins
 @import "calcite/calcite";
+
 /* @import "bootstrap/variables";*/
 @import "bootstrap/mixins";
 
@@ -50,41 +51,8 @@
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
 
+// Custom Calcite Components
+@import "calcite/calcite-custom";
+
 // Styleguide
 @import "style-guide";
-
-.navbar-toggle{
-  float: left;
-  margin-left: $navbar-padding-horizontal;
-}
-
-
-// Reduce the size of the brand type to prevent nav-right buttons from making it wrap
-.navbar-brand {
-  @media (max-width: $screen-sm) {
-    font-size: $font-size-base;
-    padding-left: 0px;
-  }
-}
-
-
-//== Let's make the footer stick to the bottom when the page is short!
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: ($footer-height + 20px);
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: $footer-height;
-  background-color: #f5f5f5;
-}
-/* This centers the text vertically in the footer */
-.container .text-muted {
-  margin: 18px 0;
-}

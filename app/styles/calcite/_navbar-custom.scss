@@ -1,0 +1,17 @@
+// ┌─────────────┐
+// │ Custom SASS │
+// └─────────────┘
+
+// This rule moves the hamburger icon to the left side of the navbar
+.navbar-toggle{
+  float: left;
+  margin-left: $navbar-padding-horizontal;
+}
+
+// Reduce the size of the brand type to prevent nav-right buttons from making it wrap
+.navbar-brand {
+  @media (max-width: $screen-sm) {
+    font-size: $font-size-base;
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,8 @@
+// ┌─────────────────┐
+// │ Buttons: Custom │
+// └─────────────────┘
+
+// Link normally uses gray. This rule forces btn-link to always use the color defined for links.
+.btn-link {
+  color: $link-color !important;
+}

@@ -30,18 +30,3 @@ $list-group-disabled-text-color: $list-group-disabled-color !default;
 $list-group-link-color:         #7d7d7d !default;
 $list-group-link-hover-color:   #575757 !default;
 $list-group-link-heading-color: #333 !default;
-
-// ┌─────────────┐
-// │ Custom SASS │
-// └─────────────┘
-
-.list-group-item {
-  // Header class
-  &.header {
-    z-index: 2; // Place active items above their siblings for proper border styling
-    color: #404040;
-    background-color: #fafafa;
-    border-color: #e6e6e6;
-  }
-}
-
