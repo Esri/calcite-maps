@@ -7,16 +7,27 @@ Contributors communicate on the Slack [ESRI Patterns Team](https://esri-patterns
 
 ### Install Dependencies
 
-Calcite Boostrap has three main dependencies. If you already have these on your computer, you can skip these steps:
+Calcite Boostrap has these main dependencies. 
 
-1. Visit [nodejs.org](http://nodejs.org/) to install Node.
-2. `$ npm install -g grunt-cli` to install Grunt.
-3. `$ gem install sass` to install SASS.
+- Xcode Command Line Tools (for Git)
+- Node.js
+- Grunt
+- Gulp
+- Bower
+- Sass
 
-Mac Users my want to try
+1. Open Terminal (or your favorite command line tool. For OSX, I recommend iTerm) and check to see if you have Git installed just by entering `$ git`. You should see a list of commands for git if it is.
+1a. If Git is not installed, OSX will automatically prompt you to install the XCode Command Line Developers Tools. Follow the prompts to complete the install.
+2. Visit [nodejs.org](http://nodejs.org/) to install Node. Check the install by entering `$ node -v` in Terminal
+3. Install Grunt by entering `$ npm install -g grunt-cli` in Terminal.
+4. Install Gulp by entering `$ npm install --global gulp` in Terminal.
+5. Install Bower by entering `$ npm install -g bower` in Terminal.
+6. Install SASS by entering `$ gem install sass` in Terminal.
 
-1. `sudo npm install -g grunt-cli` to install Grunt.
-2. `sudo gem install sass` to install SASS.
+If you run into errors during the installs, Mac Users my want to try using `sudo`. For example:
+
+1. `sudo npm install -g grunt-cli`
+2. `sudo gem install sass`
 
 ### Fork the Repository
 
@@ -30,6 +41,10 @@ All the code for Calcite Bootstrap lives [on GitHub](https://github.com/ArcGIS/c
 
 1. Install npm modules: `$ npm install`
 2. Install bower components: `$ bower install`
+
+Again, if you run into errors during, Mac Users my want to try using `sudo`.
+
+When the installs complete run `$ gulp serve` to start the application. It will automatically open your browser and take you to http://localhost:9000.
 
 ### Git Remote
 You should also add `Esri/calcite-bootstrap` as a remote at this point. We generally call this remote branch 'upstream':
