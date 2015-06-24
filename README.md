@@ -25,8 +25,7 @@ Calcite Boostrap has these main dependencies.
 
 If you run into errors during the installs, Mac Users my want to try using `sudo`. For example:
 
-1. `sudo npm install -g grunt-cli`
-2. `sudo gem install sass`
+`$ sudo npm install -g grunt-cli` or `$ sudo gem install sass`
 
 ### Fork the Repository
 
