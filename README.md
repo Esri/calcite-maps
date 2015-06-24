@@ -15,8 +15,8 @@ Calcite Boostrap has three main dependencies. If you already have these on your 
 
 Mac Users my want to try
 
-2. `npm install -g grunt-cli` to install Grunt.
-3. `gem install sass` to install SASS.
+1. `sudo npm install -g grunt-cli` to install Grunt.
+2. `sudo gem install sass` to install SASS.
 
 ### Fork the Repository
 
@@ -27,6 +27,7 @@ All the code for Calcite Bootstrap lives [on GitHub](https://github.com/ArcGIS/c
 3. Move into the clone repo:  `$ cd calcite-bootstrap`
 
 ### Setting up the Repository
+
 1. Install npm modules: `$ npm install`
 2. Install bower components: `$ bower install`
 
@@ -50,6 +51,8 @@ upstream	https://github.com/Esri/calcite-bootstrap.git (push)
 ## Troubleshooting
 
 When running `$ bower install` if you get an error stating `unable to connect to gihub.com` you will need to run the following command: `git config --global url."https://".insteadOf git://`
+
+You might also want to try installing ` sudo npm install -g n` and `$ sudo npm install -g nvm`
 
 ## Development
 
