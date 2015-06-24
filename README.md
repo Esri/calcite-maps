@@ -16,8 +16,7 @@ Calcite Boostrap has these main dependencies.
 - Bower
 - Sass
 
-1. Open Terminal (or your favorite command line tool. For OSX, I recommend iTerm) and check to see if you have Git installed just by entering `$ git`. You should see a list of commands for git if it is.
-1a. If Git is not installed, OSX will automatically prompt you to install the XCode Command Line Developers Tools. Follow the prompts to complete the install.
+1. Open Terminal (or your favorite command line tool. For OSX, I recommend iTerm) and check to see if you have Git installed just by entering `$ git`. You should see a list of commands for git if it is. If Git is not installed, OSX will automatically prompt you to install the XCode Command Line Developers Tools. Follow the prompts to complete the install.
 2. Visit [nodejs.org](http://nodejs.org/) to install Node. Check the install by entering `$ node -v` in Terminal
 3. Install Grunt by entering `$ npm install -g grunt-cli` in Terminal.
 4. Install Gulp by entering `$ npm install --global gulp` in Terminal.
