@@ -65,6 +65,14 @@ upstream	https://github.com/Esri/calcite-bootstrap.git (push)
 
 When running `$ bower install` if you get an error stating `unable to connect to gihub.com` you will need to run the following command: `git config --global url."https://".insteadOf git://`
 
+If the above doesn't work, try manually modifying the `.git-config` file under your user directory (note: it is a hidden file).
+
+```
+[url "https://"]
+	insteadOf = git://
+```
+[link to stackoverflow](http://stackoverflow.com/questions/27417175/bower-install-libraries-issues)
+
 You might also want to try installing `sudo npm install -g n` and `sudo npm install -g nvm`
 
 ## Development
