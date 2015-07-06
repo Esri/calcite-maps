@@ -162,7 +162,7 @@ gulp.task('watch', ['connect'], function () {
 
 gulp.task('reload', function(){
   $.livereload.changed();
-})
+});
 
 gulp.task('deploy', function() {
   return gulp.src('./dist/**/*')
@@ -170,7 +170,7 @@ gulp.task('deploy', function() {
 });
 
 
-gulp.task('build-report', function (done) {
+gulp.task('build-report', function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
