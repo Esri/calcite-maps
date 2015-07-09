@@ -1,6 +1,11 @@
 language: node_js
 node_js:
 - "0.12.2"
+before_script:
+  - gem install sass
+  - npm install -g gulp
+  - npm install -g grunt-cli
+  - npm install -g bower
 script: bash ./deploy.sh
 env:
   global:
