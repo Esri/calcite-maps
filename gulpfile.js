@@ -164,9 +164,11 @@ gulp.task('reload', function(){
   $.livereload.changed();
 });
 
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
-    .pipe($.ghPages({origin: 'upstream'}));
+gulp.task('deploy', function(done) {
+  // return gulp.src('./dist/**/*')
+  //   .pipe($.ghPages({origin: 'upstream'}));
+  console.error('DEPRECATED: Deployment to gh-pages is now handled by Travis CI.');
+  done();
 });
 
 
