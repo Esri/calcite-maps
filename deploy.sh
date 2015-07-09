@@ -7,7 +7,7 @@ echo repo $GH_REF
 echo token $GH_TOKEN
 
 
-if [ "$TRAVIS_BRANCH" == "master" && !$TRAVIS_PULL_REQUEST ]; then
+if [ "$TRAVIS_BRANCH" == "master" ] && [ !$TRAVIS_PULL_REQUEST ]; then
   set -e # exit with nonzero exit code if anything fails
 
   # install dependencies
