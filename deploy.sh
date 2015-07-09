@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$TRAVIS_BRANCH" == "master" ] && [ -z "${GH_TOKEN}" ]; then
+if [ "$TRAVIS_BRANCH" == "master" ] && [ -n "${GH_TOKEN}" ]; then
   set -e # exit with nonzero exit code if anything fails
 
   # install dependencies
