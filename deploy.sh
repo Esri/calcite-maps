@@ -3,6 +3,11 @@
 if [ "$TRAVIS_BRANCH" == "master" ] && [ -n "${GH_TOKEN}" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   set -e # exit with nonzero exit code if anything fails
 
+  gem install sass
+  npm install -g gulp
+  npm install -g grunt-cli
+  npm install -g bower
+
   # install dependencies
   bower install
   npm install
