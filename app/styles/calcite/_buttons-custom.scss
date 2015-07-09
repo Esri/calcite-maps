@@ -6,9 +6,3 @@
 .btn-link {
   color: $link-color !important;
 }
-
-.btn-default {
-  &:hover {
-    background-color: $btn-default-bg-hover;
-  }
-}
