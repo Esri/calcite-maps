@@ -6,3 +6,57 @@
 .btn-link {
   color: $link-color !important;
 }
+
+.btn-default {
+  &:hover, :active {
+    background-color: $dark-blue !important;
+    color: $white !important;
+  }
+  &:focus {
+    background-color: $white;
+    color: $link-color;
+  }
+}
+
+.btn-primary {
+  &:hover {
+    background-color: $blue;
+    border-color: $blue;
+  }
+}
+
+.btn-success {
+  &:hover {
+    background-color: $green;
+    border-color: $green;
+  }
+}
+
+.btn-info {
+  background-color: $lighter-blue;
+  color: $off-black;
+  border-color: $blue;
+
+  &:hover {
+    background-color: $lightest-blue;
+    color: $off-black;
+  }
+}
+
+.btn-warning {
+  background-color: $light-yellow;
+  color: $off-black;
+  border-color: $dark-yellow;
+
+  &:hover {
+    background-color: $lightest-yellow;
+    color: $off-black;
+  }
+}
+
+.btn-danger {
+
+  &:hover {
+    background-color: $light-red;
+  }
+}
