@@ -14,8 +14,8 @@
   git init
 
   # inside this git repo we'll pretend to be a new user
-  git config user.name "Andrew Turner"
-  git config user.email "aturner@esri.com"
+  git config user.name "mjuniper"
+  git config user.email "mjuniper@gmail.com"
 
   # The first and only commit to this new Git repo contains all the
   # files present with the commit message "Deploy to GitHub Pages".
