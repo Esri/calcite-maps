@@ -1,5 +1,6 @@
 #!/bin/bash
-if [ "$TRAVIS_BRANCH" == "master" ] && [ -n "${GH_TOKEN}" ]; then
+# only if the target branch is master, we have the token, and it is not a pull request
+if [ "$TRAVIS_BRANCH" == "master" ] && [ -n "${GH_TOKEN}" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   set -e # exit with nonzero exit code if anything fails
 
   # install dependencies
