@@ -3,8 +3,18 @@
 // └─────────────────┘
 
 // Link normally uses gray. This rule forces btn-link to always use the color defined for links.
+.btn {
+  transition: all .25s ease;
+}
+
 .btn-link {
   color: $link-color !important;
+}
+
+.btn-group.open {
+  .btn-default {
+    background-color: $lightest-blue;
+  }
 }
 
 .btn-default {
