@@ -1,16 +1,5 @@
 #!/bin/bash
-
-echo pull request $TRAVIS_PULL_REQUEST
-echo branch $TRAVIS_BRANCH
-echo env vars $TRAVIS_SECURE_ENV_VARS
-echo repo $GH_REF
-echo token $GH_TOKEN
-
-
 if [ "$TRAVIS_BRANCH" == "master" ] && [ -z "${GH_TOKEN}" ]; then
-
-  echo inside conditional
-
   set -e # exit with nonzero exit code if anything fails
 
   # install dependencies
