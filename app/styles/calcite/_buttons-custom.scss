@@ -43,10 +43,6 @@
 }
 
 .btn-info {
-  background-color: $lighter-blue;
-  color: $off-black;
-  border-color: $blue;
-
   &:hover {
     background-color: $lightest-blue;
     color: $off-black;
@@ -54,10 +50,6 @@
 }
 
 .btn-warning {
-  background-color: $light-yellow;
-  color: $off-black;
-  border-color: $dark-yellow;
-
   &:hover {
     background-color: $lightest-yellow;
     color: $off-black;
@@ -65,8 +57,11 @@
 }
 
 .btn-danger {
-
   &:hover {
     background-color: $light-red;
   }
+}
+
+.btn-default.active {
+  background-color: $lightest-blue;
 }
