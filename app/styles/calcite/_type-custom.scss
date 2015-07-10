@@ -31,3 +31,8 @@ h6, .h6 {
 blockquote {
   font-family: $font-family-serif;
 }
+
+// Use the class below in a span around GIS when branding ArcGIS
+.gis {
+	font-weight: 500; 
+}
