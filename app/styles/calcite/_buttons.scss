@@ -18,13 +18,13 @@ $btn-success-color:              #fff !default;
 $btn-success-bg:                 $brand-success !default;
 $btn-success-border:             darken($btn-success-bg, 5%) !default;
 
-$btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-color:                 $off-black !default;
+$btn-info-bg:                    $lighter-blue !default;
+$btn-info-border:                $blue !default;
 
-$btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+$btn-warning-color:              $off-black !default;
+$btn-warning-bg:                 $light-yellow !default;
+$btn-warning-border:             $dark-yellow !default;
 
 $btn-danger-color:               #fff !default;
 $btn-danger-bg:                  $brand-danger !default;
