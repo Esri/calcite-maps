@@ -1,17 +1,56 @@
-// ┌─────────────┐
-// │ Custom SASS │
-// └─────────────┘
+// ┌────────────────┐
+// │ Navbar: Custom │
+// └────────────────┘
 
-// This rule moves the hamburger icon to the left side of the navbar
+// Moves the hamburger icon to the left side of the navbar
 .navbar-toggle{
   float: left;
   margin-left: $navbar-padding-horizontal;
 }
 
-// Reduce the size of the brand type to prevent nav-right buttons from making it wrap
+// Sets the font-size of the brand and navbar links slightly smaller than base
+.navbar-nav,
+.navbar-brand,
+.navbar-btn,
+.navbar-text,
+.navbar-form,
+.navbar-form input,
+.navbar-form button,
+.navbar-nav .dropdown-menu {
+	font-weight: 400;
+	font-size: ceil(($font-size-base * 0.9));
+	// Bump weight of span for branding up coinciding with navbar-nav
+	.gis {
+		font-weight: 600; 
+	}
+}
+
+// Ease the hover state in and out
 .navbar-brand {
-  @media (max-width: $screen-sm) {
-    font-size: $font-size-base;
-    padding-left: 0px;
+	&:hover {
+		transition: color 150ms linear, text-decoration 150ms linear;
+	}
+}
+
+// Places a small profile image in the user menu
+.navbar-icon {
+	width: 28px;
+  position: relative;
+  float: left;
+  padding-right: 6px;
+}
+
+// Add a rule and color transition to the top of navbar nav links
+.navbar-nav {
+  > li {
+    > a {
+      &:hover,
+      &:focus {
+        background-image: linear-gradient(to top, transparent 92%, $blue 93%, $blue 100%);
+        transition: color 150ms linear, text-decoration 150ms linear;
+      }
+    }
   }
 }
+
+
