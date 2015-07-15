@@ -5,7 +5,8 @@
 //** `<input>` background color
 $input-bg:                       #fff !default;
 //** `<input disabled>` background color
-$input-bg-disabled:              $lightest-gray !default;
+$input-bg-disabled:              $off-white !default;
+$input-border-disabled:          $light-gray !default;
 
 //** Text color for `<input>`s
 $input-color:                    $off-black !default;
