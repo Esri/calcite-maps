@@ -5,10 +5,11 @@
 //** `<input>` background color
 $input-bg:                       #fff !default;
 //** `<input disabled>` background color
-$input-bg-disabled:              $gray-lighter !default;
+$input-bg-disabled:              $off-white !default;
+$input-border-disabled:          $light-gray !default;
 
 //** Text color for `<input>`s
-$input-color:                    $gray !default;
+$input-color:                    $off-black !default;
 //** `<input>` border color #ccc
 $input-border: $gray !default;
 
@@ -21,7 +22,7 @@ $input-border-radius-large:      $border-radius-large !default;
 //** Small `.form-control` border radius
 $input-border-radius-small:      $border-radius-small !default;
 
-//** Border color for inputs on focus 66afe9 
+//** Border color for inputs on focus 66afe9
 $input-border-focus: $link-color;
 
 //** Placeholder text color
@@ -41,7 +42,7 @@ $legend-color:                   $gray-dark !default;
 $legend-border-color:            #e5e5e5 !default;
 
 //** Background color for textual input addons
-$input-group-addon-bg:           $gray-lighter !default;
+$input-group-addon-bg:           $lightest-gray !default;
 //** Border color for textual input addons
 $input-group-addon-border-color: $input-border !default;
 
