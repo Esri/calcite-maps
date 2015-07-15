@@ -6,10 +6,12 @@
 	position: relative;
 	padding: 30px 15px 0px 15px;
 	color: $purple;
-	// background-color: $core-purple-4;
-	background-image: url(../images/header-topo.svg);
-	background-position-x: center;
-	background-size: cover;
+	background-color: $blue;
+	background: url('../images/header-topo.png') no-repeat;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
 	h1 {
 		margin-top: 0;
 		padding-bottom: 18px;
