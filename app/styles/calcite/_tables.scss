@@ -10,10 +10,10 @@ $table-condensed-cell-padding:  5px !default;
 //** Default background color used for all tables.
 $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
+$table-bg-accent:               $Calcite_Gray_200 !default;
 //** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
-$table-bg-active:               $table-bg-hover !default;
+$table-bg-hover:                $Calcite_Gray_250 !default;
+$table-bg-active:               $Calcite_Highlight-Blue_200 !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+$table-border-color:            $Calcite_Gray_350 !default;
