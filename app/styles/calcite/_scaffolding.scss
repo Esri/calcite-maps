@@ -10,6 +10,6 @@ $text-color:            $off-black !default;
 //** Global textual link color.
 $link-color:            $brand-primary !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $light-blue !default;
+$link-hover-color:      $Calcite_Highlight_Blue_400 !default; //Pass accesibility for light background.
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
