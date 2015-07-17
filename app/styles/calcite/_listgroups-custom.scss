@@ -27,6 +27,11 @@
   }
 
   &.active {
+    &:hover {
+      .list-group-item-text {
+        color: $white;
+      }
+    }
     .list-group-item-text {
       color: $white;
     }
