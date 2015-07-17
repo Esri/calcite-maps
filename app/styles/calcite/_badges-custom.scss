@@ -1,0 +1,27 @@
+// ┌───────────────┐
+// │ Badges-custom │
+// └───────────────┘
+
+.badge {
+  border-radius: 100px;
+  width: 25px;
+  height: 25px;
+  padding: 7px 5px 5px 5px;
+  margin-left: 5px;
+  top: -1px;
+  position: relative;
+}
+
+.btn-default:hover {
+  .badge {
+    background-color: $white;
+    color: $brand-primary;
+  }
+}
+
+.btn-info, .btn-warning {
+  .badge {
+    background-color: $white;
+    color: $off-black;
+  }
+}
