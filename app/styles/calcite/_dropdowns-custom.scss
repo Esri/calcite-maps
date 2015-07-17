@@ -1,0 +1,33 @@
+// ┌──────────────────┐
+// │ Dropdowns-custom │
+// └──────────────────┘
+
+.dropdown-header {
+  background-color: $Calcite_Gray_100;
+  border-bottom: 1px solid $Calcite_Gray_350;
+  font-size: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.dropdown, .dropup {
+  &.open {
+    .btn-default {
+      background-color: $lightest-blue;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    }
+  }
+}
+
+.dropdown-menu {
+  padding: 0;
+  .divider {
+    margin: 0;
+  }
+  li {
+    a {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+}
