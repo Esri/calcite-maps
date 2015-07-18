@@ -5,15 +5,34 @@
 $lower-navbar-height: 36px;
 $micro-navbar-height: 22px;
 
+.nav {
+  li a:focus {
+    background-color: $Calcite_Highlight_Blue_100;
+  }
+  .dropdown.open {
+    .dropdown-toggle {
+      background: $lightest-blue;
+      border-color: transparent;
+    }
+  }
+}
 
-.nav-tabs {
-  border-bottom: 0px solid $nav-tabs-link-hover-border-color; // Make the bottom border invisible
-  > li {
-    margin-bottom: 0px; // Moves tabs to flush bottom of header block
-		margin-right: 6px; // Adds more spacing to the right of each tab
-    > a {
-      background-color: $nav-tabs-justified-link-border-color; // To add background to non-active tab
-      color: #fff; // Changes the default link color of non-active tabs
+.nav-tabs, .nav-pills {
+  li {
+    a {
+      background-color: transparent; // To add background to non-active tab
+      margin-right: 0;
+
+      &:hover {
+        background-color: $Calcite_Highlight_Blue_100;
+      }
+    }
+    .dropdown-menu {
+      li {
+        a:hover {
+          background-color: $Calcite_Gray_200;
+        }
+      }
     }
   }
 }
