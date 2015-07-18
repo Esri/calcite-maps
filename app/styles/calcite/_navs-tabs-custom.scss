@@ -1,0 +1,35 @@
+// ┌────────────────────┐
+// │ Navs - Tabs-custom │
+// └────────────────────┘
+
+.nav-tabs {
+  border-bottom: 1px solid $Calcite_Gray_400;
+  li {
+    marign-bottom: 0;
+    border-top: 3px solid transparent;
+    top: -2px;
+    position: relative;
+
+    &.active {
+      border-top: 1px solid;
+      border-left: 1px solid;
+      border-right: 1px solid;
+      border-color: $Calcite_Gray_400;
+      top: 2px;
+      &:hover {
+        border-top: 1px solid $Calcite_Gray_400;
+      }
+    }
+    &:hover {
+      border-top: 3px solid $brand-primary;
+    }
+  }
+}
+
+.nav-tabs.nav-justified {
+  li.active {
+    border: 0;
+    top: -2px;
+  }
+}
+
