@@ -19,6 +19,9 @@
 }
 
 .dropdown-menu {
+  li {
+    border-top: 0 !important;
+  }
   padding: 0;
   .divider {
     margin: 0;

@@ -6,6 +6,9 @@ $lower-navbar-height: 36px;
 $micro-navbar-height: 22px;
 
 .nav {
+  li a:focus {
+    background-color: $Calcite_Highlight_Blue_100;
+  }
   .dropdown.open {
     .dropdown-toggle {
       background: $lightest-blue;
@@ -19,8 +22,9 @@ $micro-navbar-height: 22px;
     a {
       background-color: transparent; // To add background to non-active tab
       margin-right: 0;
+
       &:hover {
-        background-color: $Calcite_Gray_300;
+        background-color: $Calcite_Highlight_Blue_100;
       }
     }
     .dropdown-menu {
