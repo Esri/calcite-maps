@@ -2,12 +2,39 @@
 // │ List Groups: Custom │
 // └─────────────────────┘
 
+.list-group {
+  a.list-group-item-success,
+  a.list-group-item-info,
+  a.list-group-item-warning,
+  a.list-group-item-danger
+  {
+    color: $off-black;
+  }
+}
 .list-group-item {
   // Header class
+  color: $off-black;
+
+  .badge {
+    padding: 7px 3px 5px 5px;
+  }
+
   &.header {
     z-index: 2; // Place active items above their siblings for proper border styling
     color: #404040;
     background-color: #fafafa;
     border-color: #e6e6e6;
   }
+
+  &.active {
+    &:hover {
+      .list-group-item-text {
+        color: $white;
+      }
+    }
+    .list-group-item-text {
+      color: $white;
+    }
+  }
 }
+
