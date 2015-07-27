@@ -2,6 +2,17 @@
 // │ Calcite Header │
 // └────────────────┘
 
+$calcite-tabs-border-color:                     transparent !default;
+
+$calcite-tabs-link-hover-border-color:          $gray-lighter !default;
+
+$calcite-tabs-active-link-hover-bg:             $body-bg !default;
+$calcite-tabs-active-link-hover-color:          $black !default;
+$calcite-tabs-active-link-hover-border-color:   $Calcite_Gray_400 !default;
+
+$calcite-link-hover-bg:                         $black !default;
+
+
 .cal-header {
 	position: relative;
 	padding: 30px 15px 0px 15px;
@@ -36,4 +47,32 @@
 		    padding-left: 0px;
 		}
 	}
+
+	// Special styles for tabs that are in the header
+	.nav-tabs {
+	  border-bottom: 1px solid $calcite-tabs-border-color;
+	  > li {
+	    > a {
+	      color: $white;
+	      background: $transparent-off-black;
+	      &:hover {
+			background: $transparent-black;
+	        border-color: $calcite-tabs-link-hover-border-color $calcite-tabs-link-hover-border-color $calcite-tabs-border-color;
+	      }
+	    }
+
+	    &.active > a {
+	      &,
+	      &:hover,
+	      &:focus {
+	        color: $calcite-tabs-active-link-hover-color;
+	        background-color: $calcite-tabs-active-link-hover-bg;
+	        border: 1px solid $calcite-tabs-active-link-hover-border-color;
+	        border-bottom-color: transparent;
+	        cursor: default;
+	      }
+	    }
+	  }
+	}
+
 }

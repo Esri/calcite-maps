@@ -2,12 +2,13 @@
 // │ Navs - Tabs │
 // └─────────────┘
 
-$nav-tabs-border-color:                     transparentize($gray-base, 1) !default;
-$nav-tabs-link-hover-border-color:          transparentize($gray-base, 1) !default;
+$nav-tabs-border-color:                     $Calcite_Gray_400 !default;
+
+$nav-tabs-link-hover-border-color:          transparent !default;
 
 $nav-tabs-active-link-hover-bg:             $body-bg !default;
-$nav-tabs-active-link-hover-color:          $gray-base !default;
-$nav-tabs-active-link-hover-border-color:   $body-bg !default;
+$nav-tabs-active-link-hover-color:          $black !default;
+$nav-tabs-active-link-hover-border-color:   $Calcite_Gray_400 !default;
 
-$nav-tabs-justified-link-border-color:      transparentize($gray-base, .5) !default;
+$nav-tabs-justified-link-border-color:           $Calcite_Gray_400 !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
