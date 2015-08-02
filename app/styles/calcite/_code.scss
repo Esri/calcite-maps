@@ -2,13 +2,13 @@
 // │ Code │
 // └──────┘
 
-$code-color:                  #c7254e !default;
-$code-bg:                     #f9f2f4 !default;
+$code-color:                  $dark-red !default;
+$code-bg:                     $off-white !default;
 
-$kbd-color:                   #fff !default;
-$kbd-bg:                      #333 !default;
+$kbd-color:                   $white !default;
+$kbd-bg:                      $black !default;
 
-$pre-bg:                      #f5f5f5 !default;
+$pre-bg:                      $Calcite_Gray_150 !default;
 $pre-color:                   $gray-dark !default;
-$pre-border-color:            #ccc !default;
+$pre-border-color:            $lighter-gray !default;
 $pre-scrollable-max-height:   340px !default;
