@@ -4,7 +4,7 @@
 
 $calcite-tabs-border-color:                     transparent !default;
 
-$calcite-tabs-link-hover-border-color:          $Calcite_Gray_450-lighter !default;
+$calcite-tabs-link-hover-border-color:          $gray-lighter !default;
 
 $calcite-tabs-active-link-hover-bg:             $body-bg !default;
 $calcite-tabs-active-link-hover-color:          $Calcite_Gray_700 !default;
@@ -53,10 +53,10 @@ $calcite-link-hover-bg:                         $Calcite_Gray_700 !default;
 	  border-bottom: 1px solid $calcite-tabs-border-color;
 	  > li {
 	    > a {
-	      color: $white;
-	      background: $transparent-off-black;
+	      color: $Calcite_Gray_050;
+	      background: $transparent-background;
 	      &:hover {
-			background: $transparent-black;
+			background: $transparent-background-hover;
 	        border-color: $calcite-tabs-link-hover-border-color $calcite-tabs-link-hover-border-color $calcite-tabs-border-color;
 	      }
 	    }

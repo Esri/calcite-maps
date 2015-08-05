@@ -49,7 +49,7 @@
 ---------------------------------------------------------------------------- */
 // Grays
 .sg-white .sg-color-swatch {
-  background: $white;
+  background: $Calcite_Gray_050;
 }
 .sg-off-white .sg-color-swatch {
   background: $off-white;
@@ -82,10 +82,10 @@
   background: $Calcite_Gray_700;
 }
 .sg-transp-off-black .sg-color-swatch {
-  background: $transparent-off-black;
+  background: $transparent-background;
 }
 .sg-transp-black .sg-color-swatch {
-  background: $transparent-black;
+  background: $transparent-background-hover;
 }
 
 // Blues
