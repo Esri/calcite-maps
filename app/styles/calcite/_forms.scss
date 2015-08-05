@@ -5,13 +5,13 @@
 //** `<input>` background color
 $input-bg:                       #fff !default;
 //** `<input disabled>` background color
-$input-bg-disabled:              $off-white !default;
-$input-border-disabled:          $light-gray !default;
+$input-bg-disabled:              $Calcite_Gray_100 !default;
+$input-border-disabled:          $Calcite_Gray_400 !default;
 
 //** Text color for `<input>`s
-$input-color:                    $off-black !default;
+$input-color:                    $Calcite_Gray_650 !default;
 //** `<input>` border color #ccc
-$input-border: $gray !default;
+$input-border: $Calcite_Gray_450 !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -26,7 +26,7 @@ $input-border-radius-small:      $border-radius-small !default;
 $input-border-focus: $link-color;
 
 //** Placeholder text color
-$input-color-placeholder:        $gray !default;
+$input-color-placeholder:        $Calcite_Gray_450 !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
@@ -38,11 +38,11 @@ $input-height-small:             (floor($font-size-small * $line-height-small) +
 //** `.form-group` margin
 $form-group-margin-bottom:       15px !default;
 
-$legend-color:                   $gray-dark !default;
+$legend-color:                   $Calcite_Gray_450-dark !default;
 $legend-border-color:            #e5e5e5 !default;
 
 //** Background color for textual input addons
-$input-group-addon-bg:           $lightest-gray !default;
+$input-group-addon-bg:           $Calcite_Gray_200 !default;
 //** Border color for textual input addons
 $input-group-addon-border-color: $input-border !default;
 

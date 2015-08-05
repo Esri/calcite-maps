@@ -5,7 +5,7 @@
 //** Background color on `.list-group-item`
 $list-group-bg:                 $white !default;
 //** `.list-group-item` border color
-$list-group-border:             $light-gray !default;
+$list-group-border:             $Calcite_Gray_400 !default;
 //** List group border radius
 $list-group-border-radius:      $border-radius-base !default;
 
@@ -21,7 +21,7 @@ $list-group-active-border:      $list-group-active-bg !default;
 $list-group-active-text-color:  lighten($list-group-active-bg, 40%) !default;
 
 //** Text color of disabled list items
-$list-group-disabled-color:      $gray !default;
+$list-group-disabled-color:      $Calcite_Gray_450 !default;
 //** Background color of disabled list items
 $list-group-disabled-bg:         $Calcite_Gray_150 !default;
 //** Text color for content within disabled list items

@@ -12,8 +12,8 @@ $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
 $table-bg-accent:               $Calcite_Gray_200 !default;
 //** Background color used for `.table-hover`.
-$table-bg-hover:                $lightest-gray !default;
+$table-bg-hover:                $Calcite_Gray_200 !default;
 $table-bg-active:               $Calcite_Highlight-Blue_200 !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            $gray-light !default;
+$table-border-color:            $Calcite_Gray_450-light !default;
