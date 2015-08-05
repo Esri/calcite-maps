@@ -9,12 +9,12 @@ $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         $border-radius-base !default;
 
 //** Border color for elements within panels
-$panel-inner-border:          $lighter-gray !default;
-$panel-footer-bg:             $lightest-gray !default;
+$panel-inner-border:          $Calcite_Gray_350 !default;
+$panel-footer-bg:             $Calcite_Gray_200 !default;
 
-$panel-default-text:          $darkest-gray !default;
-$panel-default-border:        $lighter-gray !default;
-$panel-default-heading-bg:    $off-white !default;
+$panel-default-text:          $Calcite_Gray_600 !default;
+$panel-default-border:        $Calcite_Gray_350 !default;
+$panel-default-heading-bg:    $Calcite_Gray_100 !default;
 
 $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;

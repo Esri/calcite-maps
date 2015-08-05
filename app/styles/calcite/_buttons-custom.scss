@@ -13,7 +13,7 @@
 
 .btn-group.open {
   .btn-default {
-    background-color: $lightest-blue;
+    background-color: $Calcite_Blue_100;
   }
   .dropdown-toggle {
     box-shadow: none;
@@ -22,7 +22,7 @@
 
 .btn-default {
   &:hover, :active {
-    background-color: $dark-blue !important;
+    background-color: $Calcite_Blue_a250 !important;
     color: $white !important;
   }
   &:focus {
@@ -33,38 +33,38 @@
 
 .btn-primary {
   &:hover {
-    background-color: $blue;
-    border-color: $blue;
+    background-color: $Calcite_Blue_a200;
+    border-color: $Calcite_Blue_a200;
   }
 }
 
 .btn-success {
   &:hover {
-    background-color: $green;
-    border-color: $green;
+    background-color: $Calcite_Green_250;
+    border-color: $Calcite_Green_250;
   }
 }
 
 .btn-info {
   &:hover {
-    background-color: $lightest-blue;
-    color: $off-black;
+    background-color: $Calcite_Blue_100;
+    color: $Calcite_Gray_650;
   }
 }
 
 .btn-warning {
   &:hover {
-    background-color: $lightest-yellow;
-    color: $off-black;
+    background-color: $Calcite_Yellow_100;
+    color: $Calcite_Gray_650;
   }
 }
 
 .btn-danger {
   &:hover {
-    background-color: $light-red;
+    background-color: $Calcite_Red_a100;
   }
 }
 
 .btn-default.active {
-  background-color: $lightest-blue;
+  background-color: $Calcite_Blue_100;
 }

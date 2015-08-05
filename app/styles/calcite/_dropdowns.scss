@@ -12,9 +12,9 @@ $dropdown-fallback-border:       $Calcite_Gray_350 !default;
 $dropdown-divider-bg:            $Calcite_Gray_350 !default;
 
 //** Dropdown link text color.
-$dropdown-link-color:            $off-black !default;
+$dropdown-link-color:            $Calcite_Gray_650 !default;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      darken($off-black, 5%) !default;
+$dropdown-link-hover-color:      darken($Calcite_Gray_650, 5%) !default;
 //** Hover background for dropdown links.
 $dropdown-link-hover-bg:         $Calcite_Gray_200 !default;
 
@@ -24,10 +24,10 @@ $dropdown-link-active-color:     $component-active-color !default;
 $dropdown-link-active-bg:        $component-active-bg !default;
 
 //** Disabled dropdown menu item background color.
-$dropdown-link-disabled-color:   $gray-light !default;
+$dropdown-link-disabled-color:   $Calcite_Gray_450-light !default;
 
 //** Text color for headers within dropdown menus.
-$dropdown-header-color:          $off-black !default;
+$dropdown-header-color:          $Calcite_Gray_650 !default;
 
 //** Deprecated `$dropdown-caret-color` as of v3.1.0
 $dropdown-caret-color:           #000 !default;

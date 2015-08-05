@@ -22,7 +22,7 @@
 	font-size: ceil(($font-size-base * 0.9));
 	// Bump weight of span for branding up coinciding with navbar-nav
 	.gis {
-		font-weight: 600; 
+		font-weight: 600;
 	}
 }
 
@@ -47,7 +47,7 @@
     > a {
       &:hover,
       &:focus {
-        background-image: linear-gradient(to top, transparent 92%, $blue 93%, $blue 100%);
+        background-image: linear-gradient(to top, transparent 92%, $Calcite_Blue_a200 93%, $Calcite_Blue_a200 100%);
         transition: color 150ms linear, text-decoration 150ms linear;
       }
     }

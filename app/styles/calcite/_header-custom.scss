@@ -4,20 +4,20 @@
 
 $calcite-tabs-border-color:                     transparent !default;
 
-$calcite-tabs-link-hover-border-color:          $gray-lighter !default;
+$calcite-tabs-link-hover-border-color:          $Calcite_Gray_450-lighter !default;
 
 $calcite-tabs-active-link-hover-bg:             $body-bg !default;
-$calcite-tabs-active-link-hover-color:          $black !default;
+$calcite-tabs-active-link-hover-color:          $Calcite_Gray_700 !default;
 $calcite-tabs-active-link-hover-border-color:   $Calcite_Gray_400 !default;
 
-$calcite-link-hover-bg:                         $black !default;
+$calcite-link-hover-bg:                         $Calcite_Gray_700 !default;
 
 
 .cal-header {
 	position: relative;
 	padding: 30px 15px 0px 15px;
-	color: $purple;
-	background-color: $blue;
+	color: $Calcite_Purple_200;
+	background-color: $Calcite_Blue_a200;
 	background: url('../images/header-topo.png') no-repeat;
     background-repeat: no-repeat;
     background-position: center top;

@@ -10,12 +10,12 @@ $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             $off-black !default;
+$navbar-default-color:             $Calcite_Gray_650 !default;
 $navbar-default-bg:                $white !default;
-$navbar-default-border:            $lightest-gray !default;
+$navbar-default-border:            $Calcite_Gray_200 !default;
 
 // Navbar links
-$navbar-default-link-color:                $off-black !default;
+$navbar-default-link-color:                $Calcite_Gray_650 !default;
 $navbar-default-link-hover-color:          $link-color !default;
 $navbar-default-link-hover-bg:             transparent !default;
 $navbar-default-link-active-color:         #555 !default;
@@ -24,7 +24,7 @@ $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
-$navbar-default-brand-color:               $black !default;
+$navbar-default-brand-color:               $Calcite_Gray_700 !default;
 $navbar-default-brand-hover-color:         $link-color !default;
 $navbar-default-brand-hover-bg:            transparent !default;
 
@@ -36,12 +36,12 @@ $navbar-default-toggle-border-color:       #ddd !default;
 
 // Inverted navbar
 // Reset inverted navbar basics
-$navbar-inverse-color:                      lighten($gray-light, 15%) !default;
+$navbar-inverse-color:                      lighten($Calcite_Gray_450-light, 15%) !default;
 $navbar-inverse-bg:                         #222 !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 lighten($gray-light, 15%) !default;
+$navbar-inverse-link-color:                 lighten($Calcite_Gray_450-light, 15%) !default;
 $navbar-inverse-link-hover-color:           #fff !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
 $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;

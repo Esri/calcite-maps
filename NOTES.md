@@ -32,11 +32,11 @@ Other global variables that can been set in here include vertical padding, horiz
 
 ## Forms.scss
 
-Variable $input-border is set to $gray variable defined in [colors.scss]().
+Variable $input-border is set to $Calcite_Gray_450 variable defined in [colors.scss]().
 
 Variable $input-border-focus is set to $link-color variable defined in the [scaffolding.scss]().
 
-Variable $input-color-placeholder is set to $gray variable defined in [colors.scss]().
+Variable $input-color-placeholder is set to $Calcite_Gray_450 variable defined in [colors.scss]().
 
 ## Formstates.scss
 
