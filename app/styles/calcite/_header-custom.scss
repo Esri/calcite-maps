@@ -16,17 +16,16 @@ $calcite-link-hover-bg:                         $black !default;
 .cal-header {
 	position: relative;
 	padding: 30px 15px 0px 15px;
-	color: $purple;
-	background-color: $blue;
-	background: url('../images/header-topo.png') no-repeat;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+	margin-bottom: 30px; // Remove or adjust this margin if using Pills lower nav
+	color: $white;
+	background-color: $Calcite_Blue_200;
+	// background: url('../images/header-topo.png') no-repeat;
+    // background-repeat: no-repeat;
+    // background-position: center top;
+    // background-size: cover;
 
 	h1 {
 		margin-top: 0;
-		padding-bottom: 18px;
-		color: #fff;
 		font-size: 1.9em;
 		font-weight: 400;
 		line-height: 1;
@@ -37,8 +36,6 @@ $calcite-link-hover-bg:                         $black !default;
 	}
 	h2 {
 		margin-top: 0;
-		padding-bottom: 18px;
-		color: #fff;
 		font-size: 1.6em;
 		font-weight: 400;
 		line-height: 1;
