@@ -11,7 +11,7 @@ $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2
 $navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             $Calcite_Gray_650 !default;
-$navbar-default-bg:                $white !default;
+$navbar-default-bg:                $Calcite_Gray_050 !default;
 $navbar-default-border:            $Calcite_Gray_200 !default;
 
 // Navbar links
@@ -36,12 +36,12 @@ $navbar-default-toggle-border-color:       #ddd !default;
 
 // Inverted navbar
 // Reset inverted navbar basics
-$navbar-inverse-color:                      lighten($Calcite_Gray_450-light, 15%) !default;
+$navbar-inverse-color:                      lighten($gray-light, 15%) !default;
 $navbar-inverse-bg:                         #222 !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 lighten($Calcite_Gray_450-light, 15%) !default;
+$navbar-inverse-link-color:                 lighten($gray-light, 15%) !default;
 $navbar-inverse-link-hover-color:           #fff !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
 $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;

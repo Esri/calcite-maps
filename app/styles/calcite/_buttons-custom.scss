@@ -23,10 +23,10 @@
 .btn-default {
   &:hover, :active {
     background-color: $Calcite_Blue_a250 !important;
-    color: $white !important;
+    color: $Calcite_Gray_050 !important;
   }
   &:focus {
-    background-color: $white;
+    background-color: $Calcite_Gray_050;
     color: $link-color;
   }
 }

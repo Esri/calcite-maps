@@ -1,11 +1,5 @@
-// ┌───────────┐
-// │ Grayscale │
-// └───────────┘
-
-$white:                 hsl(0, 0, 100);
-
-$transparent-off-black: rgba(0, 0, 0, 0.45);
-$transparent-black:     rgba(0, 0, 0, 0.75);
+$transparent-background:     lighten($Calcite_Gray_050, 45%);
+$transparent-background-hover:     lighten($Calcite_Gray_050, 75%);
 
 // ┌───────────────────────────┐
 // │ Bootstrap Color Variables │
@@ -17,10 +11,10 @@ $brand-info: $Calcite_Blue_250 !default; // #56a5d8
 $brand-warning: $Calcite_Yellow_200 !default; // #e4d154
 $brand-danger: $Calcite_Red_a150 !default; // #c7461a
 
-$Calcite_Gray_450-darker: $Calcite_Gray_550 !default; // #222
-$Calcite_Gray_450-dark: $Calcite_Gray_500 !default;   // #333
-$Calcite_Gray_450: $Calcite_Gray_450 !default; // #555
-$Calcite_Gray_450-light: $Calcite_Gray_400 !default; // #777
-$Calcite_Gray_450-lighter: $Calcite_Gray_350 !default; // #eee
+$gray-darker: $Calcite_Gray_550 !default; // #222
+$gray-dark: $Calcite_Gray_500 !default;   // #333
+$gray: $Calcite_Gray_450 !default; // #555
+$gray-light: $Calcite_Gray_400 !default; // #777
+$gray-lighter: $Calcite_Gray_350 !default; // #eee
 
-$Calcite_Gray_450-base: #000 !default;
+$gray-base: #000 !default;
