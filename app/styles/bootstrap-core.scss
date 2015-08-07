@@ -1,6 +1,3 @@
-// Core variables and mixins
-@import "calcite/calcite-apps";
-
 /* @import "bootstrap/variables";*/
 @import "bootstrap/mixins";
 
@@ -26,11 +23,11 @@
 @import "bootstrap/navs";
 @import "bootstrap/navbar";
 @import "bootstrap/breadcrumbs";
-// @import "bootstrap/pagination";
-// @import "bootstrap/pager";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
 @import "bootstrap/labels";
 @import "bootstrap/badges";
-// @import "bootstrap/jumbotron";
+@import "bootstrap/jumbotron";
 @import "bootstrap/thumbnails";
 @import "bootstrap/alerts";
 @import "bootstrap/progress-bars";
@@ -50,6 +47,3 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
-
-// Custom Calcite Components
-@import "calcite/calcite-apps-custom";
