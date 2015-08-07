@@ -1,20 +1,20 @@
-$transparent-background:     lighten($Calcite_Gray_050, 45%);
-$transparent-background-hover:     lighten($Calcite_Gray_050, 75%);
+$transparent-background:     rgba($Calcite_Gray_050, .3);
+$transparent-background-hover:     rgba($Calcite_Gray_050, .1);
 
 // ┌───────────────────────────┐
 // │ Bootstrap Color Variables │
 // └───────────────────────────┘
 
-$brand-primary: $Calcite_Blue_a250 !default; // #3b8fc4
-$brand-success: $Calcite_Green_a200 !default; // #5a9359
-$brand-info: $Calcite_Blue_250 !default; // #56a5d8
-$brand-warning: $Calcite_Yellow_200 !default; // #e4d154
-$brand-danger: $Calcite_Red_a150 !default; // #c7461a
+$brand-primary: $Calcite_Blue_a250 !default;
+$brand-success: $Calcite_Green_a200 !default;
+$brand-info: $Calcite_Blue_250 !default;
+$brand-warning: $Calcite_Yellow_200 !default;
+$brand-danger: $Calcite_Red_a150 !default;
 
-$gray-darker: $Calcite_Gray_550 !default; // #222
-$gray-dark: $Calcite_Gray_500 !default;   // #333
-$gray: $Calcite_Gray_450 !default; // #555
-$gray-light: $Calcite_Gray_400 !default; // #777
-$gray-lighter: $Calcite_Gray_350 !default; // #eee
+$gray-darker: $Calcite_Gray_550 !default;
+$gray-dark: $Calcite_Gray_500 !default;
+$gray: $Calcite_Gray_450 !default;
+$gray-light: $Calcite_Gray_400 !default;
+$gray-lighter: $Calcite_Gray_350 !default;
 
 $gray-base: $Calcite_Gray_700 !default;
