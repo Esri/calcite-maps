@@ -1,0 +1,13 @@
+// Core variables and mixins
+@import "calcite/colors-default";
+@import "calcite/calcite";
+
+.bootstrap-styles {
+	@import "bootstrap-core";
+
+	// Custom Calcite Components
+	@import "calcite/calcite-custom";
+
+	// Styleguide
+	@import "style-guide";
+}
