@@ -11,13 +11,13 @@ layout: docs.hbs
 
   <div class="row">
     <div class="col-md-3">
-      <h3><!-- SECTION --></h3>
-      <p><!-- DESCRIPTION --></p>
+      <h3>Inline</h3>
+      <p>Wrap inline snippets of code with <code>&lt;code&gt;</code>.</p>
     </div><!-- /.col-* -->
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-body">
-          <!-- INSERT PREVIEW -->
+          <p>For example, <code>&lt;section&gt;</code> should be wrapped as inline.</p>
         </div>
         <div class="panel-footer">
           <p class="mono">
@@ -28,4 +28,75 @@ layout: docs.hbs
     </div><!-- /.col-* -->
   </div><!-- /.row -->
 
+  <div class="row">
+    <div class="col-md-3">
+      <h3>User Input</h3>
+      <p>Use the <code>&lt;kbd&gt;</code> to indicate input that is typically entered via keyboard.</p>
+    </div><!-- /.col-* -->
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+          To edit settings, press <kbd>ctrl</kbd> + <kbd>,</kbd></p>
+        </div>
+        <div class="panel-footer">
+          <p class="mono">
+            <!-- INSERT CODE VIEW -->
+          </p>
+        </div>
+        </div>
+    </div><!-- /.col-* -->
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Variables</h3>
+      <p>For indicating variables use the <code>&lt;var&gt;</code> tag.</p>
+    </div><!-- /.col-* -->
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
+        </div>
+        <div class="panel-footer">
+          <p class="mono">
+            <!-- INSERT CODE VIEW -->
+          </p>
+        </div>
+        </div>
+    </div><!-- /.col-* -->
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Sample Output</h3>
+      <p>For indicating blocks sample output from a program use the <code>&lt;samp&gt;</code> tag.</p>
+    </div><!-- /.col-* -->
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><samp>This text is meant to be treated as sample output from a computer program.</samp></p>
+        </div>
+        <div class="panel-footer">
+          <p class="mono">
+            <!-- INSERT CODE VIEW -->
+          </p>
+        </div>
+        </div>
+    </div><!-- /.col-* -->
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Bootstrap Docs</h3>
+      <p><!-- DESCRIPTION --></p>
+    </div><!-- /.col-* -->
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>For detail on using the styles and components shown, see the <a href="http://getbootstrap.com/css/#code">Bootstrap Documentation for Code</a>.</p>
+        </div>
+      </div>
+    </div><!-- /.col-* -->
+  </div><!-- /.row -->
 </div><!-- /.container -->
