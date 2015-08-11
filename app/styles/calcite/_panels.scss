@@ -2,7 +2,7 @@
 // │ Panels │
 // └────────┘
 
-$panel-bg:                    #fff !default;
+$panel-bg:                    $Calcite_Gray_050 !default;
 $panel-body-padding:          15px !default;
 $panel-heading-padding:       10px 15px !default;
 $panel-footer-padding:        $panel-heading-padding !default;
@@ -16,7 +16,7 @@ $panel-default-text:          $Calcite_Gray_600 !default;
 $panel-default-border:        $Calcite_Gray_350 !default;
 $panel-default-heading-bg:    $Calcite_Gray_100 !default;
 
-$panel-primary-text:          #fff !default;
+$panel-primary-text:          $Calcite_Gray_050 !default;
 $panel-primary-border:        $brand-primary !default;
 $panel-primary-heading-bg:    $brand-primary !default;
 

@@ -3,13 +3,13 @@
 // └──────────┘
 
 //** Popover body background color
-$popover-bg:                          #fff !default;
+$popover-bg:                          $Calcite_Gray_050 !default;
 //** Popover maximum width
 $popover-max-width:                   276px !default;
 //** Popover border color
 $popover-border-color:                rgba(0,0,0,.2) !default;
 //** Popover fallback border color
-$popover-fallback-border-color:       #ccc !default;
+$popover-fallback-border-color:       $Calcite_Gray_350 !default;
 
 //** Popover title background color
 $popover-title-bg:                    darken($popover-bg, 3%) !default;

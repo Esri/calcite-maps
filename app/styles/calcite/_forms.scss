@@ -3,7 +3,7 @@
 // └───────┘
 
 //** `<input>` background color
-$input-bg:                       #fff !default;
+$input-bg:                       $Calcite_Gray_050 !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              $Calcite_Gray_100 !default;
 $input-border-disabled:          $Calcite_Gray_400 !default;
@@ -39,7 +39,7 @@ $input-height-small:             (floor($font-size-small * $line-height-small) +
 $form-group-margin-bottom:       15px !default;
 
 $legend-color:                   $gray-dark !default;
-$legend-border-color:            #e5e5e5 !default;
+$legend-border-color:            $Calcite_Gray_250 !default;
 
 //** Background color for textual input addons
 $input-group-addon-bg:           $Calcite_Gray_200 !default;
