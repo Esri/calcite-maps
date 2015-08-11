@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="{{assets}}styles/calcite-bootstrap.css">
     <script src="{{assets}}scripts/head.js"></script>
+
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -19,5 +20,13 @@
     <script src="{{assets}}scripts/vendor.js"></script>
     <script src="{{assets}}scripts/plugins.js"></script>
     <script src="{{assets}}scripts/main.js"></script>
+    <script>
+      $(function () { 
+        $("[data-toggle='tooltip']").tooltip(); 
+      });
+      $(function () { 
+        $("[data-toggle='popover']").popover(); 
+      });
+    </script>
 </body>
 </html>
