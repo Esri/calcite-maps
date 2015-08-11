@@ -3,7 +3,7 @@
 // └───────────┘
 
 //** Background for the dropdown menu.
-$dropdown-bg:                    #fff !default;
+$dropdown-bg:                    $Calcite_Gray_050 !default;
 //** Dropdown menu `border-color`.
 $dropdown-border:                rgba(0,0,0,.15) !default;
 //** Dropdown menu `border-color` **for IE8**.
@@ -30,4 +30,4 @@ $dropdown-link-disabled-color:   $gray-light !default;
 $dropdown-header-color:          $Calcite_Gray_650 !default;
 
 //** Deprecated `$dropdown-caret-color` as of v3.1.0
-$dropdown-caret-color:           #000 !default;
+$dropdown-caret-color:           $Calcite_Gray_700 !default;

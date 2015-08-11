@@ -2,12 +2,12 @@
 // │ Badges │
 // └────────┘
 
-$badge-color:                 #fff !default;
-$badge-link-hover-color:      #fff !default;
+$badge-color:                 $Calcite_Gray_050 !default;
+$badge-link-hover-color:      $Calcite_Gray_050 !default;
 $badge-bg:                    $brand-primary !default;
 
 $badge-active-color:          $link-color !default;
-$badge-active-bg:             #fff !default;
+$badge-active-bg:             $Calcite_Gray_050 !default;
 
 $badge-font-weight:           bold !default;
 $badge-line-height:           1 !default;
