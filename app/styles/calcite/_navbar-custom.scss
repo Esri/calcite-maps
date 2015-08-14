@@ -24,7 +24,13 @@
 	.gis {
 		font-weight: 600;
 	}
+  // Reduce the font-size in drop-down menus for better touch targets
+  @media (max-width: 767px) {
+    font-size: ceil(($font-size-base * 0.8));   
+  }
 }
+
+
 
 // Ease the hover state in and out
 .navbar-brand {
