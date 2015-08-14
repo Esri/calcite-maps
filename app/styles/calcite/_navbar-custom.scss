@@ -50,8 +50,14 @@
         background-image: linear-gradient(to top, transparent 92%, $Calcite_Blue_a200 93%, $Calcite_Blue_a200 100%);
         transition: color 150ms linear, text-decoration 150ms linear;
       }
+      @media (max-width: 767px) {
+        &:hover,
+        &:focus {
+          background-image: none;
+          background-color: #000;
+        }         
+      }
     }
   }
 }
-
 
