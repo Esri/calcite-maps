@@ -245,8 +245,7 @@ module.exports = function(grunt) {
   });
 
   // Require all Grunt Tasks
-  require('load-grunt-tasks')(grunt);
-  grunt.loadNpmTasks('grunt-http-server');
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Start server and watch
   grunt.registerTask('serve', [ 'http-server', 'watch' ]);
