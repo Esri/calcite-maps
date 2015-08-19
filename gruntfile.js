@@ -34,7 +34,6 @@ module.exports = function(grunt) {
       }
     },
 
-
     // Watch files
     'watch': {
       images: {
@@ -47,17 +46,15 @@ module.exports = function(grunt) {
       libsass: {
         files: ['app/styles/**/*.scss'],
         tasks: [
-          'sass',
-          'copy'
+          'sass'
         ]
       },
     },
 
     // Check Javascript for errors
     'jshint': {
-      all: ['lib/js/calcite-web.js']
+      all: ['app/scripts/**/*.js']
     },
-
 
     // SCSS to CSS conversion
     'sass': {
@@ -76,12 +73,13 @@ module.exports = function(grunt) {
 
     },
 
+    // Prefix CSS with browser specifics [last 2 browser versions]
     postcss: {
       options: {
-        map: false, // inline sourcemaps
+        map: false,
 
         processors: [
-          require('autoprefixer-core')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('autoprefixer-core')({ browsers: 'last 2 versions' }),
         ]
       },
       dist: {
@@ -89,14 +87,35 @@ module.exports = function(grunt) {
       }
     },
 
-    // Minify CSS
+    // Minify CSS after construction
     'cssmin': {
-      target: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'dist/styles',
+          src: ['*.css', '!*.min.css'],
+          dest: 'dist/styles',
+          ext: '.min.css'
+        }]
+      }
+    },
+
+    // Build minified Javascript file to dist
+    'uglify': {
+      options: {
+        mangle: false,
+        banner: banner
+      },
+      dist: {
         files: {
-          'dist/styles/*.min.css': ['dist/styles/*.css']
+          'dist/scripts/main.min.js': ['app/scripts/main.js']
         }
       }
     },
+
+
+
+
 
     // Build docs
     assemble: {
