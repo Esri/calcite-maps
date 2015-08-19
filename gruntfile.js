@@ -229,7 +229,18 @@ module.exports = function(grunt) {
       }
     },
 
-
+    // Runs tasks concurrently, speeding up Grunt
+    'concurrent': {
+      prepublish: [
+        'sass',
+        'postcss',
+        'cssmin',
+        'jshint',
+        'newer:imagemin',
+        'uglify',
+        //'copy'
+      ]
+    }
 
   });
 
@@ -241,7 +252,11 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [ 'http-server', 'watch' ]);
 
   // Build
-  grunt.registerTask('build', [ 'assemble:dev', 'jshint', 'sass', 'postcss', 'cssmin' ]);
+  grunt.registerTask('build', [ 'assemble:dev', 'concurrent' ]);
+
+  // Release
+  grunt.registerTask('release', [ 'compress' ]);
+
   // Publish files to S3
   grunt.registerTask('publish', [
     'build',
