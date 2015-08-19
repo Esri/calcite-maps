@@ -1,5 +1,6 @@
 {
   "name": "calcite-bootstrap",
+  "title": "Calcite Boostrap",
   "version": "0.1.0",
   "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
