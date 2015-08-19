@@ -1,45 +1,74 @@
 {
+  "name": "calcite-bootstrap",
+  "version": "0.1.0",
+  "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
+  "homepage": "https://github.com/Esri/calcite-bootstrap",
+  "scripts": {
+    "test": "grunt test",
+    "gh-release": "gh-release -a calcite-bootstrap.zip",
+    "start": "grunt"
+  },
+  "main": "dist/js/calcite-boostrap.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/esri/calcite-boostrap.git"
+  },
+  "contributors": [
+    {
+      "name": "Erich Rainville",
+      "email": "erainville@esri.com"
+    },
+    {
+      "name": "Dave Bouwman",
+      "email": "dbouwman@esri.com"
+    }
+  ],
+  "files": [
+    "dist/"
+  ],
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/esri/calcite-boostrap/issues"
+  },
   "engines": {
     "node": ">=0.10.0"
   },
   "devDependencies": {
-    "apache-server-configs": "^2.7.1",
-    "assemble": "^0.4.37",
-    "connect": "^3.0.1",
-    "connect-livereload": "^0.5.0",
-    "del": "^0.1.0",
-    "grunt": "^0.4.2",
-    "gulp": "^3.6.0",
-    "gulp-autoprefixer": "^1.0.1",
-    "gulp-awspublish": "^1.0.6",
-    "gulp-awspublish-router": "^0.1.1",
-    "gulp-cache": "^0.2.2",
-    "gulp-csso": "^0.2.6",
-    "gulp-filter": "~2.0.2",
-    "gulp-flatten": "^0.0.4",
-    "gulp-gh-pages": "^0.5.2",
-    "gulp-grunt": "~0.5.2",
-    "gulp-if": "^1.2.1",
-    "gulp-imagemin": "^1.2.1",
-    "gulp-jshint": "^1.5.3",
-    "gulp-livereload": "^2.0.0",
-    "gulp-load-plugins": "^0.7.1",
-    "gulp-minify-html": "^0.1.6",
-    "gulp-plumber": "^0.6.3",
-    "gulp-replace": "^0.4.0",
-    "gulp-sass": "^1.3.3",
-    "gulp-size": "^1.1.0",
-    "gulp-uglify": "^1.0.1",
-    "gulp-useref": "^1.0.2",
-    "jshint-stylish": "^1.0.0",
-    "lazypipe": "^0.2.1",
-    "load-grunt-tasks": "^0.4.0",
-    "main-bower-files": "^2.1.0",
-    "opn": "^1.0.0",
-    "run-sequence": "~1.0.2",
-    "serve-index": "^1.1.4",
-    "serve-static": "^1.4.0",
-    "wiredep": "^2.0.0"
+    "arraystream": "0.0.5",
+    "assemble": "^0.4.42",
+    "autoprefixer-core": "^5.2.1",
+    "connect": "^3.4.0",
+    "connect-livereload": "^0.5.3",
+    "gh-release": "^2.0.1",
+    "glob": "^5.0.14",
+    "grunt": "^0.4.5",
+    "grunt-assemble": "^0.4.0",
+    "grunt-aws-s3": "^0.14.0",
+    "grunt-concurrent": "^2.0.1",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.11.0",
+    "grunt-contrib-imagemin": "^0.8.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-github-releaser": "^0.1.17",
+    "grunt-http-server": "^1.10.0",
+    "grunt-newer": "^0.7.0",
+    "grunt-postcss": "^0.5.5",
+    "grunt-prompt": "^1.2.1",
+    "grunt-sass": "^0.18.0",
+    "grunt-shell": "~1.1.2",
+    "imagemin": "^3.2.0",
+    "install": "^0.1.8",
+    "load-grunt-tasks": "^3.2.0",
+    "matchdep": "^0.3.0",
+    "mkdirp": "^0.5.1",
+    "npm": "^2.13.5",
+    "postcss": "^4.1.16",
+    "s3": "^4.4.0",
+    "stream-array": "^1.1.0"
   }
 }
