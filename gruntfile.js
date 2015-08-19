@@ -157,9 +157,14 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-http-server');
 
+  // Start server and watch
+  grunt.registerTask('serve', [ 'http-server', 'watch' ]);
 
-  // compile
-  grunt.registerTask('build', [ 'assemble:dev', 'jshint', 'sass', 'postcss', 'http-server', 'watch' ]);
+  // Build
+  grunt.registerTask('build', [ 'assemble:dev', 'jshint', 'sass', 'postcss', 'cssmin' ]);
+
+  // Default
+  grunt.registerTask('default', [ 'build', 'serve' ]);
 
 };
 
