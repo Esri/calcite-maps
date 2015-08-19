@@ -113,6 +113,17 @@ module.exports = function(grunt) {
       }
     },
 
+    // Optimize images
+    'imagemin': {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/',
+          src: ['images/**/*.{png,jpg,svg,ico}'],
+          dest: 'dist/'
+        }]
+      }
+    },
 
 
 
