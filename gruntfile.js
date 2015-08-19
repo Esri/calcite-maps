@@ -125,6 +125,20 @@ module.exports = function(grunt) {
       }
     },
 
+    // Create zip release
+    'compress': {
+      main: {
+        options: {
+          archive: 'calcite-bootstrap.zip'
+        },
+        files: [
+          {
+            src: ['dist/**', '!dist/__MACOSX'],
+            dest: './'
+          },
+        ]
+      }
+    },
 
 
 
