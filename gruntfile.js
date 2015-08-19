@@ -142,6 +142,61 @@ module.exports = function(grunt) {
 
 
 
+// Upload dist folder to s3
+    'aws_s3': {
+      options: {
+        region: 'us-west-1',
+        bucket: 'patterns.esri.com',
+        endpoint: 'https://s3-us-west-1.amazonaws.com',
+        access: 'public-read',
+        gzip: true
+      },
+      production: {
+        files: [
+          // Manually set content type (plugin was setting incorrectly).
+          {expand: true, cwd: 'dist/', src: ['**/*.js'],   dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/javascript'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.css'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'text/css'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.svg'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'image/svg+xml'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.ico'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'image/x-icon'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.jpg'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'image/jpg'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.eot'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/vnd.ms-fontobject'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.woff'], dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/font-woff'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.otf'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/font-sfnt'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.ttf'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/font-sfnt'}},
+          // Also upload to the 'latest' directory
+          {expand: true, cwd: 'dist/', src: ['**/*.js'],   dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/javascript'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.css'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'text/css'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.svg'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'image/svg+xml'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.ico'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'image/x-icon'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.jpg'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'image/jpg'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.eot'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/vnd.ms-fontobject'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.woff'], dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-woff'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.otf'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-sfnt'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.ttf'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-sfnt'}}
+        ]
+      }
+    },
+
+    // Ask for AWS ID and Key
+    'prompt': {
+      aws: {
+        options: {
+          questions: [
+            {
+              config: 'aws_s3.options.accessKeyId',
+              type: 'input',
+              message: 'AWS Access ID:'
+            },
+            {
+              config: 'aws_s3.options.secretAccessKey',
+              type: 'input',
+              message: 'AWS Secret Access Key:'
+            }
+          ]
+        }
+      }
+    },
+
     // Build docs
     assemble: {
       options: {
@@ -187,6 +242,13 @@ module.exports = function(grunt) {
 
   // Build
   grunt.registerTask('build', [ 'assemble:dev', 'jshint', 'sass', 'postcss', 'cssmin' ]);
+  // Publish files to S3
+  grunt.registerTask('publish', [
+    'build',
+    //'shell:deploy',
+    'prompt:aws',
+    'aws_s3'
+  ]);
 
   // Default
   grunt.registerTask('default', [ 'build', 'serve' ]);
