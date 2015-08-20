@@ -7,7 +7,7 @@ require('gulp-grunt')(gulp);
 var runs  = require('run-sequence');
 var $ = require('gulp-load-plugins')();
 
-//build the compile using assemble + grunt 
+//build the compile using assemble + grunt
 //Note: Assemble's gulp task is very alpha - easier to do this
 gulp.task('compile', function(){
   gulp.run('grunt-compile');
@@ -38,7 +38,7 @@ gulp.task('html', ['styles'], function () {
   var lazypipe = require('lazypipe');
   var cssChannel = lazypipe()
     .pipe($.csso);
-   
+
 
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
@@ -68,7 +68,7 @@ gulp.task('fonts', function () {
     .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
     .pipe($.flatten())
     .pipe(gulp.dest('dist/fonts'));
-    
+
 });
 
 gulp.task('extras', function () {
@@ -157,7 +157,7 @@ gulp.task('watch', ['connect'], function () {
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/**/*.hbs', ['compile']);
-  
+
 });
 
 gulp.task('reload', function(){
