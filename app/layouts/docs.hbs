@@ -21,12 +21,15 @@
     <script src="{{assets}}scripts/plugins.js"></script>
     <script src="{{assets}}scripts/main.js"></script>
     <script>
-      $(function () { 
-        $("[data-toggle='tooltip']").tooltip(); 
+      $(function () {
+        $("[data-toggle='tooltip']").tooltip();
       });
-      $(function () { 
-        $("[data-toggle='popover']").popover(); 
+      $(function () {
+        $("[data-toggle='popover']").popover();
       });
     </script>
+    <script>//<![CDATA[
+    document.write('<script src="//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1"><\/script>')
+    //]]></script>
 </body>
 </html>
