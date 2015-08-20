@@ -54,6 +54,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['app/scripts/*.js'],
+        files: ['app/scripts/**/*.js'],
         tasks: [
           'jshint',
           'uglify'
