@@ -277,6 +277,46 @@ module.exports = function(grunt) {
       },
     },
 
+    // Concat Bower dependencies
+    concat: {
+      options: {
+        separator: '',
+      },
+      plugins: {
+        startFolder: 'bower_components/bootstrap-sass-official/assets',
+        src: [
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/affix.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/alert.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/dropdown.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/tooltip.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/modal.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/transition.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/button.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/popover.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/carousel.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/scrollspy.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/collapse.js',
+          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/tab.js'
+        ],
+        dest: 'dist/scripts/plugins.js',
+      },
+      head: {
+        startFolder: './bower_components',
+        src: [
+          '<%= concat.head.startFolder %>/modernizr/modernizr.js',
+        ],
+        dest: 'dist/scripts/head.js',
+      },
+      vendor: {
+        startFolder: './bower_components',
+        src: [
+          '<%= concat.vendor.startFolder %>/jquery/dist/jquery.js',
+        ],
+        dest: 'dist/scripts/vendor.js',
+      }
+    },
+
+
     // Runs tasks concurrently, speeding up Grunt
     'concurrent': {
       prepublish: [
@@ -285,6 +325,7 @@ module.exports = function(grunt) {
         'jshint',
         'newer:imagemin',
         'uglify',
+        'concat',
         'copy'
       ]
     }
