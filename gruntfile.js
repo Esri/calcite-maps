@@ -140,9 +140,28 @@ module.exports = function(grunt) {
       }
     },
 
+     // Copy libsass files to dist, doc assets to build
+    'copy': {
+      scripts: {
+        expand: true,
+        flatten: true,
+        src: [ 'app/scripts/**/*.js' ],
+        dest: 'dist/scripts/'
+      },
+      fonts: {
+        expand: true,
+        flatten: true,
+        cwd: './bower_components/bootstrap-sass-official/assets/',
+        src: ['fonts/bootstrap/**/*'],
+        dest: 'dist/styles/fonts/'
+      },
+      changelog: {
+        src: ['CHANGELOG.md'],
+        dest: 'dist/'
+      }
+    },
 
-
-// Upload dist folder to s3
+    // Upload dist folder to s3
     'aws_s3': {
       options: {
         region: 'us-west-1',
@@ -229,16 +248,22 @@ module.exports = function(grunt) {
       }
     },
 
+    // Clean the build folder before rebuild
+    clean: {
+      dist: {
+        src: [ 'dist/' ]
+      },
+    },
+
     // Runs tasks concurrently, speeding up Grunt
     'concurrent': {
       prepublish: [
         'sass',
-        'postcss',
         'cssmin',
         'jshint',
         'newer:imagemin',
         'uglify',
-        //'copy'
+        'copy'
       ]
     }
 
@@ -251,7 +276,7 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [ 'http-server', 'watch' ]);
 
   // Build
-  grunt.registerTask('build', [ 'assemble:dev', 'concurrent' ]);
+  grunt.registerTask('build', [ 'clean', 'assemble:dist', 'concurrent', 'postcss' ]);
 
   // Release
   grunt.registerTask('release', [ 'compress' ]);
