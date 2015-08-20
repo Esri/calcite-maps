@@ -24,23 +24,39 @@ module.exports = function(grunt) {
     'http-server': {
       'dev': {
         root: 'dist',
-        port: 8888,
+        port: 9000,
         host: '0.0.0.0',
         cache: 0,
         showDir : true,
         autoIndex: true,
         ext: 'html',
-        runInBackground: true
+        runInBackground: true,
+        livereload: true
       }
     },
 
     // Watch files
     'watch': {
+      options: {
+        livereload: true
+      },
+      html: {
+        files: ['app/**/*.hbs'],
+        tasks: [
+          'assemble:dist'
+        ]
+      },
       images: {
         files: ['app/images/**/*'],
         tasks: [
-          'newer:imagemin',
-          'copy'
+          'imagemin'
+        ]
+      },
+      scripts: {
+        files: ['app/scripts/*.js'],
+        tasks: [
+          'jshint',
+          'uglify'
         ]
       },
       libsass: {
@@ -49,11 +65,6 @@ module.exports = function(grunt) {
           'sass'
         ]
       },
-    },
-
-    // Check Javascript for errors
-    'jshint': {
-      all: ['app/scripts/**/*.js']
     },
 
     // SCSS to CSS conversion
@@ -76,7 +87,7 @@ module.exports = function(grunt) {
     // Prefix CSS with browser specifics [last 2 browser versions]
     postcss: {
       options: {
-        map: false,
+        map: true,
 
         processors: [
           require('autoprefixer-core')({ browsers: 'last 2 versions' }),
@@ -98,6 +109,11 @@ module.exports = function(grunt) {
           ext: '.min.css'
         }]
       }
+    },
+
+    // Check Javascript for errors
+    'jshint': {
+      all: ['app/scripts/**/*.js']
     },
 
     // Build minified Javascript file to dist
@@ -224,7 +240,7 @@ module.exports = function(grunt) {
         partials: 'app/partials/**/*.hbs',
         helpers: ['app/helpers/**/*.js' ]
       },
-      dev: {
+      dist: {
         options: {
           assets: 'dist/'
         },
