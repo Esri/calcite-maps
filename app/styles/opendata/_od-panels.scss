@@ -1,0 +1,20 @@
+.panel-default {
+	border: none;
+	box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 2px 0px;
+	.panel-heading {
+		color: $Calcite_Gray_550;
+		font-weight: 500;
+		font-size: 20px;
+		background-color: $Calcite_Gray_050;
+		border-bottom-color: $Calcite_Gray_200;
+	}
+	.btn-link {
+		color: $Calcite_Gray_450 !important;
+		padding-right: 0px;
+	}
+	.btn-link:hover, .btn-link:focus {
+		text-decoration: none;
+		color: $link-color !important;
+		transition: color 150ms linear, text-decoration 150ms linear;
+	}
+}
