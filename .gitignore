@@ -8,3 +8,4 @@ test/bower_components
 app/styles/.DS_Store
 gulp-aws.json
 aws.json
+calcite-bootstrap.zip
