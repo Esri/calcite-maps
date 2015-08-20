@@ -158,6 +158,12 @@ module.exports = function(grunt) {
 
      // Copy libsass files to dist, doc assets to build
     'copy': {
+      extras: {
+        expand: true,
+        flatten: true,
+        src: [ 'app/extras/*' ],
+        dest: 'dist/'
+      },
       scripts: {
         expand: true,
         flatten: true,
