@@ -8,7 +8,8 @@ if [ "$TRAVIS_BRANCH" == "master" ] && [ -n "${GH_TOKEN}" ] && [ "$TRAVIS_PULL_R
   npm install
 
   # run our compile script
-  gulp build
+  #gulp build
+  grunt build
 
   # go to the dist directory and create a *new* Git repo
   cd dist
