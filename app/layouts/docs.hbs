@@ -28,8 +28,13 @@
         $("[data-toggle='popover']").popover();
       });
     </script>
-    <script>//<![CDATA[
-    document.write('<script src="//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1"><\/script>')
-    //]]></script>
+
+    {{#if production}}
+      <!-- no LIVERELOAD -->
+    {{else}}
+      <script>//<![CDATA[
+      document.write('<script src="//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1"><\/script>')
+      //]]></script>
+    {{/if}}
 </body>
 </html>

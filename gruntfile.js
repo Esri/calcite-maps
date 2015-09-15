@@ -246,9 +246,22 @@ module.exports = function(grunt) {
         partials: 'app/partials/**/*.hbs',
         helpers: ['app/helpers/**/*.js' ]
       },
+      dev: {
+        options: {
+          assets: 'dist/',
+          production: false
+        },
+        files: [{
+          cwd: 'app/pages',
+          dest: 'dist',
+          expand: true,
+          src: ['**/*.hbs', '**/*.md']
+        }]
+      },
       dist: {
         options: {
-          assets: 'dist/'
+          assets: 'dist/',
+          production: true
         },
         files: [{
           cwd: 'app/pages',
@@ -339,14 +352,17 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [ 'http-server', 'watch' ]);
 
   // Build
-  grunt.registerTask('build', [ 'clean', 'assemble:dist', 'concurrent', 'postcss' ]);
+  grunt.registerTask('build', [ 'clean', 'assemble:dev', 'concurrent', 'postcss' ]);
 
   // Release
   grunt.registerTask('release', [ 'compress' ]);
 
   // Publish files to S3
   grunt.registerTask('publish', [
-    'build',
+    'clean',
+    'assemble:dist',
+    'concurrent',
+    'postcss',
     //'shell:deploy',
     'prompt:aws',
     'aws_s3'
@@ -356,4 +372,3 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [ 'build', 'serve' ]);
 
 };
-
