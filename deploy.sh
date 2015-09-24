@@ -9,7 +9,7 @@ if [ "$TRAVIS_BRANCH" == "master" ] && [ -n "${GH_TOKEN}" ] && [ "$TRAVIS_PULL_R
 
   # run our compile script
   #gulp build
-  grunt build
+  grunt publish
 
   # go to the dist directory and create a *new* Git repo
   cd dist
