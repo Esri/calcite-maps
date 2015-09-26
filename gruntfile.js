@@ -41,26 +41,26 @@ module.exports = function(grunt) {
         livereload: true
       },
       html: {
-        files: ['app/**/*.hbs'],
+        files: ['docs/**/*.hbs'],
         tasks: [
           'assemble:dist'
         ]
       },
       images: {
-        files: ['app/images/**/*'],
+        files: ['docs/images/**/*'],
         tasks: [
           'imagemin'
         ]
       },
       scripts: {
-        files: ['app/scripts/**/*.js'],
+        files: ['lib/scripts/**/*.js'],
         tasks: [
           'jshint',
           'uglify'
         ]
       },
       libsass: {
-        files: ['app/styles/**/*.scss'],
+        files: ['lib/sass/**/*.scss'],
         tasks: [
           'sass'
         ]
@@ -76,9 +76,10 @@ module.exports = function(grunt) {
       },
       expanded: {
         files: {
-          'dist/styles/calcite-bootstrap.css': 'app/styles/calcite-bootstrap.scss',
-          'dist/styles/calcite-bootstrap-dark.css': 'app/styles/calcite-bootstrap-dark.scss',
-          'dist/styles/calcite-patterns-bootstrap.css': 'app/styles/calcite-patterns-bootstrap.scss'
+          //'dist/styles/style-guide.css':'docs/styles/style-guide.scss',
+          'dist/css/calcite-bootstrap.css': 'lib/sass/calcite-bootstrap.scss',
+          'dist/css/calcite-bootstrap-dark.css': 'lib/sass/calcite-bootstrap-dark.scss'
+          //,'dist/css/calcite-patterns-bootstrap.css': 'lib/sass/calcite-patterns-bootstrap.scss'
         }
       }
 
@@ -94,7 +95,7 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'dist/styles/*.css'
+        src: 'dist/css/*.css'
       }
     },
 
@@ -103,9 +104,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'dist/styles',
+          cwd: 'dist/css',
           src: ['*.css', '!*.min.css'],
-          dest: 'dist/styles',
+          dest: 'dist/css',
           ext: '.min.css'
         }]
       }
@@ -124,7 +125,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/scripts/main.min.js': ['app/scripts/main.js']
+          'dist/scripts/plugins.min.js':['./bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
+          'dist/scripts/docs.min.js': ['docs/scripts/*.js']
         }
       }
     },
@@ -175,11 +177,17 @@ module.exports = function(grunt) {
         flatten: true,
         cwd: './bower_components/bootstrap-sass-official/assets/',
         src: ['fonts/bootstrap/**/*'],
-        dest: 'dist/styles/fonts/'
+        dest: 'dist/css/fonts/'
       },
       changelog: {
         src: ['CHANGELOG.md'],
         dest: 'dist/'
+      },
+      sass: {
+        expand: true,
+        cwd: './lib/sass/',
+        src: ['**/*'],
+        dest: 'dist/sass/'
       }
     },
 
@@ -242,9 +250,9 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         layout: 'layout.hbs',
-        layoutdir: 'app/layouts/',
-        partials: 'app/partials/**/*.hbs',
-        helpers: ['app/helpers/**/*.js' ]
+        layoutdir: 'docs/layouts/',
+        partials: 'docs/partials/**/*.hbs',
+        helpers: ['docs/helpers/**/*.js' ]
       },
       dev: {
         options: {
@@ -252,7 +260,7 @@ module.exports = function(grunt) {
           production: false
         },
         files: [{
-          cwd: 'app/pages',
+          cwd: 'docs/pages',
           dest: 'dist',
           expand: true,
           src: ['**/*.hbs', '**/*.md']
@@ -264,7 +272,7 @@ module.exports = function(grunt) {
           production: true
         },
         files: [{
-          cwd: 'app/pages',
+          cwd: 'docs/pages',
           dest: 'dist',
           expand: true,
           src: ['**/*.hbs', '**/*.md']
@@ -275,7 +283,7 @@ module.exports = function(grunt) {
           assets: 'calcite-bootstrap/'
         },
         files: [{
-          cwd: 'app/pages',
+          cwd: 'docs/pages',
           dest: 'dist',
           expand: true,
           src: ['**/*.hbs', '**/*.md']
@@ -352,7 +360,7 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [ 'http-server', 'watch' ]);
 
   // Build
-  grunt.registerTask('build', [ 'clean', 'assemble:dev', 'concurrent', 'postcss' ]);
+  grunt.registerTask('build:docs', [ 'clean', 'assemble:dev', 'concurrent', 'postcss' ]);
 
   // Release
   grunt.registerTask('release', [ 'compress' ]);
@@ -367,6 +375,16 @@ module.exports = function(grunt) {
     'prompt:aws',
     'aws_s3'
   ]);
+
+  grunt.registerTask('build:sass', [ 
+    'clean',
+    'sass',
+    'cssmin',
+    'copy:sass',
+    'copy:fonts',
+    'copy:changelog',
+    'compress'
+   ]);
 
   // Default
   grunt.registerTask('default', [ 'build', 'serve' ]);

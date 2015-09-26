@@ -1,0 +1,200 @@
+/* Construct the Swatch Boxes
+---------------------------------------------------------------------------- */
+// This draws the basic block
+.sg-color {
+  background: #fff;
+  border: 1px solid #b3b3b3;
+  display: inline-block;
+  height: 80px;
+  margin: 0 .5em .5em 0;
+  padding: 5px;
+  position: relative;
+  width: 100%;
+}
+// This is for a larger color block
+.sg-lg {
+  width: 100%;
+  height: 100px;
+}
+// This draws the box that will display the color
+.sg-color-swatch {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+// This draws the text box over the swatch
+.sg-color-swatch span {
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 5px;
+  color: #fff;
+  font-size: .8em;
+  margin: 0;
+  opacity: 0;
+  padding: 5px 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 200px;
+}
+// This modifies the text box for large swatch boxes
+.sg-lg .sg-color-swatch span {
+  width: 200px;
+}
+.sg-color-swatch:hover span {
+  opacity: 1;
+}
+
+
+/* Color Palette
+---------------------------------------------------------------------------- */
+// Grays
+.sg-white .sg-color-swatch {
+  background: $Calcite_Gray_050;
+}
+.sg-off-white .sg-color-swatch {
+  background: $Calcite_Blue_150;
+}
+.sg-lightest-gray .sg-color-swatch {
+  background: $Calcite_Gray_200;
+}
+.sg-lighter-gray .sg-color-swatch {
+  background: $Calcite_Gray_350;
+}
+.sg-light-gray .sg-color-swatch {
+  background: $Calcite_Gray_400;
+}
+.sg-gray .sg-color-swatch {
+  background: $Calcite_Gray_450;
+}
+.sg-dark-gray .sg-color-swatch {
+  background: $Calcite_Gray_500;
+}
+.sg-darker-gray .sg-color-swatch {
+  background: $Calcite_Gray_550;
+}
+.sg-darkest-gray .sg-color-swatch {
+  background: $Calcite_Gray_600;
+}
+.sg-off-black .sg-color-swatch {
+  background: $Calcite_Gray_650;
+}
+.sg-black .sg-color-swatch {
+  background: $Calcite_Gray_700;
+}
+.sg-transp-off-black .sg-color-swatch {
+  background: $transparent-background;
+}
+.sg-transp-black .sg-color-swatch {
+  background: $transparent-background-hover;
+}
+
+// Blues
+.sg-lightest-blue .sg-color-swatch {
+  background: $Calcite_Blue_100;
+}
+.sg-lighter-blue .sg-color-swatch {
+  background: $Calcite_Blue_150;
+}
+.sg-light-blue .sg-color-swatch {
+  background: $Calcite_Blue_250;
+}
+.sg-blue .sg-color-swatch {
+  background: $Calcite_Blue_a200;
+}
+.sg-dark-blue .sg-color-swatch {
+  background: $Calcite_Blue_a250;
+}
+// Greens
+.sg-light-green .sg-color-swatch {
+  background: $Calcite_Green_150;
+}
+.sg-green .sg-color-swatch {
+  background: $Calcite_Green_250;
+}
+.sg-dark-green .sg-color-swatch {
+  background: $Calcite_Green_a200;
+}
+// Reds
+.sg-light-red .sg-color-swatch {
+  background: $Calcite_Red_a100;
+}
+.sg-red .sg-color-swatch {
+  background: $Calcite_Red_a150;
+}
+.sg-dark-red .sg-color-swatch {
+  background: $Calcite_Red_a200;
+}
+// Oranges
+.sg-light-orange .sg-color-swatch {
+  background: $Calcite_Orange_150;
+}
+.sg-orange .sg-color-swatch {
+  background: $Calcite_Orange_200;
+}
+.sg-dark-orange .sg-color-swatch {
+  background: $Calcite_Orange_a150;
+}
+// Yellows
+.sg-light-yellow .sg-color-swatch {
+  background: $Calcite_Yellow_150;
+}
+.sg-yellow .sg-color-swatch {
+  background: $Calcite_Yellow_200;
+}
+.sg-dark-yellow .sg-color-swatch {
+  background: $Calcite_Yellow_a150;
+}
+// Purples
+.sg-light-purple .sg-color-swatch {
+  background: $Calcite_Purple_150;
+}
+.sg-purple .sg-color-swatch {
+  background: $Calcite_Purple_200;
+}
+.sg-dark-purple .sg-color-swatch {
+  background: $Calcite_Purple_a150;
+}
+// Browns
+.sg-light-brown .sg-color-swatch {
+  background: $Calcite_Brown_150;
+}
+.sg-brown .sg-color-swatch {
+  background: $Calcite_Brown_250;
+}
+.sg-dark-brown .sg-color-swatch {
+  background: $Calcite_Brown_a200;
+}
+
+.sg-gray-darker .sg-color-swatch {
+  background: $Calcite_Gray_550;
+}
+.sg-gray-dark .sg-color-swatch {
+  background: $Calcite_Gray_500;
+}
+.sg-gray .sg-color-swatch {
+  background: $Calcite_Gray_450;
+}
+.sg-gray-light .sg-color-swatch {
+  background: $Calcite_Gray_400;
+}
+.sg-gray-lighter .sg-color-swatch {
+  background: $Calcite_Gray_350;
+}
+
+.sg-brand-primary .sg-color-swatch {
+  background: $Calcite_Blue_a200;
+}
+.sg-brand-success .sg-color-swatch {
+  background: $Calcite_Green_250;
+}
+.sg-brand-info .sg-color-swatch {
+  background: $Calcite_Blue_250;
+}
+.sg-brand-warning .sg-color-swatch {
+  background: $Calcite_Yellow_200;
+}
+.sg-brand-danger .sg-color-swatch {
+  background: $Calcite_Red_a150;
+}
+
+
