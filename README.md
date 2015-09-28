@@ -46,6 +46,20 @@ Then in your main `.scss` file, you can just require the framework: `@import "ca
 Calcite Bootstrap aims to provide a robust set of patterns and utilities for the developer building general purpose web applications, while simultaneously carrying forward the Calcite-Web asthetic.
 
 
+# Build and Deploy Process
+
+## Building Documentation
+The docs are hosted on gh-pages and can be deployed by anyone with push access to the repo.
+
+`grunt deploy` will build the doc pages, and the css, an push that to gh-pages
+
+## Deploy Releases
+Releases are stored @ github, and the deploy process involves a shell-script
+
+`sh ./bin/release.sh`
+
+#-----------------------------
+
 # Contributing to Calcite Bootstrap
 
 Installing Calcite Bootstrap was designed to be fairly painless. If you have any problems, be sure to [submit an issue](https://github.com/Esri/calcite-bootstrap/issues/).
