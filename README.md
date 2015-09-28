@@ -1,3 +1,51 @@
+# Calcite-Bootstrap
+
+Calcite-Bootstrap is a UI kit for Bootstrap 3.x. At this time is is intended for use building Esri branded applications, but there are plans to open this up further.
+
+# Using Calcite Bootstrap
+
+There are two main ways to use Calcite Boostrap: copying compiled css files into your project or installing via a package manager and using a SASS build step in your project.
+
+## Static Files
+
+This is probably the easiest way. If you're looking to get up and running quickly, just [download the latest release](https://github.com/esri/calcite-bootstrap/releases) and move the zipped files to wherever you keep you assets. Be sure to use [the documentation site](http://esri.github.io/calcite-bootstrap/) and the main [Bootstrap](http://getbootstrap.com) to copy and paste patterns, components, and even a sample html boilerplate.
+
+## NPM
+
+To install Calcite Bootstrap with npm, type:
+
+```
+npm install --save-dev Esri/calcite-bootstrap#v0.2.0
+```
+
+You must add the current version in order to get the `dist/` folder.
+
+If you're using sass, be sure to add `node_modules/calcite-bootstrap/dist/sass/` to your load path. If you're using `grunt-contrib-sass` you add that like this:
+
+```
+'sass': {
+  target: {
+    options: {
+      loadPath: 'node_modules/calcite-bootstrap/dist/sass/'
+    },
+    files: {
+      'path/to.css': 'path/to.scss'
+    }
+  }
+}
+```
+
+Then in your main `.scss` file, you can just require the framework: `@import "calcite-bootstrap";`.
+
+#---------------
+# ERICH WE NEED MORE DOC HERE ABOUT EXTENDING 
+#---------------
+
+## Calcite Boostrap vs. Calcite Web
+
+Calcite Bootstrap aims to provide a robust set of patterns and utilities for the developer building general purpose web applications, while simultaneously carrying forward the Calcite-Web asthetic.
+
+
 # Contributing to Calcite Bootstrap
 
 Installing Calcite Bootstrap was designed to be fairly painless. If you have any problems, be sure to [submit an issue](https://github.com/Esri/calcite-bootstrap/issues/).
