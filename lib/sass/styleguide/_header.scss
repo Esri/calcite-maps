@@ -1,0 +1,20 @@
+.docs-header {
+	position: relative;
+	padding: 60px 15px;
+	color: $Calcite_Purple_200;
+	background: url(../images/header-topo.svg);
+	background-image: url(../images/header-topo.svg);
+	background-position-x: center;
+	background-size: cover;
+	h1 {
+		margin-top: 0;
+		color: #fff;
+		font-size: 60px;
+		line-height: 1;
+	}
+	p {
+		font-size: 24px;
+		text-align: left;
+	}
+
+}

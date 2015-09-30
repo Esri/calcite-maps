@@ -1,7 +1,7 @@
 {
   "name": "calcite-bootstrap",
   "title": "Calcite Boostrap",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
   "homepage": "https://github.com/Esri/calcite-bootstrap",
@@ -13,7 +13,7 @@
   "main": "dist/js/calcite-boostrap.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/esri/calcite-boostrap.git"
+    "url": "git://github.com/esri/calcite-bootstrap.git"
   },
   "contributors": [
     {
@@ -30,7 +30,7 @@
   ],
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/esri/calcite-boostrap/issues"
+    "url": "https://github.com/esri/calcite-bootstrap/issues"
   },
   "engines": {
     "node": ">=0.10.0"

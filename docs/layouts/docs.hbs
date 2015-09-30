@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>Calcite+Bootstrap Documentation</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="{{assets}}styles/calcite-bootstrap.css">
+    <link rel="stylesheet" href="{{assets}}css/calcite-bootstrap.css">
     <script src="{{assets}}scripts/head.js"></script>
 
   </head>
@@ -17,9 +17,9 @@
     {{> _docs-navbar}}
     {{> body }}
 
-    <script src="{{assets}}scripts/vendor.js"></script>
-    <script src="{{assets}}scripts/plugins.js"></script>
-    <script src="{{assets}}scripts/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{assets}}scripts/plugins.min.js"></script>
+    <script src="{{assets}}scripts/docs.min.js"></script>
     <script>
       $(function () {
         $("[data-toggle='tooltip']").tooltip();
