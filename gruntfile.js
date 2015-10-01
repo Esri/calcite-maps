@@ -314,6 +314,13 @@ module.exports = function(grunt) {
       src: ['**']
     },
 
+    // Clean the build folder before rebuild
+    clean: {
+      dist: {
+        src: [ 'dist/' ]
+      },
+    },
+
     // Runs tasks concurrently, speeding up Grunt
     'concurrent': {
       prepublish: [
@@ -323,7 +330,8 @@ module.exports = function(grunt) {
         //'concat:dist',
         'newer:imagemin:dist'
       ]
-    }
+    },
+
 
   });
 
@@ -333,6 +341,19 @@ module.exports = function(grunt) {
   // ┌─────────────┐
   // │ Grunt tasks │
   // └─────────────┘
+
+
+  // Build sass
+  grunt.registerTask('build:sass', [
+    'clean',
+    'scss',
+    'copy:libsass',
+    'copy:fonts',
+    'copy:changelog',
+    'compress'
+
+  ]);
+
 
   // Build sass
   grunt.registerTask('scss', [
