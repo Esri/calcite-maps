@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>  <html class="ie lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+
+    <!-- Set encoding -->
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- Use title from page frontmatter -->
+    <title>{{title}} | Esri Design Patterns</title>
+
+    <!-- Link to favicon -->
+    <link rel="shortcut icon" href="{{relativePath}}assets/img/favicon.ico">
+
+    <!-- stylesheets -->
+    {% block head %}
+      <link rel="stylesheet" href="{{relativePath}}assets/css/calcite-bootstrap.css">
+      <link rel="stylesheet" href="{{relativePath}}assets/css/docs.css">
+    {% endblock %}
+
+    <!--[if lt IE 9]>
+      <script src="{{relativePath}}assets/js/libs/selectivizr-min.js"></script>
+      <script src="{{relativePath}}assets/js/libs/html5shiv.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    {% include "partials/_docs-navbar" %}
+    
+    <div class="container content-body">
+       {% block content %}{% endblock %}
+    </div>
+
+    {% include "partials/_footer" %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+
+  </body>
+
+</html>

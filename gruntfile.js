@@ -4,76 +4,90 @@
 // Grunt wraps several tasks to ease development
 // runs middleman, deploys the site, and tags new releases
 
-
 // Javascript banner
-var banner = '/* <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+var banner = '/* <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
                 '*  <%= pkg.homepage %>\n' +
                 '*  Copyright (c) <%= grunt.template.today("yyyy") %> Environmental Systems Research Institute, Inc.\n' +
                 '*  Apache 2.0 License */\n';
 
 var currentVersion = require('./package.json').version;
-var fs = require('fs');
 
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('./package.json'),
+    pkg: grunt.file.readJSON('package.json'),
 
     // Running a development server
     'http-server': {
       'dev': {
-        root: 'dist',
-        port: 9000,
+        root: 'docs/build',
+        port: 8888,
         host: '0.0.0.0',
         cache: 0,
         showDir : true,
         autoIndex: true,
         ext: 'html',
-        runInBackground: true,
-        livereload: true
+        runInBackground: true
       }
     },
 
+
+    
+
+
     // Watch files
     'watch': {
-      options: {
-        livereload: true
-      },
-      html: {
-        files: ['docs/**/*.hbs'],
+      scripts: {
+        files: ['lib/js/calcite-bootstrap.js'],
         tasks: [
-          'assemble:dist'
+          'concat:doc',
+          'copy:doc',
+          'jshint'
         ]
       },
       images: {
-        files: ['docs/images/**/*'],
+        files: ['lib/img/**/*'],
         tasks: [
-          'imagemin'
-        ]
-      },
-      scripts: {
-        files: ['lib/scripts/**/*.js'],
-        tasks: [
-          'jshint',
-          'uglify'
+          'newer:imagemin:doc',
+          'copy:doc'
         ]
       },
       libsass: {
-        files: ['lib/sass/**/*.scss'],
+        files: ['lib/sass/calcite/**/*', 'lib/sass/calcite/**/calcite*.scss','docs/source/assets/css/**/*'],
         tasks: [
-          'sass'
+          'sass:doc',
+          'copy:doc'
         ]
       },
+      fonts: {
+        files: ['lib/fonts/**/*'],
+        tasks: [
+          'copy:fonts',
+          'copy:fontsDist',
+          'copy:doc'
+        ]
+      },
+      docs: {
+        files: ['docs/source/**'],
+        tasks: [
+          'shell:acetate'
+        ]
+      }
     },
 
-    // SCSS to CSS conversion
+    // Check Javascript for errors
+    'jshint': {
+      all: ['lib/js/calcite-bootstrap.js']
+    },
+
+    // Build CSS files from SASS
     'sass': {
+
       options: {
-        includePaths: [
-          './bower_components/bootstrap-sass-official/assets/stylesheets'
-        ]
+        includePaths: ['./bower_components/bootstrap-sass-official/assets/stylesheets']
       },
+
       expanded: {
         files: {
           //'dist/styles/style-guide.css':'docs/styles/style-guide.scss',
@@ -81,40 +95,31 @@ module.exports = function(grunt) {
           'dist/css/calcite-bootstrap-dark.css': 'lib/sass/calcite-bootstrap-dark.scss'
           //,'dist/css/calcite-patterns-bootstrap.css': 'lib/sass/calcite-patterns-bootstrap.scss'
         }
-      }
-
-    },
-
-    // Prefix CSS with browser specifics [last 2 browser versions]
-    postcss: {
-      options: {
-        map: true,
-
-        processors: [
-          require('autoprefixer-core')({ browsers: 'last 2 versions' }),
-        ]
       },
-      dist: {
-        src: 'dist/css/*.css'
-      }
+
+      doc: {
+        expand: true,
+        cwd: 'docs/source/assets/css',
+        src: ['**/*.scss'],
+        dest: 'docs/build/assets/css',
+        ext: '.css'
+      },
+
+      // homepage: {
+      //   files: {
+      //     'docs/build/assets/css/homepage.css': 'docs/source/assets/css/homepage.scss'
+      //   }
+      // }
     },
 
-    // Minify CSS after construction
+    // Create minified version of build css
     'cssmin': {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'dist/css',
-          src: ['*.css', '!*.min.css'],
-          dest: 'dist/css',
-          ext: '.min.css'
-        }]
+      target: {
+        files: {
+          'dist/css/calcite-bootstrap.min.css': ['dist/css/calcite-bootstrap.css'],
+          'dist/css/calcite-bootstrap-dark.min.css': ['dist/css/calcite-bootstrap-dark.css']
+        }
       }
-    },
-
-    // Check Javascript for errors
-    'jshint': {
-      all: ['app/scripts/**/*.js']
     },
 
     // Build minified Javascript file to dist
@@ -125,25 +130,89 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/scripts/plugins.min.js':['./bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
-          'dist/scripts/docs.min.js': ['docs/scripts/*.js']
+          'dist/js/calcite-bootstrap.min.js': ['lib/js/calcite-bootstrap.js']
         }
       }
     },
 
-    // Optimize images
+    // Copy libsass files to dist, doc assets to build
+    'copy': {
+      libsass: {
+        expand: true,
+        cwd: './lib/sass',
+        src: ['**/*'],
+        dest: 'dist/sass/'
+      },
+      doc: {
+        expand: true,
+        cwd: 'docs/source/',
+        src: ['assets/img/**/*', 'assets/js/**/*'],
+        dest: 'docs/build/'
+      },
+      fonts: {
+        expand: true,
+        flatten: true,
+        cwd: './bower_components/bootstrap-sass-official/assets/',
+        src: ['fonts/bootstrap/**/*'],
+        dest: 'docs/build/assets/css/fonts/'
+      },
+      fontsDist: {
+        expand: true,
+        flatten: true,
+        cwd: './bower_components/bootstrap-sass-official/assets/',
+        src: ['fonts/bootstrap/**/*'],
+        dest: 'dist/fonts/'
+      },
+      css: {
+        expand: true,
+        flatten: true,
+        src: ['dist/css/**/*'],
+        dest: 'docs/build/assets/css/'
+      },
+      changelog: {
+        src: ['CHANGELOG.md'],
+        dest: 'dist/'
+      }
+    },
+
+    // Copy Javascript to dist and doc
+    // 'concat': {
+    //   options: {
+    //     banner: banner
+    //   },
+    //   dist: {
+    //     files: {
+    //       'dist/js/calcite-bootstrap.js': 'lib/js/calcite-bootstrap.js'
+    //     }
+    //   },
+    //   doc: {
+    //     files: {
+    //       'docs/source/assets/js/libs/calcite-bootstrap.js': 'lib/js/calcite-bootstrap.js'
+    //     }
+    //   }
+    // },
+
+    // Optimize images and icons for dist and doc
     'imagemin': {
       dist: {
         files: [{
           expand: true,
-          cwd: 'app/',
-          src: ['images/**/*.{png,jpg,svg,ico}'],
+          cwd: 'lib/',
+          src: ['img/**/*.{png,jpg,svg,ico}'],
           dest: 'dist/'
+        }]
+      },
+      doc: {
+        files: [{
+          expand: true,
+          cwd: 'lib/',
+          src: ['img/**/*.{png,jpg,svg,ico}'],
+          dest: 'docs/source/assets/'
         }]
       }
     },
 
-    // Create zip release
+    // Make a zip file of the dist folder
     'compress': {
       main: {
         options: {
@@ -155,39 +224,6 @@ module.exports = function(grunt) {
             dest: './'
           },
         ]
-      }
-    },
-
-     // Copy libsass files to dist, doc assets to build
-    'copy': {
-      extras: {
-        expand: true,
-        flatten: true,
-        src: [ 'app/extras/*' ],
-        dest: 'dist/'
-      },
-      scripts: {
-        expand: true,
-        flatten: true,
-        src: [ 'app/scripts/**/*.js' ],
-        dest: 'dist/scripts/'
-      },
-      fonts: {
-        expand: true,
-        flatten: true,
-        cwd: './bower_components/bootstrap-sass-official/assets/',
-        src: ['fonts/bootstrap/**/*'],
-        dest: 'dist/css/fonts/'
-      },
-      changelog: {
-        src: ['CHANGELOG.md'],
-        dest: 'dist/'
-      },
-      sass: {
-        expand: true,
-        cwd: './lib/sass/',
-        src: ['**/*'],
-        dest: 'dist/sass/'
       }
     },
 
@@ -208,20 +244,24 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'dist/', src: ['**/*.svg'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'image/svg+xml'}},
           {expand: true, cwd: 'dist/', src: ['**/*.ico'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'image/x-icon'}},
           {expand: true, cwd: 'dist/', src: ['**/*.jpg'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'image/jpg'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.map'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/javascript'}},
           {expand: true, cwd: 'dist/', src: ['**/*.eot'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/vnd.ms-fontobject'}},
           {expand: true, cwd: 'dist/', src: ['**/*.woff'], dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/font-woff'}},
           {expand: true, cwd: 'dist/', src: ['**/*.otf'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/font-sfnt'}},
           {expand: true, cwd: 'dist/', src: ['**/*.ttf'],  dest: 'files/calcite-bootstrap/' + currentVersion + '/', params: {ContentType: 'application/font-sfnt'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.json'], dest: 'files/calcite-bootstrap/', params: {ContentType: 'application/javascript'}},
           // Also upload to the 'latest' directory
           {expand: true, cwd: 'dist/', src: ['**/*.js'],   dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/javascript'}},
           {expand: true, cwd: 'dist/', src: ['**/*.css'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'text/css'}},
           {expand: true, cwd: 'dist/', src: ['**/*.svg'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'image/svg+xml'}},
           {expand: true, cwd: 'dist/', src: ['**/*.ico'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'image/x-icon'}},
           {expand: true, cwd: 'dist/', src: ['**/*.jpg'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'image/jpg'}},
+          {expand: true, cwd: 'dist/', src: ['**/*.map'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/javascript'}},
           {expand: true, cwd: 'dist/', src: ['**/*.eot'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/vnd.ms-fontobject'}},
           {expand: true, cwd: 'dist/', src: ['**/*.woff'], dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-woff'}},
           {expand: true, cwd: 'dist/', src: ['**/*.otf'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-sfnt'}},
-          {expand: true, cwd: 'dist/', src: ['**/*.ttf'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-sfnt'}}
+          {expand: true, cwd: 'dist/', src: ['**/*.ttf'],  dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'application/font-sfnt'}},
+          {expand: true, cwd: 'dist/', src: ['CHANGELOG.md'], dest: 'files/calcite-bootstrap/latest/', params: {ContentType: 'text/x-markdown'}}
         ]
       }
     },
@@ -246,49 +286,32 @@ module.exports = function(grunt) {
       }
     },
 
-    // Build docs
-    assemble: {
-      options: {
-        layout: 'layout.hbs',
-        layoutdir: 'docs/layouts/',
-        partials: 'docs/partials/**/*.hbs',
-        helpers: ['docs/helpers/**/*.js' ]
+    // bin scripts
+    'shell': {
+      guid: {
+        command: 'bin/guid.js',    // Generate a unique id for a new section
       },
-      dev: {
-        options: {
-          assets: 'dist/',
-          production: false
-        },
-        files: [{
-          cwd: 'docs/pages',
-          dest: 'dist',
-          expand: true,
-          src: ['**/*.hbs', '**/*.md']
-        }]
+      deploy: {
+        command: 'bin/deploy.js',  // Create a JSON record of current documentation
       },
-      dist: {
-        options: {
-          assets: 'dist/',
-          production: true
-        },
-        files: [{
-          cwd: 'docs/pages',
-          dest: 'dist',
-          expand: true,
-          src: ['**/*.hbs', '**/*.md']
-        }]
+      release: {
+        command: 'bin/release.sh'  // Create GitHub release that includes dist
       },
-      build: {
-        options: {
-          assets: 'calcite-bootstrap/'
-        },
-        files: [{
-          cwd: 'docs/pages',
-          dest: 'dist',
-          expand: true,
-          src: ['**/*.hbs', '**/*.md']
-        }]
+      acetate: {
+        command: 'npm run acetate' // build the docs site
+      },
+      a11y: {
+        command: 'npm run a11y' // run accessibility tests
       }
+    },
+
+    // Deploy doc site to gh-pages
+    'gh-pages': {
+      options: {
+        base: 'docs/build',
+        repo: 'https://github.com/Esri/calcite-bootstrap.git'
+      },
+      src: ['**']
     },
 
     // Clean the build folder before rebuild
@@ -298,95 +321,103 @@ module.exports = function(grunt) {
       },
     },
 
-    // Concat Bower dependencies
-    concat: {
-      options: {
-        separator: '',
-      },
-      plugins: {
-        startFolder: 'bower_components/bootstrap-sass-official/assets',
-        src: [
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/affix.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/alert.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/dropdown.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/tooltip.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/modal.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/transition.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/button.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/popover.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/carousel.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/scrollspy.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/collapse.js',
-          '<%= concat.plugins.startFolder %>/javascripts/bootstrap/tab.js'
-        ],
-        dest: 'dist/scripts/plugins.js',
-      },
-      head: {
-        startFolder: './bower_components',
-        src: [
-          '<%= concat.head.startFolder %>/modernizr/modernizr.js',
-        ],
-        dest: 'dist/scripts/head.js',
-      },
-      vendor: {
-        startFolder: './bower_components',
-        src: [
-          '<%= concat.vendor.startFolder %>/jquery/dist/jquery.js',
-        ],
-        dest: 'dist/scripts/vendor.js',
-      }
-    },
-
-
     // Runs tasks concurrently, speeding up Grunt
     'concurrent': {
       prepublish: [
-        'sass',
-        'cssmin',
-        'jshint',
-        'newer:imagemin',
-        'uglify',
-        'concat',
-        'copy'
+        'scss',
+        //'uglify',
+        'copy',
+        //'concat:dist',
+        'newer:imagemin:dist'
       ]
-    }
+    },
+
 
   });
 
-  // Require all Grunt Tasks
+  // load all grunt modules
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  // Start server and watch
-  grunt.registerTask('serve', [ 'http-server', 'watch' ]);
+  // ┌─────────────┐
+  // │ Grunt tasks │
+  // └─────────────┘
 
-  // Build
-  grunt.registerTask('build:docs', [ 'clean', 'assemble:dev', 'concurrent', 'postcss' ]);
 
-  // Release
-  grunt.registerTask('release', [ 'compress' ]);
-
-  // Publish files to S3
-  grunt.registerTask('publish', [
+  // Build sass
+  grunt.registerTask('build:sass', [
     'clean',
-    'assemble:dist',
-    'concurrent',
-    'postcss',
-    //'shell:deploy',
+    'scss',
+    'copy:libsass',
+    'copy:fonts',
+    'copy:changelog',
+    'compress'
+
+  ]);
+
+
+  // Build sass
+  grunt.registerTask('scss', [
+    'sass',
+    'cssmin'
+  ]);
+
+  // Run a development environment
+  grunt.registerTask('dev', [
+    'shell:acetate',
+    'newer:imagemin:doc',
+    //'concat:doc',
+    'sass:doc',
+    'copy:doc',
+    'copy:fonts',
+    'http-server',
+    'watch'
+  ]);
+
+  // Test calcite-bootstrap.js
+  grunt.registerTask('test', [
+    'jshint'
+  ]);
+
+  // Build a dist folder with all assets
+  grunt.registerTask('prepublish', [
+    'concurrent:prepublish'
+  ]);
+
+  // Upload files to s3
+  grunt.registerTask('s3', [
+    'prepublish',
+    'shell:deploy',
     'prompt:aws',
     'aws_s3'
   ]);
 
-  grunt.registerTask('build:sass', [ 
-    'clean',
-    'sass',
-    'cssmin',
-    'copy:sass',
-    'copy:fonts',
-    'copy:changelog',
-    'compress'
-   ]);
+  // Build and deploy doc site to github pages
+  grunt.registerTask('deploy', 'Deploy documentation to github pages', function(n) {
+    if (grunt.option('message')) {
+      grunt.config.set('gh-pages.options.message', grunt.option('message'));
+    }
+    grunt.task.run([
+      'shell:acetate',
+      'newer:imagemin:doc',
+      //'concat:doc',
+      'sass:doc',
+      'copy:doc',
+      'copy:fonts',
+      'shell:deploy',
+      'gh-pages'
+    ]);
+  });
 
-  // Default
-  grunt.registerTask('default', [ 'build', 'serve' ]);
+  // Release a new version of the framework
+  grunt.registerTask('release', [
+    'prepublish',
+    'shell:deploy',
+    'compress',
+    'shell:release',
+    //'s3'
+  ]);
+
+  // Default task starts up a dev environment
+  grunt.registerTask('default', ['prepublish', 'dev']);
 
 };

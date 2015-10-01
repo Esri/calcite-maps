@@ -1,0 +1,139 @@
+{% extends "layouts/_layout" %}
+
+{% block subnav %}
+  <h1 class="sub-nav-title text-white">{{ data.table_of_contents[section].title }}</h1>
+  <a href="https://github.com/ArcGIS/calcite-web/releases" class="btn btn-white btn-arrow right leader-half">Latest Release</a>
+{% endblock %}
+
+{% block content %}
+  <div class="col-lg-3 col-md-4">
+    <aside class="side-nav" aria-role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+      {% for group in data.table_of_contents[section].navigation %}
+        <h4 class="side-nav-title">{{ group.group }}</h4>
+        <!-- <nav aria-role="navigation" aria-labelledby="sidenav"> -->
+        <nav aria-role="navigation">
+          <ul class="nav nav-stacked">
+            {% for page in group.pages %}
+              {% if page.title == 'Overview' %}
+                <li><a href="#{{group.group | replace(" ", "-") | lower}}" class="side-nav-link">{{page.title}}</a></li>
+              {% else %}
+                <li><a href="#{{page.link}}" class="side-nav-link">{{page.title}}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endfor %}
+    </aside>
+  </div>
+
+  <a id="skip-to-content" tabindex="0"></a>
+  <main class="col-lg-9 col-md-8" role="main">
+
+    {% for group in data.table_of_contents[section].navigation %}
+      <h1 class="text-rule" id="{{group.group | replace(" ", "-") | lower}}" tabindex="0">{{group.group}}</h1>
+      {% for page in group.pages %}
+        <section>
+          {% if page.title != 'Overview' %}
+            <h2 id="{{page.link}}" tabindex="0">{{page.title}}</h2>
+          {% endif %}
+
+          {% markdown %}{% include data.table_of_contents[section].base + '/_' + page.link %}{% endmarkdown %}
+
+          {% if page.title == 'Social Icons' %}
+            <div class="block-group block-group-3-up">
+              {% for icon in data.icons %}
+                <div class="block">
+                  <a href="" class="icon-social-{{icon}}" aria-label="{{icon}}"></a>
+                  <p class="trailer-1 leader-half"><code>.icon-social-{{icon}}</code></p>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if page.title == 'Icon Font' %}
+            <div class="block-group block-group-3-up">
+              {% for icon in data.font.icons %}
+                <div class="block">
+                  <span class="font-size-5 icon-ui-{{icon.properties.name}}" aria-label="{{icon.properties.name}}"></span>
+                  <p class="trailer-1 leader-half"><code>icon-ui-{{icon.properties.name}}</code></p>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if page.title == 'Icon Font Colors' %}
+            <div class="block-group block-group-3-up">
+              <div class="block">
+                <span class="font-size-5 icon-ui-check-mark icon-ui-green" aria-label="check-mark "></span>
+                  <p class="trailer-1 leader-half"><code>icon-ui-check-mark icon-ui-green</code></p>
+              </div>
+              <div class="block">
+                <span class="font-size-5 icon-ui-check-mark icon-ui-blue" aria-label="check-mark "></span>
+                  <p class="trailer-1 leader-half"><code>icon-ui-check-mark icon-ui-blue</code></p>
+              </div>
+              <div class="block">
+                <span class="font-size-5 icon-ui-check-mark icon-ui-purple" aria-label="check-mark "></span>
+                  <p class="trailer-1 leader-half"><code>icon-ui-check-mark icon-ui-purple</code></p>
+              </div>
+              <div class="block">
+                <span class="font-size-5 icon-ui-check-mark icon-ui-orange" aria-label="check-mark "></span>
+                  <p class="trailer-1 leader-half"><code>icon-ui-check-mark icon-ui-orange</code></p>
+              </div>
+              <div class="block">
+                <span class="font-size-5 icon-ui-check-mark icon-ui-gray" aria-label="check-mark "></span>
+                  <p class="trailer-1 leader-half"><code>icon-ui-check-mark icon-ui-gray</code></p>
+              </div>
+              <div class="block">
+              <span class="font-size-5 icon-ui-check-mark icon-ui-red" aria-label="check-mark "></span>
+              <p class="trailer-1 leader-half"><code>icon-ui-check-mark icon-ui-red</code></p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if page.modifiers %}
+            <h3 class="leader-2" tabindex="0">Modifiers</h3>
+            <div class="styleguide-modifiers">
+              <div class="styleguide-modifier-example">
+                {% include data.table_of_contents[section].base + '/sample-code/_' + page.link %}
+              </div>
+              {% for modifier in page.modifiers %}
+                <div class="styleguide-modifier-example">
+                  {% include data.table_of_contents[section].base + '/sample-code/_' + page.link %}
+                  <code class="modifier-name">.{{ modifier }}</code>
+                </div>
+              {% endfor %}
+            </div>
+{% markdown %}
+```
+{% set modifier = "modifier-class" %}{% include data.table_of_contents[section].base + '/sample-code/_' + page.link %}
+```
+{% endmarkdown %}
+          {% endif %}
+
+          {% if page.colors %}
+            <div class="block-group block-group-1-up">
+              {% for color in page.colors %}
+                <div class="block color-sample {{ color }}">
+                  <code>${{ color }}</code>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if page.variables %}
+            <div class="block-group block-group-5-up">
+              {% for variable in page.variables %}
+                <div class="block">
+                  <p class="type-sample trailer-0 leader-1 {{variable}}"></p>
+                  <code>${{ variable }}</code>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </section>
+        <hr>
+      {% endfor %}
+    {% endfor %}
+  </main>
+{% endblock %}

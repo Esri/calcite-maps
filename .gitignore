@@ -2,6 +2,8 @@
 .publish
 .sass-cache
 .tmp
+.grunt
+docs/build/
 app/styles/.DS_Store
 aws.json
 bower_components

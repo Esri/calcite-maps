@@ -1,13 +1,14 @@
 {
   "name": "calcite-bootstrap",
   "title": "Calcite Boostrap",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
   "homepage": "https://github.com/Esri/calcite-bootstrap",
   "scripts": {
     "test": "grunt test",
     "gh-release": "gh-release -a calcite-bootstrap.zip",
+    "acetate": "acetate build -i docs/source -o docs/build -c docs/acetate.conf.js",
     "start": "grunt"
   },
   "main": "dist/js/calcite-boostrap.js",
@@ -36,6 +37,9 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "a11y": "^0.3.3",
+    "acetate": "^0.3.1",
+    "acetate-cli": "0.0.3",
     "arraystream": "0.0.5",
     "assemble": "^0.4.42",
     "autoprefixer-core": "^5.2.1",
@@ -63,15 +67,20 @@
     "grunt-postcss": "^0.5.5",
     "grunt-prompt": "^1.2.1",
     "grunt-sass": "^0.18.0",
-    "grunt-shell": "~1.1.2",
+    "grunt-shell": "^1.1.2",
     "imagemin": "^3.2.0",
     "install": "^0.1.8",
     "load-grunt-tasks": "^3.2.0",
+    "marked": "^0.3.5",
     "matchdep": "^0.3.0",
     "mkdirp": "^0.5.1",
     "npm": "^2.13.5",
     "postcss": "^4.1.16",
     "s3": "^4.4.0",
     "stream-array": "^1.1.0"
+  },
+  "dependencies": {
+    "js-yaml": "^3.4.2",
+    "jsonfile": "^2.2.2"
   }
 }
