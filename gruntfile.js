@@ -32,14 +32,7 @@ module.exports = function(grunt) {
       }
     },
 
-    
-    'gh-pages': {
-      options: {
-        base: 'docs/build',
-        repo: 'https://github.com/Esri/calcite-bootstrap.git'
-      },
-      src: ['**']
-    },
+
     
 
 
@@ -61,7 +54,7 @@ module.exports = function(grunt) {
         ]
       },
       libsass: {
-        files: ['lib/sass/**/*', 'docs/source/assets/css/**/*'],
+        files: ['lib/sass/calcite/**/*', 'lib/sass/calcite/**/calcite*.scss','docs/source/assets/css/**/*'],
         tasks: [
           'sass:doc',
           'copy:doc'
@@ -123,7 +116,8 @@ module.exports = function(grunt) {
     'cssmin': {
       target: {
         files: {
-          'dist/css/calcite-bootstrap.min.css': ['dist/css/calcite-bootstrap.css']
+          'dist/css/calcite-bootstrap.min.css': ['dist/css/calcite-bootstrap.css'],
+          'dist/css/calcite-bootstrap-dark.min.css': ['dist/css/calcite-bootstrap-dark.css']
         }
       }
     },
@@ -172,7 +166,6 @@ module.exports = function(grunt) {
       css: {
         expand: true,
         flatten: true,
-        //cwd: './bower_components/bootstrap-sass-official/assets/',
         src: ['dist/css/**/*'],
         dest: 'docs/build/assets/css/'
       },
@@ -400,7 +393,7 @@ module.exports = function(grunt) {
     'shell:deploy',
     'compress',
     'shell:release',
-    's3'
+    //'s3'
   ]);
 
   // Default task starts up a dev environment

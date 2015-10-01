@@ -6,11 +6,11 @@
 
 ## Deploy Docs to gh-pages
 
-`grunt gh-pages` will push whatever is in `./docs/build` to gh-pages. Be sure to have run `grunt` at least once before deploying
+`grunt deploy` will do a build and push whatever is in `./docs/build` to gh-pages. 
 
 ## Release
 
-`sh bin/release.sh` will take the contents of `./dist` and package it into a release at github. 
+`grunt release` will to a build and take the contents of `./dist` and package it into a release at github. 
 
 It will use the package version from `package.json` and take along CHANGELOG.md for good measure. 
 
