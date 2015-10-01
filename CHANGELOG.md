@@ -1,5 +1,11 @@
 # Calcite+Bootstrap CHANGELOG
 
+## v0.2.1
+### Changed
+- swapped acetate for assemble
+- converted minimal docs to acetate
+- added deploy.js which builds the json files needed for the Patterns site
+
 ## v0.2.0
 
 ### Changed

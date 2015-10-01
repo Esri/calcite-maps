@@ -32,6 +32,17 @@ module.exports = function(grunt) {
       }
     },
 
+    
+    'gh-pages': {
+      options: {
+        base: 'docs/build',
+        repo: 'https://github.com/Esri/calcite-bootstrap.git'
+      },
+      src: ['**']
+    },
+    
+
+
     // Watch files
     'watch': {
       scripts: {
