@@ -142,7 +142,7 @@ module.exports = function(grunt) {
       libsass: {
         expand: true,
         cwd: './lib/sass',
-        src: ['calcite*.scss'],
+        src: ['calcite*.scss', 'calcite/**.*'],
         dest: 'dist/sass/'
       },
       doc: {
