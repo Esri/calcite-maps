@@ -1,5 +1,14 @@
 # Calcite+Bootstrap CHANGELOG
 
+## v0.2.2
+### Changed
+- added build-*.scss files that include bootstrap
+- removed the bootstrap include from the .scss files that ship in dist.
+- made `bootstrap-sass@3.3.5` a dependancy of this project so it will be auto-installed
+- added missing bootstrap vars into calcite files
+- distibutions will have the combined & minified bootstrap javascript
+- added docs describing this
+
 ## v0.2.1
 ### Changed
 - swapped acetate for assemble

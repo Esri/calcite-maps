@@ -14,102 +14,46 @@ In your build tool (grunt/gulp/npm etc) you need to add a step to copy the compi
 ## Using Sass
 Initially this will seem like a lot more setup and work, but you get a lot more flexibility as well as the ability to greatly reduce the size of the css file loaded into the browser. We also recommend using a project scaffolding tool such as [Yeoman's](http://yeoman.io) [gulp-webapp](https://github.com/yeoman/generator-gulp-webapp) which can greatly streamline getting all the tooling setup.
 
+### Sass Import Paths
+In order to use calcite-bootstrap in your sass/scss files, you will need to inform your sass processor where to look.
 
-Calcite Bootstrap depends on the Bootstrap. To install that with npm:
-
-```
-npm install --save-dev bootstrap-sass
-```
-
-To install with bower:
+The syntax varies depending on the build system you are using, but with grunt-sass, it looks like this:
 
 ```
-bower install --save bootstrap-sass-official
+  'sass': {
+    options: {
+      includePaths: [
+        './node_modules/bootstrap-sass/assets/stylesheets'
+        './node_modules/calcite-bootstrap/dist'
+      ]
+    }
+    ...other configuration as needed...
+  }
 ```
 
-Once installed, be sure to add `node_modules/calcite-bootstrap/dist/sass/` (for node) or `bower_components/bootstrap-sass-official/assets/stylesheets` (for bower) to your sass load path.
+If you are using Ember, this is done in the `ember-cli-build.js` file and looks like this:
+
+```
+    // ember-cli-sass
+    sassOptions: {
+      includePaths: [
+        'node_modules/bootstrap-sass/assets/stylesheets',
+        'node_modules/calcite-bootstrap/dist/sass'
+      ]
+    },
+```
+
 
 Then, in your applications sass/scss file add the following:
 ```
-/* Calcite has two color options out of the box - colors-default and colors-dark */
-@import 'colors-default';
-/* Now we load the main calcite variables */
-@import 'calcite';
-
-/* 
-  These are variables needed in bootstrap that are not in the calcite files.
-  This section will be removed as we update calcite-bootstrap
-*/
-$btn-border-radius-base:         $border-radius-base !default;
-$btn-border-radius-large:        $border-radius-large !default;
-$btn-border-radius-small:        $border-radius-small !default;
-
-$jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
-
-/* 
-Set the output folder for fonts. This is relative to where the css file is loaded from. 
-So if the css file is loadred from http://mysite.com/css/app.css, using ./fonts/ will mean
-the browser will expect to find the font files in  http://mysite.com/css/fonts
-*/
+/* Now we load calcite variables as overrides*/
+@import 'calcite-bootstrap';
+/* set the output folder for fonts */
 $icon-font-path: './fonts/';
-
-/* 
-Now bootstrap, which will use the calcite variables and cook the css 
-
-The nice thing about loading bootstrap like this is we can easily comment out sections 
-for components we are not using - thus slimming down the output css
- */
-@import "bootstrap/mixins";
-
-// Reset and dependencies
-@import "bootstrap/normalize";
-@import "bootstrap/print";
-@import "bootstrap/glyphicons";
-
-// Core CSS
-@import "bootstrap/scaffolding";
-@import "bootstrap/type";
-@import "bootstrap/code";
-@import "bootstrap/grid";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
-
-// Components
-@import "bootstrap/component-animations";
-@import "bootstrap/dropdowns";
-@import "bootstrap/button-groups";
-@import "bootstrap/input-groups";
-@import "bootstrap/navs";
-@import "bootstrap/navbar";
-@import "bootstrap/breadcrumbs";
-@import "bootstrap/pagination";
-@import "bootstrap/pager";
-@import "bootstrap/labels";
-@import "bootstrap/badges";
-@import "bootstrap/jumbotron";
-@import "bootstrap/thumbnails";
-@import "bootstrap/alerts";
-@import "bootstrap/progress-bars";
-@import "bootstrap/media";
-@import "bootstrap/list-group";
-@import "bootstrap/panels";
-@import "bootstrap/responsive-embed";
-@import "bootstrap/wells";
-@import "bootstrap/close";
-
-// Components w/ JavaScript
-@import "bootstrap/modals";
-@import "bootstrap/tooltip";
-@import "bootstrap/popovers";
-@import "bootstrap/carousel";
-
-// Utility classes
-@import "bootstrap/utilities";
-@import "bootstrap/responsive-utilities";
+@import 'bootstrap';
 ```
 
 ## Fonts
 
-Also add a task in your build process to copy the bootstrap fonts into your projects assets folder.
+Also add a task in your build process to copy the bootstrap fonts (glyphicons) into your projects assets folder.
 
