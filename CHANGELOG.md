@@ -1,4 +1,6 @@
 # Calcite+Bootstrap CHANGELOG
+## v0.2.3
+- bumped version to address bizzaro caching @ github or proxies or whatever.
 
 ## v0.2.2
 ### Changed
