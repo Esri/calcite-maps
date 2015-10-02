@@ -175,12 +175,19 @@ module.exports = function(grunt) {
         src: ['CHANGELOG.md'],
         dest: 'dist/'
       },
-      bootstrapjs:{
+      bootstrapjsDist:{
         expand: true,
         flatten: true,
         cwd: './node_modules/bootstrap-sass/assets/',
         src: ['javascripts/bootstrap.min.js'],
         dest: 'dist/js/'
+      },
+      bootstrapjs:{
+        expand: true,
+        flatten: true,
+        cwd: './node_modules/bootstrap-sass/assets/',
+        src: ['javascripts/bootstrap.min.js'],
+        dest: 'docs/build/assets/js/'
       }
     },
 
@@ -358,6 +365,7 @@ module.exports = function(grunt) {
     'scss',
     'copy:libsass',
     'copy:fonts',
+    'copy:bootstrapjsDist',
     'copy:bootstrapjs',
     'copy:changelog',
     'compress'
@@ -380,6 +388,7 @@ module.exports = function(grunt) {
     'copy:doc',
     'copy:fonts',
     'copy:bootstrapjs',
+    'copy:bootstrapjsDist',
     'http-server',
     'watch'
   ]);
@@ -415,6 +424,7 @@ module.exports = function(grunt) {
       'copy:doc',
       'copy:fonts',
       'copy:bootstrapjs',
+      'copy:bootstrapjsDist',
       'shell:deploy',
       'gh-pages'
     ]);
