@@ -8,6 +8,7 @@
 - added missing bootstrap vars into calcite files
 - distibutions will have the combined & minified bootstrap javascript
 - added docs describing this
+- added a better example page and the example page markup to the static section so people can copy-paste and be working with calcite-bootstrap.
 
 ## v0.2.1
 ### Changed
