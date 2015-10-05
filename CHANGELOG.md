@@ -1,4 +1,17 @@
 # Calcite+Bootstrap CHANGELOG
+## v0.2.3
+- bumped version to address bizzaro caching @ github or proxies or whatever.
+
+## v0.2.2
+### Changed
+- added build-*.scss files that include bootstrap
+- removed the bootstrap include from the .scss files that ship in dist.
+- made `bootstrap-sass@3.3.5` a dependancy of this project so it will be auto-installed
+- added missing bootstrap vars into calcite files
+- distibutions will have the combined & minified bootstrap javascript
+- added docs describing this
+- added a better example page and the example page markup to the static section so people can copy-paste and be working with calcite-bootstrap.
+- added missing /dist/sass/calcite folder to the build process
 
 ## v0.2.1
 ### Changed

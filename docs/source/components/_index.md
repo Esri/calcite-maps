@@ -1,12 +1,6 @@
----
-title: Calcite Bootstrap
-description: Quickly build beautiful websites, consistent with the Calcite Web Framework, using the bootstrap markup and classes you already know.
-section: 'examples'
----
-
 <div class="container">
-  <h1>Calcite-Bootstrap Theme example</h1>
-  <p>This is a template showcasing all the Bootstrap components with calcite-bootstrap applied.</p>
+  <h1>Theme example</h1>
+  <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
 </div>
 
 <hr>
@@ -2286,8 +2280,6 @@ section: 'examples'
   <div class="well well-lg">Look, I'm in a well!</div>
   <div class="well well-sm">Look, I'm in a well!</div>
 </div>
-
-
 
 
 

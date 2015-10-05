@@ -1,47 +1,8 @@
-This is probably the easiest way, but you won't get any of the helpful Sass mixins and you will have to manually keep your project in sync with Calcite-Bootstrap. However, if you're looking to get up and running quickly, just [download the latest release](https://github.com/ArcGIS/calcite-bootstrap/releases) and move the zipped files to wherever you keep your assets (CSS, JavaScript, images). Be sure to use [the documentation site](http://esri.github.io/calcite-bootstrap/) and the [main Bootstrap site](http://getbootstrap.com) to copy and paste patterns, components, and even a sample html boilerplate.
-
-Calcite-Bootstrap releases include the combined and minified bootstrap javascript files in the `/dist/js` folder. If you have a javascript build system, you can include a step to merge this file with your other scripts. Or you can create a task to simply copy this file into your project's javascript folder. We recommend you automate this instead of manually copying the file so that if/when you upgrade calcite-bootstrap, this file will also be upgraded at the same time.
-
-**Note**: The bootstrap javascript files depend on jquery being loaded into the page. We recommend pulling this from the Google CDN.
-
-```
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-```
-
-
-### Content Delivery Network (CDN)
-
-A CDN is being planned for future releases, allowing you to reference Calcite Bootstrap static assets on a server.
-
-For the time being - FOR DEVELOPMENT ONLY - you can pull the css and javascript files from github. Here is a starter-page.
-
-```
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-
-    <title>Theme Template for Calcite-Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="http://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body role="document">
+---
+title: Calcite Bootstrap
+description: Quickly build beautiful websites, consistent with the Calcite Web Framework, using the bootstrap markup and classes you already know.
+section: 'examples'
+---
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -53,13 +14,13 @@ For the time being - FOR DEVELOPMENT ONLY - you can pull the css and javascript 
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Bootstrap theme</a>
+          <a class="navbar-brand" href="http://esri.github.io/calcite-bootstrap">Back to Docs</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -82,7 +43,7 @@ For the time being - FOR DEVELOPMENT ONLY - you can pull the css and javascript 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Theme example</h1>
-        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+        <p>This is a template showcasing what you can expect in Calcite-Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
       </div>
 
 
@@ -640,18 +601,9 @@ For the time being - FOR DEVELOPMENT ONLY - you can pull the css and javascript 
     </div> <!-- /container -->
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script src="http://esri.github.io/calcite-bootstrap/assets/js/bootstrap.min.js"></script>
-    
-  </body>
-</html>
 
 
-```
+
 
 
 

@@ -2,6 +2,12 @@
 @import "calcite/colors-dark";
 @import "calcite/calcite";
 
+/*
+In order to build the output css we need to import bootstrap-core
+but we don't want that in the sass files we ship
+ */
+@import "bootstrap-core";
+
 // Custom Calcite Components
 @import "calcite/calcite-custom";
 

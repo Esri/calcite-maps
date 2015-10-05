@@ -1,7 +1,7 @@
 {
   "name": "calcite-bootstrap",
   "title": "Calcite Boostrap",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
   "homepage": "https://github.com/Esri/calcite-bootstrap",
@@ -77,10 +77,12 @@
     "npm": "^2.13.5",
     "postcss": "^4.1.16",
     "s3": "^4.4.0",
-    "stream-array": "^1.1.0"
-  },
-  "dependencies": {
+    "stream-array": "^1.1.0",
     "js-yaml": "^3.4.2",
     "jsonfile": "^2.2.2"
+  },
+  "dependencies": {
+    "bootstrap-sass": "3.3.5"
+
   }
 }
