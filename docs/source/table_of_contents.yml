@@ -21,7 +21,7 @@ components:
       pages:
         - title: 'All Components'
           id: '9f3fabff-e863-4ecd-ad64-4dc1df40f6dc'
-          link: all
+          link: index
 examples:
   title: 'Theme Example'
   base: 'examples'
