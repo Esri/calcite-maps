@@ -1,4 +1,8 @@
 # Calcite+Bootstrap CHANGELOG
+
+## v0.2.4
+- updated the very old grunt-sass which was using a very old node-sass which could not handle @at-root and thus passed it thru into the css... breaking the glyphicons. 
+
 ## v0.2.3
 - bumped version to address bizzaro caching @ github or proxies or whatever.
 

@@ -1,7 +1,7 @@
 {
   "name": "calcite-bootstrap",
   "title": "Calcite Boostrap",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
   "homepage": "https://github.com/Esri/calcite-bootstrap",
@@ -66,7 +66,7 @@
     "grunt-newer": "^0.7.0",
     "grunt-postcss": "^0.5.5",
     "grunt-prompt": "^1.2.1",
-    "grunt-sass": "^0.18.0",
+    "grunt-sass": "^1.0",
     "grunt-shell": "^1.1.2",
     "imagemin": "^3.2.0",
     "install": "^0.1.8",
