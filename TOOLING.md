@@ -15,3 +15,6 @@
 It will use the package version from `package.json` and take along CHANGELOG.md for good measure. 
 
 **Please Note:** You can not release multiple times with the same package version number.
+
+## Validating GH Pages Hosted CSS
+- [https://jsbin.com/payuva](https://jsbin.com/payuva) is a simple page that pulls in the css from gh-pages
