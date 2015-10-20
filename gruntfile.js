@@ -60,6 +60,8 @@ module.exports = function(grunt) {
           'docs/source/assets/css/**/*'
         ],
         tasks: [
+          'sass',
+          'copy:css',
           'sass:doc',
           'copy:doc'
         ]
