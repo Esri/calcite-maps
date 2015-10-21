@@ -2,6 +2,7 @@
 
 ## v0.2.5
 - Compiled Calcite variables files into a single _variables.scss file.
+- Added Calcite-Web loading animation
 
 ## v0.2.4
 - updated the very old grunt-sass which was using a very old node-sass which could not handle @at-root and thus passed it thru into the css... breaking the glyphicons. 
