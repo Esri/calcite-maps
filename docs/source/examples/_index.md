@@ -87,6 +87,15 @@ section: 'examples'
         <button type="button" class="btn btn-xs btn-link">Link</button>
       </p>
 
+      <div class="page-header">
+        <h1>Loader</h1>
+      </div>
+      <p>The loader element is a placeholder while content is being retreived or rendered. By default, the loader is set to display: none; and requires an is-active class to display.</p>
+      <p>See <a href="http://esri.github.io/calcite-web/components/#loader">Calcite-Web Documentation</a> for code.</p>
+      <div class="loader is-active">
+        <div class="loader-bars"></div>
+        <div class="loader-text">Loading</div>
+      </div>
 
       <div class="page-header">
         <h1>Tables</h1>
