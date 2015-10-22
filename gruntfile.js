@@ -70,6 +70,7 @@ module.exports = function(grunt) {
         files: ['lib/fonts/**/*'],
         tasks: [
           'copy:fonts',
+          'copy:fontsOpen',
           'copy:fontsDist',
           'copy:doc'
         ]
@@ -97,7 +98,10 @@ module.exports = function(grunt) {
       expanded: {
         files: {
           'dist/css/calcite-bootstrap.css': 'lib/sass/build-calcite-bootstrap.scss',
-          'dist/css/calcite-bootstrap-dark.css': 'lib/sass/build-calcite-bootstrap-dark.scss'
+          'dist/css/calcite-bootstrap-dark.css': 'lib/sass/build-calcite-bootstrap-dark.scss',
+          'dist/css/calcite-bootstrap-open.css': 'lib/sass/build-calcite-bootstrap-open.scss',
+          'dist/css/calcite-bootstrap-dark-open.css': 'lib/sass/build-calcite-bootstrap-dark-open.scss'
+
         }
       },
 
@@ -121,7 +125,10 @@ module.exports = function(grunt) {
       target: {
         files: {
           'dist/css/calcite-bootstrap.min.css': ['dist/css/calcite-bootstrap.css'],
-          'dist/css/calcite-bootstrap-dark.min.css': ['dist/css/calcite-bootstrap-dark.css']
+          'dist/css/calcite-bootstrap-dark.min.css': ['dist/css/calcite-bootstrap-dark.css'],
+          'dist/css/calcite-bootstrap-open.min.css': ['dist/css/calcite-bootstrap-open.css'],
+          'dist/css/calcite-bootstrap-dark-open.min.css': ['dist/css/calcite-bootstrap-dark-open.css']
+
         }
       }
     },
@@ -159,6 +166,13 @@ module.exports = function(grunt) {
         cwd: './node_modules/bootstrap-sass/assets/',
         src: ['fonts/bootstrap/**/*'],
         dest: 'docs/build/assets/css/fonts/'
+      },
+      fontsOpen: {
+        expand: true,
+        flatten: true,
+        cwd: './lib/fonts',
+        src: ['**/*'],
+        dest: 'dist/fonts/'
       },
       fontsDist: {
         expand: true,
@@ -367,6 +381,7 @@ module.exports = function(grunt) {
     'scss',
     'copy:libsass',
     'copy:fonts',
+    'copy:fontsOpen',
     'copy:bootstrapjsDist',
     'copy:bootstrapjs',
     'copy:changelog',
@@ -389,6 +404,7 @@ module.exports = function(grunt) {
     'sass:doc',
     'copy:doc',
     'copy:fonts',
+    'copy:fontsOpen',
     'copy:bootstrapjs',
     'copy:bootstrapjsDist',
     'http-server',
@@ -425,6 +441,7 @@ module.exports = function(grunt) {
       'sass:doc',
       'copy:doc',
       'copy:fonts',
+      'copy:fontsOpen',
       'copy:bootstrapjs',
       'copy:bootstrapjsDist',
       'shell:deploy',
