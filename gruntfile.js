@@ -167,6 +167,13 @@ module.exports = function(grunt) {
         src: ['fonts/bootstrap/**/*'],
         dest: 'docs/build/assets/css/fonts/'
       },
+      docFontsOpen: {
+        expand: true,
+        flatten: true,
+        cwd: './lib/fonts',
+        src: ['**/*'],
+        dest: 'docs/build/assets/css/fonts/'
+      },
       fontsOpen: {
         expand: true,
         flatten: true,
@@ -400,9 +407,9 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', [
     'shell:acetate',
     'newer:imagemin:doc',
-    //'concat:doc',
     'sass:doc',
     'copy:doc',
+    'copy:docFontsOpen',
     'copy:fonts',
     'copy:fontsOpen',
     'copy:bootstrapjs',
@@ -437,7 +444,6 @@ module.exports = function(grunt) {
     grunt.task.run([
       'shell:acetate',
       'newer:imagemin:doc',
-      //'concat:doc',
       'sass:doc',
       'copy:doc',
       'copy:fonts',

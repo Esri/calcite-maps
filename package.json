@@ -1,7 +1,7 @@
 {
   "name": "calcite-bootstrap",
   "title": "Calcite Boostrap",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Esri Calcite Bootstrap for Esri Websites",
   "private": true,
   "homepage": "https://github.com/Esri/calcite-bootstrap",
@@ -18,13 +18,14 @@
   },
   "contributors": [
     {
-      "name": "Erich Rainville",
-      "email": "erainville@esri.com"
-    },
-    {
       "name": "Dave Bouwman",
       "email": "dbouwman@esri.com"
+    },
+    {
+      "name": "Erich Rainville",
+      "email": "erainville@esri.com"
     }
+    
   ],
   "files": [
     "dist/"
