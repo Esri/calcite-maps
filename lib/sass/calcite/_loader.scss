@@ -63,9 +63,6 @@ $include-loader: true;
   text-align: center;
   padding-top: 4rem;
   @extend .avenir-regular;
-  &:after {
-    content: "…";
-  }
 }
 
 @if $include-loader == true {
