@@ -1,5 +1,10 @@
 // Calcite Fast Fonts Imports
-@import "fonts";
+@import "fonts-avenir";
 
 // Calcite Module Variables
-@import "variables"
+@import "variables";
+
+//append on the Avenir Fonts
+$font-family-sans-serif: 'Avenir Next W01', 'Avenir Next', 'Avenir', $font-family-sans-serif;
+$headings-font-family:   'Avenir Next W01', 'Avenir Next', 'Avenir',$headings-font-family;
+$font-family-serif:       'Kepler W01',$font-family-serif;

@@ -31,7 +31,7 @@ For the time being - FOR DEVELOPMENT ONLY - you can pull the css and javascript 
     <title>Theme Template for Calcite-Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap.min.css" rel="stylesheet">
+    <link href="http://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap-open.min.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

@@ -16,7 +16,7 @@ This is probably the easiest way. If you're looking to get up and running quickl
 To install Calcite Bootstrap with npm, type:
 
 ```
-npm install --save-dev Esri/calcite-bootstrap#v0.2.0
+npm install --save-dev Esri/calcite-bootstrap#v0.2.5
 ```
 
 You must add the current version in order to get the `dist/` folder.
@@ -39,7 +39,7 @@ If you're using sass, be sure to add `node_modules/calcite-bootstrap/dist/sass/`
 Then in your main `.scss` file, you can just require the framework: `@import "calcite-bootstrap";`.
 
 #---------------
-# ERICH WE NEED MORE DOC HERE ABOUT EXTENDING 
+# ERICH WE NEED MORE DOC HERE ABOUT EXTENDING AND USING THE OPENSANS VERSIONS
 #---------------
 
 ## Calcite Boostrap vs. Calcite Web

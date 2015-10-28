@@ -1,7 +1,6 @@
 // Core variables and mixins
-@import "calcite/colors-default"; // This loads the Default Theme colors
-@import "calcite/calcite"; // This loads all the variables
-
+@import "calcite/colors-dark"; // This loads the Dark Theme colors
+@import "calcite/calcite-open"; // This loads all the variables
 
 /*
 In order to build the output css we need to import bootstrap-core
@@ -11,3 +10,4 @@ but we don't want that in the sass files we ship
 
 // Custom Calcite Components
 @import "calcite/components"; // This loads the custom calcite css
+

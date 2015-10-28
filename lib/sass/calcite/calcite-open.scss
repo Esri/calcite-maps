@@ -1,0 +1,10 @@
+// Calcite Fast Fonts Imports
+@import "fonts-opensans";
+
+// Calcite Module Variables
+@import "variables";
+
+//append on the Open Sans Fonts
+$font-family-sans-serif: 'Open Sans', $font-family-sans-serif;
+$headings-font-family:   'Open Sans', $headings-font-family;
+

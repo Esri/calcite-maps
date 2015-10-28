@@ -2,7 +2,7 @@
 To install Calcite Bootstrap with npm, type:
 
 ```
-npm install --save-dev Esri/calcite-bootstrap#v0.2.0
+npm install --save-dev Esri/calcite-bootstrap#v{{data.pkg.version}}
 ```
 
 You must add the current version in order to get the `dist/` folder that contains the compiled css and the source sass files.
