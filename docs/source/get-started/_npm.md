@@ -1,18 +1,18 @@
 
-To install Calcite Bootstrap with npm, type:
+To install Calcite+Bootstrap with npm, type:
 
 ```
 npm install --save-dev Esri/calcite-bootstrap#v{{data.pkg.version}}
 ```
 
-You must add the current version in order to get the `dist/` folder that contains the compiled css and the source sass files.
+You must add the current version in order to get the `dist/` folder that contains the compiled CSS and the source sass files.
 
 ## Using the Compiled CSS
 
 In your build tool (grunt/gulp/npm etc) you need to add a step to copy the compiled resource out of the `node_modules/calcite-bootstrap/dist/css` folder into your projects assets folder.
 
 ## Using Sass
-Initially this will seem like a lot more setup and work, but you get a lot more flexibility as well as the ability to greatly reduce the size of the css file loaded into the browser. We also recommend using a project scaffolding tool such as [Yeoman's](http://yeoman.io) [gulp-webapp](https://github.com/yeoman/generator-gulp-webapp) which can greatly streamline getting all the tooling setup.
+Initially this will seem like a lot more setup and work, but you get a lot more flexibility as well as the ability to greatly reduce the size of the CSS file loaded into the browser. We also recommend using a project scaffolding tool such as [Yeoman's](http://yeoman.io) [gulp-webapp](https://github.com/yeoman/generator-gulp-webapp) which can greatly streamline getting all the tooling setup.
 
 ### Sass Import Paths
 In order to use calcite-bootstrap in your sass/scss files, you will need to inform your sass processor where to look.
