@@ -19,7 +19,8 @@
 
     <!-- stylesheets -->
     {% block head %}
-      <link rel="stylesheet" href="{{relativePath}}assets/css/calcite-bootstrap-open.css">
+      <link rel="stylesheet" href="{{relativePath}}assets/css/calcite-bootstrap.css">
+      <!-- <link rel="stylesheet" href="{{relativePath}}assets/css/calcite-bootstrap-open.css"> -->
       <link rel="stylesheet" href="{{relativePath}}assets/css/docs.css">
     {% endblock %}
 
@@ -33,17 +34,14 @@
   <body>
 
     {% include "partials/_docs-navbar" %}
-    
-    <div class="container content-body">
-       {% block content %}{% endblock %}
-    </div>
 
-    {% include "partials/_footer" %}
+    <div class="container content-body">
+      {% block content %}{% endblock %}
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     
-
   </body>
 
 </html>
