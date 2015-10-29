@@ -1,10 +1,11 @@
 // Calcite Fast Fonts Imports
 @import "fonts-opensans";
 
+// Set variable to change the primary typeface in the font stack
+$primary-font-sanserif: 'Open Sans';
+$primary-font-serif: '';
+
+$primary-headings-weight: 200;
+
 // Calcite Module Variables
 @import "variables";
-
-//append on the Open Sans Fonts
-$font-family-sans-serif: 'Open Sans', $font-family-sans-serif;
-$headings-font-family:   'Open Sans', $headings-font-family;
-
