@@ -1,5 +1,9 @@
 # Calcite+Bootstrap CHANGELOG
 
+## v0.2.6
+### Bugs
+- Bug causing primary typeface in body font stack to be dropped in both builds.
+
 ## v0.2.5
 - Compiled Calcite variables files into a single _variables.scss file.
 - Added Calcite-Web loading animation
