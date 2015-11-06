@@ -1,5 +1,5 @@
 # calcite-maps
-A tiny theme for designing beautiful mapping apps for web and mobile devices. It works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). You can create fully custom, map app-specific CSS builds, so be sure to check out [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) to learn more.
+A tiny theme for designing beautiful mapping apps for web and mobile devices. It works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). With [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) you can create fully customized and minimized CSS builds, so be sure to check this project out.
 
 You can use any of the ```body``` and ```nav``` classes to easily create different layouts, styles and color schemes and position controls on the map or around the map. You can also use them classes to create your own custom themes as well.
 
@@ -327,7 +327,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
-Copyright 2014 Esri
+Copyright 2015 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
