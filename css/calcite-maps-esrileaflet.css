@@ -1,0 +1,292 @@
+/* ======================================================================== */
+/* ArcGIS 4.0 calcite-maps-esrileaflet.css */
+/* Overrides for UI controls to support responsive layouts */ 
+/* ======================================================================== */
+
+/* ------------ */
+/* Zoom Control */
+/* ------------ */
+
+.calcite-maps .leaflet-control-zoom.leaflet-bar > a {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 0;
+}
+
+/* Container */
+
+.calcite-maps .leaflet-top,
+.calcite-maps .leaflet-bottom {
+	z-index: 0;
+}
+
+/* Zoom Container */
+
+.calcite-maps.zoom-top-left .leaflet-top {
+	top: 0;
+	bottom: auto;
+}
+.calcite-maps.zoom-top-left .leaflet-left {
+	right: auto;
+	left: 0;
+}
+
+.calcite-maps.zoom-top-right .leaflet-left,
+.calcite-maps.zoom-bottom-right .leaflet-left {
+	right: 0;
+	left: auto;
+}
+
+.calcite-maps.zoom-bottom-left .leaflet-top,
+.calcite-maps.zoom-bottom-right .leaflet-top {
+	top: auto;
+	bottom: 0;
+}
+
+.calcite-maps.zoom-bottom-left .leaflet-left {
+	left: 0;
+	right: auto;
+}
+
+/* All */
+
+.calcite-maps .leaflet-control-zoom {
+	margin: 15px;
+}
+
+/* Top nav */
+
+.calcite-maps.nav-position-top .leaflet-control-zoom  {
+	margin-top: 80px;
+}
+
+.calcite-maps.nav-position-top-fixed .leaflet-control-zoom {
+	margin-top: 15px;
+}
+
+.calcite-maps.nav-position-top.nav-space-top .leaflet-control-zoom {
+	margin-top: 95px;
+} 
+
+.calcite-maps.nav-position-top.nav-space-all .leaflet-control-zoom {
+	margin-top: 95px;
+}
+
+.calcite-maps.nav-position-top.zoom-top-left.is-minibar .leaflet-control-zoom {
+	margin-top: 80px;
+}
+
+.calcite-maps.nav-position-top.zoom-top-right.is-minibar .leaflet-control-zoom {
+	margin-top: 15px;
+}
+
+.calcite-maps.nav-position-top.zoom-top-left.nav-space-top.is-minibar .leaflet-control-zoom,
+.calcite-maps.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom {
+	margin-top: 95px;
+}
+
+/* Bottom nav */
+
+.calcite-maps.nav-position-bottom .leaflet-control-zoom  {
+	margin-bottom: 80px;
+}
+
+.calcite-maps.nav-position-bottom-fixed .leaflet-control-zoom {
+	margin-bottom: 15px;
+}
+
+.calcite-maps.nav-position-bottom.nav-space-bottom .leaflet-control-zoom {
+	margin-bottom: 95px;
+} 
+
+.calcite-maps.nav-position-bottom.nav-space-all .leaflet-control-zoom {
+	margin-bottom: 95px;
+}
+
+.calcite-maps.nav-position-bottom.zoom-top-left.is-minibar .leaflet-control-zoom {
+	margin-bottom: 80px;
+}
+
+.calcite-maps.nav-position-bottom.zoom-top-right.is-minibar .leaflet-control-zoom {
+	margin-bottom: 15px;
+}
+
+.calcite-maps.nav-position-top.zoom-bottom-left.nav-space-bottom.is-minibar .leaflet-control-zoom,
+.calcite-maps.nav-position-top.zoom-bottom-left.nav-space-all.is-minibar .leaflet-control-zoom {
+	margin-bottom: 95px;
+}
+
+/* ------------------- */
+/* Attribution Control */
+/* ------------------- */
+
+/* Attribution */
+
+.calcite-maps .esri-leaflet-logo {
+	float: right;
+}
+
+.calcite-maps .esri-leaflet-logo > a > img {
+	max-width: 43px !important;
+}
+
+.calcite-maps .leaflet-control-attribution {
+	position: absolute;
+	white-space: nowrap; 
+	line-height: 14px;
+}
+
+.calcite-maps.nav-position-top .leaflet-bottom,
+.calcite-maps.nav-position-top-fixed .leaflet-bottom,
+.calcite-maps.nav-position-none .leaflet-bottom {
+	margin-bottom: 1px;
+}
+
+.calcite-maps.nav-position-bottom .leaflet-bottom,
+.calcite-maps.nav-position-bottom-fixed .leaflet-bottom {
+	top: 0;
+	bottom: auto;
+}
+
+.calcite-maps .leaflet-control-attribution,
+.calcite-maps .leaflet-control-attribution {
+	right: 45px;  
+	margin-top: 8px;
+}
+
+/* -------------- */
+/* Search Control */
+/* -------------- */
+
+.calcite-maps .geocoder-control-expanded, 
+.calcite-maps .leaflet-touch .geocoder-control-expanded {
+	min-width: 275px;
+	width: 100%;
+}
+
+.calcite-maps .geocoder-control-input.leaflet-bar {
+	padding: 7px;
+	box-shadow: none;
+	border-radius: 0;
+	border: 1px #959595 solid;
+}
+
+.calcite-maps .geocode-panel .geocoder-control-input.leaflet-bar {
+	padding: 9px;
+}
+
+.calcite-maps .navbar .geocode-navbar {
+	margin-top: 0;
+}
+
+.calcite-maps .panel .geocode-panel {
+	margin-top: 0;
+}
+
+.calcite-maps .panel .geocode-panel .geocoder-control {
+	margin: 4px 0 6px;
+}
+
+.calcite-maps .geocoder-control-suggestions {
+	box-shadow: none;
+	border-radius: 0;
+	border: 1px solid #ccc;
+}
+
+.calcite-maps.nav-position-bottom .geocoder-control-suggestions.leaflet-bar,
+.calcite-maps.nav-position-bottom-fixed .geocoder-control-suggestions.leaflet-bar {
+	top: auto;
+	bottom: 101%;
+}
+
+/* ------------- */
+/* Popup Control */
+/* ------------- */
+
+.calcite-maps .leaflet-popup-content-wrapper {
+	border-radius: 0;
+}
+
+.calcite-maps .leaflet-popup-content {
+	min-width: 100px;
+}
+
+/* -------------- */
+/* Small screens */
+/* -------------- */
+
+@media(max-width: 767px) {
+	/* ------------ */
+	/* Zoom Control */
+	/* ------------ */
+
+
+	/* All */
+
+	.calcite-maps .leaflet-control-zoom {
+		margin: 25px;
+	}
+
+	/* Top nav */
+
+	.calcite-maps.nav-position-top .leaflet-control-zoom {
+		margin-top: 85px;
+	}
+
+	.calcite-maps.nav-position-top-fixed .leaflet-control-zoom {
+		margin-top: 25px;
+	}
+
+	.calcite-maps.nav-position-top.nav-space-top .leaflet-control-zoom {
+		margin-top: 100px;
+	} 
+
+	.calcite-maps.nav-position-top.nav-space-all .leaflet-control-zoom {
+		margin-top: 100px;
+	}
+
+	.calcite-maps.nav-position-top.zoom-top-left.is-minibar .leaflet-control-zoom {
+		margin-top: 85px;
+	}
+
+	.calcite-maps.nav-position-top.zoom-top-right.is-minibar .leaflet-control-zoom {
+		margin-top: 25px;
+	}
+
+	.calcite-maps.nav-position-top.zoom-top-left.nav-space-top.is-minibar .leaflet-control-zoom,
+	.calcite-maps.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom {
+		margin-top: 100px;
+	}
+
+	/* Bottom nav */
+
+	.calcite-maps.nav-position-bottom .leaflet-control-zoom  {
+		margin-bottom: 85px;
+	}
+
+	.calcite-maps.nav-position-bottom-fixed .leaflet-control-zoom {
+		margin-bottom: 25px;
+	}
+
+	.calcite-maps.nav-position-bottom.nav-space-bottom .leaflet-control-zoom {
+		margin-bottom: 100px;
+	} 
+
+	.calcite-maps.nav-position-bottom.nav-space-all .leaflet-control-zoom {
+		margin-bottom: 100px;
+	}
+
+	.calcite-maps.nav-position-bottom.zoom-top-left.is-minibar .leaflet-control-zoom {
+		margin-bottom: 85px;
+	}
+
+	.calcite-maps.nav-position-bottom.zoom-top-right.is-minibar .leaflet-control-zoom {
+		margin-bottom: 25px;
+	}
+
+	.calcite-maps.nav-position-top.zoom-bottom-left.nav-space-bottom.is-minibar .leaflet-control-zoom,
+	.calcite-maps.nav-position-top.zoom-bottom-left.nav-space-all.is-minibar .leaflet-control-zoom {
+		margin-bottom: 100px;
+	}
+}

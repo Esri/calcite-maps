@@ -1,0 +1,153 @@
+/* ------------------- */
+/* Theme: Inline Zoom  */
+/* ------------------- */
+
+.calcite-maps.theme-inline-left .navbar,
+.calcite-maps.theme-inline-combo .navbar {
+	left: 47px;
+}
+
+.calcite-maps.theme-inline-right .navbar {
+	right: 47px;
+}
+
+.calcite-maps.nav-position-top.is-minibar.nav-space-all .navbar > .container-fluid .navbar-brand {
+	margin-left: -15px; 
+}
+
+.calcite-maps.theme-inline-left.nav-position-top.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand,
+.calcite-maps.theme-inline-right.nav-position-top.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand,
+.calcite-maps.theme-inline-combo.nav-position-top.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand, {
+	margin-left: -15px; 
+}
+
+/* ArcGIS */
+
+.calcite-maps.theme-inline-left.nav-position-top.nav-space-all .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-left.nav-position-bottom.nav-space-all .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-right.nav-position-top.nav-space-all .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-right.nav-position-bottom.nav-space-all .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-combo.nav-position-top.nav-space-all .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-combo.nav-position-bottom.nav-space-all .esriZoom.esriVertical.esriComponent {
+	margin: 15px;  
+}
+
+.calcite-maps.theme-inline-left.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-right.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent,
+.calcite-maps.theme-inline-combo.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
+	margin-top: 15px;
+}
+
+/* Esri-Leaflet */
+
+.calcite-maps.theme-inline-left.nav-position-top.nav-space-all .leaflet-control-zoom,
+.calcite-maps.theme-inline-left.nav-position-bottom.nav-space-all .leaflet-control-zoom,
+.calcite-maps.theme-inline-right.nav-position-top.nav-space-all .leaflet-control-zoom,
+.calcite-maps.theme-inline-right.nav-position-bottom.nav-space-all .leaflet-control-zoom,
+.calcite-maps.theme-inline-combo.nav-position-top.nav-space-all .leaflet-control-zoom,
+.calcite-maps.theme-inline-combo.nav-position-bottom.nav-space-all .leaflet-control-zoom {
+	margin: 15px;  
+}
+
+.calcite-maps.theme-inline-left.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom,
+.calcite-maps.theme-inline-right.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom,
+.calcite-maps.theme-inline-combo.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom {
+	margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+	.calcite-maps.theme-inline-left .navbar,
+	.calcite-maps.theme-inline-right .navbar {
+		top: auto;
+		bottom: 0;
+	}
+
+	.calcite-maps.theme-inline-combo .navbar {
+		top: auto;
+		right: 47px;
+		bottom: 0;
+		left: 0;
+	}
+
+	.calcite-maps.theme-inline-left.nav-position-top.nav-space-top .panel-container,
+	.calcite-maps.theme-inline-right.nav-position-top.nav-space-top .panel-container,
+	.calcite-maps.theme-inline-combo.nav-position-top.nav-space-top .panel-container {
+		top: 0;
+	}
+
+	.calcite-maps.theme-inline-left.nav-position-top.nav-space-all .panel-container,
+	.calcite-maps.theme-inline-left.nav-position-top.nav-space-all.is-minibar.panel-left .panel-container,
+	.calcite-maps.theme-inline-right.nav-position-top.nav-space-all .panel-container,
+	.calcite-maps.theme-inline-right.nav-position-top.nav-space-all.is-minibar.panel-left .panel-container,
+	.calcite-maps.theme-inline-combo.nav-position-top.nav-space-all .panel-container,
+	.calcite-maps.theme-inline-combo.nav-position-top.nav-space-all.is-minibar.panel-left .panel-container  {
+		top: 15px;
+		right: 0;
+	}
+
+	.calcite-maps.theme-inline-left .panel-body-control .panel-body-close,
+	.calcite-maps.theme-inline-right .panel-body-control .panel-body-close,
+	.calcite-maps.theme-inline-combo .panel-body-control .panel-body-close {
+		margin: 13px -15px;
+	}
+	.calcite-maps.theme-inline-left .panel-body-control .panel-control,
+	.calcite-maps.theme-inline-right .panel-body-control .panel-control,
+	.calcite-maps.theme-inline-combo .panel-body-control .panel-control {
+		margin: 0 15px 0 -15px;
+		padding: 0;
+	}
+
+	.calcite-maps.theme-inline-left.nav-position-top.is-minibar.nav-space-all .navbar > .container-fluid .navbar-brand,
+	.calcite-maps.theme-inline-right.nav-position-top.is-minibar.nav-space-all .navbar > .container-fluid .navbar-brand,
+	.calcite-maps.theme-inline-combo.nav-position-top.is-minibar.nav-space-all .navbar > .container-fluid .navbar-brand {
+		margin-left: 0;
+	}
+
+	/* ArcGIS */
+
+	.calcite-maps.theme-inline-left.zoom-top-left .esriCorner.esriTop.esriLeft {
+		top: auto;
+		right: auto;
+		bottom: 0;
+		left: 0;
+	}
+
+	.calcite-maps.theme-inline-right.zoom-top-right .esriCorner.esriTop.esriLeft,
+	.calcite-maps.theme-inline-combo.zoom-top-left .esriCorner.esriTop.esriLeft {
+		top: auto;
+		right: 0;
+		bottom: 0;
+		left: auto;
+	}
+
+	.calcite-maps.theme-inline-left.nav-position-top .esriCorner.esriBottom.esriRight,
+	.calcite-maps.theme-inline-right.nav-position-top .esriCorner.esriBottom.esriRight,
+	.calcite-maps.theme-inline-combo.nav-position-top .esriCorner.esriBottom.esriRight {
+		top: 0;
+		bottom: auto;
+	}
+
+	/* Esri-Leaflet */
+
+	.calcite-maps.theme-inline-left.zoom-top-left .leaflet-top,
+	.calcite-maps.theme-inline-right.zoom-top-right .leaflet-top,
+	.calcite-maps.theme-inline-combo.zoom-top-left .leaflet-top {
+		top: auto;
+		bottom: 0;
+	}
+
+	.calcite-maps.theme-inline-right.zoom-top-right .leaflet-left,
+	.calcite-maps.theme-inline-combo.zoom-top-left .leaflet-left {
+		right: 0;
+		left: auto;
+	}
+
+	.calcite-maps.theme-inline-left.nav-position-top .leaflet-bottom.leaflet-right,
+	.calcite-maps.theme-inline-right.nav-position-top .leaflet-bottom.leaflet-right,
+	.calcite-maps.theme-inline-combo.nav-position-top .leaflet-bottom.leaflet-right {
+		top: 0;
+		right: 0;
+		bottom: auto;
+		left: auto;
+	}
+}

@@ -1,0 +1,657 @@
+/* ======================================================================== */
+/* ArcGIS 4.0 calcite-maps-layout.css */
+/* Core overrides to create map layouts */
+/* ======================================================================== */
+
+/* --- */
+/* Map */
+/* --- */
+
+.calcite-maps .map-container {
+	width: 100%;
+	height: 100%;
+}
+
+.calcite-maps .map-position-absolute {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.calcite-maps .map-position-relative {
+	position: relative;
+	width: 768px;
+	height: 400px;
+}
+
+/* ------------*/
+/* Nav Layouts */
+/* ------------*/
+
+/* Full body and map */
+.calcite-maps.nav-position-none,
+.calcite-maps.nav-position-top,
+.calcite-maps.nav-position-bottom {
+	top: 0;
+	bottom: 0;
+}
+
+/* Offset body and map */
+.calcite-maps.nav-position-top-fixed, 
+.calcite-maps.nav-position-top-fixed .map-position-absolute {
+	top: 64px;
+	bottom: 0;
+}
+
+.calcite-maps.nav-position-bottom-fixed,
+.calcite-maps.nav-position-bottom-fixed .map-position-absolute {
+	top: 0;
+	bottom: 64px;
+}
+
+/* -------------- */
+/* Navbar - Space */
+/* -------------- */
+
+/* Margin around navbar */
+.calcite-maps.nav-space-none .navbar {
+	margin: 0;
+}
+
+.calcite-maps.nav-space-top .navbar {
+	margin-top: 15px;
+	margin-bottom: 0;
+}
+
+.calcite-maps.nav-space-bottom .navbar {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+.calcite-maps.nav-space-all .navbar {
+	margin: 15px;
+}
+
+/* ------ */
+/* Navbar */
+/* ------ */
+
+.calcite-maps .navbar {
+	border-top: none;
+	border-bottom: none;
+}
+
+.calcite-maps .navbar {
+	min-height: 64px;
+}
+
+/* Navbar - Minibar */
+.calcite-maps.is-minibar .navbar {
+	right: auto;
+	background-color: transparent !important;
+}
+
+.calcite-maps.is-minibar .navbar .container-fluid {
+	padding-right: 0;	
+}
+
+/* Navbar list */
+.calcite-maps.nav-position-none .navbar {
+	display: none !important;
+}
+
+.calcite-maps .navbar-nav {
+	margin: 0;
+}
+
+.calcite-maps .navbar-nav > li > a {
+	padding: 19px 15px 21px;
+}
+
+.calcite-maps .navbar-brand {
+	padding: 10px 12px 10px 10px;
+	font-size: 40px;
+	cursor: pointer;
+	height: 100%;
+}
+
+.calcite-maps .navbar-brand img {
+	width: 40px
+}
+
+.calcite-maps.nav-position-top.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand {
+	margin-left: -30px;
+}
+
+.calcite-maps.nav-position-bottom.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand {
+	/*margin-top: 0px;
+	margin-left: -30px;*/
+}
+
+/* Navbar - Info */
+.calcite-maps .navbar-info {
+	position: absolute;
+	left: 62px;
+	width: calc(100% - 535px); /* Lg screens */
+	line-height: 1.2;
+	cursor: pointer;
+	height: 100%;
+}
+
+.calcite-maps .navbar-title {
+	padding-top: 7px;
+	font-size: 25px;
+	/*font-weight: 400;*/
+}
+
+.calcite-maps .navbar-subtitle {
+	padding: 1px 2px 2px 2px;
+	font-size: 13px;
+}
+
+.calcite-maps .text-overflow {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* Navbar - Toggle Button */
+.calcite-maps .navbar-toggle {
+	float: right;
+	margin: 15px;
+}
+
+/* Navbar - Collapse */
+.calcite-maps .navbar-search {
+	padding-top: 8px;
+}
+
+.calcite-maps .dropdown-toggle span {
+	font-size: 17px;
+	top: 4px
+}
+
+/* Navbar - Menu */
+.calcite-maps .navbar-nav .dropdown-menu {
+	border: none;
+	font-size: 14px;
+}
+
+.calcite-maps .dropdown-menu li a {
+	padding: 10px 15px;
+}
+
+/*.calcite-maps .dropdown-menu li:first-child {
+	margin-top: 5px;
+}
+
+.calcite-maps .dropdown-menu li:last-child {
+	margin-bottom: 5px;	
+}*/
+
+/* ----- */
+/* Panel */
+/* ----- */
+
+.calcite-maps .panel-container {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	/*left: 15px;*/
+	max-width: 350px;
+}
+
+/* Panel - Left/Right */
+.calcite-maps.panel-right .panel-container {
+	left: auto;
+	right: 15px;
+}
+
+.calcite-maps.panel-left .panel-container {
+	left: 15px;
+	right: auto;
+}
+
+/* Panel - Top */
+.calcite-maps.nav-position-top.nav-space-none .panel-container,
+.calcite-maps.nav-position-top.nav-space-bottom .panel-container,
+.calcite-maps.nav-position-top-fixed.nav-space-none .panel-container {
+	top: 80px;
+}
+
+.calcite-maps.nav-position-top.nav-space-top .panel-container, 
+.calcite-maps.nav-position-top.nav-space-all .panel-container {
+	top: 95px;
+}
+
+.calcite-maps.nav-position-top.is-minibar .panel-container {
+	top: 15px;
+	/*right: 0;*/
+}
+
+.calcite-maps.nav-position-top.nav-space-top.is-minibar .panel-container, 
+.calcite-maps.nav-position-top.nav-space-all.is-minibar .panel-container {
+	top: 15px;
+	right: 15px;
+}
+
+.calcite-maps.nav-position-top.is-minibar.panel-left .panel-container {
+	top: 80px;
+	/*right: 0;*/
+}
+
+.calcite-maps.nav-position-top.nav-space-top.panel-left.is-minibar .panel-container, 
+.calcite-maps.nav-position-top.nav-space-all.panel-left.is-minibar .panel-container {
+	top: 95px;
+	right: auto;
+}
+
+/* Panel - Bottom */
+.calcite-maps.nav-position-bottom .panel-container,
+.calcite-maps.nav-position-bottom-fixed.nav-space-none .panel-container, 
+.calcite-maps.nav-position-bottom.nav-space-top .panel-container, 
+.calcite-maps.nav-position-bottom.nav-space-bottom .panel-container
+.calcite-maps.nav-position-bottom.nav-space-all .panel-container {
+	top: 15px;
+}
+
+.calcite-maps .panel-default {
+	border-color: #E3E3E3;
+}
+
+.calcite-maps .panel-default > .panel-heading + .panel-collapse > .panel-body {
+	border-top: 0;
+}
+
+/* Panel - group */
+
+.calcite-maps .panel-group {
+	margin-bottom: 0;
+}
+
+.calcite-maps .panel {
+	position: relative;
+	min-width: 175px;
+}
+
+.calcite-maps .panel-group .panel + .panel {
+	margin-top: -1px;
+	/*margin-top: 0;*/
+}
+
+.calcite-maps .panel, 
+.calcite-maps .panel-heading {
+	border-radius: 0;
+}
+
+.calcite-maps .panel-heading {
+	padding: 0;
+	background-color: none;
+}
+
+.calcite-maps .panel-title {
+	font-size: 15px;
+	color: #595959;
+}
+
+.calcite-maps .panel-title a {
+	padding: 10px 10px;	
+}
+
+.calcite-maps .panel-title .glyphicon {
+	top: 2px;
+}
+
+.calcite-maps .panel-title span.glyphicon.glyphicon-remove {
+	color: #B5B5B5;
+}
+
+.calcite-maps .panel-title span.glyphicon.glyphicon-remove:focus, 
+.calcite-maps .panel-title span.glyphicon.glyphicon-remove:hover {
+	color: #595959;
+}
+
+.calcite-maps .panel-toggle {
+	display: inline-block;
+	width: 100%;
+	min-width: 125px;
+	text-decoration: none;
+}
+
+.calcite-maps .panel-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	margin-top: 5px
+	font-size: 15px;
+}
+
+.calcite-maps .panel-close {
+	color: #CCCCCC;	
+}
+
+.calcite-maps .panel-body-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 13px;
+	font-size: 17px;
+}
+
+.calcite-maps .panel-body-close {
+	color: #828282;	
+}
+
+.calcite-maps .panel-close:focus,
+.calcite-maps .panel-close:hover,
+.calcite-maps .panel-body-close:focus,
+.calcite-maps .panel-body-close:hover {
+	color: #595959;
+}
+
+.calcite-maps .panel-collapse {
+	/*border-top: 1px solid #efefef;*/
+}
+
+.calcite-maps .panel-body {
+	position: relative;
+	max-height: 300px;
+	min-height: 50px;
+	width: 325px;
+	padding: 15px;
+	overflow: auto;
+	font-size: 14px;
+}
+
+.calcite-maps .panel-control {
+	padding: 15px;
+}
+
+
+
+
+/* --------- */
+/* Animation */
+/* --------- */
+
+.calcite-maps .no-transition {
+	-webkit-transition: 0;
+	-o-transition: 0;
+	transition: 0;	
+}
+
+/* Panel */
+.calcite-maps .panel.collapsing {
+	-webkit-transition: height 0.01s;
+	-o-transition: height 0.01s;
+	transition: height 0.01s;
+}
+
+/* Panel body */
+.calcite-maps .panel-collapse.collapsing {
+	-webkit-transition-timing-function: ease;
+	-o-transition-timing-function: ease;
+	transition-timing-function: ease;
+	-webkit-transition: height 0.25s;
+	-o-transition: height 0.25s;
+	transition: height 0.25s;
+}
+
+/* Nav collapse */
+.calcite-maps .navbar-collapse.collapsing {
+	-webkit-transition-timing-function: ease;
+	-o-transition-timing-function: ease;
+	transition-timing-function: ease;
+	-webkit-transition-duration: .15s;
+	-o-transition-duration: .15s;
+	transition-duration: .15s;
+	-webkit-transition-property: height, visibility;
+	-o-transition-property: height, visibility;
+	transition-property: height, visibility;
+}
+
+.calcite-maps .fade-in, 
+.calcite-maps .fade-out {
+	-webkit-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+/* -----------------*/
+/* Hidden Overrides */
+/* -----------------*/
+
+/* Search, Map and Scene Menus */
+.calcite-maps .visible-sm.visible-md.visible-lg.hidden,
+.calcite-maps .visible-sm.hidden-md.hidden-lg.hidden,
+.calcite-maps .visible-xs.hidden {
+	display: none !important;
+}
+
+/* ------- */
+/* Carousel */
+/* ------- */
+
+.calcite-maps .carousel-inner > .item > img {
+	width: 100%;
+}
+.calcite-maps .carousel {
+	margin: 30px;
+}
+
+/* ---- */
+/* Misc */
+/* ---- */
+
+.text-center {
+	text-align: center;
+}
+
+.text-no-select {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.form-padding {
+	padding: 35px 0 0;
+}
+
+/* -------------- */
+/* Large screens */
+/* -------------- */
+
+/*@media (min-width: 1200px) {
+	.calcite-maps .navbar-info {
+		max-width: 695px;
+	}
+}*/
+
+/* -------------- */
+/* Medium screens */
+/* -------------- */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+	.calcite-maps .navbar-info {
+		/*width: calc(100% - 500px);*/
+	}
+
+}
+
+/* -------------- */
+/* Small screens */
+/* -------------- */
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+	.calcite-maps .navbar-info {
+		width: calc(100% - 390px);
+	}
+
+}
+
+/* ------------- */
+/* XSmall screens */
+/* ------------- */
+
+@media (max-width: 767px) {
+
+	/* ------ */
+	/* Navbar */
+	/* ------ */
+
+	/* Brand and Title */
+	.calcite-maps .navbar-brand {
+		padding: 11px 12px 9px 7px;
+		font-size: 38px;
+	}
+
+	.calcite-maps .navbar-brand img {
+		width: 36px
+	}
+	
+	.calcite-maps .navbar-info {
+		left: 54px;
+		width: calc(100% - 115px);
+	}
+	
+	.calcite-maps .navbar-title {
+		font-size: 24px;
+		padding-top: 8px;
+	}
+	
+	.calcite-maps .navbar-subtitle {
+		font-size: 12px;
+		padding-top: 2px;
+		padding-left: 0;
+	}
+	
+	.calcite-maps.is-minibar .navbar .container-fluid {
+		padding-right: 15px;
+	}
+	
+	.calcite-maps.nav-position-top.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand,
+	.calcite-maps.nav-position-bottom.nav-space-all.is-minibar .navbar > .container-fluid .navbar-brand {
+		margin-left: 0; 
+	}
+	
+	/* Dropdown */
+	.calcite-maps .navbar-nav .dropdown-menu {
+		margin: 0 -15px;
+	}
+	
+	.calcite-maps .navbar-nav .open .dropdown-menu > li > a {
+		padding: 10px 20px;
+	}
+
+	.calcite-maps .dropdown-menu li:first-child {
+		margin-top: 15px;
+	}
+
+	.calcite-maps .dropdown-menu li:last-child {
+		margin-bottom: 15px;	
+	}
+
+
+	/* ------ */
+	/* Panel  */
+	/* ------ */
+
+	/* Panel - Reset */
+	.calcite-maps .panel-container,
+	.calcite-maps.panel-right .panel-container,
+	.calcite-maps.panel-left .panel-container {
+		right: 0;
+		left: 0;
+		max-width: 100%;
+	}
+	
+	.calcite-maps .panel-container .panel:first-child {
+		margin-top: -1px;
+	}
+
+	.calcite-maps .panel-group,
+	.calcite-maps .panel,
+	.calcite-maps .panel-heading,
+	.calcite-maps .panel-title,
+	.calcite-maps .panel-collapse,
+	.calcite-maps .panel-default > .panel-heading + .panel-collapse > .panel-body {
+		border: 0;
+		box-shadow: none;
+	}
+
+	.calcite-maps .panel .panel-body {
+		max-height: 270px;
+		min-width: 100%;
+	}
+
+	.calcite-maps .panel-body-control .panel-body-close {
+		margin: 27px 19px 24px;
+	}
+
+	.calcite-maps .panel-control {
+		padding: 15px 60px 15px 60px;
+	}
+
+	/* Panel - Top */
+	.calcite-maps.nav-position-top.nav-space-none .panel-container,
+	.calcite-maps.nav-position-top.nav-space-bottom .panel-container,
+	.calcite-maps.nav-position-top-fixed.nav-space-none .panel-container {
+		/*top: auto;*/
+		top: 65px;
+	}
+
+	.calcite-maps.nav-position-top.nav-space-top .panel-container,
+	.calcite-maps.nav-position-top.nav-space-all .panel-container,
+	.calcite-maps.nav-position-top.nav-space-top.is-minibar .panel-container,
+	.calcite-maps.nav-position-top.nav-space-all.is-minibar .panel-container {
+		top: 95px;
+		right: 0;
+	}
+	
+	.calcite-maps.nav-position-top.nav-space-all .panel-container {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	
+	/* Panel - Bottom */
+	.calcite-maps.nav-position-bottom .panel-container,
+	.calcite-maps.nav-position-bottom-fixed.nav-space-none .panel-container, 
+	.calcite-maps.nav-position-bottom.nav-space-top .panel-container, 
+	.calcite-maps.nav-position-bottom.nav-space-bottom .panel-container {
+		top: 0;
+	}
+	
+	.calcite-maps.nav-position-bottom.nav-space-all .panel-container {
+		top: 15px;
+		left: 15px;
+		right: 15px;
+	}
+	
+	.calcite-maps .navbar-collapse.collapse.in .dropdown-menu + .panel-container {
+		display: none;
+	}
+
+	.calcite-maps .is-transparent-xs {
+		background-color: transparent;
+	}
+
+}
+
+/* -------------- */
+/* XXSmall screens */
+/* -------------- */
+
+@media (max-width: 480px) {
+
+	.calcite-maps .navbar-collapse {
+		max-height: 260px;
+	}
+
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Lock viewport to prevent scaling -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="Calcite-Maps - Smart Map Apps">
+	<meta name="author" content="">
+	<link rel="icon" href="http://www.esri.com/favicon.ico">
+	<title>Calcite-Maps - Beautiful Map Apps</title>
+
+	<!-- Bootstrap - For testing and comparison only -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+	<!-- Calcite-Bootstrap -->
+	<!-- TODO - We should consider separating the two so calcite is true bootstrap theme! -->
+	<link rel="stylesheet" href="http://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap.css">
+
+	<style>
+
+		/* Center align the text */
+
+		.jumbotron {
+			margin: 40px 0;
+			text-align: center;
+			background-color: #eee;
+		}
+		.jumbotron h5 {
+		    font-size: 18px;
+		}
+		.marketing .col-sm-6 {
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		.marketing h2 {
+			padding-top: 10px;
+			font-weight: normal;
+		}
+		.marketing .col-lg-4 p {
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+		.img-square {
+			margin: 5px;
+		}
+		.btn-danger {
+			margin-top: 8px;
+		}
+
+		/* Featurettes
+		------------------------- */
+
+		.featurette-divider {
+			margin: 80px 0; /* Space out the Bootstrap <hr> more */
+		}
+
+		/* Thin out the marketing headings */
+		.featurette-heading {
+			font-weight: 300;
+			line-height: 1;
+			letter-spacing: -1px;
+		}
+
+		/* RESPONSIVE CSS
+		-------------------------------------------------- */
+
+		@media (max-width: 767px) {
+			.jumbotron {
+				margin-top: 15px;
+			}
+			.featurette-heading {
+				font-size: 50px;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	
+	<!-- Marketing messaging and featurettes
+	================================================== -->
+	<!-- Wrap the rest of the page in another container to center all the content. -->
+
+	<div class="container marketing">
+
+		<div class="jumbotron">
+				<h1>Calcite-Maps</h1>
+				<p class="lead">A tiny theme for designing beautiful mapping apps. Built on top of <a href="http://github.com/esri/calcite-bootstrap">Calcite-Bootstrap</a>.</p>
+				<!-- <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p> -->
+		</div>
+
+		<!-- Three columns of text below the carousel -->
+		<div class="row">
+			<div class="col-sm-6">
+				<img class="img-circle" src="./images/arcgis.png" alt="Generic placeholder image" width="140" height="140">
+				<h2>ArcGIS</h2>
+				<p>A 2D/3D example using the <a href="https://developers.arcgis.com/javascript/beta/"> new ArcGIS API for JavaScript (beta 4.0)</a>. Built with just dojo.</p>
+				<p><a class="btn btn-default" href="./demos/arcgis.html" role="button">View demo &raquo;</a></p>
+			</div><!-- /.col-lg-4 -->
+			<div class="col-sm-6">
+				<img class="img-square" src="./images/esri-leaflet.png" alt="Generic placeholder image" width="130" height="130">
+				<h2>Esri-Leaflet</h2>
+				<p>A simple basemaps and search example using <a href="https://github.com/Esri/esri-leaflet"> Esri-Leaflet</a>. Built with JavaScript and jQuery.</p>
+				<p><a class="btn btn-default" href="./demos/esri-leaflet.html" role="button">View demo &raquo;</a></p>
+			</div><!-- /.col-sm-6 -->
+		</div><!-- /.row -->
+
+		<hr>
+
+		<br>
+
+			<!-- START THE FEATURETTES -->
+<!-- 
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				</div>
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7 col-md-push-5">
+					<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				</div>
+				<div class="col-md-5 col-md-pull-7">
+					<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+
+			<hr class="featurette-divider">
+
+			<div class="row featurette">
+				<div class="col-md-7">
+					<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+				</div>
+				<div class="col-md-5">
+					<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+				</div>
+			</div>
+
+			<hr class="featurette-divider"> -->
+
+			<!-- /END THE FEATURETTES -->
+
+
+			<!-- FOOTER -->
+<!-- 			<footer>
+				<p class="pull-right"><a href="#">Back to top</a></p>
+				<p>&copy; 2015 Esri &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+			</footer> -->
+
+		</div><!-- /.container -->
+
+	</body>
+</html>
