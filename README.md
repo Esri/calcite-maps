@@ -1,7 +1,7 @@
 # calcite-maps
-A tiny theme for designing beautiful mapping apps for web and mobile devices. It works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). Learn more about Calcite-Bootstrap [here](https://github.com/Esri/calcite-bootstrap).
+A tiny theme for designing beautiful mapping apps for web and mobile devices. It works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). You can create fully custom, map app-specific CSS builds, so be sure to check out [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) to learn more.
 
-You can use the body-level classes to easily create different layouts, styles and color schemes and position controls on the map or around the map. You can also use them classes to create your own custom themes as well.
+You can use any of the ```body``` and ```nav``` classes to easily create different layouts, styles and color schemes and position controls on the map or around the map. You can also use them classes to create your own custom themes as well.
 
 NOTE: The current examples are for ArcGIS JS API 4.0 beta1 and Esri-Leaflet but the framework will work with any mapping API.
 
@@ -310,7 +310,7 @@ Themes
 
 ## Requirements
 
-* Notepad or your favorite HTML editor
+* [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) or [Bootstrap](http://getbootstrap.com)
 
 ## Resources
 
@@ -341,7 +341,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/calcite-maps/master/license.txt) file.
+A copy of the license is available in the repository's [license.txt](https://github.com/Esri/calcite-maps/blob/master/license.txt) file.
 
 [](Esri Tags: Web Mapping ArcGIS Leaflet esri-leaflet Design Basemaps Bootstrap Calcite JavaScript Calcite-Bootstrap)
 [](Esri Language: CSS)
