@@ -1,0 +1,74 @@
+/* ------------------ */
+/* Theme: Jumbo Title */
+/* ------------------ */
+
+.calcite-maps.theme-jumbo-title {
+	/* No styles for small screens */
+}
+
+/* >Small screen sizes only */
+@media (min-width: 768px) {
+	/* Layout */
+	.calcite-maps.theme-jumbo-title.nav-position-top-fixed .map-position-absolute {
+		top: 120px;
+		bottom: 0;
+	}
+	.calcite-maps.theme-jumbo-title.nav-position-bottom-fixed .map-position-absolute {
+		top: 0;
+		bottom: 120px;
+	}
+	/* Navbar */
+	.calcite-maps.theme-jumbo-title .navbar {
+		min-height: 120px;
+		padding-top: 27px;
+	}
+	.calcite-maps.theme-jumbo-title .navbar-title {
+		margin-top: -19px;
+		padding-top: 0;
+		font-size: 60px;
+	}
+	.calcite-maps.theme-jumbo-title .navbar-subtitle {
+		padding-top: 4px;
+		padding-left: 4px;
+		font-size: 14px;
+	}
+
+	.calcite-maps.theme-jumbo-title .navbar-brand {
+		margin-top: -10px;
+		padding: 0px 0px 0px 0px;
+		font-size: 80px;
+	}
+
+	.calcite-maps.theme-jumbo-title .navbar-info {
+		left: 85px;
+		width: calc(100% - 555px);
+	}
+
+	/* Panel */
+	.calcite-maps.theme-jumbo-title.nav-position-top.nav-space-none .panel-container,
+	.calcite-maps.theme-jumbo-title.nav-position-top-fixed.nav-space-none .panel-container {
+		top: 136px;
+	}
+
+	/* ArcGIS  */
+	.calcite-maps.theme-jumbo-title.nav-position-top.zoom-top-left .esriZoom.esriVertical.esriComponent,
+	.calcite-maps.theme-jumbo-title.nav-position-top.zoom-top-right .esriZoom.esriVertical.esriComponent,
+	.calcite-maps.theme-jumbo-title.nav-position-bottom.zoom-bottom-left .esriZoom.esriVertical.esriComponent,
+	.calcite-maps.theme-jumbo-title.nav-position-bottom.zoom-bottom-right .esriZoom.esriVertical.esriComponent {
+		margin: 136px 25px;
+	}
+
+	.calcite-maps.theme-jumbo-title.nav-position-top .scene-directions {
+		top: 136px;
+	}
+
+	/* Esri-Leaflet */
+	.calcite-maps.theme-jumbo-title.nav-position-top .leaflet-control-zoom {
+		margin: 135px 25px 15px 15px;
+	}
+
+	.calcite-maps.theme-jumbo-title.nav-position-bottom .leaflet-control-zoom {
+		margin: 15px 25px 135px 15px;
+	}
+
+}

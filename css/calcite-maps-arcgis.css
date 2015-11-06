@@ -1,0 +1,366 @@
+/* ======================================================================== */
+/* ArcGIS 4.0 calcite-maps-arcgis.css */
+/* Overrides for UI widgets to support responsive layouts */ 
+/* ======================================================================== */
+
+/* NOTE: All of this will change when the controls are easier to position at beta2 */
+
+/* ----------- */
+/* Zoom Widget */
+/* ----------- */
+
+/* Zoom Container */
+
+.calcite-maps.zoom-top-left .esriCorner.esriTop.esriLeft {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+}
+
+.calcite-maps.zoom-top-right .esriCorner.esriTop.esriLeft {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+}
+
+.calcite-maps.zoom-bottom-right .esriCorner.esriTop.esriLeft {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: auto;
+}
+
+.calcite-maps.zoom-bottom-left .esriCorner.esriTop.esriLeft {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+}
+
+/* All */
+
+.calcite-maps .esriZoom.esriVertical.esriComponent {
+    margin: 15px;
+}
+
+/* Top nav */
+
+.calcite-maps.nav-position-top .esriZoom.esriVertical.esriComponent {
+    margin-top: 80px;
+}
+
+.calcite-maps.nav-position-top-fixed .esriZoom.esriVertical.esriComponent {
+    margin-top: 15px;
+}
+
+.calcite-maps.nav-position-top.nav-space-top .esriZoom.esriVertical.esriComponent {
+    margin-top: 95px;      
+}
+
+.calcite-maps.nav-position-top.nav-space-all .esriZoom.esriVertical.esriComponent {
+    margin-top: 95px;  
+}
+
+.calcite-maps.nav-position-top.zoom-top-left.is-minibar .esriZoom.esriVertical.esriComponent {
+    margin-top: 80px;
+}
+
+.calcite-maps.nav-position-top.zoom-top-right.is-minibar .esriZoom.esriVertical.esriComponent {
+    margin-top: 15px;
+}
+
+.calcite-maps.nav-position-top.zoom-top-left.nav-space-top.is-minibar .esriZoom.esriVertical.esriComponent,
+.calcite-maps.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
+    margin-top: 95px;
+}
+
+/* Bottom nav */
+
+.calcite-maps.nav-position-bottom .esriZoom.esriVertical.esriComponent {
+    margin-bottom: 80px;
+}
+
+.calcite-maps.nav-position-bottom-fixed .esriZoom.esriVertical.esriComponent  {
+    margin-bottom: 15px;
+}
+
+.calcite-maps.nav-position-bottom.nav-space-bottom .esriZoom.esriVertical.esriComponent {
+    margin-bottom: 95px; 
+}
+
+.calcite-maps.nav-position-bottom.nav-space-all .esriZoom.esriVertical.esriComponent {
+    margin-bottom: 95px; 
+}
+
+.calcite-maps.nav-position-bottom.zoom-bottom-left.is-minibar .esriZoom.esriVertical.esriComponent {
+    margin-bottom: 80px;
+}
+
+.calcite-maps.nav-position-bottom.zoom-bottom-right.is-minibar .esriZoom.esriVertical.esriComponent {
+    margin-bottom: 15px;
+}
+
+.calcite-maps.nav-position-bottom.zoom-bottom-left.nav-space-bottom.is-minibar .esriZoom.esriVertical.esriComponent,
+.calcite-maps.nav-position-bottom.zoom-bottom-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
+    margin-bottom: 95px;
+}
+
+/* ------------- */
+/* Search Widget */
+/* ------------- */
+
+.calcite-maps.nav-position-bottom-fixed .esriMenu.esriSuggestMenu,
+.calcite-maps.nav-position-bottom .esriMenu.esriSuggestMenu {
+    bottom: 100%;
+    top: auto;
+}
+
+/* ----------------------------------- */
+/* Logo and Attribution Widget Control */
+/* ----------------------------------- */
+
+.calcite-maps.nav-position-top-fixed .esriCorner.esriBottom.esriRight,
+.calcite-maps.nav-position-top .esriCorner.esriBottom.esriRight,
+.calcite-maps.nav-position-none .esriCorner.esriBottom.esriRight {
+    top: auto;
+    right: 4px;
+    bottom: 1px;
+    left: auto;
+}
+
+.calcite-maps.nav-position-bottom-fixed .esriCorner.esriBottom.esriRight,
+.calcite-maps.nav-position-bottom .esriCorner.esriBottom.esriRight {
+    top: -2px;
+    bottom: auto;
+    right: 4px
+}
+
+.calcite-maps.nav-position-bottom.nav-space-all .esriCorner.esriBottom.esriRight {
+    right: 15px;
+}
+
+.calcite-maps .esriUI .esriCorner.esriBottom.esriRight .esriAttribution.esriComponent {
+    margin: -1px 0;
+}
+
+.calcite-maps .esriAttribution {
+    display: none;
+    max-width: 250px !important;
+    color: #fff;
+    background: none;
+    text-shadow: -1px -1px 0 #555, 1px -1px 0 #555, -1px 1px 0 #555, 1px 1px 0 #555;
+    font-size: 12px;
+}
+
+.calcite-maps .esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriComponent {
+    margin: 0;
+}
+
+.calcite-maps .esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriImage.esriComponent > a > img {
+    width: 40px;
+}
+
+/* ------------ */
+/* Scene Widget */
+/* ------------ */
+
+.calcite-maps .scene-directions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.calcite-maps.nav-position-top .scene-directions {
+    top: 80px;
+}
+
+.calcite-maps.nav-space-top .scene-directions,
+.calcite-maps.nav-space-bottom .scene-directions,
+.calcite-maps.nav-position-bottom .scene-directions {
+    top: 15px;
+}
+
+.calcite-maps.nav-position-top.nav-space-top .scene-directions, 
+.calcite-maps.nav-position-top.nav-space-all .scene-directions {
+    top: 95px;
+}
+
+.calcite-maps .scene-directions .btn-sm, 
+.calcite-maps .scene-directions .btn-group-sm > .btn {
+    padding: 6px 10px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+/* -------------- */
+/* Medium screens */
+/* -------------- */
+
+/*@media (max-width: 992px) {
+    .esriSearch .esriContainer .esriInput {
+        width: 120px !important;
+    }
+}*/
+
+/* -------------- */
+/* Small screens */
+/* -------------- */
+
+@media (max-width: 767px) {
+
+    /* ArcGIS stuff - TODO - Get with Matt to improve styling for full width */
+ 
+    .esriSearch .esriContainer {
+        margin-top: 4px;
+    }
+ 
+    .esriSearch .esriExpandContainer {
+        width: calc(100% - 47px);
+    }
+ 
+    .esriSearch .esriInputContainer {
+        width: 100%;
+    }
+ 
+    .esriSearch .esriContainer .esriInput {
+        width: calc(100% - 30px) !important;
+    }
+ 
+    .esriSearch .esriMenu {
+        position: inherit !important;
+    }
+
+    /* ----------- */
+    /* Zoom Widget */
+    /* ----------- */
+
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical {
+        /*opacity: 0.5;*/
+    }
+
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical:focus,
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical:hover {
+        /*opacity: 1.0;*/
+    }
+
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton {
+        width: 44px;
+        height: 40px;
+        line-height: 39px;
+        font-size: 18px;
+    }
+
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton {
+        color: #7c7c7c;
+        /*opacity: 0.5;*/
+    }
+
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton:focus,
+    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton:hover {
+        /*opacity: 1.0;*/
+        background-color: #f1f1f1;
+    }
+
+    .calcite-maps.is-mobile-zoom .esriZoomIn.esriButton {
+        /*margin-bottom: 5px;*/
+    }
+
+    /* All */
+
+ /*   .calcite-maps .esriZoom.esriVertical.esriComponent {
+        margin: 25px;
+    }*/
+
+    /* Top nav */
+
+   /* .calcite-maps.nav-position-top .esriZoom.esriVertical.esriComponent {
+        margin-top: 85px;
+    }
+
+    .calcite-maps.nav-position-top-fixed .esriZoom.esriVertical.esriComponent {
+        margin-top: 25px;
+    }
+
+    .calcite-maps.nav-position-top.nav-space-top .esriZoom.esriVertical.esriComponent {
+        margin-top: 100px;      
+    }
+
+    .calcite-maps.nav-position-top.nav-space-all .esriZoom.esriVertical.esriComponent {
+        margin-top: 100px;  
+    }
+
+    .calcite-maps.nav-position-top.zoom-top-left.is-minibar .esriZoom.esriVertical.esriComponent {
+        margin-top: 85px;
+    }
+
+    .calcite-maps.nav-position-top.zoom-top-right.is-minibar .esriZoom.esriVertical.esriComponent {
+        margin-top: 25px;
+    }
+
+    .calcite-maps.nav-position-top.zoom-top-left.nav-space-top.is-minibar .esriZoom.esriVertical.esriComponent,
+    .calcite-maps.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
+        margin-top: 100px;
+    }*/
+
+    /* Bottom nav */
+
+   /* .calcite-maps.nav-position-bottom .esriZoom.esriVertical.esriComponent {
+        margin-bottom: 85px;
+    }
+
+    .calcite-maps.nav-position-bottom-fixed .esriZoom.esriVertical.esriComponent  {
+        margin-bottom: 25px;
+    }
+
+    .calcite-maps.nav-position-bottom.nav-space-bottom .esriZoom.esriVertical.esriComponent {
+        margin-bottom: 100px; 
+    }
+
+    .calcite-maps.nav-position-bottom.nav-space-all .esriZoom.esriVertical.esriComponent {
+        margin-bottom: 100px; 
+    }
+
+    .calcite-maps.nav-position-bottom.zoom-bottom-left.is-minibar .esriZoom.esriVertical.esriComponent {
+        margin-bottom: 85px;
+    }
+
+    .calcite-maps.nav-position-bottom.zoom-bottom-right.is-minibar .esriZoom.esriVertical.esriComponent {
+        margin-bottom: 25px;
+    }
+
+    .calcite-maps.nav-position-bottom.zoom-bottom-left.nav-space-bottom.is-minibar .esriZoom.esriVertical.esriComponent,
+    .calcite-maps.nav-position-bottom.zoom-bottom-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
+        margin-bottom: 100px;
+    }*/
+
+    /* --------------------------- */
+    /* Attribution and Logo Widget */
+    /* --------------------------- */
+
+  /*  .calcite-maps.nav-space-top .esriCorner.esriBottom.esriRight,
+    .calcite-maps.nav-position-top .esriCorner.esriBottom.esriRight {
+        top: auto;
+        right: auto;
+        bottom: 1px;
+        left: 3px;
+    }
+    .calcite-maps .esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriComponent {
+        float: left;
+        margin: 0;
+    }
+    .calcite-maps .esriUI .esriCorner.esriBottom.esriRight .esriAttribution.esriComponent {
+        left: 5px;
+        margin: 3px 0 0px
+    }
+    .calcite-maps.nav-position-bottom-fixed .esriCorner.esriBottom.esriRight,
+    .calcite-maps.nav-position-bottom .esriCorner.esriBottom.esriRight {
+        top: -4px;
+        right: 0;
+        bottom: auto;
+        left: 2px;
+    }*/
+}

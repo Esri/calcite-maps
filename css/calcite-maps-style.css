@@ -1,0 +1,374 @@
+/* ======================================================================== */
+/* ArcGIS 4.0 calcite-maps-style.css */
+/* Calcite colors for nav text, background and other styles */
+/* ======================================================================== */
+
+/* ----- */
+/* Fonts */
+/* ----- */
+
+/*body {
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}*/
+
+/* ------ */
+/* Colors */
+/* ------ */
+
+.calcite-maps .off-white {
+	background-color: #f8f8f8;
+}
+.calcite-maps .lightest-gray {
+	background-color: #efefef;
+}
+.calcite-maps .lighter-gray {
+	background-color: #cccccc;
+}
+.calcite-maps .light-gray {
+	background-color: #a9a9a9;
+}
+.calcite-maps .gray {
+	background-color: #959595;
+}
+.calcite-maps .dark-gray {
+	background-color: #828282;
+}
+.calcite-maps .darker-gray {
+	background-color: #6e6e6e;
+}
+.calcite-maps .darkest-gray {
+	background-color: #595959;
+}
+.calcite-maps .off-black {
+	background-color: #4c4c4c;
+}
+.calcite-maps .black {
+	background-color: #323232;
+}
+.calcite-maps .trans-off-black {
+	background-color: rgba(0,0,0,0.45);
+}
+.calcite-maps .trans-black {
+	background-color: rgba(0,0,0,0.75);
+}
+.calcite-maps .light-blue {
+	background-color: #56a5d8;
+}
+.calcite-maps .blue {
+	background-color: #3b8fc4;
+}
+.calcite-maps .dark-blue {
+	background-color: #196fa6;
+}
+.calcite-maps .light-green {
+	background-color: #9bc19c;
+}
+.calcite-maps .green {
+	background-color: #5a9359;
+}
+.calcite-maps .dark-green {
+	background-color: #338033;
+}
+.calcite-maps .light-red {
+	background-color: #e04f1d;
+}
+.calcite-maps .red {
+	background-color: #c7461a;
+}
+.calcite-maps .dark-red {
+	background-color: #ab3c16;
+}
+.calcite-maps .light-orange {
+	background-color: #f6ca92;
+}
+.calcite-maps .orange {
+	background-color: #eda959;
+}
+.calcite-maps .orange-dark {
+	background-color: #e8912e;
+}
+.calcite-maps .light-yellow {
+	background-color: #efe397;
+}
+.calcite-maps .yellow {
+	background-color: #e4d154;
+}
+.calcite-maps .yellow-dark {
+	background-color: #d9bf2b;
+}
+.calcite-maps .light-purple {
+	background-color: #c4bcdc;
+}
+.calcite-maps .purple {
+	background-color: #9081bc;
+}
+.calcite-maps .dark-purple {
+	background-color: #7461a8;
+}
+.calcite-maps .light-brown {
+	background-color: #d2b38f;
+}
+.calcite-maps .brown {
+	background-color: #a57946;
+}
+.calcite-maps .dark-brown {
+	background-color: #8c5e2a;
+}
+
+
+.calcite-maps .opacity-0 {
+	opacity: 0;
+}
+
+.calcite-maps .opacity-15 {
+	opacity: .15;
+}
+
+.calcite-maps .opacity-25 {
+	opacity: .25;
+}
+
+.calcite-maps .opacity-50 {
+	opacity: .5;
+}
+
+.calcite-maps .opacity-75 {
+	opacity: .75;
+}
+
+.calcite-maps .opacity-85 {
+	opacity: .85;
+}
+
+.calcite-maps .opacity-100 {
+	opacity: 1;
+}
+
+/* -------- */
+/* Defaults */
+/* -------- */
+
+/* Bootstrap navs */
+.calcite-maps .navbar-default .navbar-info {
+	color: #4c4c4c;
+}
+.calcite-maps .navbar-inverse .navbar-info {
+	color: #cfcfcf;
+}
+.calcite-maps .navbar-default .navbar-toggle .icon-bar {
+	/*background-color: #4c4c4c;*/
+}
+.calcite-maps .navbar-inverse .navbar-toggle .icon-bar {
+	background-color: #cfcfcf;
+}
+/* Nav */
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+	background-color: transparent;
+}
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: transparent;
+}
+/* Top nav indicator */
+.calcite-maps .navbar-nav > li > a:hover, 
+.calcite-maps .navbar-nav > li > a:focus {
+	background-image: linear-gradient(to top, transparent 94%, #3b8fc4 94%, #3b8fc4 100%);
+}
+
+.calcite-maps .navbar-nav > li > .dropdown-toggle:hover,
+.calcite-maps .navbar-nav > li > .dropdown-toggle:focus {
+	/*background-image: none;*/
+}
+
+/* Dropdown */
+.calcite-maps .dropdown-menu .active > a,
+.calcite-maps .dropdown-menu li > .active > a {
+	color: #3f3f3f;
+	background-color: #F8F8F8;
+}
+.calcite-maps .dropdown-menu .active > a:hover, 
+.calcite-maps .dropdown-menu .active > a:focus,
+.calcite-maps .dropdown-menu li > .active > a:hover, 
+.calcite-maps .dropdown-menu li > .active > a:focus {
+	color: #3f3f3f;
+	background-color: #F8F8F8;
+}
+
+/* -------------------------------------------------- */
+/* Calcite navbar-light (Light background, Dark text) */
+/* black #323232 - text
+/* darkest-grey #595959 - hover
+/* off-white (#f8f8f8)
+/* ------------------------------------------------------------- */
+
+.calcite-maps .navbar-light .navbar-brand {
+	color: #323232;
+}
+.calcite-maps .navbar-light .navbar-info {
+	color: #323232;
+} 
+.calcite-maps .navbar-light .navbar-brand:hover,
+.calcite-maps .navbar-light .navbar-brand:focus {
+	color: #595959;
+}
+.calcite-maps .navbar-light .navbar-info:hover, 
+.calcite-maps .navbar-light .navbar-info:focus {
+	color: #595959;
+}
+.calcite-maps .navbar-light .navbar-nav > li > a,
+.calcite-maps .navbar-light .navbar-collapse.collapse.in .dropdown-menu > li > a {
+	color: #323232;
+}
+.calcite-maps .navbar-light .navbar-nav > li > a:hover,
+.calcite-maps .navbar-light .navbar-nav > li > a:focus
+{
+	color: #595959;
+	/*background-color: rgba(255,255,255,.1);*/
+	background-color: transparent;
+}
+.calcite-maps .navbar-light .navbar-nav > .active > a,
+.calcite-maps .navbar-light .navbar-nav > .active > a:hover,
+.calcite-maps .navbar-light .navbar-nav > .active > a:focus, 
+.calcite-maps .navbar-light .navbar-nav > .open > a,
+.calcite-maps .navbar-light .navbar-nav > .open > a:hover,
+.calcite-maps .navbar-light .navbar-nav > .open > a:focus  {
+	color: #323232;
+	/*background-color: rgba(255,255,255,.2);*/
+	background-color: transparent;
+}
+.calcite-maps .navbar-light .navbar-nav > .disabled > a,
+.calcite-maps .navbar-light .navbar-nav > .disabled > a:hover,
+.calcite-maps .navbar-light .navbar-nav > .disabled > a:focus {
+	color: #efefef;	
+	background-color: transparent;
+}
+.calcite-maps .navbar-light .navbar-collapse.collapse.in .dropdown-menu > li > a:hover, 
+.calcite-maps .navbar-light .navbar-collapse.collapse.in .dropdown-menu > li > a:focus {
+	color: #595959;
+	/*background-color: rgba(255,255,255,.2);*/
+	background-color: transparent;
+}
+.calcite-maps .navbar-light .navbar-nav > li > a:hover, 
+.calcite-maps .navbar-light .navbar-nav > li > a:focus {
+	background-image: linear-gradient(to top, transparent 94%, #323232 94%, #323232 100%);
+	transition: color 150ms linear, text-decoration 150ms linear;
+}
+.calcite-maps .navbar-light .navbar-toggle,
+.calcite-maps .navbar-light .navbar-toggle:hover {
+	border-color: #4c4c4c;
+}
+.calcite-maps .navbar-light .navbar-toggle:hover {
+	background-color: #4c4c4c;
+}
+.calcite-maps .navbar-light .navbar-toggle .icon-bar {
+	background-color: #323232;
+}
+.calcite-maps .navbar-light .navbar-toggle:hover .icon-bar {
+	background-color: #efefef;
+}
+
+/* ------------------------------------------------------------- */
+/* Calcite navbar-dark (Dark background, Light text)
+/* off-white (#f8f8f8)
+/* lightest-grey (#efefef)
+/* black (#323232) 
+/* ------------------------------------------------------------- */
+
+.calcite-maps .navbar-dark .navbar-brand {
+	color: #f8f8f8;
+}
+.calcite-maps .navbar-dark .navbar-info {
+	color: #f8f8f8;
+} 
+.calcite-maps .navbar-dark .navbar-brand:hover,
+.calcite-maps .navbar-dark .navbar-brand:focus {
+	color: #cccccc;
+}
+.calcite-maps .navbar-dark .navbar-info:hover, 
+.calcite-maps .navbar-dark .navbar-info:focus {
+	color: #cccccc;
+}
+.calcite-maps .navbar-dark .navbar-nav > li > a,
+.calcite-maps .navbar-dark .navbar-collapse.collapse.in .dropdown-menu > li > a {
+	color: #f8f8f8;
+}
+.calcite-maps .navbar-dark .navbar-nav > li > a:hover,
+.calcite-maps .navbar-dark .navbar-nav > li > a:focus {
+	color: #cccccc;
+	/*background-color: rgba(0,0,0,.1);*/
+	background-color: transparent;
+}
+.calcite-maps .navbar-dark .navbar-nav > .active > a,
+.calcite-maps .navbar-dark .navbar-nav > .active > a:hover,
+.calcite-maps .navbar-dark .navbar-nav > .active > a:focus, 
+.calcite-maps .navbar-dark .navbar-nav > .open > a,
+.calcite-maps .navbar-dark .navbar-nav > .open > a:hover,
+.calcite-maps .navbar-dark .navbar-nav > .open > a:focus  {
+	color: #f8f8f8;
+	/*background-color: rgba(0,0,0,.2);*/
+	background-color: transparent;
+}
+.calcite-maps .navbar-dark .navbar-nav > .disabled > a,
+.calcite-maps .navbar-dark .navbar-nav > .disabled > a:hover,
+.calcite-maps .navbar-dark .navbar-nav > .disabled > a:focus {
+	color: #efefef;	
+	background-color: transparent;
+}
+.calcite-maps .navbar-dark .navbar-collapse.collapse.in .dropdown-menu > li > a:hover, 
+.calcite-maps .navbar-dark .navbar-collapse.collapse.in .dropdown-menu > li > a:focus {
+	color: #cccccc;
+	/*background-color: rgba(0,0,0,.2);*/
+	background-color: transparent;
+}
+.calcite-maps .navbar-dark .navbar-nav > li > a:hover, 
+.calcite-maps .navbar-dark .navbar-nav > li > a:focus {
+	background-image: linear-gradient(to top, transparent 94%, #f8f8f8 94%, #f8f8f8 100%);
+	transition: color 150ms linear, text-decoration 150ms linear;
+}
+.calcite-maps .navbar-dark .navbar-toggle,
+.calcite-maps .navbar-dark .navbar-toggle:hover {
+	border-color: #efefef;
+}
+.calcite-maps .navbar-dark .navbar-toggle:hover {
+	background-color: #f8f8f8;
+}
+.calcite-maps .navbar-dark .navbar-toggle .icon-bar {
+	background-color: #f8f8f8;
+}
+.calcite-maps .navbar-dark .navbar-toggle:hover .icon-bar {
+	background-color: #323232;
+}
+
+/* -------- */
+/* Tooltips */
+/* -------- */
+
+/* Optional */
+
+.calcite-maps .tooltip {
+	min-width: 75px;
+}
+/*.calcite-maps .tooltip-inner {
+  white-space: nowrap;
+  background-color: rgb(56, 142, 196);
+  opacity: 1.0;
+}
+.calcite-maps .tooltip.in {
+  opacity: 1.0 !important;
+  filter: alpha(opacity=100);
+}
+.calcite-maps .tooltip.bottom .tooltip-arrow {
+  border-bottom-color: rgb(56, 142, 196);
+}
+.calcite-maps .tooltip.right .tooltip-arrow {
+  border-right-color: rgb(56, 142, 196);
+}*/
