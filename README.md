@@ -1,3 +1,8 @@
+# Calcite-Bootstrap
+
+
+Calcite-Bootstrap is a UI kit for Bootstrap 3.x. At this time is is intended for use building Esri branded applications, but there are plans to open this up further.
+
 # Using Calcite Bootstrap
 
 There are two main ways to use Calcite Boostrap: copying compiled css files into your project or installing via a package manager and using a SASS build step in your project.
@@ -33,11 +38,35 @@ If you're using sass, be sure to add `node_modules/calcite-bootstrap/dist/sass/`
 
 Then in your main `.scss` file, you can just require the framework: `@import "calcite-bootstrap";`.
 
+#---------------
+# ERICH WE NEED MORE DOC HERE ABOUT EXTENDING AND USING THE OPENSANS VERSIONS
+#---------------
+
+## Calcite Boostrap vs. Calcite Web
+
+Calcite Bootstrap aims to provide a robust set of patterns and utilities for the developer building general purpose web applications, while simultaneously carrying forward the Calcite-Web asthetic.
+
+
+# Build and Deploy Process
+
+## Building Documentation
+The docs are hosted on gh-pages and can be deployed by anyone with push access to the repo.
+
+`grunt deploy` will build the doc pages, and the css, an push that to gh-pages
+
+## Deploy Releases
+Releases are stored @ github, and the deploy process involves a shell-script
+
+`sh ./bin/release.sh`
+
 #-----------------------------
 
 # Contributing to Calcite Bootstrap
 
-Installing Calcite Bootstrap was designed to be fairly painless. If you have any problems, be sure to [submit an issue](https://github.com/Esri/calcite-bootstrap/issues/) and use the label `install issues`.
+Installing Calcite Bootstrap was designed to be fairly painless. If you have any problems, be sure to [submit an issue](https://github.com/Esri/calcite-bootstrap/issues/).
+
+## Where to Find Contributors
+Contributors communicate on the Slack [ESRI Patterns Team](https://esri-patterns.slack.com/) in the #calcite-bootstrap channel.
 
 ### Install Dependencies
 
@@ -61,7 +90,7 @@ If you run into errors during the installs, Mac Users my want to try using `sudo
 
 ### Fork the Repository
 
-All the code for Calcite Bootstrap lives [on GitHub](https://github.com/Esri/calcite-bootstrap). We use the [fork and pull model](https://help.github.com/articles/using-pull-requests/) to manage contribution.
+All the code for Calcite Bootstrap lives [on GitHub](https://github.com/ArcGIS/calcite-bootstrap). We use the [fork and pull model](https://help.github.com/articles/using-pull-requests/) to manage contribution.
 
 1. Fork the repository so you have your own copy (`$ your-username/calcite-bootstrap`)
 2. Clone the repo locally with `$ git clone https://github.com/your-username/calcite-bootstrap`
@@ -74,7 +103,7 @@ All the code for Calcite Bootstrap lives [on GitHub](https://github.com/Esri/cal
 
 Again, if you run into errors during, Mac Users my want to try using `sudo`.
 
-When the installs complete run `$ grunt` to start the application. Open a new browser and navigate to `http://localhost:8888`.
+When the installs complete run `$ grunt` to start the application. Open a new browser and navigate to http://localhost:9000.
 
 ### Git Remote
 You should also add `Esri/calcite-bootstrap` as a remote at this point. We generally call this remote branch 'upstream':
@@ -109,12 +138,12 @@ You might also want to try installing `sudo npm install -g n` and `sudo npm inst
 
 ## Development
 
-To run a development environment, just type `$ grunt`. You should have a copy of the documentation site live at [localhost:8888](http://localhost:8888).
+To run a development environment, just type `$ grunt`. You should have a copy of the documentation site live at [localhost:9000](http://localhost:9000).
 
 ### Common Tasks
 
-- `$ grunt` - [default] builds and then serves up local environment at localhost:8888 (includes watch for updated files)
-- `$ grunt serve` - serves local environment at localhost:8888 (no build)
+- `$ grunt` - [default] builds and then serves up local environment at localhost:9000 (includes watch for updated files)
+- `$ grunt serve` - serves local environment at localhost:9000 (no build)
 - `$ grunt build` - builds local environment only (no localhost)
 - `$ grunt release` - creates `calcite-bootstrap.zip` file for release in root directory 
 - `$ grunt publish` - publishes new release candidate to Amazon S3 (requires credentials)
@@ -123,10 +152,10 @@ To run a development environment, just type `$ grunt`. You should have a copy of
 
 Please use the practice of creating a new branch for the the task you are working on
 
-`$ git checkout -b my-new-feature`
+`$ git checkout -b calcite-buttons`
 
 Once you are ready to commit, push the changes to your fork.
 
-`$ git push origin my-new-feature`
+`$ git push origin calcite-buttons`
 
 Then go to the main repo page and click the button to create a Pull Request.
