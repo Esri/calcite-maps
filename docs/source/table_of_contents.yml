@@ -2,38 +2,32 @@ get-started:
   title: 'Get Started'
   base: 'get-started'
   navigation:
-    - group: 'Get Started'
+    - group: ''
       pages:
-        - title: 'Overview'
+        - title: 'Introducing Calcite+Bootstrap'
+          id: 'cac910bb-0f78-4859-8dfa-a21907b1eea9'
+          link: cal-boot
+        - title: 'Building with Calcite+Bootstrap'
+          id: 'bdg910bb-0f78-1259-8dfa-a21907b1eea9'
+          link: building
+        - title: 'Getting Started'
           id: 'cac910bb-0f92-4859-8dfa-a21907b1eea9'
           link: get-started
         - title: 'Static Files'
           id: '9e43461e-5eef-4b82-944d-13f011cef228'
           link: static-files
-        - title: 'NPM'
+        - title: 'Content Delivery Network (CDN)'
+          id: '9e43461e-5eef-4b82-911d-13f011cef228'
+          link: cdn
+        - title: 'Node Package Manager (NPM)'
           id: '0c877765-f240-4f80-97f4-7f9bbf0967ae'
           link: npm
+        - title: 'Issues'
+          id: '0c877765-f240-4f80-9964-7f9bbf0967ae'
+          link: issues
         - title: 'Contributing'
-          id: 'cac910bb-0f92-4859-8dfa-a21907b1eea0'
-          link: contribute
-        - title: 'Development'
-          id: '9e43461e-5eef-4b82-944d-13f011cef229'
-          link: dev
-        - title: 'Versioning'
-          id: '0c877765-f240-4f80-97f4-7f9bbf0967a1'
-          link: versions
-components:
-  title: 'Components'
-  base: 'components'
-  navigation:
-    - group: 'Components'
-      pages:
-        - title: 'Components'
-          id: '9f3fabff-e863-4ecd-ad64-4dc1df40f6dc'
-          link: index
-        - title: 'Loading Animation'
-          id: '9f3fabff-e863-4ecd-ad64-4dc1df83f6dc'
-          link: loader        
+          id: '0c877765-f240-4f80-9934-7f9bbf0967ae'
+          link: contribute           
 examples:
   title: 'Theme Example'
   base: 'examples'
@@ -43,4 +37,3 @@ examples:
         - title: 'Example Page'
           id: '9f3fabff-e863-4ecd-ad64-4dc1df40f6db'
           link: index
-
