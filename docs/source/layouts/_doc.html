@@ -6,28 +6,25 @@
 {% endblock %}
 
 {% block content %}
-  <div class="col-lg-3 col-md-4">
-    <aside class="side-nav" aria-role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+  <div class="col-md-3">
       {% for group in data.table_of_contents[section].navigation %}
         <h4 class="side-nav-title">{{ group.group }}</h4>
-        <!-- <nav aria-role="navigation" aria-labelledby="sidenav"> -->
         <nav aria-role="navigation">
-          <ul class="nav nav-stacked">
+          <div class="list-group">
             {% for page in group.pages %}
               {% if page.title == 'Overview' %}
-                <li><a href="#{{group.group | replace(" ", "-") | lower}}" class="side-nav-link">{{page.title}}</a></li>
+                <a href="#{{group.group | replace(" ", "-") | lower}}" class="list-group-item">{{page.title}}</a>
               {% else %}
-                <li><a href="#{{page.link}}" class="side-nav-link">{{page.title}}</a></li>
+                <a href="#{{page.link}}" class="list-group-item">{{page.title}}</a>
               {% endif %}
             {% endfor %}
-          </ul>
+          </div>
         </nav>
       {% endfor %}
-    </aside>
   </div>
 
   <a id="skip-to-content" tabindex="0"></a>
-  <main class="col-lg-9 col-md-8" role="main">
+  <main class="col-md-9" role="main">
 
     {% for group in data.table_of_contents[section].navigation %}
       <h1 class="text-rule" id="{{group.group | replace(" ", "-") | lower}}" tabindex="0">{{group.group}}</h1>
