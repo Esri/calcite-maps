@@ -28,6 +28,9 @@ get-started:
         - title: 'Contributing'
           id: '0c877765-f240-4f80-9934-7f9bbf0967ae'
           link: contribute           
+        - title: 'Built with Calcite+Bootstrap'
+          id: '0c866665-f240-4f80-9244-7f9bbf0967ae'
+          link: builtwithcb
 examples:
   title: 'Theme Example'
   base: 'examples'
