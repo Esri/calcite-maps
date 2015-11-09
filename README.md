@@ -1,5 +1,7 @@
 # calcite-maps
-A tiny theme for designing beautiful mapping apps for web and mobile devices. It works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). With [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) you can create fully customized and minimized CSS builds, so be sure to check this project out.
+A bootstrap theme for designing beautiful mapping apps for web and mobile devices. 
+
+The theme works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). Learn more about how to build custom [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) builds specifically for your applications [here](https://github.com/Esri/calcite-bootstrap).
 
 You can use any of the ```body``` and ```nav``` classes to easily create different layouts, styles and color schemes and position controls on the map or around the map. You can also use them classes to create your own custom themes as well.
 
@@ -7,10 +9,13 @@ NOTE: The current examples are for ArcGIS JS API 4.0 beta1 and Esri-Leaflet but 
 
 ###Demo
 
-[Try it now!](http://esri.github.io/calcite-maps/index.html)
+[Explore calcite colors, styles and map layouts for ArcGIS and Esri-Leaflet](http://esri.github.io/calcite-maps/index.html)
 
 ###Example
-This is a simple ArcGIS JS 4.0 2D/3D example. Try changing the body classes to change the layout and style e.g. ```nav-space-none, light-blue...```. See the class documentation below for more details.
+This is a simple ArcGIS JS 4.0 2D/3D example. In your browser or JSFiddle, try changing the body classes to change the layout and style e.g. ```nav-space-none, light-blue-50, zoom-bottom-left...```. See the class documentation below for more details.
+
+[Try the starter example now](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html)
+
 
 ![calcite-maps.png](/calcite-maps.png?raw=true "Calcite Smart Map Apps")
 
@@ -36,7 +41,7 @@ This is a simple ArcGIS JS 4.0 2D/3D example. Try changing the body classes to c
     
     <!-- ArcGIS JS 4.0 -->
     <link rel="stylesheet" href="http://js.arcgis.com/4.0beta1/esri/css/esri.css">
-    <link rel="stylesheet" href="http://esri.github.io/calcite-maps/apps/css/calcite-dojo-4.0.css">
+    <link rel="stylesheet" href="http://esri.github.io/calcite-maps/demos/css/calcite-dojo-4.0.css">
     
     <style>
         html, body {
