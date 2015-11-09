@@ -80,8 +80,8 @@ Run [this app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html
             <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
                 <ul class="nav navbar-nav navbar-right">                    
                    <!-- Map and Scene -->
-                    <li class="active" data-tooltip="tip" title="2D View"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab">Map</a></li>
-                    <li data-tooltip="tip" title="3D View"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>                  
+                    <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+                    <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
                     <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
                     <!-- Options dropdown menu -->
                     <li class="dropdown" role="presentation">
@@ -276,6 +276,60 @@ Run [this app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html
 </body>
 </html>
 ```
+
+###Getting Started
+
+1. Create a new [bootstrap page](http://getbootstrap.com).
+
+2. Add a reference to [Calcite-Bootstrap](http://github.com/calcite-bootstrap) and remove bootstrap.css reference.
+    
+    ```
+    <!-- Calcite-Bootstrap -->
+    <link rel="stylesheet" href="http://esri.github.io/calcite-bootstrap/assets/css/calcite-bootstrap.css">
+    ```
+
+3. Add references (as necessary) to Calcite-Maps CSS.
+    
+    ```
+    <!-- Calcite-Maps -->
+    <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/calcite-maps.css">
+    <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/calcite-maps-arcgis.css">
+    <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/themes/themes.css">
+    ```
+
+4. Add references (as necessary for dojo or jquery) to JS files.
+    
+    ```
+    <!-- ArcGIS -->
+    <script type="text/javascript">
+        var dojoConfig = {
+            packages: [{
+                name: "bootstrap",
+                location: "//rawgit.com/xsokev/Dojo-Bootstrap/master"
+            },
+            {
+                name: "calcite-maps",
+                location: "//esri.github.io/calcite-maps/js/dojo"
+            }]
+        };
+    </script>
+    ```
+    ```
+    <!-- Esri-Leaflet -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://esri.github.io/calcite-maps/js/jquery/calcitemaps.js"></script>
+    ```
+
+5. Add id="mainNav" to your collapsible navbar div.
+    
+    ```
+    <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
+    ```
+
+6. Add/remove nav items and tooltips as necessary.
+
+7. Add/remove panels as necessary.
 
 ###Documentation
 
