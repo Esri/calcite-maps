@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/themes/themes.css">
     
     <!-- ArcGIS JS 4.0 -->
-    <link rel="stylesheet" href="http://js.arcgis.com/4.0beta1/esri/css/esri.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.15/esri/css/esri.css">
     <link rel="stylesheet" href="http://esri.github.io/calcite-maps/demos/css/calcite-dojo-4.0.css">
     
     <style>
@@ -26,6 +26,15 @@
             margin: 0;
             padding: 0;
             height: 100%;
+        }
+
+        .panel-container {
+            z-index: 50;
+        }
+
+        .esriSimpleSliderTL {
+            top: 95px;
+            left: 15px;
         }
     </style>
 </head>
@@ -54,16 +63,12 @@
             <!-- Navbar collapse -->
             <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
                 <ul class="nav navbar-nav navbar-right">                    
-                   <!-- Map and Scene -->
-                    <li class="active" data-tooltip="tip" title="2D View"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab">Map</a></li>
-                    <li data-tooltip="tip" title="3D View"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>                  
+                    <!-- Map and Scene -->
                     <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
                     <!-- Options dropdown menu -->
                     <li class="dropdown" role="presentation">
                         <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="hidden-xs visible-sm hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">Map</a></li>
-                            <li><a class="hidden-xs visible-sm hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>
                             <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
                             <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                             <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
@@ -77,14 +82,7 @@
     <!-- Map Container  -->
 
     <div class="map-container">
-        <div id="tabContainer" class="tab-content">
-            <div id="2dTab" class="tab-pane fade in active" role="tabpanel">
-                <div id="mapViewDiv" class="map-position-absolute"></div>
-            </div>
-            <div id="3dTab" class="tab-pane fade" role="tabpanel">
-                <div id="sceneViewDiv" class="map-position-absolute"></div>
-            </div>
-        </div>
+        <div id="mapViewDiv" class="map-position-absolute"></div>
     </div><!-- /.container -->
 
     <!-- Panel -->
@@ -104,7 +102,7 @@
                 <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
                     <div class="panel-body">
                         <p>This is super simple map of Los Angeles. Try the 2D and 3D view. Change basemaps. Or just search and explore for your favorite places around town.</p>
-                        <p>ArcGIS 4.0 Beta</p>
+                        <p>ArcGIS JS 3.x</p>
                     </div>
                 </div>
             </div>
@@ -168,18 +166,14 @@
     </script>
 
     <!-- ArcGIS JS 4.0 -->
-    <script src="//js.arcgis.com/4.0beta1/"></script>
+    <script src="//js.arcgis.com/3.15/"></script>
 
     <script>
 
-        var map, mapScene, mapView, sceneView, searchWidgetNav, searchWidgetPanel, activeView;
+        var map, searchWidgetNav, searchWidgetPanel, activeView;
 
-        require(["esri/Map",
-            "esri/Basemap",
-            "esri/views/MapView",
-            "esri/views/SceneView",
-            "esri/widgets/Search",
-            "esri/core/watchUtils",
+        require(["esri/map",
+            "esri/dijit/Search",
             "dojo/query",
 
             "bootstrap/Collapse", 
@@ -190,64 +184,37 @@
             "calcite-maps/calcitemapsdojo",
             
             "dojo/domReady!"
-        ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query) {
+        ], function(Map, Search, query) {
             
             // Map 
-            map = new Map({
-                basemap: "vector-streets"
-            });
-            mapView = new MapView({
-                container: "mapViewDiv",
-                map: map,
-                center: [-118, 34],
+            map = new Map("mapViewDiv", {
+                basemap: "streets",
+                center: [-118, 34], // lon, lat
                 zoom: 7
             });
-            mapView.popup.anchor = "top";
+            //map.popup.anchor = "top";
          
-            // Scene
-            mapScene = new Map({
-                basemap: "streets"
-            });
-            sceneView = new SceneView({
-                container: "sceneViewDiv",
-                map: mapScene,
-                center: [-118, 34],
-                zoom: 4
-            });
-            sceneView.popup.anchor = "top";
-
-            activeView = mapView;
-
             // Search
             searchDivNav = createSearchWidget("searchNavDiv");
             searchWidgetPanel = createSearchWidget("searchDivPanel");
 
             function createSearchWidget(parentId) {
                 var search = new Search({
-                    view: activeView,
+                    map: map,
                     enableHighlight: false
                     }, parentId);
                 search.startup();
                 // Set active view
-                search.watch(function(property, oldValue, newValue){
-                    if (property === "searchResults") {
-                        search.view = activeView;
-                    }
-                }); 
+                // search.watch(function(property, oldValue, newValue){
+                //     if (property === "searchResults") {
+                //         search.view = activeView;
+                //     }
+                // }); 
                 return search;
             }
 
-            query("li a[data-toggle='tab']").on("click", function(e) {
-                if (e.target.text === "Map") {
-                    activeView = mapView;                    
-                } else {
-                    activeView = sceneView;
-                }
-            });
-
             query("#selectBasemapPanel").on("change", function(e){
-                map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
-                mapScene.basemap = e.target.options[e.target.selectedIndex].value;
+                map.setBasemap(e.target.options[e.target.selectedIndex].value);
             });
         });<!-- dojo -->
     </script>
