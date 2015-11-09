@@ -1,17 +1,14 @@
 # calcite-maps
 A theme for designing beautiful mapping apps for web and mobile devices. 
 
-The theme is designed to work seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles, colors and custom builds. Learn more about [Calcite-Bootstrap here](https://github.com/Esri/calcite-bootstrap). It will also work with pure Bootstrap apps.
+The theme works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles, colors and custom builds, but will also work with pure Bootstrap 3.x apps. Learn more about [Calcite-Bootstrap here](https://github.com/Esri/calcite-bootstrap).
 
 ###Demo
 
-[Try it live](http://esri.github.io/calcite-maps/index.html).
+[Try it live](http://esri.github.io/calcite-maps/index.html) (Try different styles, colors and map app layouts.)
 
 ###Example
-Run the app and in your browser try changing the body classes to change the layout and style e.g. ```nav-space-none, oragne-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more details.
-
-[Try starter app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html)
-
+[Run the app below in your browser](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html) and try changing the body classes to change the layout and style e.g. ```nav-space-none, oragne-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more information.
 
 ![calcite-maps.png](/calcite-maps.png?raw=true "Calcite Smart Map Apps")
 
