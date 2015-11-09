@@ -5,10 +5,10 @@ The theme works seamlessly with [Calcite-Bootstrap styles, colors and custom bui
 
 ###Demo
 
-[Try it live](http://esri.github.io/calcite-maps/index.html) (Styles, Colors and Layouts)
+[Try this app](http://esri.github.io/calcite-maps/index.html) to explore the different styles, colors and layouts.
 
 ###Example
-[Run the app below](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html) in your browser and try changing the body classes to change the layout and style e.g. ```nav-space-none, oragne-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more information.
+[Run the app below](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html) and try changing the body classes. e.g. ```nav-space-none, orange-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more details.
 
 ![calcite-maps.png](/calcite-maps.png?raw=true "Calcite Smart Map Apps")
 
