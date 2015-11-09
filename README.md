@@ -1,18 +1,14 @@
 # calcite-maps
-A bootstrap theme for designing beautiful mapping apps for web and mobile devices. 
+A theme for designing beautiful mapping apps for web and mobile devices. 
 
-Use the ```body``` and ```nav``` classes to easily create different app layouts, styles and color schemes and to position controls on the map. You can also use the classes to create your own custom themes too.
-
-The theme is designed to work seamlessly with the [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles, colors and custom builds. Learn more about [how to build custom Calcite-Bootstrap builds for your apps here](https://github.com/Esri/calcite-bootstrap).
+The theme is designed to work seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles, colors and custom builds. Learn more about [Calcite-Bootstrap here](https://github.com/Esri/calcite-bootstrap). It will also work with pure Bootstrap apps.
 
 ###Demo
 
-Try [these apps](http://esri.github.io/calcite-maps/index.html) to explore different app designs for ArcGIS and Esri-Leaflet.
-
-NOTE: The current examples are for ArcGIS JS API 4.0 beta1 and Esri-Leaflet but the framework will work with any mapping API.
+[Try it live](http://esri.github.io/calcite-maps/index.html).
 
 ###Example
-This is a simple ArcGIS JS 4.0 2D/3D starter app. Run the app and in your browser try changing the body classes to change the layout and style e.g. ```nav-space-none, oragne-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more details.
+Run the app and in your browser try changing the body classes to change the layout and style e.g. ```nav-space-none, oragne-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more details.
 
 [Try starter app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html)
 
