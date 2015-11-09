@@ -1,21 +1,14 @@
 # calcite-maps
-A bootstrap theme for designing beautiful mapping apps for web and mobile devices. 
+A theme for designing beautiful mapping apps for web and mobile devices. 
 
-The theme works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles and colors but will also work with standard [Bootstrap](http://getbootstrap.com). Learn more about how to build custom [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) builds specifically for your applications [here](https://github.com/Esri/calcite-bootstrap).
-
-You can use any of the ```body``` and ```nav``` classes to easily create different layouts, styles and color schemes and position controls on the map or around the map. You can also use them classes to create your own custom themes as well.
-
-NOTE: The current examples are for ArcGIS JS API 4.0 beta1 and Esri-Leaflet but the framework will work with any mapping API.
+The theme works seamlessly with [Calcite-Bootstrap styles, colors and custom builds](https://github.com/Esri/calcite-bootstrap), but will also work with pure Bootstrap 3.x apps. Learn more about [Calcite-Bootstrap here](https://github.com/Esri/calcite-bootstrap).
 
 ###Demo
 
-[Explore calcite colors, styles and map layouts for ArcGIS and Esri-Leaflet](http://esri.github.io/calcite-maps/index.html)
+[Try this app](http://esri.github.io/calcite-maps/index.html) to explore the different styles, colors and layouts.
 
 ###Example
-This is a simple ArcGIS JS 4.0 2D/3D example. In your browser or JSFiddle, try changing the body classes to change the layout and style e.g. ```nav-space-none, light-blue-50, zoom-bottom-left...```. See the class documentation below for more details.
-
-[Try the starter example now](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html)
-
+[Run the app below](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html) and try changing the body classes. e.g. ```nav-space-none, orange-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more details.
 
 ![calcite-maps.png](/calcite-maps.png?raw=true "Calcite Smart Map Apps")
 
