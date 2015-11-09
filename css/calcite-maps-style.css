@@ -30,17 +30,26 @@
 .calcite-maps .light-gray-50 {
 	background-color: rgba(169, 169, 169, 0.5);
 }
+.calcite-maps .light-gray-75 {
+	background-color: rgba(169, 169, 169, 0.75);
+}
 .calcite-maps .gray {
 	background-color: #959595;
 }
 .calcite-maps .gray-50 {
 	background-color: rgba(149, 149, 149, 0.5);
 }
+.calcite-maps .gray-75 {
+	background-color: rgba(149, 149, 149, 0.75);
+}
 .calcite-maps .dark-gray {
 	background-color: #828282;
 }
 .calcite-maps .dark-gray-50 {
 	background-color: rgba(130, 130, 130, 0.5);
+}
+.calcite-maps .dark-gray-75 {
+	background-color: rgba(130, 130, 130, 0.75);
 }
 .calcite-maps .darker-gray {
 	background-color: #6e6e6e;
@@ -66,11 +75,17 @@
 .calcite-maps .light-blue-50 {
 	background-color: rgba(86, 165, 216, 0.5);
 }
+.calcite-maps .light-blue-75 {
+	background-color: rgba(86, 165, 216, 0.75);
+}
 .calcite-maps .blue {
 	background-color: #3b8fc4;
 }
 .calcite-maps .blue-50 {
 	background-color: rgba(59, 143, 196, 0.5);
+}
+.calcite-maps .blue-75 {
+	background-color: rgba(59, 143, 196, 0.75);
 }
 .calcite-maps .dark-blue {
 	background-color: #196fa6;
@@ -78,11 +93,17 @@
 .calcite-maps .dark-blue-50 {
 	background-color: rgba(25, 111, 166, 0.5);
 }
+.calcite-maps .dark-blue-75 {
+	background-color: rgba(25, 111, 166, 0.75);
+}
 .calcite-maps .light-green {
 	background-color: #9bc19c;
 }
 .calcite-maps .light-green-50 {
 	background-color: rgba(155, 193, 156, 0.5);
+}
+.calcite-maps .light-green-75 {
+	background-color: rgba(155, 193, 156, 0.75);
 }
 .calcite-maps .green {
 	background-color: #5a9359;
@@ -90,11 +111,17 @@
 .calcite-maps .green-50 {
 	background-color: rgba(90, 147, 89, 0.5);
 }
+.calcite-maps .green-75 {
+	background-color: rgba(90, 147, 89, 0.75);
+}
 .calcite-maps .dark-green {
 	background-color: #338033;
 }
 .calcite-maps .dark-green-50 {
 	background-color: rgba(51, 128, 51, 0.5);
+}
+.calcite-maps .dark-green-75 {
+	background-color: rgba(51, 128, 51, 0.75);
 }
 .calcite-maps .light-red {
 	background-color: #e04f1d;
@@ -102,11 +129,17 @@
 .calcite-maps .light-red-50 {
 	background-color: rgba(224, 79, 29, 0.5);
 }
+.calcite-maps .light-red-75 {
+	background-color: rgba(224, 79, 29, 0.75);
+}
 .calcite-maps .red {
 	background-color: #c7461a;
 }
 .calcite-maps .red-50 {
 	background-color: rgba(199, 70, 26, 0.5);
+}
+.calcite-maps .red-75 {
+	background-color: rgba(199, 70, 26, 0.75);
 }
 .calcite-maps .dark-red {
 	background-color: #ab3c16;
@@ -114,11 +147,17 @@
 .calcite-maps .dark-red-50 {
 	background-color: rgba(171, 60, 22, 0.5);
 }
+.calcite-maps .dark-red-75 {
+	background-color: rgba(171, 60, 22, 0.75);
+}
 .calcite-maps .light-orange {
 	background-color: #f6ca92;
 }
 .calcite-maps .light-orange-50 {
 	background-color: rgba(246, 202, 146, 0.5);
+}
+.calcite-maps .light-orange-75 {
+	background-color: rgba(246, 202, 146, 0.75);
 }
 .calcite-maps .orange {
 	background-color: #eda959;
@@ -126,11 +165,17 @@
 .calcite-maps .orange-50 {
 	background-color: rgba(237, 169, 89, 0.5);
 }
+.calcite-maps .orange-75 {
+	background-color: rgba(237, 169, 89, 0.75);
+}
 .calcite-maps .orange-dark {
 	background-color: #e8912e;
 }
 .calcite-maps .orange-dark-50 {
 	background-color: rgba(232, 145, 46, 0.5);
+}
+.calcite-maps .orange-dark-75 {
+	background-color: rgba(232, 145, 46, 0.75);
 }
 .calcite-maps .light-yellow {
 	background-color: #efe397;
@@ -138,11 +183,17 @@
 .calcite-maps .light-yellow-50 {
 	background-color: rgba(239, 227, 151, 0.5);
 }
+.calcite-maps .light-yellow-75 {
+	background-color: rgba(239, 227, 151, 0.75);
+}
 .calcite-maps .yellow {
 	background-color: #e4d154;
 }
 .calcite-maps .yellow-50 {
 	background-color: rgba(228, 209, 84, 0.5);
+}
+.calcite-maps .yellow-75 {
+	background-color: rgba(228, 209, 84, 0.75);
 }
 .calcite-maps .yellow-dark {
 	background-color: #d9bf2b;
@@ -150,11 +201,17 @@
 .calcite-maps .yellow-dark-50 {
 	background-color: rgba(217, 191, 43, 0.5);
 }
+.calcite-maps .yellow-dark-75 {
+	background-color: rgba(217, 191, 43, 0.75);
+}
 .calcite-maps .light-purple {
 	background-color: #c4bcdc;
 }
 .calcite-maps .light-purple-50 {
 	background-color: rgba(196, 188, 220, 0.5);
+}
+.calcite-maps .light-purple-75 {
+	background-color: rgba(196, 188, 220, 0.75);
 }
 .calcite-maps .purple {
 	background-color: #9081bc;
@@ -162,11 +219,17 @@
 .calcite-maps .purple-50 {
 	background-color: rgba(144, 129, 188, 0.5);
 }
+.calcite-maps .purple-75 {
+	background-color: rgba(144, 129, 188, 0.75);
+}
 .calcite-maps .dark-purple {
 	background-color: #7461a8;
 }
 .calcite-maps .dark-purple-50 {
 	background-color: rgba(116, 97, 168, 0.5);
+}
+.calcite-maps .dark-purple-75 {
+	background-color: rgba(116, 97, 168, 0.75);
 }
 .calcite-maps .light-brown {
 	background-color: #d2b38f;
@@ -174,17 +237,26 @@
 .calcite-maps .light-brown-50 {
 	background-color: rgba(210, 179, 143, 0.5);
 }
+.calcite-maps .light-brown-75 {
+	background-color: rgba(210, 179, 143, 0.75);
+}
 .calcite-maps .brown {
 	background-color: #a57946;
 }
 .calcite-maps .brown-50 {
 	background-color: rgba(165, 121, 70, 0.5);
 }
+.calcite-maps .brown-75 {
+	background-color: rgba(165, 121, 70, 0.75);
+}
 .calcite-maps .dark-brown {
 	background-color: #8c5e2a;
 }
 .calcite-maps .dark-brown-50 {
 	background-color: rgba(140, 94, 42, 0.5);
+}
+.calcite-maps .dark-brown-75 {
+	background-color: rgba(140, 94, 42, 0.75);
 }
 
 .calcite-maps .opacity-0 {
