@@ -1,4 +1,4 @@
-First off, **Calcite** is a flexible design framework, created at ESRI, in which the map and data are the most important component of the user interface. All elements and interactions strengthen a geo-centered user experience.
+**Calcite** is a flexible design framework, created at ESRI, in which the map and data are the most important component of the user interface. All elements and interactions strengthen a geo-centered user experience.
 
 **Calcite+Bootstrap** is a UI Kit built on the popular [Bootstrap](http://getbootstrap.com) CSS framework. It was originally conceived as a boilerplate for ESRI products built with Bootstrap that we are now sharing with the public.
 
