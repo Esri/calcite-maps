@@ -1,21 +1,24 @@
 # calcite-maps
 A theme for designing beautiful mapping apps for web and mobile devices. 
 
+To create a custom app, create a Bootstrap page with a map in it and then use high-level ```body``` and ```nav``` classes to control the app layout, design and color scheme. See [Getting Started](#getting-started).
+
 The theme works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles, colors and custom builds, but will also work with Bootstrap 3.x. Learn more about Calcite-Bootstrap [here](https://github.com/Esri/calcite-bootstrap).
 
 ###Features
 
 * Calcite colors and styles
-* Different map app layouts
-* Accordian panels for custom tools/tasks
-* Responsive for web and mobile devices
-* Create custom themes
+* Light and dark background themes
+* Map app layouts for top, bottom and side navigation
+* Stacked accordian panels for custom tools/tasks
+* Support for custom themes
 * Support for Dojo and jQuery
+* Responsive for web and mobile devices
 * Compatible with any mapping api
 
 ###Demo
 
-Explore the different styles, colors and layouts with [this app](http://esri.github.io/calcite-maps/index.html).
+Try [this app](http://esri.github.io/calcite-maps/index.html) to explore the different styles, colors and layouts.
 
 ###Example
 Run [this app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html) in your browser and try changing the body classes. e.g. ```nav-space-none, orange-75, navbar-light, zoom-bottom-left...```. See the class documentation below for more details.
@@ -277,7 +280,7 @@ Run [this app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html
 </html>
 ```
 
-###Getting Started
+###Getting Started<a id="getting-started"></a>
 
 1. Create a new [bootstrap page](http://getbootstrap.com).
 
