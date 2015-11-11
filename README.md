@@ -1,15 +1,16 @@
 # calcite-maps
 A theme for designing beautiful mapping apps for web and mobile devices. 
 
-To create a custom app, create a Bootstrap page with a map in it and then use high-level ```body``` and ```nav``` classes to control the app layout, design and color scheme. See [Getting Started](#getting-started).
+This project includes a small set of CSS classes that you can use to create mapping apps with different colors, styles and layouts. It's designed to work seamlessly with the [Calcite-Bootstrap UI Kit](https://github.com/Esri/calcite-bootstrap), but will also work with standard [Bootstrap](http://getbootstrap.com) applications.
 
-The theme works seamlessly with [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) styles, colors and custom builds, but will also work with Bootstrap 3.x. Learn more about Calcite-Bootstrap [here](https://github.com/Esri/calcite-bootstrap).
+All of the colors, styles, layouts and design principles derive from [Calcite](http://esri.github.io/calcite-bootstrap/index.html), a flexible design framework developed by Esri.
 
 ###Features
 
-* Calcite colors and styles
+* High-level ```body``` and ```nav``` classes control all layouts
+* References to all calcite colors and styles
 * Light and dark background themes
-* Map app layouts for top, bottom and side navigation
+* Top, bottom and side navigation
 * Stacked accordian panels for custom tools/tasks
 * Support for custom themes
 * Support for Dojo and jQuery
