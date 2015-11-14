@@ -1,5 +1,5 @@
 # calcite-maps
-A theme for designing beautiful mapping apps for web and mobile devices. 
+A design framework for building beautiful mapping apps for web and mobile devices.
 
 This project includes a small set of CSS classes that you can use to create mapping apps with different colors, styles and layouts. It's designed to work seamlessly with the [Calcite-Bootstrap UI Kit](https://github.com/Esri/calcite-bootstrap), but will also work with standard [Bootstrap](http://getbootstrap.com) applications.
 
