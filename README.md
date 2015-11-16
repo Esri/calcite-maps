@@ -285,7 +285,7 @@ Run [this app](http://esri.github.io/calcite-maps/demos/arcgis-dojo-starter.html
 
 1. Create a new [bootstrap page](http://getbootstrap.com).
 
-2. Add a reference to [Calcite-Bootstrap](http://github.com/calcite-bootstrap) and remove bootstrap.css reference.
+2. Add a reference to [Calcite-Bootstrap](http://github.com/esri/calcite-bootstrap) and remove bootstrap.css reference.
     
     ```
     <!-- Calcite-Bootstrap -->
@@ -382,7 +382,7 @@ Themes
 
 * [ArcGIS for JavaScript API](http://developers.arcgis.com)
 * [Esri-Leafllet](http://github.com/esri/esri-leaflet)
-* [Calcite-Bootstrap](http://github.com/calcite-bootstrap)
+* [Calcite-Bootstrap](http://github.com/esri/calcite-bootstrap)
 
 ## Issues
 
