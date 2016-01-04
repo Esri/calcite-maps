@@ -1,5 +1,10 @@
 # Calcite+Bootstrap CHANGELOG
 
+## v0.2.7
+- Calcite Dark colors finalized
+### Bugs
+- Class to center text in the footer now works in both container types.
+
 ## v0.2.6
 ### Bugs
 - Bug causing primary typeface in body font stack to be dropped in both builds.

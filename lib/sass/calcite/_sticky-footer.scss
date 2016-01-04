@@ -4,10 +4,6 @@
 
 //== Let's make the footer stick to the bottom when the page is short!
 
-// Footer Variables
-$footer-height: 60px;
-$footer-bg: $Calcite_Gray_150;
-
 // Footer CSS
 html {
   position: relative;
@@ -25,6 +21,6 @@ body {
   background-color: $footer-bg;
 }
 /* This centers the text vertically in the footer */
-.container .text-muted {
+.container .text-muted, .container-fluid .text-muted {
   margin: 18px 0;
 }
