@@ -47,6 +47,17 @@
         .panel-body {
             overflow: visible !important;
         }
+        /* Remove side padding on search text box so that the search button doesn't wrap */
+        .calcite-maps .panel-control {
+            padding: 0px;
+        }
+
+        /* Hide search block in wider display because we have it in the navbar */
+        @media (min-width: 768px) {
+            #panelSearch {
+                display: none;
+            }
+        }
     </style>
 
 </head>
