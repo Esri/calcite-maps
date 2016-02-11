@@ -2,6 +2,7 @@
 
 ## v0.2.7
 - Calcite Dark colors finalized
+- Consolidated custom variable definitions into `_variables.scss` file.
 ### Bugs
 - Class to center text in the footer now works in both container types.
 
