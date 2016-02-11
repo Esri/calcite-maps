@@ -875,3 +875,56 @@ $page-header-border-color:    $gray-lighter !default;
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
+
+
+
+//
+// Calcite+Bootstrap Custom Variables
+// --------------------------------------------------
+
+
+//== Cards
+//
+//##
+$card-width: 255px;
+$card-thumb-max-height: 133px;
+$card-thumb-max-width: 200px;
+
+//== Footer
+//
+//##
+$footer-height: 60px;
+$footer-bg: $Calcite_Gray_150;
+
+//== Header
+//
+//##
+$calcite-tabs-border-color: transparent !default;
+
+$calcite-tabs-link-hover-border-color: $gray-lighter !default;
+
+$calcite-tabs-active-link-hover-bg: $body-bg !default;
+$calcite-tabs-active-link-hover-color: $Calcite_Gray_700 !default;
+$calcite-tabs-active-link-hover-border-color: $Calcite_Gray_400 !default;
+
+$calcite-link-hover-bg: $Calcite_Gray_700 !default;
+
+$calcite-header-margin-bottom: 30px; // Padding below header
+
+//== Loader
+//
+//##
+$loader-width: 0.85rem;
+$loader-height: 2rem;
+$loader-zoom: 0.5rem;
+$loader-spacing: 1.25rem;
+$loader-speed: 0.8s;
+$loader-delay: 0.16s;
+
+$include-loader: true;
+
+//== Navs
+//
+//##
+$subheader-navbar-height: 36px;
+$micro-navbar-height: 22px;

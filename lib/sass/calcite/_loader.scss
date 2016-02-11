@@ -5,16 +5,6 @@
 //  Line 15 is a shortcircuit of functionality found in Calcite-Web
 //  Color variables have been changed to $Calcite-*
 
-
-$loader-width: 0.85rem;
-$loader-height: 2rem;
-$loader-zoom: 0.5rem;
-$loader-spacing: 1.25rem;
-$loader-speed: 0.8s;
-$loader-delay: 0.16s;
-
-$include-loader: true;
-
 @mixin loader() {
   display: none;
   position: relative;
