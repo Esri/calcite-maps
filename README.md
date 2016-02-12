@@ -135,11 +135,20 @@ Please use the practice of creating a new branch for the the task you are workin
 
 `$ git checkout -b my-new-feature`
 
-Once you are ready to commit, push the changes to your fork.
+Once you are ready to commit, please ensure you have added your changes to CHANGELOG.md, and then push the changes to your fork.
 
 `$ git push origin my-new-feature`
 
 Then go to the main repo page and click the button to create a Pull Request.
+
+### Releasing to NPM
+To prepare a release, you need an NPM account (npmjs.org), and need to be running on a mac or linux.
+
+Most of the process is automated, but we have left two manual steps to ensure that the actual publishing to NPM is not done accidentally.
+
+1. increment the version number in `package.json` This will usually mean bumping the PATCH number (major.minor.patch). This version number will be used in the TAG that the next step will create @ github.
+1. run `sh bin/release.sh` This will create a branch, build the css, and pushes a release. NOTE: You can only push to the same version once. Re-release on the same version, you must manually destroy the release @ github.
+1. run `npm publish` - this will notify npm of the updated version.
 
 ## Licensing
 Copyright 2015 Esri

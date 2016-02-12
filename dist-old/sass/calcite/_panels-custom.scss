@@ -1,0 +1,21 @@
+// ┌───────────────┐
+// │ Panels-custom │
+// └───────────────┘
+
+.panel {
+  .panel-heading {
+    h3 {
+      font-weight: 500;
+    }
+  }
+  &.panel-success,
+  &.panel-info,
+  &.panel-warning,
+  &.panel-danger
+  {
+    .panel-heading {
+      color: $Calcite_Gray_600;
+    }
+
+  }
+}

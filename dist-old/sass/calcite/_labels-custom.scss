@@ -1,0 +1,13 @@
+// ┌───────────────┐
+// │ Labels-custom │
+// └───────────────┘
+
+.label {
+  padding: 5px 10px;
+  font-weight: normal;
+
+
+  &.label-warning {
+    color: $Calcite_Gray_650;
+  }
+}
