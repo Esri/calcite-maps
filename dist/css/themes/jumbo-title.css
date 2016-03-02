@@ -22,6 +22,10 @@
     padding: 0px 5px;
     margin-top: -8px;
     position: absolute; }
+  .calcite-maps.theme-jumbo-title.nav-position-top .navbar-nav .dropdown-menu {
+    margin-top: 29px; }
+  .calcite-maps.theme-jumbo-title.nav-position-bottom .navbar-nav > li > .dropdown-menu {
+    margin-bottom: 29px; }
   .calcite-maps.theme-jumbo-title.nav-position-top.nav-space-none .panel-container,
   .calcite-maps.theme-jumbo-title.nav-position-top-fixed.nav-space-none .panel-container {
     top: 136px; }
