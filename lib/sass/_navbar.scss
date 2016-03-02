@@ -1,0 +1,248 @@
+// ┌──────────────┐
+// │ Navbar       │
+// └──────────────┘
+
+.calcite-maps {
+
+	// Navbar
+
+	.navbar {
+		min-height: 64px;
+		border-top: none;
+		border-bottom: none;
+	}
+
+	// Spacing
+	
+	&.nav-space-none .navbar {
+		margin: 0;
+	}
+
+	&.nav-space-top .navbar {
+		margin-top: 15px;
+		margin-bottom: 0;
+	}
+
+	&.nav-space-bottom .navbar {
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+
+	&.nav-space-all .navbar {
+		margin: 15px;
+	}
+
+	// Navbar - Minibar
+
+	&.is-minibar .navbar {
+		right: auto;
+		background-color: transparent !important;
+	}
+
+	//&.is-minibar.nav-space-all .navbar {
+		//margin-top: 0;
+		//margin-left: 0;
+	//}
+
+	// Navbar - List
+
+	.navbar-nav {
+		margin: 0;
+	}
+
+	.navbar-nav > li > a {
+		padding: 19px 15px 21px;
+	}
+
+	// Navbar - Brand
+
+	.navbar-brand {
+		padding: 11px 10px 11px 10px;
+		font-size: 42px;
+		cursor: pointer;
+		height: 100%;
+	}
+
+	.navbar-brand img {
+		width: 40px;
+	}
+
+	// Navbar - Info
+
+	.navbar-info {
+		position: absolute;
+		top: 0;
+		left: 60px;
+		width: calc(100% - 535px); // Lg screens
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.navbar-title {
+		margin-top: 4px;
+	  font-size: 25px;
+	}
+
+	.navbar-subtitle {
+		margin-top: -5px;
+		margin-left: 2px;
+		font-size: 14px;
+	}
+
+	.text-overflow {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	// Navbar - Search
+
+	.navbar-search {
+		padding-top: 9px;
+	}
+
+	// Navbar - Toggle Button
+
+	.navbar-toggle {
+		float: right;
+		margin: 15px;
+	}
+
+	.dropdown-toggle span {
+		font-size: 17px;
+		top: 4px
+	}
+
+	// Navbar - Menu
+
+	.navbar-nav .dropdown-menu {
+		border: none;
+		font-size: 14px;
+	}
+
+	.dropdown-menu li a {
+		padding: 10px 15px;
+	}
+
+	// Nav collapse
+
+	.navbar-collapse.collapsing {
+		-webkit-transition-timing-function: ease;
+		-o-transition-timing-function: ease;
+		transition-timing-function: ease;
+		-webkit-transition-duration: .15s;
+		-o-transition-duration: .15s;
+		transition-duration: .15s;
+		-webkit-transition-property: height, visibility;
+		-o-transition-property: height, visibility;
+		transition-property: height, visibility;
+	}
+
+	.fade-in, 
+	.fade-out {
+		-webkit-transition: all .25s ease;
+		-o-transition: all .25s ease;
+		transition: all .25s ease;
+	}
+
+	// Hidden Overrides
+
+	// Search, Map and Scene Menus
+
+	.visible-sm.visible-md.visible-lg.hidden,
+	.visible-sm.hidden-md.hidden-lg.hidden,
+	.visible-xs.hidden {
+		display: none !important;
+	}
+
+	// Misc
+
+	.text-center {
+		text-align: center;
+	}
+
+	.text-no-select {
+	   -moz-user-select: -moz-none;
+	   -khtml-user-select: none;
+	   -webkit-user-select: none;
+	   -ms-user-select: none;
+	   user-select: none;
+	}
+}
+
+// Medium screens
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.calcite-maps {
+		.navbar-info {
+			width: calc(100% - 500px);
+		}
+	}
+}
+
+// Small screens */
+
+@media (min-width: 768px) and (max-width: 992px) {
+	.calcite-maps {
+		.navbar-info {
+			width: calc(100% - 380px);
+		}
+	}
+}
+
+// XSmall screens
+
+@media (max-width: 768px) {
+	.calcite-maps {
+
+		// Brand and Title
+
+		.navbar-info {
+			width: calc(100% - 130px);
+		}
+				
+		.navbar-subtitle {
+			font-size: 12px;
+		}
+		
+		// Minibar
+
+		&.nav-position-top.nav-space-all.is-minibar .navbar {
+		     margin-top: 15px; 
+		     margin-left: 30px; 
+		}
+
+		&.nav-position-bottom.nav-space-all.is-minibar .navbar {
+		     margin-bottom: 0; 
+		     margin-left: 0; 
+		}
+		
+		// Dropdown
+		
+		.navbar-nav .dropdown-menu {
+			margin: 0 -15px;
+		}
+		
+		.navbar-nav .open .dropdown-menu > li > a {
+			padding: 10px 20px;
+		}
+
+		.dropdown-menu li:first-child {
+			margin-top: 15px;
+		}
+
+		.dropdown-menu li:last-child {
+			margin-bottom: 15px;	
+		}
+	}
+}
+
+// XXSmall screens
+
+@media (max-width: 480px) {
+	.calcite-maps {
+		.navbar-collapse {
+			max-height: 260px;
+		}
+	}
+}

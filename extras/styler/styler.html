@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Lock viewport to prevent scaling -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="description" content="Calcite-Maps Demo - ArcGIS">
+	<meta name="author" content="">
+	<link rel="icon" href="http://www.esri.com/favicon.ico">
+	<title>Calcite-Maps - ArcGIS Dojo</title>
+
+	<!-- Bootstrap - For testing only -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+	<!-- Calcite-Maps -->
+	<link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
+
+	<!-- ArcGIS JS 4.0 -->
+	<!--link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css"-->
+	<link rel="stylesheet" href="http://localhost/GitHub/arcgis-js-api/esri/css/main.css">
+
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		/* 2D and 3D views */
+		#mapViewDiv, #sceneViewDiv {
+		}
+		/* Search widget - TODO - needs to fit into navbar better and be more responsive */
+		#searchDiv {
+		}
+		
+		.calcite-maps .panel-body {
+			position: relative;
+			max-height: 700px;
+		}
+	</style>
+
+</head>
+
+<body class="calcite-maps nav-position-top nav-space-none map-position-absolute">
+
+	<!-- Navbar -->
+
+	<nav class="navbar navbar-default navbar-fixed-top navbar-text-dark calcite-white ">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand">
+					<span class="esri-icon esri-icon-map-pin"></span>
+				</a>
+
+				<div class="navbar-info">
+					<div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
+					<div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
+				</div>
+			</div>
+
+			<!-- Navbar collapse - main -->
+			<div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
+				<ul class="nav navbar-nav navbar-right">                    
+				   <!-- Map and Scene - NOTE: Removed on mobile devices due to 3D support -->
+					<li class="active"><a id="mapNav" class="hidden-xs hidden-sm hidden" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+					<li><a id="sceneNav" class="hidden-xs hidden-sm hidden" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
+					<li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
+					<!-- Options dropdown menu -->
+					<li class="dropdown" role="presentation">
+						<a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+						<ul class="dropdown-menu">
+							<li><a id="mapNavMenu" class="hidden-xs visible-sm hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">Map</a></li>
+							<li><a id="sceneNavMenu" class="hidden-xs visible-sm hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>
+							<li><a id="infoNavMenu"  role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
+							<li><a id="searchNavMenu" class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+							<li><a id="basemapsNavMenu"  role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
+							<li><a id="bookmarksNavMenu"  role="button" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-book"></span> Bookmarks</a></li>
+							<li><a id="legendNavMenu"  role="button" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Legend</a></li>
+							<li><a id="printNavMenu"  role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
+							<li><a id="shareNavMenu"  role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
+							<li><a id="settingsMenu" role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Styler</a></li>
+						</ul>
+					</li>      
+				</ul><!--/.nav -->
+			</div><!--/.nav-collapse -->
+		</div><!--/.container-fluid -->
+	</nav><!--/.navbar -->
+
+	<!-- Modal Window -->
+
+	<div class="modal fade" id="modalSplash" tabindex="-1" role="dialog" aria-labelledby="splashlModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="splash-body">
+								<div class="text-center">
+									<h3>Welcome to Calcite Maps</h3>
+									<hr>
+									<p>Calcite maps is a modern framework for designing web map apps with Bootstrap. Use this application to explore the different colors, styles and layouts possible. Apply the styles you like to your own applications.</p>
+									<br>
+									<div class="form-inline">
+										<div class="form-group">
+											<button type="button" class="btn btn-success btn-lg"  data-dismiss="modal">Get started</a>
+										</div>
+									</div>
+									<br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Map Container  -->
+
+	<div class="map-container">
+		<div id="tabContainer" class="tab-content">
+			<div id="2dTab" class="tab-pane fade in active" role="tabpanel">
+				<div id="mapViewDiv" class="map-position-absolute"></div>
+			</div>
+			<div id="3dTab" class="tab-pane fade" role="tabpanel">
+				<div id="sceneViewDiv" class="map-position-absolute"></div>
+			</div>
+		</div>
+	</div><!-- /.container -->
+
+	<!-- Panel -->
+
+	<div class="panel-container">
+		<!-- Collapsable panel -->
+		<div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
+  
+			<!-- Info Panel -->
+
+			 <div id="panelInfo" class="panel panel-default collapse">
+				
+				<div id="headingInfo" class="panel-heading" role="tab">
+					<!-- <div class="panel-title hidden-xs"> -->
+					<div class="panel-title">
+						<a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
+						
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+					</div>
+				</div>
+
+				<div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
+					<div class="panel-body">
+						<!-- <a class="panel-body-close visible-xs" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>      -->
+						
+						<p>This is a great place to describe what your application is about.</p>
+					</div>
+				</div>
+
+			</div>
+
+
+			<!-- Search Panel -->
+
+			<!--div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg"-->
+			<div id="panelSearch" class="panel panel-default collapse panel-mobile-only">
+								
+				<div id="headingSearch" class="panel-heading" role="tab">
+					<div class="panel-title">
+						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
+					</div>
+				</div>
+				
+				<div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
+					<div class="panel-body panel-overflow-visible"> 
+						<div id="searchPanelDiv"></div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Basemaps Panel -->
+
+			 <div id="panelBasemaps" class="panel panel-default collapse">
+					 
+				<div id="headingBasemaps" class="panel-heading" role="tab">
+					<div class="panel-title">
+						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
+
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+					</div>
+				</div>
+				
+				<div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
+					<div class="panel-body">
+						<select id="selectBasemapPanel" class="form-control">                            
+							<option value="streets">Streets</option>
+							<option value="topo">Topo</option>
+							<option value="terrain">Terrain</option>
+							<option value="oceans">Oceans</option>
+							<option value="gray">Gray</option>
+							<option value="dark-gray">Dark Gray</option>
+							<option value="gray">Gray</option>
+							<option value="national-geographic">National Geographic</option>
+							<option value="osm">Open Street Map</option>
+							<option value="satellite">Satellite</option>
+							<option value="hybrid">Hybrid</option>
+							<option value="vector-streets" data-tilebasemap="streets" selected>Vector Streets</option>
+							<option value="vector-streets-relief" data-tilebasemap="topo">Vector Streets Relief</option>
+							<option value="vector-streets-navigation" data-tilebasemap="streets">Vector Streets Navigation</option>
+							<option value="vector-streets-night" data-tilebasemap="darkgray">Vector Streets Night</option>
+							<option value="vector-topographic" data-tilebasemap="topo">Vector Topographic</option>
+							<option value="vector-canvas-gray" data-tilebasemap="gray">Vector Canvas Gray</option>
+							<option value="vector-canvas-darkgray" data-tilebasemap="darkgray">Vector Canvas Dark Gray</option>
+							<option value="vector-hybrid-reference" data-tilebasemap="hybrid">Vector Hybrid Reference</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Bookmarks Panel -->
+
+			<div id="panelBookmarks" class="panel panel-default collapse">
+			
+				<div id="headingBookmarks" class="panel-heading" role="tab">
+				  <!-- <div class="panel-title hidden-xs"> -->
+					<div class="panel-title">
+
+					<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBookmarks" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseBookmarks"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Bookmarks</a>
+
+					<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBookmarks"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+				  </div>
+				</div>
+			 
+				<div id="collapseBookmarks" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBookmarks">
+				  <div class="panel-body">
+					<!-- <a class="panel-body-close visible-xs" role="button" data-toggle="collapse" data-target="#panelBookmarks"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>   -->
+					
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					  <ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					  </ol>
+					  <div class="carousel-inner" role="listbox">
+						<div class="item active">
+						  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97200&w=300&h=200" alt="...">
+						  <div class="carousel-caption">
+							<!-- Your caption goes here -->
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97200&w=300&h=200" alt="...">
+						  <div class="carousel-caption">
+							<!-- Your caption goes here -->
+						  </div>
+						</div>
+
+						<div class="item">
+						  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97200&w=300&h=200" alt="...">
+						  <div class="carousel-caption">
+							<!-- Your caption goes here -->                            
+						  </div>
+						</div>
+					  </div>
+					  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					  </a>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+			<!-- Legend Panel -->
+
+			<div id="panelLegend" class="panel panel-default collapse">
+			
+				<div id="headingLegend" class="panel-heading" role="tab">
+					<!-- <div class="panel-title hidden-xs"> -->
+					<div class="panel-title">
+
+						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseLegend" aria-expanded="false" data-parent="#panelAccordion" aria-controls="collapseLegend"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Legend</a>
+
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelLegend"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> 
+					</div>
+				</div>
+
+				<div id="collapseLegend" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLegend">
+					<div class="panel-body">
+						<!-- <a class="panel-body-close visible-xs" role="button" data-toggle="collapse" data-target="#panelLegend"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> -->
+						
+						<!--p>Legend [Coming soon!]</p-->
+						<div id="legendDiv"></div>
+					</div>
+				</div>
+			
+			</div>
+			
+			<!-- Print Panel -->
+
+			<div id="panelPrint" class="panel panel-default collapse">
+						
+				<div id="headingPrint" class="panel-heading">
+					<!-- <div class="panel-title hidden-xs"> -->
+					<div class="panel-title">
+						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePrint" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapsePrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</a>
+
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelPrint"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+			
+				<div id="collapsePrint" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPrint">
+				  <div class="panel-body">
+					<!-- <a class="panel-body-close visible-xs" role="button" data-toggle="collapse" data-target="#panelPrint"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> -->
+
+					
+					<div class="form-group">
+					   <button type="button" class="btn btn-default">Print</button>
+					</div>
+
+				  </div>
+				</div>
+			</div>
+
+			<!-- Share Panel -->
+
+			<div id="panelShare" class="panel panel-default collapse">
+							  
+				<div id="headingShare" class="panel-heading">
+				  <!-- <div class="panel-title hidden-xs"> -->
+					<div class="panel-title">
+
+					<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseShare" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseShare"><span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share</a>                
+
+					<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelShare"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+				  </div>
+				</div>
+
+				<div id="collapseShare" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingShare">
+				  <div class="panel-body">
+						<!-- <a class="panel-body-close visible-xs" role="button" data-toggle="collapse" data-target="#panelShare"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> -->
+
+						<p>Share  [Coming soon!]</p>
+				  </div>
+				</div>
+
+			</div>
+
+			<!-- Settings/Configure Panel -->
+
+			<div id="panelSettings" class="panel panel-default collapse in">
+								
+				<div id="headingSettings" class="panel-heading">
+					<!-- <div class="panel-title hidden-xs"> -->
+					<div class="panel-title">
+						<a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Styler</a>
+
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				
+				<div id="collapseSettings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSettings">
+					<div class="panel-body">
+						<!-- <a class="panel-body-close visible-xs" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>    -->
+
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#title" aria-controls="title" role="tab" data-toggle="tab">Name</a></li>
+							<li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab">Map</a></li>
+							<li role="presentation"><a href="#theme" aria-controls="theme" role="tab" data-toggle="tab">Theme</a></li>
+							<li role="presentation"><a href="#custom" aria-controls="custom" role="tab" data-toggle="tab">Widgets</a></li>
+						</ul>
+
+						<div class="tab-content">
+
+							<!-- Title -->
+						
+							<div role="tabpanel" class="tab-pane active" id="title">  
+								<div class="form-title">1. Set the map name and call to action</div>  
+								<div class="form-horizontal form-padding">
+									<div class="form-group">
+										<label for="settingsTitleInput" class="col-xs-3 control-label">Title</label>
+										<div class="col-xs-9">
+										  <input type="text" class="form-control" id="settingsTitleInput" placeholder="{Map Name}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsSubTitleInput" class="col-xs-3 control-label">SubTitle</label>
+										<div class="col-xs-9">
+										  <input type="text" class="form-control" id="settingsSubTitleInput" placeholder="{Subtitle - Call to action}">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-9 col-xs-offset-3">
+											<button id="titleButton" type="button" class="btn btn-primary btn-block">Apply</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<!-- Map -->
+
+							<div role="tabpanel" class="tab-pane" id="map">
+								<div class="form-title">2. Set the location and basemap</div>  
+								<div class="form-horizontal form-padding">
+									<div class="form-group">
+										<label for="settingsSearch" class="col-xs-3 control-label">Location</label>
+										<div class="col-xs-9">
+											<div id="settingsSearchDiv"></div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsSelectBasemap" class="col-xs-3 control-label">Basemap</label>
+										<div class="col-xs-9">
+											<select id="settingsSelectBasemap" class="form-control">                            
+												<option value="streets">Streets</option>
+												<option value="topo">Topo</option>
+												<option value="terrain">Terrain</option>
+												<option value="oceans">Oceans</option>
+												<option value="gray">Gray</option>
+												<option value="dark-gray">Dark Gray</option>
+												<option value="gray">Gray</option>
+												<option value="national-geographic">National Geographic</option>
+												<option value="osm">Open Street Map</option>
+												<option value="satellite">Satellite</option>
+												<option value="hybrid">Hybrid</option>
+												<option value="vector-streets" data-tilebasemap="streets" selected>Vector Streets</option>
+												<option value="vector-streets-relief" data-tilebasemap="topo">Vector Streets Relief</option>
+												<option value="vector-streets-navigation" data-tilebasemap="streets">Vector Streets Navigation</option>
+												<option value="vector-streets-night" data-tilebasemap="darkgray">Vector Streets Night</option>
+												<option value="vector-topographic" data-tilebasemap="topo">Vector Topographic</option>
+												<option value="vector-canvas-gray" data-tilebasemap="gray">Vector Canvas Gray</option>
+												<option value="vector-canvas-darkgray" data-tilebasemap="darkgray">Vector Canvas Dark Gray</option>
+												<option value="vector-hybrid-reference" data-tilebasemap="hybrid">Vector Hybrid Reference</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsView" class="col-xs-3 control-label">View</label>
+										<div class="col-xs-9">
+											<label class="checkbox-inline">
+												<input type="checkbox" id="settings2dView" value=""> 2D
+											</label>
+											<label class="checkbox-inline">
+												<input type="checkbox" id="settings3dView" value=""> 3D
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsAddLayer" class="col-xs-3 control-label">Layer</label>
+										<div class="col-xs-9">
+											<input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="http://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/LosAngelesCitiesAndPlaces/FeatureServer/0" value="http://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/LosAngelesCitiesAndPlaces/FeatureServer/0">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsLayerOpacity" class="col-xs-3 control-label">Opacity</label>
+										<div class="col-xs-9">
+											<select id="settingsLayerOpacity" class="form-control">
+												<option value="0.25">0.25</option>
+												<option value="0.50">0.5</option>
+												<option value="0.75">0.75</option>
+												<option value="1.0" selected>1.0</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-9 col-xs-offset-3">
+											<button id="settingsAddLayer" type="button" class="btn btn-primary btn-block">Add Layer</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Theme/Layout -->
+
+							<div role="tabpanel" class="tab-pane" id="theme">
+								<div class="form-title">3. Set the layout, theme, color and font</div>  
+								<div class="form-horizontal form-padding">
+									  <div class="form-group">
+										<label for="settingsThemeStandard" class="col-xs-3 control-label">Layout</label>
+										<div class="col-xs-9">
+											<select id="settingsThemeStandard" class="form-control">
+												<option value="theme-top" selected>Top (Default)</option>
+												<option value="theme-top-space">Top Space</option>
+												<!--option value="theme-top-space-all">Top Space All</option-->
+												<option value="theme-top-fixed">Top Above Map</option>
+												<option value="theme-bottom">Bottom</option>
+												<option value="theme-bottom-space">Bottom Space</option>
+												<!--option value="theme-bottom-space-all">Bottom Space All</option-->
+												<option value="theme-bottom-fixed">Bottom Below Map</option>
+												<option value="theme-top">--- Themes ---</option>
+												<option value="theme-jumbo-title-top">Jumbo Title Top</option>
+												<option value="theme-jumbo-title-bottom">Jumbo Title Bottom</option>
+												<option value="theme-inline-right">Inline Zoom Right</option>
+												<option value="theme-inline-left">Inline Zoom Left</option>
+												<!--option value="theme-inline-combo">Inline Zoom Combo</option-->
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsColor" class="col-xs-3 control-label">Color</label>
+										<div class="col-xs-5">
+											<select id="settingsColor" class="form-control">
+												<!--option value="#fff" data-navstyle="navbar-default" selected>Default</option-->
+												<!--option value="#101010" data-navstyle="navbar-inverse">Inverse</option-->
+												<option value="transparent" data-navstyle="navbar-text-dark">Transparent</option>  
+												<option value="#fff" data-navstyle="navbar-text-dark" Selected>True White</option>
+													  
+												<option value="#f8f8f8" data-navstyle="navbar-text-dark">Off White</option>
+												<option value="#efefef" data-navstyle="navbar-text-dark">Lightest Gray</option>
+												<option value="#cccccc" data-navstyle="navbar-text-dark">Lighter Gray</option>
+												<option value="#a9a9a9" data-navstyle="navbar-text-dark">Light Gray</option>
+												<option value="#959595" data-navstyle="navbar-text-light">Gray</option>
+												<option value="#828282" data-navstyle="navbar-text-light">Dark Gray</option>
+												<option value="#6e6e6e" data-navstyle="navbar-text-light">Darker Gray</option>
+												<option value="#595959" data-navstyle="navbar-text-light">Darkest Gray</option>
+												<option value="#4c4c4c" data-navstyle="navbar-text-light">Off Black</option>
+												<option value="#323232" data-navstyle="navbar-text-light">Black</option>
+
+												<option value="#000" data-navstyle="navbar-text-light">True Black</option>
+											  
+												<option value="rgba(0, 0, 0, 0.45)" data-navstyle="navbar-text-light">Trans Off Black</option>
+												<option value="rgba(0, 0, 0, 0.75)" data-navstyle="navbar-text-light">Trans Black</option>
+												<option value="#56a5d8" data-navstyle="navbar-text-dark">Light Blue</option>
+												<option value="#3b8fc4" data-navstyle="navbar-text-light">Blue</option>
+												<option value="#196fa6" data-navstyle="navbar-text-light">Dark Blue</option>
+												<option value="#9bc19c" data-navstyle="navbar-text-dark">Light Green</option>
+												<option value="#5a9359" data-navstyle="navbar-text-light">Green</option>
+												<option value="#338033" data-navstyle="navbar-text-light">Dark Green</option>
+												<option value="#e04f1d" data-navstyle="navbar-text-light">Light Red</option>
+												<option value="#c7461a" data-navstyle="navbar-text-light">Red</option>
+												<option value="#ab3c16" data-navstyle="navbar-text-light">Dark Red</option>
+												<option value="#f6ca92" data-navstyle="navbar-text-dark">Light Orange</option>
+												<option value="#eda959" data-navstyle="navbar-text-dark">Orange</option>
+												<option value="#e8912e" data-navstyle="navbar-text-dark">Dark Orange</option>
+												<option value="#efe397" data-navstyle="navbar-text-dark">Light Yellow</option>
+												<option value="#e4d154" data-navstyle="navbar-text-dark">Yellow</option>
+												<option value="#d9bf2b" data-navstyle="navbar-text-dark">Dark Yellow</option>
+												<option value="#c4bcdc" data-navstyle="navbar-text-dark">Light Purple</option>
+												<option value="#9081bc" data-navstyle="navbar-text-light">Purple</option>
+												<option value="#7461a8" data-navstyle="navbar-text-light">Dark Purple</option>
+												<option value="#d2b38f" data-navstyle="navbar-text-dark">Light Brown</option>
+												<option value="#a57946" data-navstyle="navbar-text-light">Brown</option>
+												<option value="#8c5e2a" data-navstyle="navbar-text-light">Dark Brown</option>
+											</select>
+										</div>
+										<div class="col-xs-4">
+											<select id="settingsOpacity" class="form-control">
+												<option value="0">0</option>
+												<option value="0.25">0.25</option>
+												<option value="0.50">0.5</option>
+												<option value="0.75">0.75</option>
+												<option value="1.0" selected>1.0</option>
+											</select>
+										</div>
+									</div>
+									 <div class="form-group">
+										<label for="settingsColor" class="col-xs-3 control-label">Text</label>
+										<div class="col-xs-5">
+											<select id="settingsTextColor" class="form-control">
+												<option value="navbar-text-dark">Dark</option>
+												<option value="navbar-text-light">Light</option>
+											</select>
+										</div>
+										<div class="col-xs-4">
+											<select id="settingsTextFont" class="form-control">
+												<option value="Avenir Next W01">Avenir Next W01</option>
+												<option value="Avenir Next">Avenir Next</option>
+												<option value="Avenir">Avenir</option>
+												<option value="Helvetica Neue">Helvetica Neue</option>
+												<option value="Arial">Arial</option>
+												<option value="Sans-Serif">Sans Serif</option>
+												<option value="Serif">Serif</option>
+												<option value="Fantasy">Fantasy</option>
+												<option value="Cursive">Cursive</option>
+												<option value="Monospace">Monospace</option>
+											</select>
+										</div>
+									</div>
+									 <div class="form-group">
+										<label for="settingsColorWidgets" class="col-xs-3 control-label">Widget</label>
+										<div class="col-xs-9">
+											<select id="settingsColorWidgets" class="form-control">
+												<!--option value="#fff" data-navstyle="navbar-default" selected>Default</option-->
+												<!--option value="#101010" data-navstyle="navbar-inverse">Inverse</option-->
+												<option value="transparent" data-navstyle="navbar-text-dark">Transparent</option>  
+												<option value="#fff" data-navstyle="navbar-text-dark" Selected>True White</option>
+													  
+												<option value="#f8f8f8" data-navstyle="navbar-text-dark">Off White</option>
+												<option value="#efefef" data-navstyle="navbar-text-dark">Lightest Gray</option>
+												<option value="#cccccc" data-navstyle="navbar-text-dark">Lighter Gray</option>
+												<option value="#a9a9a9" data-navstyle="navbar-text-dark">Light Gray</option>
+												<option value="#959595" data-navstyle="navbar-text-light">Gray</option>
+												<option value="#828282" data-navstyle="navbar-text-light">Dark Gray</option>
+												<option value="#6e6e6e" data-navstyle="navbar-text-light">Darker Gray</option>
+												<option value="#595959" data-navstyle="navbar-text-light">Darkest Gray</option>
+												<option value="#4c4c4c" data-navstyle="navbar-text-light">Off Black</option>
+												<option value="#323232" data-navstyle="navbar-text-light">Black</option>
+
+												<option value="#000" data-navstyle="navbar-text-light">True Black</option>
+											  
+												<option value="rgba(0, 0, 0, 0.45)" data-navstyle="navbar-text-light">Trans Off Black</option>
+												<option value="rgba(0, 0, 0, 0.75)" data-navstyle="navbar-text-light">Trans Black</option>
+												<option value="#56a5d8" data-navstyle="navbar-text-dark">Light Blue</option>
+												<option value="#3b8fc4" data-navstyle="navbar-text-light">Blue</option>
+												<option value="#196fa6" data-navstyle="navbar-text-light">Dark Blue</option>
+												<option value="#9bc19c" data-navstyle="navbar-text-dark">Light Green</option>
+												<option value="#5a9359" data-navstyle="navbar-text-light">Green</option>
+												<option value="#338033" data-navstyle="navbar-text-light">Dark Green</option>
+												<option value="#e04f1d" data-navstyle="navbar-text-light">Light Red</option>
+												<option value="#c7461a" data-navstyle="navbar-text-light">Red</option>
+												<option value="#ab3c16" data-navstyle="navbar-text-light">Dark Red</option>
+												<option value="#f6ca92" data-navstyle="navbar-text-dark">Light Orange</option>
+												<option value="#eda959" data-navstyle="navbar-text-dark">Orange</option>
+												<option value="#e8912e" data-navstyle="navbar-text-dark">Dark Orange</option>
+												<option value="#efe397" data-navstyle="navbar-text-dark">Light Yellow</option>
+												<option value="#e4d154" data-navstyle="navbar-text-dark">Yellow</option>
+												<option value="#d9bf2b" data-navstyle="navbar-text-dark">Dark Yellow</option>
+												<option value="#c4bcdc" data-navstyle="navbar-text-dark">Light Purple</option>
+												<option value="#9081bc" data-navstyle="navbar-text-light">Purple</option>
+												<option value="#7461a8" data-navstyle="navbar-text-light">Dark Purple</option>
+												<option value="#d2b38f" data-navstyle="navbar-text-dark">Light Brown</option>
+												<option value="#a57946" data-navstyle="navbar-text-light">Brown</option>
+												<option value="#8c5e2a" data-navstyle="navbar-text-light">Dark Brown</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Controls/Widgets -->
+
+							<div role="tabpanel" class="tab-pane" id="custom">
+								<div class="form-title">4. Position widgets on the map</div>  
+								<div class="form-horizontal form-padding">
+									<div class="form-group">
+										<label for="settingsMap" class="col-xs-3 control-label">Map</label>
+										<div class="col-xs-4">
+											<select id="settingsMapWidget" class="form-control">
+												<option value="zoom" selected>Zoom</option>
+												<option value="home">Home</option>
+												<option value="locate">Locate</option>
+												<option value="compass">Compass</option>
+												<option value="basemaptoggle">Basemaptoggle</option>
+												<option value="search">Search</option>
+											</select>
+										</div>
+										<div class="col-xs-5">
+											<select id="settingsPositionMapWidget" class="form-control">
+												<option value="top-left" selected>TopLeft</option>
+												<option value="top-right">TopRight</option>
+												<option value="bottom-right">BottomRight</option>
+												<option value="bottom-left">BottomLeft</option>
+												<option value="none">-- Delete --</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsScene" class="col-xs-3 control-label">Scene</label>
+										<div class="col-xs-4">
+											<select id="settingsSceneWidget" class="form-control">
+												<option value="zoom" selected>Zoom</option>
+												<option value="home">Home</option>
+												<option value="locate">Locate</option>
+												<option value="compass">Compass</option>
+												<option value="basemaptoggle">Basemaptoggle</option>
+												<option value="search">Search</option>
+											</select>
+										</div>
+										<div class="col-xs-5">
+											<select id="settingsPositionSceneWidget" class="form-control">
+												<option value="top-left" selected>TopLeft</option>
+												<option value="top-right">TopRight</option>
+												<option value="bottom-right">BottomRight</option>
+												<option value="bottom-left">BottomLeft</option>
+												<option value="none">-- Delete --</option>
+											</select>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="settingsPopup" class="col-xs-3 control-label">Popup</label>
+										<div class="col-xs-9">
+											<select id="settingsPopup" class="form-control">
+												<option value="top">Auto</option>
+												<option value="top">Top</option>
+												<option value="right">Right</option>
+												<option value="bottom" selected="">Bottom</option>
+												<option value="left">Left</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsPopup" class="col-xs-3 control-label">Padding</label>
+										<div class="col-xs-9">
+											<input id="settingsPadding" class="form-control" value="{top: 64, bottom: 0, right: 0, left: 0}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="settingsPanel" class="col-xs-3 control-label">Panel</label>
+										<div class="col-xs-9">
+											<select id="settingsPanel" class="form-control">
+												<option value="panel-left">PanelLeft</option>
+												<option value="panel-right" selected>PanelRight</option>
+											</select>
+										</div>
+									</div>
+									<!--div class="form-group">
+										<div class="col-xs-9 col-xs-offset-3">
+											<button id="settingsResetLayout" class="btn btn-danger btn-block">Reset All</button>
+										</div>
+									</div-->
+								</div> 
+							</div><!-- /.tab-panel -->
+						</div><!-- /.tab-content -->
+					</div><!-- /.panel-body -->
+				</div><!-- /.panel-collapse --> 
+			</div><!-- /.panel -->
+		</div> <!-- /.panel-group -->
+	</div> <!-- /.panel-container -->
+
+	<script>
+		var isMobile = false;
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		  isMobile = true;
+		}
+	</script>
+
+	<script type="text/javascript">
+		var dojoConfig = {
+			packages: [{
+				name: "bootstrap",
+				location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+			},
+			{
+				name: "calcite-maps",
+				location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+			},
+			{
+				name: "calcite-settings",
+				location: location.pathname.replace(/\/[^/]+$/, "") + "/js"
+			}]
+		};
+	</script>
+
+	<!-- ArcGIS JS 4.0 lirbaries -->    
+	<!--script src="https://jsqa.arcgis.com/4.0/"></script-->
+	<script src="http://localhost/GitHub/arcgis-js-api/dojo/dojo.js"></script>
+
+	<script>
+		
+		var app;
+
+		require([
+			// ArcGIS
+			"esri/Map",
+			"esri/Basemap",
+			"esri/layers/VectorTileLayer",
+			"esri/views/MapView",
+			"esri/views/SceneView",
+			"esri/widgets/Search",
+			"esri/widgets/Popup",
+			//"esri/widgets/Legend",
+			"esri/widgets/Ripple",
+			"esri/core/watchUtils",
+			"dojo/query",
+			"dojo/dom",
+			"dojo/on",
+
+			// Boostrap
+			"bootstrap/Collapse", 
+			"bootstrap/Dropdown",
+			"bootstrap/Tab",
+			"bootstrap/Carousel",
+			"bootstrap/Tooltip",
+			"bootstrap/Modal",
+
+			// Calcite Maps
+			"calcite-maps/calcitemaps",
+			"calcite-settings/panelsettings",
+			// Dojo
+			"dojo/domReady!"
+		], function(Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Ripple, watchUtils, query, dom, on) {
+			
+			app = {
+				scale: 100000000,
+				zoom: 2,
+				lonlat: [-40,40],
+				mapView: null, 
+				mapDiv: "mapViewDiv",
+				mapFL: null,
+				vectorLayer: null,
+				sceneView: null, 
+				sceneDiv: "sceneViewDiv",
+				sceneFL: null,
+				activeView: null,
+				searchWidgetNav: null, 
+				searchWidgetPanel: null, 
+				searchWidgetSettings: null,
+				basemapSelected: "vector-streets", // "vector-streets",
+				basemapSelectedAlt: "streets",
+				basemaps: getBasemaps(), //TODO - change at final
+				viewUI: { 
+					top: 64,
+					right: 0,
+					bottom: 0,
+					left: 0
+				}, 
+				widgetsUI: { 
+					components:["zoom", "attribution", "home"],
+					padding: {
+						top: 15,
+						right: 15,
+						bottom: 30,
+						left: 15
+					}
+				},
+				popupOptions: {
+					autoPanEnabled: true,
+					messageEnabled: false,
+					spinnerEnabled: false,
+					dockOptions: {
+						buttonEnabled: true,
+						breakpoint: false,
+						position: "bottom"
+					}
+				}
+			}
+
+			// Create visual components
+			init();
+
+			function init() {
+
+				//2D - MapView
+				app.mapView = new MapView({
+					container: app.mapDiv,
+					//map: new Map({basemap: "streets"}),
+					map: new Map(), // Bug
+					scale: app.scale,
+					center: app.lonlat, 
+					padding: app.viewUI,
+					ui: app.widgetsUI, 
+					popup: new Popup(app.popupOptions),
+					visible: true
+				});
+				setBasemap(app.mapView, app.basemapSelected);
+				setSearchPopupHandler(app.mapView);
+				createRippleWidget(app.mapView);                    
+
+				//Set active view
+				app.activeView = app.mapView;
+
+				//3D - SceneView
+				app.sceneView = new SceneView({ 
+					container: app.sceneDiv,
+					map: new Map(),
+					scale: app.scale,
+					center: app.lonlat, 
+					padding: app.viewUI,
+					ui: app.widgetsUI, 
+					popup: new Popup(app.popupOptions),
+					visible: false
+				});
+				setBasemap(app.sceneView, app.basemapSelectedAlt);
+				setSearchPopupHandler(app.sceneView);
+				createRippleWidget(app.sceneView);                    
+												
+				//TODO - Search Nav + Panel (detach/attach)
+				app.mapView.then( function() {
+					app.searchWidgetNav = createSearchWidget("searchNavDiv", true);
+					app.searchWidgetPanel = createSearchWidget("searchPanelDiv", true);
+					app.searchWidgetSettings = createSearchWidget("settingsSearchDiv", false);
+				});
+			}
+		  
+			function createSearchWidget(parentId, showPopup) {
+				var search = new Search({
+					viewModel: {
+						view: app.activeView,
+						showPopupOnSelect: showPopup,
+						highlightEnabled: false,
+						//highlightGraphic: false
+					},
+					}, parentId);
+				search.startup();
+
+				//app.activeView.then(function (){ 
+					// Set active view
+					// search.watch(function(property, oldValue, newValue){
+					//     if (property === "searchResults") {
+					//         search.viewModel = {
+					//                 view: app.activeView 
+					//             };
+					//     }
+					// });
+				//});
+				return search;
+			}
+
+			// TODO
+			function createLegendWidget(parentId, view) {
+
+			}
+
+			function createRippleWidget(view) {
+				view.then(function() {
+					var ripple = new Ripple({
+						viewModel: {
+							view: view
+						},
+						visible: true
+					});
+					ripple.startup();
+					ripple.placeAt(view.root);
+					
+					function showRipple(e, force) {
+						if (!view.popup.viewModel.promises.length || view.popup.docked) {
+							ripple.viewModel.set("point", e.mapPoint);                                
+						}
+					}
+					// Show ripple on view clicks
+					view.on("click", function(e) {
+						showRipple(e, false);
+					});
+					view.on("hold", function(e) {
+						//view.popup.promises = [];
+						e.mapPoint = view.toMap(e.center.x, e.center.y);
+						if (view.popup.currentDockPosition) {
+							showRipple(e, true);
+						}
+					})
+				});
+			}
+
+
+			function setSearchPopupHandler(view) {
+				//Show popup with reverse geolocation information
+				function showPopup(evt, force) {
+					var lat, 
+						lon,
+						point,
+						graphic = null,
+						popupTemplate;
+					// Graphic clicked
+					//if ((view.popup.viewModel.promises.length < 1) || force) {
+					if ((view.popup.viewModel.promises.length < 1 && view.popup.visible) || force) {
+					//if ((view.popup.viewModel.features.length < 1 && view.popup.visible) || force) {
+						//view.popup.promises = [];
+						point = evt.mapPoint || view.toMap(evt.center.x, evt.center.y);
+						lat = Math.round(point.latitude * 10000) / 10000;
+						lon = Math.round(point.longitude * 10000) / 10000;
+						//Update popup
+						view.popup.viewModel.set({
+							location: point,                           
+							features: [],
+							popupTemplate: null
+						});
+						view.popup.set({visible: true});
+						// Reverse geocode to search for address
+						app.searchWidgetNav.viewModel.sources[0].locator.locationToAddress(point).then(function(response) {
+							var address = response.address.Match_addr;
+							view.popup.viewModel.set({
+								title: "Location: " + lon + ", " + lat,
+								content: "<div style='color: #828282'>" + address + "</div>"
+							});
+						}, function(err) {
+							view.popup.viewModel.set({
+								title: "Location: " + lon + ", " + lat,
+								content: "<div style='color: #828282'>No address found for this location.</div>"
+							});
+						});  
+					}
+				}
+				//Show popup on clicks only if already visble
+				view.on("click", function(evt) {
+					// TODO
+					//     showPopup(evt, false);
+					view.popup.set({
+						visible: false
+					});
+				});
+				//Show popup on mouse long hold
+				view.on("hold", function(evt) {
+					showPopup(evt, true);
+				});
+			}
+
+			function syncViews(fromView, toView) {
+				function sync() {
+					toView.animateTo({
+						center: fromView.center,
+						scale: fromView.scale
+					});
+				}
+				if (!toView.ready) {
+					watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
+						if (isReady) {
+							sync();
+						}
+					});
+				} else {
+					sync();
+				}
+			}
+
+			query("nav li a[data-toggle='tab']").on("click", function(e) {
+				var isMap = e.target.text === "Map";
+				//app.mapView.visible = isMap;
+				//app.sceneView.visible = !isMap;
+				if (isMap) {
+					syncViews(app.sceneView, app.mapView);
+					app.activeView = app.mapView;
+				} else {
+					syncViews(app.mapView, app.sceneView);
+					app.activeView = app.sceneView; 
+				}
+				app.searchWidgetNav.viewModel.view = app.activeView;
+				app.searchWidgetPanel.viewModel.view = app.activeView;
+				app.searchWidgetSettings.viewModel.view = app.activeView;
+
+				app.activeView.popup.set({
+					visible: false
+				});
+			});
+
+			// query("#panelSearch").on("shown.bs.collapse", function(e) {
+			//     //var h = e.target.offsetHeight + app.viewUI.top;
+			//     app.mapView.padding = {top: 169};
+			// });
+
+			// query("#panelSearch").on("hidden.bs.collapse", function(e) {
+			//     app.mapView.padding =  app.viewUI;
+			// });
+		
+			query("#selectBasemapPanel, #settingsSelectBasemap").on("change", function(e){
+				app.basemapSelected = e.target.options[e.target.selectedIndex].value;
+				app.basemapSelectedAlt = app.basemaps[app.basemapSelected].alt;
+				setBasemaps();               
+			});
+
+			function setBasemap(view, name) {
+				// Map
+				if (view.isInstanceOf(MapView)) {
+					//app.mapView.map.removeAll();
+					app.mapView.map.remove(app.vectorLayer);
+					//app.mapView.map.basemap = "";
+					if (app.basemapSelected.indexOf("vector") > -1) {
+						app.vectorLayer = new VectorTileLayer({
+							url: app.basemaps[app.basemapSelected].url
+						});
+						app.mapView.map.add(app.vectorLayer, 0);
+					} else {
+						app.mapView.map.basemap = app.basemapSelectedAlt;
+					}    
+				} else { // Scene
+					app.sceneView.map.basemap = app.basemapSelectedAlt;
+				}
+			}
+
+			function setBasemaps() {
+				setBasemap(app.mapView, app.basemapSelected);
+				setBasemap(app.sceneView, app.basemapSelectedAlt);
+			}
+
+			function getBasemaps() {
+				return {
+					"streets": { alt: "streets", url: "" },
+					"topo": { alt: "topo", url: "" },
+					"terrain": { alt: "terrain", url: "" },
+					"gray": { alt: "gray", url: "" },
+					"dark-gray": { alt: "dark-gray", url: "" },
+					"oceans": { alt: "oceans", url: "" },
+					"national-geographic": { alt: "national-geographic", url: "" },
+					"osm": { alt: "osm", url: "" },
+					"satellite": { alt: "satellite", url: "" },
+					"hybrid": { alt: "hybrid", url: "" },
+					"vector-streets": { alt: "streets", url:"http://www.arcgis.com/sharing/rest/content/items/3b8814f6ddbd485cae67e8018992246e/resources/styles/root.json?f=json"},
+					"vector-streets-relief": { alt: "topo", url: "http://www.arcgis.com/sharing/rest/content/items/ad06088bd1174866aad2dddbf5ec9642/resources/styles/root.json?f=json"},
+					"vector-streets-navigation": { alt: "topo", url: "http://www.arcgis.com/sharing/rest/content/items/00cd8e843bae49b3a040423e5d65416b/resources/styles/root.json?f=json"},
+					"vector-streets-night": { alt: "dark-gray", url: "http://www.arcgis.com/sharing/rest/content/items/f96366254a564adda1dc468b447ed956/resources/styles/root.json?f=json"},
+					"vector-topographic": { alt: "topo", url: "http://www.arcgis.com/sharing/rest/content/items/be44936bcdd24db588a1ae5076e36f34/resources/styles/root.json?f=json"},
+					"vector-canvas-gray": {alt: "gray", url: "http://www.arcgis.com/sharing/rest/content/items/bdf1eec3fa79456c8c7c2bb62f86dade/resources/styles/root.json?f=json"},
+					"vector-canvas-darkgray": {alt: "dark-gray", url: "http://www.arcgis.com/sharing/rest/content/items/3e3099d7302f4d99bc6f916dcc07ed59/resources/styles/root.json?f=json"},
+					"vector-hybrid-reference": {alt: "streets", url: "http://www.arcgis.com/sharing/rest/content/items/1854498c7e35420b963a514a32689c80/resources/styles/root.json?f=json"} 
+				}
+			}
+
+		});<!-- dojo -->
+	</script>
+
+</body>
+</html>
+

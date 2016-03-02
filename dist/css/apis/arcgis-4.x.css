@@ -1,0 +1,24 @@
+.calcite-maps.nav-position-top .esri-attribution,
+.calcite-maps.nav-position-top-fixed .esri-attribution {
+  top: auto;
+  bottom: 0; }
+
+.calcite-maps.nav-position-bottom .esri-attribution,
+.calcite-maps.nav-position-bottom-fixed .esri-attribution {
+  top: 0;
+  bottom: auto; }
+
+.calcite-maps .esri-search {
+  width: 100%;
+  min-width: 225px; }
+
+.calcite-maps .esri-widget-button {
+  background: white; }
+
+.calcite-maps .esri-ripple.esri-widget.esri-ripple-visible {
+  background: transparent; }
+
+.calcite-maps.nav-position-bottom .esri-widget .esri-menu,
+.calcite-maps.nav-position-bottom-fixed .esri-widget .esri-menu {
+  top: auto;
+  bottom: 36px; }

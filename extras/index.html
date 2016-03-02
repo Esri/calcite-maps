@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Lock viewport to prevent scaling -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="Calcite-Maps - A framework for building modern map apps">
+	<meta name="author" content="">
+	<link rel="icon" href="http://www.esri.com/favicon.ico">
+	<title>Calcite-Maps - A framework for building modern map apps</title>
+
+	<!-- Calcite-Maps () -->
+	<link rel="stylesheet" href="../dist/css/calcite-maps-bootstrap.css">
+
+	<!-- Calcite (icons) -->
+	<link rel="stylesheet" href="../dist/fonts/calcite/calcite-ui.css">
+
+	<style>
+
+		body {
+			background-color: white;
+		}
+
+		.jumbotron {
+			margin-bottom: 0px;
+			padding: 40px 30px 30px;
+			text-align: center;
+			background-color: #0079c1;
+			color: #f8f8f8;
+		}
+
+		.jumbotron h1 {
+			margin-bottom: 0px;
+			font-size: 55px;
+		}
+
+		.jumbotron h5 {
+		    font-size: 18px;
+		}
+
+		.jumbotron .esri-icon {
+			font-size: 110px;
+		}
+
+		.calcite-colors {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: table;
+			width: 100%;
+		}
+
+		.calcite-colors .box { 
+			display: table-cell; 
+			height: 6px;
+	    margin-top: 20px;
+	    margin: -4px;
+		}
+
+		.row {
+    	margin-left: auto;
+	    margin-right: auto;
+  	  padding-top: 20px;
+    	padding-bottom: 20px;
+		}
+
+		.container-text {
+			padding: 70px 15px 0;
+			text-align: center;
+		}
+
+		.container-text .padding-right {
+			/*padding-right: 70px;*/
+		}
+
+		.container-text .padding-left {
+			/*padding-left: 70px;*/
+		}
+
+		.text-header {
+			font-size: 34px;
+		}
+
+		.container-cards {
+			text-align: center;
+		}
+
+		.card-options .glyphicon:nth-child(2) {
+			display: none;	
+		}
+
+		.card {
+			margin: 20px;
+			width: 250px;
+		}
+
+		li:first-of-type:after {
+    	content: " • ";
+		}
+		
+		li:last-of-type:before {
+    	content: " • ";
+		}
+
+		.card h6 {
+			margin-bottom: 0;
+		}
+
+		.card a {
+			text-decoration: none;
+			color: #f8f8f8;
+		}
+
+		.card-options .open-btn:hover {
+			background-color: rgba(0,0,0,.65);
+		}
+
+		.card-options .glyphicon:hover {
+			color: #000;
+		}
+
+		@media (max-width: 768px) {
+			.jumbotron h1 {
+				font-size: 45px;
+			}
+			.jumbotron .esri-icon {
+				font-size: 85px;
+			}
+			.jumbotron p {
+				font-size: 20px;
+			}
+			.container-text {
+		    padding: 10px 15px 0;
+			}
+		}
+
+		@media (min-width: 992px) {
+			.padding-right {
+				padding-right: 70px;
+			}	
+
+			.padding-left {
+				padding-left: 70px;
+			}	
+		}
+
+	</style>
+</head>
+
+<body class="calcite-maps">
+	
+	<div class="fluid-container">
+
+		<a href="https://github.com/esri/calcite-maps"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+
+		<div class="jumbotron center-text">
+				<h1>Calcite Maps</h1>
+				<span class="esri-icon esri-icon-map-pin"></span>
+				<p class="lead">A modern framework for designing map apps with Bootstrap.</p>
+				<div class="calcite-colors">
+					<div class="box calcite-red"></div>
+					<div class="box calcite-orange"></div>
+					<div class="box calcite-yellow"></div>
+					<div class="box calcite-green"></div>
+					<div class="box calcite-light-blue"></div>
+					<div class="box calcite-purple"></div>
+					<div class="box calcite-brown"></div>
+				</div>
+		</div>
+
+		<div class="row calcite-off-white">
+			<div class="col-sm-8 col-sm-push-4">
+ 				<div class="container-text padding-right">
+		      <span class="text-header">Design Apps</span>
+		      <p>Explore Calcite colors, styles and layouts with the Styler. Design layouts interactively and then use the styles to build your own custom Bootstrap apps. Style sets can be packaged into themes and shared with others.</p>
+		    </div>
+ 			</div>
+			<div class="col-sm-4 col-sm-pull-8">	
+				<div class="container-cards">
+          <article class="card"><img src="./img/styler.png" alt="styler">
+            <div class="card-options">
+              <ul>
+                <a href="https://github.com/alaframboise/calcite-maps/blob/gh-pages/extras/styler/styler.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </ul>
+              <button class="open-btn"><a href="./styler/styler.html">Open App</a></button>
+            </div>
+            <hr>
+            <h6>Styler</h6>
+            <ul class="card-info">
+              <li>calcite-dark-blue</li>
+              <li>nav-position-top</li>
+              <li>nav-space-none</li>
+            </ul>
+          </article>
+		    </div>
+		  </div>
+ 		</div>
+
+		<div class="row white">
+ 			<div class="col-sm-4">
+				<div class="container-text padding-left">
+		      <span class="text-header">ArcGIS Samples</span>
+		      <p>Use the ArcGIS JS 3.x and 4.x API sample apps to get started quickly. Pure Dojo libraries for Calcite Maps and Bootstrap make integration easy. </p>
+	      </div>
+ 			</div>
+ 			<div class="col-sm-8">	
+ 				<div class="container-cards">
+          <article class="card"><img src="./img/arcgis-3.x.png" alt="ArcGIS 3.x">
+            <div class="card-options">
+              <ul>
+                <a href="https://github.com/alaframboise/calcite-maps/blob/gh-pages/extras/samples/arcgis-3.x.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+              </ul>
+              <button class="open-btn"><a href="./samples/arcgis-3.x.html">Open App</a></button>
+            </div>
+            <hr>
+            <h6>ArcGIS JS 3.x (Dojo)</h6>
+            <ul class="card-info">
+              <li>calcite-dark-purple</li>
+              <li>nav-position-top</li>
+              <li>theme-inline-zoom-left</li>
+            </ul>
+          </article>
+          <article class="card"><img src="./img/arcgis-4.x.png" alt="ArcGIS 4.x">
+            <div class="card-options">
+              <ul>
+                <a href="https://github.com/alaframboise/calcite-maps/blob/gh-pages/extras/samples/arcgis-4.x-2-3d.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+              </ul>
+              <button class="open-btn"><a href="./samples/arcgis-4.x-2d-3d.html">Open App</a></button>
+            </div>
+            <hr>
+            <h6>ArcGIS JS 4.x (Dojo)</h6>
+            <ul class="card-info">
+              <li>calcite-trans-black</li>
+              <li>nav-position-bottom</li>
+              <li>nav-space-none</li>
+            </ul>
+          </article>
+		    </div>
+		  </div>
+ 		</div>
+
+ 		<div class="row calcite-off-white">
+			<div class="col-sm-8 col-sm-push-4">
+ 				 <div class="container-text padding-right">
+		      <span class="text-header">Esri Leaflet Sample</span>
+		      <p>Use the starter app to build Esri Leaflet apps with the same Calcite styles, colors and layouts. jQuery libraries for the Bootstrap and Calcite Maps components make integration easy.</p>
+		    </div>
+ 			</div>
+			<div class="col-sm-4 col-sm-pull-8">	
+				<div class="container-cards">	 
+          <article class="card"><img src="./img/esri-leaflet.png" alt="BNG">
+            <div class="card-options">
+              <ul>
+                <a href="https://github.com/alaframboise/calcite-maps/blob/gh-pages/extras/samples/arcgis-esri-leaflet.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+              </ul>
+              <button class="open-btn"><a href="./samples/esri-leaflet.html">Open App</a></button>
+            </div>
+            <hr>
+            <h6>Esri Leaflet (jQuery)</h6>
+            <ul class="card-info">
+              <li>calcite-dark-green-75</li>
+              <li>theme-jumbo-title</li>
+              <li>zoom-bottom-left</li>
+            </ul>
+          </article>
+		     </div>
+		  </div>
+ 		</div>
+
+	</div><!-- /.container -->
+
+	</body>
+</html>
