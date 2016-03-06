@@ -19,7 +19,7 @@ module.exports = function (grunt) {
 		'sass': {
 			options: {
 				includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets', 
-				'./node_modules/calcite-bootstrap/dist/sass']
+												'./node_modules/calcite-bootstrap/dist/sass']
 			},
 			expanded: {
 				files: {

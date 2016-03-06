@@ -2,31 +2,28 @@
 // │ Navbar-themes       │
 // └─────────────────────┘
 
-// Navbar color - testing only
-// $navbar-background-color: white !default;  // to be provided by system (user)
+// Take single background color and apply highlight colors to all other elements
 
-// Navbar Theme: Dark text, Light background-color
-$navbar-text-dark: #323232; // black
-//$navbar-text-dark-inverse: invert($navbar-text-dark);
-//$navbar-text-dark-highlight: rgba($navbar-text-dark, .5);
-//$navbar-text-dark-highlight-bg: rgba($navbar-text-dark, .25);
-// $navbar-text-dark-highlight: #595959;
-//$navbar-text-dark-highlight: invert($navbar-text-dark);
+// Logic to auto-set the theme colors based on just the background color
+// For auto-generation of sass only, otherwise use preset themes below...
+// $navbar-background-color: white !default;  // Provided by system (user)
+// $navbar-theme: light; 
+// @if (lightness($navbar-background-color) > 60) {
+// 	$navbar-theme: "light";
+// } @else {
+// 	$navbar-theme: "dark";
+// }
+
+// Navbar Theme: Dark text, light background-color
+$text-dark: #323232; // calcite-black
+$navbar-text-dark: $text-dark;
 $navbar-text-dark-highlight: lighten($navbar-text-dark, 20%);
-// $navbar-text-dark-highlight-bg: #f8f8f8;
-//$navbar-text-dark-highlight-bg: rgba($navbar-text-dark, .5);
 $navbar-text-dark-highlight-bg: lighten($navbar-text-dark, 50%);
 
-// Navbar Theme: Light text, Dark background-color
-$navbar-text-light: #f8f8f8; // off-white
-//$navbar-text-dark-inverse: invert($navbar-text-light);
-// $navbar-text-light-highlight: rgba($navbar-text-light, .5);
-// $navbar-text-light-highlight-bg: rgba($navbar-text-light, .25);
-//$navbar-text-light-highlight: #cccccc;
-//$navbar-text-light-highlight: invert($navbar-text-light);
+// Navbar Theme: Light text, dark background-color
+$text-light: #f8f8f8; // calcite-off-white
+$navbar-text-light: $text-light; 
 $navbar-text-light-highlight: darken($navbar-text-light, 20%);
-//$navbar-text-light-highlight-bg: #323232;
-//$navbar-text-light-highlight-bg: rgba($navbar-text-light-highlight, .5);
 $navbar-text-light-highlight-bg: darken($navbar-text-light, 70%);
 
 .calcite-maps {

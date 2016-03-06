@@ -1,5 +1,101 @@
 @charset "UTF-8";
 @import url(https://fast.fonts.net/cssapi/9431e9a5-7a6d-4b5f-82be-4d935972de5a.css);
+@import url(https://fast.fonts.net/cssapi/a2f744b5-a294-49c0-8af9-4599ad0ab33f.css);
+@font-face {
+  font-family: "Avenir Next W01_n3";
+  src: url("https://fast.fonts.net/dv2/2/0ecef829-586e-426d-a633-4c8a8c926769.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"); }
+
+@font-face {
+  font-family: "Avenir Next W01";
+  src: url("https://fast.fonts.net/dv2/2/0ecef829-586e-426d-a633-4c8a8c926769.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix");
+  src: url("https://fast.fonts.net/dv2/2/0ecef829-586e-426d-a633-4c8a8c926769.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"), url("https://fast.fonts.net/dv2/14/49c5f3e1-5867-4b1d-a843-2d07fa60d85d.woff2?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff2"), url("https://fast.fonts.net/dv2/3/f401df6f-54eb-406c-b46a-90b9451c598d.woff?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff"), url("https://fast.fonts.net/dv2/1/276fe25e-e430-4376-b33c-705dd77b3dba.ttf?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("truetype"), url("https://fast.fonts.net/dv2/11/869dc33b-3685-4d74-a51c-82b435579093.svg?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#869dc33b-3685-4d74-a51c-82b435579093") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next W01_n4";
+  src: url("https://fast.fonts.net/dv2/2/e9167238-3b3f-4813-a04a-a384394eed42.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"); }
+
+@font-face {
+  font-family: "Avenir Next W01";
+  src: url("https://fast.fonts.net/dv2/2/e9167238-3b3f-4813-a04a-a384394eed42.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix");
+  src: url("https://fast.fonts.net/dv2/2/e9167238-3b3f-4813-a04a-a384394eed42.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"), url("https://fast.fonts.net/dv2/14/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff2"), url("https://fast.fonts.net/dv2/3/1e9892c0-6927-4412-9874-1b82801ba47a.woff?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff"), url("https://fast.fonts.net/dv2/1/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("truetype"), url("https://fast.fonts.net/dv2/11/52a192b1-bea5-4b48-879f-107f009b666f.svg?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#52a192b1-bea5-4b48-879f-107f009b666f") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next W01_n5";
+  src: url("https://fast.fonts.net/dv2/2/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"); }
+
+@font-face {
+  font-family: "Avenir Next W01";
+  src: url("https://fast.fonts.net/dv2/2/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix");
+  src: url("https://fast.fonts.net/dv2/2/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"), url("https://fast.fonts.net/dv2/14/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff2"), url("https://fast.fonts.net/dv2/3/f26faddb-86cc-4477-a253-1e1287684336.woff?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff"), url("https://fast.fonts.net/dv2/1/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("truetype"), url("https://fast.fonts.net/dv2/11/a89d6ad1-a04f-4a8f-b140-e55478dbea80.svg?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#a89d6ad1-a04f-4a8f-b140-e55478dbea80") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next W01_n6";
+  src: url("https://fast.fonts.net/dv2/2/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"); }
+
+@font-face {
+  font-family: "Avenir Next W01";
+  src: url("https://fast.fonts.net/dv2/2/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix");
+  src: url("https://fast.fonts.net/dv2/2/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#iefix") format("eot"), url("https://fast.fonts.net/dv2/14/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff2"), url("https://fast.fonts.net/dv2/3/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("woff"), url("https://fast.fonts.net/dv2/1/a0f4c2f9-8a42-4786-ad00-fce42b57b148.ttf?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a") format("truetype"), url("https://fast.fonts.net/dv2/11/99affa9a-a5e9-4559-bd07-20cf0071852d.svg?d44f19a684109620e4841679a790e818c479e8f5785cb15d83ec5bea5d8f064ee83eb356d86a13a11a668d8d24d15d78e0b15390ac959d3e4632d71dcdab9b0177947333c21c8cfecf5b1076f852734e0e37e3443fa5d81bf64599e95a233acf95b655d59613179b88c99da79596c1710305087ddb616b5e7e637f216c007c37b702cdd3985c574ef563977589e4c218cca9e0a60fe77afa089f339359538ad47798399dc2a9f198a4a8c823b045aa9116189681c44479df099fdc380973f51046de5905a6750d7b&projectId=9431e9a5-7a6d-4b5f-82be-4d935972de5a#99affa9a-a5e9-4559-bd07-20cf0071852d") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Kepler W01_n4";
+  src: url("https://fast.fonts.net/dv2/2/771eeaca-9a1e-4187-a312-5595d0f50e48.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("eot"); }
+
+@font-face {
+  font-family: "Kepler W01";
+  src: url("https://fast.fonts.net/dv2/2/771eeaca-9a1e-4187-a312-5595d0f50e48.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("eot");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Kepler W01";
+  src: url("https://fast.fonts.net/dv2/2/771eeaca-9a1e-4187-a312-5595d0f50e48.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f");
+  src: url("https://fast.fonts.net/dv2/3/10d5fc2c-8305-41ba-819e-2a21768f55f9.woff?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("woff"), url("https://fast.fonts.net/dv2/1/7d640a8e-eb57-4e6f-9d25-0989dd7c9e6b.ttf?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("truetype"), url("https://fast.fonts.net/dv2/11/236a68b6-2675-430a-861c-ae2a383ee6df.svg?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f#236a68b6-2675-430a-861c-ae2a383ee6df") format("svg");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Kepler W01_i4";
+  src: url("https://fast.fonts.net/dv2/2/5d51b004-e5f0-4001-abf8-0b26dedf915f.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("eot"); }
+
+@font-face {
+  font-family: "Kepler W01";
+  src: url("https://fast.fonts.net/dv2/2/5d51b004-e5f0-4001-abf8-0b26dedf915f.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("eot");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Kepler W01";
+  src: url("https://fast.fonts.net/dv2/2/5d51b004-e5f0-4001-abf8-0b26dedf915f.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f");
+  src: url("https://fast.fonts.net/dv2/3/f3084f2a-c66f-4bf9-a4e6-56f35a712ed9.woff?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("woff"), url("https://fast.fonts.net/dv2/1/63490ffd-79af-4b85-a111-96a223f44fe0.ttf?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("truetype"), url("https://fast.fonts.net/dv2/11/13d1ca9b-990e-41fa-aae1-1f9c817c0fb7.svg?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f#13d1ca9b-990e-41fa-aae1-1f9c817c0fb7") format("svg");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Kepler W01_n6";
+  src: url("https://fast.fonts.net/dv2/2/7bb78030-9409-46d7-81cc-31640cdf2486.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("eot"); }
+
+@font-face {
+  font-family: "Kepler W01";
+  src: url("https://fast.fonts.net/dv2/2/7bb78030-9409-46d7-81cc-31640cdf2486.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("eot");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Kepler W01";
+  src: url("https://fast.fonts.net/dv2/2/7bb78030-9409-46d7-81cc-31640cdf2486.eot?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f");
+  src: url("https://fast.fonts.net/dv2/3/ebc0a5b7-edf8-4e33-a0e3-9dcde51e3631.woff?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("woff"), url("https://fast.fonts.net/dv2/1/bdfcf764-ebf8-4964-906c-23016768ade9.ttf?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f") format("truetype"), url("https://fast.fonts.net/dv2/11/aceb4785-a95c-4dd2-b8ac-2817cbadd13c.svg?d44f19a684109620e484157ca390e818e8a97b1e01f390daeacd552611b46b82bc660b095319077cc6067ded815e863105f4d5528d88e6675ff866796fae2bc4a467d968c60727db40d2a7b68c96128eaf2ac69a25d0a3296455cbe9cd6de3e5670a8ec235959a6e1d36bc17e89a735549c610bff645936d6b9c045defa874b1103481484eade04d8d1e554aa2f68ef99b149ab888518a39d13a&projectId=a2f744b5-a294-49c0-8af9-4599ad0ab33f#aceb4785-a95c-4dd2-b8ac-2817cbadd13c") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -1066,7 +1162,7 @@ textarea {
   line-height: inherit; }
 
 a {
-  color: #0079c1;
+  color: #196fa6;
   text-decoration: none; }
   a:hover, a:focus {
     color: #005e95;
@@ -2317,10 +2413,10 @@ output {
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .form-control:focus {
-    border-color: #0079c1;
+    border-color: #196fa6;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 121, 193, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 121, 193, 0.6); }
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(25, 111, 166, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(25, 111, 166, 0.6); }
   .form-control::-moz-placeholder {
     color: #959595;
     opacity: 1; }
@@ -2803,7 +2899,7 @@ select[multiple].input-lg,
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
-    color: #0079c1;
+    color: #196fa6;
     text-decoration: none; }
   .btn:active, .btn.active {
     outline: 0;
@@ -2823,29 +2919,29 @@ fieldset[disabled] a.btn {
   pointer-events: none; }
 
 .btn-default {
-  color: #0079c1;
+  color: #196fa6;
   background-color: #ffffff;
-  border-color: #0079c1; }
+  border-color: #196fa6; }
   .btn-default:focus, .btn-default.focus {
-    color: #0079c1;
+    color: #196fa6;
     background-color: #e6e6e6;
-    border-color: #002942; }
+    border-color: #082537; }
   .btn-default:hover {
-    color: #0079c1;
+    color: #196fa6;
     background-color: #e6e6e6;
-    border-color: #005384; }
+    border-color: #114b71; }
   .btn-default:active, .btn-default.active,
   .open > .btn-default.dropdown-toggle {
-    color: #0079c1;
+    color: #196fa6;
     background-color: #e6e6e6;
-    border-color: #005384; }
+    border-color: #114b71; }
     .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus,
     .open > .btn-default.dropdown-toggle:hover,
     .open > .btn-default.dropdown-toggle:focus,
     .open > .btn-default.dropdown-toggle.focus {
-      color: #0079c1;
+      color: #196fa6;
       background-color: #d4d4d4;
-      border-color: #002942; }
+      border-color: #082537; }
   .btn-default:active, .btn-default.active,
   .open > .btn-default.dropdown-toggle {
     background-image: none; }
@@ -2857,10 +2953,10 @@ fieldset[disabled] a.btn {
   fieldset[disabled] .btn-default:active,
   fieldset[disabled] .btn-default.active {
     background-color: #ffffff;
-    border-color: #0079c1; }
+    border-color: #196fa6; }
   .btn-default .badge {
     color: #ffffff;
-    background-color: #0079c1; }
+    background-color: #196fa6; }
 
 .btn-primary {
   color: #ffffff;
@@ -3063,7 +3159,7 @@ fieldset[disabled] a.btn {
     background-color: #ffffff; }
 
 .btn-link {
-  color: #0079c1;
+  color: #196fa6;
   font-weight: normal;
   border-radius: 0; }
   .btn-link, .btn-link:active, .btn-link.active, .btn-link[disabled],
@@ -3571,7 +3667,7 @@ tbody.collapse.in {
         cursor: not-allowed; }
   .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #e2f1fb;
-    border-color: #0079c1; }
+    border-color: #196fa6; }
   .nav .nav-divider {
     height: 1px;
     margin: 11px 0;
@@ -3948,14 +4044,14 @@ tbody.collapse.in {
   .navbar-default .navbar-brand {
     color: #323232; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-      color: #0079c1;
+      color: #196fa6;
       background-color: transparent; }
   .navbar-default .navbar-text {
     color: #4c4c4c; }
   .navbar-default .navbar-nav > li > a {
     color: #4c4c4c; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-      color: #0079c1;
+      color: #196fa6;
       background-color: transparent; }
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #4c4c4c;
@@ -3979,7 +4075,7 @@ tbody.collapse.in {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
       color: #4c4c4c; }
       .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: #0079c1;
+        color: #196fa6;
         background-color: transparent; }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #4c4c4c;
@@ -3990,11 +4086,11 @@ tbody.collapse.in {
   .navbar-default .navbar-link {
     color: #4c4c4c; }
     .navbar-default .navbar-link:hover {
-      color: #0079c1; }
+      color: #196fa6; }
   .navbar-default .btn-link {
     color: #4c4c4c; }
     .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
-      color: #0079c1; }
+      color: #196fa6; }
     .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus,
     fieldset[disabled] .navbar-default .btn-link:hover,
     fieldset[disabled] .navbar-default .btn-link:focus {
@@ -5073,6 +5169,750 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 24px;
+  list-style: none;
+  background-color: #ebebeb;
+  border-radius: 0px; }
+  .breadcrumb > li {
+    display: inline-block; }
+    .breadcrumb > li + li:before {
+      content: "/ ";
+      padding: 0 5px;
+      color: #cccccc; }
+  .breadcrumb > .active {
+    color: #6e6e6e; }
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 24px 0;
+  border-radius: 0px; }
+  .pagination > li {
+    display: inline; }
+    .pagination > li > a,
+    .pagination > li > span {
+      position: relative;
+      float: left;
+      padding: 6px 12px;
+      line-height: 1.5;
+      text-decoration: none;
+      color: #196fa6;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      margin-left: -1px; }
+    .pagination > li:first-child > a,
+    .pagination > li:first-child > span {
+      margin-left: 0;
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px; }
+    .pagination > li:last-child > a,
+    .pagination > li:last-child > span {
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px; }
+  .pagination > li > a:hover, .pagination > li > a:focus,
+  .pagination > li > span:hover,
+  .pagination > li > span:focus {
+    z-index: 3;
+    color: #ffffff;
+    background-color: #196fa6;
+    border-color: #196fa6; }
+  .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus,
+  .pagination > .active > span,
+  .pagination > .active > span:hover,
+  .pagination > .active > span:focus {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #196fa6;
+    border-color: #196fa6;
+    cursor: default; }
+  .pagination > .disabled > span,
+  .pagination > .disabled > span:hover,
+  .pagination > .disabled > span:focus,
+  .pagination > .disabled > a,
+  .pagination > .disabled > a:hover,
+  .pagination > .disabled > a:focus {
+    color: #a9a9a9;
+    background-color: #ffffff;
+    border-color: #cccccc;
+    cursor: not-allowed; }
+
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 20px;
+  line-height: 1.3333333; }
+
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px; }
+
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px; }
+
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5; }
+
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px; }
+
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px; }
+
+.pager {
+  padding-left: 0;
+  margin: 24px 0;
+  list-style: none;
+  text-align: center; }
+  .pager:before, .pager:after {
+    content: " ";
+    display: table; }
+  .pager:after {
+    clear: both; }
+  .pager li {
+    display: inline; }
+    .pager li > a,
+    .pager li > span {
+      display: inline-block;
+      padding: 5px 14px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 0px; }
+    .pager li > a:hover,
+    .pager li > a:focus {
+      text-decoration: none;
+      background-color: #196fa6; }
+  .pager .next > a,
+  .pager .next > span {
+    float: right; }
+  .pager .previous > a,
+  .pager .previous > span {
+    float: left; }
+  .pager .disabled > a,
+  .pager .disabled > a:hover,
+  .pager .disabled > a:focus,
+  .pager .disabled > span {
+    color: #a9a9a9;
+    background-color: #ffffff;
+    cursor: not-allowed; }
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em; }
+  .label:empty {
+    display: none; }
+  .btn .label {
+    position: relative;
+    top: -1px; }
+
+a.label:hover, a.label:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer; }
+
+.label-default {
+  background-color: #6e6e6e; }
+  .label-default[href]:hover, .label-default[href]:focus {
+    background-color: #555555; }
+
+.label-primary {
+  background-color: #196fa6; }
+  .label-primary[href]:hover, .label-primary[href]:focus {
+    background-color: #12517a; }
+
+.label-success {
+  background-color: #338033; }
+  .label-success[href]:hover, .label-success[href]:focus {
+    background-color: #245c24; }
+
+.label-info {
+  background-color: #56a5d8; }
+  .label-info[href]:hover, .label-info[href]:focus {
+    background-color: #2f8ecc; }
+
+.label-warning {
+  background-color: #e4d154; }
+  .label-warning[href]:hover, .label-warning[href]:focus {
+    background-color: #ddc528; }
+
+.label-danger {
+  background-color: #c7461a; }
+  .label-danger[href]:hover, .label-danger[href]:focus {
+    background-color: #9a3614; }
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #196fa6;
+  border-radius: 14px; }
+  .badge:empty {
+    display: none; }
+  .btn .badge {
+    position: relative;
+    top: -1px; }
+  .btn-xs .badge, .btn-group-xs > .btn .badge,
+  .btn-group-xs > .btn .badge {
+    top: 0;
+    padding: 1px 5px; }
+  .list-group-item.active > .badge,
+  .nav-pills > .active > a > .badge {
+    color: #196fa6;
+    background-color: #ffffff; }
+  .list-group-item > .badge {
+    float: right; }
+  .list-group-item > .badge + .badge {
+    margin-right: 5px; }
+  .nav-pills > li > a > .badge {
+    margin-left: 3px; }
+
+a.badge:hover, a.badge:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer; }
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: #cccccc;
+  -webkit-transition: border 0.2s ease-in-out;
+  -o-transition: border 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out; }
+  .thumbnail > img,
+  .thumbnail a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto; }
+  .thumbnail .caption {
+    padding: 9px;
+    color: #4c4c4c; }
+
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: #196fa6; }
+
+.alert {
+  padding: 15px;
+  margin-bottom: 24px;
+  border: 1px solid transparent;
+  border-radius: 0px; }
+  .alert h4 {
+    margin-top: 0;
+    color: inherit; }
+  .alert .alert-link {
+    font-weight: bold; }
+  .alert > p,
+  .alert > ul {
+    margin-bottom: 0; }
+  .alert > p + p {
+    margin-top: 5px; }
+
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px; }
+  .alert-dismissable .close,
+  .alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit; }
+
+.alert-success {
+  background-color: #ddeedb;
+  border-color: #9bc19c;
+  color: #4c4c4c; }
+  .alert-success hr {
+    border-top-color: #8bb78c; }
+  .alert-success .alert-link {
+    color: #333333; }
+
+.alert-info {
+  background-color: #d2e9f9;
+  border-color: #3b8fc4;
+  color: #4c4c4c; }
+  .alert-info hr {
+    border-top-color: #3581b0; }
+  .alert-info .alert-link {
+    color: #333333; }
+
+.alert-warning {
+  background-color: #f3edc7;
+  border-color: #d9bf2b;
+  color: #4c4c4c; }
+  .alert-warning hr {
+    border-top-color: #c7ae24; }
+  .alert-warning .alert-link {
+    color: #333333; }
+
+.alert-danger {
+  background-color: #f3ded7;
+  border-color: #e4a793;
+  color: #4c4c4c; }
+  .alert-danger hr {
+    border-top-color: #df967f; }
+  .alert-danger .alert-link {
+    color: #333333; }
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0; }
+  to {
+    background-position: 0 0; } }
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0; }
+  to {
+    background-position: 0 0; } }
+
+.progress {
+  overflow: hidden;
+  height: 24px;
+  margin-bottom: 24px;
+  background-color: #f4f4f4;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
+
+.progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: 12px;
+  line-height: 24px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #196fa6;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease; }
+
+.progress-striped .progress-bar,
+.progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 40px 40px; }
+
+.progress.active .progress-bar,
+.progress-bar.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite; }
+
+.progress-bar-success {
+  background-color: #338033; }
+  .progress-striped .progress-bar-success {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
+
+.progress-bar-info {
+  background-color: #56a5d8; }
+  .progress-striped .progress-bar-info {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
+
+.progress-bar-warning {
+  background-color: #e4d154; }
+  .progress-striped .progress-bar-warning {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
+
+.progress-bar-danger {
+  background-color: #c7461a; }
+  .progress-striped .progress-bar-danger {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
+
+.media {
+  margin-top: 15px; }
+  .media:first-child {
+    margin-top: 0; }
+
+.media,
+.media-body {
+  zoom: 1;
+  overflow: hidden; }
+
+.media-body {
+  width: 10000px; }
+
+.media-object {
+  display: block; }
+  .media-object.img-thumbnail {
+    max-width: none; }
+
+.media-right,
+.media > .pull-right {
+  padding-left: 10px; }
+
+.media-left,
+.media > .pull-left {
+  padding-right: 10px; }
+
+.media-left,
+.media-right,
+.media-body {
+  display: table-cell;
+  vertical-align: top; }
+
+.media-middle {
+  vertical-align: middle; }
+
+.media-bottom {
+  vertical-align: bottom; }
+
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px; }
+
+.media-list {
+  padding-left: 0;
+  list-style: none; }
+
+.list-group {
+  margin-bottom: 20px;
+  padding-left: 0; }
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #a9a9a9; }
+  .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px; }
+  .list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px; }
+
+a.list-group-item,
+button.list-group-item {
+  color: #6e6e6e; }
+  a.list-group-item .list-group-item-heading,
+  button.list-group-item .list-group-item-heading {
+    color: #323232; }
+  a.list-group-item:hover, a.list-group-item:focus,
+  button.list-group-item:hover,
+  button.list-group-item:focus {
+    text-decoration: none;
+    color: #595959;
+    background-color: #e2f1fb; }
+
+button.list-group-item {
+  width: 100%;
+  text-align: left; }
+
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
+  background-color: #f4f4f4;
+  color: #959595;
+  cursor: not-allowed; }
+  .list-group-item.disabled .list-group-item-heading, .list-group-item.disabled:hover .list-group-item-heading, .list-group-item.disabled:focus .list-group-item-heading {
+    color: inherit; }
+  .list-group-item.disabled .list-group-item-text, .list-group-item.disabled:hover .list-group-item-text, .list-group-item.disabled:focus .list-group-item-text {
+    color: #959595; }
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index: 2;
+  color: #ffffff;
+  background-color: #196fa6;
+  border-color: #196fa6; }
+  .list-group-item.active .list-group-item-heading,
+  .list-group-item.active .list-group-item-heading > small,
+  .list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
+  .list-group-item.active:hover .list-group-item-heading > small,
+  .list-group-item.active:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading,
+  .list-group-item.active:focus .list-group-item-heading > small,
+  .list-group-item.active:focus .list-group-item-heading > .small {
+    color: inherit; }
+  .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
+    color: #9bcff0; }
+
+.list-group-item-success {
+  color: #338033;
+  background-color: #ddeedb; }
+
+a.list-group-item-success,
+button.list-group-item-success {
+  color: #338033; }
+  a.list-group-item-success .list-group-item-heading,
+  button.list-group-item-success .list-group-item-heading {
+    color: inherit; }
+  a.list-group-item-success:hover, a.list-group-item-success:focus,
+  button.list-group-item-success:hover,
+  button.list-group-item-success:focus {
+    color: #338033;
+    background-color: #cde6ca; }
+  a.list-group-item-success.active, a.list-group-item-success.active:hover, a.list-group-item-success.active:focus,
+  button.list-group-item-success.active,
+  button.list-group-item-success.active:hover,
+  button.list-group-item-success.active:focus {
+    color: #fff;
+    background-color: #338033;
+    border-color: #338033; }
+
+.list-group-item-info {
+  color: #56a5d8;
+  background-color: #d2e9f9; }
+
+a.list-group-item-info,
+button.list-group-item-info {
+  color: #56a5d8; }
+  a.list-group-item-info .list-group-item-heading,
+  button.list-group-item-info .list-group-item-heading {
+    color: inherit; }
+  a.list-group-item-info:hover, a.list-group-item-info:focus,
+  button.list-group-item-info:hover,
+  button.list-group-item-info:focus {
+    color: #56a5d8;
+    background-color: #bcdef6; }
+  a.list-group-item-info.active, a.list-group-item-info.active:hover, a.list-group-item-info.active:focus,
+  button.list-group-item-info.active,
+  button.list-group-item-info.active:hover,
+  button.list-group-item-info.active:focus {
+    color: #fff;
+    background-color: #56a5d8;
+    border-color: #56a5d8; }
+
+.list-group-item-warning {
+  color: #a68d00;
+  background-color: #f3edc7; }
+
+a.list-group-item-warning,
+button.list-group-item-warning {
+  color: #a68d00; }
+  a.list-group-item-warning .list-group-item-heading,
+  button.list-group-item-warning .list-group-item-heading {
+    color: inherit; }
+  a.list-group-item-warning:hover, a.list-group-item-warning:focus,
+  button.list-group-item-warning:hover,
+  button.list-group-item-warning:focus {
+    color: #a68d00;
+    background-color: #efe6b2; }
+  a.list-group-item-warning.active, a.list-group-item-warning.active:hover, a.list-group-item-warning.active:focus,
+  button.list-group-item-warning.active,
+  button.list-group-item-warning.active:hover,
+  button.list-group-item-warning.active:focus {
+    color: #fff;
+    background-color: #a68d00;
+    border-color: #a68d00; }
+
+.list-group-item-danger {
+  color: #c7461a;
+  background-color: #f3ded7; }
+
+a.list-group-item-danger,
+button.list-group-item-danger {
+  color: #c7461a; }
+  a.list-group-item-danger .list-group-item-heading,
+  button.list-group-item-danger .list-group-item-heading {
+    color: inherit; }
+  a.list-group-item-danger:hover, a.list-group-item-danger:focus,
+  button.list-group-item-danger:hover,
+  button.list-group-item-danger:focus {
+    color: #c7461a;
+    background-color: #edcec3; }
+  a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus,
+  button.list-group-item-danger.active,
+  button.list-group-item-danger.active:hover,
+  button.list-group-item-danger.active:focus {
+    color: #fff;
+    background-color: #c7461a;
+    border-color: #c7461a; }
+
+.list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px; }
+
+.list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3; }
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.5;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  font-size: 16px;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  .popover.top {
+    margin-top: -10px; }
+  .popover.right {
+    margin-left: 10px; }
+  .popover.bottom {
+    margin-top: 10px; }
+  .popover.left {
+    margin-left: -10px; }
+
+.popover-title {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: -1px -1px 0 0; }
+
+.popover-content {
+  padding: 9px 14px; }
+
+.popover > .arrow, .popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid; }
+
+.popover > .arrow {
+  border-width: 11px; }
+
+.popover > .arrow:after {
+  border-width: 10px;
+  content: ""; }
+
+.popover.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px; }
+  .popover.top > .arrow:after {
+    content: " ";
+    bottom: 1px;
+    margin-left: -10px;
+    border-bottom-width: 0;
+    border-top-color: #ffffff; }
+
+.popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25); }
+  .popover.right > .arrow:after {
+    content: " ";
+    left: 1px;
+    bottom: -10px;
+    border-left-width: 0;
+    border-right-color: #ffffff; }
+
+.popover.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px; }
+  .popover.bottom > .arrow:after {
+    content: " ";
+    top: 1px;
+    margin-left: -10px;
+    border-top-width: 0;
+    border-bottom-color: #ffffff; }
+
+.popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25); }
+  .popover.left > .arrow:after {
+    content: " ";
+    right: 1px;
+    border-right-width: 0;
+    border-left-color: #ffffff;
+    bottom: -10px; }
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #e2e2e2;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
+  .well blockquote {
+    border-color: #ddd;
+    border-color: rgba(0, 0, 0, 0.15); }
+
+.well-lg {
+  padding: 24px;
+  border-radius: 0px; }
+
+.well-sm {
+  padding: 9px;
+  border-radius: 0px; }
+
 .table {
   border-color: #a9a9a9; }
 
@@ -5080,7 +5920,7 @@ button.close {
   transition: all .25s ease; }
 
 .btn-link {
-  color: #0079c1 !important; }
+  color: #196fa6 !important; }
 
 .btn-group.open .btn-default {
   background-color: #d2e9f9; }
@@ -5094,7 +5934,7 @@ button.close {
 
 .btn-default:focus {
   background-color: #ffffff;
-  color: #0079c1; }
+  color: #196fa6; }
 
 .btn-primary:hover {
   background-color: #3b8fc4;
@@ -5261,9 +6101,212 @@ blockquote {
 .gis {
   font-weight: 500; }
 
+.pager li a:hover {
+  color: #ffffff; }
+
+.label {
+  padding: 5px 10px;
+  font-weight: normal; }
+  .label.label-warning {
+    color: #4c4c4c; }
+
+.list-group a.list-group-item-success,
+.list-group a.list-group-item-info,
+.list-group a.list-group-item-warning,
+.list-group a.list-group-item-danger {
+  color: #4c4c4c; }
+
+.list-group-item {
+  color: #4c4c4c; }
+  .list-group-item .badge {
+    padding: 7px 3px 5px 5px; }
+  .list-group-item.header {
+    z-index: 2;
+    color: #4c4c4c;
+    background-color: #f8f8f8;
+    border-color: #828282; }
+  .list-group-item.active:hover .list-group-item-text {
+    color: #ffffff; }
+  .list-group-item.active .list-group-item-text {
+    color: #ffffff; }
+
+.badge {
+  margin-left: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  min-width: 25px; }
+
+.btn-default:hover .badge {
+  background-color: #ffffff;
+  color: #196fa6; }
+
+.btn-info .badge, .btn-warning .badge {
+  background-color: #ffffff;
+  color: #4c4c4c; }
+
+kbd {
+  padding-top: 4px;
+  border-radius: 4px; }
+
+.cal-header {
+  position: relative;
+  padding: 30px 15px 0px 15px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  background-color: #196fa6; }
+  .cal-header h1 {
+    margin-top: 0;
+    font-size: 1.9em;
+    font-weight: 400;
+    line-height: 1; }
+    @media (max-width: 768px) {
+      .cal-header h1 {
+        font-size: 20px;
+        padding-left: 0px; } }
+  .cal-header h2 {
+    margin-top: 0;
+    font-size: 1.6em;
+    font-weight: 400;
+    line-height: 1; }
+    @media (max-width: 768px) {
+      .cal-header h2 {
+        font-size: 20px;
+        padding-left: 0px; } }
+  .cal-header .nav-tabs {
+    border-bottom: 1px solid transparent; }
+    .cal-header .nav-tabs > li > a {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.3); }
+      .cal-header .nav-tabs > li > a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #cccccc #cccccc transparent; }
+    .cal-header .nav-tabs > li.active > a, .cal-header .nav-tabs > li.active > a:hover, .cal-header .nav-tabs > li.active > a:focus {
+      color: #323232;
+      background-color: #f8f8f8;
+      border: 1px solid #a9a9a9;
+      border-bottom-color: transparent;
+      cursor: default; }
+
+.subheader-nav {
+  position: relative;
+  min-height: 36px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+  margin-top: -30px; }
+
+.micronav {
+  font-size: 12px;
+  background: #f4f4f4;
+  position: relative;
+  min-height: 22px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+  margin-top: -30px; }
+
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  margin-bottom: 80px; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f4f4f4; }
+
+/* This centers the text vertically in the footer */
+.container .text-muted, .container-fluid .text-muted {
+  margin: 18px 0; }
+
+.loader-bars:before, .loader-bars:after, .loader-bars {
+  background: #56a5d8;
+  -webkit-animation: load 0.8s infinite ease-in-out;
+  animation: load 0.8s infinite ease-in-out;
+  width: 0.85rem;
+  height: 2rem; }
+
+.loader-bars:before, .loader-bars:after {
+  position: absolute;
+  top: 0;
+  content: ''; }
+
+@-webkit-keyframes load {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 #56a5d8;
+    background: #56a5d8;
+    height: 2rem; }
+  40% {
+    box-shadow: 0 -0.5rem #0079c1;
+    background: #0079c1;
+    height: 2.5rem; } }
+
+@keyframes load {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 #0079c1;
+    background: #56a5d8;
+    height: 2rem; }
+  40% {
+    box-shadow: 0 -0.5rem #0079c1;
+    background: #0079c1;
+    height: 2.5rem; } }
+
+.loader {
+  display: none;
+  position: relative; }
+  .loader.is-active {
+    display: block; }
+
+.loader-bars {
+  text-indent: -9999em;
+  margin: auto;
+  position: absolute;
+  right: 50%;
+  font-size: 11px;
+  -webkit-animation-delay: 0.16s;
+  animation-delay: 0.16s; }
+  .loader-bars:before {
+    left: -1.25rem; }
+  .loader-bars:after {
+    left: 1.25rem;
+    -webkit-animation-delay: 0.32s;
+    animation-delay: 0.32s; }
+
+.loader-text {
+  text-align: center;
+  padding-top: 4rem; }
+
+.ie9 .loader-bars {
+  position: inherit;
+  background-color: transparent;
+  background-image: url("../img/loader-ie9.gif");
+  background-position: center top;
+  animation: none;
+  -webkit-animation-delay: none;
+  -webkit-animation: none;
+  width: 64px;
+  height: 64px; }
+  .ie9 .loader-bars:before, .ie9 .loader-bars:after {
+    background: none;
+    animation: none;
+    -webkit-animation: none;
+    width: 0px;
+    height: 0px; }
+
+.ie9 .loader-text {
+  padding-top: 2rem; }
+
 .cards-list {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  width: 900px; }
   .cards-list > li {
     float: left;
     padding: 0 15px; }
@@ -5647,20 +6690,6 @@ blockquote {
   width: 768px;
   height: 400px; }
 
-.calcite-maps.nav-position-top, .calcite-maps.nav-position-bottom {
-  top: 0;
-  bottom: 0; }
-
-.calcite-maps.nav-position-top-fixed,
-.calcite-maps.nav-position-top-fixed .map-position-absolute {
-  top: 64px;
-  bottom: 0; }
-
-.calcite-maps.nav-position-bottom-fixed,
-.calcite-maps.nav-position-bottom-fixed .map-position-absolute {
-  top: 0;
-  bottom: 64px; }
-
 .calcite-maps .opacity-0 {
   opacity: 0; }
 
@@ -5837,6 +6866,20 @@ blockquote {
   border-top: none;
   border-bottom: none; }
 
+.calcite-maps.nav-position-top, .calcite-maps.nav-position-bottom {
+  top: 0;
+  bottom: 0; }
+
+.calcite-maps.nav-position-top-fixed,
+.calcite-maps.nav-position-top-fixed .map-position-absolute {
+  top: 64px;
+  bottom: 0; }
+
+.calcite-maps.nav-position-bottom-fixed,
+.calcite-maps.nav-position-bottom-fixed .map-position-absolute {
+  top: 0;
+  bottom: 64px; }
+
 .calcite-maps.nav-space-none .navbar {
   margin: 0; }
 
@@ -5879,11 +6922,11 @@ blockquote {
   cursor: pointer; }
 
 .calcite-maps .navbar-title {
-  margin-top: 4px;
+  margin-top: 3px;
   font-size: 25px; }
 
 .calcite-maps .navbar-subtitle {
-  margin-top: -5px;
+  margin-top: -4px;
   margin-left: 2px;
   font-size: 14px; }
 

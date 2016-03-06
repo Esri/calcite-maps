@@ -6,8 +6,8 @@
 
 .calcite-maps {
 
+	// No styles for small screens
 	&.theme-jumbo-title {
-		// No styles for small screens
 	}
 
 }
@@ -26,6 +26,7 @@
 			top: 0;
 			bottom: 120px;
 		}
+
 		// Navbar
 		&.theme-jumbo-title .navbar {
 			min-height: 120px;
@@ -50,13 +51,21 @@
 	    position: absolute;
 		}
 
+		//Dropdown
+		&.theme-jumbo-title.nav-position-top .navbar-nav .dropdown-menu {
+		  margin-top: 29px;
+		}
+		&.theme-jumbo-title.nav-position-bottom .navbar-nav>li>.dropdown-menu {
+    	margin-bottom: 29px;
+  	}
+
 		// Panel
 		&.theme-jumbo-title.nav-position-top.nav-space-none .panel-container,
 		&.theme-jumbo-title.nav-position-top-fixed.nav-space-none .panel-container {
 			top: 136px;
 		}
 
-		// ArcGIS
+		// ArcGIS 3.x
 		&.theme-jumbo-title.nav-position-top.zoom-top-left .esriZoom.esriVertical.esriComponent,
 		&.theme-jumbo-title.nav-position-top.zoom-top-right .esriZoom.esriVertical.esriComponent,
 		&.theme-jumbo-title.nav-position-bottom.zoom-bottom-left .esriZoom.esriVertical.esriComponent,

@@ -22,12 +22,12 @@
 	&.theme-inline-left.nav-position-bottom.nav-space-all .esriSimpleSlider,
 	&.theme-inline-right.nav-position-top.nav-space-all .esriSimpleSlider,
 	&.theme-inline-right.nav-position-bottom.nav-space-all .esriSimpleSlider {
-		margin: 17px;  
+		margin: 15px;  
 	}
 
 	&.theme-inline-left.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent,
 	&.theme-inline-right.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent{
-		margin-top: 17px;
+		margin-top: 15px;
 	}
 
 	// Esri-Leaflet
@@ -51,21 +51,18 @@
 
 		&.theme-inline-left.nav-position-top.nav-space-all.is-minibar .navbar,
 		&.theme-inline-right.nav-position-top.nav-space-all.is-minibar .navbar {
-	    // top: 95px;
-	    // margin-top: 15px;
-	    margin-left: 15px;
-	    // margin-right: 15px;
-    }
+			margin-left: 15px;
+		}
 
-    &.theme-inline-left.nav-position-top.nav-space-all .panel-container {
-    	top: 94px;
+		&.theme-inline-left.nav-position-top.nav-space-all .panel-container {
+			top: 94px;
 			left: 48px;
 		}
-    &.theme-inline-right.nav-position-top.nav-space-all .panel-container {
+		&.theme-inline-right.nav-position-top.nav-space-all .panel-container {
 			top: 94px;
 			right: 48px;
 		}
 
-  }
+	}
 
 }

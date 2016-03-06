@@ -8,11 +8,11 @@
 .calcite-maps.theme-inline-left.nav-position-bottom.nav-space-all .esriSimpleSlider,
 .calcite-maps.theme-inline-right.nav-position-top.nav-space-all .esriSimpleSlider,
 .calcite-maps.theme-inline-right.nav-position-bottom.nav-space-all .esriSimpleSlider {
-  margin: 17px; }
+  margin: 15px; }
 
 .calcite-maps.theme-inline-left.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent,
 .calcite-maps.theme-inline-right.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
-  margin-top: 17px; }
+  margin-top: 15px; }
 
 .calcite-maps.theme-inline-left.nav-position-top.nav-space-all .leaflet-control-zoom,
 .calcite-maps.theme-inline-left.nav-position-bottom.nav-space-all .leaflet-control-zoom,

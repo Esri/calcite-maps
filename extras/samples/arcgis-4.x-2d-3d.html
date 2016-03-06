@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
 
   <!-- ArcGIS JS 4.0 -->
-  <link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
+  <link rel="stylesheet" href="../../../arcgis-js-api/esri/css/main.css">
 
   <style>
     html, body {
@@ -62,7 +62,7 @@
               <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
               <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
               <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
-             </ul>
+            </ul>
           </li>      
         </ul><!--/.nav -->
       </div><!--/.nav-collapse -->
@@ -72,229 +72,231 @@
   <!-- Map Container  -->
 
   <div class="map-container">
-      <div id="tabContainer" class="tab-content">
-          <div id="2dTab" class="tab-pane fade" role="tabpanel">
-              <div id="mapViewDiv" class="map-position-absolute"></div>
-          </div>
-          <div id="3dTab" class="tab-pane fade in active" role="tabpanel">
-              <div id="sceneViewDiv" class="map-position-absolute"></div>
-          </div>
+    <div id="tabContainer" class="tab-content">
+      <div id="2dTab" class="tab-pane fade" role="tabpanel">
+         <div id="mapViewDiv" class="map-position-absolute"></div>
       </div>
+      <div id="3dTab" class="tab-pane fade in active" role="tabpanel">
+        <div id="sceneViewDiv" class="map-position-absolute"></div>
+      </div>
+    </div>
   </div><!-- /.container -->
 
   <!-- Panel -->
 
   <div class="panel-container">
-      <div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
-          
-          <!-- Info Panel -->
-          
-           <div id="panelInfo" class="panel panel-default collapse">
-              <div id="headingInfo" class="panel-heading" role="tab">
-                  <div class="panel-title">
-                      <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
-                      <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
-                  </div>
-              </div>
-              <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
-                  <div class="panel-body">
-                      <p>This is a great place to describe what your application is about.</p>
-                  </div>
+    <div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
+        
+      <!-- Info Panel -->
+      
+       <div id="panelInfo" class="panel panel-default collapse">
+          <div id="headingInfo" class="panel-heading" role="tab">
+              <div class="panel-title">
+                  <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
+                  <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
               </div>
           </div>
-          
-          <!-- Search Panel -->
+          <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
+              <div class="panel-body">
+                  <p>This is a great place to describe what your application is about.</p>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Search Panel -->
 
-          <div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg">
-              <div id="headingSearch" class="panel-heading" role="tab">
-                  <div class="panel-title">
-                      <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
-                      <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
-                  </div>
-              </div>
-              <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
-                  <div class="panel-body panel-overflow-visible"> 
-                      <div id="searchPanelDiv"></div>
-                </div>
+      <div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg">
+          <div id="headingSearch" class="panel-heading" role="tab">
+              <div class="panel-title">
+                  <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+                  <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
               </div>
           </div>
+          <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
+              <div class="panel-body panel-overflow-visible"> 
+                  <div id="searchPanelDiv"></div>
+            </div>
+          </div>
+      </div>
 
-          <!-- Basemaps Panel -->
-          
-          <div id="panelBasemaps" class="panel panel-default collapse"> 
-              <div id="headingBasemaps" class="panel-heading" role="tab">
-                  <div class="panel-title">
-                      <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
-                      <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
-                  </div>
-              </div>
-              <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
-                  <div class="panel-body">
-                      <select id="selectBasemapPanel" class="form-control">
-                          <option value="streets" data-vector="vector-streets">Streets</option>
-                          <option value="satellite" data-vector="satellite">Satellite</option>
-                          <option value="hybrid" data-vector="hybrid">Hybrid</option>
-                          <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
-                          <option value="topo" data-vector="vector-streets-relief">Topographic</option>
-                          <option value="gray" data-vector="vector-canvas-light">Gray</option>
-                          <option value="dark-gray" data-vector="vector-canvas-dark">Dark Gray</option>
-                          <option value="osm" data-vector="osm">Open Street Map</option>
-                          <option value="dark-gray" data-vector="vector-streets-night">Streets Night</option>
-                          <option value="streets" data-vector="vector-streets-mobile">Streets Mobile</option>
-                      </select>
-                  </div>
-              </div>
+      <!-- Basemaps Panel -->
+      
+      <div id="panelBasemaps" class="panel panel-default collapse"> 
+        <div id="headingBasemaps" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
           </div>
-      </div> <!-- /.panel-group -->
+        </div>
+        <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
+          <div class="panel-body">
+            <select id="selectBasemapPanel" class="form-control">
+              <option value="streets" data-vector="vector-streets">Streets</option>
+              <option value="satellite" data-vector="satellite">Satellite</option>
+              <option value="hybrid" data-vector="hybrid">Hybrid</option>
+              <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
+              <option value="topo" data-vector="vector-streets-relief">Topographic</option>
+              <option value="gray" data-vector="vector-canvas-light">Gray</option>
+              <option value="dark-gray" data-vector="vector-canvas-dark">Dark Gray</option>
+              <option value="osm" data-vector="osm">Open Street Map</option>
+              <option value="dark-gray" data-vector="vector-streets-night">Streets Night</option>
+              <option value="streets" data-vector="vector-streets-mobile">Streets Mobile</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.panel-group -->
   </div> <!-- /.panel-container -->
 
   <script type="text/javascript">
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        //location: "https://alaframboise.github.io/calcite-maps/dist/dojo-bootstrap"
+        //location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
       },
       {
         name: "calcite-maps",
-        //location: "https://alaframboise.github.io/calcite-maps/dist/calcite-maps/js/dojo"
+        //location: "https://esri.github.io/calcite-maps/dist/calcite-maps/js/dojo"
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
       }]
     };
   </script>
 
   <!-- ArcGIS JS 4.0 -->
-  <script src="https://jsqa.arcgis.com/4.0/"></script>
+  <script src="../../../arcgis-js-api/dojo/dojo.js"></script>
 
   <script>
 
-    var app, mapView, sceneView, searchWidgetNav, searchWidgetPanel, activeView;
+    var app, searchWidgetNav, searchWidgetPanel;
 
     require(["esri/Map",
-        "esri/Basemap",
-        "esri/views/MapView",
-        "esri/views/SceneView",
-        "esri/widgets/Search",
-        "esri/core/watchUtils",
-        "dojo/query",
+      "esri/Basemap",
+      "esri/views/MapView",
+      "esri/views/SceneView",
+      "esri/widgets/Search",
+      "esri/core/watchUtils",
+      "dojo/query",
 
-        // Bootstrap
-        "bootstrap/Collapse", 
-        "bootstrap/Dropdown",
-        "bootstrap/Tab",
-        "bootstrap/Tooltip",
-        
-        // Calcite-maps
-        "calcite-maps/calcitemaps",
-        "dojo/domReady!"
+      // Bootstrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      "bootstrap/Tooltip",
+      
+      // Calcite-maps
+      "calcite-maps/calcitemaps",
+      "dojo/domReady!"
     ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query) {
         
-        // App
-        app = {
-            scale: 50000000,
-            center: [-40,40],
-            basemap: "satellite",
-            viewPadding: {
-                bottom: 64
-            },
-            uiPadding: {
-                top: 30
-            },
-            activeView: null
-        };
+      // App
+      app = {
+        scale: 50000000,
+        center: [-40,40],
+        basemap: "satellite",
+        viewPadding: {
+            bottom: 64
+        },
+        uiPadding: {
+            top: 30
+        },
+        mapView: null,
+        sceneView: null,
+        activeView: null
+      };
 
-        // Map 
-        var map = new Map({
-            basemap: app.basemap
-        });
-        mapView = new MapView({
-            container: "mapViewDiv",
-            map: map,
-            scale: app.scale,
-            center: app.center,
-            padding: app.viewPadding,
-            ui: {
-                components: ["zoom", "compass", "attribution"],
-                padding: app.uiPadding
-            }
-        });
-     
-        // Scene
-        var mapScene = new Map({
-            basemap: app.basemap
-        });
-        sceneView = new SceneView({
-            container: "sceneViewDiv",
-            map: mapScene,                
-            scale: app.scale,
-            center: app.center,
-            padding: app.viewPadding,
-            ui: {
-                padding: app.uiPadding
-            },
-            visible: true
-        });
+      // Map 
+      var map = new Map({
+        basemap: app.basemap
+      });
+      app.mapView = new MapView({
+        container: "mapViewDiv",
+        map: map,
+        scale: app.scale,
+        center: app.center,
+        padding: app.viewPadding,
+        ui: {
+          components: ["zoom", "compass", "attribution"],
+          padding: app.uiPadding
+      }
+      });
+   
+      // Scene
+      var mapScene = new Map({
+        basemap: app.basemap
+      });
+      app.sceneView = new SceneView({
+        container: "sceneViewDiv",
+        map: mapScene,                
+        scale: app.scale,
+        center: app.center,
+        padding: app.viewPadding,
+        ui: {
+            padding: app.uiPadding
+        },
+        visible: true
+      });
 
-        app.activeView = sceneView;
+      app.activeView = app.sceneView;
 
-        // Search
-        app.activeView.then( function() {
-            searchWidgetNav = createSearchWidget("searchNavDiv");
-            searchWidgetPanel = createSearchWidget("searchPanelDiv");
-        });
+      // Search
+      app.activeView.then( function() {
+        searchWidgetNav = createSearchWidget("searchNavDiv");
+        searchWidgetPanel = createSearchWidget("searchPanelDiv");
+      });
 
-        function createSearchWidget(parentId) {
-            var search = new Search({
-                viewModel: {
-                    view: app.activeView,
-                    highlightEnabled: false,
-                    popupEnabled: false,
-                    showPopupOnSelect: false
-                }
-                }, parentId);
-            search.startup();
-            return search;
+      function createSearchWidget(parentId) {
+        var search = new Search({
+          viewModel: {
+            view: app.activeView,
+            highlightEnabled: false,
+            popupEnabled: false,
+            showPopupOnSelect: false
+          }
+          }, parentId);
+        search.startup();
+        return search;
+      }
+
+      function syncViews(fromView, toView) {
+        function sync() {
+          toView.animateTo({
+            scale: fromView.scale,
+            center: fromView.center,
+            rotation: fromView.rotation
+          });
+          toView.set({visible: true});
         }
-
-        function syncViews(fromView, toView) {
-            function sync() {
-                toView.animateTo({
-                    scale: fromView.scale,
-                    center: fromView.center,
-                    rotation: fromView.rotation
-                });
-                toView.set({visible: true});
+        if (toView.isInstanceOf(SceneView) && !toView.ready) {
+          watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
+            if (isReady) {
+              sync();
             }
-            if (toView.isInstanceOf(SceneView) && !toView.ready) {
-                watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
-                    if (isReady) {
-                        sync();
-                    }
-                });
-            } else {
-                sync();
-            }
+          });
+        } else {
+          sync();
         }
+      }
 
-        query("nav li a[data-toggle='tab']").on("click", function(e) {
-            // Sync views
-            if (e.target.text === "Map") {
-                syncViews(sceneView, mapView);                  
-                app.activeView = mapView;  
-            } else {
-                syncViews(mapView, sceneView);                  
-                app.activeView = sceneView;
-            }
-            // Set search
-            searchWidgetNav.viewModel.view = app.activeView;
-            searchWidgetPanel.viewModel.view = app.activeView;
-        });
+      query("nav li a[data-toggle='tab']").on("click", function(e) {
+        // Sync views
+        if (e.target.text === "Map") {
+          syncViews(app.sceneView, app.mapView);                  
+          app.activeView = app.mapView;  
+        } else {
+          syncViews(app.mapView, app.sceneView);                  
+          app.activeView = app.sceneView;
+        }
+        // Set search
+        searchWidgetNav.viewModel.view = app.activeView;
+        searchWidgetPanel.viewModel.view = app.activeView;
+      });
 
-        query("#selectBasemapPanel").on("change", function(e){
-            //mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
-            mapView.map.basemap = e.target.value;
-            sceneView.map.basemap = e.target.value;
-        });
+      query("#selectBasemapPanel").on("change", function(e){
+        //mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
+        app.mapView.map.basemap = e.target.value;
+        app.sceneView.map.basemap = e.target.value;
+      });
 
     });<!-- dojo -->
   </script>

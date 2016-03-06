@@ -9,13 +9,13 @@ The framework is compatible with [ArcGIS JS 3.x](https://developers.arcgis.com/j
 
 * Calcite styles, layouts and themes for map apps (top, bottom, jumbo and in-line)
 * Extensions for Bootstrap components (navbar, accordion and panels)
-* Customizable Sass build system to minimize CSS and increase performance
+* Custom Sass build system for creating optimized builds
 * Full integration and support for the new ArcGIS API for JavaScript 4.x
 * Samples for ArcGIS JS 3.x, 4.x and Esri Leaflet
 * Support for Dojo and jQuery
 * Easy and fast to build great map apps
 
-###Demos
+###Samples
 Use the [Styler](http://esri.github.io/calcite-maps/extras/index.html) to design apps on the fly or just start with one of the [code samples](http://esri.github.io/calcite-maps/extras/index.html).
 
 ![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
@@ -31,10 +31,11 @@ Here's a few different ways to get started:
 3. **Create a local build**
 
 * Fork and clone the repo 
-* Run npm install (bootstrap and calcite-bootstrap)
-* Run bower install (dojo-bootstrap)
-* Run grunt (builds ./dist/**)
-* Add/remove bootstrap components and update variables as needed (see ./lib/sass/build.scss)
+* Run npm install (node_modules/bootstrap and calcite-bootstrap)
+* Run bower install (bower_components/dojo-bootstrap)
+* Run grunt (build out project to ./dist/**)
+
+Add/remove styles, bootstrap components and update any variables as required. See ./lib/sass/build.scss to get started.
 
 NOTE: Calcite Maps is built on Bootstrap. If you want to learn more about the core framework, please visit the [Bootstrap documentation site](http://getbootstrap.com).
 
@@ -46,7 +47,7 @@ NOTE: Calcite Maps is built on Bootstrap. If you want to learn more about the co
     
   ```
   <!-- Calcite-Maps -->
-  <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/calcite-maps-arcgis-4.x.css">
+  <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/calcite-maps-bootstrap-arcgis-4.x.css">
   ```
 
 3. Add JS references as necessary. The Bootstrap framework requires a small library to support the framework components such as the navbar, dropdown and panels. If you are using ArcGIS JS API, use the dojo libraries. If you are using Esri Leaflet, use the jQuery library.
@@ -89,7 +90,7 @@ NOTE: Calcite Maps is built on Bootstrap. If you want to learn more about the co
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  <script src="http://esri.github.io/calcite-maps/js/jquery/calcitemaps.js"></script>
+  <script src="http://esri.github.io/calcite-maps/dist/js/jquery/calcitemaps.js"></script>
   ```
 
 4. Add a map container. For full page apps use ```map-position-absolute```.
@@ -158,19 +159,53 @@ NOTE: Calcite Maps is built on Bootstrap. If you want to learn more about the co
     ...
   ```
 
-That's it! Now you can experiment with the other Calcite Maps styles or add other Bootstrap components your app.
+8. Add some map code.
+  ```
+  ...
 
-## Create a local build
+    var app, mapView;
 
-If you are just building demo and test apps, just reference the libraries directly on ```https://esri.github.io/calcite-maps/dist/...```. If you want to customize the framework or create a custom builds however, you need to fork and clone the repo and build it locally.
+    require(["esri/Map",
+      "esri/views/MapView"
 
-Steps
+      // Bootstrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      "bootstrap/Tooltip",
+      
+      // Calcite-maps
+      "calcite-maps/calcitemaps",
+      "dojo/domReady!"
+    ], function(Map, Basemap, MapView, FeatureLayer, PopupTemplate, Search, query) {
+        
+      // App
+      app = {
+        lonlat: [-118.25, 34.15],
+        zoom: 10,
+        viewPadding: {
+            top: 64
+        }, 
+        basemap: "streets"
+      };
 
-1. Fork and clone the repo.
-2. Run ```npm install``` to install the build packages.
-3. Run ```grunt`` to build the project locally. This will compile the Sass and create local builds for ArcGIS 3.x, 4.x and Esri Leaflet in the ```\dist\...``` directory.
+      // Map 
+      var map = new Map({
+        basemap: app.basemap
+      });
+            
+      mapView = new MapView({
+        container: "mapViewDiv",
+        map: map,
+        center: app.lonlat,
+        zoom: app.zoom,
+        padding: app.viewPadding
+      });
 
-NOTE: A custom build of Calcite-Bootstrap is provided with Calcite Maps with just the minimum components required for building map apps. If you want the entire Bootstrap framework, Bower install and npm Calcite-Bootstrap and add/remove components as necessary.
+    });
+  ```
+
+**That's it!** Now you can experiment with the other Calcite styles or Bootstrap components and build your app.
 
 ###Documentation
 

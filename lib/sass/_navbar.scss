@@ -12,6 +12,28 @@
 		border-bottom: none;
 	}
 
+	// Layout
+
+	// Full body and map
+	&.nav-position-top,
+	&.nav-position-bottom {
+		top: 0;
+		bottom: 0;
+	}
+
+	// Offset body and map
+	&.nav-position-top-fixed, 
+	&.nav-position-top-fixed .map-position-absolute {
+		top: 64px;
+		bottom: 0;
+	}
+
+	&.nav-position-bottom-fixed,
+	&.nav-position-bottom-fixed .map-position-absolute {
+		top: 0;
+		bottom: 64px;
+	}
+
 	// Spacing
 	
 	&.nav-space-none .navbar {
@@ -38,11 +60,6 @@
 		right: auto;
 		background-color: transparent !important;
 	}
-
-	//&.is-minibar.nav-space-all .navbar {
-		//margin-top: 0;
-		//margin-left: 0;
-	//}
 
 	// Navbar - List
 
@@ -79,12 +96,12 @@
 	}
 
 	.navbar-title {
-		margin-top: 4px;
+		margin-top: 3px;
 	  font-size: 25px;
 	}
 
 	.navbar-subtitle {
-		margin-top: -5px;
+		margin-top: -4px;
 		margin-left: 2px;
 		font-size: 14px;
 	}
