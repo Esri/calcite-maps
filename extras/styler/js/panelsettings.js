@@ -30,7 +30,7 @@ define([
 ], function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Component, FeatureLayer, PopupTemplate, 
 	Extent, ProjectUtils, GeometryService, ProjectParams, query, domClass, domStyle, touch, on, keys) {
 
-        // ================
+    // ================
 		// Panel - Settings
 		// ================
 
@@ -490,8 +490,6 @@ define([
 				app.mapView.map.add(app.mapFL);
 				app.sceneView.map.add(app.sceneFL);
 				
-				//showHideDesigner(1500);
-
 				// Zoom map to extent of layer
 				app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
 					if (newValue) {
@@ -516,10 +514,8 @@ define([
 			// Remove existing service
 			function removeFeatureService() {
 				if (app.mapFL && app.sceneFL) {
-					app.mapView.map.remove(app.mapFL); // Bug
+					app.mapView.map.remove(app.mapFL);
 					app.sceneView.map.remove(app.sceneFL);
-					//app.mapView.map.removeAll();
-					//mapScene.removeAll();
 					app.mapView.zoom = app.zoom; 
 					app.mapView.center = app.lonlat;
 					app.sceneView.zoom = app.zoom;

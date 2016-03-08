@@ -1,4 +1,7 @@
-// Calcite Bootstrap Components
+// ┌──────────────────────────────┐
+// │ Calcite Bootstrap Components │
+// └──────────────────────────────┘
+// Add/remove components for your app
 
 // Custom SASS modules
 @import "calcite/tables-custom";
@@ -13,17 +16,17 @@
 
 // Not required by Calcite Maps
 //------------------------------
-@import "calcite/pager-custom";
-@import "calcite/labels-custom";
-@import "calcite/listgroups-custom";
-@import "calcite/badges-custom";
-@import "calcite/code-custom";
+// @import "calcite/pager-custom";
+// @import "calcite/labels-custom";
+// @import "calcite/listgroups-custom";
+// @import "calcite/badges-custom";
+// @import "calcite/code-custom";
 
-//Custom modules that have no Bootstrap module pairing
-@import "calcite/header-custom";
-@import "calcite/navs-custom";
-@import "calcite/footer-custom";
-@import "calcite/sticky-footer";
-@import "calcite/loader";
+// //Custom modules that have no Bootstrap module pairing
+// @import "calcite/header-custom";
+// @import "calcite/navs-custom";
+// @import "calcite/footer-custom";
+// @import "calcite/sticky-footer";
+// @import "calcite/loader";
 
 @import "calcite/card-custom";

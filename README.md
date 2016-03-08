@@ -1,7 +1,7 @@
 # Calcite Maps
 A modern framework for designing map apps with Bootstrap. 
 
-This project contains styles, colors and layouts and a custom build system for designing map apps with Bootstrap. The framework is built on [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) - a custom Calcite theme and build system for [Bootstrap](http://www.getbootstrap.com). Calcite Maps extends core [Bootstrap components](http://getbootstrap.com) such as the navbar and panels to make them more map app-friendly. Different app designs can be created very easily simply by applying styles to the ```body``` and ```navbar``` elements. e.g. ```nav-position-top``` ```calcite-dark-blue```. Custom themes can also be created and shared by creating style sets for different layouts. 
+This project contains styles, colors and layouts and a custom Sass build for designing map apps with Bootstrap. The framework is built on [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) - a custom Calcite theme and build system for [Bootstrap](http://www.getbootstrap.com). Calcite Maps extends core [Bootstrap components](http://getbootstrap.com) such as the navbar and panels to make them more map app-friendly. Different app designs can be created very easily simply by applying styles to the ```body``` and ```navbar``` elements. e.g. ```nav-position-top``` ```calcite-dark-blue```. Custom themes can also be created and shared by creating style sets for different layouts. 
 
 The framework is compatible with [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/4) and [Esri Leaflet](https://github.com/Esri/esri-leaflet).
 
@@ -10,10 +10,9 @@ The framework is compatible with [ArcGIS JS 3.x](https://developers.arcgis.com/j
 * Calcite styles, layouts and themes for map apps (top, bottom, jumbo and in-line)
 * Extensions for Bootstrap components (navbar, accordion and panels)
 * Custom Sass build system for creating optimized builds
-* Full integration and support for the new ArcGIS API for JavaScript 4.x
+* Full integration and support for ArcGIS API for JavaScript 4.x
 * Samples for ArcGIS JS 3.x, 4.x and Esri Leaflet
 * Support for Dojo and jQuery
-* Easy and fast to build great map apps
 
 ###Samples
 Use the [Styler](http://esri.github.io/calcite-maps/extras/index.html) to design apps on the fly or just start with one of the [code samples](http://esri.github.io/calcite-maps/extras/index.html).

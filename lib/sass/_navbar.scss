@@ -1,13 +1,20 @@
-// ┌──────────────┐
-// │ Navbar       │
-// └──────────────┘
+// ┌────────┐
+// │ Navbar │
+// └────────┘
+
+$navbar-height: 64px;
+$navbar-margin: 15px;
+$navbar-brand-font-size: 44px;
+$navbar-title-font-size: 26px;
+$navbar-subtitle-font-size: 13px;
+$navbar-collase-max-height: 260px;
 
 .calcite-maps {
 
 	// Navbar
 
 	.navbar {
-		min-height: 64px;
+		min-height: $navbar-height;
 		border-top: none;
 		border-bottom: none;
 	}
@@ -24,14 +31,14 @@
 	// Offset body and map
 	&.nav-position-top-fixed, 
 	&.nav-position-top-fixed .map-position-absolute {
-		top: 64px;
+		top: $navbar-height;
 		bottom: 0;
 	}
 
 	&.nav-position-bottom-fixed,
 	&.nav-position-bottom-fixed .map-position-absolute {
 		top: 0;
-		bottom: 64px;
+		bottom: $navbar-height;
 	}
 
 	// Spacing
@@ -41,17 +48,17 @@
 	}
 
 	&.nav-space-top .navbar {
-		margin-top: 15px;
+		margin-top: $navbar-margin;
 		margin-bottom: 0;
 	}
 
 	&.nav-space-bottom .navbar {
 		margin-top: 0;
-		margin-bottom: 15px;
+		margin-bottom: $navbar-margin;
 	}
 
 	&.nav-space-all .navbar {
-		margin: 15px;
+		margin: $navbar-margin;
 	}
 
 	// Navbar - Minibar
@@ -74,8 +81,8 @@
 	// Navbar - Brand
 
 	.navbar-brand {
-		padding: 11px 10px 11px 10px;
-		font-size: 42px;
+		padding: 11px 9px 8px;
+		font-size: $navbar-brand-font-size;
 		cursor: pointer;
 		height: 100%;
 	}
@@ -93,23 +100,21 @@
 		width: calc(100% - 535px); // Lg screens
 		height: 100%;
 		cursor: pointer;
-	}
-
-	.navbar-title {
-		margin-top: 3px;
-	  font-size: 25px;
-	}
-
-	.navbar-subtitle {
-		margin-top: -4px;
-		margin-left: 2px;
-		font-size: 14px;
-	}
-
-	.text-overflow {
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
+		line-height: 1.5;
+			.navbar-title {
+				margin-top: 3px;
+			  font-size: $navbar-title-font-size;
+			}
+			.navbar-subtitle {
+				margin-top: -4px;
+				margin-left: 2px;
+				font-size: $navbar-subtitle-font-size;
+			}
+			.text-overflow {
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+			}
 	}
 
 	// Navbar - Search
@@ -225,7 +230,7 @@
 		// Minibar
 
 		&.nav-position-top.nav-space-all.is-minibar .navbar {
-		     margin-top: 15px; 
+		     margin-top: $navbar-margin; 
 		     margin-left: 30px; 
 		}
 
@@ -259,7 +264,7 @@
 @media (max-width: 480px) {
 	.calcite-maps {
 		.navbar-collapse {
-			max-height: 260px;
+			max-height: $navbar-collase-max-height;
 		}
 	}
 }

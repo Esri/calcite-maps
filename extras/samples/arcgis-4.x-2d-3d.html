@@ -12,8 +12,8 @@
   <!-- Calcite-Maps -->
   <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
 
-  <!-- ArcGIS JS 4.0 -->
-  <link rel="stylesheet" href="../../../arcgis-js-api/esri/css/main.css">
+  <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+  <link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
 
   <style>
     html, body {
@@ -132,7 +132,7 @@
           <div class="panel-body">
             <select id="selectBasemapPanel" class="form-control">
               <option value="streets" data-vector="vector-streets">Streets</option>
-              <option value="satellite" data-vector="satellite">Satellite</option>
+              <option value="satellite" data-vector="satellite" selected="">Satellite</option>
               <option value="hybrid" data-vector="hybrid">Hybrid</option>
               <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
               <option value="topo" data-vector="vector-streets-relief">Topographic</option>
@@ -163,8 +163,8 @@
     };
   </script>
 
-  <!-- ArcGIS JS 4.0 -->
-  <script src="../../../arcgis-js-api/dojo/dojo.js"></script>
+  <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+  <script src="http://jsqa.arcgis.com/4.0/"></script>
 
   <script>
 
@@ -260,12 +260,7 @@
 
       function syncViews(fromView, toView) {
         function sync() {
-          toView.animateTo({
-            scale: fromView.scale,
-            center: fromView.center,
-            rotation: fromView.rotation
-          });
-          toView.set({visible: true});
+          toView.set({viewpoint: fromView.viewpoint});
         }
         if (toView.isInstanceOf(SceneView) && !toView.ready) {
           watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {

@@ -1,8 +1,7 @@
-// ┌─────────────────────┐
-// │ Navbar-themes       │
-// └─────────────────────┘
-
-// Take single background color and apply highlight colors to all other elements
+// ┌───────────────┐
+// │ Navbar-themes │
+// └───────────────┘
+// Takes single background color and apply highlight colors to all other elements
 
 // Logic to auto-set the theme colors based on just the background color
 // For auto-generation of sass only, otherwise use preset themes below...
@@ -15,13 +14,13 @@
 // }
 
 // Navbar Theme: Dark text, light background-color
-$text-dark: #323232; // calcite-black
+$text-dark: $calcite-black; // #323232;
 $navbar-text-dark: $text-dark;
 $navbar-text-dark-highlight: lighten($navbar-text-dark, 20%);
 $navbar-text-dark-highlight-bg: lighten($navbar-text-dark, 50%);
 
 // Navbar Theme: Light text, dark background-color
-$text-light: #f8f8f8; // calcite-off-white
+$text-light: $calcite-off-white;	//#f8f8f8;
 $navbar-text-light: $text-light; 
 $navbar-text-light-highlight: darken($navbar-text-light, 20%);
 $navbar-text-light-highlight-bg: darken($navbar-text-light, 70%);

@@ -16,8 +16,8 @@
 	<!-- Calcite-Maps -->
 	<link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
 
-	<!-- ArcGIS JS 4.0 -->
-	<link rel="stylesheet" href="http://localhost/GitHub/arcgis-js-api/esri/css/main.css">
+	<!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+	<link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
 
 	<style>
 		html, body {
@@ -462,7 +462,7 @@
 									<div class="form-group">
 										<label for="settingsAddLayer" class="col-xs-3 control-label">Layer</label>
 										<div class="col-xs-9">
-											<input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="http://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/LosAngelesCitiesAndPlaces/FeatureServer/0" value="http://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/LosAngelesCitiesAndPlaces/FeatureServer/0">
+											<input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="http://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/Clara_Burgess_Trail/FeatureServer/1" value="http://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/Clara_Burgess_Trail/FeatureServer/1">
 										</div>
 									</div>
 									<div class="form-group">
@@ -749,8 +749,8 @@
 		};
 	</script>
 
-	<!-- ArcGIS JS 4.0 lirbaries -->    
-	<script src="http://localhost/GitHub/arcgis-js-api/dojo/dojo.js"></script>
+	<!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+	<script src="http://jsqa.arcgis.com/4.0/"></script>
 
 	<script>
 		
@@ -841,7 +841,7 @@
 				app.mapView = new MapView({
 					container: app.mapDiv,
 					//map: new Map({basemap: "streets"}),
-					map: new Map(), // Bug
+					map: new Map(),
 					scale: app.scale,
 					center: app.lonlat, 
 					padding: app.viewUI,
@@ -889,17 +889,6 @@
 					},
 					}, parentId);
 				search.startup();
-
-				//app.activeView.then(function (){ 
-					// Set active view
-					// search.watch(function(property, oldValue, newValue){
-					//     if (property === "searchResults") {
-					//         search.viewModel = {
-					//                 view: app.activeView 
-					//             };
-					//     }
-					// });
-				//});
 				return search;
 			}
 
@@ -937,7 +926,6 @@
 					})
 				});
 			}
-
 
 			function setSearchPopupHandler(view) {
 				//Show popup with reverse geolocation information
@@ -993,10 +981,7 @@
 
 			function syncViews(fromView, toView) {
 				function sync() {
-					toView.animateTo({
-						center: fromView.center,
-						scale: fromView.scale
-					});
+          toView.set({viewpoint: fromView.viewpoint});
 				}
 				if (!toView.ready) {
 					watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {

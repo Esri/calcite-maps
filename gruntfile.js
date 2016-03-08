@@ -83,8 +83,17 @@ module.exports = function (grunt) {
 				src: '**',
 				dest: './dist/vendor/dojo-bootstrap/'
 			}
+		},
 
-		}
+		// Deploy doc site to gh-pages
+    // 'gh-pages': {
+    //   options: {
+    //     base: 'docs/build',
+    //     repo: 'https://github.com/Esri/calcite-maps.git'
+    //   },
+    //   src: ['**']
+    // }
+
 	});  
 	// Default task.  
 	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'copy:bootstrapfonts', 'copy:calcitefonts', 'copy:vendor']);  
