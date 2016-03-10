@@ -6117,7 +6117,8 @@ blockquote {
   top: 30px; }
 
 .calcite-maps .panel-default {
-  border-color: #E3E3E3; }
+  border-color: #efefef;
+  background-color: white; }
 
 .calcite-maps .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top: 0; }
@@ -6136,21 +6137,13 @@ blockquote {
   background-color: none; }
 
 .calcite-maps .panel-title {
-  font-size: .95em;
-  color: #595959; }
+  font-size: .95em; }
 
 .calcite-maps .panel-title a {
   padding: 10px 10px; }
 
 .calcite-maps .panel-title .glyphicon {
   top: 2px; }
-
-.calcite-maps .panel-title span.glyphicon.glyphicon-remove {
-  color: #B5B5B5; }
-
-.calcite-maps .panel-title span.glyphicon.glyphicon-remove:focus,
-.calcite-maps .panel-title span.glyphicon.glyphicon-remove:hover {
-  color: #595959; }
 
 .calcite-maps .panel-toggle {
   display: inline-block;

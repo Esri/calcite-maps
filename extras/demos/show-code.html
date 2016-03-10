@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="description" content="Calcite-Maps Demo - ArcGIS">
+	<meta name="author" content="">
+	<link rel="icon" href="http://www.esri.com/favicon.ico">
+	<title>Calcite-Maps - ArcGIS 4.x</title>
+
+	<!-- Calcite-Maps -->
+	<link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
+
+	<!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+	<link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
+
+	<!-- Synthax highlighter -->
+	<link rel="stylesheet" href="http://prismjs.github.io/prism/themes/prism-dark.css">
+	<link rel="stylesheet" href="http://prismjs.github.io/prism/plugins/line-numbers/prism-line-numbers.css"/>
+
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+
+		/* Position and set the width of your panel the map */
+		.calcite-maps .panel-container {
+	    position: absolute;
+	    top: 15px;
+	    right: 15px;
+	    max-width: 550px; /* max width of code window */
+	  }
+
+	  .calcite-maps .panel-body {
+	  	min-width: 450px;
+	  	/*max-height: 70%;*/
+	  	padding: 0;
+	  }
+
+		.calcite-maps .panel-toggle {
+	    min-width: 125px;
+		}
+
+		.calcite-maps .panel-default {
+			border: #777777;
+			background-color: #323232;
+		}
+
+		.calcite-maps .panel-default > .panel-heading {
+	    color: #CCCCCC;
+	    background-color: #3f3f3f;
+	    border-color: #CCCCCC;
+		}
+
+		pre {
+			margin: 0;
+		}
+
+		pre[class*="language-"] {
+	    padding: 1em;
+	    margin: 0;
+	    overflow: auto;
+	    border: none; 
+	    border-radius: 0; 
+	    box-shadow: none; 
+		}
+
+		@media (max-width: 768px) {
+			.calcite-maps .panel-container {
+		    max-width: 100%;
+		    right: 0;
+			}
+		}
+	</style>
+</head>
+
+<body class="calcite-maps map-position-absolute nav-position-top nav-space-none">
+
+	<!-- Navbar -->
+
+	<nav class="navbar navbar-fixed-top navbar-text-light calcite-dark-blue-75">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">
+					<span class="esri-icon esri-icon-map-pin"></span>
+				</a>
+				<div class="navbar-info">
+					<div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Calcite Maps - Show Code Demo</div>
+					<div class="navbar-subtitle text-overflow">This sample illustrates how to show code for your demos</div> 
+				</div>
+			</div>
+
+			<!-- Navbar collapse -->
+
+			<div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
+				<ul class="nav navbar-nav navbar-right">
+				  <!-- Map and Scene -->
+          <li><a id="mapNav" class="" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="top">Map</a></li>
+          <li class="active"><a id="sceneNav" class="" href="#3dTab" aria-controls="3Dtab" role="tab" data-tooltip="tip" data-toggle="tab" title="3D View" data-placement="top">Scene</a></li>                  
+					<!-- Code -->
+					<li><a role="button" data-target="#panelCode" aria-haspopup="true"><span class="glyphicon glyphicon-wrench"></span></a></li>          
+				</ul><!--/.nav -->
+			</div><!--/.nav-collapse -->
+		</div><!--/.container-fluid -->
+	</nav><!--/.navbar -->
+
+	<!-- Map Container  -->
+
+	<div class="map-container">
+    <div id="tabContainer" class="tab-content">
+      <div id="2dTab" class="tab-pane fade" role="tabpanel">
+         <div id="mapViewDiv" class="map-position-absolute"></div>
+      </div>
+      <div id="3dTab" class="tab-pane fade in active" role="tabpanel">
+        <div id="sceneViewDiv" class="map-position-absolute"></div>
+      </div>
+    </div>
+  </div><!-- /.container -->
+
+
+	<!-- Panel -->
+
+	<div class="panel-container">
+		<div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
+			
+			<!-- Code Panel -->
+			
+			<div id="panelCode" class="panel panel-default collapse in">
+				<div id="headingCode" class="panel-heading" role="tab">
+					<div class="panel-title">
+						<a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-wrench hidden" aria-hidden="true"></span> JavaScript</a>
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelCode"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+					</div>
+				</div>
+				<div id="collapseInfo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCode">
+					<div class="panel-body">
+						<!--p>2D and 3D Apps</p-->
+						<!-- Your code goes here -->
+<pre class="calcite-black">
+<code class="language-javascript">
+// Map
+mapView = new MapView({
+	container: "mapViewDiv",
+	map: map,
+	center: app.lonlat,
+	zoom: app.zoom,
+	padding: app.viewPadding
+});
+
+// Scene
+sceneView = new SceneView({
+  container: "sceneViewDiv",
+  map: mapScene,                
+  scale: app.scale,
+  center: app.center,
+  padding: app.viewPadding,
+  visible: true
+});
+
+activeView = app.sceneView;
+</code>
+</pre>
+
+					</div>
+				</div>
+			</div>
+
+		</div> <!-- /.panel-group -->
+	</div> <!-- /.panel-container -->
+
+	<script type="text/javascript">
+		var dojoConfig = {
+			packages: [{
+				name: "bootstrap",
+				//location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+				location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+			},
+			{
+				name: "calcite-maps",
+				//location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+				location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+			}]
+		};
+	</script>
+
+  <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+  <script src="http://jsqa.arcgis.com/4.0/"></script>
+
+	<script>
+
+    var app, searchWidgetNav, searchWidgetPanel;
+
+    require(["esri/Map",
+      "esri/Basemap",
+      "esri/views/MapView",
+      "esri/views/SceneView",
+      "esri/widgets/Search",
+      "esri/core/watchUtils",
+      "dojo/query",
+
+      // Bootstrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      "bootstrap/Tooltip",
+      
+      // Calcite-maps
+      "calcite-maps/calcitemaps",
+      "dojo/domReady!"
+    ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query) {
+        
+      // App
+      app = {
+        scale: 50000000,
+        center: [-40,40],
+        basemap: "satellite",
+        viewPadding: {
+            top: 64
+        },
+        uiPadding: {
+            top: 15
+        },
+        mapView: null,
+        sceneView: null,
+        activeView: null
+      };
+
+      // Map 
+      var map = new Map({
+        basemap: app.basemap
+      });
+      app.mapView = new MapView({
+        container: "mapViewDiv",
+        map: map,
+        scale: app.scale,
+        center: app.center,
+        padding: app.viewPadding,
+        ui: {
+          components: ["zoom", "compass", "attribution"],
+          padding: app.uiPadding
+      }
+      });
+   
+      // Scene
+      var mapScene = new Map({
+        basemap: app.basemap
+      });
+      app.sceneView = new SceneView({
+        container: "sceneViewDiv",
+        map: mapScene,                
+        scale: app.scale,
+        center: app.center,
+        padding: app.viewPadding,
+        ui: {
+            padding: app.uiPadding
+        },
+        visible: true
+      });
+
+      app.activeView = app.sceneView;
+
+      function syncViews(fromView, toView) {
+        function sync() {
+          toView.set({viewpoint: fromView.viewpoint});
+        }
+        if (toView.isInstanceOf(SceneView) && !toView.ready) {
+          watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
+            if (isReady) {
+              sync();
+            }
+          });
+        } else {
+          sync();
+        }
+      }
+
+      query("nav li a[data-toggle='tab']").on("click", function(e) {
+        // Sync views
+        if (e.target.text === "Map") {
+          syncViews(app.sceneView, app.mapView);                  
+          app.activeView = app.mapView;  
+        } else {
+          syncViews(app.mapView, app.sceneView);                  
+          app.activeView = app.sceneView;
+        }
+      });
+
+    });<!-- dojo -->
+  </script>
+
+	<!-- highlighter -->
+	<script src="http://prismjs.github.io/prism/prism.js" type="text/javascript"></script>	
+	<script src="http://prismjs.github.io/prism/plugins/line-numbers/prism-line-numbers.js"></script>	
+
+	<script src="http://prismjs.github.io/prism/prefixfree.min.js"></script>
+
+</body>
+</html>
+
