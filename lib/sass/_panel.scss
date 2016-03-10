@@ -2,6 +2,13 @@
 // │ Panel │
 // └───────┘
 
+$panel-heading-color: $calcite-light-gray;
+$panel-heading-bg-color: $calcite-off-white;
+$panel-border: $calcite-lightest-gray;
+$panel-bg-color: $calcite-true-white;
+$panel-close: $calcite-light-gray;
+$panel-close-highlight: $calcite-black;
+
 .calcite-maps {
 
 	// Panel
@@ -69,7 +76,9 @@
 	}
 
 	.panel-default {
-		border-color: #E3E3E3;
+		// border-color: #E3E3E3;
+		border-color: $panel-border;
+		background-color: $panel-bg-color;
 	}
 
 	.panel-default > .panel-heading + .panel-collapse > .panel-body {
@@ -104,7 +113,7 @@
 
 	.panel-title {
 		font-size: .95em;
-		color: #595959;
+		// color: #595959;
 	}
 
 	.panel-title a {
@@ -116,12 +125,12 @@
 	}
 
 	.panel-title span.glyphicon.glyphicon-remove {
-		color: #B5B5B5;
+		// color: #B5B5B5;
 	}
 
 	.panel-title span.glyphicon.glyphicon-remove:focus, 
 	.panel-title span.glyphicon.glyphicon-remove:hover {
-		color: #595959;
+		// color: #595959;
 	}
 
 	.panel-toggle {
