@@ -57,7 +57,7 @@
         </a>
         <div class="navbar-info">
           <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Clara Burgess Trail - Virtual Explorer</div>
-          <div class="navbar-subtitle text-overflow">Explore the foothills of Palm Springs</div> 
+          <div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore the foothills of Palm Springs</div> 
         </div>
       </div>
 
@@ -97,6 +97,36 @@
     </div>
   </div><!-- /.container -->
 
+  <!-- Modal Window -->
+
+  <div class="modal fade" id="modalSplash" tabindex="-1" role="dialog" aria-labelledby="splashlModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="splash-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="text-center">
+                  <h3>Clara Burgess Trail Demo</h3>
+                  <hr>
+                  <p>This demo was written with <a href="http://esri.github.io/calcite-maps/extras/index.html">Calcite Maps</a> - a modern framework for designing map apps with Bootstrap. It illustrates the 2D and 3D capabilities of the new <a href="https://developers.arcgis.com/javascript/beta/">ArcGIS API for JavaScript 4.0</a>. It also uses the client-side GeometryEngine to calculate distance.</p> 
+                  <p>Use the play controls to explore the trail both in 2D and 3D. Enjoy!</p>
+                  <br>
+                  <div class="form-inline">
+                    <div class="form-group">
+                      <a role="button" class="btn btn-success btn-lg" href="http://esri.github.io/calcite-maps/extras/index.html">Get the code</a>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Panel -->
 
@@ -225,6 +255,7 @@
       "bootstrap/Dropdown",
       "bootstrap/Tab",
       "bootstrap/Tooltip",
+      "bootstrap/Modal",
       
       // Calcite-maps
       "calcite-maps/calcitemaps",
