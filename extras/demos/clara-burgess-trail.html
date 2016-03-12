@@ -1,147 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-	<meta name="description" content="Calcite-Maps Demo - ArcGIS">
-	<meta name="author" content="">
-	<link rel="icon" href="http://www.esri.com/favicon.ico">
-	<title>Clara Burgess Trail - Virtual Explorer</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="Calcite-Maps Demo - ArcGIS">
+  <meta name="author" content="">
+  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <title>Clara Burgess Trail - Virtual Explorer</title>
 
-	<!-- Calcite-Maps -->
-	<link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
+  <!-- Calcite-Maps -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
 
-	<!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-	<link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
+  <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
+  <link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
 
-	<style>
-		html, body {
-			margin: 0;
-			padding: 0;
-			height: 100%;
-		}
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
 
-		#play, #stop, .distance-container {
+    #play, #stop, .distance-container {
       display: inline-block;
       margin-top: 4px;
       margin-left: 4px;
     }
 
     .distance-container {
-    	float: right;
+      float: right;
     }
 
     .distance-label, .distance-value {
-    	display: inline-block;
+      display: inline-block;
     }
 
-	</style>
+  </style>
 </head>
 
 <body class="calcite-maps map-position-absolute nav-position-top nav-space-all theme-inline-left">
 
-	<!-- Navbar -->
+  <!-- Navbar -->
 
-	<nav class="navbar navbar-fixed-top navbar-text-light calcite-dark-brown-75">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand">
-					<span class="esri-icon esri-icon-map-pin"></span>
-				</a>
-				<div class="navbar-info">
-					<div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Clara Burgess Trail - Virtual Explorer</div>
-					<div class="navbar-subtitle text-overflow">Explore the foothills of Palm Springs</div> 
-				</div>
-			</div>
+  <nav class="navbar navbar-fixed-top navbar-text-light calcite-dark-brown-75">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-info">
+          <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Clara Burgess Trail - Virtual Explorer</div>
+          <div class="navbar-subtitle text-overflow">Explore the foothills of Palm Springs</div> 
+        </div>
+      </div>
 
-			<!-- Navbar collapse -->
+      <!-- Navbar collapse -->
+      <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">                    
+         <!-- Primary Nav - Map and Scene -->
+          <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">2D</a></li>
+          <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-tooltip="tip" data-toggle="tab" title="3D View" data-placement="bottom">3D</a></li>                  
+          <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
+          <!-- Secondary Nav - options dropdown menu -->
+          <li class="dropdown" role="presentation">
+            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="visible-xs visible-sm hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">2D</a></li>
+              <li><a class="visible-xs visible-sm hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">3D</a></li>
+              <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Trail Summary</a></li>
+              <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+              <li><a role="button" data-target="#panelPlayer" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Explore</a></li>
+            </ul>
+          </li>      
+        </ul><!--/.nav -->
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav><!--/.navbar -->
 
-			<div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
-				<ul class="nav navbar-nav navbar-right">                    
-					<li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
-					<!-- Options dropdown menu -->
-					<li class="dropdown" role="presentation">
-						<a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
-						<ul class="dropdown-menu">
-							<li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Trail Summary</a></li>
-							<li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
-							<li><a role="button" data-target="#panelPlayer" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Explore</a></li>
-					 	</ul>
-					</li>      
-				</ul><!--/.nav -->
-			</div><!--/.nav-collapse -->
-		</div><!--/.container-fluid -->
-	</nav><!--/.navbar -->
+  <!-- Map Container  -->
 
-	<!-- Map Container  -->
+  <div class="map-container">
+    <div id="tabContainer" class="tab-content">
+      <div id="2dTab" class="tab-pane fade in active" role="tabpanel">
+         <div id="mapViewDiv" class="map-position-absolute"></div>
+      </div>
+      <div id="3dTab" class="tab-pane fade" role="tabpanel">
+        <div id="sceneViewDiv" class="map-position-absolute"></div>
+      </div>
+    </div>
+  </div><!-- /.container -->
 
-	<div class="map-container">
-		<div id="mapViewDiv" class="map-position-absolute"></div>
-	</div><!-- /.container -->
 
-	<!-- Panel -->
+  <!-- Panel -->
 
-	<div class="panel-container">
-		<div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
-			
-			<!-- Info Panel -->
-			
-			<div id="panelInfo" class="panel panel-default collapse in">
-				<div id="headingInfo" class="panel-heading" role="tab">
-					<div class="panel-title">
-						<a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Trail Summary</a>
-						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
-					</div>
-				</div>
-				<div id="collapseInfo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingInfo">
-						<div class="panel-body">
-								<img class="size-medium wp-image-254 retinized" style="padding-left:0px; padding-bottom: 20px;" src="http://www.hiking-in-ps.com/wp-content/uploads/2015/06/manip_murraytopw-300x198.jpg" alt="Murray Hill" width="320" height="198" srcset="http://www.hiking-in-ps.com/wp-content/uploads/2015/06/manip_murraytopw-300x198.jpg 300w, http://www.hiking-in-ps.com/wp-content/uploads/2015/06/manip_murraytopw.jpg 400w" sizes="(max-width: 300px) 100vw, 300px">
-								<p><b>Clara Burgess Trail Loop</b><br>
-								3.5 Miles<br>
-								Beginning Elevation 900′<br>
-								Strenuous With an elevation gain of 1,400′<br><br>
-								If you are ready to experience some of the most beautiful hiking the Palm Springs area has to offer, grab your CamelBak, other Hydration Pack or Hydroflask and get out on the trail!
-								</p>
-						</div>
-				</div>
-			</div>
-			
-			<!-- Search Panel -->
+  <div class="panel-container">
+    <div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
+      
+      <!-- Info Panel -->
+      
+      <div id="panelInfo" class="panel panel-default collapse in">
+        <div id="headingInfo" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Trail Summary</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+          </div>
+        </div>
+        <div id="collapseInfo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingInfo">
+            <div class="panel-body">
+                <img class="size-medium wp-image-254 retinized" style="padding-left:0px; padding-bottom: 20px;" src="http://www.hiking-in-ps.com/wp-content/uploads/2015/06/manip_murraytopw-300x198.jpg" alt="Murray Hill" width="320" height="198" srcset="http://www.hiking-in-ps.com/wp-content/uploads/2015/06/manip_murraytopw-300x198.jpg 300w, http://www.hiking-in-ps.com/wp-content/uploads/2015/06/manip_murraytopw.jpg 400w" sizes="(max-width: 300px) 100vw, 300px">
+                <p><b>Clara Burgess Trail Loop</b><br>
+                3.5 Miles<br>
+                Beginning Elevation 900′<br>
+                Strenuous With an elevation gain of 1,400′<br><br>
+                If you are ready to experience some of the most beautiful hiking the Palm Springs area has to offer, grab your CamelBak, other Hydration Pack or Hydroflask and get out on the trail!
+                </p>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Search Panel -->
 
-			<div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg">
-				<div id="headingSearch" class="panel-heading" role="tab">
-					<div class="panel-title">
-						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
-						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
-					</div>
-				</div>
-				<div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
-					<div class="panel-body panel-overflow-visible"> 
-						<div id="searchPanelDiv"></div>
-					</div>
-				</div>
-			</div>
+      <div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg">
+        <div id="headingSearch" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
+          </div>
+        </div>
+        <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
+          <div class="panel-body panel-overflow-visible"> 
+            <div id="searchPanelDiv"></div>
+          </div>
+        </div>
+      </div>
 
-			<!-- Explore Panel -->
-			
-			<div id="panelPlayer" class="panel panel-default collapse in"> 
-				<div id="headingPlayer" class="panel-heading" role="tab">
-					<div class="panel-title">
-						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePlayer" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapsePlayer"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Explore</a>
-						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelPlayer"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
-					</div>
-				</div>
-				<div id="collapsePlayer" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPlayer">
-					<div class="panel-body">
-						
-						<button id="play" class="btn btn-xs">          
+      <!-- Explore Panel -->
+      
+      <div id="panelPlayer" class="panel panel-default collapse in"> 
+        <div id="headingPlayer" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePlayer" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapsePlayer"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Explore</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelPlayer"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+          </div>
+        </div>
+        <div id="collapsePlayer" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPlayer">
+          <div class="panel-body">
+            
+            <button id="play" class="btn btn-xs">          
               <span class="glyphicon glyphicon-play"></span>
             </button>
 
@@ -150,353 +162,414 @@
             </button>
 
             <div class="distance-container">
-            	<div class="distance-label">Distance:&nbsp;</div><div class="distance-value">0.0</div>
+              <div class="distance-label">Distance:&nbsp;</div><div class="distance-value">0.0</div>
             </div>
 
-					</div>
-				</div>
-			</div>
-		</div> <!-- /.panel-group -->
-	</div> <!-- /.panel-container -->
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.panel-group -->
+  </div> <!-- /.panel-container -->
 
-	<script type="text/javascript">
-		var dojoConfig = {
-			packages: [{
-				name: "bootstrap",
-				//location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
-				location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
-			},
-			{
-				name: "calcite-maps",
-				//location: "https://esri.github.io/calcite-maps/dist/js/dojo"
-				location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
-			}]
-		};
-	</script>
+  <script type="text/javascript">
+    var dojoConfig = {
+      packages: [{
+        name: "bootstrap",
+        //location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+      },
+      {
+        name: "calcite-maps",
+        //location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+      }]
+    };
+  </script>
 
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
   <script src="http://jsqa.arcgis.com/4.0/"></script>
 
-	<script>
+  <script>
 
-		var app;
+    var app;
 
-		require(["esri/Map",
-			"esri/Basemap",
-			"esri/views/SceneView",
-			"esri/layers/FeatureLayer",
-			"esri/layers/SceneLayer",
-			"esri/widgets/Popup",
-			"esri/PopupTemplate",
-			"esri/widgets/Search",
-			"esri/widgets/Locate",
-			"esri/views/ui/Component",
-    	"esri/core/watchUtils",
-    	"esri/core/Scheduler",
-    	"esri/geometry/Point",
-    	"esri/symbols/PointSymbol3D",
+    require(["esri/Map",
+      "esri/Basemap",
+      "esri/views/MapView",
+      "esri/views/SceneView",
+      "esri/layers/FeatureLayer",
+      "esri/layers/SceneLayer",
+      "esri/widgets/Popup",
+      "esri/PopupTemplate",
+      "esri/widgets/Search",
+      "esri/widgets/Locate",
+      "esri/widgets/BasemapToggle",
+      "esri/views/ui/Component",
+      "esri/core/watchUtils",
+      "esri/core/Scheduler",
+      "esri/geometry/Point",
+      "esri/symbols/SimpleMarkerSymbol",
+      "esri/symbols/PointSymbol3D",
       "esri/symbols/ObjectSymbol3DLayer",
-      "esri/layers/GraphicsLayer",
       "esri/Graphic",
       "esri/geometry/geometryEngine",
 
       // Dojo
-			"dojo/query",
-     	"dojo/keys",
+      "dojo/query",
+      "dojo/keys",
       "dojo/on",
       "dojo/dom",
 
-			// Bootstrap
-			"bootstrap/Collapse", 
-			"bootstrap/Dropdown",
-			"bootstrap/Tab",
-			"bootstrap/Tooltip",
-			
-			// Calcite-maps
-			"calcite-maps/calcitemaps",
-			"dojo/domReady!"
-		], function(Map, Basemap, SceneView, FeatureLayer, SceneLayer, Popup, PopupTemplate, Search, Locate, Component, watchUtils, Scheduler, Point, PointSymbol3D, ObjectSymbol3DLayer, GraphicsLayer, Graphic, geometryEngine, query, keys, on, dom) {
-				
-			// App
-			app = {
-				lonlat: [-116.56388, 33.80328],
-				scale: 67069.76617,
-				heading: 271,
-				tilt: 75,
-				sceneView: null,
-				viewPadding: {
-						top: 0
-				},
-				layer: null,
-				layerUrl: "http://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/Clara_Burgess_Trail/FeatureServer/1",
-				basemap: "satellite",
-				searchWidgetNav: null,
-				searchWidgetPanel: null,
-				task: null,
-				animating: false,
-				index: 0,
-				trailGeometry: null,
-				trailDistance: 0,
-				graphicsLayer: null,
-				graphic: null,
-				pointSymbol: null,
-				pointSymbolSize: 150, // meters
-				pointSymbolColor: "#2F93EC",
-				popupOptions: {
-					autoPanEnabled: true,
-					messageEnabled: false,
-					spinnerEnabled: false,
-					dockOptions: {
-						buttonEnabled: true,
-						breakpoint: false,
-						position: "bottom"
-					}
-				}
-			};
+      // Bootstrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      "bootstrap/Tooltip",
+      
+      // Calcite-maps
+      "calcite-maps/calcitemaps",
+      "dojo/domReady!"
+    ], function(Map, Basemap, MapView, SceneView, FeatureLayer, SceneLayer, Popup, PopupTemplate, Search, Locate, BasemapToggle, Component, watchUtils, Scheduler, Point, SimpleMarkerSymbol, PointSymbol3D, ObjectSymbol3DLayer, Graphic, geometryEngine, query, keys, on, dom) {
+        
+      // App
+      app = {
+        lonlat: [-116.474959, 33.80328],
+        scale: 67069.76617,
+        heading: 271,
+        tilt: 85,
+        map: null,
+        mapView: null,
+        sceneView: null,
+        activeView: null,
+        viewPadding: {
+            top: 0
+        },
+        layer: null,
+        layerUrl: "http://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/Clara_Burgess_Trail/FeatureServer/1",
+        basemap: "satellite",
+        searchWidgetNav: null,
+        searchWidgetPanel: null,
+        trailGeometry: null,
+        trailDistance: 0,
+        pointSymbol2d: null,
+        pointSymbolSize2d: 12,
+        pointSymbol3d: null,
+        pointSymbolSize3d: 150, // meters
+        pointSymbolColorHex: "#2F93EC",
+        popupOptions: {
+          autoPanEnabled: true,
+          messageEnabled: false,
+          spinnerEnabled: false,
+          dockOptions: {
+            buttonEnabled: true,
+            breakpoint: false,
+            position: "bottom"
+          }
+        },
+        task: null,
+        animating: false,
+        index: 0
+      };
 
-			init();
+      init();
 
-			function init() {
-				// Map 
-				var map = new Map({
-					basemap: app.basemap
-				});
-				
-				app.layer = createLayer(app.url);
-				map.add(app.layer);
+      function init() {
+        // Map 
+        app.map = new Map({
+          basemap: app.basemap
+        });
+        // FeatureLayer
+        app.layer = createLayer(app.url);
+        app.map.add(app.layer);
+        // Symbols
+        app.pointSymbol2d = createPointSymbol2d();
+        app.pointSymbol3d = createPointSymbol3d();
+        // Map 
+        app.mapView = createView("MapView", "mapViewDiv");
+        app.sceneView = createView("SceneView", "sceneViewDiv");
+        app.activeView = app.mapView;
+        // Get trail
+        app.activeView.whenLayerView(app.layer).then(function(layerView){
+          layerView._controller.graphics.on("change", function(ev) {
+            if (ev.added.length) {
+              var geometry = ev.added[0].geometry;
+              var geomDensify = geometryEngine.geodesicDensify(geometry, 100, "meters");
+              app.trailGeometry = geomDensify;
+            }
+          })
+        });
+        // Create widgets
+        createWidgets();
+      }
 
-				app.graphicsLayer = new GraphicsLayer();
-				app.graphicsLayer.elevationInfo = {
-					mode: "onTheGround"
-				}
-	  		map.add(app.graphicsLayer);
-				
-				app.sceneView = new SceneView({
-					container: "mapViewDiv",
-					map: map,
-					center: app.lonlat,
-					scale: app.scale,
-					padding: app.viewPadding,
-					popup: new Popup(app.popupOptions)
-				});
+      function createLayer(url) {
+        var lyr = new FeatureLayer({
+          url: app.layerUrl,
+          opacity: .75
+        });
+        // TODO - popup
+        return lyr;
+      }
 
-				app.sceneView.then( function() {
-					// Create widgets
-					app.searchWidgetNav = createSearchWidget("searchNavDiv");
-					app.searchWidgetPanel = createSearchWidget("searchPanelDiv");
-					createLocateWidget("bottom-left");
-					// Set start location
-					var point = new Point({
-						latitude: app.lonlat[1],
-						longitude: app.lonlat[0]
-					});
-					navigate(point, app.scale, app.tilt, app.heading);
-					// Create track symbol
-					app.pointSymbol = new PointSymbol3D({
-		        symbolLayers: [new ObjectSymbol3DLayer({
-		          width: app.pointSymbolSize,
-		          height: app.pointSymbolSize,
-		          resource: {
-		            primitive: "sphere"
-		          },
-		          material: {
-		            color: app.pointSymbolColor
-		          }
-		        })]
-		      });
-				});
+      function createPointSymbol2d() {
+        var sym = new SimpleMarkerSymbol({
+          size: app.pointSymbolSize2d,
+          color: app.pointSymbolColorHex,
+          outline: {width: 2, color: "#fff"}
+        });
+        return sym;    
+      }
 
-				// Setup popup handlers
-				setSearchPopupHandler(app.sceneView);
+      function createPointSymbol3d() {
+        var sym = new PointSymbol3D({
+          symbolLayers: [new ObjectSymbol3DLayer({
+            width: app.pointSymbolSize3d,
+            height: app.pointSymbolSize3d,
+            resource: {
+              primitive: "sphere"
+            },
+            material: {
+              color: app.pointSymbolColorHex
+            }
+          })]
+        });
+        return sym;
+      }
 
-				// Get trail
-				app.sceneView.whenLayerView(app.layer).then(function(layerView){
-					layerView.controller.graphics.on("change", function(ev) {
-						if (ev.added.length) {
-							var geometry = ev.added[0].geometry;
-							var geomDensify = geometryEngine.geodesicDensify(geometry, 100, "meters");
-							app.trailGeometry = geomDensify;
-						}
-					})
-				});
-			}
+      function createView(viewType, div) {
+        var view;
+        if (viewType === "MapView") {
+          view = new MapView();
+        } else {
+          view = new SceneView();
+        }
+        view.set({
+          container: div,
+          map: app.map,
+          center: app.lonlat,
+          scale: app.scale,
+          padding: app.viewPadding,
+          ui: {
+            components: ["zoom", "compass", "attribution"]
+          },
+          popup: new Popup(app.popupOptions)
+        });
+        return view;
+      }
 
-			function createLayer(url) {
-				var lyr = new FeatureLayer({
-					url: app.layerUrl,
-					opacity: .75
-				});
-				return lyr;
-			}
+      function createWidgets() {
+        // Search
+        app.searchWidgetNav = createSearchWidget("searchNavDiv");
+        app.searchWidgetPanel = createSearchWidget("searchPanelDiv");
+        // Locate
+        createLocateWidget(app.mapView, "bottom-left");
+        createLocateWidget(app.sceneView, "bottom-left");
+        // BasemapToggle
+        createBasemapWidget(app.mapView, "bottom-right");
+        createBasemapWidget(app.sceneView, "bottom-right");
+      }
 
-			function createSearchWidget(parentId) {
-				var search = new Search({
-					viewModel: {
-							view: app.sceneView,
-							enableHighlight: false
-					}
-					}, parentId);
-				search.startup();
-				return search;
-			}
+      function createSearchWidget(parentId) {
+        var search = new Search({
+          viewModel: {
+              view: app.activeView,
+              enableHighlight: false
+          }
+          }, parentId);
+        search.startup();
+        return search;
+      }
 
-			function createLocateWidget(position) {
-					var locate = new Locate({
-    				viewModel: {
-    					view: app.sceneView
-    				}
-    			});
+      function createLocateWidget(view, position) {
+        var locate = new Locate({
+          viewModel: {
+            view: view
+          }
+        });
+        view.ui.add(locate, position);
+      }
 
-    			var component = new Component({
-	        	node: locate, 
-	        	id: "Locate"
-	        });
+      function createBasemapWidget(view, position) {
+        var basemapToggle = new BasemapToggle({
+          viewModel: {
+            view: view, 
+            secondaryBasemap: "streets"
+          }
+        });
+        view.ui.add(basemapToggle, position);
+      }
 
-    			app.sceneView.ui.add(locate, position);
-			}
+      // Move graphic at max screen frame rate
+      function animate(animate) {
+        if (app.task) {
+          app.task.remove();
+        }
+        if (animate) { 
+          app.task = Scheduler.addFrameTask({
+            update: function() {
+              // Navigate
+              if (app.index !== app.trailGeometry.paths[0].length - 1) {
+                var point = getPoint(app.index);
+                navigate(point, 27500, 70, 200);
+                updateGraphic(point);
+                updateDistanceUI(point);
+              } else {
+                navigateFinsihed();
+              }
+              app.index++;
+            }
+          });
+        } 
+        app.animating = animate;
+      }
 
-			function animate(animate) {
-				if (app.task) {
-					app.task.remove();
-				}
-				if (animate) { 
-					app.task = Scheduler.addFrameTask({
-						update: function() {
-							var pt = app.trailGeometry.paths[0][app.index];  //paths[0]
-							var point = new Point({
-								x: pt[0],
-								y: pt[1],
-								spatialReference: app.sceneView.spatialReference
-							});
-							// Calculate distance
-							if (app.index > 0) {
-								var oldPt = app.trailGeometry.paths[0][app.index - 1];
-								var oldPoint = new Point({
-									x: oldPt[0],
-									y: oldPt[1],
-									spatialReference: app.sceneView.spatialReference
-								});
-								app.trailDistance += geometryEngine.distance(oldPoint, point, "miles");
-								query(".distance-value").innerHTML((Math.round(app.trailDistance*100)/100).toFixed(2));
-							}
-							// Reset
-							if (app.index === app.trailGeometry.paths[0].length - 1) {
-								query("#play > span").replaceClass("glyphicon-play","glyphicon-pause");
-								app.animating = false;
-								app.task.remove();
-								app.trailDistance = 0;
-								app.index = 0;
-							} else {
-								navigate(point, 27500, 70, 200);
-								createGraphic(point);
-							}
-							app.index++;
-						}
-					});
-				} 
-				app.animating = animate;
-			}
+      function getPoint(index) {
+          var pt = app.trailGeometry.paths[0][index];
+          var point = new Point({
+            x: pt[0],
+            y: pt[1],
+            spatialReference: app.activeView.spatialReference
+          });
+        return point;
+      }
 
-			function navigate(point, scale, tilt, heading) {
-				app.sceneView.goTo({
-					target: point,
-					scale: scale,
-					tilt: tilt,
-					heading: heading
-				});
-			}
+      function updateGraphic(point) {
+        var sym; 
+        if (app.activeView instanceof MapView) {
+          sym = app.pointSymbol2d;
+        } else {
+          sym = app.pointSymbol3d;
+        }
+        var graphic = new Graphic ({
+          symbol: sym,
+          geometry: point
+        });
+        app.activeView.graphics.clear();
+        app.activeView.graphics.add(graphic);
+      }
 
-			function createGraphic(point) {
-				if (app.graphicsLayer.graphics.length > 0) {
-					app.graphicsLayer.remove(app.graphic);					
-				}
-				app.graphic = new Graphic({
-					symbol: app.pointSymbol,
-					geometry: point
-				});
-				app.graphicsLayer.add(app.graphic);
-			}
+      function navigate(point, scale, tilt, heading) {
+        var animation = app.activeView.goTo({
+          target: point,
+          scale: scale,
+          tilt: tilt,
+          heading: heading
+        });
+        return animation;
+      }
 
-			function setSearchPopupHandler(view) {
-				//Show popup with reverse geolocation information
-				function showPopup(evt, force) {
-					var lat, 
-						lon,
-						point,
-						graphic = null,
-						popupTemplate;
-					// Feature clicked
-					if (view.popup.viewModel.promises.length > 0) {
-						view.popup.viewModel.clear();
-						point = evt.mapPoint || view.toMap(evt.center.x, evt.center.y);
-						lat = Math.round(point.latitude * 10000) / 10000;
-						lon = Math.round(point.longitude * 10000) / 10000;
-						//Update popup
-						view.popup.viewModel.set({
-							location: point,                           
-							features: [],
-							popupTemplate: null
-						});
-						view.popup.set({visible: true});
-						// Reverse geocode to search for address
-						app.searchWidgetNav.viewModel.sources[0].locator.locationToAddress(point).then(function(response) {
-							var address = response.address.Match_addr;
-							view.popup.viewModel.set({
-								title: "Location: " + lon + ", " + lat,
-								content: "<div style='color: #828282'>" + address + "</div>"
-							});
-						}, function(err) {
-							view.popup.viewModel.set({
-								title: "Location: " + lon + ", " + lat,
-								content: "<div style='color: #828282'>No address found for this location.</div>"
-							});
-						});  
-					}
-				}
+      function updateDistanceUI(point) {
+        if (app.index === 0) {
+          return;
+        }
+        var lastPoint = getPoint(app.index -1);
+        app.trailDistance += geometryEngine.distance(lastPoint, point, "miles");
+        query(".distance-value").innerHTML((Math.round(app.trailDistance*100)/100).toFixed(2));
+      }
 
-				//Show popup on mouse long hold
-				view.on("click", function(evt) {
-					showPopup(evt, true);
-				});
-			}
+      function navigateFinsihed() {
+        // query("#play > span").replaceClass("glyphicon-play","glyphicon-pause");
+        setPlayUI(true);
+        app.animating = false;
+        app.task.remove();
+        app.trailDistance = 0;
+        app.index = 0;
+      }
 
-			function reset() {
-				// Stop
-				if (app.task) {
-					app.task.remove();
-				}
-				// Default location
-				var point = new Point({
-					latitude: app.lonlat[1],
-					longitude: app.lonlat[0]});
-				navigate(point, app.scale, app.tilt, app.heading);
-				// Clear
-				app.graphicsLayer.clear();
-				// Buttons
-				query("#play > span").replaceClass("glyphicon-play","glyphicon-pause");
-				query(".distance-value").innerHTML("0.0");
-				// Reset
-				app.trailDistance = 0;
-				app.animating = false;
-				app.index = 0;
-			}
+      function setPlayUI(play) {
+        if (play) {
+          query("#play > span").replaceClass("glyphicon-pause","glyphicon-play");
+        } else {
+          query("#play > span").replaceClass("glyphicon-play","glyphicon-pause");
+        }
+      }
 
-			query("#play").on("click", function() {
-			  if (!app.animating) {
-			    animate(true);
-			    query("#play > span").replaceClass("glyphicon-pause","glyphicon-play");
-			  } else {
-			    animate(false);
-			    query("#play > span").replaceClass("glyphicon-play","glyphicon-pause");
-			  }
-			});
+      function resetDistanceUI() {
+        query(".distance-value").innerHTML("0.0");
+      }
 
-			query("#stop").on("click", function() {
-				reset();
-			});
-		
-		});<!-- dojo -->
-	</script>
+      function reset() {
+        // Stop
+        if (app.task) {
+          app.task.remove();
+        }
+        // Default location
+        var point = new Point({
+          latitude: app.lonlat[1],
+          longitude: app.lonlat[0]});
+        navigate(point, app.scale, app.tilt, app.heading);
+        // Clear
+        app.mapView.graphics.clear();
+        app.sceneView.graphics.clear();
+        // Buttons
+        setPlayUI(false);
+        resetDistanceUI();
+        // Reset
+        app.trailDistance = 0;
+        app.animating = false;
+        app.index = 0;
+      }
+
+      query("#play").on("click", function() {
+        if (!app.animating) {
+          var animation = navigate(getPoint(app.index), 27500, 70, 200);
+          animation.then(function(e){
+            if (e.state === "stopped" || e.state === "finished") {
+              setTimeout(function(){
+                  animate(true);  //hack
+                  setPlayUI(true);
+                },
+                50);
+            }
+          });
+        } else {
+          animate(false);
+          setPlayUI(false);
+        }
+      });
+
+      query("#stop").on("click", function() {
+        reset();
+      });
+
+      function syncViews(fromView, toView) {
+        function sync() {
+          toView.set({viewpoint: fromView.viewpoint});
+          if (fromView.graphics.length > 0) {
+            updateGraphic(fromView.graphics.getItemAt(0).geometry);
+          }
+        }
+        if (toView.isInstanceOf(SceneView) && !toView.ready) {
+          watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
+            if (isReady) {
+              sync();
+            }
+          });
+        } else {
+          sync();
+        }
+      }
+
+      query("nav li a[data-toggle='tab']").on("click", function(e) {
+        // Sync views
+        if (e.target.text === "2D") {
+          app.activeView = app.mapView;  
+          syncViews(app.sceneView, app.mapView); 
+        } else {
+          app.activeView = app.sceneView;
+          syncViews(app.mapView, app.sceneView);                  
+        }
+        // Set search
+        app.searchWidgetNav.viewModel.view = app.activeView;
+        app.searchWidgetPanel.viewModel.view = app.activeView;
+        // Pause
+        animate(false);
+        setPlayUI(false);
+      });
+
+    
+    });// dojo
+  </script>
 
 </body>
 </html>

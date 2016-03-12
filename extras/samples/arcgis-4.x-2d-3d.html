@@ -49,11 +49,11 @@
       <!-- Navbar collapse -->
       <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
         <ul class="nav navbar-nav navbar-right">                    
-         <!-- Map and Scene -->
+         <!-- Primary Nav - Map and scene -->
           <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="top">Map</a></li>
           <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-tooltip="tip" data-toggle="tab" title="3D View" data-placement="top">Scene</a></li>                  
           <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
-          <!-- Options dropdown menu -->
+          <!-- Secondary Nav - All other options -->
           <li class="dropdown" role="presentation">
             <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
             <ul class="dropdown-menu">
@@ -293,7 +293,7 @@
         app.sceneView.map.basemap = e.target.value;
       });
 
-    });<!-- dojo -->
+    });// dojo
   </script>
 
 </body>
