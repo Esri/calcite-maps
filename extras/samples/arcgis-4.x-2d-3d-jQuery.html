@@ -148,21 +148,6 @@
     </div> <!-- /.panel-group -->
   </div> <!-- /.panel-container -->
 
-  <script type="text/javascript">
-    var dojoConfig = {
-      packages: [{
-        name: "bootstrap",
-        //location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
-        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
-      },
-      {
-        name: "calcite-maps",
-        //location: "https://esri.github.io/calcite-maps/dist/calcite-maps/js/dojo"
-        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
-      }]
-    };
-  </script>
-
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
   <script src="http://jsqa.arcgis.com/4.0/"></script>
 
@@ -170,22 +155,15 @@
 
     var app, mapView, sceneView, searchWidgetNav, searchWidgetPanel, activeView;
 
-    require(["esri/Map",
+    require([
+      // ArcGIS
+      "esri/Map",
       "esri/Basemap",
       "esri/views/MapView",
       "esri/views/SceneView",
       "esri/widgets/Search",
       "esri/core/watchUtils",
       "dojo/query",
-
-      // Bootstrap
-      "bootstrap/Collapse", 
-      "bootstrap/Dropdown",
-      "bootstrap/Tab",
-      "bootstrap/Tooltip",
-      
-      // Calcite-maps
-      "calcite-maps/calcitemaps",
       "dojo/domReady!"
     ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query) {
         
@@ -296,7 +274,7 @@
         sceneView.map.basemap = e.target.value;
       });
 
-    });<!-- dojo -->
+    });// dojo
   </script>
 
   <!-- Bootstrap core JavaScript
@@ -309,9 +287,6 @@
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
-
-  <!--script src="http://esri.github.io/calcite-bootstrap/scripts/vendor.js"></script-->
-  <!--script src="http://esri.github.io/calcite-bootstrap/scripts/plugins.js"></script-->
 
   <!-- Calcite-Maps -->
   <script src="../../dist/js/jquery/calcitemaps.js"></script>
