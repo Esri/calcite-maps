@@ -10,7 +10,7 @@
 	<title>Calcite-Maps - ArcGIS 4.x</title>
 
 	<!-- Calcite-Maps -->
-	<link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
+	<link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
 
 	<!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
 	<link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
@@ -44,12 +44,12 @@
 	    min-width: 125px;
 		}
 
-		.calcite-maps .panel-default {
+		.calcite-maps .{
 			border: #777777;
 			background-color: #323232;
 		}
 
-		.calcite-maps .panel-default > .panel-heading {
+		.calcite-maps .> .panel-heading {
 	    color: #CCCCCC;
 	    background-color: #3f3f3f;
 	    border-color: #CCCCCC;
@@ -81,7 +81,7 @@
 
 	<!-- Navbar -->
 
-	<nav class="navbar navbar-fixed-top navbar-text-light calcite-dark-blue-75">
+	<nav class="navbar navbar-fixed-top calcite-text-light calcite-dark-blue-75">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
@@ -134,11 +134,11 @@
 			
 			<!-- Code Panel -->
 			
-			<div id="panelCode" class="panel panel-default collapse in">
+			<div id="panelCode" class="panel collapse in">
 				<div id="headingCode" class="panel-heading" role="tab">
 					<div class="panel-title">
 						<a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-wrench hidden" aria-hidden="true"></span> JavaScript</a>
-						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelCode"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelCode"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
 					</div>
 				</div>
 				<div id="collapseInfo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCode">

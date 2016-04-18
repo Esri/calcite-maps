@@ -10,7 +10,7 @@
 	<title>Calcite-Maps - ArcGIS Sample</title>
 
 	<!-- Calcite-Maps -->
-	<link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-3.x.min.css"-->
+	<link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-3.x.min.css"-->
 
 	<!-- ArcGIS JS 3.x -->
 	<link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/dijit/calcite.css">
@@ -29,7 +29,7 @@
 
 		<!-- Navbar -->
 
-		<nav class="navbar navbar-text-light navbar-fixed-top calcite-dark-purple">
+		<nav class="navbar calcite-text-light navbar-fixed-top calcite-dark-purple calcite-theme-dark">
 				<div class="container-fluid">
 						<div class="navbar-header">
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
@@ -54,7 +54,7 @@
 										<!-- Options dropdown menu -->
 										<li class="dropdown" role="presentation">
 												<a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
-												<ul class="dropdown-menu">
+												<ul class="dropdown-menu calcite-theme-light">
 														<li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
 														<li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
 														<li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
@@ -78,11 +78,11 @@
 										
 										<!-- Info Panel -->
 										
-											<div id="panelInfo" class="panel panel-default collapse">
+											<div id="panelInfo" class="panel collapse">
 														<div id="headingInfo" class="panel-heading" role="tab">
 																		<div class="panel-title">
 																						<a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
-																						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+																						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
 																		</div>
 														</div>
 														<div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
@@ -94,11 +94,11 @@
 										
 										<!-- Search Panel -->
 
-										<div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg">
+										<div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg">
 														<div id="headingSearch" class="panel-heading" role="tab">
 																		<div class="panel-title">
 																						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
-																						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
+																						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
 																		</div>
 														</div>
 														<div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
@@ -110,11 +110,11 @@
 
 										<!-- Basemaps Panel -->
 										
-										<div id="panelBasemaps" class="panel panel-default collapse"> 
+										<div id="panelBasemaps" class="panel collapse"> 
 														<div id="headingBasemaps" class="panel-heading" role="tab">
 																		<div class="panel-title">
 																						<a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
-																						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+																						<a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
 																		</div>
 														</div>
 														<div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
