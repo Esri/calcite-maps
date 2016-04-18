@@ -10,10 +10,10 @@
   <title>Calcite-Maps - ArcGIS 4.x 2D - 3D</title>
 
   <!-- Calcite-Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-arcgis-4.x.min.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
 
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-  <link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
+  <link rel="stylesheet" href="http://jsdev.arcgis.com/4.0/esri/css/main.css">
 
   <style>
     html, body {
@@ -29,7 +29,7 @@
 
   <!-- Navbar -->
 
-  <nav class="navbar navbar-fixed-bottom navbar-text-light calcite-trans-black">
+  <nav class="navbar navbar-fixed-bottom calcite-text-light calcite-black-75">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
@@ -89,11 +89,11 @@
         
       <!-- Info Panel -->
       
-       <div id="panelInfo" class="panel panel-default collapse">
+       <div id="panelInfo" class="panel collapse">
           <div id="headingInfo" class="panel-heading" role="tab">
               <div class="panel-title">
                   <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
-                  <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+                  <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
               </div>
           </div>
           <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
@@ -105,11 +105,11 @@
       
       <!-- Search Panel -->
 
-      <div id="panelSearch" class="panel panel-default collapse hidden-sm hidden-md hidden-lg">
+      <div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg">
           <div id="headingSearch" class="panel-heading" role="tab">
               <div class="panel-title">
                   <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
-                  <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>        
+                  <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
               </div>
           </div>
           <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
@@ -121,26 +121,26 @@
 
       <!-- Basemaps Panel -->
       
-      <div id="panelBasemaps" class="panel panel-default collapse"> 
+      <div id="panelBasemaps" class="panel collapse"> 
         <div id="headingBasemaps" class="panel-heading" role="tab">
           <div class="panel-title">
             <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
-            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
           </div>
         </div>
         <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
           <div class="panel-body">
             <select id="selectBasemapPanel" class="form-control">
-              <option value="streets" data-vector="vector-streets">Streets</option>
+              <option value="streets" data-vector="streets-vector">Streets</option>
               <option value="satellite" data-vector="satellite" selected="">Satellite</option>
               <option value="hybrid" data-vector="hybrid">Hybrid</option>
               <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
-              <option value="topo" data-vector="vector-streets-relief">Topographic</option>
-              <option value="gray" data-vector="vector-canvas-light">Gray</option>
-              <option value="dark-gray" data-vector="vector-canvas-dark">Dark Gray</option>
+              <option value="topo" data-vector="topo-vector">Topographic</option>
+              <option value="gray" data-vector="gray-vector">Gray</option>
+              <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
               <option value="osm" data-vector="osm">Open Street Map</option>
-              <option value="dark-gray" data-vector="vector-streets-night">Streets Night</option>
-              <option value="streets" data-vector="vector-streets-mobile">Streets Mobile</option>
+              <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
+              <option value="streets" data-vector="streets-navigation-vector">Streets Mobile</option>
             </select>
           </div>
         </div>
@@ -164,7 +164,7 @@
   </script>
 
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-  <script src="http://jsqa.arcgis.com/4.0/"></script>
+  <script src="http://jsdev.arcgis.com/4.0/"></script>
 
   <script>
 
@@ -288,8 +288,8 @@
       });
 
       query("#selectBasemapPanel").on("change", function(e){
-        //mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
-        app.mapView.map.basemap = e.target.value;
+        app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
+        //app.mapView.map.basemap = e.target.value;
         app.sceneView.map.basemap = e.target.value;
       });
 

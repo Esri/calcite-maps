@@ -1,232 +1,112 @@
 // ┌───────┐
 // │ Panel │
 // └───────┘
-
-$panel-heading-color: $calcite-light-gray;
-$panel-heading-bg-color: $calcite-off-white;
-$panel-border: $calcite-lightest-gray;
-$panel-bg-color: $calcite-true-white;
-$panel-close: $calcite-light-gray;
-$panel-close-highlight: $calcite-black;
+//
+// Styling for panel and accordion behavior
 
 .calcite-maps {
 
-	// Panel
-	
-	.panel-container {
-		position: absolute;
-		top: 15px;
-		right: 15px;
-		max-width: 350px;
-		z-index: 50;
-	}
-
-	&.panel-right .panel-container {
-		left: auto;
-		right: 15px;
-	}
-
-	&.panel-left .panel-container {
-		left: 15px;
-		right: auto;
-	}
-
-	// Layouts
-
-	// Panel - Top 
-	&.nav-position-top.nav-space-none .panel-container,
-	&.nav-position-top.nav-space-bottom .panel-container,
-	&.nav-position-top-fixed.nav-space-none .panel-container {
-		top: 80px;
-	}
-
-	&.nav-position-top.nav-space-top .panel-container, 
-	&.nav-position-top.nav-space-all .panel-container {
-		top: 95px;
-	}
-
-	&.nav-position-top.is-minibar .panel-container {
-		top: 15px;
-	}
-
-	&.nav-position-top.nav-space-top.is-minibar .panel-container, 
-	&.nav-position-top.nav-space-all.is-minibar .panel-container {
-		top: 15px;
-		right: 15px;
-	}
-
-	&.nav-position-top.is-minibar.panel-left .panel-container {
-		top: 80px;
-		//right: 0;
-	}
-
-	&.nav-position-top.nav-space-top.panel-left.is-minibar .panel-container, 
-	&.nav-position-top.nav-space-all.panel-left.is-minibar .panel-container {
-		top: 95px;
-		right: auto;
-	}
-
-	// Panel - Bottom
-	&.nav-position-bottom .panel-container,
-	&.nav-position-bottom-fixed.nav-space-none .panel-container, 
-	&.nav-position-bottom.nav-space-top .panel-container, 
-	&.nav-position-bottom.nav-space-bottom .panel-container
-	&.nav-position-bottom.nav-space-all .panel-container {
-		top: 30px;
-	}
-
-	.panel-default {
-		// border-color: #E3E3E3;
-		border-color: $panel-border;
-		background-color: $panel-bg-color;
-	}
-
-	.panel-default > .panel-heading + .panel-collapse > .panel-body {
-		border-top: 0;
-	}
-
-	// Panel - group
+	// Panel Group
 
 	.panel-group {
 		margin-bottom: 0;
+
+		.panel-heading + .panel-collapse > .panel-body {
+			border: none;
+		}
+		
+		.panel + .panel {
+    	margin-top: 0;
+		}
 	}
+	
+	// Panel
 
 	.panel {
-		position: relative;
-		//min-width: 175px;
+		// position: relative;
+		margin-top: 0;
+		border: none;
+		font-size: $panel_font_size;
 	}
 
-	.panel-group .panel + .panel {
-		margin-top: -1px;
-		//margin-top: 0;
-	}
-
-	.panel, 
-	.panel-heading {
-		//border-radius: 0;
-	}
-
+	// Heading
+	
 	.panel-heading {
 		padding: 0;
-		background-color: none;
 	}
 
 	.panel-title {
-		font-size: .95em;
-		// color: #595959;
-	}
-
-	.panel-title a {
-		padding: 10px 10px;	
-	}
-
-	.panel-title .glyphicon {
-		top: 2px;
-	}
-
-	.panel-title span.glyphicon.glyphicon-remove {
-		// color: #B5B5B5;
-	}
-
-	.panel-title span.glyphicon.glyphicon-remove:focus, 
-	.panel-title span.glyphicon.glyphicon-remove:hover {
-		// color: #595959;
+		font-size: $panel_title_font_size;
+		font-weight: $panel_title_font_weight;	
 	}
 
 	.panel-toggle {
 		display: inline-block;
-		width: 100%;
-		min-width: 350px;
+		width: calc(100% - 37px);
+		padding: 10px 10px 9px;
+		text-decoration: none;
+		.glyphicon {
+			top: 2px;
+			margin: 0;
+		}
+	}
+
+	.panel-close {
+		display: inline-flex;
+		float: right;
+		padding: 14px 10px 11px;
+		font-size: $panel_font_size - 1;
 		text-decoration: none;
 	}
 
-	.panel-close {
-		position: absolute;
-		top: 0;
-		right: 0;
-		padding: 10px;
-		//margin-top: 5px;
-		font-size: .95em;
-	}
-
-	.panel-close {
-		color: #CCCCCC;	
-	}
-
-	.panel-body-close {
-		position: absolute;
-		top: 0;
-		right: 0;
-		padding: 13px;
-		font-size: 17px;
-	}
-
-	.panel-body-close {
-		color: #828282;	
-	}
-
-	.panel-close:focus,
-	.panel-close:hover,
-	.panel-body-close:focus,
-	.panel-body-close:hover {
-		color: #595959;
-	}
-
-	.panel-collapse {
-		//border-top: 1px solid #efefef;
-	}
+	// Body - specific Bootstrap overrides for map apps
 
 	.panel-body {
-		position: relative;
-		max-height: 325px;
-		min-height: 55px;
-		//width: 340px;
+		// position: relative;  // required by some inner controls
 		padding: 15px;
+		min-height: $panel_body_min_height;
+		max-height: $panel_body_max_height;
+		font-size: $panel_font_size;
 		overflow: auto;
-		font-size: .90em;
-	}
-
-	.panel-body .nav > li >a {
-    // padding: 6px 14px;
-    padding-left: 14px;
-	}
-
-	.form-title {
-		font-weight: bold;
-		padding: 20px 0 5px;
-	}
-
-	.form-padding {
-		padding: 15px 0 0;
+		border-top: none;
+		.btn {
+			padding: 6px 8px;
+			font-size: $panel_font_size;
+		}
+		.form-control {
+			height: 34px;
+			padding: 4px 8px;
+			font-size: $panel_font_size;
+		}
+		.form-title {
+			padding: 20px 0 5px;
+		}
+		.form-padding {
+			padding: 15px 0 0;
+		}
+		.nav-tabs > li > a {
+			padding: 6px 12px 4px;
+		}
+		.nav-tabs > li > a:hover {
+			padding-top: 5px;
+			border-top: 2px solid;
+		}
 	}
 
 	.panel-overflow-visible {
 		overflow: visible;
 	}
 
-	.panel-mobile-only {
-	}
+	// Panel animation
 
-	.panel-control {
-		padding: 15px;
-	}
-
-	// Animation
-
-	.no-transition {
-		-webkit-transition: 0;
-		-o-transition: 0;
-		transition: 0;	
-	}
-
-	// Panel
 	.panel.collapsing {
 		-webkit-transition: height 0.01s;
 		-o-transition: height 0.01s;
 		transition: height 0.01s;
 	}
 
-	// Panel body
+	// Panel body animation
+
 	.panel-collapse.collapsing {
 		-webkit-transition-timing-function: ease;
 		-o-transition-timing-function: ease;
@@ -236,90 +116,13 @@ $panel-close-highlight: $calcite-black;
 		transition: height 0.25s;
 	}
 }
-// XSmall screens
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.calcite-maps {
-
-		// Panel
-
-		// Panel - Reset
-		.panel-container,
-		&.panel-right .panel-container,
-		&.panel-left .panel-container {
-			right: 0;
-			left: 0;
-			max-width: 100%;
-		}
-		
-		.panel-container .panel:first-child {
-			margin-top: -1px;
-		}
-
-		.panel-group,
-		.panel,
-		.panel-heading,
-		.panel-title,
-		.panel-collapse,
-		.panel-default > .panel-heading + .panel-collapse > .panel-body {
-			border: 0;
-			box-shadow: none;
-		}
-
-		.panel .panel-body {
-			max-height: 270px;
-			min-width: 100%;
-		}
-
-		.panel-body-control .panel-body-close {
-			margin: 27px 19px 24px;
-		}
-
-		.panel-control {
-			padding: 15px 60px 15px 60px;
-		}
-
-		// Panel - Top
-		&.nav-position-top.nav-space-none .panel-container,
-		&.nav-position-top.nav-space-bottom .panel-container,
-		&.nav-position-top-fixed.nav-space-none .panel-container {
-			top: 65px;
-		}
-
-		&.nav-position-top.nav-space-top .panel-container,
-		&.nav-position-top.nav-space-all .panel-container,
-		&.nav-position-top.nav-space-top.is-minibar .panel-container,
-		&.nav-position-top.nav-space-all.is-minibar .panel-container {
-			top: 80px;
-			right: 0;
-		}
-
-		&.nav-position-top.nav-space-all .panel-container {
-			top: 95px;
-			margin-left: 15px;
-			margin-right: 15px;
-		}
-			
-		// Panel - Bottom
-		&.nav-position-bottom .panel-container,
-		&.nav-position-bottom-fixed.nav-space-none .panel-container, 
-		&.nav-position-bottom.nav-space-top .panel-container, 
-		&.nav-position-bottom.nav-space-bottom .panel-container {
-			top: 0;
-		}
-		
-		&.nav-position-bottom.nav-space-all .panel-container {
-			top: 15px;
-			left: 15px;
-			right: 15px;
-		}
-		
-		.navbar-collapse.collapse.in .dropdown-menu + .panel-container {
-			display: none;
-		}
-
-		.is-transparent-xs {
-			background-color: transparent;
-		}
+			.panel-body {
+					min-height: $panel_body_min_height_mobile;
+					max-height: $panel_body_max_height_mobile;
+			}
 	}
 }
+

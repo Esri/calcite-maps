@@ -1,74 +1,68 @@
 // ┌────────┐
 // │ Navbar │
 // └────────┘
-
-$navbar-height: 64px;
-$navbar-margin: 15px;
-$navbar-brand-font-size: 44px;
-$navbar-title-font-size: 26px;
-$navbar-subtitle-font-size: 13px;
-$navbar-collase-max-height: 260px;
+//
+// Title, subtitle and dropdown menu
 
 .calcite-maps {
 
 	// Navbar
 
 	.navbar {
-		min-height: $navbar-height;
-		border-top: none;
-		border-bottom: none;
+		min-height: $navbar_height; // Required to support dropdown menu on mobile!
+		border: none;
 	}
 
-	// Layout
+	// Brand
 
-	// Full body and map
-	&.nav-position-top,
-	&.nav-position-bottom {
+	.navbar-brand {
+		padding: 12px 10px 7px;
+		font-size: $navbar_brand_font_size;
+		line-height: $navbar_brand_font_size;
+		cursor: pointer;
+		height: 100%;
+	}
+
+	.navbar-brand img {
+		width: 40px;
+	}
+
+	// Title/subtitle
+
+	.navbar-info {
+		position: absolute;
 		top: 0;
-		bottom: 0;
+		left: 62px;
+		width: $navbar_info_max_width_lg;
+		height: 100%;
+		cursor: pointer;
+		line-height: 1.5;	
 	}
 
-	// Offset body and map
-	&.nav-position-top-fixed, 
-	&.nav-position-top-fixed .map-position-absolute {
-		top: $navbar-height;
-		bottom: 0;
+	.navbar-title {
+		margin-top: 4px;
+	  font-size: $navbar_title_font_size;
 	}
 
-	&.nav-position-bottom-fixed,
-	&.nav-position-bottom-fixed .map-position-absolute {
-		top: 0;
-		bottom: $navbar-height;
+	.navbar-subtitle {
+		margin-top: -4px;
+		margin-left: 2px;
+		font-size: $navbar_subtitle_font_size;
 	}
 
-	// Spacing
-	
-	&.nav-space-none .navbar {
-		margin: 0;
+	.text-overflow {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 
-	&.nav-space-top .navbar {
-		margin-top: $navbar-margin;
-		margin-bottom: 0;
+	// Search - widget
+
+	.navbar-search {
+		padding-top: 10px;
 	}
 
-	&.nav-space-bottom .navbar {
-		margin-top: 0;
-		margin-bottom: $navbar-margin;
-	}
-
-	&.nav-space-all .navbar {
-		margin: $navbar-margin;
-	}
-
-	// Navbar - Minibar
-
-	&.is-minibar .navbar {
-		right: auto;
-		background-color: transparent !important;
-	}
-
-	// Navbar - List
+	// Main
 
 	.navbar-nav {
 		margin: 0;
@@ -78,75 +72,34 @@ $navbar-collase-max-height: 260px;
 		padding: 19px 15px 21px;
 	}
 
-	// Navbar - Brand
-
-	.navbar-brand {
-		padding: 11px 9px 8px;
-		font-size: $navbar-brand-font-size;
-		cursor: pointer;
-		height: 100%;
-	}
-
-	.navbar-brand img {
-		width: 40px;
-	}
-
-	// Navbar - Info
-
-	.navbar-info {
-		position: absolute;
-		top: 0;
-		left: 60px;
-		width: calc(100% - 535px); // Lg screens
-		height: 100%;
-		cursor: pointer;
-		line-height: 1.5;
-			.navbar-title {
-				margin-top: 3px;
-			  font-size: $navbar-title-font-size;
-			}
-			.navbar-subtitle {
-				margin-top: -4px;
-				margin-left: 2px;
-				font-size: $navbar-subtitle-font-size;
-			}
-			.text-overflow {
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				overflow: hidden;
-			}
-	}
-
-	// Navbar - Search
-
-	.navbar-search {
-		padding-top: 9px;
-	}
-
-	// Navbar - Toggle Button
+	// Toggle Button
 
 	.navbar-toggle {
 		float: right;
 		margin: 15px;
 	}
 
-	.dropdown-toggle span {
-		font-size: 17px;
-		top: 4px
+	.navbar .dropdown-toggle {
+		padding-top: 22px;
+    padding-bottom: 19px;
 	}
 
-	// Navbar - Menu
+	.navbar .dropdown-toggle span {
+		font-size: $navbar_dropdown_toggle_font_size;
+	}
+
+	// Menu
 
 	.navbar-nav .dropdown-menu {
 		border: none;
-		font-size: 14px;
+		font-size: $navbar_dropdown_menu_font_size;
 	}
 
-	.dropdown-menu li a {
-		padding: 10px 15px;
+	.navbar-nav .dropdown-menu > li > a {
+		padding: 10px 12px;
 	}
 
-	// Nav collapse
+	// Animation - speed up to improve interaction
 
 	.navbar-collapse.collapsing {
 		-webkit-transition-timing-function: ease;
@@ -167,15 +120,13 @@ $navbar-collase-max-height: 260px;
 		transition: all .25s ease;
 	}
 
-	// Hidden Overrides
+	// Hidden Overrides - Search, Map and Scene Menus
 
-	// Search, Map and Scene Menus
-
-	.visible-sm.visible-md.visible-lg.hidden,
-	.visible-sm.hidden-md.hidden-lg.hidden,
-	.visible-xs.hidden {
-		display: none !important;
-	}
+	// .visible-sm.visible-md.visible-lg.hidden,
+	// .visible-sm.hidden-md.hidden-lg.hidden,
+	// .visible-xs.hidden {
+	// 	display: none !important;
+	// }
 
 	// Misc
 
@@ -197,64 +148,56 @@ $navbar-collase-max-height: 260px;
 @media (min-width: 992px) and (max-width: 1200px) {
 	.calcite-maps {
 		.navbar-info {
-			width: calc(100% - 500px);
+			width: $navbar_info_max_width_lg;
 		}
 	}
 }
 
-// Small screens */
+// Small screens
 
 @media (min-width: 768px) and (max-width: 992px) {
 	.calcite-maps {
 		.navbar-info {
-			width: calc(100% - 380px);
+			width: $navbar_info_max_width_md;
 		}
 	}
 }
 
 // XSmall screens
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.calcite-maps {
 
 		// Brand and Title
 
 		.navbar-info {
-			width: calc(100% - 130px);
+			width: $navbar_info_max_width_xs;
 		}
 				
 		.navbar-subtitle {
-			font-size: 12px;
+			font-size: $navbar_subtitle_font_size_mobile;
 		}
-		
-		// Minibar
-
-		&.nav-position-top.nav-space-all.is-minibar .navbar {
-		     margin-top: $navbar-margin; 
-		     margin-left: 30px; 
-		}
-
-		&.nav-position-bottom.nav-space-all.is-minibar .navbar {
-		     margin-bottom: 0; 
-		     margin-left: 0; 
-		}
-		
+				
 		// Dropdown
 		
 		.navbar-nav .dropdown-menu {
 			margin: 0 -15px;
 		}
 		
-		.navbar-nav .open .dropdown-menu > li > a {
-			padding: 10px 20px;
-		}
+		// .navbar-nav .open .dropdown-menu > li > a {
+		// 	padding: 10px 20px;
+		// }
+
+		// .navbar-collapse.collapse.in .dropdown-menu + .panel-container {
+		// 	display: none;
+		// }
 
 		.dropdown-menu li:first-child {
-			margin-top: 15px;
+			margin-top: 0;
 		}
 
 		.dropdown-menu li:last-child {
-			margin-bottom: 15px;	
+			margin-bottom: 0;	
 		}
 	}
 }
@@ -264,7 +207,7 @@ $navbar-collase-max-height: 260px;
 @media (max-width: 480px) {
 	.calcite-maps {
 		.navbar-collapse {
-			max-height: $navbar-collase-max-height;
+			max-height: $navbar_collapse_max_height_mobile;
 		}
 	}
 }
