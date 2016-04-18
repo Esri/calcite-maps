@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Calcite Maps - ArcGIS 4.0 SDK Sample</title>
+
+  <!-- Calcite Maps -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
+
+  <!-- ArcGIS JS 4.0 -->
+  <!--link rel="stylesheet" href="http://jsdev.arcgis.com/4.0/esri/css/main.css"-->
+  <link rel="stylesheet" href="http://localhost/GitHub/arcgis-js-api/esri/css/main.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  </style>
+  
+</head>
+
+<body class="calcite-maps map-position-absolute nav-position-top nav-space-none calcite-theme-dark">
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-fixed-top calcite-text-light">
+    <div class="container-fluid">
+
+      <!-- Navbar Header -->
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-info">
+          <div class="navbar-title text-overflow">Calcite Maps</div>
+          <div class="navbar-subtitle text-overflow">A framework for building apps with Calcite and Bootstrap</div>
+        </div>
+      </div>
+
+      <!-- Navbar Collapse -->
+
+      <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">    
+          <!-- Main -->
+          <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">Map</a></li>
+          <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" aria-expanded="true">Scene</a></li>                  
+          <li><form class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchDiv"></div></form></li>
+          <!-- Dropdown Menu -->
+          <li class="dropdown" role="presentation">
+            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="esri-icon esri-icon-menu" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" aria-haspopup="true" role="tab" data-toggle="tab">Map</a></li>
+              <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" aria-haspopup="true" role="tab" data-toggle="tab">Scene</a></li>
+              <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+            </ul>
+          </li> 
+        </ul><!--/.nav -->
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav><!--/.navbar -->
+
+  <!-- Map Container  -->
+
+  <div class="map-container">
+    <div id="tabContainer" class="tab-content">
+      <div id="2dTab" class="tab-pane fade" role="tabpanel">
+         <div id="mapViewDiv" class="map-position-absolute"></div>
+      </div>
+      <div id="3dTab" class="tab-pane fade in active" role="tabpanel">
+        <div id="sceneViewDiv" class="map-position-absolute"></div>
+      </div>
+    </div>
+  </div><!-- /.container -->
+
+  <!-- Panel -->
+
+  <div class="panel-container">
+
+    <div id="panelAccordion" class="panel-group">
+
+      <!-- Panel Settings -->
+      
+      <div id="panelSettings" class="panel collapse in">
+        <div id="headingSettings" class="panel-heading">
+          <div class="panel-title">
+            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+            </div>
+        </div>
+        <div id="collapseSettings" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSettings">
+          <div class="panel-body">
+            <div class="form-horizontal">
+
+              <!-- Theme -->
+              
+              <div class="form-group">
+                <label for="settingsTheme" class="col-xs-3 control-label">Theme</label>
+                <div class="col-xs-9">
+                  <select id="settingsTheme" class="form-control">
+                    <option value="calcite-theme-dark" data-textcolor="calcite-text-light" selected>Calcite Dark</option>
+                    <option value="" data-textcolor="calcite-text-dark">Calcte Light</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Navbar -->
+
+              <div class="form-group">
+                <label for="settingsNavbar" class="col-xs-3 control-label">Navbar</label>
+                <div class="col-xs-9">
+                  <select id="settingsNavbar" class="form-control">
+                    <option value="" data-theme="calcite-theme-light">Calcite Default</option>
+                    <option value="calcite-dark-blue-75" data-textcolor="calcite-text-light">Calcite Dark Blue 75%</option>
+                    <option value="calcite-dark-green-75" data-textcolor="calcite-text-light">Calcite Dark Green 75%</option>
+                    <option value="calcite-dark-brown-75" data-textcolor="calcite-text-light">Calcite Dark Brown 75%</option>
+                    <option value="calcite-white-75" data-textcolor="calcite-text-dark">Calcite White 75%</option>
+                    <option value="calcite-black-75" data-textcolor="calcite-text-light">Calcite Black 75%</option>
+                    <option value="calcite-transparent" data-textcolor="calcite-text-dark">Calcite Transparent - Dark Text</option>
+                    <option value="calcite-transparent" data-textcolor="calcite-text-light">Calcite Transparent - Light Text</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Widgets -->
+              
+              <div class="form-group">
+                <label for="settingsWidgets" class="col-xs-3 control-label">Widgets</label>
+                <div class="col-xs-9">
+                  <select id="settingsWidgets" class="form-control">
+                    <option value="calcite-widgets-light" selected>Calcte Light</option>
+                    <option value="calcite-widgets-dark">Calcite Dark</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Basemap -->
+              <div class="form-group">
+                <label for="settingsColor" class="col-xs-3 control-label">Basemap</label>
+                <div class="col-xs-9">
+                  <select id="settingsBasemap" class="form-control">
+                    <option value="streets" data-vector="streets-vector">Streets</option>
+                    <option value="satellite" data-vector="satellite" selected="">Satellite</option>
+                    <option value="hybrid" data-vector="hybrid">Hybrid</option>
+                    <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
+                    <option value="topo" data-vector="topo-vector">Topographic</option>
+                    <option value="gray" data-vector="gray-vector">Gray</option>
+                    <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
+                    <option value="osm" data-vector="osm">Open Street Map</option>
+                    <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
+                    <option value="streets" data-vector="streets-navigation-vector">Streets Navigation</option>
+                  </select>
+                </div>
+              </div>
+                
+              <!-- Layout -->
+              
+              <div class="form-group">
+                <label for="settingsLayout" class="col-xs-3 control-label">Layout</label>
+                <div class="col-xs-9">
+                  <select id="settingsLayout" class="form-control">
+                    <option value="nav-position-top" data-nav="navbar-fixed-top" selected>Top</option>
+                    <option value="nav-position-bottom" data-nav="navbar-fixed-bottom">Bottom</option>
+                  </select>
+                </div>
+              </div>
+
+              <p class="small">Learn more about calcite colors, styles and custom Sass builds <a href="http://github.com/esri/calcite-maps">here</a>.</p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.panel-group -->
+  </div> <!-- /.panel-container -->
+
+  <script type="text/javascript">
+    var dojoConfig = {
+      packages: [{
+        name: "bootstrap",
+        //location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+      },
+      {
+        name: "calcite-maps",
+        // location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+      }]
+    };
+  </script>
+
+  <!-- ArcGIS JS 4.0 -->
+  <script src="http://jsdev.arcgis.com/4.0/"></script>
+  <!--script src="http://localhost/GitHub/arcgis-js-api/dojo/dojo.js"></script-->
+
+  <script>
+
+    var app;
+
+    require(["esri/Map",
+      "esri/Basemap",
+      "esri/views/MapView",
+      "esri/views/SceneView",
+      "esri/widgets/Search",
+      "esri/widgets/Popup",
+      "esri/core/watchUtils",
+      "dojo/query",
+      "dojo/on",
+
+      // Bootstrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      
+      // Calcite Maps
+      "calcite-maps/calcitemaps",
+      "dojo/domReady!"
+    ], function(Map, Basemap, MapView, SceneView, Search, Popup, watchUtils, query, on) {
+        
+      // App
+      app = {
+        scale: 100000000,
+        center: [-40,40],
+        basemap: "satellite",
+        viewPadding: {
+            top: 64
+        },
+        uiPadding: {
+            top: 15
+        },
+        mapView: null,
+        sceneView: null,
+        activeView: null,
+        search: null
+      };
+
+      // Map 
+      var map = new Map({
+        basemap: app.basemap
+      });
+      app.mapView = new MapView({
+        container: "mapViewDiv",
+        map: map,
+        scale: app.scale,
+        center: app.center,
+        padding: app.viewPadding,
+        ui: {
+          components: ["zoom", "compass", "attribution"],
+          padding: app.uiPadding
+        }
+      });
+   
+      // Scene
+      var mapScene = new Map({
+        basemap: app.basemap
+      });
+      app.sceneView = new SceneView({
+        container: "sceneViewDiv",
+        map: mapScene,                
+        scale: app.scale,
+        center: app.center,
+        padding: app.viewPadding,
+        ui: {
+          padding: app.uiPadding
+        }
+      });
+
+      app.activeView = app.sceneView;
+
+      // Search widgets
+      app.search = createSearchWidget(app.activeView, null, "searchDiv");
+      createSearchWidget(app.mapView, "top-right");
+      createSearchWidget(app.sceneView, "top-right");
+
+      // Hide panel when popup is docked
+      app.mapView.popup.watch("currentDockPosition", function(result) { 
+        hidePanel(this, result) 
+      });
+      app.sceneView.popup.watch("currentDockPosition", function(result) { 
+        hidePanel(this, result) 
+      });
+
+      // Create widgets
+      function createSearchWidget(view, uiPosition, parentId) {
+        var search = new Search({
+            view: view
+          }, parentId);
+        search.startup();
+        if (uiPosition) {
+          view.ui.add(search, uiPosition)
+          // Add responsive Bootstrap class to automatically show/hide
+          query("#" + search.id).addClass("visible-xs"); 
+        }
+        return search;
+      }
+
+      // Hide panel when popup is docked
+      function hidePanel(popup, result) {
+        if (popup.visible && (result === "right" || result === "bottom")) {
+          query(".panel.in").removeClass("in");
+        }
+      }
+
+      // Dynaically set view padding for widgets based on navbar position
+      function setViewPadding(placement) {
+        var padding, uiPadding;
+        // Top
+        if (placement === "nav-position-top") {
+          padding = { 
+            padding: { top: 64, bottom: 0 } 
+          };
+          uiPadding = { 
+            padding: { top: 15, bottom: 0 } 
+          };
+        } else {  // Bottom
+          padding = { 
+            padding: { top: 0, bottom: 49 } 
+          };
+          uiPadding = { 
+            padding: { top: 30, bottom: 15 } 
+          };
+        }
+        app.mapView.set(padding);
+        app.mapView.ui.set(uiPadding);
+        app.sceneView.set(padding);
+        app.sceneView.ui.set(uiPadding);
+      }
+
+      // Sync map and scene
+      function syncViews(fromView, toView) {
+        if (!toView.ready) {
+          watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
+            toView.set({ viewpoint: fromView.viewpoint });
+          });
+        } else {
+          toView.set({ viewpoint: fromView.viewpoint });
+        }
+      }
+
+      // Toggle map and scene
+      query("nav li a[data-toggle='tab']").on("click", function(e) {
+        if (e.target.text === "Map") {
+          syncViews(app.sceneView, app.mapView);
+          app.activeView = app.mapView;  
+        } else {
+          syncViews(app.mapView, app.sceneView);
+          app.activeView = app.sceneView;
+        }
+        app.search.view = app.activeView;
+        app.mapView.popup.visible = false;
+        app.sceneView.popup.visible = false;
+      });
+
+      /******************************************************************
+       *
+       * The following applies CSS classes to the body and nav to 
+       * change the look and feel of the app. The view padding changes 
+       * the widget position for navbar top and bottom positions. Widget
+       * themes are changed by applying "calcite-widgets-dark".
+       *
+       * For more information about the CSS styles and Sass builds visit:
+       * http://github.com/esri/calcite-maps
+       * 
+       ******************************************************************/
+
+      // Theme - set light (default) or dark theme
+      query("#settingsTheme").on("change", function(e) {    
+        var theme = e.target.value;
+        var textColor = e.target.options[e.target.selectedIndex].dataset.textcolor;
+        query("body").removeClass("calcite-theme-dark").addClass(theme);
+        query("nav").removeClass("calcite-text-dark calcite-text-light").addClass(textColor);
+        query("nav").removeClass("calcite-dark-blue-75 calcite-dark-green-75 calcite-dark-brown-75 calcite-black-75 calcite-white-75 calcite-transparent");
+        query("#settingsNavbar").attr("value", "");
+      });
+
+      // Navbar - set custom navbar color
+      query("#settingsNavbar").on("change", function(e) {    
+        var color = e.target.value;
+        var textColor =  e.target.options[e.target.selectedIndex].dataset.textcolor;
+        query("nav").removeClass("calcite-dark-blue-75 calcite-dark-green-75 calcite-dark-brown-75 calcite-black-75 calcite-white-75 calcite-transparent").addClass(color);
+        query("nav").removeClass("calcite-text-light calcite-text-dark").addClass(textColor);
+        if (!color) {
+          on.emit(query("#settingsTheme")[0], "change",  { bubbles: true, cancelable: true });
+        }
+      });
+
+      // Widgets - set light (default) or dark theme
+      query("#settingsWidgets").on("change", function(e) {    
+        var theme = e.target.value;
+        query("body").removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
+      });
+
+      // Layout - set top or bottom nav position
+      query("#settingsLayout").on("change", function(e) {    
+        var layout = e.target.value;
+        var layoutNav = e.target.options[e.target.selectedIndex].dataset.nav;
+        query("body").removeClass("nav-position-bottom nav-position-top").addClass(layout);
+        query("nav").removeClass("navbar-fixed-bottom navbar-fixed-top").addClass(layoutNav);
+        setViewPadding(layout);
+      });
+
+      // Basemap
+      query("#settingsBasemap").on("change", function(e){
+        app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
+        app.sceneView.map.basemap = e.target.value;
+      });
+
+    });
+  </script>
+
+</body>
+</html>

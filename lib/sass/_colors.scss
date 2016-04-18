@@ -1,293 +1,329 @@
 // ┌────────┐
 // │ Colors │
 // └────────┘
-// Subset of Calcite colors for navbar themes 
+// Subset of Calcite colors for easy styling of navbar 
+// Light, med and dark
+// Opacity ranges 1, .75 and .5
 
-// Includes .5 and .75 alpha transarency
-$calcite-light-gray: 		$Calcite_Gray_400;		//#a9a9a9
-$calcite-gray: 					$Calcite_Gray_450;		//#959595
-$calcite-dark-gray: 		$Calcite_Gray_500;		//#828282
-$calcite-light-blue: 		$Calcite_Blue_250; 		//#56a5d8
-$calcite-blue: 					$Calcite_Blue_a200; 	//#3b8fc4
-$calcite-dark-blue: 		$Calcite_Blue_a250; 	//#196fa6
-$calcite-light-green: 	$Calcite_Green_150;		//#9bc19c
-$calcite-green: 				$Calcite_Green_250; 	//#5a9359
-$calcite-dark-green: 		$Calcite_Green_a200;	//#338033
-$calcite-light-red: 		$Calcite_Red_a100;		//#e04f1d
-$calcite-red: 					$Calcite_Red_a150;		//#c7461a
-$calcite-dark-red: 			$Calcite_Red_a200;		//#ab3c16
-$calcite-light-orange: 	$Calcite_Orange_150;	//#f6ca92
-$calcite-orange: 				$Calcite_Orange_a200; //#eda959
-$calcite-dark-orange: 	$Calcite_Orange_a150;	//e8912e;
-$calcite-light-yellow: 	$Calcite_Yellow_150; 	//#efe397
-$calcite-yellow: 				$Calcite_Yellow_200;	//#e4d154
-$calcite-dark-yellow: 	$Calcite_Yellow_a150;	//#d9bf2b
-$calcite-light-purple: 	$Calcite_Purple_150;	//#c4bcdc
-$calcite-purple: 				$Calcite_Purple_150;	//#9081bc
-$calcite-dark-purple: 	$Calcite_Purple_a150;	//#7461a8
-$calcite-light-brown: 	$Calcite_Brown_150; 	//#d2b38f
-$calcite-brown: 				$Calcite_Brown_250;		//#a57946
-$calcite-dark-brown: 		$Calcite_Brown_a200;	//#8c5e2a
-// Additional colors
-$calcite-true-white: 		rgb(255,255,255); 	//#ffffff
-$calcite-off-white: 		$Calcite_Gray_100;	//#f8f8f8
-$calcite-lightest-gray: $Calcite_Gray_200; 	//#efefef
-$calcite-lighter-gray: 	$Calcite_Gray_350; 	//#cccccc
-$calcite-black:					$Calcite_Gray_700;	//#323232;  
-$calcite-true-black: 		rgb(0, 0, 0);
-$calcite-trans-off-black: rgba(0,0,0,0.45);
-$calcite-trans-black: 	rgba(0,0,0,0.75);
+// Calcite Bootstrap - default colors (submodule in future)
+@import "calcite/colors-default"; 
 
-// Calcite Maps color selectors
+// Calcite Bootstrap - default dark colors (submodule in future)
+//@import "calcite/_colors-dark.scss"; 
+
+// Subset of calcite dark
+$Calcite_True_Black:       #000000;
+$Calcite_Gray_050_Dark:    #242424;
+$Calcite_Gray_100_Dark:    #333333;
+$Calcite_Gray_150_Dark:    #363636;
+$Calcite_Gray_200_Dark:    #404040;
+$Calcite_Gray_250_Dark:    #474747;
+$Calcite_Gray_300_Dark:    #4c4c4c;
+$Calcite_Gray_350_Dark:    #5c5c5c;
+$Calcite_Gray_400_Dark:    #666666;
+$Calcite_Gray_450_Dark:    #787878;
+$Calcite_Gray_500_Dark:    #8a8a8a;
+$Calcite_Gray_550_Dark:    #9e9e9e;
+$Calcite_Gray_600_Dark:    #adadad;
+$Calcite_Gray_650_Dark:    #bdbdbd;
+$Calcite_Gray_700_Dark:    #d1d1d1;
+$Calcite_Gray_700_Dark:    #d1d1d1;
+// Anchors
+$Calcite_Highlight_Blue_350_Dark:     #2493f2;  // Active
+$Calcite_Highlight_Blue_400_Dark:     #3fa6ff;  // Active Accent
+
+
+
 .calcite-maps {
 
-	.calcite-true-white {
-		background-color: $calcite-true-white;
-	}
-	.calcite-off-white {
-		background-color: $calcite-off-white;
-	}
-	.calcite-lightest-gray {
-		background-color: $calcite-lightest-gray;
-	}
-	.calcite-lighter-gray {
-		background-color: $calcite-lighter-gray;
-	}
-	.calcite-light-gray {
-		background-color: $calcite-light-gray;
-	}
-	.calcite-light-gray-50 {
-		background-color: rgba($calcite-light-gray, .5);
-	}
-	.calcite-light-gray-75 {
-		background-color: rgba($calcite-light-gray, .75);
-	}
-	.calcite-gray {
-		background-color: $calcite-gray;
-	}
-	.calcite-gray-50 {
-		background-color: rgba($calcite-gray, .5);
-	}
-	.calcite-gray-75 {
-		background-color: rgba($calcite-gray, .75);
-	}
-	.calcite-dark-gray {
-		background-color: $calcite-dark-gray;
-	}
-	.calcite-dark-gray-50 {
-		background-color: rgba($calcite-dark-gray, .5);
-	}
-	.calcite-dark-gray-75 {
-		background-color: rgba($calcite-dark-gray, .75);
-	}
-	.calcite-darker-gray {
-		background-color: $Calcite_Gray_550;
-	}
-	.calcite-darkest-gray {
-		background-color: $Calcite_Gray_600;
-	}
-	.calcite-off-black {
-		background-color: $Calcite_Gray_650;
-	}
-	.calcite-black {
-		background-color: $Calcite_Gray_700;
-	}
-	.calcite-true-black {
-		background-color: $calcite-true-black;
-	}
-	.calcite-trans-off-black {
-		background-color: $calcite-trans-off-black;
-	}
-	.calcite-trans-black {
-		background-color: $calcite-trans-black;
-	}
-	.calcite-light-blue {
-		background-color: $calcite-light-blue;
-	}
-	.calcite-light-blue-50 {
-		background-color: rgba($calcite-light-blue, .5);
-	}
-	.calcite-light-blue-75 {
-		background-color: rgba($calcite-light-blue, .75);
-	}
-	.calcite-blue {
-		background-color: $calcite-blue;
-	}
-	.calcite-blue-50 {
-		background-color: rgba($calcite-blue, .5);
-	}
-	.calcite-blue-75 {
-		background-color: rgba($calcite-blue, .75);
-	}
-	.calcite-dark-blue {
-		background-color: $calcite-dark-blue;
-	}
-	.calcite-dark-blue-50 {
-		background-color: rgba($calcite-dark-blue, .5);
-	}
-	.calcite-dark-blue-75 {
-		background-color: rgba($calcite-dark-blue, .75);
-	}
-	.calcite-light-green {
-		background-color: $calcite-light-green;
-	}
-	.calcite-light-green-50 {
-		background-color: rgba($calcite-light-green, .5);
-	}
-	.calcite-light-green-75 {
-		background-color: rgba($calcite-light-green, .75);
-	}
-	.calcite-green {
-		background-color: $calcite-green;
-	}
-	.calcite-green-50 {
-		background-color: rgba($calcite-green, .5);
-	}
-	.calcite-green-75 {
-		background-color: rgba($calcite-green, .75);
-	}
-	.calcite-dark-green {
-		background-color: $calcite-dark-green;
-	}
-	.calcite-dark-green-50 {
-		background-color: rgba($calcite-dark-green, .5);
-	}
-	.calcite-dark-green-75 {
-		background-color: rgba($calcite-dark-green, .75);
-	}
-	.calcite-light-red {
-		background-color: $calcite-light-red;
-	}
-	.calcite-light-red-50 {
-		background-color: rgba($calcite-light-red, .5);
-	}
-	.calcite-light-red-75 {
-		background-color: rgba($calcite-light-red, .75);
-	}
-	.calcite-red {
-		background-color: $calcite-red;
-	}
-	.calcite-red-50 {
-		background-color: rgba($calcite-red, .5);
-	}
-	.calcite-red-75 {
-		background-color: rgba($calcite-red, .75);
-	}
-	.calcite-dark-red {
-		background-color: $calcite-dark-red;
-	}
-	.calcite-dark-red-50 {
-		background-color: rgba($calcite-dark-red, .5);
-	}
-	.calcite-dark-red-75 {
-		background-color: rgba($calcite-dark-red, .75);
-	}
-	.calcite-light-orange {
-		background-color: $calcite-light-orange;
-	}
-	.calcite-light-orange-50 {
-		background-color: rgba($calcite-light-orange, .5);
-	}
-	.calcite-light-orange-75 {
-		background-color: rgba($calcite-light-orange, .75);
-	}
-	.calcite-orange {
-		background-color: $calcite-orange;
-	}
-	.calcite-orange-50 {
-		background-color: rgba($calcite-orange, .5);
-	}
-	.calcite-orange-75 {
-		background-color: rgba($calcite-orange, .75);
-	}
-	.calcite-orange-dark {
-		background-color: $calcite-dark-orange;
-	}
-	.calcite-orange-dark-50 {
-		background-color: rgba($calcite-dark-orange, .5);
-	}
-	.calcite-orange-dark-75 {
-		background-color: rgba($calcite-dark-orange, .75);
-	}
-	.calcite-light-yellow {
-		background-color: $calcite-light-yellow;
-	}
-	.calcite-light-yellow-50 {
-		background-color: rgba($calcite-light-yellow, .5);
-	}
-	.calcite-light-yellow-75 {
-		background-color: rgba($calcite-light-yellow, .75);
-	}
-	.calcite-yellow {
-		background-color: $calcite-yellow;
-	}
-	.calcite-yellow-50 {
-		background-color: rgba($calcite-yellow, .5);
-	}
-	.calcite-yellow-75 {
-		background-color: rgba($calcite-yellow, .75);
-	}
-	.calcite-yellow-dark {
-		background-color: $calcite-dark-yellow;
-	}
-	.calcite-yellow-dark-50 {
-		background-color: rgba($calcite-dark-yellow, .5);
-	}
-	.calcite-yellow-dark-75 {
-		background-color: rgba($calcite-dark-yellow, .75);
-	}
-	.calcite-light-purple {
-		background-color: $calcite-light-purple;
-	}
-	.calcite-light-purple-50 {
-		background-color: rgba($calcite-light-purple, .5);
-	}
-	.calcite-light-purple-75 {
-		background-color: rgba($calcite-light-purple, .75);
-	}
-	.calcite-purple {
-		background-color: $calcite-purple;
-	}
-	.calcite-purple-50 {
-		background-color: rgba($calcite-purple, .5);
-	}
-	.calcite-purple-75 {
-		background-color: rgba($calcite-purple, .75);
-	}
-	.calcite-dark-purple {
-		background-color: $calcite-dark-purple;
-	}
-	.calcite-dark-purple-50 {
-		background-color: rgba($calcite-dark-purple, .5);
-	}
-	.calcite-dark-purple-75 {
-		background-color: rgba($calcite-dark-purple, .75);
-	}
-	.calcite-light-brown {
-		background-color: $calcite-light-brown;
-	}
-	.calcite-light-brown-50 {
-		background-color: rgba($calcite-light-brown, .5);
-	}
-	.calcite-light-brown-75 {
-		background-color: rgba($calcite-light-brown, .75);
-	}
-	.calcite-brown {
-		background-color: $calcite-brown;
-	}
-	.calcite-brown-50 {
-		background-color: rgba($calcite-brown, .5);
-	}
-	.calcite-brown-75 {
-		background-color: rgba($calcite-brown, .75);
-	}
-	.calcite-dark-brown {
-		background-color: $calcite-dark-brown;
-	}
-	.calcite-dark-brown-50 {
-		background-color: rgba($calcite-dark-brown, .5);
-	}
-	.calcite-dark-brown-75 {
-		background-color: rgba($calcite-dark-brown, .75);
-	}
+  // Transparent
+
+  .calcite-transparent {
+    background-color: rgba($Calcite_True_Black, 0) !important;
+  }
+  
+  // White
+
+  .calcite-white {
+    background-color: $Calcite_Gray_050 !important;
+  }
+  .calcite-white-50 {
+    background-color: rgba($Calcite_Gray_050, .5) !important;
+  }
+  .calcite-white-75 {
+    background-color: rgba($Calcite_Gray_050, .75) !important;
+  }
+  .calcite-off-white {
+    background-color: $Calcite_Gray_100 !important;
+  }
+
+  // Gray
+
+  .calcite-lightest-gray {
+    background-color: $Calcite_Gray_200 !important;
+  }
+  .calcite-lighter-gray {
+    background-color: $Calcite_Gray_350 !important;
+  }
+  .calcite-light-gray {
+    background-color: $Calcite_Gray_400 !important;
+  }
+  .calcite-light-gray-50 {
+    background-color: rgba($Calcite_Gray_400, .5) !important;
+  }
+  .calcite-light-gray-75 {
+    background-color: rgba($Calcite_Gray_400, .75) !important;
+  }
+  .calcite-gray {
+    background-color: $Calcite_Gray_450 !important;
+  }
+  .calcite-gray-50 {
+    background-color: rgba($Calcite_Gray_450, .5) !important;
+  }
+  .calcite-gray-75 {
+    background-color: rgba($Calcite_Gray_450, .75) !important;
+  }
+  .calcite-dark-gray {
+    background-color: $Calcite_Gray_500 !important;
+  }
+  .calcite-dark-gray-50 {
+    background-color: rgba($Calcite_Gray_500, .5) !important;
+  }
+  .calcite-dark-gray-75 {
+    background-color: rgba($Calcite_Gray_500, .75) !important;
+  }
+  .calcite-darker-gray {
+    background-color: $Calcite_Gray_550 !important;
+  }
+  .calcite-darkest-gray {
+    background-color: $Calcite_Gray_600 !important;
+  }
+
+  // Black
+  
+  .calcite-off-black {
+    background-color: $Calcite_Gray_650 !important;
+  }
+  .calcite-black {
+    background-color: $Calcite_Gray_700 !important;
+  }
+  .calcite-true-black {
+    background-color: $Calcite_True_Black !important;
+  }
+  .calcite-black-50 {
+    background-color: rgba($Calcite_True_Black, .5) !important;
+  }
+  .calcite-black-75 {
+    background-color: rgba($Calcite_True_Black, .5) !important;
+  }
+
+  // Blue
+  
+  .calcite-light-blue {
+    background-color: $Calcite_Blue_100 !important;
+  }
+  .calcite-light-blue-50 {
+    background-color: rgba($Calcite_Blue_100, .5) !important;
+  }
+  .calcite-light-blue-75 {
+    background-color: rgba($Calcite_Blue_100, .75) !important;
+  }
+  .calcite-blue {
+    background-color: $Calcite_Blue_250 !important;
+  }
+  .calcite-blue-50 {
+    background-color: rgba($Calcite_Blue_250, .5) !important;
+  }
+  .calcite-blue-75 {
+    background-color: rgba($Calcite_Blue_250, .75) !important;
+  }
+  .calcite-dark-blue {
+    background-color: $Calcite_Blue_a250 !important;
+  }
+  .calcite-dark-blue-50 {
+    background-color: rgba($Calcite_Blue_a250, .5) !important;
+  }
+  .calcite-dark-blue-75 {
+    background-color: rgba($Calcite_Blue_a250, .75) !important;
+  }
+
+  // Green
+  
+  .calcite-light-green {
+    background-color: $Calcite_Green_100 !important;
+  }
+  .calcite-light-green-50 {
+    background-color: rgba($Calcite_Green_100, .5) !important;
+  }
+  .calcite-light-green-75 {
+    background-color: rgba($Calcite_Green_100, .75) !important;
+  }
+  .calcite-green {
+    background-color: $Calcite_Green_250 !important;
+  }
+  .calcite-green-50 {
+    background-color: rgba($Calcite_Green_250, .5) !important;
+  }
+  .calcite-green-75 {
+    background-color: rgba($Calcite_Green_250, .75) !important;
+  }
+  .calcite-dark-green {
+    background-color: $Calcite_Green_a250 !important;
+  }
+  .calcite-dark-green-50 {
+    background-color: rgba($Calcite_Green_a250, .5) !important;
+  }
+  .calcite-dark-green-75 {
+    background-color: rgba($Calcite_Green_a250, .75) !important;
+  }
+
+  // Red
+  
+  .calcite-light-red {
+    background-color: $Calcite_Red_150 !important;
+  }
+  .calcite-light-red-50 {
+    background-color: rgba($Calcite_Red_150, .5) !important;
+  }
+  .calcite-light-red-75 {
+    background-color: rgba($Calcite_Red_150, .75) !important;
+  }
+  .calcite-red {
+    background-color: $Calcite_Red_250 !important;
+  }
+  .calcite-red-50 {
+    background-color: rgba($Calcite_Red_250, .5) !important;
+  }
+  .calcite-red-75 {
+    background-color: rgba($Calcite_Red_250, .75) !important;
+  }
+  .calcite-dark-red {
+    background-color: $Calcite_Red_a250 !important;
+  }
+  .calcite-dark-red-50 {
+    background-color: rgba($Calcite_Red_a250, .5) !important;
+  }
+  .calcite-dark-red-75 {
+    background-color: rgba($Calcite_Red_a250, .75) !important;
+  }
+
+  // Orange
+  
+  .calcite-light-orange {
+    background-color: $Calcite_Orange_150 !important;
+  }
+  .calcite-light-orange-50 {
+    background-color: rgba($Calcite_Orange_150, .5) !important;
+  }
+  .calcite-light-orange-75 {
+    background-color: rgba($Calcite_Orange_150, .75) !important;
+  }
+  .calcite-orange {
+    background-color: $Calcite_Orange_a200 !important;
+  }
+  .calcite-orange-50 {
+    background-color: rgba($Calcite_Orange_a200, .5) !important;
+  }
+  .calcite-orange-75 {
+    background-color: rgba($Calcite_Orange_a200, .75) !important;
+  }
+  .calcite-orange-dark {
+    background-color: $Calcite_Orange_a150 !important;
+  }
+  .calcite-orange-dark-50 {
+    background-color: rgba($Calcite_Orange_a150, .5) !important;
+  }
+  .calcite-orange-dark-75 {
+    background-color: rgba($Calcite_Orange_a150, .75) !important;
+  }
+
+  // Yellow
+  
+  .calcite-light-yellow {
+    background-color: $Calcite_Yellow_150 !important;
+  }
+  .calcite-light-yellow-50 {
+    background-color: rgba($Calcite_Yellow_150, .5) !important;
+  }
+  .calcite-light-yellow-75 {
+    background-color: rgba($Calcite_Yellow_150, .75) !important;
+  }
+  .calcite-yellow {
+    background-color: $Calcite_Yellow_200 !important;
+  }
+  .calcite-yellow-50 {
+    background-color: rgba($Calcite_Yellow_200, .5) !important;
+  }
+  .calcite-yellow-75 {
+    background-color: rgba($Calcite_Yellow_200, .75) !important;
+  }
+  .calcite-yellow-dark {
+    background-color: $Calcite_Yellow_a150 !important;
+  }
+  .calcite-yellow-dark-50 {
+    background-color: rgba($Calcite_Yellow_a150, .5) !important;
+  }
+  .calcite-yellow-dark-75 {
+    background-color: rgba($Calcite_Yellow_a150, .75) !important;
+  }
+
+  // Purple
+  
+  .calcite-light-purple {
+    background-color: $Calcite_Purple_150 !important;
+  }
+  .calcite-light-purple-50 {
+    background-color: rgba($Calcite_Purple_150, .5) !important;
+  }
+  .calcite-light-purple-75 {
+    background-color: rgba($Calcite_Purple_150, .75) !important;
+  }
+  .calcite-purple {
+    background-color: $Calcite_Purple_200 !important;
+  }
+  .calcite-purple-50 {
+    background-color: rgba($Calcite_Purple_200, .5) !important;
+  }
+  .calcite-purple-75 {
+    background-color: rgba($Calcite_Purple_200, .75) !important;
+  }
+  .calcite-dark-purple {
+    background-color: $Calcite_Purple_a150 !important;
+  }
+  .calcite-dark-purple-50 {
+    background-color: rgba($Calcite_Purple_a150, .5) !important;
+  }
+  .calcite-dark-purple-75 {
+    background-color: rgba($Calcite_Purple_a150, .75) !important;
+  }
+
+  // Brown
+  
+  .calcite-light-brown {
+    background-color: $Calcite_Brown_150 !important;
+  }
+  .calcite-light-brown-50 {
+    background-color: rgba($Calcite_Brown_150, .5) !important;
+  }
+  .calcite-light-brown-75 {
+    background-color: rgba($Calcite_Brown_150, .75) !important;
+  }
+  .calcite-brown {
+    background-color: $Calcite_Brown_250 !important;
+  }
+  .calcite-brown-50 {
+    background-color: rgba($Calcite_Brown_250, .5) !important;
+  }
+  .calcite-brown-75 {
+    background-color: rgba($Calcite_Brown_250, .75) !important;
+  }
+  .calcite-dark-brown {
+    background-color: $Calcite_Brown_a200 !important;
+  }
+  .calcite-dark-brown-50 {
+    background-color: rgba($Calcite_Brown_a200, .5) !important;
+  }
+  .calcite-dark-brown-75 {
+    background-color: rgba($Calcite_Brown_a200, .75) !important;
+  }
 }

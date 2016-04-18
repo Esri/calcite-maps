@@ -1,0 +1,64 @@
+// ┌───────────────────────┐
+// │ ArcGIS JS 4.x Support │
+// └───────────────────────┘
+//
+// Themes and layout for widgets
+
+@import "../variables";
+
+.calcite-maps {
+
+  // Font (optional)
+  // .esri-widget {
+  //  font-family: "Avenir Next W01";
+  // }
+
+  // Calcite dark widget theme
+
+  &.calcite-widgets-dark {
+    .esri-widget.esri-search,
+    .esri-widget .esri-popup,
+    .esri-widget .esri-menu,
+    .esri-widget-button,
+    .esri-popup .esri-popup-main,
+    .esri-popup .esri-pointer .esri-pointer-direction,
+    .esri-popup .esri-button {
+      background-color: $theme_dark_control_bg;
+      color: $theme_dark_control_text_color;
+    }
+    .esri-widget-button:focus,
+    .esri-widget-button:hover,
+    .esri-widget .esri-menu li:focus,
+    .esri-widget .esri-menu li:hover {
+      background-color: $theme_dark_control_bg_hover;
+      color: $theme_dark_control_text_color_hover;
+    }
+    .esri-popup .esri-button:focus,
+    .esri-popup .esri-button:hover {
+      color: $theme_dark_control_text_color_hover;  
+    }
+  }
+
+  // Attribution Widget - top and bottom
+
+  &.nav-position-top .esri-attribution,
+  &.nav-position-top-fixed .esri-attribution {
+      top: auto;
+      bottom: 0;
+  }
+
+  &.nav-position-bottom .esri-attribution,
+  &.nav-position-bottom-fixed .esri-attribution {
+      top: 0;
+      bottom: auto;
+  }
+
+  // Search Widget Menu - display upwards
+
+  &.nav-position-bottom .navbar .esri-widget .esri-menu,
+  &.nav-position-bottom-fixed .navbar .esri-widget .esri-menu {
+    top: auto;
+    bottom: 36px;
+  }
+
+}

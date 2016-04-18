@@ -1,5 +1,5 @@
 # Calcite Maps
-A modern framework for designing map apps with Bootstrap. 
+A framework for building map apps with Calcite styles and Bootstrap. 
 
 This project contains a custom Sass build and Calcite styles, colors and layouts specifically for designing map apps with Bootstrap. The build uses the minimum components from [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) (a custom theme for [Bootstrap](http://www.getbootstrap.com)) in order to maximize performance. Calcite Maps also extends core [Bootstrap components](http://getbootstrap.com) such as the navbar and panels to make them more map app-friendly. Different app designs can be created very easily simply by applying styles to the ```body``` and ```navbar``` elements. e.g. ```nav-position-top``` ```calcite-dark-blue```. Custom themes can also be created and shared easily by assembling style sets for different layouts.
 

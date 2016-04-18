@@ -1,12 +1,17 @@
 // ┌──────────────┐
 // │ Calcite Maps │
 // └──────────────┘
-// Map app-specific overrides for Calcite-Bootstrap
+// Map app-specific overrides for Bootstrap
 
-@import 'colors.scss';
-@import 'carousel.scss';
-@import 'map-position.scss';
-@import 'navbar-themes.scss';
-@import 'navbar.scss';
-@import 'panel.scss';
-@import 'tooltip.scss';
+@import 'variables';
+@import 'map-position';
+@import 'navbar-position';
+@import 'panel-position';
+@import 'navbar';
+@import 'navbar-dark';
+@import 'navbar-light';
+@import 'panel';
+@import 'panel-dark';
+@import 'panel-light';
+@import 'carousel';
+@import 'tooltip';

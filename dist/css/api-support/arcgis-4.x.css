@@ -1,0 +1,293 @@
+.calcite-maps .calcite-transparent {
+  background-color: transparent !important; }
+
+.calcite-maps .calcite-white {
+  background-color: #ffffff !important; }
+
+.calcite-maps .calcite-white-50 {
+  background-color: rgba(255, 255, 255, 0.5) !important; }
+
+.calcite-maps .calcite-white-75 {
+  background-color: rgba(255, 255, 255, 0.75) !important; }
+
+.calcite-maps .calcite-off-white {
+  background-color: #f8f8f8 !important; }
+
+.calcite-maps .calcite-lightest-gray {
+  background-color: #efefef !important; }
+
+.calcite-maps .calcite-lighter-gray {
+  background-color: #cccccc !important; }
+
+.calcite-maps .calcite-light-gray {
+  background-color: #a9a9a9 !important; }
+
+.calcite-maps .calcite-light-gray-50 {
+  background-color: rgba(169, 169, 169, 0.5) !important; }
+
+.calcite-maps .calcite-light-gray-75 {
+  background-color: rgba(169, 169, 169, 0.75) !important; }
+
+.calcite-maps .calcite-gray {
+  background-color: #959595 !important; }
+
+.calcite-maps .calcite-gray-50 {
+  background-color: rgba(149, 149, 149, 0.5) !important; }
+
+.calcite-maps .calcite-gray-75 {
+  background-color: rgba(149, 149, 149, 0.75) !important; }
+
+.calcite-maps .calcite-dark-gray {
+  background-color: #828282 !important; }
+
+.calcite-maps .calcite-dark-gray-50 {
+  background-color: rgba(130, 130, 130, 0.5) !important; }
+
+.calcite-maps .calcite-dark-gray-75 {
+  background-color: rgba(130, 130, 130, 0.75) !important; }
+
+.calcite-maps .calcite-darker-gray {
+  background-color: #6e6e6e !important; }
+
+.calcite-maps .calcite-darkest-gray {
+  background-color: #595959 !important; }
+
+.calcite-maps .calcite-off-black {
+  background-color: #4c4c4c !important; }
+
+.calcite-maps .calcite-black {
+  background-color: #323232 !important; }
+
+.calcite-maps .calcite-true-black {
+  background-color: #000000 !important; }
+
+.calcite-maps .calcite-black-50 {
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.calcite-maps .calcite-black-75 {
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.calcite-maps .calcite-light-blue {
+  background-color: #d2e9f9 !important; }
+
+.calcite-maps .calcite-light-blue-50 {
+  background-color: rgba(210, 233, 249, 0.5) !important; }
+
+.calcite-maps .calcite-light-blue-75 {
+  background-color: rgba(210, 233, 249, 0.75) !important; }
+
+.calcite-maps .calcite-blue {
+  background-color: #56a5d8 !important; }
+
+.calcite-maps .calcite-blue-50 {
+  background-color: rgba(86, 165, 216, 0.5) !important; }
+
+.calcite-maps .calcite-blue-75 {
+  background-color: rgba(86, 165, 216, 0.75) !important; }
+
+.calcite-maps .calcite-dark-blue {
+  background-color: #196fa6 !important; }
+
+.calcite-maps .calcite-dark-blue-50 {
+  background-color: rgba(25, 111, 166, 0.5) !important; }
+
+.calcite-maps .calcite-dark-blue-75 {
+  background-color: rgba(25, 111, 166, 0.75) !important; }
+
+.calcite-maps .calcite-light-green {
+  background-color: #ddeedb !important; }
+
+.calcite-maps .calcite-light-green-50 {
+  background-color: rgba(221, 238, 219, 0.5) !important; }
+
+.calcite-maps .calcite-light-green-75 {
+  background-color: rgba(221, 238, 219, 0.75) !important; }
+
+.calcite-maps .calcite-green {
+  background-color: #5a9359 !important; }
+
+.calcite-maps .calcite-green-50 {
+  background-color: rgba(90, 147, 89, 0.5) !important; }
+
+.calcite-maps .calcite-green-75 {
+  background-color: rgba(90, 147, 89, 0.75) !important; }
+
+.calcite-maps .calcite-dark-green {
+  background-color: #275e26 !important; }
+
+.calcite-maps .calcite-dark-green-50 {
+  background-color: rgba(39, 94, 38, 0.5) !important; }
+
+.calcite-maps .calcite-dark-green-75 {
+  background-color: rgba(39, 94, 38, 0.75) !important; }
+
+.calcite-maps .calcite-light-red {
+  background-color: #e4a793 !important; }
+
+.calcite-maps .calcite-light-red-50 {
+  background-color: rgba(228, 167, 147, 0.5) !important; }
+
+.calcite-maps .calcite-light-red-75 {
+  background-color: rgba(228, 167, 147, 0.75) !important; }
+
+.calcite-maps .calcite-red {
+  background-color: #c6542d !important; }
+
+.calcite-maps .calcite-red-50 {
+  background-color: rgba(198, 84, 45, 0.5) !important; }
+
+.calcite-maps .calcite-red-75 {
+  background-color: rgba(198, 84, 45, 0.75) !important; }
+
+.calcite-maps .calcite-dark-red {
+  background-color: #8c2907 !important; }
+
+.calcite-maps .calcite-dark-red-50 {
+  background-color: rgba(140, 41, 7, 0.5) !important; }
+
+.calcite-maps .calcite-dark-red-75 {
+  background-color: rgba(140, 41, 7, 0.75) !important; }
+
+.calcite-maps .calcite-light-orange {
+  background-color: #f6ca92 !important; }
+
+.calcite-maps .calcite-light-orange-50 {
+  background-color: rgba(246, 202, 146, 0.5) !important; }
+
+.calcite-maps .calcite-light-orange-75 {
+  background-color: rgba(246, 202, 146, 0.75) !important; }
+
+.calcite-maps .calcite-orange {
+  background-color: #d17e21 !important; }
+
+.calcite-maps .calcite-orange-50 {
+  background-color: rgba(209, 126, 33, 0.5) !important; }
+
+.calcite-maps .calcite-orange-75 {
+  background-color: rgba(209, 126, 33, 0.75) !important; }
+
+.calcite-maps .calcite-orange-dark {
+  background-color: #e8912e !important; }
+
+.calcite-maps .calcite-orange-dark-50 {
+  background-color: rgba(232, 145, 46, 0.5) !important; }
+
+.calcite-maps .calcite-orange-dark-75 {
+  background-color: rgba(232, 145, 46, 0.75) !important; }
+
+.calcite-maps .calcite-light-yellow {
+  background-color: #efe397 !important; }
+
+.calcite-maps .calcite-light-yellow-50 {
+  background-color: rgba(239, 227, 151, 0.5) !important; }
+
+.calcite-maps .calcite-light-yellow-75 {
+  background-color: rgba(239, 227, 151, 0.75) !important; }
+
+.calcite-maps .calcite-yellow {
+  background-color: #e4d154 !important; }
+
+.calcite-maps .calcite-yellow-50 {
+  background-color: rgba(228, 209, 84, 0.5) !important; }
+
+.calcite-maps .calcite-yellow-75 {
+  background-color: rgba(228, 209, 84, 0.75) !important; }
+
+.calcite-maps .calcite-yellow-dark {
+  background-color: #d9bf2b !important; }
+
+.calcite-maps .calcite-yellow-dark-50 {
+  background-color: rgba(217, 191, 43, 0.5) !important; }
+
+.calcite-maps .calcite-yellow-dark-75 {
+  background-color: rgba(217, 191, 43, 0.75) !important; }
+
+.calcite-maps .calcite-light-purple {
+  background-color: #c4bcdc !important; }
+
+.calcite-maps .calcite-light-purple-50 {
+  background-color: rgba(196, 188, 220, 0.5) !important; }
+
+.calcite-maps .calcite-light-purple-75 {
+  background-color: rgba(196, 188, 220, 0.75) !important; }
+
+.calcite-maps .calcite-purple {
+  background-color: #9081bc !important; }
+
+.calcite-maps .calcite-purple-50 {
+  background-color: rgba(144, 129, 188, 0.5) !important; }
+
+.calcite-maps .calcite-purple-75 {
+  background-color: rgba(144, 129, 188, 0.75) !important; }
+
+.calcite-maps .calcite-dark-purple {
+  background-color: #7461a8 !important; }
+
+.calcite-maps .calcite-dark-purple-50 {
+  background-color: rgba(116, 97, 168, 0.5) !important; }
+
+.calcite-maps .calcite-dark-purple-75 {
+  background-color: rgba(116, 97, 168, 0.75) !important; }
+
+.calcite-maps .calcite-light-brown {
+  background-color: #d2b38f !important; }
+
+.calcite-maps .calcite-light-brown-50 {
+  background-color: rgba(210, 179, 143, 0.5) !important; }
+
+.calcite-maps .calcite-light-brown-75 {
+  background-color: rgba(210, 179, 143, 0.75) !important; }
+
+.calcite-maps .calcite-brown {
+  background-color: #a57946 !important; }
+
+.calcite-maps .calcite-brown-50 {
+  background-color: rgba(165, 121, 70, 0.5) !important; }
+
+.calcite-maps .calcite-brown-75 {
+  background-color: rgba(165, 121, 70, 0.75) !important; }
+
+.calcite-maps .calcite-dark-brown {
+  background-color: #8c5e2a !important; }
+
+.calcite-maps .calcite-dark-brown-50 {
+  background-color: rgba(140, 94, 42, 0.5) !important; }
+
+.calcite-maps .calcite-dark-brown-75 {
+  background-color: rgba(140, 94, 42, 0.75) !important; }
+
+.calcite-maps.calcite-widgets-dark .esri-widget.esri-search,
+.calcite-maps.calcite-widgets-dark .esri-widget .esri-popup,
+.calcite-maps.calcite-widgets-dark .esri-widget .esri-menu,
+.calcite-maps.calcite-widgets-dark .esri-widget-button,
+.calcite-maps.calcite-widgets-dark .esri-popup .esri-popup-main,
+.calcite-maps.calcite-widgets-dark .esri-popup .esri-pointer .esri-pointer-direction,
+.calcite-maps.calcite-widgets-dark .esri-popup .esri-button {
+  background-color: #242424;
+  color: #bdbdbd; }
+
+.calcite-maps.calcite-widgets-dark .esri-widget-button:focus,
+.calcite-maps.calcite-widgets-dark .esri-widget-button:hover,
+.calcite-maps.calcite-widgets-dark .esri-widget .esri-menu li:focus,
+.calcite-maps.calcite-widgets-dark .esri-widget .esri-menu li:hover {
+  background-color: #333333;
+  color: #d1d1d1; }
+
+.calcite-maps.calcite-widgets-dark .esri-popup .esri-button:focus,
+.calcite-maps.calcite-widgets-dark .esri-popup .esri-button:hover {
+  color: #d1d1d1; }
+
+.calcite-maps.nav-position-top .esri-attribution,
+.calcite-maps.nav-position-top-fixed .esri-attribution {
+  top: auto;
+  bottom: 0; }
+
+.calcite-maps.nav-position-bottom .esri-attribution,
+.calcite-maps.nav-position-bottom-fixed .esri-attribution {
+  top: 0;
+  bottom: auto; }
+
+.calcite-maps.nav-position-bottom .navbar .esri-widget .esri-menu,
+.calcite-maps.nav-position-bottom-fixed .navbar .esri-widget .esri-menu {
+  top: auto;
+  bottom: 36px; }
