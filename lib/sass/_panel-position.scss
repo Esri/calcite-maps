@@ -6,115 +6,115 @@
 
 .calcite-maps {
 
-	.panel-container {
-		position: absolute;
-		top: 15px;
-		right: 15px;
-		width: $panel_width;
-		z-index: 50;
-	}
+  .panel-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: $panel_width;
+    z-index: 50;
+  }
 
-	&.panel-right .panel-container {
-		left: auto;
-		right: 15px;
-	}
+  &.panel-right .panel-container {
+    left: auto;
+    right: 15px;
+  }
 
-	&.panel-left .panel-container {
-		left: 15px;
-		right: auto;
-	}
+  &.panel-left .panel-container {
+    left: 15px;
+    right: auto;
+  }
 
-	// Layouts
+  // Layouts
 
-	// Panel - Top 
-	&.nav-position-top.nav-space-none .panel-container,
-	&.nav-position-top.nav-space-bottom .panel-container,
-	&.nav-position-top-fixed.nav-space-none .panel-container {
-		top: 80px;
-	}
+  // Panel - Top 
+  &.nav-position-top.nav-space-none .panel-container,
+  &.nav-position-top.nav-space-bottom .panel-container,
+  &.nav-position-top-fixed.nav-space-none .panel-container {
+    top: 80px;
+  }
 
-	&.nav-position-top.nav-space-top .panel-container, 
-	&.nav-position-top.nav-space-all .panel-container {
-		top: 95px;
-	}
+  &.nav-position-top.nav-space-top .panel-container, 
+  &.nav-position-top.nav-space-all .panel-container {
+    top: 95px;
+  }
 
-	&.nav-position-top.is-minibar .panel-container {
-		top: 15px;
-	}
+  &.nav-position-top.is-minibar .panel-container {
+    top: 15px;
+  }
 
-	&.nav-position-top.nav-space-top.is-minibar .panel-container, 
-	&.nav-position-top.nav-space-all.is-minibar .panel-container {
-		top: 15px;
-		right: 15px;
-	}
+  &.nav-position-top.nav-space-top.is-minibar .panel-container, 
+  &.nav-position-top.nav-space-all.is-minibar .panel-container {
+    top: 15px;
+    right: 15px;
+  }
 
-	&.nav-position-top.is-minibar.panel-left .panel-container {
-		top: 80px;
-		//right: 0;
-	}
+  &.nav-position-top.is-minibar.panel-left .panel-container {
+    top: 80px;
+    //right: 0;
+  }
 
-	&.nav-position-top.nav-space-top.panel-left.is-minibar .panel-container, 
-	&.nav-position-top.nav-space-all.panel-left.is-minibar .panel-container {
-		top: 95px;
-		right: auto;
-	}
+  &.nav-position-top.nav-space-top.panel-left.is-minibar .panel-container, 
+  &.nav-position-top.nav-space-all.panel-left.is-minibar .panel-container {
+    top: 95px;
+    right: auto;
+  }
 
-	// Panel - Bottom
-	&.nav-position-bottom .panel-container,
-	&.nav-position-bottom-fixed.nav-space-none .panel-container, 
-	&.nav-position-bottom.nav-space-top .panel-container, 
-	&.nav-position-bottom.nav-space-bottom .panel-container
-	&.nav-position-bottom.nav-space-all .panel-container {
-		top: 30px;
-	}
+  // Panel - Bottom
+  &.nav-position-bottom .panel-container,
+  &.nav-position-bottom-fixed.nav-space-none .panel-container, 
+  &.nav-position-bottom.nav-space-top .panel-container, 
+  &.nav-position-bottom.nav-space-bottom .panel-container
+  &.nav-position-bottom.nav-space-all .panel-container {
+    top: 30px;
+  }
 }
 
 // XSmall screens
 
 @media (max-width: 767px) {
-	.calcite-maps {
+  .calcite-maps {
 
-		// Panel - Reset
-		.panel-container,
-		&.panel-right .panel-container,
-		&.panel-left .panel-container {
-			right: 0;
-			left: 0;
-			width: $panel_width_mobile;
-		}
+    // Panel - Reset
+    .panel-container,
+    &.panel-right .panel-container,
+    &.panel-left .panel-container {
+      right: 0;
+      left: 0;
+      width: $panel_width_mobile;
+    }
 
-		// Panel - Top
-		&.nav-position-top.nav-space-none .panel-container,
-		&.nav-position-top.nav-space-bottom .panel-container,
-		&.nav-position-top-fixed.nav-space-none .panel-container,
-		&.nav-position-top.nav-space-top .panel-container,
-		&.nav-position-top.nav-space-all .panel-container,
-		&.nav-position-top.nav-space-top.is-minibar .panel-container,
-		&.nav-position-top.nav-space-all.is-minibar .panel-container {
-			top: auto;
-			bottom: 0;
-		}
+    // Panel - Top
+    &.nav-position-top.nav-space-none .panel-container,
+    &.nav-position-top.nav-space-bottom .panel-container,
+    &.nav-position-top-fixed.nav-space-none .panel-container,
+    &.nav-position-top.nav-space-top .panel-container,
+    &.nav-position-top.nav-space-all .panel-container,
+    &.nav-position-top.nav-space-top.is-minibar .panel-container,
+    &.nav-position-top.nav-space-all.is-minibar .panel-container {
+      top: auto;
+      bottom: 0;
+    }
 
-		&.nav-position-top.nav-space-all .panel-container {
-			top: 95px;
-			margin-left: 15px;
-			margin-right: 15px;
-		}
-			
-		// Panel - Bottom
-		&.nav-position-bottom .panel-container,
-		&.nav-position-bottom-fixed.nav-space-none .panel-container, 
-		&.nav-position-bottom.nav-space-top .panel-container, 
-		&.nav-position-bottom.nav-space-bottom .panel-container {
-			top: 0;
-			bottom: auto;
-		}
-		
-		&.nav-position-bottom.nav-space-all .panel-container {
-			top: 15px;
-			left: 15px;
-			right: 15px;
-		}
+    &.nav-position-top.nav-space-all .panel-container {
+      top: 95px;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+      
+    // Panel - Bottom
+    &.nav-position-bottom .panel-container,
+    &.nav-position-bottom-fixed.nav-space-none .panel-container, 
+    &.nav-position-bottom.nav-space-top .panel-container, 
+    &.nav-position-bottom.nav-space-bottom .panel-container {
+      top: 0;
+      bottom: auto;
+    }
+    
+    &.nav-position-bottom.nav-space-all .panel-container {
+      top: 15px;
+      left: 15px;
+      right: 15px;
+    }
 
-	}
+  }
 }

@@ -6,70 +6,70 @@
 
 .calcite-maps {
 
-	// Full body and map
-	&.nav-position-top,
-	&.nav-position-bottom {
-		top: 0;
-		bottom: 0;
-	}
+  // Full body and map
+  &.nav-position-top,
+  &.nav-position-bottom {
+    top: 0;
+    bottom: 0;
+  }
 
-	// Offset body and map
-	&.nav-position-top-fixed, 
-	&.nav-position-top-fixed .map-position-absolute {
-		top: $navbar_height;
-		bottom: 0;
-	}
+  // Offset body and map
+  &.nav-position-top-fixed, 
+  &.nav-position-top-fixed .map-position-absolute {
+    top: $navbar_height;
+    bottom: 0;
+  }
 
-	&.nav-position-bottom-fixed,
-	&.nav-position-bottom-fixed .map-position-absolute {
-		top: 0;
-		bottom: $navbar_height;
-	}
+  &.nav-position-bottom-fixed,
+  &.nav-position-bottom-fixed .map-position-absolute {
+    top: 0;
+    bottom: $navbar_height;
+  }
 
-	// Spacing
-	
-	&.nav-space-none .navbar {
-		margin: 0;
-	}
+  // Spacing
+  
+  &.nav-space-none .navbar {
+    margin: 0;
+  }
 
-	&.nav-space-top .navbar {
-		margin-top: $navbar_margin;
-		margin-bottom: 0;
-	}
+  &.nav-space-top .navbar {
+    margin-top: $navbar_margin;
+    margin-bottom: 0;
+  }
 
-	&.nav-space-bottom .navbar {
-		margin-top: 0;
-		margin-bottom: $navbar_margin;
-	}
+  &.nav-space-bottom .navbar {
+    margin-top: 0;
+    margin-bottom: $navbar_margin;
+  }
 
-	&.nav-space-all .navbar {
-		margin: $navbar_margin;
-	}
+  &.nav-space-all .navbar {
+    margin: $navbar_margin;
+  }
 
-	// Navbar - Minibar
+  // Navbar - Minibar
 
-	&.is-minibar .navbar,
-	&.is-minibar .navbar-collapse  {
-		right: auto;
-		background-color: transparent !important;
-	}
+  &.is-minibar .navbar,
+  &.is-minibar .navbar-collapse  {
+    right: auto;
+    background-color: transparent !important;
+  }
 }
 
 @media (max-width: 767px) {
-	.calcite-maps {
-		
-		// Minibar
+  .calcite-maps {
+    
+    // Minibar
 
-		&.nav-position-top.nav-space-all.is-minibar .navbar {
-		     margin-top: $navbar_margin; 
-		     margin-left: 30px; 
-		}
+    &.nav-position-top.nav-space-all.is-minibar .navbar {
+         margin-top: $navbar_margin; 
+         margin-left: 30px; 
+    }
 
-		&.nav-position-bottom.nav-space-all.is-minibar .navbar {
-		     margin-bottom: 0; 
-		     margin-left: 0; 
-		}
+    &.nav-position-bottom.nav-space-all.is-minibar .navbar {
+         margin-bottom: 0; 
+         margin-left: 0; 
+    }
 
-	}
+  }
 
 }

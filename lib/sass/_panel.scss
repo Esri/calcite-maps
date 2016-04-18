@@ -6,123 +6,123 @@
 
 .calcite-maps {
 
-	// Panel Group
+  // Panel Group
 
-	.panel-group {
-		margin-bottom: 0;
+  .panel-group {
+    margin-bottom: 0;
 
-		.panel-heading + .panel-collapse > .panel-body {
-			border: none;
-		}
-		
-		.panel + .panel {
-    	margin-top: 0;
-		}
-	}
-	
-	// Panel
+    .panel-heading + .panel-collapse > .panel-body {
+      border: none;
+    }
+    
+    .panel + .panel {
+      margin-top: 0;
+    }
+  }
+  
+  // Panel
 
-	.panel {
-		// position: relative;
-		margin-top: 0;
-		border: none;
-		font-size: $panel_font_size;
-	}
+  .panel {
+    // position: relative;
+    margin-top: 0;
+    border: none;
+    font-size: $panel_font_size;
+  }
 
-	// Heading
-	
-	.panel-heading {
-		padding: 0;
-	}
+  // Heading
+  
+  .panel-heading {
+    padding: 0;
+  }
 
-	.panel-title {
-		font-size: $panel_title_font_size;
-		font-weight: $panel_title_font_weight;	
-	}
+  .panel-title {
+    font-size: $panel_title_font_size;
+    font-weight: $panel_title_font_weight;  
+  }
 
-	.panel-toggle {
-		display: inline-block;
-		width: calc(100% - 37px);
-		padding: 10px 10px 9px;
-		text-decoration: none;
-		.glyphicon {
-			top: 2px;
-			margin: 0;
-		}
-	}
+  .panel-toggle {
+    display: inline-block;
+    width: calc(100% - 37px);
+    padding: 10px 10px 9px;
+    text-decoration: none;
+    .glyphicon {
+      top: 2px;
+      margin: 0;
+    }
+  }
 
-	.panel-close {
-		display: inline-flex;
-		float: right;
-		padding: 14px 10px 11px;
-		font-size: $panel_font_size - 1;
-		text-decoration: none;
-	}
+  .panel-close {
+    display: inline-flex;
+    float: right;
+    padding: 14px 10px 11px;
+    font-size: $panel_font_size - 1;
+    text-decoration: none;
+  }
 
-	// Body - specific Bootstrap overrides for map apps
+  // Body - specific Bootstrap overrides for map apps
 
-	.panel-body {
-		// position: relative;  // required by some inner controls
-		padding: 15px;
-		min-height: $panel_body_min_height;
-		max-height: $panel_body_max_height;
-		font-size: $panel_font_size;
-		overflow: auto;
-		border-top: none;
-		.btn {
-			padding: 6px 8px;
-			font-size: $panel_font_size;
-		}
-		.form-control {
-			height: 34px;
-			padding: 4px 8px;
-			font-size: $panel_font_size;
-		}
-		.form-title {
-			padding: 20px 0 5px;
-		}
-		.form-padding {
-			padding: 15px 0 0;
-		}
-		.nav-tabs > li > a {
-			padding: 6px 12px 4px;
-		}
-		.nav-tabs > li > a:hover {
-			padding-top: 5px;
-			border-top: 2px solid;
-		}
-	}
+  .panel-body {
+    // position: relative;  // required by some inner controls
+    padding: 15px;
+    min-height: $panel_body_min_height;
+    max-height: $panel_body_max_height;
+    font-size: $panel_font_size;
+    overflow: auto;
+    border-top: none;
+    .btn {
+      padding: 6px 8px;
+      font-size: $panel_font_size;
+    }
+    .form-control {
+      height: 34px;
+      padding: 4px 8px;
+      font-size: $panel_font_size;
+    }
+    .form-title {
+      padding: 20px 0 5px;
+    }
+    .form-padding {
+      padding: 15px 0 0;
+    }
+    .nav-tabs > li > a {
+      padding: 6px 12px 4px;
+    }
+    .nav-tabs > li > a:hover {
+      padding-top: 5px;
+      border-top: 2px solid;
+    }
+  }
 
-	.panel-overflow-visible {
-		overflow: visible;
-	}
+  .panel-overflow-visible {
+    overflow: visible;
+  }
 
-	// Panel animation
+  // Panel animation
 
-	.panel.collapsing {
-		-webkit-transition: height 0.01s;
-		-o-transition: height 0.01s;
-		transition: height 0.01s;
-	}
+  .panel.collapsing {
+    -webkit-transition: height 0.01s;
+    -o-transition: height 0.01s;
+    transition: height 0.01s;
+  }
 
-	// Panel body animation
+  // Panel body animation
 
-	.panel-collapse.collapsing {
-		-webkit-transition-timing-function: ease;
-		-o-transition-timing-function: ease;
-		transition-timing-function: ease;
-		-webkit-transition: height 0.25s;
-		-o-transition: height 0.25s;
-		transition: height 0.25s;
-	}
+  .panel-collapse.collapsing {
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition: height 0.25s;
+    -o-transition: height 0.25s;
+    transition: height 0.25s;
+  }
 }
 
 @media (max-width: 767px) {
-	.calcite-maps {
-			.panel-body {
-					min-height: $panel_body_min_height_mobile;
-					max-height: $panel_body_max_height_mobile;
-			}
-	}
+  .calcite-maps {
+      .panel-body {
+          min-height: $panel_body_min_height_mobile;
+          max-height: $panel_body_max_height_mobile;
+      }
+  }
 }
 
