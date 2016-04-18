@@ -1,0 +1,155 @@
+// ┌──────────────────────┐
+// │ Navbar Theme - Light │
+// └──────────────────────┘
+//
+// Minimum styles for navbar and dropdown menu (defaults)
+
+.calcite-maps {
+
+  .calcite-text-dark {
+
+  	// Navbar
+  	
+  	&.navbar {
+		 	background-color: $theme_light_navbar_bg;
+		}
+	  
+	  // Brand
+
+		.navbar-brand {
+			color: $theme_light_navbar_text_color;
+		}
+
+		.navbar-brand:hover,
+		.navbar-brand:focus {
+			background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color 100%);
+			transition: color 150ms linear, text-decoration 150ms linear;
+		}
+
+	  // Title/subtitle
+
+		.navbar-info {
+			color: $theme_light_navbar_text_color;
+		} 
+
+		.navbar-info:hover, 
+		.navbar-info:focus {
+			// color: $theme_light_nav_bg_hover;
+		}
+
+		// Toggle button
+
+		.navbar-toggle {
+			border-color: $theme_light_control_text_color;
+		}
+
+		.navbar-toggle .icon-bar {
+			background-color: $theme_light_control_text_color;
+		}
+
+		.navbar-toggle:hover,
+		.navbar-toggle:focus {
+			//background-color: $theme_light_control_bg_active;
+			background-color: transparent;
+			opacity: .75;
+		}
+
+		// Collapse
+
+		.navbar-collapse {
+			border-top: none;
+			box-shadow: none;
+
+			// Main nav
+			
+			.navbar-nav > li > a {
+				color: $theme_light_navbar_text_color;
+			}
+
+			.navbar-nav > li > a:hover,
+			.navbar-nav > li > a:focus,
+			.navbar-nav > .active > a,
+			.navbar-nav > .active > a:focus,
+			.navbar-nav > .active > a:hover,
+			.navbar-nav > .open > a,
+			.navbar-nav > .open > a:hover,
+			.navbar-nav > .open > a:focus  {
+				color: $theme_light_navbar_text_color_hover;
+				background-color: transparent;
+				background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color 100%);
+				transition: color 150ms linear, text-decoration 150ms linear;
+			}
+
+			.navbar-nav > .disabled > a,
+			.navbar-nav > .disabled > a:hover,
+			.navbar-nav > .disabled > a:focus {
+				background-color: transparent; 
+			}
+		}
+  }
+
+  // Dropdown menu
+	
+	.dropdown-menu {
+		background-color: $theme_light_menu_bg;
+		
+		li > a {
+			color: $theme_light_menu_text_color;
+		}
+
+		li > a:hover, 
+		li > a:focus {
+			color: $theme_light_menu_text_color;
+			background-color: $theme_light_menu_bg_hover;
+		}
+		
+		.active > a, 
+		.active > a:hover, 
+		.active > a:focus {
+			background-color: $theme_light_menu_bg_hover;
+		}		
+	}
+
+}
+
+// Nav bottom - decoration
+
+.calcite-maps {
+	&.nav-position-bottom,
+	&.nav-position-bottom-fixed {
+	  .calcite-text-dark {
+			.navbar-brand:hover,
+			.navbar-brand:focus,
+			.navbar-nav > li > a:hover,
+			.navbar-nav > li > a:focus,
+			.navbar-nav > .active > a,
+			.navbar-nav > .active > a:focus,
+			.navbar-nav > .active > a:hover,
+			.navbar-nav > .open > a,
+			.navbar-nav > .open > a:hover,
+			.navbar-nav > .open > a:focus {
+				background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color 100%);
+			}
+		}
+	}
+}
+
+// Dropdown menu
+
+@media (max-width: 767px) {
+	.calcite-maps {
+		.dropdown-menu {
+			background-color: transparent;
+		}
+		.dropdown-menu .active > a, 
+		.dropdown-menu .active > a:focus, 
+		.dropdown-menu .active > a:hover, 
+		.dropdown-menu li > a:focus, 
+		.dropdown-menu li > a:hover {
+			color: $theme_light_navbar_text_color_hover;
+			// background-color: transparent;
+		}
+	}
+}
+
+
