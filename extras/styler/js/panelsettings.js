@@ -6,597 +6,721 @@
  * ======================================================================== */
 
 define([ 
-	"esri/widgets/Zoom",
-	"esri/widgets/Home",
-	"esri/widgets/Locate",
-	"esri/widgets/Compass",
-	"esri/widgets/BasemapToggle",
-	"esri/widgets/Search",
-	"esri/views/ui/Component",
-	"esri/layers/FeatureLayer",
-	"esri/PopupTemplate",
-	"esri/geometry/Extent",
-	"esri/geometry/support/webMercatorUtils",
-	"esri/tasks/GeometryService",
-	"esri/tasks/support/ProjectParameters",
+  "esri/widgets/Zoom",
+  "esri/widgets/Home",
+  "esri/widgets/Locate",
+  "esri/widgets/Compass",
+  "esri/widgets/BasemapToggle",
+  "esri/widgets/Search",
+  "esri/views/ui/Component",
+  "esri/layers/FeatureLayer",
+  "esri/PopupTemplate",
+  "esri/geometry/Extent",
+  "esri/geometry/support/webMercatorUtils",
+  "esri/tasks/GeometryService",
+  "esri/tasks/support/ProjectParameters",
 
-	"dojo/query",
-	"dojo/dom-class",
-	"dojo/dom-style",
-	"dojo/touch",
-	"dojo/on",
-	"dojo/keys",
-	"dojo/domReady!"
+  "dojo/query",
+  "dojo/dom-class",
+  "dojo/dom-style",
+  "dojo/touch",
+  "dojo/on",
+  "dojo/keys",
+  "dojo/domReady!"
 ], function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Component, FeatureLayer, PopupTemplate, 
-	Extent, ProjectUtils, GeometryService, ProjectParams, query, domClass, domStyle, touch, on, keys) {
+  Extent, ProjectUtils, GeometryService, ProjectParams, query, domClass, domStyle, touch, on, keys) {
 
     // ================
-		// Panel - Settings
-		// ================
+    // Layouts
+    // ================
 
-		// Title
-		query("#titleButton").on("click", function() {
-    		query(".navbar-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
-    		query(".navbar-subtitle")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
-        });
+    APP_LAYOUT = {
+      TOP: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 65, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      },
+      TOPSPACE: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-top", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 80, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      }, 
+      TOPSPACEALL: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-all", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 80, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      }, 
+      TOPFIXED: {
+          navPosition: "nav-position-top-fixed", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 0, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      },
+      BOTTOM: {
+          navPosition: "nav-position-bottom", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 65 }, 
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      },
+      BOTTOMSPACE: {
+          navPosition: "nav-position-bottom", 
+          navSpace: "nav-space-bottom", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 80 }, 
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      }, 
+      BOTTOMSPACEALL: {
+          navPosition: "nav-position-bottom", 
+          navSpace: "nav-space-all", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 80 }, 
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      }, 
+      BOTTOMFIXED: {
+          navPosition: "nav-position-bottom-fixed", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 0 }, 
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      },
+      TOPJUMBO: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 120, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: "layout-jumbo-title"
+      },
+      BOTTOMJUMBO: {
+          navPosition: "nav-position-bottom", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 120 }, 
+          uiPadding: { top: 30, bottom: 30 },
+          layoutName: "layout-jumbo-title"
+      },
+      TOPINLINELEFT: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-all", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 0, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: "layout-inline-left"
+      },
+      TOPINLINERIGHT: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-all", 
+          panelPosition: "panel-left", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 0, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: "layout-inline-right"
+      }
+    }
 
-        // Map
-        query("#settings2dView").on("click", function(e) {
-        	domClass.toggle(query("#mapNav")[0], "hidden");
-        	domClass.toggle(query("#mapNavMenu")[0], "hidden");
-        })
-        query("#settings3dView").on("click", function(e) {
-        	domClass.toggle(query("#sceneNav")[0], "hidden");
-        	domClass.toggle(query("#sceneNavMenu")[0], "hidden");
-        })
+    // ================
+    // Tab - Title
+    // ================
 
-		// Color
-		query("#settingsColor").on("change", function(e) {
-		    var bgColor = e.target.options[e.target.selectedIndex].value,
-		        navStyle = e.target.options[e.target.selectedIndex].dataset.navstyle,
-						navStyleClass = "." + navStyle,
-						navbar = query(".navbar")[0];
-		    domClass.remove(navbar,"navbar-default navbar-inverse navbar-text-dark navbar-text-light");
-		    domClass.add(navbar, navStyle);
-			if (navStyle === "navbar-default" || navStyle === "navbar-inverse") {
-			    domStyle.set(navbar, "background-color", "");
-			} else {
-				domStyle.set(navbar, "background-color", bgColor);
-				query("#settingsTextColor").attr("value", navStyle);
-			}
-			if (bgColor !== "transparent") {
-			    on.emit(query("#settingsOpacity")[0], "change",  {
-			        bubbles: true,
-			        cancelable: true
-			    });
-			}		  
-		});
+    query("#titleButton").on("click", function() {
+    query(".navbar-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
+    query(".navbar-subtitle")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
+    });
 
-		// Widget colors/themes
-		query("#settingsColorWidgets").on("change", function(e) {
-		    var bgColor = e.target.options[e.target.selectedIndex].value,
-		        navStyle = e.target.options[e.target.selectedIndex].dataset.navstyle,
-						navStyleClass = "." + navStyle;
+    // ================
+    // Tab - Map
+    // ================
 
-				// Get default text colors for calcite colors
-        var textColor,
-        	focusColor; //TODO
-        if (navStyle === "navbar-text-dark") {
-        	textColor = "#323232";
-        	focusColor = "#595959";
-        } else {
-        	textColor = "#f8f8f8";
-        	focusColor = "#cccccc";
+    // Map
+    query("#settings2dView").on("click", function(e) {
+      domClass.toggle(query("#mapNav")[0], "hidden");
+      domClass.toggle(query("#mapNavMenu")[0], "hidden");
+    });
+    query("#settings3dView").on("click", function(e) {
+      domClass.toggle(query("#sceneNav")[0], "hidden");
+      domClass.toggle(query("#sceneNavMenu")[0], "hidden");
+    });
+
+
+    // ================
+    // Tab - Theme
+    // ================
+
+    // Theme - simple
+    query("#settingsTheme").on("change", function(e) {    
+      var theme = e.target.value;
+      var textColor = e.target.options[e.target.selectedIndex].dataset.textcolor;
+      query("body").removeClass("calcite-theme-dark").addClass(theme);
+      query("nav").removeClass("calcite-text-dark calcite-text-light").addClass(textColor);
+      // Remove background color
+      query("nav").removeClass("calcite-dark-blue-75 calcite-dark-green-75 calcite-dark-brown-75 calcite-black-75 calcite-white-75 calcite-transparent");
+      query("#settingsNavbar").attr("value", "");
+    });
+    // query("#settingsTheme").on("change", function(e) {   
+    //  var theme = e.target.value;
+    //  // Light
+    //  // if (theme === "calcite-theme-light") {
+    //  //  themeInfo = {
+    //  //    bg: "#ffffff", //widgets
+    //  //    text: "calcite-theme-light",
+    //  //    menu: "calcite-theme-light",
+    //  //    panel: "calcite-theme-light"
+    //  //  }
+    //  // } else { // Dark
+    //  //  themeInfo = {
+    //  //    bg: "#242424", //
+    //  //    text: "calcite-theme-dark",
+    //  //    menu: "calcite-theme-dark",
+    //  //    panel: "calcite-theme-dark"
+    //  //  }
+    //  // }
+    //  // Update theme
+    //  //query(".navbar").style("background-color", themeInfo.bg);
+    //  // query(".navbar").removeClass("calcite-theme-light calcite-theme-dark").addClass(themeInfo.text);
+    //  // query(".navbar .dropdown-menu").removeClass("calcite-theme-light calcite-theme-dark").addClass(themeInfo.menu);
+    //  // query(".panel").removeClass("calcite-theme-light calcite-theme-dark").addClass(themeInfo.panel);
+      
+    //  //query(".navbar, .navbar .dropdown-menu, .panel").removeClass("calcite-theme-light calcite-theme-dark").addClass(theme);
+
+    //  //query("#settingsColorWidgets").attr("value", themeInfo.bg);
+    //  // on.emit(query("#settingsColorWidgets")[0], "change",  {
+    //  //     bubbles: true,
+    //  //     cancelable: true
+    //  // });
+    // });
+
+    // Nav Color (nav)
+    // query("#settingsColor").on("change", function(e) {   
+    //  var bgColor = e.target.options[e.target.selectedIndex].value,
+  //       navStyle = e.target.options[e.target.selectedIndex].dataset.navstyle,
+    //    navStyleClass = "." + navStyle,
+    //    navbar = query(".navbar")[0];
+    //    //body = query("body")[0];
+
+    //  if (bgColor === "none") {
+    //    domStyle.set(navbar, "background-color", "");
+    //    // domStyle.set(body, "background-color", "");
+    //    return;
+    //  }
+      
+   //    // domClass.remove(body,"theme-light-nav theme-dark-nav");
+   //    // domClass.add(body, navStyle);
+      
+    //  domStyle.set(navbar, "background-color", bgColor);
+    //  // domStyle.set(body, "background-color", bgColor);
+    //  // Set the font color
+    //  query("#settingsNavTextColor").attr("value", navStyle);
+    //  on.emit(query("#settingsNavTextColor")[0], "change",  {
+    //      bubbles: true,
+    //      cancelable: true
+    //  });
+      
+    //  if (bgColor !== "transparent") {
+    //     on.emit(query("#settingsOpacity")[0], "change",  {
+    //         bubbles: true,
+    //         cancelable: true
+    //     });
+    //  } 
+    // });
+
+    // Navbar - set custom navbar color
+
+    query("#settingsNavbar").on("change", function(e) {    
+      var color = e.target.value;
+      var textColor =  e.target.options[e.target.selectedIndex].dataset.textcolor;
+      query("nav").removeClass("calcite-dark-blue-75 calcite-dark-green-75 calcite-dark-brown-75 calcite-black-75 calcite-white-75 calcite-transparent").addClass(color);
+      query("nav").removeClass("calcite-text-light calcite-text-dark").addClass(textColor);
+      if (!color) {
+        on.emit(query("#settingsTheme")[0], "change",  { bubbles: true, cancelable: true });
+      }
+    });
+
+    // Widgets - set light (default) or dark theme
+
+    query("#settingsWidgets").on("change", function(e) {    
+      var theme = e.target.value;
+      query("body").removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
+    });
+
+    // query("#settingsNavTextColor").on("change", function(e) {
+    //  var style = e.target.value,
+    //  //  body = query("body")[0];
+    //  // domClass.remove(body, "theme-light-nav theme-dark-nav");
+    //  // domClass.add(body, style);
+    //  navbar = query(".navbar")[0];
+    //  domClass.remove(navbar, "calcite-theme-light calcite-theme-dark");
+    //  domClass.add(navbar, style);
+    // });
+
+    // query("#settingsDropdownColor").on("change", function(e) {
+    //  var style = e.target.value,
+    //  //  body = query("body")[0];
+    //  // domClass.remove(body, "theme-light-nav theme-dark-nav");
+    //  // domClass.add(body, style);
+    //  navbar = query(".navbar .dropdown-menu")[0];
+    //  domClass.remove(navbar, "calcite-theme-light calcite-theme-dark");
+    //  domClass.add(navbar, style);
+    // });
+
+    // query("#settingsPanelColor").on("change", function(e) {
+    //  var style = e.target.value;
+    //  //  body = query("body")[0];
+    //  // domClass.remove(body, "theme-light-panel theme-dark-panel");
+    //  // domClass.add(body, style);
+    //  query(".panel").removeClass("calcite-theme-light calcite-theme-dark").addClass(style);
+
+    // });
+
+    // query("#settingsTextFont").on("change", function(e) {
+    //  var font = e.target.value;
+    //  domStyle.set(query("body")[0], "font-family", font);
+    // });
+
+
+    // // Opacity
+    // query("#settingsOpacity").on("change", function(e) {
+    //  var navbar = query(".navbar")[0];
+    //     var bgColor = domStyle.get(navbar, "background-color");
+    //     if(bgColor.indexOf('a') == -1){
+    //         bgColor = bgColor.replace(')', ', ' + parseFloat(e.target.value).toFixed(2) +')').replace('rgb', 'rgba');
+    //     } else {
+    //         bgColor = bgColor.replace(/[\d\.]+\)$/g, e.target.value + ')');
+    //     }
+    //     domStyle.set(navbar, {"background-color" : bgColor});
+    // });
+
+    // Widget colors/themes
+    // query("#settingsColorWidgets").on("change", function(e) {
+    //     var bgColor = e.target.options[e.target.selectedIndex].value,
+    //         navStyle = e.target.options[e.target.selectedIndex].dataset.navstyle,
+    //        navStyleClass = "." + navStyle;
+
+    //    // Get default text colors for calcite colors
+  //       var textColor,
+  //        focusColor; //TODO
+  //       if (navStyle === "calcite-theme-light") {
+  //        textColor = "#bdbdbd";
+  //        focusColor = "#595959";
+  //       } else {
+  //        textColor = "#6e6e6e";
+  //        focusColor = "#cccccc";
+  //       }
+
+  //       // Widget text color
+  //       var widgetClassesTextColor = ".esri-popup .esri-popup-main, .esri-popup .esri-button, .esri-popup .esri-page-text, .esri-popup .esri-title, .esri-widget, .esri-widget-button";
+    //    query(widgetClassesTextColor).style({ "color" : textColor });
+
+  //       // Widget background color
+  //       var widgetClassesBackground = ".esri-popup .esri-background, .esri-widget:not(:.esri-ripple), .esri-widget-button, .esri-widget .esri-menu, .esri-widget .esri-header";
+    //    query(widgetClassesBackground).style({ "background-color" : bgColor });
+
+    //    // Widget focus color
+    //    var widgetClassesFocusColor = ".esri-widget-button, .esri-widget .esri-menu li, ";
+    //    query(widgetClassesFocusColor).style({ ":hover" : focusColor, ":focus" : focusColor, ":active" : focusColor });
+       
+    // });
+
+    // ================
+    // Layout
+    // ================
+  
+    query("#settingsLayout").on("change", function(e) {
+      var theme = e.target.value;
+      // Add classes
+      switch (theme) {
+        // Default layouts
+        case "layout-top": // default
+          setLayout(APP_LAYOUT.TOP);
+          break;
+        case "layout-top-space":
+          setLayout(APP_LAYOUT.TOPSPACE);
+          break;
+        case "layout-top-space-all":
+          setLayout(APP_LAYOUT.TOPSPACEALL);
+          break;
+        case "layout-top-fixed":
+          setLayout(APP_LAYOUT.TOPFIXED);
+          break;
+        case "layout-bottom":
+          setLayout(APP_LAYOUT.BOTTOM);
+          break;
+        case "layout-bottom-space":
+          setLayout(APP_LAYOUT.BOTTOMSPACE);
+          break;
+        case "layout-bottom-space-all":
+          setLayout(APP_LAYOUT.BOTTOMSPACEALL);
+          break;
+        case "layout-bottom-fixed":
+          setLayout(APP_LAYOUT.BOTTOMFIXED);
+          break;
+        // Custom layouts
+        case "layout-jumbo-title-top":
+          setLayout(APP_LAYOUT.TOPJUMBO);
+          break;
+        case "layout-jumbo-title-bottom":
+          setLayout(APP_LAYOUT.BOTTOMJUMBO);
+          break;
+        case "layout-inline-left":
+          setLayout(APP_LAYOUT.TOPINLINELEFT);
+          break;
+        case "layout-inline-right":
+          setLayout(APP_LAYOUT.TOPINLINERIGHT);
+          break;
+        default:
+          setLayout(APP_LAYOUT.TOP);
+          break;
+      }
+    });
+
+    function removeClasses() {
+      var body = query("body")[0],
+        nav = query("nav")[0];
+      // Custom themes
+      domClass.remove(body, "layout-jumbo-title layout-inline-right layout-inline-left layout-inline-combo"); 
+      // Nav
+      domClass.remove(body, "nav-position-top nav-position-bottom nav-position-top-fixed nav-position-bottom-fixed");
+      // Nav space
+      domClass.remove(body, "nav-space-none nav-space-top nav-space-bottom nav-space-all"); 
+      // Zoom
+      domClass.remove(body, "zoom-top-left zoom-top-right zoom-bottom-left zoom-bottom-right");
+      // Panel
+      domClass.remove(body, "panel-right panel-left");
+      // Minibar
+      domClass.remove(body, "minibar");
+      // Navbar
+      domClass.remove(nav, "navbar-fixed-top navbar-fixed-bottom");
+    }
+
+    function addClasses(layout) {
+      var body = query("body")[0],
+        nav = query("nav")[0];
+      domClass.add(body, layout.navPosition + " " + layout.navSpace + " " + layout.panelPosition + " " + layout.zoomPosition + " " + layout.layoutName);
+      domClass.add(nav, layout.navFixedPosition);
+    }
+
+    function setLayout(layout) {
+      removeClasses();
+      addClasses(layout);
+      setPadding(layout.viewPadding, layout.uiPadding);
+    }
+
+    function setPadding(viewPadding, uiPadding){
+      app.mapView.padding = viewPadding;
+      app.mapView.ui.padding = uiPadding;
+      app.sceneView.padding = viewPadding;
+      app.sceneView.ui.padding = uiPadding;
+    }
+    
+    function setMapWidget(view, name, position) {
+      var component,
+        exists = view.ui.find(name);
+      // Remove
+      if (position === "none") {
+          view.ui.remove(name);
+          if (exists) {
+            exists.destroy();
         }
+      } else { // Add/Move
+          if (exists) {
+              view.ui.move(name, position);
+          } else {
+            component = createComponent(view, name);
+              view.ui.add(component, position);
+          }
+      }               
+    }
 
-        // Widget text color
-        var widgetClassesTextColor = ".esri-popup .esri-popup-main, .esri-popup .esri-button, .esri-popup .esri-page-text, .esri-popup .esri-title, .esri-widget, .esri-widget-button";
-				query(widgetClassesTextColor).style({ "color" : textColor });
+    function createComponent(view, name) {
+      var component,
+        widget = createWidget(view, name);
+      component = new Component({
+        node: widget, 
+        id: name
+      });
+      return component;
+    }
 
-        // Widget background color
-        var widgetClassesBackground = ".esri-popup .esri-background, .esri-widget:not(:.esri-ripple), .esri-widget-button, .esri-widget .esri-menu, .esri-widget .esri-header";
-				query(widgetClassesBackground).style({ "background-color" : bgColor });
+    function createWidget(view, name) {
+      var widget,
+        viewModel = {
+          view: view
+        }
+      switch (name) {
+        case "zoom":
+          widget = new Zoom({
+            viewModel: viewModel
+          });
+          break;
+        case "home":
+          widget = new Home({
+            viewModel: viewModel
+          });
+          break;
+        case "compass":
+          widget = new Compass({
+            viewModel: viewModel
+          });
+          break;
+        case "locate":
+          widget = new Locate({
+            viewModel: viewModel
+          });
+          break;
+        case "basemaptoggle":
+          widget = new BasemapToggle({
+            viewModel: viewModel
+          });
+          break;
+        case "search":
+          widget = new Search({
+            viewModel: viewModel
+          });
+          break;
+      }
+      widget.startup();
+      return widget;
+    }
 
-				// Widget focus color
-				var widgetClassesFocusColor = ".esri-widget-button, .esri-widget .esri-menu li, ";
-				query(widgetClassesFocusColor).style({ ":hover" : focusColor, ":focus" : focusColor, ":active" : focusColor });
-			 
-		});
+    query("#settingsPanel").on("change", function(e) {
+      var body = query("body")[0],
+        panelStyle = e.target.value;
+      domClass.remove(body, "panel-left panel-right");
+      domClass.add(body, panelStyle);
+    });
 
+    query("#settingsMapWidget").on("change", function(e) {
+      on.emit(query("#settingsPositionMapWidget")[0], "change",  {
+              bubbles: true,
+              cancelable: true
+          });
+    });
 
-		// Opacity
-		query("#settingsOpacity").on("change", function(e) {
-			var navbar = query(".navbar")[0];
-		    var bgColor = domStyle.get(navbar, "background-color");
-		    if(bgColor.indexOf('a') == -1){
-		        bgColor = bgColor.replace(')', ', ' + parseFloat(e.target.value).toFixed(2) +')').replace('rgb', 'rgba');
-		    } else {
-		        bgColor = bgColor.replace(/[\d\.]+\)$/g, e.target.value + ')');
-		    }
-		    domStyle.set(navbar, {"background-color" : bgColor, "border-color" : bgColor });
-		});
+    query("#settingsSceneWidget").on("change", function(e) {
+      on.emit(query("#settingsPositionSceneWidget")[0], "change",  {
+              bubbles: true,
+              cancelable: true
+          });
+    });
 
-		// Layout
-		query("#settingsLayout").on("change", function(e) {
-			setLayout();
-		});
+    query("#settingsPositionMapWidget").on("change", function(e) {
+      var name = query("#settingsMapWidget")[0].value,
+        position = e.target.value;
+      setMapWidget(app.mapView, name, position);
+    });
 
-		// Spacing
-		query("#settingsSpacing").on("change", function(e) {
-			setLayout();
-		});
+    query("#settingsPositionSceneWidget").on("change", function(e) {
+      var name = query("#settingsSceneWidget")[0].value,
+        position = e.target.value;
+      setMapWidget(app.sceneView, name, position);
+    });
 
-		function setLayout() {
-			var body = query("body")[0],
-				navbar = query(".navbar")[0],
-				layout = query("#settingsLayout")[0].options[query("#settingsLayout")[0].selectedIndex],
-				isMini = query(".navbar .navbar-info").style("display")[0] !== "none",
-				space;
+    function setPopupDock(view, popupOptions) {
+      view.popup.set({
+        dockOptions: popupOptions
+      });
+      var dock = (popupOptions.position !== "auto");
+      view.popup.set("dockEnabled", dock);
+    }
 
-			// Enable spacing or not
-			if (layout.value.indexOf("fixed") != -1) {
-				query("#settingsSpacing").attr("value", "nav-space-none");
-				query("#settingsSpacing").attr("disabled","disabled");
-				space = "nav-space-none";
-			} else {
-				query("#settingsSpacing").attr("disabled", false);
-				space = query("#settingsSpacing")[0].options[query("#settingsSpacing")[0].selectedIndex].value;
-			}
+    query("#settingsPopup").on("change", function(e){
+      var popupOptions = {
+        position: e.target.value
+      }
+      setPopupDock(app.mapView, popupOptions);
+      setPopupDock(app.sceneView, popupOptions);
+    });
 
-			// Set classes
-			domClass.remove(body, "nav-position-top nav-position-bottom nav-position-top-fixed nav-position-bottom-fixed nav-right-absolute nav-space-none nav-space-top nav-space-bottom nav-space-all minibar");
-			domClass.add(body, layout.value + " " + space + " " + (isMini ? "minibar" : ""));
-			domClass.remove(navbar, "navbar-fixed-top navbar-fixed-bottom");
-			domClass.add(navbar, query(layout).attr("data-navbar"));
-		}
+    query("#settingsAddLayer").on("click", function() {
 
-		function resetLayout() {
-			var body = query("body")[0],
-				nav = query("nav")[0];
-			// Default themes
-			domClass.remove(body, "theme-top theme-top-space theme-bottom-space theme-top-space-all theme-top-fixed theme-bottom theme-bottom-space theme-bottom-space-all theme-bottom-fixed");	
-			// Custom themes
-			domClass.remove(body, "theme-jumbo-title theme-inline-right theme-inline-left theme-inline-combo");	
-			// Nav
-			domClass.remove(body, "nav-position-top nav-position-bottom nav-position-top-fixed nav-position-bottom-fixed");
-			// Nav space
-			domClass.remove(body, "nav-space-none nav-space-top nav-space-bottom nav-space-all"); 
-			// Zoom
-			domClass.remove(body, "zoom-top-left zoom-top-right zoom-bottom-left zoom-bottom-right");
-			// Panel
-			domClass.remove(body, "panel-right panel-left");
-			// Minibar
-			domClass.remove(body, "minibar");
-			// Navbar
-			domClass.remove(nav, "navbar-fixed-top navbar-fixed-bottom");
-			// $("nav").removeClass("navbar-default navbar-inverse navbar-text-dark navbar-dark");
-		}
+      addFeatureService();
 
-		function syncLayout(nav, spacing, panel, zoom, navbar, theme, custom) {
-			var body = query("body")[0],
-				navEl = query("nav")[0];
+      // Create a feature layer to get feature service
+      function addFeatureService() {
+        if (removeFeatureService()) {
+          //query("#settingsFeatureLayerUrl")[0].value = "";
+          // Update button
+          query("#settingsAddLayer").addClass("btn-primary").removeClass("btn-danger");
+          query("#settingsAddLayer")[0].innerText = "Add Layer";      
+          return;
+        }
+        
+        // Validate url
+        var url = query("#settingsFeatureLayerUrl")[0].value;
+        if (url === "") {
+          //showErrorLoadingLayer("Sorry, please provide a valid URL.");
+          return;
+        }  
 
-			if (!custom) {
-				domClass.add(body, nav + " " + spacing + " " + panel + " " + zoom);
-			} else {
-				domClass.add(body, nav + " " + spacing + " " + panel + " " + zoom + " " + theme);
-			}
-			domClass.add(navEl, navbar);
+        // Create layers - two layers because they will have different styles
+        app.mapFL = createLayer(url);
+        app.sceneFL = createLayer(url);
 
-			syncUIControls(nav, spacing, panel, zoom, custom);
-		}
+        // Added to Map
+        app.mapFL.then(function(){
+          }, function(error){
+            //showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+            removeFeatureService();
+            return;
+          });
 
-		function syncUIControls(nav, spacing, panel, zoom, custom) {
-			query("#settingsLayout").attr("value", nav);
-			query("#settingsSpacing").attr("value", spacing);			
-			query("#settingsPanel").attr("value", panel);
-			query("#settingsZoom").attr("value", zoom);
-		}
+        // Added to Scene
+        app.sceneFL.then(function(){
+          }, function(error){
+            //showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+            removeFeatureService();
+            return;
+          });
 
-		// Theme
-		query("#settingsThemeStandard").on("change", function(e) {
-			var theme = e.target.value;
-			resetLayout();
-			// Add classes
-			switch (theme) {
-				case "theme-top": // default
-					syncLayout("nav-position-top", "nav-space-none", "panel-right", "zoom-top-left", "navbar-fixed-top", theme);
-					break;
-				case "theme-top-space":
-					syncLayout("nav-position-top", "nav-space-top", "panel-right", "zoom-top-left", "navbar-fixed-top", theme);
-					break;
-				case "theme-top-space-all":
-					syncLayout("nav-position-top", "nav-space-all", "panel-right", "zoom-top-left", "navbar-fixed-top", theme);
-					break;
-				case "theme-top-fixed":
-					syncLayout("nav-position-top-fixed", "nav-space-none", "panel-right", "zoom-top-left", "navbar-fixed-top", theme);
-					break;
-				case "theme-bottom":
-					syncLayout("nav-position-bottom", "nav-space-none", "panel-right", "zoom-top-left", "navbar-fixed-bottom", theme);
-					break;
-				case "theme-bottom-space":
-					syncLayout("nav-position-bottom", "nav-space-bottom", "panel-right", "zoom-top-left", "navbar-fixed-bottom", theme);
-					break;
-				case "theme-bottom-space-all":
-					syncLayout("nav-position-bottom", "nav-space-all", "panel-right", "zoom-top-left", "navbar-fixed-bottom", theme);
-					break;
-				case "theme-bottom-fixed":
-					syncLayout("nav-position-bottom-fixed", "nav-space-none", "panel-right", "zoom-top-left", "navbar-fixed-bottom", theme);
-					break;
-				// Custom
-				case "theme-jumbo-title-top":
-					syncLayout("nav-position-top", "nav-space-none", "panel-right", "zoom-top-left", "navbar-fixed-top", "theme-jumbo-title", true);
-					break;
-				case "theme-jumbo-title-bottom":
-					syncLayout("nav-position-bottom", "nav-space-none", "panel-right", "zoom-top-left", "navbar-fixed-bottom", "theme-jumbo-title", true);
-					break;
-				case "theme-inline-left":
-					syncLayout("nav-position-top", "nav-space-all", "panel-right", "zoom-top-left", "navbar-fixed-top", theme, true);
-					break;
-				case "theme-inline-right":
-					syncLayout("nav-position-top", "nav-space-all", "panel-left", "zoom-top-right", "navbar-fixed-top", theme, true);
-					break;
-				// case "theme-inline-combo":
-				// 	syncLayout("nav-position-top", "nav-space-all", "panel-right", "zoom-top-left", "navbar-fixed-top", theme, true);
-				// 	break;
-			}
-		});
-
-		query("#settingsThemeStandard").on("change", function(e) {    	
-	       	
-	       	function setPadding(viewPadding, uiPadding){
-	            app.mapView.padding = viewPadding;
-	            app.mapView.ui.padding = uiPadding;
-	            app.sceneView.padding = viewPadding;
-	            app.sceneView.ui.padding = uiPadding;
-	        }
-
-            var theme = e.target.value;
-            if (theme === "theme-top") {
-                setPadding({ top: 64, bottom: 0 }, { top: 15, bottom: 30 });
-            } else if (theme === "theme-top-space" || theme === "theme-top-space-all") {
-                setPadding({ top: 79, bottom: 0 }, { top: 15, bottom: 30 });
-            } else if (theme === "theme-top-fixed") {
-                setPadding({ top: 0, bottom: 0 }, { top: 15, bottom: 30 });
-            } else if (theme === "theme-bottom") {
-                setPadding({ top: 0, bottom: 64 }, { top: 30, bottom: 15 });
-            } else if (theme === "theme-bottom-space" || theme === "theme-bottom-space-all") {
-                setPadding({ top: 0, bottom: 79 }, { top: 30, bottom: 15 });
-            } else if (theme === "theme-bottom-fixed") {
-                setPadding({ top: 0, bottom: 0 }, { top: 30, bottom: 15 });
-            } else if (theme === "theme-jumbo-title-top") {
-            	setPadding({ top: 120, bottom: 0 }, { top: 15, right: 15, bottom: 30, left: 15 });
-            } else if (theme === "theme-jumbo-title-bottom") {
-            	setPadding({ top: 0, bottom: 120 }, { top: 30, right: 15, bottom: 15, left: 15 });
-            } else if (theme === "theme-inline-left") {
-            	setPadding({ top: 0, bottom: 0 });
-            	setMapWidget(app.activeView, "zoom", "top-left");
-            } else if (theme === "theme-inline-right") {
-            	setPadding({ top: 0, bottom: 0 });
-            	setMapWidget(app.activeView, "zoom", "top-right");            
+         // Add to map
+        app.mapView.map.add(app.mapFL);
+        app.sceneView.map.add(app.sceneFL);
+        
+        // Zoom map to extent of layer
+        app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
+          if (newValue) {
+            if (object.initialExtent) {
+              zoomToProjectedExtent(object.initialExtent);                           
+            } else {
+              showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+              removeFeatureService();
             }
+          }
         });
 
-		query("#settingsTextColor").on("change", function(e) {
-			var navStyle = e.target.value,
-				nav = query("nav")[0];
-			domClass.remove(nav, "navbar-default navbar-inverse navbar-text-dark navbar-text-light");
-			domClass.add(nav, navStyle);
-		});
+        // Zoom scene and tile - TODO
+        app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
+          if (newValue && app.sceneFL && !app.sceneView.__sceneZoomed) {
+            app.sceneView.__sceneZoomed = true;
+            app.sceneView.animateTo({center: app.mapView.center, scale: app.mapView.scale, tilt: 45});
+          }
+        })
+      }
 
-		query("#settingsTextFont").on("change", function(e) {
-			var font = e.target.value;
-			domStyle.set(query("body")[0], "font-family", font);
-		});
-
-		query("#settingsPanel").on("change", function(e) {
-			var body = query("body")[0],
-				panelStyle = e.target.value;
-			domClass.remove(body, "panel-left panel-right");
-			domClass.add(body, panelStyle);
-		});
-
-		query("#settingsResetLayout").on("click", function(){
-			// Theme
-			query("#settingsThemeStandard").attr("value", "theme-top");
-			on.emit(query("#settingsThemeStandard")[0], "change",  {
-			        bubbles: true,
-			        cancelable: true
-			    });
-			// Name
-			query("#settingsTitleInput")[0].value = "{Map Name}";
-			query("#settingsSubTitleInput")[0].value = "{Subtitle or call to action}";
-			query("#titleButton")[0].click();
-			// Menu
-			domClass.add(query("#mapNav")[0], "hidden", true);
-        	domClass.add(query("#mapNavMenu")[0], "hidden", true);
-			domClass.add(query("#sceneNav")[0], "hidden", true);
-        	domClass.add(query("#sceneNavMenu")[0], "hidden", true);
-        	// Map
-        	query("#mapNav")[0].click();
-        	app.activeView.set({
-        		center: app.lonlat,
-        		scale: app.scale
-        	});
-        	// View
-        	query("#settings2dView")[0].checked = false;
-        	query("#settings3dView")[0].checked = false;
-        	// Font
-        	domStyle.set(query("body")[0], "font-family", "Avenir Next W01");
-
-		});
-
-		// query("#settingsZoom").on("change", function(e) {
-		// 	var body = query("body")[0],
-		// 		zoomStyle = e.target.value;
-		// 	domClass.remove(body, "zoom-top-left zoom-top-right zoom-bottom-left zoom-bottom-right");
-		// 	domClass.add(body, zoomStyle);
-		// });
- 		
- 		function setMapWidget(view, name, position) {
-            var component,
-	            exists = view.ui.find(name);
-            // Remove
-            if (position === "none") {
-                view.ui.remove(name);
-                if (exists) {
-	                exists.destroy();
-	           	}
-            } else { // Add/Move
-                if (exists) {
-                    view.ui.move(name, position);
-                } else {
-                	component = createComponent(view, name);
-                    view.ui.add(component, position);
-                }
-            }               
+      // Remove existing service
+      function removeFeatureService() {
+        if (app.mapFL && app.sceneFL) {
+          app.mapView.map.remove(app.mapFL);
+          app.sceneView.map.remove(app.sceneFL);
+          app.mapView.zoom = app.zoom; 
+          app.mapView.center = app.lonlat;
+          app.sceneView.zoom = app.zoom;
+          app.sceneView.center = app.lonlat;
+          app.mapFL = null;
+          app.sceneFL = null;
+          app.sceneView.__sceneZoomed = false;
+          app.mapView.popup.set({visible: false});
+          app.sceneView.popup.set({visible: false});
+          return true;
+        } else {
+          return false;
         }
+      }
 
-        function createComponent(view, name) {
-        	var component,
-	        	widget = createWidget(view, name);
-	        component = new Component({
-	        	node: widget, 
-	        	id: name
-	        });
-	        return component;
+      function zoomToProjectedExtent(extent) {
+        var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
+        var params = new ProjectParams();
+        params.geometries = [extent];
+        params.outSR = app.mapView.spatialReference;
+        gvsc.project(params).then(function(results) {
+          if (results.length > 0){
+            // Update extent
+            app.mapView.animateTo(results[0].extent);
+            app.sceneView.animateTo(results[0].extent);
+            // Update button
+            query("#settingsAddLayer").addClass("btn-danger").removeClass("btn-primary");
+            query("#settingsAddLayer")[0].innerText = "Remove";                           
+          } else {
+            //showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
+            removeFeatureService();
+          }
+        }, function(e){
+          //showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
+          removeFeatureService();
+        });
+      }
+
+      function createLayer(url) {
+        var lyr = new FeatureLayer({ 
+          url: url,
+          maxScale: 0,
+          minScale: 0,
+          outFields: ["*"]
+        });
+        lyr.then(function(e){
+          lyr.set({
+            popupTemplate: new PopupTemplate({
+              title: lyr.name,
+              content: "{*}"
+            })
+          });
+        })
+        return lyr;
+      }
+
+      function showErrorLoadingLayer(msg) {
+        //$("#layerErrorMsg").text(msg);
+        //$("#layerError").removeClass("hidden");
+      }
+
+    });
+
+    query("#settingsPadding").on("keydown", function(evt) {
+      if (evt.keyCode === keys.ENTER) {
+        var str = this.value;
+        var padding = eval("("+str+")");
+        if (padding) {
+          app.mapView.padding = padding;
+          app.sceneView.padding = padding;
         }
+      }
+    });
 
-        function createWidget(view, name) {
-        	var widget,
-        		viewModel = {
-        			view: view
-        		}
-        	switch (name) {
-        		case "zoom":
-        			widget = new Zoom({
-        				viewModel: viewModel
-        			});
-        			break;
-        		case "home":
-        			widget = new Home({
-        				viewModel: viewModel
-        			});
-        			break;
-        		case "compass":
-        			widget = new Compass({
-        				viewModel: viewModel
-        			});
-        			break;
-        		case "locate":
-        			widget = new Locate({
-        				viewModel: viewModel
-        			});
-        			break;
-        		case "basemaptoggle":
-        			widget = new BasemapToggle({
-        				viewModel: viewModel
-        			});
-        			break;
-        		case "search":
-        			widget = new Search({
-        				viewModel: viewModel
-        			});
-        			break;
-        	}
-        	widget.startup();
-        	return widget;
-        }
+    query("#settingsLayerOpacity").on("change", function(){
+      var opacity = Number.parseFloat(this.value);
+      if (app.mapFL && app.sceneFL) {
+        app.mapFL.opacity = opacity;
+        app.sceneFL.opacity = opacity;
+      }
+    }); 
 
-		query("#settingsMapWidget").on("change", function(e) {
-			on.emit(query("#settingsPositionMapWidget")[0], "change",  {
-			        bubbles: true,
-			        cancelable: true
-			    });
-		});
-
-		query("#settingsSceneWidget").on("change", function(e) {
-			on.emit(query("#settingsPositionSceneWidget")[0], "change",  {
-			        bubbles: true,
-			        cancelable: true
-			    });
-		});
-
-		query("#settingsPositionMapWidget").on("change", function(e) {
-			var name = query("#settingsMapWidget")[0].value,
-				position = e.target.value;
-			setMapWidget(app.mapView, name, position);
-		});
-
-		query("#settingsPositionSceneWidget").on("change", function(e) {
-			var name = query("#settingsSceneWidget")[0].value,
-				position = e.target.value;
-			setMapWidget(app.sceneView, name, position);
-		});
-
-		function setPopupDock(view, popupOptions) {
-			view.popup.set({
-				dockOptions: popupOptions
-			});
-			var dock = (popupOptions.position !== "auto");
-			view.popup.set("dockEnabled", dock);
-		}
-
-		query("#settingsPopup").on("change", function(e){
-			var popupOptions = {
-				position: e.target.value
-			}
-			setPopupDock(app.mapView, popupOptions);
-			setPopupDock(app.sceneView, popupOptions);
-		});
-
-		query("#settingsAddLayer").on("click", function() {
-
-			addFeatureService();
-
-			// Create a feature layer to get feature service
-			function addFeatureService() {
-				if (removeFeatureService()) {
-					//query("#settingsFeatureLayerUrl")[0].value = "";
-					// Update button
-					query("#settingsAddLayer").addClass("btn-primary").removeClass("btn-danger");
-					query("#settingsAddLayer")[0].innerText = "Add Layer";      
-					return;
-				}
-				
-				// Validate url
-				var url = query("#settingsFeatureLayerUrl")[0].value;
-				if (url === "") {
-					//showErrorLoadingLayer("Sorry, please provide a valid URL.");
-					return;
-				}  
-
-				// Create layers - two layers because they will have different styles
-				app.mapFL = createLayer(url);
-				app.sceneFL = createLayer(url);
-
-				// Added to Map
-				app.mapFL.then(function(){
-					}, function(error){
-						//showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-						removeFeatureService();
-						return;
-					});
-
-				// Added to Scene
-				app.sceneFL.then(function(){
-					}, function(error){
-						//showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-						removeFeatureService();
-						return;
-					});
-
-				 // Add to map
-				app.mapView.map.add(app.mapFL);
-				app.sceneView.map.add(app.sceneFL);
-				
-				// Zoom map to extent of layer
-				app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
-					if (newValue) {
-						if (object.initialExtent) {
-							zoomToProjectedExtent(object.initialExtent);                           
-						} else {
-							showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-							removeFeatureService();
-						}
-					}
-				});
-
-				// Zoom scene and tile - TODO
-				app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
-					if (newValue && app.sceneFL && !app.sceneView.__sceneZoomed) {
-						app.sceneView.__sceneZoomed = true;
-						app.sceneView.animateTo({center: app.mapView.center, scale: app.mapView.scale, tilt: 45});
-					}
-				})
-			}
-
-			// Remove existing service
-			function removeFeatureService() {
-				if (app.mapFL && app.sceneFL) {
-					app.mapView.map.remove(app.mapFL);
-					app.sceneView.map.remove(app.sceneFL);
-					app.mapView.zoom = app.zoom; 
-					app.mapView.center = app.lonlat;
-					app.sceneView.zoom = app.zoom;
-					app.sceneView.center = app.lonlat;
-					app.mapFL = null;
-					app.sceneFL = null;
-					app.sceneView.__sceneZoomed = false;
-					app.mapView.popup.set({visible: false});
-					app.sceneView.popup.set({visible: false});
-					return true;
-				} else {
-					return false;
-				}
-			}
-
-			function zoomToProjectedExtent(extent) {
-				var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
-				var params = new ProjectParams();
-				params.geometries = [extent];
-				params.outSR = app.mapView.spatialReference;
-				gvsc.project(params).then(function(results) {
-					if (results.length > 0){
-						// Update extent
-						app.mapView.animateTo(results[0].extent);
-						app.sceneView.animateTo(results[0].extent);
-						// Update button
-						query("#settingsAddLayer").addClass("btn-danger").removeClass("btn-primary");
-						query("#settingsAddLayer")[0].innerText = "Remove";                           
-					} else {
-						//showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-						removeFeatureService();
-					}
-				}, function(e){
-					//showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-					removeFeatureService();
-				});
-			}
-
-			function createLayer(url) {
-				var lyr = new FeatureLayer({ 
-					url: url,
-					maxScale: 0,
-					minScale: 0,
-					outFields: ["*"]
-				});
-				lyr.then(function(e){
-					lyr.set({
-						popupTemplate: new PopupTemplate({
-							title: lyr.name,
-							content: "{*}"
-						})
-					});
-				})
-				return lyr;
-			}
-
-			function showErrorLoadingLayer(msg) {
-				//$("#layerErrorMsg").text(msg);
-				//$("#layerError").removeClass("hidden");
-			}
-
-		});
-
-		query("#settingsPadding").on("keydown", function(evt) {
-			if (evt.keyCode === keys.ENTER) {
-				var str = this.value;
-				var padding = eval("("+str+")");
-				if (padding) {
-					app.mapView.padding = padding;
-					app.sceneView.padding = padding;
-				}
-			}
-		});
-
-		query("#settingsLayerOpacity").on("change", function(){
-			var opacity = Number.parseFloat(this.value);
-			if (app.mapFL && app.sceneFL) {
-				app.mapFL.opacity = opacity;
-				app.sceneFL.opacity = opacity;
-			}
-		});	
-
-	}
+  }
 );
