@@ -30,9 +30,9 @@ define([
 ], function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Component, FeatureLayer, PopupTemplate, 
   Extent, ProjectUtils, GeometryService, ProjectParams, query, domClass, domStyle, touch, on, keys) {
 
-    // ================
-    // Layouts
-    // ================
+    /******************************************************************
+     * Layouts
+     ******************************************************************/
 
     APP_LAYOUT = {
       TOP: {
@@ -149,7 +149,7 @@ define([
           navPosition: "nav-position-top", 
           navSpace: "nav-space-all", 
           panelPosition: "panel-left", 
-          zoomPosition: "zoom-top-left", 
+          zoomPosition: "zoom-top-right", 
           navFixedPosition: "navbar-fixed-top",
           viewPadding: { top: 0, bottom: 0 }, 
           uiPadding: { top: 15, bottom: 30 },
@@ -157,164 +157,96 @@ define([
       }
     }
 
-    // ================
-    // Tab - Title
-    // ================
+    /******************************************************************
+     * Tab - Title
+     ******************************************************************/
 
     query("#titleButton").on("click", function() {
-    query(".navbar-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
-    query(".navbar-subtitle")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
+      query(".navbar-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
+      query(".navbar-subtitle")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
     });
 
-    // ================
-    // Tab - Map
-    // ================
+    /******************************************************************
+     * Tab - Map
+     ******************************************************************/
 
     // Map
     query("#settings2dView").on("click", function(e) {
       domClass.toggle(query("#mapNav")[0], "hidden");
       domClass.toggle(query("#mapNavMenu")[0], "hidden");
     });
+
     query("#settings3dView").on("click", function(e) {
       domClass.toggle(query("#sceneNav")[0], "hidden");
       domClass.toggle(query("#sceneNavMenu")[0], "hidden");
     });
 
+    query("#settingsAddLayer").on("click", function() {
+      addFeatureService();
+    });
 
-    // ================
-    // Tab - Theme
-    // ================
+    query("#settingsLayerOpacity").on("change", function() {
+      var opacity = Number.parseFloat(this.value);
+      if (app.mapFL && app.sceneFL) {
+        app.mapFL.opacity = opacity;
+        app.sceneFL.opacity = opacity;
+      }
+    }); 
 
-    // Theme - simple
+    /******************************************************************
+     * Tab - Theme
+     ******************************************************************/
+
+    // Theme
     query("#settingsTheme").on("change", function(e) {    
       var theme = e.target.value;
       var textColor = e.target.options[e.target.selectedIndex].dataset.textcolor;
       query("body").removeClass("calcite-theme-dark").addClass(theme);
-      query("nav").removeClass("calcite-text-dark calcite-text-light").addClass(textColor);
-      // Remove background color
-      query("nav").removeClass("calcite-dark-blue-75 calcite-dark-green-75 calcite-dark-brown-75 calcite-black-75 calcite-white-75 calcite-transparent");
-      query("#settingsNavbar").attr("value", "");
+      // Remove calcite classes (color)
+      query(".navbar").attr("class")[0].split(" ").forEach(function(val){
+        if (val.indexOf("calcite-") > -1) {
+          query(".navbar").removeClass(val);
+        }
+      });
+      // Add text color
+      query(".navbar").removeClass("calcite-text-dark calcite-text-light").addClass(textColor);
+      // Update UI
+      query("#settingsNav").attr("value", "default");
+      query("#settingsNavText").attr("value", textColor);
     });
-    // query("#settingsTheme").on("change", function(e) {   
-    //  var theme = e.target.value;
-    //  // Light
-    //  // if (theme === "calcite-theme-light") {
-    //  //  themeInfo = {
-    //  //    bg: "#ffffff", //widgets
-    //  //    text: "calcite-theme-light",
-    //  //    menu: "calcite-theme-light",
-    //  //    panel: "calcite-theme-light"
-    //  //  }
-    //  // } else { // Dark
-    //  //  themeInfo = {
-    //  //    bg: "#242424", //
-    //  //    text: "calcite-theme-dark",
-    //  //    menu: "calcite-theme-dark",
-    //  //    panel: "calcite-theme-dark"
-    //  //  }
-    //  // }
-    //  // Update theme
-    //  //query(".navbar").style("background-color", themeInfo.bg);
-    //  // query(".navbar").removeClass("calcite-theme-light calcite-theme-dark").addClass(themeInfo.text);
-    //  // query(".navbar .dropdown-menu").removeClass("calcite-theme-light calcite-theme-dark").addClass(themeInfo.menu);
-    //  // query(".panel").removeClass("calcite-theme-light calcite-theme-dark").addClass(themeInfo.panel);
-      
-    //  //query(".navbar, .navbar .dropdown-menu, .panel").removeClass("calcite-theme-light calcite-theme-dark").addClass(theme);
 
-    //  //query("#settingsColorWidgets").attr("value", themeInfo.bg);
-    //  // on.emit(query("#settingsColorWidgets")[0], "change",  {
-    //  //     bubbles: true,
-    //  //     cancelable: true
-    //  // });
-    // });
-
-    // Nav Color (nav)
-    // query("#settingsColor").on("change", function(e) {   
-    //  var bgColor = e.target.options[e.target.selectedIndex].value,
-  //       navStyle = e.target.options[e.target.selectedIndex].dataset.navstyle,
-    //    navStyleClass = "." + navStyle,
-    //    navbar = query(".navbar")[0];
-    //    //body = query("body")[0];
-
-    //  if (bgColor === "none") {
-    //    domStyle.set(navbar, "background-color", "");
-    //    // domStyle.set(body, "background-color", "");
-    //    return;
-    //  }
-      
-   //    // domClass.remove(body,"theme-light-nav theme-dark-nav");
-   //    // domClass.add(body, navStyle);
-      
-    //  domStyle.set(navbar, "background-color", bgColor);
-    //  // domStyle.set(body, "background-color", bgColor);
-    //  // Set the font color
-    //  query("#settingsNavTextColor").attr("value", navStyle);
-    //  on.emit(query("#settingsNavTextColor")[0], "change",  {
-    //      bubbles: true,
-    //      cancelable: true
-    //  });
-      
-    //  if (bgColor !== "transparent") {
-    //     on.emit(query("#settingsOpacity")[0], "change",  {
-    //         bubbles: true,
-    //         cancelable: true
-    //     });
-    //  } 
-    // });
-
-    // Navbar - set custom navbar color
-
-    query("#settingsNavbar").on("change", function(e) {    
-      var color = e.target.value;
+    // Nav - set custom navbar color and associated text
+    query("#settingsNav").on("change", function(e) {    
+      var bgColor = e.target.value;
       var textColor =  e.target.options[e.target.selectedIndex].dataset.textcolor;
-      query("nav").removeClass("calcite-dark-blue-75 calcite-dark-green-75 calcite-dark-brown-75 calcite-black-75 calcite-white-75 calcite-transparent").addClass(color);
-      query("nav").removeClass("calcite-text-light calcite-text-dark").addClass(textColor);
-      if (!color) {
+      // Remove calcite classes (color)
+      query(".navbar").attr("class")[0].split(" ").forEach(function(val){
+        if (val.indexOf("calcite-") > -1) {
+          query(".navbar").removeClass(val);
+        }
+      });
+      // Add calcite classes
+      query(".navbar").addClass(textColor).addClass(bgColor);
+      if (bgColor === "default") {
         on.emit(query("#settingsTheme")[0], "change",  { bubbles: true, cancelable: true });
       }
+      // Update UI
+      query("#settingsNavText").attr("value", textColor);
+    });
+
+    // Nav Text - override text
+    query("#settingsNavText").on("change", function(e) {
+      var style = e.target.value,
+      navbar = query(".navbar")[0];
+      domClass.remove(navbar, "calcite-text-light calcite-text-dark");
+      domClass.add(navbar, style);
     });
 
     // Widgets - set light (default) or dark theme
-
     query("#settingsWidgets").on("change", function(e) {    
       var theme = e.target.value;
       query("body").removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
     });
-
-    // query("#settingsNavTextColor").on("change", function(e) {
-    //  var style = e.target.value,
-    //  //  body = query("body")[0];
-    //  // domClass.remove(body, "theme-light-nav theme-dark-nav");
-    //  // domClass.add(body, style);
-    //  navbar = query(".navbar")[0];
-    //  domClass.remove(navbar, "calcite-theme-light calcite-theme-dark");
-    //  domClass.add(navbar, style);
-    // });
-
-    // query("#settingsDropdownColor").on("change", function(e) {
-    //  var style = e.target.value,
-    //  //  body = query("body")[0];
-    //  // domClass.remove(body, "theme-light-nav theme-dark-nav");
-    //  // domClass.add(body, style);
-    //  navbar = query(".navbar .dropdown-menu")[0];
-    //  domClass.remove(navbar, "calcite-theme-light calcite-theme-dark");
-    //  domClass.add(navbar, style);
-    // });
-
-    // query("#settingsPanelColor").on("change", function(e) {
-    //  var style = e.target.value;
-    //  //  body = query("body")[0];
-    //  // domClass.remove(body, "theme-light-panel theme-dark-panel");
-    //  // domClass.add(body, style);
-    //  query(".panel").removeClass("calcite-theme-light calcite-theme-dark").addClass(style);
-
-    // });
-
-    // query("#settingsTextFont").on("change", function(e) {
-    //  var font = e.target.value;
-    //  domStyle.set(query("body")[0], "font-family", font);
-    // });
-
 
     // // Opacity
     // query("#settingsOpacity").on("change", function(e) {
@@ -328,40 +260,9 @@ define([
     //     domStyle.set(navbar, {"background-color" : bgColor});
     // });
 
-    // Widget colors/themes
-    // query("#settingsColorWidgets").on("change", function(e) {
-    //     var bgColor = e.target.options[e.target.selectedIndex].value,
-    //         navStyle = e.target.options[e.target.selectedIndex].dataset.navstyle,
-    //        navStyleClass = "." + navStyle;
-
-    //    // Get default text colors for calcite colors
-  //       var textColor,
-  //        focusColor; //TODO
-  //       if (navStyle === "calcite-theme-light") {
-  //        textColor = "#bdbdbd";
-  //        focusColor = "#595959";
-  //       } else {
-  //        textColor = "#6e6e6e";
-  //        focusColor = "#cccccc";
-  //       }
-
-  //       // Widget text color
-  //       var widgetClassesTextColor = ".esri-popup .esri-popup-main, .esri-popup .esri-button, .esri-popup .esri-page-text, .esri-popup .esri-title, .esri-widget, .esri-widget-button";
-    //    query(widgetClassesTextColor).style({ "color" : textColor });
-
-  //       // Widget background color
-  //       var widgetClassesBackground = ".esri-popup .esri-background, .esri-widget:not(:.esri-ripple), .esri-widget-button, .esri-widget .esri-menu, .esri-widget .esri-header";
-    //    query(widgetClassesBackground).style({ "background-color" : bgColor });
-
-    //    // Widget focus color
-    //    var widgetClassesFocusColor = ".esri-widget-button, .esri-widget .esri-menu li, ";
-    //    query(widgetClassesFocusColor).style({ ":hover" : focusColor, ":focus" : focusColor, ":active" : focusColor });
-       
-    // });
-
-    // ================
-    // Layout
-    // ================
+    /******************************************************************
+     * Tab - Layout
+     ******************************************************************/
   
     query("#settingsLayout").on("change", function(e) {
       var theme = e.target.value;
@@ -411,6 +312,219 @@ define([
       }
     });
 
+    // Map widgets add/remove
+    query("#settingsMapWidget").on("change", function(e) {
+      on.emit(query("#settingsPositionMapWidget")[0], "change",  {
+              bubbles: true,
+              cancelable: true
+          });
+    });
+
+    // Scene widgets add/remove
+    query("#settingsSceneWidget").on("change", function(e) {
+      on.emit(query("#settingsPositionSceneWidget")[0], "change",  {
+              bubbles: true,
+              cancelable: true
+          });
+    });
+
+    // Map widgets position
+    query("#settingsPositionMapWidget").on("change", function(e) {
+      var name = query("#settingsMapWidget")[0].value,
+        position = e.target.value;
+      setWidgetPosition(app.mapView, name, position);
+    });
+
+    // Scene widgets position
+    query("#settingsPositionSceneWidget").on("change", function(e) {
+      var name = query("#settingsSceneWidget")[0].value,
+        position = e.target.value;
+      setWidgetPosition(app.sceneView, name, position);
+    });
+
+    query("#settingsPopup").on("change", function(e){
+      var popupOptions = {
+        position: e.target.value
+      }
+      setPopupDock(app.mapView, popupOptions);
+      setPopupDock(app.sceneView, popupOptions);
+    });
+
+    query("#settingsPanel").on("change", function(e) {
+      var body = query("body")[0],
+        panelStyle = e.target.value;
+      domClass.remove(body, "panel-left panel-right");
+      domClass.add(body, panelStyle);
+    });
+
+    query("#settingsPadding").on("keydown", function(evt) {
+      if (evt.keyCode === keys.ENTER) {
+        var str = this.value;
+        var padding = eval("("+str+")");
+        if (padding) {
+          app.mapView.padding = padding;
+          app.sceneView.padding = padding;
+        }
+      }
+    });
+
+    /******************************************************************
+     * Tab - Map functions
+     ******************************************************************/
+
+    // Create a feature layer to get feature service
+    function addFeatureService() {
+      if (removeFeatureService()) {
+        //query("#settingsFeatureLayerUrl")[0].value = "";
+        // Update button
+        query("#settingsAddLayer").addClass("btn-primary").removeClass("btn-danger");
+        query("#settingsAddLayer")[0].innerText = "Add Layer";      
+        return;
+      }
+      
+      // Validate url
+      var url = query("#settingsFeatureLayerUrl")[0].value;
+      if (url === "") {
+        //showErrorLoadingLayer("Sorry, please provide a valid URL.");
+        return;
+      }  
+
+      // Create layers - two layers because they will have different styles
+      app.mapFL = createLayer(url);
+      app.sceneFL = createLayer(url);
+
+      // Added to Map
+      app.mapFL.then(function(){
+        }, function(error){
+          //showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+          removeFeatureService();
+          return;
+        });
+
+      // Added to Scene
+      app.sceneFL.then(function(){
+        }, function(error){
+          //showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+          removeFeatureService();
+          return;
+        });
+
+       // Add to map
+      app.mapView.map.add(app.mapFL);
+      app.sceneView.map.add(app.sceneFL);
+      
+      // Zoom map to extent of layer
+      app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
+        if (newValue) {
+          if (object.initialExtent) {
+            zoomToProjectedExtent(object.initialExtent);                           
+          } else {
+            showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+            removeFeatureService();
+          }
+        }
+      });
+
+      // Zoom scene and tile - TODO
+      app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
+        if (newValue && app.sceneFL && !app.sceneView.__sceneZoomed) {
+          app.sceneView.__sceneZoomed = true;
+          app.sceneView.animateTo({center: app.mapView.center, scale: app.mapView.scale, tilt: 45});
+        }
+      })
+    }
+
+    // Remove existing service
+    function removeFeatureService() {
+      if (app.mapFL && app.sceneFL) {
+        app.mapView.map.remove(app.mapFL);
+        app.sceneView.map.remove(app.sceneFL);
+        app.mapView.zoom = app.zoom; 
+        app.mapView.center = app.lonlat;
+        app.sceneView.zoom = app.zoom;
+        app.sceneView.center = app.lonlat;
+        app.mapFL = null;
+        app.sceneFL = null;
+        app.sceneView.__sceneZoomed = false;
+        app.mapView.popup.set({visible: false});
+        app.sceneView.popup.set({visible: false});
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function zoomToProjectedExtent(extent) {
+      var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
+      var params = new ProjectParams();
+      params.geometries = [extent];
+      params.outSR = app.mapView.spatialReference;
+      gvsc.project(params).then(function(results) {
+        if (results.length > 0){
+          // Update extent
+          app.mapView.animateTo(results[0].extent);
+          app.sceneView.animateTo(results[0].extent);
+          // Update button
+          query("#settingsAddLayer").addClass("btn-danger").removeClass("btn-primary");
+          query("#settingsAddLayer")[0].innerText = "Remove";                           
+        } else {
+          //showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
+          removeFeatureService();
+        }
+      }, function(e){
+        //showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
+        removeFeatureService();
+      });
+    }
+
+    function createLayer(url) {
+      var lyr = new FeatureLayer({ 
+        url: url,
+        maxScale: 0,
+        minScale: 0,
+        outFields: ["*"]
+      });
+      lyr.then(function(e){
+        lyr.set({
+          popupTemplate: new PopupTemplate({
+            title: lyr.name,
+            content: "{*}"
+          })
+        });
+      })
+      return lyr;
+    }
+
+    function showErrorLoadingLayer(msg) {
+      //$("#layerErrorMsg").text(msg);
+      //$("#layerError").removeClass("hidden");
+    }
+
+    /******************************************************************
+     * Layout functions
+     ******************************************************************/
+
+    function setLayout(layout) {
+      removeClasses();
+      addClasses(layout);
+      setPadding(layout.viewPadding, layout.uiPadding);
+      setPaddingUI(layout.viewPadding);
+      if (layout.zoomPosition === "zoom-top-right") {
+        setWidgetPosition(app.mapView, "zoom", "top-right");
+        setWidgetPosition(app.sceneView, "zoom", "top-right");
+      } else {
+        setWidgetPosition(app.mapView, "zoom", "top-left");
+        setWidgetPosition(app.sceneView, "zoom", "top-left");
+      }
+    }
+
+    function addClasses(layout) {
+      var body = query("body")[0],
+        nav = query("nav")[0];
+      domClass.add(body, layout.navPosition + " " + layout.navSpace + " " + layout.panelPosition + " " + layout.zoomPosition + " " + layout.layoutName);
+      domClass.add(nav, layout.navFixedPosition);
+    }
+
     function removeClasses() {
       var body = query("body")[0],
         nav = query("nav")[0];
@@ -430,27 +544,18 @@ define([
       domClass.remove(nav, "navbar-fixed-top navbar-fixed-bottom");
     }
 
-    function addClasses(layout) {
-      var body = query("body")[0],
-        nav = query("nav")[0];
-      domClass.add(body, layout.navPosition + " " + layout.navSpace + " " + layout.panelPosition + " " + layout.zoomPosition + " " + layout.layoutName);
-      domClass.add(nav, layout.navFixedPosition);
-    }
-
-    function setLayout(layout) {
-      removeClasses();
-      addClasses(layout);
-      setPadding(layout.viewPadding, layout.uiPadding);
-    }
-
     function setPadding(viewPadding, uiPadding){
       app.mapView.padding = viewPadding;
       app.mapView.ui.padding = uiPadding;
       app.sceneView.padding = viewPadding;
       app.sceneView.ui.padding = uiPadding;
     }
-    
-    function setMapWidget(view, name, position) {
+
+    function setPaddingUI(viewPadding) {
+      query("#settingsPadding")[0].value = JSON.stringify(viewPadding);
+    }
+
+    function setWidgetPosition(view, name, position) {
       var component,
         exists = view.ui.find(name);
       // Remove
@@ -520,39 +625,6 @@ define([
       return widget;
     }
 
-    query("#settingsPanel").on("change", function(e) {
-      var body = query("body")[0],
-        panelStyle = e.target.value;
-      domClass.remove(body, "panel-left panel-right");
-      domClass.add(body, panelStyle);
-    });
-
-    query("#settingsMapWidget").on("change", function(e) {
-      on.emit(query("#settingsPositionMapWidget")[0], "change",  {
-              bubbles: true,
-              cancelable: true
-          });
-    });
-
-    query("#settingsSceneWidget").on("change", function(e) {
-      on.emit(query("#settingsPositionSceneWidget")[0], "change",  {
-              bubbles: true,
-              cancelable: true
-          });
-    });
-
-    query("#settingsPositionMapWidget").on("change", function(e) {
-      var name = query("#settingsMapWidget")[0].value,
-        position = e.target.value;
-      setMapWidget(app.mapView, name, position);
-    });
-
-    query("#settingsPositionSceneWidget").on("change", function(e) {
-      var name = query("#settingsSceneWidget")[0].value,
-        position = e.target.value;
-      setMapWidget(app.sceneView, name, position);
-    });
-
     function setPopupDock(view, popupOptions) {
       view.popup.set({
         dockOptions: popupOptions
@@ -561,166 +633,4 @@ define([
       view.popup.set("dockEnabled", dock);
     }
 
-    query("#settingsPopup").on("change", function(e){
-      var popupOptions = {
-        position: e.target.value
-      }
-      setPopupDock(app.mapView, popupOptions);
-      setPopupDock(app.sceneView, popupOptions);
-    });
-
-    query("#settingsAddLayer").on("click", function() {
-
-      addFeatureService();
-
-      // Create a feature layer to get feature service
-      function addFeatureService() {
-        if (removeFeatureService()) {
-          //query("#settingsFeatureLayerUrl")[0].value = "";
-          // Update button
-          query("#settingsAddLayer").addClass("btn-primary").removeClass("btn-danger");
-          query("#settingsAddLayer")[0].innerText = "Add Layer";      
-          return;
-        }
-        
-        // Validate url
-        var url = query("#settingsFeatureLayerUrl")[0].value;
-        if (url === "") {
-          //showErrorLoadingLayer("Sorry, please provide a valid URL.");
-          return;
-        }  
-
-        // Create layers - two layers because they will have different styles
-        app.mapFL = createLayer(url);
-        app.sceneFL = createLayer(url);
-
-        // Added to Map
-        app.mapFL.then(function(){
-          }, function(error){
-            //showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-            removeFeatureService();
-            return;
-          });
-
-        // Added to Scene
-        app.sceneFL.then(function(){
-          }, function(error){
-            //showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-            removeFeatureService();
-            return;
-          });
-
-         // Add to map
-        app.mapView.map.add(app.mapFL);
-        app.sceneView.map.add(app.sceneFL);
-        
-        // Zoom map to extent of layer
-        app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
-          if (newValue) {
-            if (object.initialExtent) {
-              zoomToProjectedExtent(object.initialExtent);                           
-            } else {
-              showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-              removeFeatureService();
-            }
-          }
-        });
-
-        // Zoom scene and tile - TODO
-        app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
-          if (newValue && app.sceneFL && !app.sceneView.__sceneZoomed) {
-            app.sceneView.__sceneZoomed = true;
-            app.sceneView.animateTo({center: app.mapView.center, scale: app.mapView.scale, tilt: 45});
-          }
-        })
-      }
-
-      // Remove existing service
-      function removeFeatureService() {
-        if (app.mapFL && app.sceneFL) {
-          app.mapView.map.remove(app.mapFL);
-          app.sceneView.map.remove(app.sceneFL);
-          app.mapView.zoom = app.zoom; 
-          app.mapView.center = app.lonlat;
-          app.sceneView.zoom = app.zoom;
-          app.sceneView.center = app.lonlat;
-          app.mapFL = null;
-          app.sceneFL = null;
-          app.sceneView.__sceneZoomed = false;
-          app.mapView.popup.set({visible: false});
-          app.sceneView.popup.set({visible: false});
-          return true;
-        } else {
-          return false;
-        }
-      }
-
-      function zoomToProjectedExtent(extent) {
-        var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
-        var params = new ProjectParams();
-        params.geometries = [extent];
-        params.outSR = app.mapView.spatialReference;
-        gvsc.project(params).then(function(results) {
-          if (results.length > 0){
-            // Update extent
-            app.mapView.animateTo(results[0].extent);
-            app.sceneView.animateTo(results[0].extent);
-            // Update button
-            query("#settingsAddLayer").addClass("btn-danger").removeClass("btn-primary");
-            query("#settingsAddLayer")[0].innerText = "Remove";                           
-          } else {
-            //showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-            removeFeatureService();
-          }
-        }, function(e){
-          //showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-          removeFeatureService();
-        });
-      }
-
-      function createLayer(url) {
-        var lyr = new FeatureLayer({ 
-          url: url,
-          maxScale: 0,
-          minScale: 0,
-          outFields: ["*"]
-        });
-        lyr.then(function(e){
-          lyr.set({
-            popupTemplate: new PopupTemplate({
-              title: lyr.name,
-              content: "{*}"
-            })
-          });
-        })
-        return lyr;
-      }
-
-      function showErrorLoadingLayer(msg) {
-        //$("#layerErrorMsg").text(msg);
-        //$("#layerError").removeClass("hidden");
-      }
-
-    });
-
-    query("#settingsPadding").on("keydown", function(evt) {
-      if (evt.keyCode === keys.ENTER) {
-        var str = this.value;
-        var padding = eval("("+str+")");
-        if (padding) {
-          app.mapView.padding = padding;
-          app.sceneView.padding = padding;
-        }
-      }
-    });
-
-    query("#settingsLayerOpacity").on("change", function(){
-      var opacity = Number.parseFloat(this.value);
-      if (app.mapFL && app.sceneFL) {
-        app.mapFL.opacity = opacity;
-        app.sceneFL.opacity = opacity;
-      }
-    }); 
-
-  }
-);
+});

@@ -120,97 +120,7 @@
 /* -------------- */
 @media (max-width: 768px) {
   .calcite-maps {
-    /* ArcGIS stuff - TODO - Get with Matt to improve styling for full width */
-    /* ----------- */
-    /* Zoom Widget */
-    /* ----------- */
-    /* All */
-    /*   .esriSimpleSlider {
-            margin: 25px;
-        }*/
-    /* Top nav */
-    /* &.nav-position-top .esriSimpleSlider {
-            margin-top: 85px;
-        }
-
-        &.nav-position-top-fixed .esriSimpleSlider {
-            margin-top: 25px;
-        }
-
-        &.nav-position-top.nav-space-top .esriSimpleSlider {
-            margin-top: 100px;      
-        }
-
-        &.nav-position-top.nav-space-all .esriSimpleSlider {
-            margin-top: 100px;  
-        }
-
-        &.nav-position-top.zoom-top-left.is-minibar .esriSimpleSlider {
-            margin-top: 85px;
-        }
-
-        &.nav-position-top.zoom-top-right.is-minibar .esriSimpleSlider {
-            margin-top: 25px;
-        }
-
-        &.nav-position-top.zoom-top-left.nav-space-top.is-minibar .esriSimpleSlider,
-        &.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriSimpleSlider {
-            margin-top: 100px;
-        }*/
-    /* Bottom nav */
-    /* &.nav-position-bottom .esriSimpleSlider {
-            margin-bottom: 85px;
-        }
-
-        &.nav-position-bottom-fixed .esriSimpleSlider  {
-            margin-bottom: 25px;
-        }
-
-        &.nav-position-bottom.nav-space-bottom .esriSimpleSlider {
-            margin-bottom: 100px; 
-        }
-
-        &.nav-position-bottom.nav-space-all .esriSimpleSlider {
-            margin-bottom: 100px; 
-        }
-
-        &.nav-position-bottom.zoom-bottom-left.is-minibar .esriSimpleSlider {
-            margin-bottom: 85px;
-        }
-
-        &.nav-position-bottom.zoom-bottom-right.is-minibar .esriSimpleSlider {
-            margin-bottom: 25px;
-        }
-
-        &.nav-position-bottom.zoom-bottom-left.nav-space-bottom.is-minibar .esriSimpleSlider,
-        &.nav-position-bottom.zoom-bottom-left.nav-space-all.is-minibar .esriSimpleSlider {
-            margin-bottom: 100px;
-        }*/
-    /* --------------------------- */
-    /* Attribution and Logo Widget */
-    /* --------------------------- */
-    /*  &.nav-space-top .esriCorner.esriBottom.esriRight,
-        &.nav-position-top .esriCorner.esriBottom.esriRight {
-            top: auto;
-            right: auto;
-            bottom: 1px;
-            left: 3px;
-        }
-        .esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriComponent {
-            float: left;
-            margin: 0;
-        }
-        .esriUI .esriCorner.esriBottom.esriRight .esriAttribution.esriComponent {
-            left: 5px;
-            margin: 3px 0 0px
-        }
-        &.nav-position-bottom-fixed .esriCorner.esriBottom.esriRight,
-        &.nav-position-bottom .esriCorner.esriBottom.esriRight {
-            top: -4px;
-            right: 0;
-            bottom: auto;
-            left: 2px;
-        }*/ }
+    /* ArcGIS stuff - TODO - Get with Matt to improve styling for full width */ }
     .calcite-maps .esriSearch .esriContainer {
       margin-top: 4px; }
     .calcite-maps .esriSearch .esriExpandContainer {
@@ -220,23 +130,4 @@
     .calcite-maps .esriSearch .esriContainer .esriInput {
       width: calc(100% - 30px) !important; }
     .calcite-maps .esriSearch .esriMenu {
-      position: inherit !important; }
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical {
-      /*opacity: 0.5;*/ }
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical:focus,
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical:hover {
-      /*opacity: 1.0;*/ }
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton {
-      width: 44px;
-      height: 40px;
-      line-height: 39px;
-      font-size: 18px; }
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton {
-      color: #7c7c7c;
-      /*opacity: 0.5;*/ }
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton:focus,
-    .calcite-maps.is-mobile-zoom .esriZoom.esriVertical .esriButton:hover {
-      /*opacity: 1.0;*/
-      background-color: #f1f1f1; }
-    .calcite-maps.is-mobile-zoom .esriZoomIn.esriButton {
-      /*margin-bottom: 5px;*/ } }
+      position: inherit !important; } }

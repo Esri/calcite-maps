@@ -6,65 +6,113 @@
 
 @import "../variables";
 
+// Esri dark color variables
+$theme_dark_esri_widget_border: rgba($Calcite_Gray_700_Dark, 0.2);
+$theme_dark_esri_widget_shadow: rgba(55, 55, 55, 0.5);
+$theme_dark_esri_active_background: $Calcite_Gray_300_Dark;
+$theme_dark_esri_active_text_color: $Calcite_Gray_700_Dark;
+$theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
+
 .calcite-maps {
 
-	// TODO
+  // Font (optional if you want to match Calcite Bootstrap)
+  // .esri-widget {
+  //  font-family: "Avenir Next W01";
+  // }
 
-	.esri-widget {
-		font-family: "Avenir Next W00";
-	}
+  // Calcite dark widget theme
 
-	// [class^="esri-icon-"], 
-	// [class*=" esri-icon-"] {
-	// 	line-height: auto;
-	// }
+  &.calcite-widgets-dark {
 
-	// Calcite dark widget theme
+    .esri-widget.esri-search,
+    .esri-widget .esri-popup,
+    .esri-widget .esri-menu,
+    .esri-widget-button,
+    .esri-popup .esri-popup-main,
+    .esri-popup .esri-pointer .esri-pointer-direction,
+    .esri-popup .esri-button {
+      background-color: $theme_dark_control_bg;
+      color: $theme_dark_control_text_color;
+    }
 
-	&.calcite-widgets-dark {
-		.esri-widget.esri-search,
-		.esri-widget .esri-popup,
-		.esri-widget .esri-menu,
-		.esri-widget-button,
-		.esri-popup .esri-popup-main,
-		.esri-popup .esri-pointer .esri-pointer-direction,
-		.esri-popup .esri-button {
-			background-color: $theme_dark_control_bg;
-			color: $theme_dark_control_text_color;
-		}
-		.esri-widget-button:focus,
-		.esri-widget-button:hover,
-		.esri-widget .esri-menu li:focus,
-		.esri-widget .esri-menu li:hover {
-			background-color: $theme_dark_control_bg_hover;
-			color: $theme_dark_control_text_color_hover;
-		}
-		.esri-popup .esri-button:focus,
-		.esri-popup .esri-button:hover {
-			color: $theme_dark_control_text_color_hover;	
-		}
-	}
+    .esri-widget-button:focus,
+    .esri-widget-button:hover,
+    .esri-widget .esri-menu li:focus,
+    .esri-widget .esri-menu li:hover {
+      background-color: $theme_dark_control_bg_hover;
+      color: $theme_dark_control_text_color_hover;
+    }
 
-	// Attribution Widget - top and bottom
+    .esri-widget-button:active {
+      background-color: $theme_dark_esri_active_background;
+      color: $theme_dark_esri_active_text_color;
+    }
+    .esri-widget-button.esri-disabled {
+        color: $theme_dark_esri_disabled_text_color;
+    }
 
-	&.nav-position-top .esri-attribution,
-	&.nav-position-top-fixed .esri-attribution {
-	    top: auto;
-	    bottom: 0;
-	}
+    .esri-zoom {
+      .esri-widget-button {
+        &:last-child {
+          border-top: solid 1px $theme_dark_esri_widget_border;
+        }
+      }
+    }
 
-	&.nav-position-bottom .esri-attribution,
-	&.nav-position-bottom-fixed .esri-attribution {
-	    top: 0;
-	    bottom: auto;
-	}
+    .esri-search,
+    .esri-zoom,
+    .esri-widget-button {
+      webkit-box-shadow: 0 1px 2px $theme_dark_esri_widget_shadow;
+      box-shadow: 0 1px 2px $theme_dark_esri_widget_shadow;
+    }
 
-	// Search Widget Menu - display upwards
+    .esri-search {
+      .esri-search__submit-button {
+        border-left: solid 1px $theme_dark_esri_widget_border;
+      }
+    }
 
-	&.nav-position-bottom .navbar .esri-widget .esri-menu,
-	&.nav-position-bottom-fixed .navbar .esri-widget .esri-menu {
-  	top: auto;
-  	bottom: 36px;
+    .esri-search,
+    .esri-zoom {
+      .esri-widget-button {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+
+    .esri-widget {
+      .esri-menu li {
+        border-top: solid 1px $theme_dark_esri_widget_border;
+      }
+    }
+
+    .esri-popup .esri-button:focus,
+    .esri-popup .esri-button:hover {
+      color: $theme_dark_control_text_color_hover;  
+    }
+
+  }
+
+  // Attribution Widget - top and bottom
+
+  &.nav-position-top .esri-attribution,
+  &.nav-position-top-fixed .esri-attribution {
+      top: auto;
+      bottom: 0;
+  }
+
+  &.nav-position-bottom .esri-attribution,
+  &.nav-position-bottom-fixed .esri-attribution {
+      top: 0;
+      bottom: auto;
+  }
+
+  // Search Widget Menu - display upwards
+
+  &.nav-position-bottom .navbar .esri-widget .esri-menu,
+  &.nav-position-bottom-fixed .navbar .esri-widget .esri-menu {
+    top: auto;
+    bottom: 36px;
   }
 
 }

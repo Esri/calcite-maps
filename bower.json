@@ -5,7 +5,7 @@
   "authors": [
     "Allan Laframboise <alaframboise@esri.com>"
   ],
-  "description": "A modern framework for designing web apps with Bootstrap",
+  "description": "A framework for building map apps with Calcite styles and Bootstrap.",
   "main": ["dist/js",
     "dist/css",
     "dist/fonts"

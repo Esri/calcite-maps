@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="description" content="Calcite-Maps - ArcGIS 4.x SDK Sample">
+<title>Calcite Maps - ArcGIS JS 4.0 Example</title>
+
+<!-- Calcite-Maps -->
+<link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
+
+<!-- ArcGIS API for JavaScript -->
+<link rel="stylesheet" href="https://jsdev.arcgis.com/4.0/esri/css/main.css">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+</style>
+
+</head>
+
+<body class="calcite-maps map-position-absolute nav-position-top nav-space-none">
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-fixed-top calcite-text-light calcite-dark-blue-75">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-info">
+          <div class="navbar-title text-overflow">Greater Los Angeles Demographics</div>
+          <div class="navbar-subtitle text-overflow">Explore population, age, income and housing values</div> 
+        </div>
+      </div>
+    </div><!--/.container-fluid -->
+  </nav><!--/.navbar -->
+
+  <!-- Map Container  -->
+
+  <div class="map-container">
+      <div id="mapViewDiv" class="map-position-absolute"></div>
+  </div><!-- /.container -->
+
+  <script type="text/javascript">
+    var dojoConfig = {
+      packages: [{
+          name: "bootstrap",
+          location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+      },
+      {
+          name: "calcite-maps",
+          location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+      }]
+    };
+  </script>
+
+  <!-- ArcGIS JS 4.0 -->
+  <script src="https://jsdev.arcgis.com/4.0/"></script>
+
+  <script>
+
+    require([
+      // ArcGIS JS
+      "esri/views/MapView",
+      "esri/WebMap",
+
+      // Bootstrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      "bootstrap/Tooltip",
+
+      // Calcite-maps
+      "calcite-maps/calcitemaps",
+      "dojo/domReady!"
+    ], function(MapView, WebMap, query) {
+        
+      // Webmap 
+      var webmap = new WebMap({
+        portalItem: {
+          id: "d0260a4512d0431b84d628e000b9d25e"
+        }
+      });
+
+      // View
+      var view = new MapView({
+        map: webmap,
+        container: "mapViewDiv",
+        padding: {
+            top: 64
+          }
+      });
+
+    });<!-- dojo -->
+  </script>
+
+</body>
+</html>
