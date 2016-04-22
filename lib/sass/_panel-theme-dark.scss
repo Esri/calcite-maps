@@ -2,7 +2,8 @@
 // │ Panel Theme Dark │
 // └──────────────────┘
 //
-// Minimum text color, hover and background styles for panels and controls
+// Dark background, light text
+// Styles for text color, hover and background for panels and controls
 
 .calcite-maps {
 
@@ -78,7 +79,7 @@
         outline-offset: -1px;
       }
       
-      // Links
+      // Links - required
       
       a {
         color: $theme_dark_link_color;

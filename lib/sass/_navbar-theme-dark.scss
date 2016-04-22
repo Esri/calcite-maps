@@ -2,9 +2,12 @@
 // │ Navbar Theme - Dark │
 // └─────────────────────┘
 //
-// Minimum styles for navbar and dropdown menu
+// Dark background, light text
+// Styles for navbar and dropdown menu
 
 .calcite-maps {
+
+  // Navbar background (dark)
 
   &.calcite-theme-dark {
     .navbar {
@@ -12,6 +15,8 @@
     }
   }
   
+  // Navbar text
+
   .calcite-text-light {
 
     // Brand
@@ -89,10 +94,10 @@
     }
   }
 
-  // Dropdown menu
-  
+  // Navbar dropdown-menu (dark)
+
   &.calcite-theme-dark { 
-    
+
     .dropdown-menu {
       background-color: $theme_dark_menu_bg;
     
@@ -116,7 +121,7 @@
   }
 }
 
-// Nav bottom - decoration
+// Nav bottom - decoration (dark)
 
 .calcite-maps {
   &.nav-position-bottom,
@@ -139,24 +144,15 @@
 
 }
 
-// Dropdown menu
+// Navbar dropdown menu (dark)
 
 @media (max-width: 767px) {
   .calcite-maps {
     &.calcite-theme-dark {
-      .dropdown-menu {
-        background-color: transparent;
-      }
-      .dropdown-menu .active>a, 
-      .dropdown-menu .active>a:focus, 
-      .dropdown-menu .active>a:hover, 
-      .dropdown-menu li>a:focus, 
-      .dropdown-menu li>a:hover {
-        color: $theme_dark_navbar_text_color_hover;
-        // background-color: transparent;
+      .navbar-nav .open .dropdown-menu {
+        background-color: $theme_dark_menu_bg;
       }
     }
   }
 }
-
 

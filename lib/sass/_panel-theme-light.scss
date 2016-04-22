@@ -2,11 +2,14 @@
 // │ Panel Theme Light │
 // └───────────────────┘
 //
-// Minimum text color, hover and background styles for panels and controls
+// Light background, dark text
+// Text color, hover and background for panels and controls
 
 .calcite-maps {
 
-  //.calcite-theme-light { //Not necessary, is the default...
+  // Default, not required
+  //.calcite-theme-light { 
+  //}
   
     .panel {
       color: $theme_light_panel_text_color;
@@ -74,7 +77,7 @@
         // outline-offset: -1px;
       }
 
-      // Links
+      // Links - optional
 
       // a {
       //  color: $theme_light_link_color;

@@ -2,9 +2,12 @@
 // │ Navbar Theme - Light │
 // └──────────────────────┘
 //
-// Minimum styles for navbar and dropdown menu (defaults)
+// Light background, dark text
+// Styles for navbar and dropdown menu (defaults)
 
 .calcite-maps {
+
+  // Navbar defaults
 
   .calcite-text-dark {
 
@@ -88,7 +91,7 @@
     }
   }
 
-  // Dropdown menu
+  // Navbar dropdown menu (default)
   
   .dropdown-menu {
     background-color: $theme_light_menu_bg;
@@ -112,7 +115,7 @@
 
 }
 
-// Nav bottom - decoration
+// Nav bottom - decoration (default)
 
 .calcite-maps {
   &.nav-position-bottom,
@@ -134,20 +137,12 @@
   }
 }
 
-// Dropdown menu
+// Navbar dropdown menu (default)
 
 @media (max-width: 767px) {
   .calcite-maps {
-    .dropdown-menu {
-      background-color: transparent;
-    }
-    .dropdown-menu .active > a, 
-    .dropdown-menu .active > a:focus, 
-    .dropdown-menu .active > a:hover, 
-    .dropdown-menu li > a:focus, 
-    .dropdown-menu li > a:hover {
-      color: $theme_light_navbar_text_color_hover;
-      // background-color: transparent;
+    .navbar-nav .open .dropdown-menu {
+      background-color: $theme_light_navbar_bg;
     }
   }
 }
