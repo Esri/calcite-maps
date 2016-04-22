@@ -259,17 +259,12 @@
       }
 
       function syncViews(fromView, toView) {
-        function sync() {
-          toView.set({viewpoint: fromView.viewpoint});
-        }
-        if (toView.isInstanceOf(SceneView) && !toView.ready) {
+        if (!toView.ready) {
           watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
-            if (isReady) {
-              sync();
-            }
+            toView.set({ viewpoint: fromView.viewpoint });
           });
         } else {
-          sync();
+          toView.set({ viewpoint: fromView.viewpoint });
         }
       }
 
@@ -288,8 +283,8 @@
       });
 
       query("#selectBasemapPanel").on("change", function(e){
-        app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
-        //app.mapView.map.basemap = e.target.value;
+        // app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
+        app.mapView.map.basemap = e.target.value;
         app.sceneView.map.basemap = e.target.value;
       });
 

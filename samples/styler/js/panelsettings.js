@@ -122,7 +122,7 @@ define([
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-top",
           viewPadding: { top: 120, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
+          uiPadding: { top: 15, left: 30, bottom: 30 },
           layoutName: "layout-jumbo-title"
       },
       BOTTOMJUMBO: {

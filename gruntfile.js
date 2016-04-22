@@ -26,9 +26,9 @@ module.exports = function (grunt) {
 					'dist/css/calcite-maps.css': 'lib/sass/build.scss',
 					'dist/css/layouts/inline-zoom.css': 'lib/sass/layouts/inline-zoom.scss',
 					'dist/css/layouts/jumbo-title.css': 'lib/sass/layouts/jumbo-title.scss',
-					'dist/css/api-support/arcgis-3.x.css': 'lib/sass/api-support/arcgis-3.x.scss',
-					'dist/css/api-support/arcgis-4.x.css': 'lib/sass/api-support/arcgis-4.x.scss',
-					'dist/css/api-support/esri-leaflet.css': 'lib/sass/api-support/esri-leaflet.scss'
+					'dist/css/support/arcgis-3.x.css': 'lib/sass/support/arcgis-3.x.scss',
+					'dist/css/support/arcgis-4.x.css': 'lib/sass/support/arcgis-4.x.scss',
+					'dist/css/support/esri-leaflet.css': 'lib/sass/support/esri-leaflet.scss'
 				}
 			}
 		}, 
@@ -41,9 +41,9 @@ module.exports = function (grunt) {
 				},
 				files: {
 					'dist/css/calcite-maps.min.css': ['dist/css/calcite-maps.css'],
-					'dist/css/calcite-maps-arcgis-3.x.min.css': ['dist/css/calcite-maps.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css', 'dist/css/api-support/arcgis-3.x.css'],
-					'dist/css/calcite-maps-arcgis-4.x.min.css': ['dist/css/calcite-maps.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css','dist/css/api-support/arcgis-4.x.css'],
-					'dist/css/calcite-maps-esri-leaflet.min.css': ['dist/css/calcite-maps.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css','dist/css/api-support/esri-leaflet.css']
+					'dist/css/calcite-maps-arcgis-3.x.min.css': ['dist/css/calcite-maps.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css', 'dist/css/support/arcgis-3.x.css'],
+					'dist/css/calcite-maps-arcgis-4.x.min.css': ['dist/css/calcite-maps.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css','dist/css/support/arcgis-4.x.css'],
+					'dist/css/calcite-maps-esri-leaflet.min.css': ['dist/css/calcite-maps.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css','dist/css/support/esri-leaflet.css']
 				}
 			}
 		},

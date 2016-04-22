@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
   
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-  <link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
+  <link rel="stylesheet" href="http://jsdev.arcgis.com/4.0/esri/css/main.css">
   <!--link rel="stylesheet" href="http://localhost/GitHub/arcgis-js-api/esri/css/main.css"-->
 
   <style>
@@ -49,25 +49,26 @@
 
     <div class="container-fluid">
 
+      <!-- Header -->
+  
       <div class="navbar-header">
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-info">
+          <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
+          <div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
+        </div>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
-        <a class="navbar-brand">
-          <span class="esri-icon esri-icon-map-pin"></span>
-        </a>
-
-        <div class="navbar-info">
-          <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
-          <div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
-        </div>
       </div>
 
-      <!-- Navbar collapse - main -->
+      <!-- Navbar Collapse -->
+
       <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
         <!-- Main -->
         <ul class="nav navbar-nav navbar-right">                    
@@ -88,7 +89,7 @@
               <li><a id="legendNavMenu"  role="button" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Legend</a></li>
               <li><a id="printNavMenu"  role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
               <li><a id="shareNavMenu"  role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
-              <li><a id="settingsMenu" role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Styler</a></li>
+              <li><a id="settingsMenu" role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
             </ul>
           </li>      
         </ul><!--/.nav -->
@@ -361,7 +362,7 @@
         <div id="headingSettings" class="panel-heading">
           <!-- <div class="panel-title hidden-xs"> -->
           <div class="panel-title">
-            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Styler</a>
+            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a>
 
             <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
           </div>
@@ -762,7 +763,7 @@
   </script>
 
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-  <script src="http://jsqa.arcgis.com/4.0/"></script>
+  <script src="http://jsdev.arcgis.com/4.0/"></script>
 
   <script>
     
@@ -930,7 +931,8 @@
       });
 
       function setBasemaps() {
-        app.mapView.map.basemap = app.basemapSelected;
+        // app.mapView.map.basemap = app.basemapSelected;
+        app.mapView.map.basemap = app.basemapSelectedAlt;
         app.sceneView.map.basemap = app.basemapSelectedAlt;
       }      
 
