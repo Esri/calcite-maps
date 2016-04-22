@@ -42,12 +42,14 @@
   .navbar-title {
     margin-top: 4px;
     font-size: $navbar_title_font_size;
+    font-weight: $navbar_title_font_weight;
   }
 
   .navbar-subtitle {
     margin-top: -4px;
     margin-left: 2px;
     font-size: $navbar_subtitle_font_size;
+    font-weight: $navbar_subtitle_font_weight;
   }
 
   .text-overflow {

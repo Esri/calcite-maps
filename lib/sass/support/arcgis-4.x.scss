@@ -16,9 +16,9 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
 .calcite-maps {
 
   // Font (optional if you want to match Calcite Bootstrap)
-  // .esri-widget {
-  //  font-family: "Avenir Next W01";
-  // }
+  .esri-widget {
+    font-family: "Avenir Next W01";
+  }
 
   // Calcite dark widget theme
 
@@ -107,12 +107,42 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
       bottom: auto;
   }
 
-  // Search Widget Menu - display upwards
+  // Search Widget 
+
+  // Full width in panels
+  .panel .esri-search {
+    width: 100%;
+  }
+
+  // Display menu up
 
   &.nav-position-bottom .navbar .esri-widget .esri-menu,
   &.nav-position-bottom-fixed .navbar .esri-widget .esri-menu {
     top: auto;
     bottom: 36px;
+  }
+
+  // XSmall screens
+
+  @media(max-width: 767px) {
+
+    // Search Widget 
+
+    // Display menu up
+
+    .panel .esri-search .esri-menu {
+      top: auto;
+      bottom: 100%;
+    }
+
+    // Display menu down
+
+    &.nav-position-bottom .panel .esri-widget .esri-menu,
+    &.nav-position-bottom-fixed .panel .esri-widget .esri-menu {
+      top: 100%;
+      bottom: auto;
+    }
+
   }
 
 }

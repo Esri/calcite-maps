@@ -25,7 +25,7 @@
 
     .navbar-brand:hover,
     .navbar-brand:focus {
-      background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color 100%);
+      background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
@@ -79,7 +79,7 @@
       .navbar-nav > .open > a:focus  {
         color: $theme_light_navbar_text_color_hover;
         background-color: transparent;
-        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color 100%);
+        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
         transition: color 150ms linear, text-decoration 150ms linear;
       }
 
@@ -131,7 +131,7 @@
       .navbar-nav > .open > a,
       .navbar-nav > .open > a:hover,
       .navbar-nav > .open > a:focus {
-        background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color $navbar_nav_hover_decoration_height, $theme_light_navbar_text_color 100%);
+        background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
       }
     }
   }

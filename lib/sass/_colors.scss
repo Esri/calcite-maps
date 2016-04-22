@@ -4,13 +4,13 @@
 // Subset of Calcite colors for easy styling of navbar 
 // Core colors have opacity ranges .25, .50, .75 and 1
 
-// Calcite Bootstrap - default colors (submodule in future)
+// Calcite Light (default) - see node_modules/calcite-bootstrap/dist/sass/calcite/_colors-default.scss
 @import "calcite/colors-default"; 
 
-// Calcite Bootstrap - default dark colors (submodule in future)
+// Calcite Dark - see node_modules/calcite-bootstrap/dist/sass/calcite/_colors-dark.scss
 //@import "calcite/_colors-dark.scss"; 
 
-// Subset of calcite dark
+// Defined here so we can can compile both
 $Calcite_Gray_050_Dark:    #242424;
 $Calcite_Gray_100_Dark:    #333333;
 $Calcite_Gray_150_Dark:    #363636;
