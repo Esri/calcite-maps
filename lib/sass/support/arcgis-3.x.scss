@@ -7,6 +7,12 @@
 
 .calcite-maps {
 
+  // Search
+
+  &.calcite .arcgisSearch .searchIcon.searchClose {
+    line-height: 2.25;
+  } 
+
   // Zoom Container
 
   &.zoom-top-left .esriSimpleSlider {
@@ -155,6 +161,7 @@
     width: 40px;
   }
 }
+
 /* -------------- */
 /* Medium screens */
 /* -------------- */
@@ -166,35 +173,27 @@
 }*/
 
 /* -------------- */
-/* Small screens */
+/* XSmall screens */
 /* -------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   .calcite-maps {
 
-    /* ArcGIS stuff - TODO - Get with Matt to improve styling for full width */
+    // Search
  
-    .esriSearch .esriContainer {
-       margin-top: 4px;
-    }
- 
-    .esriSearch .esriExpandContainer {
-      width: calc(100% - 47px);
-    }
- 
-    .esriSearch .esriInputContainer {
-      width: 100%;
-    }
- 
-    .esriSearch .esriContainer .esriInput {
-      width: calc(100% - 30px) !important;
-    }
- 
-    .esriSearch .esriMenu {
-      position: inherit !important;
+    &.calcite .arcgisSearch .searchExpandContainer {
+      width: calc(100% - 33px) !important; 
     }
 
+    &.calcite .arcgisSearch .searchGroup .searchInput,
+    &.calcite .arcgisSearch .searchInputGroup {
+      width: 100%;
+    }
+
+    &.calcite .esriPopup .titleButton.maximize {
+      display: none;
+    }
 
   }
 }
