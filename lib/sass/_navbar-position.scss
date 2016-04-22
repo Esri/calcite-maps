@@ -7,6 +7,7 @@
 .calcite-maps {
 
   // Full body and map
+
   &.nav-position-top,
   &.nav-position-bottom {
     top: 0;
@@ -14,6 +15,7 @@
   }
 
   // Offset body and map
+
   &.nav-position-top-fixed, 
   &.nav-position-top-fixed .map-position-absolute {
     top: $navbar_height;
@@ -26,7 +28,7 @@
     bottom: $navbar_height;
   }
 
-  // Spacing
+  // Top spacing
   
   &.nav-space-none .navbar {
     margin: 0;
@@ -36,6 +38,8 @@
     margin-top: $navbar_margin;
     margin-bottom: 0;
   }
+
+  // Bottom spacing
 
   &.nav-space-bottom .navbar {
     margin-top: 0;
@@ -57,19 +61,25 @@
 
 @media (max-width: 767px) {
   .calcite-maps {
-    
-    // Minibar
+ 
+    // Move dropdown menu to bottom
 
-    &.nav-position-top.nav-space-all.is-minibar .navbar {
-         margin-top: $navbar_margin; 
-         margin-left: 30px; 
+    &.nav-position-bottom,
+    &.nav-position-bottom-fixed {
+      .navbar-collapse {
+        position: absolute;
+        right: 15px;
+        bottom: $navbar_height;
+      }
     }
 
-    &.nav-position-bottom.nav-space-all.is-minibar .navbar {
-         margin-bottom: 0; 
-         margin-left: 0; 
+    &.nav-position-bottom,
+    &.nav-position-bottom-fixed {
+      .nav-space-bottom,
+      .nav-space-all {
+        bottom: $navbar_height + 15; 
+      } 
     }
 
   }
-
 }

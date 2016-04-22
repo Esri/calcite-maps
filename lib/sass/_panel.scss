@@ -36,13 +36,13 @@
   }
 
   .panel-title {
+    display: flex;
     font-size: $panel_title_font_size;
     font-weight: $panel_title_font_weight;  
   }
 
   .panel-toggle {
-    display: inline-block;
-    width: calc(100% - 37px);
+    flex: 1;
     padding: 10px 10px 9px;
     text-decoration: none;
     .glyphicon {
@@ -52,9 +52,7 @@
   }
 
   .panel-close {
-    display: inline-flex;
-    float: right;
-    padding: 14px 10px 11px;
+    padding: 11px 10px 9px;
     font-size: $panel_font_size - 1;
     text-decoration: none;
   }

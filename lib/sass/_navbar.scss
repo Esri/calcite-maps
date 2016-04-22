@@ -102,15 +102,13 @@
   // Animation - speed up to improve interaction
 
   .navbar-collapse.collapsing {
-    -webkit-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: .15s;
-    -o-transition-duration: .15s;
-    transition-duration: .15s;
-    -webkit-transition-property: height, visibility;
-    -o-transition-property: height, visibility;
-    transition-property: height, visibility;
+    -webkit-transition: visibility .25s ease-out;
+    -o-transition: visibility .25s ease-out;
+    transition: visibility .25s ease-out;
+    -webkit-transition: height 0.25s ease-out;
+    -o-transition: height 0.25s ease-out;
+    transition: height 0.25s ease-out;
+    //display: none; // disable
   }
 
   .fade-in, 
@@ -119,14 +117,6 @@
     -o-transition: all .25s ease;
     transition: all .25s ease;
   }
-
-  // Hidden Overrides - Search, Map and Scene Menus
-
-  // .visible-sm.visible-md.visible-lg.hidden,
-  // .visible-sm.hidden-md.hidden-lg.hidden,
-  // .visible-xs.hidden {
-  //  display: none !important;
-  // }
 
   // Misc
 
@@ -178,12 +168,17 @@
       font-size: $navbar_subtitle_font_size_mobile;
     }
         
-    // Dropdown
+    // Dropdown - move to bottom
+
+    .navbar-collapse {
+      position: absolute;
+      right: 15px;
+    }
     
     .navbar-nav .dropdown-menu {
       margin: 0 -15px;
     }
-    
+
     // .navbar-nav .open .dropdown-menu > li > a {
     //  padding: 10px 20px;
     // }
@@ -191,6 +186,8 @@
     // .navbar-collapse.collapse.in .dropdown-menu + .panel-container {
     //  display: none;
     // }
+
+    // NOTE: May want to add top and bottom borders
 
     .dropdown-menu li:first-child {
       margin-top: 0;
