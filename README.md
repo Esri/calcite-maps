@@ -24,9 +24,9 @@ Here's a few ways to get started:
 
 2. **Reference the libraries** - Download the latest release or just reference the appropriate [calcite-maps-xxx.min.css](./dist/css) and [calcite-maps.js](./dist/js) in your app (for testing only). See the [samples](./samples/index.html) and the [example](#example) below. Please note that all of the [calcite-maps-xxx.css](./dist/css) files bundle both the Bootstrap CSS and the required CSS for each mapping API.
 
-3. **Create a local build** - Fork and clone the repo to create a local build. The default build includes the required Bootstrap components to support the framework (core, navbar, panels...), but you can further customize by overriding variables, adding or removing style files, or adding/removing other Bootstrap components.
+3. **Create a local build** - Fork and clone the repo to create a local build. The default build includes the Bootstrap components for the framework (scaffolding, navbar, panels...), but you can further customize by overriding variables, adding or removing style files, or adding/removing other Bootstrap components.
 
- To get started, run the commands below and be sure to check out the [gruntfile.js](gruntfile.js), [build.scss](./lib/sass/build.scss) and [_variables.scss](./lib/sass/_variables.scss) files.
+ To get started, run the commands below. Be sure to check out the [gruntfile.js](gruntfile.js), [build.scss](./lib/sass/build.scss) and [_variables.scss](./lib/sass/_variables.scss) files.
 
  * Fork and clone the repo 
  * Run `npm install` (node_modules/bootstrap and calcite-bootstrap)
@@ -161,7 +161,7 @@ Here's the main CSS classes you can mix and match to create different designs.
 * Text Color - `calcite-text-dark` or `calcite-text-light`
 * Position - `navbar-fixed-top` or `navbar-fixed-bottom`
 
-Examples
+Example themes...
 
 Navbar Top - Dark Blue - Dark Text
 
@@ -181,7 +181,7 @@ Navbar Top - Inline Layout - Dark Theme - White 75% Background - Dark Text
 
 ```html
 <body class="calcite-maps map-position-absolute nav-position-top layout-inline-left calcite-theme-dark">
-  <nav class="navbar navbar-fixed-bottom calcite-text-dark calcite-white-75">
+  <nav class="navbar navbar-fixed-top calcite-text-dark calcite-white-75">
 ```
 
 ## Requirements

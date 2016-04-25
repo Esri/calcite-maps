@@ -92,27 +92,34 @@
   }
 
   // Navbar dropdown menu (default)
-  
-  .dropdown-menu {
-    background-color: $theme_light_menu_bg;
-    
-    li > a {
-      color: $theme_light_menu_text_color;
-    }
+  .navbar-nav {
+    .dropdown-menu {
+      background-color: $theme_light_menu_bg;
 
-    li > a:hover, 
-    li > a:focus {
-      color: $theme_light_menu_text_color;
-      background-color: $theme_light_menu_bg_hover;
+      //border: 1px solid $theme_light_menu_border_color;
+      border: none;
+
+      -webkit-box-shadow: $theme_light_menu_shadow;
+      box-shadow: $theme_light_menu_shadow;
+
+      li > a {
+        color: $theme_light_menu_text_color;
+      }
+
+      li > a:hover, 
+      li > a:focus {
+        color: $theme_light_menu_text_color;
+        background-color: $theme_light_menu_bg_hover;
+      }
+      
+      .active > a, 
+      .active > a:hover, 
+      .active > a:focus {
+        background-color: $theme_light_menu_bg_hover;
+      }   
     }
-    
-    .active > a, 
-    .active > a:hover, 
-    .active > a:focus {
-      background-color: $theme_light_menu_bg_hover;
-    }   
   }
-
+  
 }
 
 // Nav bottom - decoration (default)
@@ -139,12 +146,12 @@
 
 // Navbar dropdown menu (default)
 
-@media (max-width: 767px) {
-  .calcite-maps {
-    .navbar-nav .open .dropdown-menu {
-      background-color: $theme_light_navbar_bg;
-    }
-  }
-}
+// @media (max-width: 767px) {
+//   .calcite-maps {
+//     .navbar-nav .open .dropdown-menu {
+//       background-color: $theme_light_navbar_bg;
+//     }
+//   }
+// }
 
 

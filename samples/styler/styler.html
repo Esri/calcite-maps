@@ -13,7 +13,7 @@
   <!-- Bootstrap - For testing only -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 
-  <!-- Calcite-Maps -->
+  <!-- Calcite Maps -->
   <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
   
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
@@ -35,13 +35,13 @@
     
     .calcite-maps .panel-body {
       /*position: relative;*/
-      max-height: 700px;
+      /*max-height: 700px;*/
     }
   </style>
 
 </head>
 
-<body class="calcite-maps nav-position-top nav-space-none map-position-absolute">
+<body class="calcite-maps nav-position-top map-position-absolute">
 
   <!-- Navbar -->
 
@@ -78,7 +78,7 @@
           <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
           <!-- Dropdown Menu -->
           <li class="dropdown" role="presentation">
-            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="esri-icon esri-icon-menu" aria-hidden="true"></span></a>
+            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
             <ul class="dropdown-menu">
               <li><a id="mapNavMenu" class="hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
               <li><a id="sceneNavMenu" class="hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
@@ -637,6 +637,8 @@
                         <option value="layout-top">--- Themes ---</option>
                         <option value="layout-jumbo-title-top">Jumbo Title Top</option>
                         <option value="layout-jumbo-title-bottom">Jumbo Title Bottom</option>
+                        <option value="layout-mobile-focus-top">Mobile Focus Top</option>
+                        <option value="layout-mobile-focus-bottom">Mobile Focus Bottom</option>
                         <option value="layout-inline-right">Inline Zoom Right</option>
                         <option value="layout-inline-left">Inline Zoom Left</option>
                       </select>
@@ -884,6 +886,21 @@
         });
       }
       
+      // Hide panel when popup is docked
+      app.mapView.popup.watch("currentDockPosition", function(result) { 
+        hidePanel(this, result) 
+      });
+      app.sceneView.popup.watch("currentDockPosition", function(result) { 
+        hidePanel(this, result) 
+      });
+
+      // Hide panel when popup is docked
+      function hidePanel(popup, result) {
+        if (popup.visible && (result === "right" || result === "bottom")) {
+          query(".panel.in").removeClass("in");
+        }
+      }
+
       function createSearchWidget(parentId, showPopup) {
         var search = new Search({
           viewModel: {
@@ -931,10 +948,35 @@
       });
 
       function setBasemaps() {
-        // app.mapView.map.basemap = app.basemapSelected;
-        app.mapView.map.basemap = app.basemapSelectedAlt;
+        app.mapView.map.basemap = app.basemapSelected;
+        // app.mapView.map.basemap = app.basemapSelectedAlt;
         app.sceneView.map.basemap = app.basemapSelectedAlt;
-      }      
+      }    
+
+
+
+      // function setPadding() {
+      //   if (isMobile()) {
+      //     if (app.mapView.padding.top != 46) {
+      //       app.mapView.padding = {top : 46};
+      //     }
+      //   } else {
+      //     if (app.mapView.padding.top != 64) {
+      //       app.mapView.padding = {top : 64};
+      //     }
+      //   }
+      // }
+
+      // query(window).on("resize", function() {
+      //   setPadding();
+      // });   
+
+      // function isMobile(){
+      //   return query(".navbar-toggle").style("display")[0] !== "none";
+      // }
+
+      // setPadding();
+
 
     });// dojo
   </script>

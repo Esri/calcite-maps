@@ -97,26 +97,37 @@
   // Navbar dropdown-menu (dark)
 
   &.calcite-theme-dark { 
+    .navbar-nav {
+      .dropdown-menu {
+        background-color: $theme_dark_menu_bg;
 
-    .dropdown-menu {
-      background-color: $theme_dark_menu_bg;
-    
-      li > a {
-        color: $theme_dark_menu_text_color;
+        //border: 1px solid $theme_dark_menu_border_color;
+        border: none;
+
+        // -webkit-box-shadow: none;
+        // box-shadow: none;
+      
+        -webkit-box-shadow: $theme_dark_menu_shadow;
+        box-shadow: $theme_dark_menu_shadow;
+
+
+        li > a {
+          color: $theme_dark_menu_text_color;
+        }
+      
+        li > a:hover, 
+        li > a:focus {
+          color: $theme_dark_menu_text_color;
+          background-color: $theme_dark_menu_bg_hover;
+        }
+      
+        .active > a, 
+        .active > a:hover, 
+        .active > a:focus {
+          color: $theme_dark_menu_text_color;
+          background-color: $theme_dark_menu_bg_hover;
+        }   
       }
-    
-      li > a:hover, 
-      li > a:focus {
-        color: $theme_dark_menu_text_color;
-        background-color: $theme_dark_menu_bg_hover;
-      }
-    
-      .active > a, 
-      .active > a:hover, 
-      .active > a:focus {
-        color: $theme_dark_menu_text_color;
-        background-color: $theme_dark_menu_bg_hover;
-      }   
     }
   }
 }
@@ -146,13 +157,13 @@
 
 // Navbar dropdown menu (dark)
 
-@media (max-width: 767px) {
-  .calcite-maps {
-    &.calcite-theme-dark {
-      .navbar-nav .open .dropdown-menu {
-        background-color: $theme_dark_menu_bg;
-      }
-    }
-  }
-}
+// @media (max-width: 767px) {
+//   .calcite-maps {
+//     &.calcite-theme-dark {
+//       .navbar-nav .open .dropdown-menu {
+//         background-color: $theme_dark_menu_bg;
+//       }
+//     }
+//   }
+// }
 

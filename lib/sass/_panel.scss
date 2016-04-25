@@ -43,7 +43,7 @@
 
   .panel-toggle {
     flex: 1;
-    padding: 10px 10px 9px;
+    padding: 9px 10px 8px;
     text-decoration: none;
     .glyphicon {
       top: 2px;
@@ -52,7 +52,7 @@
   }
 
   .panel-close {
-    padding: 11px 10px 9px;
+    padding: 10px 10px 8px;
     font-size: $panel_font_size - 1;
     text-decoration: none;
   }
@@ -117,10 +117,10 @@
 
 @media (max-width: 767px) {
   .calcite-maps {
-      .panel-body {
-          min-height: $panel_body_min_height_mobile;
-          max-height: $panel_body_max_height_mobile;
-      }
+    .panel-body {
+      min-height: $panel_body_min_height_mobile;
+      max-height: $panel_body_max_height_mobile;
+    }
   }
 }
 

@@ -5666,12 +5666,14 @@ blockquote {
   background-color: transparent !important; }
 
 @media (max-width: 767px) {
-  .calcite-maps.nav-position-top.nav-space-all.is-minibar .navbar {
-    margin-top: 15px;
-    margin-left: 30px; }
-  .calcite-maps.nav-position-bottom.nav-space-all.is-minibar .navbar {
-    margin-bottom: 0;
-    margin-left: 0; } }
+  .calcite-maps.nav-position-bottom .navbar-collapse, .calcite-maps.nav-position-bottom-fixed .navbar-collapse {
+    position: absolute;
+    right: 15px;
+    bottom: 65px; }
+  .calcite-maps.nav-position-bottom .nav-space-bottom,
+  .calcite-maps.nav-position-bottom .nav-space-all, .calcite-maps.nav-position-bottom-fixed .nav-space-bottom,
+  .calcite-maps.nav-position-bottom-fixed .nav-space-all {
+    bottom: 80px; } }
 
 .calcite-maps .panel-container {
   position: absolute;
@@ -5688,36 +5690,19 @@ blockquote {
   left: 15px;
   right: auto; }
 
-.calcite-maps.nav-position-top.nav-space-none .panel-container,
-.calcite-maps.nav-position-top.nav-space-bottom .panel-container,
-.calcite-maps.nav-position-top-fixed.nav-space-none .panel-container {
+.calcite-maps.nav-position-top .panel-container, .calcite-maps.nav-position-top-fixed .panel-container {
   top: 80px; }
 
-.calcite-maps.nav-position-top.nav-space-top .panel-container,
-.calcite-maps.nav-position-top.nav-space-all .panel-container {
+.calcite-maps.nav-position-top.nav-space-top .panel-container, .calcite-maps.nav-position-top.nav-space-all .panel-container {
   top: 95px; }
 
 .calcite-maps.nav-position-top.is-minibar .panel-container {
   top: 15px; }
 
-.calcite-maps.nav-position-top.nav-space-top.is-minibar .panel-container,
-.calcite-maps.nav-position-top.nav-space-all.is-minibar .panel-container {
-  top: 15px;
-  right: 15px; }
-
-.calcite-maps.nav-position-top.is-minibar.panel-left .panel-container {
+.calcite-maps.nav-position-top.panel-left.is-minibar .panel-container {
   top: 80px; }
 
-.calcite-maps.nav-position-top.nav-space-top.panel-left.is-minibar .panel-container,
-.calcite-maps.nav-position-top.nav-space-all.panel-left.is-minibar .panel-container {
-  top: 95px;
-  right: auto; }
-
-.calcite-maps.nav-position-bottom .panel-container,
-.calcite-maps.nav-position-bottom-fixed.nav-space-none .panel-container,
-.calcite-maps.nav-position-bottom.nav-space-top .panel-container,
-.calcite-maps.nav-position-bottom.nav-space-bottom .panel-container
-.calcite-maps.nav-position-bottom.nav-space-all .panel-container {
+.calcite-maps.nav-position-bottom .panel-container, .calcite-maps.nav-position-bottom-fixed .panel-container, .calcite-maps.nav-position-bottom.nav-space-bottom .panel-container, .calcite-maps.nav-position-bottom.nav-space-all .panel-container {
   top: 30px; }
 
 @media (max-width: 767px) {
@@ -5727,29 +5712,15 @@ blockquote {
     right: 0;
     left: 0;
     width: 100%; }
-  .calcite-maps.nav-position-top.nav-space-none .panel-container,
-  .calcite-maps.nav-position-top.nav-space-bottom .panel-container,
-  .calcite-maps.nav-position-top-fixed.nav-space-none .panel-container,
-  .calcite-maps.nav-position-top.nav-space-top .panel-container,
-  .calcite-maps.nav-position-top.nav-space-all .panel-container,
-  .calcite-maps.nav-position-top.nav-space-top.is-minibar .panel-container,
-  .calcite-maps.nav-position-top.nav-space-all.is-minibar .panel-container {
+  .calcite-maps.nav-position-top .panel-container, .calcite-maps.nav-position-top-fixed .panel-container, .calcite-maps.nav-position-top.nav-space-top .panel-container, .calcite-maps.nav-position-top.nav-space-all .panel-container, .calcite-maps.nav-position-top.is-minibar .panel-container {
     top: auto;
     bottom: 0; }
   .calcite-maps.nav-position-top.nav-space-all .panel-container {
-    top: 95px;
-    margin-left: 15px;
-    margin-right: 15px; }
-  .calcite-maps.nav-position-bottom .panel-container,
-  .calcite-maps.nav-position-bottom-fixed.nav-space-none .panel-container,
-  .calcite-maps.nav-position-bottom.nav-space-top .panel-container,
-  .calcite-maps.nav-position-bottom.nav-space-bottom .panel-container {
+    margin: auto 15px 30px 15px;
+    width: auto; }
+  .calcite-maps.nav-position-bottom .panel-container, .calcite-maps.nav-position-bottom-fixed .panel-container, .calcite-maps.nav-position-bottom.nav-space-bottom .panel-container, .calcite-maps.nav-position-bottom.nav-space-all .panel-container {
     top: 0;
-    bottom: auto; }
-  .calcite-maps.nav-position-bottom.nav-space-all .panel-container {
-    top: 15px;
-    left: 15px;
-    right: 15px; } }
+    bottom: auto; } }
 
 .calcite-maps .navbar {
   min-height: 65px;
@@ -5760,7 +5731,7 @@ blockquote {
   font-size: 42px;
   line-height: 42px;
   cursor: pointer;
-  height: 100%; }
+  height: 65px; }
 
 .calcite-maps .navbar-brand img {
   width: 40px; }
@@ -5776,12 +5747,14 @@ blockquote {
 
 .calcite-maps .navbar-title {
   margin-top: 4px;
-  font-size: 25px; }
+  font-size: 25px;
+  font-weight: 400; }
 
 .calcite-maps .navbar-subtitle {
   margin-top: -4px;
   margin-left: 2px;
-  font-size: 13px; }
+  font-size: 13px;
+  font-weight: 400; }
 
 .calcite-maps .text-overflow {
   text-overflow: ellipsis;
@@ -5791,40 +5764,45 @@ blockquote {
 .calcite-maps .navbar-search {
   padding-top: 10px; }
 
-.calcite-maps .navbar-nav {
-  margin: 0; }
-
 .calcite-maps .navbar-nav > li > a {
   padding: 19px 15px 21px; }
 
 .calcite-maps .navbar-toggle {
   float: right;
-  margin: 15px; }
+  margin: 15px;
+  border: none; }
+
+.calcite-maps .navbar-toggle .icon-bar {
+  border-radius: 0;
+  height: 2px;
+  width: 18px; }
 
 .calcite-maps .navbar .dropdown-toggle {
   padding-top: 22px;
   padding-bottom: 19px; }
 
 .calcite-maps .navbar .dropdown-toggle span {
-  font-size: 15px; }
+  font-size: 16px; }
 
 .calcite-maps .navbar-nav .dropdown-menu {
-  border: none;
   font-size: 15px; }
 
 .calcite-maps .navbar-nav .dropdown-menu > li > a {
   padding: 10px 12px; }
 
+.calcite-maps .dropdown-menu li:first-child {
+  margin-top: 0; }
+
+.calcite-maps .dropdown-menu li:last-child {
+  margin-bottom: 0; }
+
 .calcite-maps .navbar-collapse.collapsing {
-  -webkit-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-transition-duration: .15s;
-  -o-transition-duration: .15s;
-  transition-duration: .15s;
-  -webkit-transition-property: height, visibility;
-  -o-transition-property: height, visibility;
-  transition-property: height, visibility; }
+  -webkit-transition: visibility .05s ease-out;
+  -o-transition: visibility .05s ease-out;
+  transition: visibility .05s ease-out;
+  -webkit-transition: height 0.05s ease-out;
+  -o-transition: height 0.05s ease-out;
+  transition: height 0.05s ease-out; }
 
 .calcite-maps .fade-in,
 .calcite-maps .fade-out {
@@ -5855,26 +5833,26 @@ blockquote {
     width: calc(100% - 130px); }
   .calcite-maps .navbar-subtitle {
     font-size: 12px; }
-  .calcite-maps .navbar-nav .dropdown-menu {
+  .calcite-maps .navbar-nav {
     margin: 0 -15px; }
-  .calcite-maps .dropdown-menu li:first-child {
-    margin-top: 0; }
-  .calcite-maps .dropdown-menu li:last-child {
-    margin-bottom: 0; } }
+  .calcite-maps .navbar-collapse {
+    position: absolute;
+    right: 0;
+    left: auto; } }
 
 @media (max-width: 480px) {
   .calcite-maps .navbar-collapse {
     max-height: 260px; } }
 
 .calcite-maps.calcite-theme-dark .navbar {
-  background-color: #242424; }
+  background-color: #333333; }
 
 .calcite-maps .calcite-text-light .navbar-brand {
   color: #f8f8f8; }
 
 .calcite-maps .calcite-text-light .navbar-brand:hover,
 .calcite-maps .calcite-text-light .navbar-brand:focus {
-  background-image: linear-gradient(to top, transparent 96%, #f8f8f8 96%, #f8f8f8 100%);
+  background-image: linear-gradient(to top, transparent 97%, #f8f8f8 97%, #f8f8f8 100%);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-maps .calcite-text-light .navbar-info {
@@ -5906,25 +5884,28 @@ blockquote {
   .calcite-maps .calcite-text-light .navbar-collapse .navbar-nav > .open > a:focus {
     color: #ffffff;
     background-color: transparent;
-    background-image: linear-gradient(to top, transparent 96%, #f8f8f8 96%, #f8f8f8 100%);
+    background-image: linear-gradient(to top, transparent 97%, #f8f8f8 97%, #f8f8f8 100%);
     transition: color 150ms linear, text-decoration 150ms linear; }
   .calcite-maps .calcite-text-light .navbar-collapse .navbar-nav > .disabled > a,
   .calcite-maps .calcite-text-light .navbar-collapse .navbar-nav > .disabled > a:hover,
   .calcite-maps .calcite-text-light .navbar-collapse .navbar-nav > .disabled > a:focus {
     background-color: transparent; }
 
-.calcite-maps.calcite-theme-dark .dropdown-menu {
-  background-color: #242424; }
-  .calcite-maps.calcite-theme-dark .dropdown-menu li > a {
-    color: #bdbdbd; }
-  .calcite-maps.calcite-theme-dark .dropdown-menu li > a:hover,
-  .calcite-maps.calcite-theme-dark .dropdown-menu li > a:focus {
-    color: #bdbdbd;
+.calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu {
+  background-color: #242424;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  .calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu li > a {
+    color: #adadad; }
+  .calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu li > a:hover,
+  .calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu li > a:focus {
+    color: #adadad;
     background-color: rgba(64, 64, 64, 0.5); }
-  .calcite-maps.calcite-theme-dark .dropdown-menu .active > a,
-  .calcite-maps.calcite-theme-dark .dropdown-menu .active > a:hover,
-  .calcite-maps.calcite-theme-dark .dropdown-menu .active > a:focus {
-    color: #bdbdbd;
+  .calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu .active > a,
+  .calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu .active > a:hover,
+  .calcite-maps.calcite-theme-dark .navbar-nav .dropdown-menu .active > a:focus {
+    color: #adadad;
     background-color: rgba(64, 64, 64, 0.5); }
 
 .calcite-maps.nav-position-bottom .calcite-text-light .navbar-brand:hover,
@@ -5946,17 +5927,7 @@ blockquote {
 .calcite-maps.nav-position-bottom-fixed .calcite-text-light .navbar-nav > .open > a,
 .calcite-maps.nav-position-bottom-fixed .calcite-text-light .navbar-nav > .open > a:hover,
 .calcite-maps.nav-position-bottom-fixed .calcite-text-light .navbar-nav > .open > a:focus {
-  background-image: linear-gradient(to bottom, transparent 96%, #f8f8f8 96%, #f8f8f8 100%); }
-
-@media (max-width: 767px) {
-  .calcite-maps.calcite-theme-dark .dropdown-menu {
-    background-color: transparent; }
-  .calcite-maps.calcite-theme-dark .dropdown-menu .active > a,
-  .calcite-maps.calcite-theme-dark .dropdown-menu .active > a:focus,
-  .calcite-maps.calcite-theme-dark .dropdown-menu .active > a:hover,
-  .calcite-maps.calcite-theme-dark .dropdown-menu li > a:focus,
-  .calcite-maps.calcite-theme-dark .dropdown-menu li > a:hover {
-    color: #ffffff; } }
+  background-image: linear-gradient(to bottom, transparent 97%, #f8f8f8 97%, #f8f8f8 100%); }
 
 .calcite-maps .calcite-text-dark.navbar {
   background-color: #ffffff; }
@@ -5966,7 +5937,7 @@ blockquote {
 
 .calcite-maps .calcite-text-dark .navbar-brand:hover,
 .calcite-maps .calcite-text-dark .navbar-brand:focus {
-  background-image: linear-gradient(to top, transparent 96%, #323232 96%, #323232 100%);
+  background-image: linear-gradient(to top, transparent 97%, #323232 97%, #323232 100%);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-maps .calcite-text-dark .navbar-info {
@@ -5998,24 +5969,27 @@ blockquote {
   .calcite-maps .calcite-text-dark .navbar-collapse .navbar-nav > .open > a:focus {
     color: #000000;
     background-color: transparent;
-    background-image: linear-gradient(to top, transparent 96%, #323232 96%, #323232 100%);
+    background-image: linear-gradient(to top, transparent 97%, #323232 97%, #323232 100%);
     transition: color 150ms linear, text-decoration 150ms linear; }
   .calcite-maps .calcite-text-dark .navbar-collapse .navbar-nav > .disabled > a,
   .calcite-maps .calcite-text-dark .navbar-collapse .navbar-nav > .disabled > a:hover,
   .calcite-maps .calcite-text-dark .navbar-collapse .navbar-nav > .disabled > a:focus {
     background-color: transparent; }
 
-.calcite-maps .dropdown-menu {
-  background-color: #ffffff; }
-  .calcite-maps .dropdown-menu li > a {
+.calcite-maps .navbar-nav .dropdown-menu {
+  background-color: #ffffff;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+  .calcite-maps .navbar-nav .dropdown-menu li > a {
     color: #4c4c4c; }
-  .calcite-maps .dropdown-menu li > a:hover,
-  .calcite-maps .dropdown-menu li > a:focus {
+  .calcite-maps .navbar-nav .dropdown-menu li > a:hover,
+  .calcite-maps .navbar-nav .dropdown-menu li > a:focus {
     color: #4c4c4c;
     background-color: rgba(239, 239, 239, 0.5); }
-  .calcite-maps .dropdown-menu .active > a,
-  .calcite-maps .dropdown-menu .active > a:hover,
-  .calcite-maps .dropdown-menu .active > a:focus {
+  .calcite-maps .navbar-nav .dropdown-menu .active > a,
+  .calcite-maps .navbar-nav .dropdown-menu .active > a:hover,
+  .calcite-maps .navbar-nav .dropdown-menu .active > a:focus {
     background-color: rgba(239, 239, 239, 0.5); }
 
 .calcite-maps.nav-position-bottom .calcite-text-dark .navbar-brand:hover,
@@ -6037,17 +6011,7 @@ blockquote {
 .calcite-maps.nav-position-bottom-fixed .calcite-text-dark .navbar-nav > .open > a,
 .calcite-maps.nav-position-bottom-fixed .calcite-text-dark .navbar-nav > .open > a:hover,
 .calcite-maps.nav-position-bottom-fixed .calcite-text-dark .navbar-nav > .open > a:focus {
-  background-image: linear-gradient(to bottom, transparent 96%, #323232 96%, #323232 100%); }
-
-@media (max-width: 767px) {
-  .calcite-maps .dropdown-menu {
-    background-color: transparent; }
-  .calcite-maps .dropdown-menu .active > a,
-  .calcite-maps .dropdown-menu .active > a:focus,
-  .calcite-maps .dropdown-menu .active > a:hover,
-  .calcite-maps .dropdown-menu li > a:focus,
-  .calcite-maps .dropdown-menu li > a:hover {
-    color: #000000; } }
+  background-image: linear-gradient(to bottom, transparent 97%, #323232 97%, #323232 100%); }
 
 .calcite-maps .panel-group {
   margin-bottom: 0; }
@@ -6065,22 +6029,20 @@ blockquote {
   padding: 0; }
 
 .calcite-maps .panel-title {
-  font-size: 16px;
-  font-weight: 300; }
+  display: flex;
+  font-size: 15px;
+  font-weight: 400; }
 
 .calcite-maps .panel-toggle {
-  display: inline-block;
-  width: calc(100% - 37px);
-  padding: 10px 10px 9px;
+  flex: 1;
+  padding: 9px 10px 8px;
   text-decoration: none; }
   .calcite-maps .panel-toggle .glyphicon {
     top: 2px;
     margin: 0; }
 
 .calcite-maps .panel-close {
-  display: inline-flex;
-  float: right;
-  padding: 14px 10px 11px;
+  padding: 10px 10px 8px;
   font-size: 14px;
   text-decoration: none; }
 
@@ -6145,7 +6107,7 @@ blockquote {
   .calcite-maps.calcite-theme-dark .panel .panel-toggle:hover {
     color: #bdbdbd; }
   .calcite-maps.calcite-theme-dark .panel .panel-close {
-    color: #bdbdbd; }
+    color: #8a8a8a; }
   .calcite-maps.calcite-theme-dark .panel .panel-close:focus,
   .calcite-maps.calcite-theme-dark .panel .panel-close:hover {
     color: #d1d1d1; }
@@ -6156,7 +6118,7 @@ blockquote {
     background-color: #242424; }
   .calcite-maps.calcite-theme-dark .panel .nav-tabs > li > a:hover {
     background-color: #242424;
-    border-top-color: #adadad; }
+    border-top-color: #bdbdbd; }
   .calcite-maps.calcite-theme-dark .panel .form-control {
     background-color: #242424;
     color: #adadad;
@@ -6186,7 +6148,7 @@ blockquote {
   .calcite-maps .panel .panel-toggle:hover {
     color: #595959; }
   .calcite-maps .panel .panel-close {
-    color: #595959; }
+    color: #828282; }
   .calcite-maps .panel .panel-close:focus,
   .calcite-maps .panel .panel-close:hover {
     color: #323232; }

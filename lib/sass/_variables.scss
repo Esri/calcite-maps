@@ -82,6 +82,9 @@ $theme_light_navbar_decoration_color:   $Calcite_Gray_700;
 $theme_light_menu_bg:           $Calcite_Gray_050;
 $theme_light_menu_bg_hover:     rgba($Calcite_Gray_200, 0.5);
 $theme_light_menu_text_color:   $Calcite_Gray_650;
+$theme_light_menu_border_color: $Calcite_Gray_100;
+// $theme_light_menu_shadow:		0 0 2px 1px rgba(0, 0, 0, 0.3);
+$theme_light_menu_shadow: 			none;
 // Panel
 $theme_light_panel_bg:                        $Calcite_Gray_050;
 $theme_light_panel_text_color:                $Calcite_Gray_650;
@@ -121,6 +124,9 @@ $theme_dark_navbar_decoration_color:		$Calcite_Gray_100;
 $theme_dark_menu_bg:            $Calcite_Gray_050_Dark;
 $theme_dark_menu_bg_hover:      rgba($Calcite_Gray_200_Dark, 0.5);
 $theme_dark_menu_text_color:    $Calcite_Gray_600_Dark;
+$theme_dark_menu_border_color: 	$Calcite_Gray_100_Dark;
+//$theme_dark_menu_shadow:			0 0 2px 1px rgba(55, 55, 55, 0.5);
+$theme_dark_menu_shadow:				none;
 // Panel
 $theme_dark_panel_bg:                       $Calcite_Gray_050_Dark;
 $theme_dark_panel_text_color:               $Calcite_Gray_650_Dark; 

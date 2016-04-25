@@ -20,7 +20,8 @@
     font-size: $navbar_brand_font_size;
     line-height: $navbar_brand_font_size;
     cursor: pointer;
-    height: 100%;
+    height: $navbar_height;
+    // height: 100%;
   }
 
   .navbar-brand img {
@@ -67,7 +68,7 @@
   // Main
 
   .navbar-nav {
-    margin: 0;
+    // margin: 0;
   }
 
   .navbar-nav > li > a {
@@ -79,6 +80,13 @@
   .navbar-toggle {
     float: right;
     margin: 15px;
+    border: none;
+  }
+
+  .navbar-toggle .icon-bar {
+    border-radius: 0;
+    height: 2px;
+    width: 18px;
   }
 
   .navbar .dropdown-toggle {
@@ -87,13 +95,12 @@
   }
 
   .navbar .dropdown-toggle span {
-    font-size: $navbar_dropdown_toggle_font_size;
+    font-size: 16px;
   }
 
   // Menu
 
   .navbar-nav .dropdown-menu {
-    border: none;
     font-size: $navbar_dropdown_menu_font_size;
   }
 
@@ -101,16 +108,24 @@
     padding: 10px 12px;
   }
 
+  .dropdown-menu li:first-child {
+    margin-top: 0;
+  }
+
+  .dropdown-menu li:last-child {
+    margin-bottom: 0; 
+  }
+
   // Animation - speed up to improve interaction
 
   .navbar-collapse.collapsing {
-    -webkit-transition: visibility .25s ease-out;
-    -o-transition: visibility .25s ease-out;
-    transition: visibility .25s ease-out;
-    -webkit-transition: height 0.25s ease-out;
-    -o-transition: height 0.25s ease-out;
-    transition: height 0.25s ease-out;
-    //display: none; // disable
+    -webkit-transition: visibility .05s ease-out;
+    -o-transition: visibility .05s ease-out;
+    transition: visibility .05s ease-out;
+    -webkit-transition: height 0.05s ease-out;
+    -o-transition: height 0.05s ease-out;
+    transition: height 0.05s ease-out;
+    // display: none; // disable
   }
 
   .fade-in, 
@@ -135,7 +150,7 @@
   }
 }
 
-// Medium screens
+// Large screens
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .calcite-maps {
@@ -145,7 +160,7 @@
   }
 }
 
-// Small screens
+// Medium screens
 
 @media (min-width: 768px) and (max-width: 992px) {
   .calcite-maps {
@@ -155,7 +170,7 @@
   }
 }
 
-// XSmall screens
+// Small screens
 
 @media (max-width: 767px) {
   .calcite-maps {
@@ -170,16 +185,22 @@
       font-size: $navbar_subtitle_font_size_mobile;
     }
         
-    // Dropdown - move to bottom
-
-    .navbar-collapse {
-      position: absolute;
-      right: 15px;
-    }
-    
-    .navbar-nav .dropdown-menu {
+    .navbar-nav {
       margin: 0 -15px;
     }
+
+    // Dropdown - move to bottom
+
+    // Optional right-justified small menu
+    .navbar-collapse {
+      position: absolute;
+      right: 0;
+      left: auto;
+    }
+    
+    // .navbar-nav .dropdown-menu {
+    //   margin: 0 -15px;
+    // }
 
     // .navbar-nav .open .dropdown-menu > li > a {
     //  padding: 10px 20px;
@@ -191,17 +212,17 @@
 
     // NOTE: May want to add top and bottom borders
 
-    .dropdown-menu li:first-child {
-      margin-top: 0;
-    }
+    // .dropdown-menu li:first-child {
+    //   margin-top: 0;
+    // }
 
-    .dropdown-menu li:last-child {
-      margin-bottom: 0; 
-    }
+    // .dropdown-menu li:last-child {
+    //   margin-bottom: 0; 
+    // }
   }
 }
 
-// XXSmall screens
+// XSmall screens
 
 @media (max-width: 480px) {
   .calcite-maps {
