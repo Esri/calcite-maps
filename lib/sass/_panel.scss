@@ -36,14 +36,14 @@
   }
 
   .panel-title {
+    display: flex;
     font-size: $panel_title_font_size;
     font-weight: $panel_title_font_weight;  
   }
 
   .panel-toggle {
-    display: inline-block;
-    width: calc(100% - 37px);
-    padding: 10px 10px 9px;
+    flex: 1;
+    padding: 9px 10px 8px;
     text-decoration: none;
     .glyphicon {
       top: 2px;
@@ -52,9 +52,7 @@
   }
 
   .panel-close {
-    display: inline-flex;
-    float: right;
-    padding: 14px 10px 11px;
+    padding: 10px 10px 8px;
     font-size: $panel_font_size - 1;
     text-decoration: none;
   }
@@ -119,10 +117,10 @@
 
 @media (max-width: 767px) {
   .calcite-maps {
-      .panel-body {
-          min-height: $panel_body_min_height_mobile;
-          max-height: $panel_body_max_height_mobile;
-      }
+    .panel-body {
+      min-height: $panel_body_min_height_mobile;
+      max-height: $panel_body_max_height_mobile;
+    }
   }
 }
 

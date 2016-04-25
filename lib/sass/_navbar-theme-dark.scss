@@ -2,9 +2,12 @@
 // │ Navbar Theme - Dark │
 // └─────────────────────┘
 //
-// Minimum styles for navbar and dropdown menu
+// Dark background, light text
+// Styles for navbar and dropdown menu
 
 .calcite-maps {
+
+  // Navbar background (dark)
 
   &.calcite-theme-dark {
     .navbar {
@@ -12,6 +15,8 @@
     }
   }
   
+  // Navbar text
+
   .calcite-text-light {
 
     // Brand
@@ -22,7 +27,7 @@
 
     .navbar-brand:hover,
     .navbar-brand:focus {
-      background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_text_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_text_color 100%);
+      background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color 100%);
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
@@ -76,7 +81,7 @@
       .navbar-nav > .open > a:focus  {
         color: $theme_dark_navbar_text_color_hover;
         background-color: transparent;
-        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_text_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_text_color 100%);
+        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color 100%);
         transition: color 150ms linear, text-decoration 150ms linear;
       }
 
@@ -89,34 +94,45 @@
     }
   }
 
-  // Dropdown menu
-  
+  // Navbar dropdown-menu (dark)
+
   &.calcite-theme-dark { 
-    
-    .dropdown-menu {
-      background-color: $theme_dark_menu_bg;
-    
-      li > a {
-        color: $theme_dark_menu_text_color;
+    .navbar-nav {
+      .dropdown-menu {
+        background-color: $theme_dark_menu_bg;
+
+        //border: 1px solid $theme_dark_menu_border_color;
+        border: none;
+
+        // -webkit-box-shadow: none;
+        // box-shadow: none;
+      
+        -webkit-box-shadow: $theme_dark_menu_shadow;
+        box-shadow: $theme_dark_menu_shadow;
+
+
+        li > a {
+          color: $theme_dark_menu_text_color;
+        }
+      
+        li > a:hover, 
+        li > a:focus {
+          color: $theme_dark_menu_text_color;
+          background-color: $theme_dark_menu_bg_hover;
+        }
+      
+        .active > a, 
+        .active > a:hover, 
+        .active > a:focus {
+          color: $theme_dark_menu_text_color;
+          background-color: $theme_dark_menu_bg_hover;
+        }   
       }
-    
-      li > a:hover, 
-      li > a:focus {
-        color: $theme_dark_menu_text_color;
-        background-color: $theme_dark_menu_bg_hover;
-      }
-    
-      .active > a, 
-      .active > a:hover, 
-      .active > a:focus {
-        color: $theme_dark_menu_text_color;
-        background-color: $theme_dark_menu_bg_hover;
-      }   
     }
   }
 }
 
-// Nav bottom - decoration
+// Nav bottom - decoration (dark)
 
 .calcite-maps {
   &.nav-position-bottom,
@@ -132,31 +148,22 @@
       .navbar-nav > .open > a,
       .navbar-nav > .open > a:hover,
       .navbar-nav > .open > a:focus {
-        background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_text_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_text_color 100%);
+        background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color 100%);
       }
     }
   }
 
 }
 
-// Dropdown menu
+// Navbar dropdown menu (dark)
 
-@media (max-width: 767px) {
-  .calcite-maps {
-    &.calcite-theme-dark {
-      .dropdown-menu {
-        background-color: transparent;
-      }
-      .dropdown-menu .active>a, 
-      .dropdown-menu .active>a:focus, 
-      .dropdown-menu .active>a:hover, 
-      .dropdown-menu li>a:focus, 
-      .dropdown-menu li>a:hover {
-        color: $theme_dark_navbar_text_color_hover;
-        // background-color: transparent;
-      }
-    }
-  }
-}
-
+// @media (max-width: 767px) {
+//   .calcite-maps {
+//     &.calcite-theme-dark {
+//       .navbar-nav .open .dropdown-menu {
+//         background-color: $theme_dark_menu_bg;
+//       }
+//     }
+//   }
+// }
 

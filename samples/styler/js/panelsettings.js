@@ -81,7 +81,7 @@ define([
           panelPosition: "panel-right", 
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 65 }, 
+          viewPadding: { top: 0, bottom: 50 }, 
           uiPadding: { top: 30, bottom: 15 },
           layoutName: ""
       },
@@ -91,7 +91,7 @@ define([
           panelPosition: "panel-right", 
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 80 }, 
+          viewPadding: { top: 0, bottom: 65 }, 
           uiPadding: { top: 30, bottom: 15 },
           layoutName: ""
       }, 
@@ -101,7 +101,7 @@ define([
           panelPosition: "panel-right", 
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 80 }, 
+          viewPadding: { top: 0, bottom: 65 }, 
           uiPadding: { top: 30, bottom: 15 },
           layoutName: ""
       }, 
@@ -122,7 +122,7 @@ define([
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-top",
           viewPadding: { top: 120, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
+          uiPadding: { top: 15, left: 30, bottom: 30 },
           layoutName: "layout-jumbo-title"
       },
       BOTTOMJUMBO: {
@@ -134,6 +134,26 @@ define([
           viewPadding: { top: 0, bottom: 120 }, 
           uiPadding: { top: 30, bottom: 30 },
           layoutName: "layout-jumbo-title"
+      },
+      TOPMOBILE: {
+          navPosition: "nav-position-top", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 46, bottom: 0 }, 
+          uiPadding: { top: 13, left: 13, right: 13, bottom: 28 },
+          layoutName: "layout-mobile-focus"
+      },
+      BOTTOMMOBILE: {
+          navPosition: "nav-position-bottom", 
+          navSpace: "nav-space-none", 
+          panelPosition: "panel-right", 
+          zoomPosition: "zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 46 }, 
+          uiPadding: { top: 28, left: 13, right: 13, bottom: 28 },
+          layoutName: "layout-mobile-focus"
       },
       TOPINLINELEFT: {
           navPosition: "nav-position-top", 
@@ -299,6 +319,12 @@ define([
           break;
         case "layout-jumbo-title-bottom":
           setLayout(APP_LAYOUT.BOTTOMJUMBO);
+          break;
+        case "layout-mobile-focus-top":
+          setLayout(APP_LAYOUT.TOPMOBILE);
+          break;
+        case "layout-mobile-focus-bottom":
+          setLayout(APP_LAYOUT.BOTTOMMOBILE);
           break;
         case "layout-inline-left":
           setLayout(APP_LAYOUT.TOPINLINELEFT);
@@ -529,7 +555,7 @@ define([
       var body = query("body")[0],
         nav = query("nav")[0];
       // Custom themes
-      domClass.remove(body, "layout-jumbo-title layout-inline-right layout-inline-left layout-inline-combo"); 
+      domClass.remove(body, "layout-jumbo-title layout-mobile-focus layout-inline-right layout-inline-left"); 
       // Nav
       domClass.remove(body, "nav-position-top nav-position-bottom nav-position-top-fixed nav-position-bottom-fixed");
       // Nav space

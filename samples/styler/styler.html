@@ -13,11 +13,11 @@
   <!-- Bootstrap - For testing only -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 
-  <!-- Calcite-Maps -->
+  <!-- Calcite Maps -->
   <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
   
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-  <link rel="stylesheet" href="http://jsqa.arcgis.com/4.0/esri/css/main.css">
+  <link rel="stylesheet" href="http://jsdev.arcgis.com/4.0/esri/css/main.css">
   <!--link rel="stylesheet" href="http://localhost/GitHub/arcgis-js-api/esri/css/main.css"-->
 
   <style>
@@ -35,13 +35,13 @@
     
     .calcite-maps .panel-body {
       /*position: relative;*/
-      max-height: 700px;
+      /*max-height: 700px;*/
     }
   </style>
 
 </head>
 
-<body class="calcite-maps nav-position-top nav-space-none map-position-absolute">
+<body class="calcite-maps nav-position-top map-position-absolute">
 
   <!-- Navbar -->
 
@@ -49,25 +49,26 @@
 
     <div class="container-fluid">
 
+      <!-- Header -->
+  
       <div class="navbar-header">
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-info">
+          <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
+          <div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
+        </div>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
-        <a class="navbar-brand">
-          <span class="esri-icon esri-icon-map-pin"></span>
-        </a>
-
-        <div class="navbar-info">
-          <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
-          <div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
-        </div>
       </div>
 
-      <!-- Navbar collapse - main -->
+      <!-- Navbar Collapse -->
+
       <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
         <!-- Main -->
         <ul class="nav navbar-nav navbar-right">                    
@@ -77,7 +78,7 @@
           <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
           <!-- Dropdown Menu -->
           <li class="dropdown" role="presentation">
-            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
             <ul class="dropdown-menu">
               <li><a id="mapNavMenu" class="hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
               <li><a id="sceneNavMenu" class="hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
@@ -88,7 +89,7 @@
               <li><a id="legendNavMenu"  role="button" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Legend</a></li>
               <li><a id="printNavMenu"  role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
               <li><a id="shareNavMenu"  role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
-              <li><a id="settingsMenu" role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Styler</a></li>
+              <li><a id="settingsMenu" role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
             </ul>
           </li>      
         </ul><!--/.nav -->
@@ -361,7 +362,7 @@
         <div id="headingSettings" class="panel-heading">
           <!-- <div class="panel-title hidden-xs"> -->
           <div class="panel-title">
-            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Styler</a>
+            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a>
 
             <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
           </div>
@@ -636,6 +637,8 @@
                         <option value="layout-top">--- Themes ---</option>
                         <option value="layout-jumbo-title-top">Jumbo Title Top</option>
                         <option value="layout-jumbo-title-bottom">Jumbo Title Bottom</option>
+                        <option value="layout-mobile-focus-top">Mobile Focus Top</option>
+                        <option value="layout-mobile-focus-bottom">Mobile Focus Bottom</option>
                         <option value="layout-inline-right">Inline Zoom Right</option>
                         <option value="layout-inline-left">Inline Zoom Left</option>
                       </select>
@@ -762,7 +765,7 @@
   </script>
 
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
-  <script src="http://jsqa.arcgis.com/4.0/"></script>
+  <script src="http://jsdev.arcgis.com/4.0/"></script>
 
   <script>
     
@@ -883,6 +886,21 @@
         });
       }
       
+      // Hide panel when popup is docked
+      app.mapView.popup.watch("currentDockPosition", function(result) { 
+        hidePanel(this, result) 
+      });
+      app.sceneView.popup.watch("currentDockPosition", function(result) { 
+        hidePanel(this, result) 
+      });
+
+      // Hide panel when popup is docked
+      function hidePanel(popup, result) {
+        if (popup.visible && (result === "right" || result === "bottom")) {
+          query(".panel.in").removeClass("in");
+        }
+      }
+
       function createSearchWidget(parentId, showPopup) {
         var search = new Search({
           viewModel: {
@@ -931,8 +949,34 @@
 
       function setBasemaps() {
         app.mapView.map.basemap = app.basemapSelected;
+        // app.mapView.map.basemap = app.basemapSelectedAlt;
         app.sceneView.map.basemap = app.basemapSelectedAlt;
-      }      
+      }    
+
+
+
+      // function setPadding() {
+      //   if (isMobile()) {
+      //     if (app.mapView.padding.top != 46) {
+      //       app.mapView.padding = {top : 46};
+      //     }
+      //   } else {
+      //     if (app.mapView.padding.top != 64) {
+      //       app.mapView.padding = {top : 64};
+      //     }
+      //   }
+      // }
+
+      // query(window).on("resize", function() {
+      //   setPadding();
+      // });   
+
+      // function isMobile(){
+      //   return query(".navbar-toggle").style("display")[0] !== "none";
+      // }
+
+      // setPadding();
+
 
     });// dojo
   </script>

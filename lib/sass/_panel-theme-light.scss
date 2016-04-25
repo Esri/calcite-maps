@@ -2,11 +2,14 @@
 // │ Panel Theme Light │
 // └───────────────────┘
 //
-// Minimum text color, hover and background styles for panels and controls
+// Light background, dark text
+// Text color, hover and background for panels and controls
 
 .calcite-maps {
 
-  //.calcite-theme-light { //Not necessary, is the default...
+  // Default, not required
+  //.calcite-theme-light { 
+  //}
   
     .panel {
       color: $theme_light_panel_text_color;
@@ -18,12 +21,12 @@
         color: $theme_light_panel_header_text_color;
         background-color: $theme_light_panel_header_bg;
         border: none;
-        background-image: linear-gradient(to top, transparent $panel_title_decoration, $theme_light_panel_border_color $panel_title_decoration, $theme_light_panel_border_color 100%);
+        background-image: linear-gradient(to top, transparent $panel_top_decoration_height, $theme_light_panel_border_color $panel_top_decoration_height, $theme_light_panel_border_color 100%);
       }
 
       .panel-heading:hover {
         background-color: $theme_light_panel_header_bg_hover;
-        //background-image: linear-gradient(to top, transparent $panel_title_decoration, $theme_light_panel_border_color $panel_title_decoration, $theme_light_panel_border_color 100%);
+        //background-image: linear-gradient(to top, transparent $panel_top_decoration_height, $theme_light_panel_border_color $panel_top_decoration_height, $theme_light_panel_border_color 100%);
       }
 
       // Toggle header
@@ -40,7 +43,7 @@
       // Close
       
       .panel-close {
-        color: $theme_light_panel_header_text_color;
+        color: $theme_light_panel_header_close_color;
       }
       
       .panel-close:focus,
@@ -57,13 +60,11 @@
       .nav-tabs > li.active > a {
         color: $theme_light_control_text_color;
         background-color: $theme_light_panel_bg;
-        // background-color: inherit;
       }
 
       .nav-tabs > li > a:hover {
         background-color: $theme_light_panel_bg;
-        // background-color: inherit;
-        border-top-color: $theme_light_control_text_color;
+        border-top-color: $theme_light_panel_decoration_color;
       }
 
       // Form controls
@@ -74,7 +75,7 @@
         // outline-offset: -1px;
       }
 
-      // Links
+      // Links - optional
 
       // a {
       //  color: $theme_light_link_color;

@@ -7,7 +7,7 @@
   <meta name="description" content="Calcite-Maps Demo - ArcGIS">
   <meta name="author" content="">
   <link rel="icon" href="http://www.esri.com/favicon.ico">
-  <title>Calcite-Maps - ArcGIS 4.x 2D - 3D</title>
+  <title>Calcite-Maps - ArcGIS 4.x 2D - 3D (jQuery)</title>
 
   <!-- Calcite-Maps -->
   <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
@@ -43,19 +43,19 @@
         </a>
         <div class="navbar-info">
           <div class="navbar-title text-overflow">Calcite Maps</div>
-          <div class="navbar-subtitle text-overflow">A framework for building apps with Calcite styles and Bootstrap (ArcGIS JS 4.x 2D-3D)</div> 
+          <div class="navbar-subtitle text-overflow">A framework for building apps with Calcite styles and Bootstrap (ArcGIS JS 4.x 2D-3D jQuery)</div> 
         </div>
       </div>
       <!-- Navbar collapse -->
       <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
         <ul class="nav navbar-nav navbar-right">                    
-         <!-- Primary Nav - Map and scene -->
+         <!-- Map and Scene -->
           <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="top">Map</a></li>
           <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-tooltip="tip" data-toggle="tab" title="3D View" data-placement="top">Scene</a></li>                  
           <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
-          <!-- Secondary Nav - All other options -->
+          <!-- Options dropdown menu -->
           <li class="dropdown" role="presentation">
-            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></a>
+            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="esri-icon esri-icon-menu" aria-hidden="true"></span></a>
             <ul class="dropdown-menu">
               <li><a class="hidden-xs visible-sm hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">Map</a></li>
               <li><a class="hidden-xs visible-sm hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>
@@ -131,16 +131,16 @@
         <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
           <div class="panel-body">
             <select id="selectBasemapPanel" class="form-control">
-              <option value="streets" data-vector="streets-vector">Streets</option>
-              <option value="satellite" data-vector="satellite" selected="">Satellite</option>
+              <option value="streets" data-vector="vector-streets">Streets</option>
+              <option value="satellite" data-vector="satellite" selected>Satellite</option>
               <option value="hybrid" data-vector="hybrid">Hybrid</option>
               <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
-              <option value="topo" data-vector="topo-vector">Topographic</option>
-              <option value="gray" data-vector="gray-vector">Gray</option>
-              <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
+              <option value="topo" data-vector="vector-streets-relief">Topographic</option>
+              <option value="gray" data-vector="vector-canvas-light">Gray</option>
+              <option value="dark-gray" data-vector="vector-canvas-dark">Dark Gray</option>
               <option value="osm" data-vector="osm">Open Street Map</option>
-              <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
-              <option value="streets" data-vector="streets-navigation-vector">Streets Mobile</option>
+              <option value="dark-gray" data-vector="vector-streets-night">Streets Night</option>
+              <option value="streets" data-vector="vector-streets-mobile">Streets Mobile</option>
             </select>
           </div>
         </div>
@@ -148,44 +148,22 @@
     </div> <!-- /.panel-group -->
   </div> <!-- /.panel-container -->
 
-  <script type="text/javascript">
-    var dojoConfig = {
-      packages: [{
-        name: "bootstrap",
-        //location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
-        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
-      },
-      {
-        name: "calcite-maps",
-        //location: "https://esri.github.io/calcite-maps/dist/calcite-maps/js/dojo"
-        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
-      }]
-    };
-  </script>
-
   <!-- ArcGIS JS 4.0 NOTE: This is a QA build. Use at own risk! -->
   <script src="http://jsqa.arcgis.com/4.0/"></script>
 
   <script>
 
-    var app, searchWidgetNav, searchWidgetPanel;
+    var app, mapView, sceneView, searchWidgetNav, searchWidgetPanel, activeView;
 
-    require(["esri/Map",
+    require([
+      // ArcGIS
+      "esri/Map",
       "esri/Basemap",
       "esri/views/MapView",
       "esri/views/SceneView",
       "esri/widgets/Search",
       "esri/core/watchUtils",
       "dojo/query",
-
-      // Bootstrap
-      "bootstrap/Collapse", 
-      "bootstrap/Dropdown",
-      "bootstrap/Tab",
-      "bootstrap/Tooltip",
-      
-      // Calcite-maps
-      "calcite-maps/calcitemaps",
       "dojo/domReady!"
     ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query) {
         
@@ -200,8 +178,6 @@
         uiPadding: {
             top: 30
         },
-        mapView: null,
-        sceneView: null,
         activeView: null
       };
 
@@ -209,7 +185,7 @@
       var map = new Map({
         basemap: app.basemap
       });
-      app.mapView = new MapView({
+      mapView = new MapView({
         container: "mapViewDiv",
         map: map,
         scale: app.scale,
@@ -225,7 +201,7 @@
       var mapScene = new Map({
         basemap: app.basemap
       });
-      app.sceneView = new SceneView({
+      sceneView = new SceneView({
         container: "sceneViewDiv",
         map: mapScene,                
         scale: app.scale,
@@ -237,7 +213,7 @@
         visible: true
       });
 
-      app.activeView = app.sceneView;
+      app.activeView = sceneView;
 
       // Search
       app.activeView.then( function() {
@@ -259,28 +235,23 @@
       }
 
       function syncViews(fromView, toView) {
-        function sync() {
-          toView.set({viewpoint: fromView.viewpoint});
-        }
-        if (toView.isInstanceOf(SceneView) && !toView.ready) {
+        if (!toView.ready) {
           watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
-            if (isReady) {
-              sync();
-            }
+            toView.set({ viewpoint: fromView.viewpoint });
           });
         } else {
-          sync();
+          toView.set({ viewpoint: fromView.viewpoint });
         }
       }
 
       query("nav li a[data-toggle='tab']").on("click", function(e) {
         // Sync views
         if (e.target.text === "Map") {
-          syncViews(app.sceneView, app.mapView);                  
-          app.activeView = app.mapView;  
+          syncViews(sceneView, mapView);                  
+          app.activeView = mapView;  
         } else {
-          syncViews(app.mapView, app.sceneView);                  
-          app.activeView = app.sceneView;
+          syncViews(mapView, sceneView);                  
+          app.activeView = sceneView;
         }
         // Set search
         searchWidgetNav.viewModel.view = app.activeView;
@@ -288,13 +259,27 @@
       });
 
       query("#selectBasemapPanel").on("change", function(e){
-        app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
-        //app.mapView.map.basemap = e.target.value;
+        // app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
+        app.mapView.map.basemap = e.target.value;
         app.sceneView.map.basemap = e.target.value;
       });
 
     });// dojo
   </script>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <!-- jQuery (for Bootstrap's JavaScript plugins). NOTE: You can also use pure Dojo. See examples. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all  plugins or individual files as needed -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
+
+  <!-- Calcite-Maps -->
+  <script src="../../dist/js/jquery/calcitemaps.js"></script>
 
 </body>
 </html>
