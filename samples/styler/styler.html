@@ -55,9 +55,9 @@
         <a class="navbar-brand">
           <span class="esri-icon esri-icon-map-pin"></span>
         </a>
-        <div class="navbar-info">
-          <div class="navbar-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
-          <div class="navbar-subtitle text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
+        <div class="navbar-title">
+          <div class="navbar-main-title text-overflow" data-toggle="modal" data-target="#modalSplash">Styler</div>
+          <div class="navbar-sub-title text-overflow" data-toggle="modal" data-target="#modalSplash">Explore styles and design layouts interactively</div> 
         </div>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -702,10 +702,12 @@
                     <div class="col-xs-9">
                       <select id="settingsPopup" class="form-control">
                         <option value="top">Auto</option>
-                        <option value="top">Top</option>
-                        <option value="right">Right</option>
-                        <option value="bottom" selected="">Bottom</option>
-                        <option value="left">Left</option>
+                        <option value="top-left">Top Left</option>
+                        <option value="top-center">Top Center</option>
+                        <option value="top-right">Top Right</option>
+                        <option value="bottom-right">Bottom Right</option>
+                        <option value="bottom-center" selected>Bottom Center</option>
+                        <option value="bottom-left">Bottom Left</option>
                       </select>
                     </div>
                   </div>

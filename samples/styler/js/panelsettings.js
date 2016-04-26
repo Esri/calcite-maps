@@ -81,7 +81,7 @@ define([
           panelPosition: "panel-right", 
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 50 }, 
+          viewPadding: { top: 0, bottom: 65 }, 
           uiPadding: { top: 30, bottom: 15 },
           layoutName: ""
       },
@@ -91,7 +91,7 @@ define([
           panelPosition: "panel-right", 
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 65 }, 
+          viewPadding: { top: 0, bottom: 80 }, 
           uiPadding: { top: 30, bottom: 15 },
           layoutName: ""
       }, 
@@ -101,7 +101,7 @@ define([
           panelPosition: "panel-right", 
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 65 }, 
+          viewPadding: { top: 0, bottom: 80 }, 
           uiPadding: { top: 30, bottom: 15 },
           layoutName: ""
       }, 
@@ -152,7 +152,7 @@ define([
           zoomPosition: "zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
           viewPadding: { top: 0, bottom: 46 }, 
-          uiPadding: { top: 28, left: 13, right: 13, bottom: 28 },
+          uiPadding: { top: 28, left: 13, right: 13, bottom: 13 },
           layoutName: "layout-mobile-focus"
       },
       TOPINLINELEFT: {
@@ -182,8 +182,8 @@ define([
      ******************************************************************/
 
     query("#titleButton").on("click", function() {
-      query(".navbar-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
-      query(".navbar-subtitle")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
+      query(".navbar-main-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
+      query(".navbar-sub-title")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
     });
 
     /******************************************************************

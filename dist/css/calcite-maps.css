@@ -5723,7 +5723,7 @@ blockquote {
     bottom: auto; } }
 
 .calcite-maps .navbar {
-  min-height: 65px;
+  height: 65px;
   border: none; }
 
 .calcite-maps .navbar-brand {
@@ -5731,26 +5731,26 @@ blockquote {
   font-size: 42px;
   line-height: 42px;
   cursor: pointer;
-  height: 65px; }
+  height: auto; }
 
 .calcite-maps .navbar-brand img {
   width: 40px; }
 
-.calcite-maps .navbar-info {
+.calcite-maps .navbar-title {
   position: absolute;
   top: 0;
   left: 62px;
   width: calc(100% - 515px);
   height: 100%;
-  cursor: pointer;
-  line-height: 1.5; }
+  line-height: 1.5;
+  cursor: pointer; }
 
-.calcite-maps .navbar-title {
+.calcite-maps .navbar-main-title {
   margin-top: 4px;
   font-size: 25px;
   font-weight: 400; }
 
-.calcite-maps .navbar-subtitle {
+.calcite-maps .navbar-sub-title {
   margin-top: -4px;
   margin-left: 2px;
   font-size: 13px;
@@ -5762,14 +5762,15 @@ blockquote {
   overflow: hidden; }
 
 .calcite-maps .navbar-search {
-  padding-top: 10px; }
+  padding-top: 9.5px; }
 
 .calcite-maps .navbar-nav > li > a {
-  padding: 19px 15px 21px; }
+  padding: 21px 15px 20px; }
 
 .calcite-maps .navbar-toggle {
   float: right;
   margin: 15px;
+  padding: 10.5px 10px;
   border: none; }
 
 .calcite-maps .navbar-toggle .icon-bar {
@@ -5777,29 +5778,25 @@ blockquote {
   height: 2px;
   width: 18px; }
 
-.calcite-maps .navbar .dropdown-toggle {
-  padding-top: 22px;
-  padding-bottom: 19px; }
-
 .calcite-maps .navbar .dropdown-toggle span {
   font-size: 16px; }
+
+.calcite-maps .navbar .dropdown-toggle span.glyphicon {
+  top: 3px; }
+
+.calcite-maps .navbar-collapse {
+  right: 15px; }
 
 .calcite-maps .navbar-nav .dropdown-menu {
   font-size: 15px; }
 
 .calcite-maps .navbar-nav .dropdown-menu > li > a {
-  padding: 10px 12px; }
-
-.calcite-maps .dropdown-menu li:first-child {
-  margin-top: 0; }
-
-.calcite-maps .dropdown-menu li:last-child {
-  margin-bottom: 0; }
+  padding: 9px 12px; }
 
 .calcite-maps .navbar-collapse.collapsing {
-  -webkit-transition: visibility .05s ease-out;
-  -o-transition: visibility .05s ease-out;
-  transition: visibility .05s ease-out;
+  -webkit-transition: visibility .01s ease-out;
+  -o-transition: visibility .01s ease-out;
+  transition: visibility .01s ease-out;
   -webkit-transition: height 0.05s ease-out;
   -o-transition: height 0.05s ease-out;
   transition: height 0.05s ease-out; }
@@ -5821,24 +5818,22 @@ blockquote {
   user-select: none; }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  .calcite-maps .navbar-info {
+  .calcite-maps .navbar-title {
     width: calc(100% - 515px); } }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  .calcite-maps .navbar-info {
+  .calcite-maps .navbar-title {
     width: calc(100% - 380px); } }
 
 @media (max-width: 767px) {
-  .calcite-maps .navbar-info {
+  .calcite-maps .navbar-title {
     width: calc(100% - 130px); }
-  .calcite-maps .navbar-subtitle {
+  .calcite-maps .navbar-sub-title {
     font-size: 12px; }
   .calcite-maps .navbar-nav {
     margin: 0 -15px; }
   .calcite-maps .navbar-collapse {
-    position: absolute;
-    right: 0;
-    left: auto; } }
+    position: absolute; } }
 
 @media (max-width: 480px) {
   .calcite-maps .navbar-collapse {
@@ -5855,7 +5850,7 @@ blockquote {
   background-image: linear-gradient(to top, transparent 97%, #f8f8f8 97%, #f8f8f8 100%);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
-.calcite-maps .calcite-text-light .navbar-info {
+.calcite-maps .calcite-text-light .navbar-title {
   color: #f8f8f8; }
 
 .calcite-maps .calcite-text-light .navbar-toggle {
@@ -5940,7 +5935,7 @@ blockquote {
   background-image: linear-gradient(to top, transparent 97%, #323232 97%, #323232 100%);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
-.calcite-maps .calcite-text-dark .navbar-info {
+.calcite-maps .calcite-text-dark .navbar-title {
   color: #323232; }
 
 .calcite-maps .calcite-text-dark .navbar-toggle {

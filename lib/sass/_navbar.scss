@@ -2,14 +2,14 @@
 // │ Navbar │
 // └────────┘
 //
-// Title, subtitle and dropdown menu
+// Brand, title, subtitle and dropdown menu
 
 .calcite-maps {
 
   // Navbar
 
   .navbar {
-    min-height: $navbar_height; // Required to support dropdown menu on mobile!
+    height: $navbar_height;
     border: none;
   }
 
@@ -20,33 +20,32 @@
     font-size: $navbar_brand_font_size;
     line-height: $navbar_brand_font_size;
     cursor: pointer;
-    height: $navbar_height;
-    // height: 100%;
+    height: auto;
   }
 
   .navbar-brand img {
     width: 40px;
   }
 
-  // Title/subtitle
+  // Title
 
-  .navbar-info {
+  .navbar-title {
     position: absolute;
     top: 0;
     left: 62px;
     width: $navbar_info_max_width_lg;
     height: 100%;
-    cursor: pointer;
     line-height: 1.5; 
+    cursor: pointer;
   }
 
-  .navbar-title {
+  .navbar-main-title {
     margin-top: 4px;
     font-size: $navbar_title_font_size;
     font-weight: $navbar_title_font_weight;
   }
 
-  .navbar-subtitle {
+  .navbar-sub-title {
     margin-top: -4px;
     margin-left: 2px;
     font-size: $navbar_subtitle_font_size;
@@ -59,20 +58,22 @@
     overflow: hidden;
   }
 
-  // Search - widget
+  // Search widget
 
   .navbar-search {
-    padding-top: 10px;
+    padding-top: 9.5px;
   }
 
   // Main
 
-  .navbar-nav {
+  //.navbar-nav {
     // margin: 0;
-  }
+  //}
+
+  // All main nav items
 
   .navbar-nav > li > a {
-    padding: 19px 15px 21px;
+    padding: 21px 15px 20px;
   }
 
   // Toggle Button
@@ -80,6 +81,7 @@
   .navbar-toggle {
     float: right;
     margin: 15px;
+    padding: 10.5px 10px;
     border: none;
   }
 
@@ -89,13 +91,18 @@
     width: 18px;
   }
 
-  .navbar .dropdown-toggle {
-    padding-top: 22px;
-    padding-bottom: 19px;
-  }
-
   .navbar .dropdown-toggle span {
     font-size: 16px;
+  }
+
+  .navbar .dropdown-toggle span.glyphicon {
+    top: 3px;
+  }
+  
+  // Collapse
+
+  .navbar-collapse {
+    right: 15px;  
   }
 
   // Menu
@@ -105,23 +112,15 @@
   }
 
   .navbar-nav .dropdown-menu > li > a {
-    padding: 10px 12px;
-  }
-
-  .dropdown-menu li:first-child {
-    margin-top: 0;
-  }
-
-  .dropdown-menu li:last-child {
-    margin-bottom: 0; 
+    padding: 9px 12px;
   }
 
   // Animation - speed up to improve interaction
 
   .navbar-collapse.collapsing {
-    -webkit-transition: visibility .05s ease-out;
-    -o-transition: visibility .05s ease-out;
-    transition: visibility .05s ease-out;
+    -webkit-transition: visibility .01s ease-out;
+    -o-transition: visibility .01s ease-out;
+    transition: visibility .01s ease-out;
     -webkit-transition: height 0.05s ease-out;
     -o-transition: height 0.05s ease-out;
     transition: height 0.05s ease-out;
@@ -154,7 +153,7 @@
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .calcite-maps {
-    .navbar-info {
+    .navbar-title {
       width: $navbar_info_max_width_lg;
     }
   }
@@ -164,7 +163,7 @@
 
 @media (min-width: 768px) and (max-width: 992px) {
   .calcite-maps {
-    .navbar-info {
+    .navbar-title {
       width: $navbar_info_max_width_md;
     }
   }
@@ -177,11 +176,11 @@
 
     // Brand and Title
 
-    .navbar-info {
+    .navbar-title {
       width: $navbar_info_max_width_xs;
     }
         
-    .navbar-subtitle {
+    .navbar-sub-title {
       font-size: $navbar_subtitle_font_size_mobile;
     }
         
@@ -189,29 +188,20 @@
       margin: 0 -15px;
     }
 
-    // Dropdown - move to bottom
+    // Collapse - optional full justified menu
 
-    // Optional right-justified small menu
     .navbar-collapse {
       position: absolute;
-      right: 0;
-      left: auto;
+      //right: 0;
+      //left: 0;
     }
     
     // .navbar-nav .dropdown-menu {
     //   margin: 0 -15px;
     // }
 
-    // .navbar-nav .open .dropdown-menu > li > a {
-    //  padding: 10px 20px;
-    // }
-
-    // .navbar-collapse.collapse.in .dropdown-menu + .panel-container {
-    //  display: none;
-    // }
-
-    // NOTE: May want to add top and bottom borders
-
+    // Add a little padding for mobile
+    
     // .dropdown-menu li:first-child {
     //   margin-top: 0;
     // }

@@ -16,22 +16,26 @@
   min-height: 46px;
   height: 46px; }
 
+.calcite-maps.layout-mobile-focus .navbar-nav > li > a {
+  padding: 12px 15px 10px;
+  font-size: 14px; }
+
 .calcite-maps.layout-mobile-focus .navbar-brand {
   padding: 7px 12px 8px;
   font-size: 31px;
   line-height: 1;
   height: 46px; }
 
-.calcite-maps.layout-mobile-focus .navbar-info {
+.calcite-maps.layout-mobile-focus .navbar-title {
   left: 50px; }
 
-.calcite-maps.layout-mobile-focus .navbar-title {
+.calcite-maps.layout-mobile-focus .navbar-main-title {
   padding: 10px 5px;
   margin-top: 0;
   font-size: 24px;
   line-height: 1; }
 
-.calcite-maps.layout-mobile-focus .navbar-subtitle {
+.calcite-maps.layout-mobile-focus .navbar-sub-title {
   display: none; }
 
 .calcite-maps.layout-mobile-focus .navbar-toggle {
@@ -41,15 +45,11 @@
 .calcite-maps.layout-mobile-focus .navbar-search {
   padding-top: 2px; }
 
-.calcite-maps.layout-mobile-focus .navbar-nav > li > a {
-  padding: 12px 15px 9px;
-  font-size: 14px; }
-
 .calcite-maps.layout-mobile-focus .navbar-collapse {
   top: 100%; }
 
 .calcite-maps.layout-mobile-focus .navbar-nav .dropdown-menu > li > a {
-  padding: 7px 12px;
+  padding: 8px 12px;
   font-size: 13px; }
 
 .calcite-maps.layout-mobile-focus .panel,
@@ -129,7 +129,7 @@
     opacity: 1; } }
 
 .calcite-maps.layout-mobile-focus.nav-position-bottom .esri-popup .esri-docked, .calcite-maps.layout-mobile-focus.nav-position-bottom-fixed .esri-popup .esri-docked {
-  margin: 28px 13px 28px 13px; }
+  margin: 28px 13px 13px 13px; }
 
 .calcite-maps.layout-mobile-focus.nav-position-bottom .esri-popup .esri-docked-top-left,
 .calcite-maps.layout-mobile-focus.nav-position-bottom .esri-popup .esri-docked-top-center,

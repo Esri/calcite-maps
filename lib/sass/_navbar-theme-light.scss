@@ -31,12 +31,12 @@
 
     // Title/subtitle
 
-    .navbar-info {
+    .navbar-title {
       color: $theme_light_navbar_text_color;
     } 
 
-    .navbar-info:hover, 
-    .navbar-info:focus {
+    .navbar-title:hover, 
+    .navbar-title:focus {
       // color: $theme_light_nav_bg_hover;
     }
 
@@ -143,15 +143,4 @@
     }
   }
 }
-
-// Navbar dropdown menu (default)
-
-// @media (max-width: 767px) {
-//   .calcite-maps {
-//     .navbar-nav .open .dropdown-menu {
-//       background-color: $theme_light_navbar_bg;
-//     }
-//   }
-// }
-
 
