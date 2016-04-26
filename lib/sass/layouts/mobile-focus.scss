@@ -39,6 +39,12 @@ $panel_body_max_height: 175px;
       height: 46px;
     }
 
+    // All items
+    .navbar-nav > li > a {
+      padding: 12px 15px 10px;
+      font-size: 14px;
+    }
+
     .navbar-brand {
       padding: 7px 12px 8px;
       // margin-left: -7px;
@@ -47,18 +53,18 @@ $panel_body_max_height: 175px;
       height: 46px;
     }
 
-    .navbar-info {
+    .navbar-title {
       left: 50px;
     }
 
-    .navbar-title {
+    .navbar-main-title {
       padding: 10px 5px;
       margin-top: 0;
       font-size: 24px;
       line-height: 1;
     }
 
-    .navbar-subtitle {
+    .navbar-sub-title {
       display: none;
     }
 
@@ -71,12 +77,6 @@ $panel_body_max_height: 175px;
       padding-top: 2px;
     }
 
-    // Items
-    .navbar-nav > li > a {
-      padding: 12px 15px 9px;
-      font-size: 14px;
-    }
-
     // Dropdown
 
     .navbar-collapse {
@@ -84,7 +84,7 @@ $panel_body_max_height: 175px;
     }
 
     .navbar-nav .dropdown-menu > li > a {
-      padding: 7px 12px;
+      padding: 8px 12px;
       font-size: 13px;
     }
 
@@ -202,7 +202,7 @@ $panel_body_max_height: 175px;
     &.nav-position-bottom-fixed {
 
       .esri-popup .esri-docked {
-        margin: 28px 13px 28px 13px; 
+        margin: 28px 13px 13px 13px; 
       }
 
       .esri-popup .esri-docked-top-left,

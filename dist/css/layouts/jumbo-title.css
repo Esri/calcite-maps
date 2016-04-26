@@ -13,13 +13,13 @@
     padding: 12px 7px;
     font-size: 80px;
     line-height: 80px; }
-  .calcite-maps.layout-jumbo-title .navbar-info {
+  .calcite-maps.layout-jumbo-title .navbar-title {
     left: 90px;
     width: calc(100% - 555px); }
-  .calcite-maps.layout-jumbo-title .navbar-title {
+  .calcite-maps.layout-jumbo-title .navbar-main-title {
     margin-top: -1px;
     font-size: 60px; }
-  .calcite-maps.layout-jumbo-title .navbar-subtitle {
+  .calcite-maps.layout-jumbo-title .navbar-sub-title {
     margin-top: -7px;
     font-size: 14px; }
   .calcite-maps.layout-jumbo-title .calcite-text-light .navbar-brand:hover,
