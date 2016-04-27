@@ -200,10 +200,10 @@
     top: auto;
     bottom: 100%; }
   .calcite-maps.layout-mobile-focus.nav-position-bottom .panel-container, .calcite-maps.layout-mobile-focus.nav-position-bottom-fixed .panel-container {
-    top: 0;
+    top: auto;
+    bottom: 46px;
     right: 0;
     left: 0;
-    margin: 28px 13px 28px 54px;
     width: auto; } }
 
 @media (max-height: 450px) {
