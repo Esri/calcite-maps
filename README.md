@@ -5,7 +5,7 @@ This project contains Calcite colors, styles and layouts for creating responsive
 
 ##What's included
 
-* Calcite CSS colors, styles and layouts for map apps (top, bottom, jumbo and in-line...)
+* Calcite CSS colors, styles and layouts for map apps (top, bottom, jumbo, mobile, in-line...)
 * Dark and light themes for apps and widgets (ArcGIS JS 4.x only)
 * CSS and JS extension for [Bootstrap](http://www.getbootstrap.com) components (navbar, accordion and panels)
 * Customizable Sass build for [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap)
@@ -73,9 +73,9 @@ Here's a few ways to get started:
         <a class="navbar-brand">
           <span class="esri-icon esri-icon-map-pin"></span>
         </a>
-        <div class="navbar-info">
-          <div class="navbar-title text-overflow">Greater Los Angeles Demographics</div>
-          <div class="navbar-subtitle text-overflow">Explore population, age, income and housing values</div> 
+        <div class="navbar-title">
+          <div class="navbar-main-title text-overflow">Greater Los Angeles Demographics</div>
+          <div class="navbar-sub-title text-overflow">Explore population, age, income and housing values</div> 
         </div>
       </div>
     </div><!--/.container-fluid -->
@@ -161,7 +161,7 @@ Here's the main CSS classes you can mix and match to create different designs.
 * Text Color - `calcite-text-dark` or `calcite-text-light`
 * Position - `navbar-fixed-top` or `navbar-fixed-bottom`
 
-Example themes...
+*Example themes*
 
 Navbar Top - Dark Blue - Dark Text
 
