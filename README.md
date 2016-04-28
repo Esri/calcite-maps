@@ -3,7 +3,7 @@ A framework for building map apps with Calcite styles and Bootstrap.
 
 This project contains colors, styles and layouts for designing responsive map apps with [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap). Calcite Maps includes the Bootstrap build and provides overrides for the `navbar`, `dropdown menu` and `panels` in order to make them more map-app friendly. To create your own designs, just [reference the library](#getting-started) and then apply the styles to the `body` and `nav` elements of your page (see below). If you want to integrate deeper, fork and clone the repo and create your own [custom builds](#getting-started) with Sass. 
 
-Calcite Maps is also fully integrated with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
+Calcite Maps is designed to make map-app development fast and easy. It's also fully integrated with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
@@ -180,8 +180,10 @@ Here's the main CSS classes you can mix and match to create different designs.
 * Navbar - `nav-space-top` or `nav-space-bottom` or `nav-space-all`
 * Zoom - `zoom-top-left` or `zoom-top-right` or `zoom-bottom-left` or `zoom-bottom-right` (ArcGIS 3.x and Esri-Leaflet only)
 * Panel - `panel-left` or `panel-right`
-* Themes - `calcite-theme-dark` (no theme is default light)
+* Themes - `calcite-theme-dark`, `calcite-widgets-dark` (ArcGIS 4.x only)
 * Layouts (optional) - `layout-jumbo-title` or `layout-inline-right` or `layout-inline-left` or `layout-mobile-focus`
+
+NOTE: The default theme (no theme) is light.
 
 #### Navbar
 * Background Color - `calcite-dark-blue` or `calcite-black-75` or `calcite-transparent`... See all colors [here](./lib/sass/_colors.scss)
