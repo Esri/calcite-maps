@@ -1,0 +1,115 @@
+// ┌────────────────┐
+// │ Panel Position │
+// └────────────────┘
+//
+// Top and bottom positions - top right on desktop, bottom full width on mobile
+
+.calcite-maps {
+
+  .panel-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: $panel_width;
+    z-index: 50;
+  }
+
+  &.panel-right .panel-container {
+    left: auto;
+    right: 15px;
+  }
+
+  &.panel-left .panel-container {
+    left: 15px;
+    right: auto;
+  }
+
+  // Navbar - Top 
+
+  &.nav-position-top,
+  &.nav-position-top-fixed {
+    .panel-container {
+      top: 80px;
+    }
+  }
+
+  &.nav-position-top.nav-space-top, 
+  &.nav-position-top.nav-space-all {
+    .panel-container {
+      top: 95px;
+    }
+  }
+
+  &.nav-position-top.is-minibar {
+    .panel-container {
+      top: 15px;
+    }
+  }
+
+  &.nav-position-top.panel-left.is-minibar { 
+    .panel-container {
+      top: 80px;
+    }
+  }
+
+  // Navbar - Bottom
+
+  &.nav-position-bottom,
+  &.nav-position-bottom-fixed,
+  &.nav-position-bottom.nav-space-bottom,
+  &.nav-position-bottom.nav-space-all {
+    .panel-container {
+      top: 30px;
+    }
+  }
+}
+
+// XSmall screens
+
+@media (max-width: 767px) {
+  .calcite-maps {
+
+    // Panel - Reset
+
+    .panel-container,
+    &.panel-right .panel-container,
+    &.panel-left .panel-container {
+      right: 0;
+      left: 0;
+      width: $panel_width_mobile;
+    }
+
+    // Navbar - Top
+
+    &.nav-position-top,
+    &.nav-position-top-fixed,
+    &.nav-position-top.nav-space-top, 
+    &.nav-position-top.nav-space-all,
+    &.nav-position-top.is-minibar { 
+      .panel-container {
+        top: auto;
+        bottom: 0;
+      }
+    }
+
+    &.nav-position-top.nav-space-all {
+      .panel-container {
+        margin: auto 15px 30px 15px;
+        width: auto;
+      }
+    }
+      
+    // Navbar - Bottom
+    
+    &.nav-position-bottom,
+    &.nav-position-bottom-fixed, 
+    &.nav-position-bottom.nav-space-bottom,
+    &.nav-position-bottom.nav-space-all {
+      .panel-container {
+        top: 0;
+        bottom: auto;
+      }
+    }
+
+  }
+}

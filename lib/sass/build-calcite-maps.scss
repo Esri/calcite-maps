@@ -1,0 +1,11 @@
+// ┌────────────────────┐
+// │ Calcite Maps Build │
+// └────────────────────┘
+// Add/remove components for your app
+
+// Calcite Bootstrap variables and mixins
+@import "calcite/colors-default"; // Loads the default calcite colors
+//@import "calcite/calcite"; // Loads all the variables (required for bootstrap)
+
+// Calcite Maps
+@import "calcite-maps";

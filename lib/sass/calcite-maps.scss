@@ -1,12 +1,23 @@
 // ┌──────────────┐
 // │ Calcite Maps │
 // └──────────────┘
-// Map app-specific overrides for Calcite-Bootstrap
+// Map app-specific overrides for Bootstrap
 
-@import 'colors.scss';
-@import 'carousel.scss';
-@import 'map-position.scss';
-@import 'navbar-themes.scss';
-@import 'navbar.scss';
-@import 'panel.scss';
-@import 'tooltip.scss';
+/*!
+ * Calcite Maps v0.0.1 (http://github.com/esri/calcite-maps)
+ * Copyright 2016 Esri
+ * Licensed under Apache (http://www.apache.org/licenses/LICENSE-2.0)
+ */
+
+@import 'variables';
+@import 'map-position';
+@import 'navbar-position';
+@import 'panel-position';
+@import 'navbar';
+@import 'navbar-theme-dark';
+@import 'navbar-theme-light';
+@import 'panel';
+@import 'panel-theme-dark';
+@import 'panel-theme-light';
+@import 'carousel';
+@import 'tooltip';

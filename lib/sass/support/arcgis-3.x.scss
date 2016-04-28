@@ -1,0 +1,213 @@
+// ┌───────────────────────┐
+// │ ArcGIS JS 3.x Support │
+// └───────────────────────┘
+//
+// Overrides for widgets for different layouts
+
+
+.calcite-maps {
+
+  // Search
+
+  &.calcite .arcgisSearch .searchIcon.searchClose {
+    line-height: 2.25;
+  } 
+
+  // Zoom Container
+
+  &.zoom-top-left .esriSimpleSlider {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+  }
+
+  &.zoom-top-right .esriSimpleSlider {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+  }
+
+  &.zoom-bottom-right .esriSimpleSlider {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: auto;
+  }
+
+  &.zoom-bottom-left .esriSimpleSlider {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+  }
+
+  // All
+
+  .esriSimpleSlider {
+    margin: 15px;
+  }
+
+  // Top nav
+
+  &.nav-position-top .esriSimpleSlider {
+    margin-top: 80px;
+  }
+
+  &.nav-position-top-fixed .esriSimpleSlider {
+    margin-top: 15px;
+  }
+
+  &.nav-position-top.nav-space-top .esriSimpleSlider {
+    margin-top: 95px;      
+  }
+
+  &.nav-position-top.nav-space-all .esriSimpleSlider {
+    margin-top: 95px;  
+  }
+
+  &.nav-position-top.zoom-top-left.is-minibar .esriSimpleSlider {
+    margin-top: 15px;
+  }
+
+  &.nav-position-top.zoom-top-right.is-minibar .esriSimpleSlider {
+    margin-top: 15px;
+  }
+
+  &.nav-position-top.zoom-top-left.nav-space-top.is-minibar .esriSimpleSlider,
+  &.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriSimpleSlider {
+    margin-top: 15px;
+  }
+
+  // Bottom nav
+
+  &.nav-position-bottom .esriSimpleSlider {
+    margin-bottom: 80px;
+  }
+
+  &.nav-position-bottom-fixed .esriSimpleSlider  {
+    margin-bottom: 15px;
+  }
+
+  &.nav-position-bottom.nav-space-bottom .esriSimpleSlider {
+    margin-bottom: 95px; 
+  }
+
+  &.nav-position-bottom.nav-space-all .esriSimpleSlider {
+    margin-bottom: 95px; 
+  }
+
+  &.nav-position-bottom.zoom-bottom-left.is-minibar .esriSimpleSlider {
+    margin-bottom: 80px;
+  }
+
+  &.nav-position-bottom.zoom-bottom-right.is-minibar .esriSimpleSlider {
+    margin-bottom: 15px;
+  }
+
+  &.nav-position-bottom.zoom-bottom-left.nav-space-bottom.is-minibar .esriSimpleSlider,
+  &.nav-position-bottom.zoom-bottom-left.nav-space-all.is-minibar .esriSimpleSlider {
+    margin-bottom: 95px;
+  }
+
+  // Search Widget
+
+  &.nav-position-bottom-fixed .esriMenu.esriSuggestMenu,
+  &.nav-position-bottom .esriMenu.esriSuggestMenu {
+    bottom: 100%;
+    top: auto;
+  }
+
+  // Logo and Attribution Widget Control
+
+  &.nav-position-top-fixed .esriCorner.esriBottom.esriRight,
+  &.nav-position-top .esriCorner.esriBottom.esriRight {
+    top: auto;
+    right: 4px;
+    bottom: 1px;
+    left: auto;
+  }
+
+  &.nav-position-bottom-fixed .esriCorner.esriBottom.esriRight,
+  &.nav-position-bottom .esriCorner.esriBottom.esriRight {
+    top: -2px;
+    bottom: auto;
+    right: 4px
+  }
+
+  &.nav-position-bottom.nav-space-all .esriCorner.esriBottom.esriRight {
+    right: 15px;
+  }
+
+  .esriUI .esriCorner.esriBottom.esriRight .esriAttribution.esriComponent {
+    margin: -1px 0;
+  }
+
+  .esriAttribution {
+    display: none;
+    max-width: 250px !important;
+    color: #fff;
+    background: none;
+    text-shadow: -1px -1px 0 #555, 1px -1px 0 #555, -1px 1px 0 #555, 1px 1px 0 #555;
+    font-size: 12px;
+  }
+
+  .esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriComponent {
+    margin: 0;
+  }
+
+  .esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriImage.esriComponent > a > img {
+    width: 40px;
+  }
+}
+
+/* -------------- */
+/* Medium screens */
+/* -------------- */
+
+/*@media (max-width: 992px) {
+    .esriSearch .esriContainer .esriInput {
+        width: 120px !important;
+    }
+}*/
+
+/* -------------- */
+/* XSmall screens */
+/* -------------- */
+
+@media (max-width: 767px) {
+
+  .calcite-maps {
+
+    // Search
+ 
+    &.calcite .arcgisSearch .searchExpandContainer {
+      width: calc(100% - 33px) !important; 
+    }
+
+    &.calcite .arcgisSearch .searchGroup .searchInput,
+    &.calcite .arcgisSearch .searchInputGroup {
+      width: 100%;
+    }
+
+    &.calcite .esriPopup .titleButton.maximize {
+      display: none;
+    }
+
+    // Panels
+
+    &.nav-position-top.nav-space-all,
+    &.nav-position-top.nav-space-bottom {
+      .panel-container {
+        margin: 15px;
+      }
+    }
+
+    // &.nav-space-all,
+    // &.nav-space-bottom {
+    //   bottom: 15px;
+    // }
+
+  }
+}

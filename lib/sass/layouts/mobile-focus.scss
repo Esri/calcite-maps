@@ -1,0 +1,247 @@
+// ┌─────────────────────┐
+// │ Theme: Mobile Focus │
+// └─────────────────────┘
+//
+// Simple layout for mobile-focused map apps
+
+@import "../variables";
+@import "../colors";
+
+$navbar_height: 46px;
+$margin_top_bottom: 13px;
+$margin_right_left: 13px;
+$panel_body_max_height: 175px;
+
+// Navbar
+$navbar_nav_hover_decoration_height: 96%;
+
+.calcite-maps {
+
+  &.layout-mobile-focus {
+
+    // Widgets
+
+    .esri-widget-button {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+
+    .esri-search,
+    .esri-search .esri-search__input {
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .esri-widget .esri-menu li {
+      padding: .6em 1em;
+    }
+
+    // Navbar
+
+    .navbar {
+      min-height: 46px;
+      height: 46px;
+    }
+
+    // All items
+    .navbar-nav > li > a {
+      padding: 12px 15px 10px;
+      font-size: 14px;
+    }
+
+    .navbar-brand {
+      padding: 7px 12px 8px;
+      // margin-left: -7px;
+      font-size: 31px;
+      line-height: 1;
+      height: 46px;
+    }
+
+    .navbar-title {
+      left: 50px;
+    }
+
+    .navbar-main-title {
+      padding: 10px 5px;
+      margin-top: 0;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .navbar-sub-title {
+      display: none;
+    }
+
+    .navbar-toggle {
+      margin: 7px;
+      padding: 9px 10px;
+    }
+
+    .navbar-search {
+      padding-top: 2px;
+    }
+
+    // Dropdown
+
+    .navbar-collapse {
+      top: 100%;
+    }
+
+    .navbar-nav .dropdown-menu > li > a {
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    // Panel
+
+    .panel,
+    .panel-body, 
+    .panel-body .form-control,
+    .panel-body .btn {
+      font-size: 14px;
+    }
+
+    .panel-toggle {
+      padding: 8px 10px 7px;
+    }
+
+    .panel-close {
+      padding: 10px 10px 5px;
+    }
+
+    &.nav-position-top,
+    &.nav-position-top-fixed {
+      .panel-container {
+        top: 59px;
+        right: 13px;
+      }
+    }
+
+    &.nav-position-bottom,
+    &.nav-position-bottom-fixed {        
+      .panel-container {
+        top: 28px;
+        right: 13px;
+      }
+    }
+
+    // Popup - Nav top and bottom
+
+    .esri-popup .esri-docked {
+      margin: 28px 13px 28px 13px;
+    }
+
+    // Light Theme - Text dark
+
+    .calcite-text-dark {
+      .navbar-brand:hover,
+      .navbar-brand:focus,  
+      .navbar-nav > li > a:hover,
+      .navbar-nav > li > a:focus,
+      .navbar-nav > .active > a,
+      .navbar-nav > .active > a:focus,
+      .navbar-nav > .active > a:hover,
+      .navbar-nav > .open > a,
+      .navbar-nav > .open > a:hover,
+      .navbar-nav > .open > a:focus {
+        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
+      }
+    }
+    
+    &.nav-position-bottom,
+    &.nav-position-bottom-fixed {
+      .calcite-text-dark {
+        .navbar-brand:hover,
+        .navbar-brand:focus,
+        .navbar-nav > li > a:hover,
+        .navbar-nav > li > a:focus,
+        .navbar-nav > .active > a,
+        .navbar-nav > .active > a:focus,
+        .navbar-nav > .active > a:hover,
+        .navbar-nav > .open > a,
+        .navbar-nav > .open > a:hover,
+        .navbar-nav > .open > a:focus {
+          background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
+        }
+      }
+    }
+
+    // Dark Theme - Text light
+
+    .calcite-text-light {
+      .navbar-brand:hover,
+      .navbar-brand:focus,  
+      .navbar-nav > li > a:hover,
+      .navbar-nav > li > a:focus,
+      .navbar-nav > .active > a,
+      .navbar-nav > .active > a:focus,
+      .navbar-nav > .active > a:hover,
+      .navbar-nav > .open > a,
+      .navbar-nav > .open > a:hover,
+      .navbar-nav > .open > a:focus {
+        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color 100%);
+      }
+    }
+    
+    &.nav-position-bottom,
+    &.nav-position-bottom-fixed {
+      .calcite-text-dark {
+        .navbar-brand:hover,
+        .navbar-brand:focus,
+        .navbar-nav > li > a:hover,
+        .navbar-nav > li > a:focus,
+        .navbar-nav > .active > a,
+        .navbar-nav > .active > a:focus,
+        .navbar-nav > .active > a:hover,
+        .navbar-nav > .open > a,
+        .navbar-nav > .open > a:hover,
+        .navbar-nav > .open > a:focus {
+          background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_dark_navbar_decoration_color 100%);
+        }
+      }
+    }
+
+  } // layout-mobile-focus
+
+} // calcite-maps
+
+.calcite-maps {
+
+  &.layout-mobile-focus {
+
+    @media (max-width: 767px) {
+
+      &.nav-position-top,
+      &.nav-position-top-fixed {
+        .panel-container {
+          top: auto;
+          right: 0;
+          left: 0;
+          margin: 0;
+          width: auto;
+        }
+      }
+
+      &.nav-position-bottom,
+      &.nav-position-bottom-fixed {        
+        .panel-container {
+          top: auto;
+          bottom: 46px;
+          right: 0;
+          left: 0;
+          width: auto;
+        }
+      }
+    }
+
+    @media (max-height: 450px) {
+      .panel-body {
+        max-height: $panel_body_max_height;
+      }
+    }
+
+  } // layout-mobile-focus
+
+} // calcite-maps
