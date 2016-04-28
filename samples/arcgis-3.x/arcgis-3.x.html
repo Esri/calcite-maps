@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="Calcite-Maps Demo - ArcGIS">
+  <meta name="author" content="">
+  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <title>Calcite-Maps - ArcGIS Sample</title>
+
+  <!-- Calcite Maps -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-3.x.min.css"-->
+
+  <!-- ArcGIS JS 3.x -->
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/dijit/calcite.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/themes/calcite/esri/esri.css">
+          
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body class="calcite calcite-maps map-position-absolute nav-position-top nav-space-all zoom-top-left layout-inline-left">
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-fixed-top calcite-text-light calcite-dark-purple">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-title">
+          <div class="navbar-main-title text-overflow">Calcite Maps</div>
+          <div class="navbar-sub-title text-overflow">A framework for building apps with Calcite styles and Bootstrap (ArcGIS JS 3.x)</div> 
+        </div>
+      </div>
+      <!-- Navbar collapse -->
+      <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">                    
+          <!-- Map and Scene -->
+          <li><form id="searchNav" class="navbar-form navbar-search hidden-xs visible-sm visible-md visible-lg"><div id="searchNavDiv"></div></form></li>
+          <!-- Options dropdown menu -->
+          <li class="dropdown" role="presentation">
+            <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="esri-icon esri-icon-menu" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu calcite-theme-light">
+              <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
+              <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+              <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
+            </ul>
+          </li>      
+        </ul><!--/.nav -->
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav><!--/.navbar -->
+
+  <!-- Map Container  -->
+
+  <div class="map-container">
+    <div id="mapViewDiv" class="map-position-absolute"></div>
+  </div><!-- /.container -->
+
+  <!-- Panel -->
+
+  <div class="panel-container">
+
+    <div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
+            
+      <!-- Info Panel -->
+    
+      <div id="panelInfo" class="panel collapse">
+        <div id="headingInfo" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+          </div>
+        </div>
+        <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
+          <div class="panel-body">
+            <p>This is a great place to describe what your application is about.</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Search Panel -->
+
+      <div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg">
+        <div id="headingSearch" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" data-parent="#panelAccordion" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
+          </div>
+        </div>
+        <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
+          <div class="panel-body panel-overflow-visible"> 
+            <div id="searchPanelDiv"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Basemaps Panel -->
+      
+      <div id="panelBasemaps" class="panel collapse"> 
+        <div id="headingBasemaps" class="panel-heading" role="tab">
+          <div class="panel-title">
+            <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" data-parent="#panelAccordion"  aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
+            <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+          </div>
+        </div>
+        <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
+          <div class="panel-body">
+            <select id="selectBasemapPanel" class="form-control">
+              <option value="streets" data-vector="vector-streets">Streets</option>
+              <option value="satellite" data-vector="satellite">Satellite</option>
+              <option value="hybrid" data-vector="hybrid">Hybrid</option>
+              <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
+              <option value="topo" data-vector="vector-streets-relief">Topographic</option>
+              <option value="gray" data-vector="vector-canvas-light">Gray</option>
+              <option value="dark-gray" data-vector="vector-canvas-dark">Dark Gray</option>
+              <option value="osm" data-vector="osm">Open Street Map</option>
+              <option value="dark-gray" data-vector="vector-streets-night">Streets Night</option>
+              <option value="streets" data-vector="vector-streets-mobile">Streets Mobile</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /.panel-group -->
+
+  </div> <!-- /.panel-container -->
+
+    <script type="text/javascript">
+      var dojoConfig = {
+        packages: [{
+          name: "bootstrap",
+          //location: "https://esri.github.io/calcite-maps/dist/js/dojo-bootstrap"
+          location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+        },
+        {
+          name: "calcite-maps",
+          //location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+          location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+        }]
+      };
+    </script>
+
+    <!-- ArcGIS JS 3.x -->
+    <script src="https://js.arcgis.com/3.16/"></script>
+
+    <script>
+
+        var map, searchWidgetNav, searchWidgetPanel, activeView;
+
+        require([
+          // ArcGIS
+          "esri/map",
+          "esri/dijit/Search",
+          "dojo/query",
+
+          // Bootstrap
+          "bootstrap/Collapse", 
+          "bootstrap/Dropdown",
+          "bootstrap/Tab",
+
+          // Calcite Maps
+          "calcite-maps/calcitemaps",
+          
+          "dojo/domReady!"
+        ], function(Map, Search, query) {
+                
+          // Map 
+          map = new Map("mapViewDiv", {
+            basemap: "dark-gray",
+            center: [-40, 40], // lon, lat
+            zoom: 3
+          });
+          //map.popup.anchor = "top";
+    
+          // Search
+          searchDivNav = createSearchWidget("searchNavDiv");
+          searchWidgetPanel = createSearchWidget("searchPanelDiv");
+
+          function createSearchWidget(parentId) {
+            var search = new Search({
+                    map: map,
+                    enableHighlight: false
+                    }, parentId);
+            search.startup();
+            return search;
+          }
+
+          query("#selectBasemapPanel").on("change", function(e){
+                  map.setBasemap(e.target.options[e.target.selectedIndex].value);
+          });
+        });// dojo
+    </script>
+
+</body>
+</html>
+
