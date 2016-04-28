@@ -1,0 +1,89 @@
+// ┌───────────────────┐
+// │ Panel Theme Light │
+// └───────────────────┘
+//
+// Light background, dark text
+// Text color, hover and background for panels and controls
+
+.calcite-maps {
+
+  // Default, not required
+  //.calcite-theme-light { 
+  //}
+  
+    .panel {
+      color: $theme_light_panel_text_color;
+      background-color: $theme_light_panel_bg;
+
+      // Header
+
+      .panel-heading {
+        color: $theme_light_panel_header_text_color;
+        background-color: $theme_light_panel_header_bg;
+        border: none;
+        background-image: linear-gradient(to top, transparent $panel_top_decoration_height, $theme_light_panel_border_color $panel_top_decoration_height, $theme_light_panel_border_color 100%);
+      }
+
+      .panel-heading:hover {
+        background-color: $theme_light_panel_header_bg_hover;
+        //background-image: linear-gradient(to top, transparent $panel_top_decoration_height, $theme_light_panel_border_color $panel_top_decoration_height, $theme_light_panel_border_color 100%);
+      }
+
+      // Toggle header
+
+      .panel-toggle {
+        color: $theme_light_panel_header_text_color;
+      }
+
+      .panel-toggle:focus,
+      .panel-toggle:hover {
+        color: $theme_light_panel_header_text_color;
+      }
+
+      // Close
+      
+      .panel-close {
+        color: $theme_light_panel_header_close_color;
+      }
+      
+      .panel-close:focus,
+      .panel-close:hover {
+        color: $theme_light_panel_header_text_color_hover;
+      }
+      
+      // Tabs
+      
+      .nav-tabs > li > a {
+        color: $theme_light_control_text_color;
+      }
+
+      .nav-tabs > li.active > a {
+        color: $theme_light_control_text_color;
+        background-color: $theme_light_panel_bg;
+      }
+
+      .nav-tabs > li > a:hover {
+        background-color: $theme_light_panel_bg;
+        border-top-color: $theme_light_panel_decoration_color;
+      }
+
+      // Form controls
+      
+      select.form-control {
+        outline: 1px solid $theme_light_control_border_color;
+        // outline: 1px solid $theme_light_control_border_color;    
+        // outline-offset: -1px;
+      }
+
+      // Links - optional
+
+      // a {
+      //  color: $theme_light_link_color;
+      // }
+      // a:hover {
+      //  color: $theme_light_link_color_hover;
+      // }
+    // }
+  }
+}
+  
