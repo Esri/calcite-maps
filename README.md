@@ -1,251 +1,219 @@
 # Calcite Maps
-A modern framework for designing map apps with Bootstrap. 
+A framework for building map apps with Calcite styles and Bootstrap. 
 
-This project contains a custom Sass build and Calcite styles, colors and layouts specifically for designing map apps with Bootstrap. The build uses the minimum components from [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) (a custom theme for [Bootstrap](http://www.getbootstrap.com)) in order to maximize performance. Calcite Maps also extends core [Bootstrap components](http://getbootstrap.com) such as the navbar and panels to make them more map app-friendly. Different app designs can be created very easily simply by applying styles to the ```body``` and ```navbar``` elements. e.g. ```nav-position-top``` ```calcite-dark-blue```. Custom themes can also be created and shared easily by assembling style sets for different layouts.
+This project contains colors, styles and layouts for designing responsive map apps with [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap). Calcite Maps includes the Bootstrap build and provides overrides for the `navbar`, `dropdown menu` and `panels` in order to make them more map-app friendly. To create your own designs, just [reference the library](#getting-started) and then apply the styles to the `body` and `nav` elements of your page (see below). If you want to integrate deeper, fork and clone the repo and create your own [custom builds](#getting-started) with Sass. 
 
-The framework is compatible with [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/4) and [Esri Leaflet](https://github.com/Esri/esri-leaflet).
+Calcite Maps is also fully integrated with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
-###Features
+```html
+<link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
 
-* Calcite styles, layouts and themes for map apps (top, bottom, jumbo and in-line)
-* Extensions for Bootstrap components (navbar, accordion and panels)
-* Custom Sass build system for creating optimized builds
-* Full integration and support for ArcGIS API for JavaScript 4.x
-* Samples for ArcGIS JS 3.x, 4.x and Esri Leaflet
-* Support for Dojo and jQuery
+<body class="calcite-maps map-position-absolute nav-position-top theme-widgets-dark">
+  <nav class="navbar navbar-fixed-top calcite-text-dark calcite-dark-blue">
+```
 
-###Samples
-Use the [Styler](http://esri.github.io/calcite-maps/extras/index.html) to design apps on the fly or just start with one of the [code samples](http://esri.github.io/calcite-maps/extras/index.html).
+[Try the samples](http://esri.github.io/calcite-maps/samples/index.html)
+
+##What's included
+
+* Calcite [colors](#documentation), [styles](#documentation) and [layouts](#documentation) specifically for map apps
+* Dark and light themes for framework and widgets (ArcGIS JS 4.x only)
+* CSS and JS extension for [Bootstrap](http://www.getbootstrap.com) components (navbar, menus, accordion and panels)
+* Sass build for [Bootstrap](http://www.getbootstrap.com), [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) and Calcite Maps
+* Support for [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/) and [Esri Leaflet](https://github.com/Esri/esri-leaflet)
+* Dojo and jQuery options
 
 ![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
 
-###Getting Started<a id="getting-started"></a>
+##Getting started
 
-Here's a few different ways to get started:
+Here's a few ways to get started:
 
-1. **Explore the styles** - Use the [Styler](http://esri.github.io/calcite-maps/extras/index.html) to explore the different styles and layouts. When you find a design you like, inspect the HTML and apply those styles to your own app.
+1. **Explore the styles** - Use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to explore the different styles and layouts. When you find a design you like, inspect the HTML and apply the `body` and `nav` styles to your app.
 
-2. **Start with a Sample** - Copy and paste the code from one of the [samples](http://esri.github.io/calcite-maps/extras/index.html) or just *Create an app from scratch* (see below). Don't forget to change the CSS and JS references!
+2. **Reference the libraries** - Create your own app from the [samples](./samples/index.html) or the [example](#example) below by downloading the latest release or just referencing the [calcite-maps-xxx.min.css](./dist/css) and [calcite-maps.js](./dist/js) pre-compiled librares. 
 
-3. **Create a local build**
+ NOTE: All [calcite-maps-xxx.css](./dist/css) files bundle Bootstrap and Calcite Maps, so you don't need an additional Bootstrap reference. You can also reference [calcite-bootstrap.css](./dist/css) and [calcite-maps.css](./dist/css) individually as well.
 
-* Fork and clone the repo 
-* Run npm install (node_modules/bootstrap and calcite-bootstrap)
-* Run bower install (bower_components/dojo-bootstrap)
-* Run grunt (build out project to ./dist/**)
+3. **Create a local build** - Fork and clone the repo to create a local build. The default build includes the Bootstrap components for the framework (scaffolding, navbar, panels...), but you can customize further by overriding variables, adding or removing style files, or adding/removing other Bootstrap components.
 
-Add/remove styles, bootstrap components and update any variables as required. See ./lib/sass/build.scss to get started.
+ Run the commands below:
 
-NOTE: Calcite Maps is built on Bootstrap. If you want to learn more about the core framework, please visit the [Bootstrap documentation site](http://getbootstrap.com).
+ * Run `npm install` (node_modules/bootstrap and calcite-bootstrap)
+ * Run `bower install` (bower_components/dojo-bootstrap)
+ * Run `grunt` (build out project to ./dist/**)
 
-### Create an app from scratch
+ NOTE: To start customizing, check out the [gruntfile.js](gruntfile.js), [build.scss](./lib/sass/build.scss) and [_variables.scss](./lib/sass/_variables.scss) files.
 
-1. Create a new [bootstrap page](http://getbootstrap.com).
+## Example
 
-2. Add CSS references to Calcite-Maps and remove the Bootstrap reference. This provides the Bootstrap framework, styles and components required to create your app.
-    
-  ```
-  <!-- Calcite-Maps -->
-  <link rel="stylesheet" href="http://esri.github.io/calcite-maps/css/calcite-maps-bootstrap-arcgis-4.x.css">
-  ```
+[Try it live](http://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
 
-3. Add JS references as necessary. The Bootstrap framework requires a small library to support the framework components such as the navbar, dropdown and panels. If you are using ArcGIS JS API, use the dojo libraries. If you are using Esri Leaflet, use the jQuery library.
-  
-  ```
-  <!-- ArcGIS JS API -->
+![calcite-maps-example.png](./calcite-maps-example.png?raw=true "Calcite Maps")
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="description" content="Calcite-Maps - Example">
+<title>Calcite Maps - ArcGIS JS 4.0 Example</title>
+
+<!-- Calcite Maps -->
+<link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
+
+<!-- ArcGIS JS 4.0 -->
+<link rel="stylesheet" href="https://jsqa.arcgis.com/4.0/esri/css/main.css">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+</style>
+
+</head>
+
+<body class="calcite-maps map-position-absolute nav-position-top">
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-fixed-top calcite-text-light calcite-blue-75">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <span class="esri-icon esri-icon-map-pin"></span>
+        </a>
+        <div class="navbar-title">
+          <div class="navbar-main-title text-overflow">Greater Los Angeles Demographics</div>
+          <div class="navbar-sub-title text-overflow">Explore population, age, income and housing values</div> 
+        </div>
+      </div>
+    </div><!--/.container-fluid -->
+  </nav><!--/.navbar -->
+
+  <!-- Map Container  -->
+
+  <div class="map-container">
+      <div id="mapViewDiv" class="map-position-absolute"></div>
+  </div><!-- /.container -->
+
   <script type="text/javascript">
       var dojoConfig = {
           packages: [{
               name: "bootstrap",
-              location: "https://esri.github.io/calcite-maps/vendor/dojo-bootstrap"
+              location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
           },
           {
               name: "calcite-maps",
-              location: "https://esri.github.io/calcite-maps/js/dojo"
+              location: "https://esri.github.io/calcite-maps/dist/js/dojo"
           }]
       };
   </script>
 
+  <!-- ArcGIS JS 4.0 -->
+  <script src="https://jsqa.arcgis.com/4.0/"></script>
+
   <script>
-      require(["esri/Map",
-          "esri/views/MapView",
 
-          // Bootstrap
-          "bootstrap/Collapse", 
-          "bootstrap/Dropdown",
-          "bootstrap/Tab",
-          "bootstrap/Tooltip",
-
-          // Calcite-maps
-          "calcite-maps/calcitemaps",
-          "dojo/domReady!"
-      ], function(Map, MapView) {
-  ...
-  </script>
-
-  ```
-  ```
-  <!-- Esri-Leaflet -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-  <script src="http://esri.github.io/calcite-maps/dist/js/jquery/calcitemaps.js"></script>
-  ```
-
-4. Add a map container. For full page apps use ```map-position-absolute```.
-
-  ```
-    <!-- Map Container  -->
-
-    <div class="map-container">
-      <div id="mapViewDiv" class="map-position-absolute"></div>
-    </div>
-  ```
-
-5. Set the ID of the navbar-collapse to ```mainNav``` and for the panel-container to ```panelAccordion```. This connects the components to Javascript to make them map app friendly.
-    
-  ```
-    <!-- Navbar collapse -->
-    <div id="mainNav" class="collapse navbar-collapse" aria-expanded="false">
-
-    <!-- Panel -->
-    <div class="panel-container">
-      <div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
-    ...
-  ```
-
-6. Apply Calcite Maps classes to the ```body``` and ```navbar``` elements to configure the layout, style and color of your app. Styles for the ```body``` are for positioning and styles on the ```nav``` are primarily for colors and themes. Styles applied to the ```body``` may also affect other elements in the layout such as the ```panel```.
-
-  ```html
-    <body class="calcite-maps map-position-absolute nav-position-top nav-space-top zoom-top-left">
-
-        <nav class="navbar navbar-text-light navbar-fixed-top dark-blue">
-    ...
-  ```
-
-7. Add or remove nav items and panels as necessary. Nav items control panels by setting the data-target attribute. Learn more about Bootstrap collapseable panels [here](http://getbootstrap.com).
-
-  ```
-    <!-- Navbar collapse -->
-
-    <ul class="dropdown-menu">
-      <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
-    </ul>
-
-    ...
-
-    <!-- Panel -->
-
-    <div class="panel-container">
-      <div id="panelAccordion" class="panel-group"  role="tablist" aria-multiselectable="true">
-          
-        <!-- Info Panel -->
-        
-        <div id="panelInfo" class="panel panel-default collapse">
-            <div id="headingInfo" class="panel-heading" role="tab">
-                <div class="panel-title">
-                    <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" data-parent="#panelAccordion" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
-                    <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>  
-                </div>
-            </div>
-            <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
-                <div class="panel-body">
-                    <p>This is super simple map of Los Angeles. Try the 2D and 3D view. Change basemaps. Or just search and explore for your favorite places around town.</p>
-                    <p>ArcGIS 4.0 Beta</p>
-                </div>
-            </div>
-        </div>
-    ...
-  ```
-
-8. Add some map code.
-  ```
-  ...
-
-    var app, mapView;
-
-    require(["esri/Map",
-      "esri/views/MapView"
+    require([
+      // ArcGIS JS
+      "esri/views/MapView",
+      "esri/WebMap",
+      "esri/widgets/Legend",
 
       // Bootstrap
       "bootstrap/Collapse", 
       "bootstrap/Dropdown",
       "bootstrap/Tab",
-      "bootstrap/Tooltip",
-      
+
       // Calcite-maps
       "calcite-maps/calcitemaps",
       "dojo/domReady!"
-    ], function(Map, Basemap, MapView, FeatureLayer, PopupTemplate, Search, query) {
+    ], function(MapView, WebMap, Legend) {
         
-      // App
-      app = {
-        lonlat: [-118.25, 34.15],
-        zoom: 10,
-        viewPadding: {
-            top: 64
-        }, 
-        basemap: "streets"
-      };
-
-      // Map 
-      var map = new Map({
-        basemap: app.basemap
+      // Webmap 
+      var webmap = new WebMap({
+        portalItem: {
+          id: "d0260a4512d0431b84d628e000b9d25e"
+        }
       });
-            
-      mapView = new MapView({
+
+      // View
+      var view = new MapView({
+        map: webmap,
         container: "mapViewDiv",
-        map: map,
-        center: app.lonlat,
-        zoom: app.zoom,
-        padding: app.viewPadding
+        padding: {
+            top: 64
+          }
+      });
+
+      // Legend
+      view.then(function(result) {
+        var legend = new Legend({
+          view: view,
+          layerInfos: [{
+            layer: view.map.layers.items[0],
+            title: ""
+          }]
+        });
+        view.ui.add(legend, "top-right");
       });
 
     });
-  ```
 
-**That's it!** Now you can experiment with the other Calcite styles or Bootstrap components and build your app.
+  </script>
 
-###Documentation
+</body>
+</html>
+```
 
-Here are the main CSS classes you can mix and match to create different mapping app layouts.
+## Documentation
 
-*Body - Map*
+Here's the main CSS classes you can mix and match to create different designs.
 
-* ```map-position-absolute or map-position-relative```
+#### Body
+* Map - `map-position-absolute` or `map-position-relative`
+* Navbar - `nav-space-top` or `nav-space-bottom` or `nav-space-all`
+* Zoom - `zoom-top-left` or `zoom-top-right` or `zoom-bottom-left` or `zoom-bottom-right` (ArcGIS 3.x and Esri-Leaflet only)
+* Panel - `panel-left` or `panel-right`
+* Themes - `calcite-theme-dark` (no theme is default light)
+* Layouts (optional) - `layout-jumbo-title` or `layout-inline-right` or `layout-inline-left` or `layout-mobile-focus`
 
-*Body - Navigation*
+#### Navbar
+* Background Color - `calcite-dark-blue` or `calcite-black-75` or `calcite-transparent`... See all colors [here](./lib/sass/_colors.scss)
+* Text Color - `calcite-text-dark` or `calcite-text-light`
+* Position - `navbar-fixed-top` or `navbar-fixed-bottom`
 
-* ```nav-position-top or nav-position-bottom```
-* ```nav-space-top or nav-space-bottom or nav-space-all or nav-space-none```
+*Examples*
 
-*Nav - Position and Colors*
+Navbar Top - Dark Blue - Dark Text
 
-* ```navbar-fixed-top or navbar-fixed-bottom```
-* ```navbar-default or navbar-inverse or navbar-text-dark or navbar-dark```
-* ```grey or light-grey or blue...```
+```html
+<body class="calcite-maps map-position-absolute nav-position-top">
+  <nav class="navbar navbar-fixed-top calcite-text-dark calcite-dark-blue">
+```
 
-*Map*
+Navbar Bottom - Space - Black - Light Text
 
-* ```map-container```
-* ```map-position-absolute or map-position-relative```
+```html
+<body class="calcite-maps map-position-absolute nav-position-bottom nav-space-bottom">
+  <nav class="navbar navbar-fixed-bottom calcite-text-light calcite-black">
+```
 
-*Zoom*
+Navbar Top - Inline Layout - Dark Theme - White 75% Background - Dark Text
 
-* ```zoom-top-left or zoom-top-right or zoom-bottom-left or zoom-bottom-right```
-
-*Panel*
-
-* ```panel-left or panel-right```
-
-Themes
-
-* ```theme-jumbo-title```
-* ``` theme-inline-right or theme-inline-left```
+```html
+<body class="calcite-maps map-position-absolute nav-position-top layout-inline-left calcite-theme-dark">
+  <nav class="navbar navbar-fixed-top calcite-text-dark calcite-white-75">
+```
 
 ## Requirements
 
-* [Bootstrap](http://getbootstrap.com) or [Calcite-Bootstrap](https://github.com/Esri/calcite-bootstrap) (recommended)
+* [Bootstrap](http://getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap)
 
 ## Resources
 
@@ -285,7 +253,7 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](https://github.com/Esri/calcite-maps/blob/master/license.txt) file.
 
-[](Esri Tags: Web Mapping ArcGIS Leaflet CSS Sass Frameworks esri-leaflet Design Basemaps Bootstrap Calcite Calcite-Maps JavaScript Calcite-Bootstrap)
+[](Esri Tags: Web Mapping ArcGIS Leaflet CSS Sass Frameworks esri-leaflet Design Basemaps Bootstrap Calcite Calcite-Maps JavaScript Calcite-Bootstrap Grunt)
 [](Esri Language: CSS)
 
 
