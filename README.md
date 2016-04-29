@@ -1,9 +1,9 @@
 # Calcite Maps
 A framework for building map apps with Calcite styles and Bootstrap. 
 
-This project contains colors, styles and layouts for designing responsive map apps with [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap). Calcite Maps includes the Bootstrap build and provides overrides for the `navbar`, `dropdown menu` and `panels` in order to make them more map-app friendly. To create your own designs, just [reference the library](#getting-started) and then apply the styles to the `body` and `nav` elements of your page (see below). If you want to integrate deeper, fork and clone the repo and create your own [custom builds](#getting-started) with Sass. 
+This project contains colors, styles and layouts for designing responsive map apps with [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap). The build includes Bootstrap and provides a number of extentions to make the components more map-app friendly. It's also fully integrated with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
-Calcite Maps is designed to make map-app development fast and easy. It's also fully integrated with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
+Calcite Maps is designed to make map-app development fast and easy. To create your own custom designs, just [reference the library](#getting-started) and then apply the styles to the `body` and `nav` elements of your page (see below). If you want to integrate deeper, fork and clone the repo and create your own [custom builds](#getting-started) with Sass. 
 
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
@@ -65,7 +65,7 @@ Here's a few ways to get started:
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
 
 <!-- ArcGIS JS 4.0 -->
-<link rel="stylesheet" href="https://jsqa.arcgis.com/4.0/esri/css/main.css">
+<link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
 
 <style>
   html, body {
@@ -115,7 +115,7 @@ Here's a few ways to get started:
   </script>
 
   <!-- ArcGIS JS 4.0 -->
-  <script src="https://jsqa.arcgis.com/4.0/"></script>
+  <script src="https://js.arcgis.com/4.0/"></script>
 
   <script>
 

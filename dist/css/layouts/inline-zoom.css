@@ -1,0 +1,27 @@
+.calcite-maps.layout-inline-left .navbar {
+  left: 47px; }
+
+.calcite-maps.layout-inline-right .navbar {
+  right: 47px; }
+
+.calcite-maps.layout-inline-right.nav-position-top.nav-space-all .panel-container {
+  top: 90px; }
+
+.calcite-maps.layout-inline-left.nav-position-top.nav-space-all .esriSimpleSlider, .calcite-maps.layout-inline-left.nav-position-bottom.nav-space-all .esriSimpleSlider, .calcite-maps.layout-inline-right.nav-position-top.nav-space-all .esriSimpleSlider, .calcite-maps.layout-inline-right.nav-position-bottom.nav-space-all .esriSimpleSlider {
+  margin: 15px; }
+
+.calcite-maps.layout-inline-left.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent, .calcite-maps.layout-inline-right.nav-position-top.zoom-top-left.nav-space-all.is-minibar .esriZoom.esriVertical.esriComponent {
+  margin-top: 15px; }
+
+.calcite-maps.layout-inline-left.nav-position-top.nav-space-all .leaflet-control-zoom, .calcite-maps.layout-inline-left.nav-position-bottom.nav-space-all .leaflet-control-zoom, .calcite-maps.layout-inline-right.nav-position-top.nav-space-all .leaflet-control-zoom, .calcite-maps.layout-inline-right.nav-position-bottom.nav-space-all .leaflet-control-zoom {
+  margin: 15px; }
+
+.calcite-maps.layout-inline-left.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom, .calcite-maps.layout-inline-right.nav-position-top.zoom-top-left.nav-space-all.is-minibar .leaflet-control-zoom {
+  margin-top: 15px; }
+
+@media (max-width: 767px) {
+  .calcite-maps.layout-inline-left .panel-container, .calcite-maps.layout-inline-right .panel-container, .calcite-maps.layout-inline-right.nav-position-top.nav-space-all .panel-container {
+    top: auto;
+    bottom: 0;
+    margin: auto 15px 30px 15px;
+    width: auto; } }

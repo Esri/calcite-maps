@@ -1,0 +1,42 @@
+@media (min-width: 768px) {
+  .calcite-maps.layout-jumbo-title .navbar {
+    min-height: 120px;
+    padding-top: 27px; }
+  .calcite-maps.layout-jumbo-title.nav-position-top-fixed .map-position-absolute {
+    top: 120px;
+    bottom: 0; }
+  .calcite-maps.layout-jumbo-title.nav-position-bottom-fixed .map-position-absolute {
+    top: 0;
+    bottom: 120px; }
+  .calcite-maps.layout-jumbo-title .navbar-brand {
+    margin-top: -20px;
+    padding: 12px 7px;
+    font-size: 80px;
+    line-height: 80px; }
+  .calcite-maps.layout-jumbo-title .navbar-title {
+    left: 90px;
+    width: calc(100% - 555px); }
+  .calcite-maps.layout-jumbo-title .navbar-main-title {
+    margin-top: -1px;
+    font-size: 60px; }
+  .calcite-maps.layout-jumbo-title .navbar-sub-title {
+    margin-top: -7px;
+    font-size: 14px; }
+  .calcite-maps.layout-jumbo-title .calcite-text-light .navbar-brand:hover,
+  .calcite-maps.layout-jumbo-title .calcite-text-light .navbar-brand:focus,
+  .calcite-maps.layout-jumbo-title .calcite-text-dark .navbar-brand:hover,
+  .calcite-maps.layout-jumbo-title .calcite-text-dark .navbar-brand:focus {
+    background-image: none; }
+  .calcite-maps.layout-jumbo-title.nav-position-top .navbar-nav .dropdown-menu, .calcite-maps.layout-jumbo-title.nav-position-top-fixed .navbar-nav .dropdown-menu {
+    margin-top: 28px; }
+  .calcite-maps.layout-jumbo-title.nav-position-bottom .navbar-nav .dropdown-menu, .calcite-maps.layout-jumbo-title.nav-position-bottom .navbar-nav .dropdown-menu {
+    margin-bottom: 27px; }
+  .calcite-maps.layout-jumbo-title.nav-position-top .panel-container, .calcite-maps.layout-jumbo-title.nav-position-top-fixed .panel-container {
+    top: 135px; }
+  .calcite-maps.layout-jumbo-title.nav-position-top.zoom-top-left .esriZoom.esriVertical.esriComponent,
+  .calcite-maps.layout-jumbo-title.nav-position-top.zoom-top-right .esriZoom.esriVertical.esriComponent,
+  .calcite-maps.layout-jumbo-title.nav-position-bottom.zoom-bottom-left .esriZoom.esriVertical.esriComponent,
+  .calcite-maps.layout-jumbo-title.nav-position-bottom.zoom-bottom-right .esriZoom.esriVertical.esriComponent {
+    margin: 136px 25px; }
+  .calcite-maps.layout-jumbo-title.nav-position-top .leaflet-control-zoom {
+    margin: 135px 25px 15px 30px; } }
