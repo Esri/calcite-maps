@@ -37,10 +37,10 @@
       color: $theme_dark_navbar_text_color;
     } 
     
-    .navbar-title:hover, 
-    .navbar-title:focus {
+    //.navbar-title:hover, 
+    //.navbar-title:focus {
       // color: $theme_dark_nav_bg_hover;
-    }
+    //}
     
     // Toggle button
 
@@ -54,7 +54,6 @@
 
     .navbar-toggle:hover,
     .navbar-toggle:focus {
-      // background-color: $theme_dark_control_bg_active;
       background-color: transparent;
       opacity: .75;
     }
@@ -88,7 +87,6 @@
       .navbar-nav > .disabled > a,
       .navbar-nav > .disabled > a:hover,
       .navbar-nav > .disabled > a:focus {
-        // color: #efefef;  
         background-color: transparent;
       }
     }
@@ -103,13 +101,9 @@
 
         //border: 1px solid $theme_dark_menu_border_color;
         border: none;
-
-        // -webkit-box-shadow: none;
-        // box-shadow: none;
       
         -webkit-box-shadow: $theme_dark_menu_shadow;
         box-shadow: $theme_dark_menu_shadow;
-
 
         li > a {
           color: $theme_dark_menu_text_color;
@@ -152,6 +146,4 @@
       }
     }
   }
-
 }
-

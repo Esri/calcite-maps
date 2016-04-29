@@ -124,7 +124,7 @@
     -webkit-transition: height 0.05s ease-out;
     -o-transition: height 0.05s ease-out;
     transition: height 0.05s ease-out;
-    // display: none; // disable
+    // display: none; // disable completely
   }
 
   .fade-in, 
@@ -188,7 +188,7 @@
       margin: 0 -15px;
     }
 
-    // Collapse - optional full justified menu
+    // Collapse - optional full screen menu on mobile
 
     .navbar-collapse {
       position: absolute;

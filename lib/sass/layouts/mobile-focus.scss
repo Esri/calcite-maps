@@ -222,6 +222,10 @@ $navbar_nav_hover_decoration_height: 96%;
           margin: 0;
           width: auto;
         }
+        .navbar-collapse {
+          top: 100%;
+          bottom: auto;
+        }
       }
 
       &.nav-position-bottom,
@@ -232,6 +236,10 @@ $navbar_nav_hover_decoration_height: 96%;
           right: 0;
           left: 0;
           width: auto;
+        }
+        .navbar-collapse {
+          top: auto;
+          bottom: 100%;
         }
       }
     }
