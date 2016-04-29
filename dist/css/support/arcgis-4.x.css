@@ -206,6 +206,9 @@
   width: calc(100% + 2px);
   left: -1px; }
 
+.calcite-maps .esri-basemap-toggle {
+  z-index: 1px; }
+
 .calcite-maps.calcite-widgets-dark .esri-widget.esri-search,
 .calcite-maps.calcite-widgets-dark .esri-widget .esri-popup,
 .calcite-maps.calcite-widgets-dark .esri-widget.esri-legend,

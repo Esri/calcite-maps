@@ -538,12 +538,18 @@
     left: 0;
     margin: 0;
     width: auto; }
+  .calcite-maps.layout-mobile-focus.nav-position-top .navbar-collapse, .calcite-maps.layout-mobile-focus.nav-position-top-fixed .navbar-collapse {
+    top: 100%;
+    bottom: auto; }
   .calcite-maps.layout-mobile-focus.nav-position-bottom .panel-container, .calcite-maps.layout-mobile-focus.nav-position-bottom-fixed .panel-container {
     top: auto;
     bottom: 46px;
     right: 0;
     left: 0;
-    width: auto; } }
+    width: auto; }
+  .calcite-maps.layout-mobile-focus.nav-position-bottom .navbar-collapse, .calcite-maps.layout-mobile-focus.nav-position-bottom-fixed .navbar-collapse {
+    top: auto;
+    bottom: 100%; } }
 
 @media (max-height: 450px) {
   .calcite-maps.layout-mobile-focus .panel-body {

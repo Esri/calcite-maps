@@ -41,6 +41,11 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
     left: -1px;
   }
 
+  // Basemaptoggle
+  .esri-basemap-toggle {
+    z-index: 1px;
+  }
+
   // Calcite dark widget theme
 
   &.calcite-widgets-dark {

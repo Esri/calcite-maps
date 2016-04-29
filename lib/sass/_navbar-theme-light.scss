@@ -35,10 +35,10 @@
       color: $theme_light_navbar_text_color;
     } 
 
-    .navbar-title:hover, 
-    .navbar-title:focus {
-      // color: $theme_light_nav_bg_hover;
-    }
+    // .navbar-title:hover, 
+    // .navbar-title:focus {
+    //   color: $theme_light_nav_bg_hover;
+    // }
 
     // Toggle button
 
@@ -52,7 +52,6 @@
 
     .navbar-toggle:hover,
     .navbar-toggle:focus {
-      //background-color: $theme_light_control_bg_active;
       background-color: transparent;
       opacity: .75;
     }
