@@ -42,8 +42,27 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
   }
 
   // Basemaptoggle
+
   .esri-basemap-toggle {
     z-index: 1px;
+  }
+
+  // Popup collapse
+
+  .esri-popup .esri-show-title .esri-title {
+    cursor: pointer;
+  }
+
+  // .esri-popup .esri-popup-header .esri-popup-header-buttons {
+  //   padding-top: 3px;
+  // }
+
+  // Popup - Nav bottom
+
+  &.nav-position-bottom {
+    .esri-popup .esri-docked {
+      margin-bottom: 15px;
+    }
   }
 
   // Calcite dark widget theme

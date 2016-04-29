@@ -209,6 +209,12 @@
 .calcite-maps .esri-basemap-toggle {
   z-index: 1px; }
 
+.calcite-maps .esri-popup .esri-show-title .esri-title {
+  cursor: pointer; }
+
+.calcite-maps.nav-position-bottom .esri-popup .esri-docked {
+  margin-bottom: 15px; }
+
 .calcite-maps.calcite-widgets-dark .esri-widget.esri-search,
 .calcite-maps.calcite-widgets-dark .esri-widget .esri-popup,
 .calcite-maps.calcite-widgets-dark .esri-widget.esri-legend,
