@@ -111,26 +111,42 @@ $navbar_nav_hover_decoration_height: 96%;
       padding: 10px 10px 5px;
     }
 
+    // Nav top
+    
     &.nav-position-top,
     &.nav-position-top-fixed {
+      
+      // Panel
+      
       .panel-container {
         top: 59px;
         right: 13px;
       }
+      
+      // Popup
+      
+      .esri-popup .esri-docked {
+        margin: 13px 13px 28px 13px;
+      }
     }
 
+    // Nav bottom
+
     &.nav-position-bottom,
-    &.nav-position-bottom-fixed {        
+    &.nav-position-bottom-fixed { 
+      
+      // Panel       
+      
       .panel-container {
         top: 28px;
         right: 13px;
       }
-    }
 
-    // Popup - Nav top and bottom
-
-    .esri-popup .esri-docked {
-      margin: 28px 13px 28px 13px;
+      // Popup
+      
+      .esri-popup .esri-docked {
+        margin: 28px 13px 13px 13px;
+      }
     }
 
     // Light Theme - Text dark

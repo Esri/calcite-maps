@@ -458,12 +458,15 @@
   top: 59px;
   right: 13px; }
 
+.calcite-maps.layout-mobile-focus.nav-position-top .esri-popup .esri-docked, .calcite-maps.layout-mobile-focus.nav-position-top-fixed .esri-popup .esri-docked {
+  margin: 13px 13px 28px 13px; }
+
 .calcite-maps.layout-mobile-focus.nav-position-bottom .panel-container, .calcite-maps.layout-mobile-focus.nav-position-bottom-fixed .panel-container {
   top: 28px;
   right: 13px; }
 
-.calcite-maps.layout-mobile-focus .esri-popup .esri-docked {
-  margin: 28px 13px 28px 13px; }
+.calcite-maps.layout-mobile-focus.nav-position-bottom .esri-popup .esri-docked, .calcite-maps.layout-mobile-focus.nav-position-bottom-fixed .esri-popup .esri-docked {
+  margin: 28px 13px 13px 13px; }
 
 .calcite-maps.layout-mobile-focus .calcite-text-dark .navbar-brand:hover,
 .calcite-maps.layout-mobile-focus .calcite-text-dark .navbar-brand:focus,
