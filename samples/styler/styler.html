@@ -688,12 +688,12 @@
                     <label for="settingsPopup" class="col-xs-3 control-label">Popup</label>
                     <div class="col-xs-9">
                       <select id="settingsPopup" class="form-control">
-                        <option value="top">Auto</option>
+                        <option value="auto" selected>Auto</option>
                         <option value="top-left">Top Left</option>
                         <option value="top-center">Top Center</option>
                         <option value="top-right">Top Right</option>
                         <option value="bottom-right">Bottom Right</option>
-                        <option value="bottom-center" selected>Bottom Center</option>
+                        <option value="bottom-center">Bottom Center</option>
                         <option value="bottom-left">Bottom Left</option>
                       </select>
                     </div>
@@ -829,8 +829,9 @@
           spinnerEnabled: false,
           dockOptions: {
             buttonEnabled: true,
-            breakpoint: false,
-            position: "top-right"
+            breakpoint: {
+              width: 767
+            }
           }
         }
       }
@@ -885,7 +886,7 @@
 
       // Hide panel when popup is docked
       function hidePanel(popup, result) {
-        if (popup.visible && (result === "right" || result === "bottom")) {
+        if (popup.visible && (result === "top-right" || result === "bottom-center")) {
           query(".panel.in").removeClass("in");
         }
       }
@@ -895,8 +896,7 @@
           viewModel: {
             view: app.activeView,
             showPopupOnSelect: showPopup,
-            highlightEnabled: false,
-            //highlightGraphic: false
+            highlightEnabled: false
           },
           }, parentId);
         search.startup();
@@ -939,7 +939,12 @@
       function setBasemaps() {
         app.mapView.map.basemap = app.basemapSelected;
         app.sceneView.map.basemap = app.basemapSelectedAlt;
-      }    
+      }   
+
+      query(".esri-popup .esri-title").on("click", function(e){
+        query(".esri-popup .esri-popup-content, .esri-popup .esri-footer").toggleClass("hidden");
+        app.activeView.popup.reposition();
+      })
 
     });// dojo
   </script>
