@@ -1,9 +1,11 @@
 # Calcite Maps
-A framework for building map apps with Calcite styles and Bootstrap. 
+A simple framework for building map apps with Calcite styles and Bootstrap. 
 
-This project contains colors, styles and layouts for designing responsive map apps with [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap). The build includes Bootstrap and provides a number of extentions to make the components more map-app friendly. It's also fully integrated with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
+This project contains colors, styles and layouts for designing responsive map apps with [Bootstrap](http://www.getbootstrap.com) and [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap). The build includes Bootstrap and extends the components and styles to make them more map app friendly. 
 
-Calcite Maps is designed to make map-app development fast and easy. To create your own custom designs, just [reference the library](#getting-started) and then apply the styles to the `body` and `nav` elements of your page (see below). If you want to integrate deeper, fork and clone the repo and create your own [custom builds](#getting-started) with Sass. 
+To create your own custom designs, just [reference the library](#getting-started) and then apply the styles to the `body` and `nav` elements of your page (see below). If you want to integrate deeper, fork and clone the repo and create your own [custom builds](#getting-started) with Sass. 
+
+Calcite Maps also works seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
@@ -12,7 +14,7 @@ Calcite Maps is designed to make map-app development fast and easy. To create yo
   <nav class="navbar navbar-fixed-top calcite-text-dark calcite-dark-blue">
 ```
 
-[Try the samples](http://esri.github.io/calcite-maps/samples/index.html)
+[Try the samples here](http://esri.github.io/calcite-maps/samples/index.html)
 
 ##What's included
 
