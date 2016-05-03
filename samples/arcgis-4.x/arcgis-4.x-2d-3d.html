@@ -57,8 +57,8 @@
           <li class="dropdown" role="presentation">
             <a class="dropdown-toggle hidden-xs" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="esri-icon esri-icon-menu" aria-hidden="true"></span></a>
             <ul class="dropdown-menu">
-              <li><a class="hidden-xs visible-sm hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">Map</a></li>
-              <li><a class="hidden-xs visible-sm hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>
+              <li><a class="visible-xs visible-sm hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab">Map</a></li>
+              <li><a class="visible-xs visible-sm hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab">Scene</a></li>
               <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
               <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
               <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
@@ -195,10 +195,10 @@
         center: [-40,40],
         basemap: "satellite",
         viewPadding: {
-            bottom: 64
+            bottom: 50
         },
         uiPadding: {
-            top: 30
+            top: 30, bottom: 15
         },
         mapView: null,
         sceneView: null,
@@ -250,8 +250,8 @@
           viewModel: {
             view: app.activeView,
             highlightEnabled: false,
-            popupEnabled: false,
-            showPopupOnSelect: false
+            popupEnabled: true,
+            showPopupOnSelect: true
           }
           }, parentId);
         search.startup();
@@ -262,9 +262,20 @@
         if (!toView.ready) {
           watchUtils.whenTrueOnce(toView, "ready").then(function(isReady) {
             toView.set({ viewpoint: fromView.viewpoint });
+            toView.popup.reposition();
           });
         } else {
           toView.set({ viewpoint: fromView.viewpoint });
+          toView.popup.reposition();
+        }
+      }
+
+      function syncSearch() {
+        if (searchWidgetNav.selectedResult) {
+          searchWidgetNav.search(searchWidgetNav.selectedResult.name);
+        }
+        if (searchWidgetPanel.selectedResult) {
+          searchWidgetPanel.search(searchWidgetPanel.selectedResult.name);
         }
       }
 
@@ -280,12 +291,19 @@
         // Set search
         searchWidgetNav.viewModel.view = app.activeView;
         searchWidgetPanel.viewModel.view = app.activeView;
+        // Sync search 
+        syncSearch();     
       });
 
       query("#selectBasemapPanel").on("change", function(e){
-        // app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
-        app.mapView.map.basemap = e.target.value;
+        app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
         app.sceneView.map.basemap = e.target.value;
+      });
+
+      // Collapsible popup (optional)
+      query(".esri-popup .esri-title").on("click", function(e){
+        query(".esri-popup .esri-container").toggleClass("esri-popup-collapsed");
+        app.activeView.popup.reposition();
       });
 
     });// dojo

@@ -53,9 +53,14 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
     cursor: pointer;
   }
 
-  // .esri-popup .esri-popup-header .esri-popup-header-buttons {
-  //   padding-top: 3px;
-  // }
+  .esri-popup .esri-popup-collapsed .esri-popup-header .esri-popup-header-buttons {
+    padding-top: 3px;
+  }
+
+  .esri-popup .esri-popup-collapsed .esri-popup-content, 
+  .esri-popup .esri-popup-collapsed .esri-footer {
+    display: none;
+  }
 
   // Popup - Nav bottom
 
