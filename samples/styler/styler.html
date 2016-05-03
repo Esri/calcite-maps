@@ -26,16 +26,15 @@
       padding: 0;
       height: 100%;
     }
+
     /* 2D and 3D views */
     #mapViewDiv, #sceneViewDiv {
     }
+
     /* Search widget */
     #searchDiv {
     }
     
-    .calcite-maps .panel-body {
-      max-height: 700px;
-    }
   </style>
 
 </head>
@@ -704,7 +703,7 @@
                   <div class="form-group">
                     <label for="settingsPopup" class="col-xs-3 control-label">Padding</label>
                     <div class="col-xs-9">
-                      <input id="settingsPadding" class="form-control" value="{top: 64, bottom: 0, right: 0, left: 0}">
+                      <input id="settingsPadding" class="form-control" value="{top: 65, bottom: 0, right: 0, left: 0}">
                     </div>
                   </div>
 
@@ -809,7 +808,7 @@
         basemapSelected: "streets-vector",
         basemapSelectedAlt: "streets",
         viewUI: { 
-          top: 64,
+          top: 65,
           right: 0,
           bottom: 0,
           left: 0
@@ -941,10 +940,11 @@
         app.sceneView.map.basemap = app.basemapSelectedAlt;
       }   
 
+      // Collapsible popup (optional)
       query(".esri-popup .esri-title").on("click", function(e){
-        query(".esri-popup .esri-popup-content, .esri-popup .esri-footer").toggleClass("hidden");
+        query(".esri-popup .esri-container").toggleClass("esri-popup-collapsed");
         app.activeView.popup.reposition();
-      })
+      });
 
     });// dojo
   </script>

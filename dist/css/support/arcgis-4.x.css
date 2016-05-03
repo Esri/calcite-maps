@@ -212,6 +212,13 @@
 .calcite-maps .esri-popup .esri-show-title .esri-title {
   cursor: pointer; }
 
+.calcite-maps .esri-popup .esri-popup-collapsed .esri-popup-header .esri-popup-header-buttons {
+  padding-top: 3px; }
+
+.calcite-maps .esri-popup .esri-popup-collapsed .esri-popup-content,
+.calcite-maps .esri-popup .esri-popup-collapsed .esri-footer {
+  display: none; }
+
 .calcite-maps.nav-position-bottom .esri-popup .esri-docked {
   margin-bottom: 15px; }
 
