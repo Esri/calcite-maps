@@ -69,9 +69,11 @@
 
       // Form controls
       
-      select.form-control {
-        outline: 1px solid $theme_light_control_border_color;
-        // outline-offset: -1px;
+      select {
+        background-color: transparent; // $theme_dark_control_bg;
+        color: $theme_light_control_text_color;
+        border: 1px solid $theme_light_control_border_color;       
+
       }
 
       // Links - optional

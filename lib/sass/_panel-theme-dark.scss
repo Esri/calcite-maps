@@ -67,18 +67,15 @@
       
       // Form controls
       
-      .form-control {
-        background-color: $theme_dark_control_bg;
+      input, 
+      select, 
+      textarea,
+      select {
+        background-color: transparent; // $theme_dark_control_bg;
         color: $theme_dark_control_text_color;
         border: 1px solid $theme_dark_control_border_color;       
       }
-      
-      select.form-control {
-        border: none;
-        outline: 1px solid $theme_dark_control_border_color;    
-        outline-offset: -1px;
-      }
-      
+       
       // Links - required
       
       a {
