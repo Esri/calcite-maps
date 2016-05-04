@@ -78,7 +78,6 @@
     select, 
     textarea,
     select {
-      height: 34px;
       padding: 4px 8px;
       font-size: $panel_font_size;
     }
@@ -92,6 +91,10 @@
       background-repeat: no-repeat;
       background-size: 18px;
       outline: none;
+    }
+
+    .form-control {
+      height: $panel_form_control_height;
     }
 
     .form-title {

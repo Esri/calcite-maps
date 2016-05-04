@@ -630,13 +630,26 @@
   font-size: 15px;
   overflow: auto;
   border-top: none; }
-  .calcite-maps .panel-body .btn {
+  .calcite-maps .panel-body button {
     padding: 6px 8px;
     font-size: 15px; }
-  .calcite-maps .panel-body .form-control {
-    height: 34px;
+  .calcite-maps .panel-body input,
+  .calcite-maps .panel-body select,
+  .calcite-maps .panel-body textarea,
+  .calcite-maps .panel-body select {
     padding: 4px 8px;
     font-size: 15px; }
+  .calcite-maps .panel-body select {
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PGcgZmlsbD0iIzU5NTk1OSI+PHBhdGggZD0iTTU2Ljc1IDM3LjQ2NmMuNDI1LjQyNS41NTIgMS4wNjMuMzIyIDEuNjE4LS4yMy41NTUtLjc3LjkxNi0xLjM3Mi45MTZINi4zYy0uNiAwLTEuMTQzLS4zNjItMS4zNzItLjkxNy0uMjMtLjU1NS0uMTAzLTEuMTkzLjMyMi0xLjYxOGwyMy40NC0yMy40NGMxLjI3Ni0xLjI3NiAzLjM0My0xLjI3NiA0LjYyIDBsMjMuNDQgMjMuNDR6TTUuMjUgNjIuNTM0Yy0uNDI2LS40MjUtLjU1My0xLjA2My0uMzIzLTEuNjE4LjIzLS41NTUuNzctLjkxNiAxLjM3LS45MTZoNDkuNDA0Yy42MDIgMCAxLjE0My4zNiAxLjM3My45MTYuMjMuNTU1LjEwMyAxLjE5My0uMzIyIDEuNjE4TDMzLjMxIDg1Ljk3N2MtMS4yNzUgMS4yNzUtMy4zNDQgMS4yNzQtNC42MiAwTDUuMjUgNjIuNTM0eiIvPjwvZz48L3N2Zz4=");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    outline: none; }
+  .calcite-maps .panel-body .form-control {
+    height: 34px; }
   .calcite-maps .panel-body .form-title {
     padding: 20px 0 5px; }
   .calcite-maps .panel-body .form-padding {
@@ -696,14 +709,13 @@
   .calcite-maps.calcite-theme-dark .panel .nav-tabs > li > a:hover {
     background-color: #242424;
     border-top-color: #bdbdbd; }
-  .calcite-maps.calcite-theme-dark .panel .form-control {
-    background-color: #242424;
+  .calcite-maps.calcite-theme-dark .panel input,
+  .calcite-maps.calcite-theme-dark .panel select,
+  .calcite-maps.calcite-theme-dark .panel textarea,
+  .calcite-maps.calcite-theme-dark .panel select {
+    background-color: transparent;
     color: #adadad;
     border: 1px solid #5c5c5c; }
-  .calcite-maps.calcite-theme-dark .panel select.form-control {
-    border: none;
-    outline: 1px solid #5c5c5c;
-    outline-offset: -1px; }
   .calcite-maps.calcite-theme-dark .panel a {
     color: #2493f2; }
   .calcite-maps.calcite-theme-dark .panel a:hover {
@@ -737,8 +749,10 @@
   .calcite-maps .panel .nav-tabs > li > a:hover {
     background-color: #ffffff;
     border-top-color: #4c4c4c; }
-  .calcite-maps .panel select.form-control {
-    outline: 1px solid #959595; }
+  .calcite-maps .panel select {
+    background-color: transparent;
+    color: #4c4c4c;
+    border: 1px solid #959595; }
 
 .calcite-maps .carousel-inner > .item > img {
   width: 100%; }
