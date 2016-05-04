@@ -66,15 +66,34 @@
     font-size: $panel_font_size;
     overflow: auto;
     border-top: none;
-    .btn {
+
+    // Elements formatted slightly smaller for map apps
+
+    button {
       padding: 6px 8px;
       font-size: $panel_font_size;
     }
-    .form-control {
+
+    input, 
+    select, 
+    textarea,
+    select {
       height: 34px;
       padding: 4px 8px;
       font-size: $panel_font_size;
     }
+
+    select {
+      -webkit-appearance: none;
+      appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PGcgZmlsbD0iIzU5NTk1OSI+PHBhdGggZD0iTTU2Ljc1IDM3LjQ2NmMuNDI1LjQyNS41NTIgMS4wNjMuMzIyIDEuNjE4LS4yMy41NTUtLjc3LjkxNi0xLjM3Mi45MTZINi4zYy0uNiAwLTEuMTQzLS4zNjItMS4zNzItLjkxNy0uMjMtLjU1NS0uMTAzLTEuMTkzLjMyMi0xLjYxOGwyMy40NC0yMy40NGMxLjI3Ni0xLjI3NiAzLjM0My0xLjI3NiA0LjYyIDBsMjMuNDQgMjMuNDR6TTUuMjUgNjIuNTM0Yy0uNDI2LS40MjUtLjU1My0xLjA2My0uMzIzLTEuNjE4LjIzLS41NTUuNzctLjkxNiAxLjM3LS45MTZoNDkuNDA0Yy42MDIgMCAxLjE0My4zNiAxLjM3My45MTYuMjMuNTU1LjEwMyAxLjE5My0uMzIyIDEuNjE4TDMzLjMxIDg1Ljk3N2MtMS4yNzUgMS4yNzUtMy4zNDQgMS4yNzQtNC42MiAwTDUuMjUgNjIuNTM0eiIvPjwvZz48L3N2Zz4=");
+      background-position: center right;
+      background-repeat: no-repeat;
+      background-size: 18px;
+      outline: none;
+    }
+
     .form-title {
       padding: 20px 0 5px;
     }
@@ -88,6 +107,7 @@
       padding-top: 5px;
       border-top: 2px solid;
     }
+    
   }
 
   .panel-overflow-visible {
