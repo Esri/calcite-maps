@@ -20,6 +20,13 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
 
 .calcite-maps {
 
+  // View
+  .esri-view {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
   // Search widget 
 
   .panel .esri-search {

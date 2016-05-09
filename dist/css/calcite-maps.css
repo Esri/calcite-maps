@@ -199,8 +199,8 @@
   background-color: #8c5e2a !important; }
 
 .calcite-maps .map-container {
-  width: 100%;
-  height: 100%; }
+  width: auto;
+  height: auto; }
 
 .calcite-maps .map-position-absolute {
   position: absolute;
@@ -209,13 +209,17 @@
   bottom: 0;
   left: 0; }
 
-.calcite-maps .map-position-relative {
+.calcite-maps .map-position-fixed {
   position: relative;
   width: 768px;
-  height: 400px; }
+  height: 500px; }
 
-.calcite-maps.nav-position-top, .calcite-maps.nav-position-bottom {
+.calcite-maps.nav-position-top {
   top: 0;
+  bottom: auto; }
+
+.calcite-maps.nav-position-bottom {
+  top: auto;
   bottom: 0; }
 
 .calcite-maps.nav-position-top-fixed,
@@ -227,9 +231,6 @@
 .calcite-maps.nav-position-bottom-fixed .map-position-absolute {
   top: 0;
   bottom: 65px; }
-
-.calcite-maps.nav-space-none .navbar {
-  margin: 0; }
 
 .calcite-maps.nav-space-top .navbar {
   margin-top: 15px;

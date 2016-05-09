@@ -10,7 +10,7 @@ Calcite Maps also works seamlessly with the new [ArcGIS API for JavaScript 4.x](
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
 
-<body class="calcite-maps map-position-absolute nav-position-top theme-widgets-dark">
+<body class="calcite-maps nav-position-top theme-widgets-dark">
   <nav class="navbar navbar-fixed-top calcite-text-dark calcite-dark-blue">
 ```
 
@@ -79,7 +79,7 @@ Here's a few ways to get started:
 
 </head>
 
-<body class="calcite-maps map-position-absolute nav-position-top">
+<body class="calcite-maps nav-position-top">
 
   <!-- Navbar -->
 
@@ -99,8 +99,8 @@ Here's a few ways to get started:
 
   <!-- Map Container  -->
 
-  <div class="map-container">
-      <div id="mapViewDiv" class="map-position-absolute"></div>
+  <div class="map-container map-position-absolute">
+      <div id="mapViewDiv"></div>
   </div><!-- /.container -->
 
   <script type="text/javascript">
@@ -178,12 +178,12 @@ Here's a few ways to get started:
 Here's the main CSS classes you can mix and match to create different designs.
 
 #### Body
-* Map - `map-position-absolute` or `map-position-relative`
 * Navbar - `nav-space-top` or `nav-space-bottom` or `nav-space-all`
 * Zoom - `zoom-top-left` or `zoom-top-right` or `zoom-bottom-left` or `zoom-bottom-right` (ArcGIS 3.x and Esri-Leaflet only)
 * Panel - `panel-left` or `panel-right`
 * Themes - `calcite-theme-dark`, `calcite-widgets-dark` (ArcGIS 4.x only)
 * Layouts (optional) - `layout-jumbo-title` or `layout-inline-right` or `layout-inline-left` or `layout-mobile-focus`
+* Map - `map-position-absolute` or `map-position-relative`
 
 NOTE: The default theme (no theme) is light.
 
@@ -197,21 +197,21 @@ NOTE: The default theme (no theme) is light.
 Navbar Top - Dark Blue - Dark Text
 
 ```html
-<body class="calcite-maps map-position-absolute nav-position-top">
+<body class="calcite-maps nav-position-top">
   <nav class="navbar navbar-fixed-top calcite-text-dark calcite-dark-blue">
 ```
 
 Navbar Bottom - Space - Black - Light Text
 
 ```html
-<body class="calcite-maps map-position-absolute nav-position-bottom nav-space-bottom">
+<body class="calcite-maps nav-position-bottom nav-space-bottom">
   <nav class="navbar navbar-fixed-bottom calcite-text-light calcite-black">
 ```
 
 Navbar Top - Inline Layout - Dark Theme - White 75% Background - Dark Text
 
 ```html
-<body class="calcite-maps map-position-absolute nav-position-top layout-inline-left calcite-theme-dark">
+<body class="calcite-maps nav-position-top layout-inline-left calcite-theme-dark">
   <nav class="navbar navbar-fixed-top calcite-text-dark calcite-white-75">
 ```
 
