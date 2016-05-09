@@ -6,15 +6,19 @@
 
 .calcite-maps {
 
-  // Full body and map
+  // Nav top and bottom
 
-  &.nav-position-top,
-  &.nav-position-bottom {
+  &.nav-position-top {
     top: 0;
+    bottom: auto;
+  }
+
+  &.nav-position-bottom {  
+    top: auto;
     bottom: 0;
   }
 
-  // Offset body and map
+  // Map offset
 
   &.nav-position-top-fixed, 
   &.nav-position-top-fixed .map-position-absolute {
@@ -30,10 +34,6 @@
 
   // Top spacing
   
-  &.nav-space-none .navbar {
-    margin: 0;
-  }
-
   &.nav-space-top .navbar {
     margin-top: $navbar_margin;
     margin-bottom: 0;
