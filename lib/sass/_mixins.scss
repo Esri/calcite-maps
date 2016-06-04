@@ -1,0 +1,33 @@
+// ┌────────┐
+// │ Mixins │
+// └────────┘
+// 
+
+@mixin linear-gradient($direction, $height, $color) {
+  background-image: linear-gradient($direction, #{transparent calc(100% - #{$height}}, #{$color $height});
+}
+
+@mixin custom-theme-tab-shadow($shadow) {
+ 	-webkit-box-shadow: #{$shadow};
+  -moz-box-shadow: #{$shadow};
+  box-shadow: #{$shadow};
+}
+
+@mixin custom-theme-placholder($opacity) {
+  ::-webkit-input-placeholder {
+    color: inherit;
+    opacity: #{opacity};
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: inherit;  
+    opacity: #{opacity};
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: inherit;
+    opacity: #{opacity};
+  }
+  :-ms-input-placeholder {  
+    color: inherit; 
+    opacity: #{opacity};
+  }
+}
