@@ -9,6 +9,47 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 * Build system
 * Tighter integration with Bootstrap and Calcite-Bootstrap
 
+## [0.0.2-beta]
+
+### Changed
+
+Classes
+* “calcite-“ appended to all classes - no longer required to add calcite-maps to <body>
+* Colors are now calcite-bgcolor-xxx
+
+Navbar
+* Required calcite-bg-light calcite-text-dark and calcite-bg-dark calcite-text-light or calcite-bg-custom
+* Flex-based
+* Removed container-fluid and collapse
+* Single dropdown-toggle
+* Nav toggle via menu vs brand
+
+Theme
+* Support for custom themes (calcite-bg-custom) on-the-fly (navbar, dropdown and panel)
+
+Panels
+* Required calcite-bg-light calcite-text-dark and calcite-bg-dark calcite-text-light or calcite-bg-custom
+* Removed outer panel container
+
+calcitemaps.js 
+* Simplified logic
+* Added options
+* Toggle is controlled from an li a
+
+Samples
+* Styler - Custom theme and color picker, improved panelsettings.js
+* Samples - 4.x - Added panel/popup collision logic
+
+Build
+* Separated calcite-maps from calcite-bootstrap build (now can be referenced independently)
+* Pure bootstrap builds can be referenced alongside calcite-maps
+
+### Added
+
+* Custom themes
+* Mixins
+* Options for calcitemaps.js
+
 ## [0.0.1-beta]
 
 ### Changed

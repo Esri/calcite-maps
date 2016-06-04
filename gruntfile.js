@@ -23,15 +23,15 @@ module.exports = function (grunt) {
 			},
 			expanded: {
 				files: {
-					'dist/css/calcite-bootstrap.css': 'lib/sass/build-calcite-bootstrap.scss',
-					'dist/css/calcite-maps.css': 'lib/sass/build-calcite-maps.scss',
-					'dist/css/calcite-maps-all.css': 'lib/sass/build-all.scss',
-					'dist/css/layouts/inline-zoom.css': 'lib/sass/layouts/inline-zoom.scss',
-					'dist/css/layouts/jumbo-title.css': 'lib/sass/layouts/jumbo-title.scss',
-					'dist/css/layouts/mobile-focus.css': 'lib/sass/layouts/mobile-focus.scss',
-					'dist/css/support/arcgis-3.x.css': 'lib/sass/support/arcgis-3.x.scss',
-					'dist/css/support/arcgis-4.x.css': 'lib/sass/support/arcgis-4.x.scss',
-					'dist/css/support/esri-leaflet.css': 'lib/sass/support/esri-leaflet.scss'
+					'dist/css/calcite-bootstrap-v0.2.css': 'lib/sass/build-calcite-bootstrap.scss',
+					'dist/css/calcite-maps-v0.2.css': 'lib/sass/build-calcite-maps.scss',
+					'dist/css/calcite-bootstrap-maps-v0.2.css': 'lib/sass/build-all.scss',
+					'dist/css/layouts/inline-zoom-v0.2.css': 'lib/sass/layouts/inline-zoom.scss',
+					'dist/css/layouts/jumbo-title-v0.2.css': 'lib/sass/layouts/jumbo-title.scss',
+					'dist/css/layouts/small-title-v0.2.css': 'lib/sass/layouts/small-title.scss',
+					'dist/css/support/arcgis-3.x-v0.2.css': 'lib/sass/support/arcgis-3.x.scss',
+					'dist/css/support/arcgis-4.x-v0.2.css': 'lib/sass/support/arcgis-4.x.scss',
+					'dist/css/support/esri-leaflet-v0.2.css': 'lib/sass/support/esri-leaflet.scss'
 				}
 			}
 		}, 
@@ -43,10 +43,12 @@ module.exports = function (grunt) {
 					banner: banner
 				},
 				files: {
-					'dist/css/calcite-maps.min.css': ['dist/css/calcite-maps-all.css'],
-					'dist/css/calcite-maps-arcgis-3.x.min.css': ['dist/css/calcite-maps-all.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css', 'dist/css/layouts/mobile-focus.css', 'dist/css/support/arcgis-3.x.css'],
-					'dist/css/calcite-maps-arcgis-4.x.min.css': ['dist/css/calcite-maps-all.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css', 'dist/css/layouts/mobile-focus.css','dist/css/support/arcgis-4.x.css'],
-					'dist/css/calcite-maps-esri-leaflet.min.css': ['dist/css/calcite-maps-all.css', 'dist/css/layouts/inline-zoom.css', 'dist/css/layouts/jumbo-title.css', 'dist/css/layouts/mobile-focus.css','dist/css/support/esri-leaflet.css']
+					'dist/css/calcite-maps.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css'],
+					'dist/css/calcite-bootstrap.min-v0.2.css': ['dist/css/calcite-bootstrap-v0.2.css'],
+					'dist/css/calcite-bootstrap-maps.min-v0.2.css': ['dist/css/calcite-bootstrap-maps-v0.2.css'],
+					'dist/css/calcite-maps-arcgis-3.x.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/jumbo-title-v0.2.css', 'dist/css/layouts/small-title-v0.2.css', 'dist/css/support/arcgis-3.x-v0.2.css'],
+					'dist/css/calcite-maps-arcgis-4.x.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/jumbo-title-v0.2.css', 'dist/css/layouts/small-title-v0.2.css','dist/css/support/arcgis-4.x-v0.2.css'],
+					'dist/css/calcite-maps-esri-leaflet.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/jumbo-title-v0.2.css', 'dist/css/layouts/small-title-v0.2.css','dist/css/support/esri-leaflet-v0.2.css']
 				}
 			}
 		},
@@ -59,8 +61,8 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'dist/js/dojo/calcitemaps.js': ['lib/js/dojo/calcitemaps.js'],
-					'dist/js/jquery/calcitemaps.js': ['lib/js/jquery/calcitemaps.js']
+					'dist/js/dojo/calcitemaps-v0.2.js': ['lib/js/dojo/calcitemaps.js'],
+					'dist/js/jquery/calcitemaps-v0.2.js': ['lib/js/jquery/calcitemaps.js']
 				}
 			}
 		},
