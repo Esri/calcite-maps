@@ -1,0 +1,348 @@
+.calcite-bgcolor-custom {
+  background-color: inherit; }
+
+.calcite-bgcolor-transparent {
+  background-color: transparent !important; }
+
+.calcite-bgcolor-true-white {
+  background-color: #ffffff !important; }
+
+.calcite-bgcolor-off-white {
+  background-color: #f8f8f8 !important; }
+
+.calcite-bgcolor-white {
+  background-color: #ffffff !important; }
+
+.calcite-bgcolor-white-25 {
+  background-color: rgba(255, 255, 255, 0.25) !important; }
+
+.calcite-bgcolor-white-50 {
+  background-color: rgba(255, 255, 255, 0.5) !important; }
+
+.calcite-bgcolor-white-75 {
+  background-color: rgba(255, 255, 255, 0.75) !important; }
+
+.calcite-bgcolor-lightest-grey {
+  background-color: #efefef !important; }
+
+.calcite-bgcolor-lighter-grey {
+  background-color: #cccccc !important; }
+
+.calcite-bgcolor-light-grey {
+  background-color: #a9a9a9 !important; }
+
+.calcite-bgcolor-grey {
+  background-color: #959595 !important; }
+
+.calcite-bgcolor-grey-25 {
+  background-color: rgba(149, 149, 149, 0.25) !important; }
+
+.calcite-bgcolor-grey-50 {
+  background-color: rgba(149, 149, 149, 0.5) !important; }
+
+.calcite-bgcolor-grey-75 {
+  background-color: rgba(149, 149, 149, 0.75) !important; }
+
+.calcite-bgcolor-dark-grey {
+  background-color: #828282 !important; }
+
+.calcite-bgcolor-darker-grey {
+  background-color: #6e6e6e !important; }
+
+.calcite-bgcolor-darkest-grey {
+  background-color: #595959 !important; }
+
+.calcite-bgcolor-true-black {
+  background-color: #000000 !important; }
+
+.calcite-bgcolor-off-black {
+  background-color: #4c4c4c !important; }
+
+.calcite-bgcolor-black {
+  background-color: #323232 !important; }
+
+.calcite-bgcolor-black-25 {
+  background-color: rgba(0, 0, 0, 0.25) !important; }
+
+.calcite-bgcolor-black-50 {
+  background-color: rgba(0, 0, 0, 0.5) !important; }
+
+.calcite-bgcolor-black-75 {
+  background-color: rgba(0, 0, 0, 0.75) !important; }
+
+.calcite-bgcolor-light-blue {
+  background-color: #d2e9f9 !important; }
+
+.calcite-bgcolor-blue {
+  background-color: #56a5d8 !important; }
+
+.calcite-bgcolor-blue-25 {
+  background-color: rgba(86, 165, 216, 0.25) !important; }
+
+.calcite-bgcolor-blue-50 {
+  background-color: rgba(86, 165, 216, 0.5) !important; }
+
+.calcite-bgcolor-blue-75 {
+  background-color: rgba(86, 165, 216, 0.75) !important; }
+
+.calcite-bgcolor-dark-blue {
+  background-color: #196fa6 !important; }
+
+.calcite-bgcolor-light-green {
+  background-color: #ddeedb !important; }
+
+.calcite-bgcolor-green {
+  background-color: #5a9359 !important; }
+
+.calcite-bgcolor-green-25 {
+  background-color: rgba(90, 147, 89, 0.25) !important; }
+
+.calcite-bgcolor-green-50 {
+  background-color: rgba(90, 147, 89, 0.5) !important; }
+
+.calcite-bgcolor-green-75 {
+  background-color: rgba(90, 147, 89, 0.75) !important; }
+
+.calcite-bgcolor-dark-green {
+  background-color: #275e26 !important; }
+
+.calcite-bgcolor-light-red {
+  background-color: #e4a793 !important; }
+
+.calcite-bgcolor-red {
+  background-color: #c6542d !important; }
+
+.calcite-bgcolor-red-25 {
+  background-color: rgba(198, 84, 45, 0.25) !important; }
+
+.calcite-bgcolor-red-50 {
+  background-color: rgba(198, 84, 45, 0.5) !important; }
+
+.calcite-bgcolor-red-75 {
+  background-color: rgba(198, 84, 45, 0.75) !important; }
+
+.calcite-bgcolor-dark-red {
+  background-color: #8c2907 !important; }
+
+.calcite-bgcolor-light-orange {
+  background-color: #f6ca92 !important; }
+
+.calcite-bgcolor-orange {
+  background-color: #d17e21 !important; }
+
+.calcite-bgcolor-orange-25 {
+  background-color: rgba(209, 126, 33, 0.25) !important; }
+
+.calcite-bgcolor-orange-50 {
+  background-color: rgba(209, 126, 33, 0.5) !important; }
+
+.calcite-bgcolor-orange-75 {
+  background-color: rgba(209, 126, 33, 0.75) !important; }
+
+.calcite-bgcolor-dark-orange {
+  background-color: #e8912e !important; }
+
+.calcite-bgcolor-light-yellow {
+  background-color: #efe397 !important; }
+
+.calcite-bgcolor-yellow {
+  background-color: #e4d154 !important; }
+
+.calcite-bgcolor-yellow-25 {
+  background-color: rgba(228, 209, 84, 0.25) !important; }
+
+.calcite-bgcolor-yellow-50 {
+  background-color: rgba(228, 209, 84, 0.5) !important; }
+
+.calcite-bgcolor-yellow-75 {
+  background-color: rgba(228, 209, 84, 0.75) !important; }
+
+.calcite-bgcolor-dark-yellow {
+  background-color: #d9bf2b !important; }
+
+.calcite-bgcolor-light-purple {
+  background-color: #c4bcdc !important; }
+
+.calcite-bgcolor-purple {
+  background-color: #9081bc !important; }
+
+.calcite-bgcolor-purple-25 {
+  background-color: rgba(144, 129, 188, 0.25) !important; }
+
+.calcite-bgcolor-purple-50 {
+  background-color: rgba(144, 129, 188, 0.5) !important; }
+
+.calcite-bgcolor-purple-75 {
+  background-color: rgba(144, 129, 188, 0.75) !important; }
+
+.calcite-bgcolor-dark-purple {
+  background-color: #7461a8 !important; }
+
+.calcite-bgcolor-light-brown {
+  background-color: #d2b38f !important; }
+
+.calcite-bgcolor-brown {
+  background-color: #a57946 !important; }
+
+.calcite-bgcolor-brown-25 {
+  background-color: rgba(165, 121, 70, 0.25) !important; }
+
+.calcite-bgcolor-brown-50 {
+  background-color: rgba(165, 121, 70, 0.5) !important; }
+
+.calcite-bgcolor-brown-75 {
+  background-color: rgba(165, 121, 70, 0.75) !important; }
+
+.calcite-bgcolor-dark-brown {
+  background-color: #8c5e2a !important; }
+
+.esri-view {
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
+.esri-basemap-toggle {
+  z-index: 1px; }
+
+.esri-legend {
+  overflow: hidden;
+  padding: 0; }
+
+.calcite-panels .esri-color-picker {
+  width: 100%; }
+
+.esri-popup .esri-show-title .esri-title {
+  cursor: pointer; }
+
+.esri-popup .esri-popup-collapsed .esri-popup-header .esri-popup-header-buttons {
+  padding-top: 3px; }
+
+.esri-popup .esri-popup-collapsed .esri-popup-content,
+.esri-popup .esri-popup-collapsed.esri-show-footer .esri-footer {
+  display: none; }
+
+.calcite-nav-top .esri-popup .esri-docked,
+.calcite-nav-top-fixed .esri-popup .esri-docked {
+  margin: 15px 15px 30px 15px !important; }
+
+.calcite-nav-bottom .esri-popup .esri-docked,
+.calcite-nav-bottom-fixed .esri-popup .esri-docked {
+  margin: 30px 15px 15px 15px !important; }
+
+.calcite-nav-top .esri-attribution,
+.calcite-nav-top-fixed .esri-attribution {
+  top: auto;
+  bottom: 0; }
+
+.calcite-nav-bottom .esri-ui .esri-attribution,
+.calcite-nav-bottom-fixed .esri-ui .esri-attribution {
+  top: 0;
+  bottom: auto; }
+
+.calcite-nav-bottom .navbar .esri-widget .esri-menu,
+.calcite-nav-bottom-fixed .navbar .esri-widget .esri-menu {
+  top: auto;
+  bottom: 36px; }
+
+.esri-search .esri-search__input {
+  line-height: 1; }
+
+.calcite-navbar .calcite-navbar-search .esri-search {
+  min-width: 250px;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.calcite-navbar .esri-search .esri-search__input {
+  border: none; }
+
+.calcite-panels .esri-search {
+  width: 100%;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.calcite-panels .esri-search .esri-search__input {
+  border: none; }
+
+.calcite-panels .esri-search .esri-menu {
+  width: calc(100% + 2px);
+  left: -1px; }
+
+.calcite-navbar.calcite-bg-light .esri-search,
+.calcite-panels.calcite-bg-light .esri-search {
+  border: 1px solid rgba(55, 55, 55, 0.25); }
+
+.calcite-navbar.calcite-bg-dark .esri-search,
+.calcite-panels.calcite-bg-dark .esri-search {
+  border: 1px solid rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark .esri-widget.esri-search,
+.calcite-widgets-dark .esri-widget .esri-popup,
+.calcite-widgets-dark .esri-widget.esri-legend,
+.calcite-widgets-dark .esri-widget .esri-menu,
+.calcite-widgets-dark .esri-widget-button,
+.calcite-widgets-dark .esri-popup .esri-popup-main,
+.calcite-widgets-dark .esri-popup .esri-pointer .esri-pointer-direction,
+.calcite-widgets-dark .esri-popup .esri-button {
+  background-color: #333333;
+  color: #ffffff; }
+
+.calcite-widgets-dark .esri-widget-button:focus,
+.calcite-widgets-dark .esri-widget-button:hover,
+.calcite-widgets-dark .esri-widget .esri-menu li:focus,
+.calcite-widgets-dark .esri-widget .esri-menu li:hover {
+  background-color: #333333;
+  color: #ffffff; }
+
+.calcite-widgets-dark .esri-widget-button:active,
+.calcite-widgets-dark .esri-widget-button:hover,
+.calcite-widgets-dark .esri-search .esri-search__clear-button:hover {
+  background-color: #4c4c4c;
+  color: #d1d1d1; }
+
+.calcite-widgets-dark .esri-widget-button.esri-disabled {
+  color: #5c5c5c; }
+
+.calcite-widgets-dark .esri-zoom .esri-widget-button:last-child {
+  border-top: solid 1px rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark .esri-search,
+.calcite-widgets-dark .esri-zoom,
+.calcite-widgets-dark .esri-widget-button {
+  -webkit-box-shadow: 0 1px 2px rgba(55, 55, 55, 0.5);
+  box-shadow: 0 1px 2px rgba(55, 55, 55, 0.5); }
+
+.calcite-widgets-dark .esri-search .esri-widget-button,
+.calcite-widgets-dark .esri-zoom .esri-widget-button {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.calcite-widgets-dark .esri-search .esri-search__submit-button {
+  border-left: solid 1px rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark .esri-widget .esri-menu li {
+  border-top: solid 1px rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark .calcite-navbar .esri-search {
+  border: 1px solid #666666; }
+
+.calcite-widgets-dark .calcite-panels .esri-search {
+  border: 1px solid #666666; }
+
+.calcite-widgets-dark .esri-popup .esri-button:focus,
+.calcite-widgets-dark .esri-popup .esri-button:hover {
+  color: #ffffff; }
+
+.calcite-widgets-dark .esri-widget table {
+  color: #ffffff; }
+
+.calcite-widgets-dark .esri-widget table tr:nth-child(even) {
+  background-color: rgba(51, 51, 51, 0.7); }
+
+.calcite-widgets-dark .esri-widget table tr:nth-child(odd) {
+  background-color: rgba(250, 250, 250, 0.1); }
+
+.calcite-widgets-dark .esri-popup .esri-popup-content::-webkit-scrollbar {
+  background-color: rgba(200, 200, 200, 0.2); }
+
+.calcite-widgets-dark .esri-popup .esri-popup-content::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 200, 200, 0.6); }

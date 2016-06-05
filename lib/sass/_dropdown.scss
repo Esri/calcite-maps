@@ -1,0 +1,70 @@
+// ┌──────────────────┐
+// │ Calcite Dropdown │
+// └──────────────────┘
+//
+// Styling for nav dropdown
+
+.calcite-dropdown {
+  order: 3;
+  flex-shrink: 0;
+
+  .dropdown-toggle {
+    display: block;
+    margin: 0;
+    padding: 24px 15px 27px 15px;
+    border: none;
+  }
+
+  .dropdown-toggle .icon-bar {
+    display: block;
+    border-radius: 0;
+    height: 2px;
+    width: 18px;
+    background-color: #4c4c4c; //default
+  }
+
+  .dropdown-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+
+  .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    left: auto;
+    right: 0;
+    margin:0;
+    max-height: $dropdown_menu_max_height;
+    border: none;
+    border-radius: 0;
+    overflow: scroll;
+    opacity: 0;
+    -moz-transition:    opacity .15s ease-out;
+    -webkit-transition: opacity .15s ease-out;
+    transition:         opacity .15s ease-out;
+    font-size: $dropdown_menu_font_size;
+  }
+
+  &.open .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .dropdown-menu > li > a {
+    padding: 9px 12px;
+  }
+
+  // Offset dropdown menu
+  &.dropdown .dropdown-menu {
+		margin: 0;
+	}
+}
+
+// Mobile screens
+
+@media (max-height: $dropdown_breakpoint_height_mobile) {
+  .calcite-navbar {
+    .dropdown-menu {
+      max-height: $dropdown_menu_max_height_mobile;
+    }  
+  }
+}

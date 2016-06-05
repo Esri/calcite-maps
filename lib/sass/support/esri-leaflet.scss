@@ -4,27 +4,26 @@
 //
 // Overrides for widgets for different layouts
 
-.calcite-maps {
+// Calcite icons - remove padding
 
-  // Calcite icons - remove padding
+[class^="esri-icon-"]:before, 
+[class*=" esri-icon-"]:before, 
+[class^="icon-ui-"]:before, 
+[class*=" icon-ui-"]:before {
+  padding-right: 0;
+}
 
-  [class^="esri-icon-"]:before, 
-  [class*=" esri-icon-"]:before, 
-  [class^="icon-ui-"]:before, 
-  [class*=" icon-ui-"]:before {
-    padding-right: 0;
-  }
+.calcite-navbar-search {
+  padding-top: 9px;
+}
 
-  .navbar-search {
-    padding-top: 9px;
-  }
+.calcite-panels {
+  z-index: 1000;
+}
 
-  .panel-container {
-    z-index: 1000;
-  }
+// Zoom Control
 
-  // Zoom Control
-
+.calcite-map {
   .leaflet-control-zoom.leaflet-control {
     margin: 15px 15px 30px 15px;
   }
@@ -35,32 +34,41 @@
     line-height: 32px;
     border-radius: 0;
   }
+}
 
-  // Navbar top
+// Navbar top
 
-  &.nav-position-top {
+.calcite-nav-top {
+  .calcite-map {
     .leaflet-control-zoom  {
       margin-top: 80px;
     }
   }
+}
 
-  &.nav-position-top.nav-space-top,
-  &.nav-position-top.nav-space-all {
+.calcite-nav-top.calcite-margin-top,
+.calcite-nav-top.calcite-margin-all {
+  .calcite-map {
     .leaflet-control-zoom {
       margin-top: 95px;
     }
-  } 
+  }
+} 
 
-  // Navbar bottom
+// Navbar bottom
 
-  &.nav-position-bottom,
-  &.nav-position-bottom-fixed{
+.calcite-nav-bottom,
+.calcite-nav-bottom-fixed {
+  .calcite-map {
     .leaflet-control-zoom  {
       margin-top: 30px;
     }
   }
+}
 
-  // Logo 
+// Logo 
+
+.calcite-map {
 
   .esri-leaflet-logo.leaflet-control {
     position: fixed;
@@ -68,7 +76,7 @@
     right: 0;
     margin: 16px 2px !important;
   }
-  
+
   .esri-leaflet-logo > a > img {
     max-width: 43px !important;
   }
@@ -84,72 +92,69 @@
     overflow: hidden;
     line-height: 15px;
   }
+}
 
-  &.nav-position-bottom,
-  &.nav-position-bottom-fixed {
-    .leaflet-control-attribution,
-    .esri-leaflet-logo.leaflet-control {
-      top: 0;
-      bottom: auto;
+.calcite-nav-bottom,
+.calcite-nav-bottom-fixed {
+  .leaflet-control-attribution,
+  .esri-leaflet-logo.leaflet-control {
+    top: 0;
+    bottom: auto;
+  }
+}
+
+// Search Control
+
+.geocoder-control .geocoder-control-input {
+  padding: 7px;
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px #959595 solid;
+}
+
+.geocoder-control .geocoder-control-suggestions {
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid #ccc;
+}
+
+.calcite-navbar {
+  .geocoder-control {
+    margin-top: 0;
+  }
+}
+
+.calcite-panels {
+  .geocoder-control {
+    margin: 4px 0 6px;
+    width: 100%;
+    .geocoder-control-input {
+      padding: 9px;
+    }
+    .geocoder-control-suggestions .geocoder-control-suggestion {
+      color: #000;
     }
   }
+}
 
-  // Search Control
+.calcite-nav-bottom .geocoder-control-suggestions.leaflet-bar,
+.calcite-nav-bottom-fixed .geocoder-control-suggestions.leaflet-bar {
+  top: auto;
+  bottom: 101%;
+}
 
-  .geocoder-control-expanded, 
-  .leaflet-touch .geocoder-control-expanded {
-    min-width: 235px;
-    width: 100%;
-  }
+// Popup Control
 
-  .geocoder-control-input.leaflet-bar {
-    padding: 7px;
-    box-shadow: none;
-    border-radius: 0;
-    border: 1px #959595 solid;
-  }
-
-  .geocode-panel .geocoder-control-input.leaflet-bar {
-    padding: 9px;
-  }
-
-  .navbar .geocode-navbar {
-    margin-top: 0;
-  }
-
-  .panel .geocode-panel {
-    margin-top: 0;
-  }
-
-  .panel .geocode-panel .geocoder-control {
-    margin: 4px 0 6px;
-  }
-
-  .geocoder-control-suggestions {
-    box-shadow: none;
-    border-radius: 0;
-    border: 1px solid #ccc;
-  }
-
-  &.nav-position-bottom .geocoder-control-suggestions.leaflet-bar,
-  &.nav-position-bottom-fixed .geocoder-control-suggestions.leaflet-bar {
-    top: auto;
-    bottom: 101%;
-  }
-
-  // Popup Control
-
+.calcite-map {
   .leaflet-popup-content-wrapper {
     border-radius: 0;
   }
-
   .leaflet-popup-content {
     min-width: 100px;
   }
-  
 }
 
-// XSmall screens
+// Mobile screens
 
 // @media(max-width: 767px) {
 

@@ -6,6 +6,8 @@
  * ======================================================================== */
 
 define([ 
+  "dojo/_base/declare",
+  "dojo/_base/lang",
   "esri/widgets/Zoom",
   "esri/widgets/Home",
   "esri/widgets/Locate",
@@ -29,399 +31,734 @@ define([
   "dojo/on",
   "dojo/keys",
   "dojo/domReady!"
-], function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
+], 
+function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
   Extent, ProjectUtils, GeometryService, ProjectParams, watchUtils, query, domClass, domStyle, touch, on, keys) {
 
-    /******************************************************************
-     * Layouts
-     ******************************************************************/
+  //--------------------------------------------------------------------------
+  //
+  //  Constants
+  //
+  //--------------------------------------------------------------------------
 
-    ALL_STYLES = {
-      body: 
-      // Custom themes
-      "layout-jumbo-title layout-mobile-focus layout-inline-right layout-inline-left " +
-      // Nav
-      "nav-position-top nav-position-bottom nav-position-top-fixed nav-position-bottom-fixed " +
-      // Nav space
-      "nav-space-top nav-space-bottom nav-space-all " + 
-      // Zoom
-      "zoom-top-left zoom-top-right zoom-bottom-left zoom-bottom-right " +
-      // Panel
-      "panel-right panel-left " +
-      // Minibar
-      "minibar",
-      nav:
+  var CALCITE_THEME_SELECTORS = {
+    NAVBAR: ".calcite-navbar",
+    DROPDOWN: ".calcite-dropdown",
+    DROPDOWN_MENU: ".calcite-dropdown .dropdown-menu",
+    PANELS: ".calcite-panels"
+  }
+
+  var CALCITE_THEME_STYLES = {
+    BG_LIGHT: "calcite-bg-light", // default
+    BG_DARK: "calcite-bg-dark",
+    BG_CUSTOM: "calcite-bg-custom",
+    TEXT_LIGHT: "calcite-text-light",
+    TEXT_DARK: "calcite-text-dark", // default
+    WIDGETS_DARK: "calcite-widgets-dark",
+    WIDGETS_LIGHT: "calcite-widgets-light", // default
+    RGBA_DEFAULT: "" // default (no bg color)
+  }
+
+  var CALCITE_LAYOUT_STYLES = {
+    body: 
+    // Custom themes
+    "calcite-layout-jumbo-title calcite-layout-small-title calcite-layout-inline-right calcite-layout-inline-left " +
+    // Nav
+    "calcite-nav-top calcite-nav-bottom calcite-nav-top-fixed calcite-nav-bottom-fixed " +
+    // Nav space
+    "calcite-margin-top calcite-margin-bottom calcite-margin-all " + 
+    // Zoom
+    "calcite-zoom-top-left calcite-zoom-top-right calcite-zoom-bottom-left calcite-zoom-bottom-right " +
+    // Panel
+    "calcite-panels-right calcite-panels-left " +
+    // Minibar
+    "minibar",
+    nav:
+    // Navbar
+    "navbar-fixed-top navbar-fixed-bottom"
+  }
+
+  var APP_LAYOUTS = {
+    TOP: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 65, bottom: 0 }, 
+        uiPadding: { top: 15, bottom: 30 },
+        layoutName: ""
+    },
+    TOPSPACE: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "calcite-margin-top", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 80, bottom: 0 }, 
+        uiPadding: { top: 15, bottom: 30 },
+        layoutName: ""
+    }, 
+    TOPSPACEALL: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "calcite-margin-all", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 80, bottom: 0 }, 
+        uiPadding: { top: 15, bottom: 30 },
+        layoutName: ""
+    }, 
+    TOPFIXED: {
+        navPosition: "calcite-nav-top-fixed", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 0, bottom: 0 }, 
+        uiPadding: { top: 15, bottom: 30 },
+        layoutName: ""
+    },
+    BOTTOM: {
+        navPosition: "calcite-nav-bottom", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-bottom",
+        viewPadding: { top: 0, bottom: 65 }, 
+        uiPadding: { top: 30, bottom: 15 },
+        layoutName: ""
+    },
+    BOTTOMSPACE: {
+        navPosition: "calcite-nav-bottom", 
+        navSpace: "calcite-margin-bottom", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-bottom",
+        viewPadding: { top: 0, bottom: 80 }, 
+        uiPadding: { top: 30, bottom: 15 },
+        layoutName: ""
+    }, 
+    BOTTOMSPACEALL: {
+        navPosition: "calcite-nav-bottom", 
+        navSpace: "calcite-margin-all", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-bottom",
+        viewPadding: { top: 0, bottom: 80 }, 
+        uiPadding: { top: 30, bottom: 15 },
+        layoutName: ""
+    }, 
+    BOTTOMFIXED: {
+        navPosition: "calcite-nav-bottom-fixed", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-bottom",
+        viewPadding: { top: 0, bottom: 0 }, 
+        uiPadding: { top: 30, bottom: 15 },
+        layoutName: ""
+    },
+    TOPJUMBO: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 120, bottom: 0 }, 
+        uiPadding: { top: 15, left: 30, bottom: 30 },
+        layoutName: "calcite-layout-jumbo-title"
+    },
+    BOTTOMJUMBO: {
+        navPosition: "calcite-nav-bottom", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-bottom",
+        viewPadding: { top: 0, bottom: 120 }, 
+        uiPadding: { top: 30, bottom: 30 },
+        layoutName: "calcite-layout-jumbo-title"
+    },
+    TOPSLIMMER: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 50, bottom: 0 }, 
+        uiPadding: { top: 15, left: 15, right: 15, bottom: 30 },
+        layoutName: "calcite-layout-small-title"
+    },
+    BOTTOMSLIMMER: {
+        navPosition: "calcite-nav-bottom", 
+        navSpace: "", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-bottom",
+        viewPadding: { top: 0, bottom: 45 }, 
+        uiPadding: { top: 30, left: 15, right: 15, bottom: 15 },
+        layoutName: "calcite-layout-small-title"
+    },
+    TOPINLINELEFT: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "calcite-margin-all", 
+        panelPosition: "calcite-panels-right", 
+        zoomPosition: "calcite-zoom-top-left", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 0, bottom: 0 }, 
+        uiPadding: { top: 15, bottom: 30 },
+        layoutName: "calcite-layout-inline-left"
+    },
+    TOPINLINERIGHT: {
+        navPosition: "calcite-nav-top", 
+        navSpace: "calcite-margin-all", 
+        panelPosition: "calcite-panels-left", 
+        zoomPosition: "calcite-zoom-top-right", 
+        navFixedPosition: "navbar-fixed-top",
+        viewPadding: { top: 0, bottom: 0 }, 
+        uiPadding: { top: 15, bottom: 30 },
+        layoutName: "calcite-layout-inline-right"
+    }
+  };
+
+  var PanelSettings = declare(null, {
+    
+    _this: null,
+    
+    // TODO
+    defaultOptions: {
+      "loading-text":'loading...'
+    },
+
+    // Default settings
+    styleSettings: {
+      navbar: {
+        bgStyle: CALCITE_THEME_STYLES.BG_LIGHT, // calcite-bg-light / calcite-bg-dark / calcite-bg-custom
+        textStyle: CALCITE_THEME_STYLES.TEXT_DARK, // calcite-text-dark / calcite-text-light
+        bgRgbaColor: CALCITE_THEME_STYLES.RGBA_DEFAULT // ""
+      },
+      dropdown: {
+        bgStyle: CALCITE_THEME_STYLES.BG_LIGHT, // calcite-bg-light / calcite-bg-dark / calcite-bg-custom
+        textStyle: CALCITE_THEME_STYLES.TEXT_DARK, // calcite-text-dark / calcite-text-light
+        bgRgbaColor: CALCITE_THEME_STYLES.RGBA_DEFAULT // ""
+      },
+      panel: {
+        bgStyle: CALCITE_THEME_STYLES.BG_LIGHT, // calcite-bg-light / calcite-bg-dark / calcite-bg-custom
+        textStyle: CALCITE_THEME_STYLES.TEXT_DARK, // calcite-text-dark / calcite-text-light
+        bgRgbaColor: CALCITE_THEME_STYLES.RGBA_DEFAULT // ""
+      }
+    },
+
+    //--------------------------------------------------------------------------
+    //
+    //  Lifecycle
+    //
+    //--------------------------------------------------------------------------
+
+    constructor: function (options) {
+        _this = this;
+
+        _this.options = lang.mixin(lang.clone(_this.defaultOptions), (options || {}));
+        
+        _this.app = options.app;
+
+        _this._initUIHandlers();
+    },
+
+    //--------------------------------------------------------------------------
+    //
+    //  UI
+    //
+    //--------------------------------------------------------------------------
+
+    _initUIHandlers: function() {
+
+      //--------------------------------------------------------------------
+      // Tab - Title
+      //--------------------------------------------------------------------
+
+      query("#titleButton").on("click", function() {
+        query(".calcite-title-main")[0].innerHTML = query("#settingsTitleInput")[0].value;
+        query(".calcite-title-sub")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
+      });
+
+      //--------------------------------------------------------------------
+      // Tab - Map
+      //--------------------------------------------------------------------
+
+      // Map
+      query("#settings2dView").on("click", function(e) {
+        domClass.toggle(query("#mapNav")[0], "hidden");
+        domClass.toggle(query("#mapNavMenu")[0], "hidden");
+      });
+
+      query("#settings3dView").on("click", function(e) {
+        domClass.toggle(query("#sceneNav")[0], "hidden");
+        domClass.toggle(query("#sceneNavMenu")[0], "hidden");
+      });
+
+      query("#settingsAddLayer").on("click", function() {
+        _this.addFeatureService();
+      });
+
+      query("#settingsLayerOpacity").on("change", function() {
+        var opacity = Number.parseFloat(_this.value);
+        if (_this.app.mapFL && _this.app.sceneFL) {
+          _this.app.mapFL.opacity = opacity;
+          _this.app.sceneFL.opacity = opacity;
+        }
+      }); 
+
+      //--------------------------------------------------------------------
+      // Tab - Theme
+      //--------------------------------------------------------------------
+
+      //----------------------------------
+      // Color
+      //----------------------------------
+
+      query("#settingsColor").on("change", function(e) {
+        var style = e.target.value;
+        // Update UI
+        query("#colorThemeCollapse").removeClass("in");
+        query("#colorCalciteCollapse").removeClass("in");
+        query("#colorPickerCollapse").removeClass("in");
+        switch (style) {
+          // Show Calcite themes
+          case "theme":
+            query("#colorThemeCollapse").collapse("show");
+            break;
+          // Show calcite colors
+          case "calcite":
+            query("#colorCalciteCollapse").collapse("show");
+            break;
+          // Show custom colors
+          case "custom":
+            query("#colorPickerCollapse").collapse("show");
+        }
+      });
+
+      //----------------------------------
+      // Calcite Themes
+      //----------------------------------
+
+      query("#settingsThemeColor").on("change", function(e) {
+        // Get styles 
+        var theme = e.target.value,
+          textStyle = "";
+          bgStyle = "";
+          bgRgbaColor = "";
+          applyToAll = true;
+
+        // Select light theme
+        switch (theme) {
+          case "light":
+            textStyle = CALCITE_THEME_STYLES.TEXT_DARK;
+            bgStyle = CALCITE_THEME_STYLES.BG_LIGHT;
+            bgRgbaColor = CALCITE_THEME_STYLES.RGBA_DEFAULT; 
+            break;
+          // Select dark theme
+          case "dark":
+            textStyle = CALCITE_THEME_STYLES.TEXT_LIGHT;
+            bgStyle = CALCITE_THEME_STYLES.BG_DARK;
+            bgRgbaColor = CALCITE_THEME_STYLES.RGBA_DEFAULT;
+            break;
+        }
+
+        // Update UI 
+        query("#settingsCalciteColorAll")[0].checked = true;
+        query("#settingsPickerColorAll")[0].checked = true;
+        query("#settingsTextColor")[0].value = textStyle;
+
+        // Set styles
+        _this.setStyles(bgStyle, textStyle, bgRgbaColor, applyToAll);
+        _this.applyStyles();
+      });
+
+
+      //----------------------------------
+      // Calcite Colors
+      //----------------------------------
+
+      query("#settingsCalciteColor").on("change", function(e) {
+        // Get styles 
+        var bgColorStyle = e.target.value,
+          textStyle = e.target.options[e.target.selectedIndex].dataset.textcolor;
+          bgStyle = CALCITE_THEME_STYLES.BG_CUSTOM;
+          bgRgbaColor = _this._getRgbaColorFromStyle(bgColorStyle); // Convert to RGB
+          applyToAll = query("#settingsCalciteColorAll")[0].checked;
+
+         // Update UI
+        query("#settingsTextColor")[0].value = textStyle;
+
+        // Set styles
+        _this.setStyles(bgStyle, textStyle, bgRgbaColor, applyToAll);
+        _this.applyStyles();
+      });
+
+      //----------------------------------
+      // Color Picker
+      //----------------------------------
+
+      query("#colorPickerDiv").on("color-change", function(e) {
+        e.color = e.color || _this.app.colorPickerWidget.color;
+        if (!e.color) {
+          return;
+        }
+        // Get styles  
+        var bgStyle = CALCITE_THEME_STYLES.BG_CUSTOM,
+          bgRbgaColor = "rgba(" + e.color.r + "," + e.color.g + "," + e.color.b + "," + e.color.a + ")",
+          textStyle = null,
+          applyToAll = query("#settingsCalciteColorAll")[0].checked;
+        
+        // Get the best complimentary text color
+        var hsl = _this._rgb2hsl(e.color.r, e.color.g, e.color.b);
+        if (hsl.l < 0.55) {
+          textStyle = CALCITE_THEME_STYLES.TEXT_LIGHT;
+        } else {
+          textStyle = CALCITE_THEME_STYLES.TEXT_DARK;
+        }
+
+        // Update UI
+        query("#settingsTextColor")[0].value = textStyle;
+
+        // Set styles
+        _this.setStyles(bgStyle, textStyle, bgRbgaColor, applyToAll);
+        _this.applyStyles();
+      });
+
+      //----------------------------------
+      // Apply to all checkboxes
+      //----------------------------------
+
+      query("#settingsCalciteColorAll").on("click", function(e) {
+        // Sync UI
+        query("#settingsPickerColorAll")[0].checked = e.target.checked;
+        // Set styles
+        on.emit(query("#settingsCalciteColor")[0], "change", { bubbles: true, cancelable: true });
+      });
+
+      query("#settingsPickerColorAll").on("click", function(e) {
+        // Sync UI
+        query("#settingsCalciteColorAll")[0].checked = e.target.checked;
+        // Set styles
+        on.emit(query("#colorPickerDiv")[0], "color-change", { bubbles: true, cancelable: true });
+      });
+
+      //----------------------------------
+      // Text Color
+      //----------------------------------
+
+      query("#settingsTextColor").on("change", function(e) {
+        // Get styles  
+        var textStyle = e.target.value,
+          applyToAll = query("#settingsCalciteColorAll")[0].checked;
+
+        // Set styles
+        _this.setStyles(null, textStyle, null, applyToAll);
+        _this.applyStyles();
+      });
+
+      //----------------------------------
+      // Widgets Color
+      //----------------------------------
+
+      query("#settingsWidgets").on("change", function(e) {    
+        var theme = e.target.value;
+        query("body").removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
+      });
+
+      //--------------------------------------------------------------------
+      // Tab - Layout
+      //--------------------------------------------------------------------
+
+      query("#settingsLayout").on("change", function(e) {
+        var theme = e.target.value;
+        // Add classes
+        switch (theme) {
+          // Default APP_LAYOUTS
+          case "layout-top": // default
+            _this.setLayout(APP_LAYOUTS.TOP);
+            break;
+          case "layout-top-space":
+            _this.setLayout(APP_LAYOUTS.TOPSPACE);
+            break;
+          case "layout-top-space-all":
+            _this.setLayout(APP_LAYOUTS.TOPSPACEALL);
+            break;
+          case "layout-top-fixed":
+            _this.setLayout(APP_LAYOUTS.TOPFIXED);
+            break;
+          case "layout-bottom":
+            _this.setLayout(APP_LAYOUTS.BOTTOM);
+            break;
+          case "layout-bottom-space":
+            _this.setLayout(APP_LAYOUTS.BOTTOMSPACE);
+            break;
+          case "layout-bottom-space-all":
+            _this.setLayout(APP_LAYOUTS.BOTTOMSPACEALL);
+            break;
+          case "layout-bottom-fixed":
+            _this.setLayout(APP_LAYOUTS.BOTTOMFIXED);
+            break;
+          // Custom APP_LAYOUTS
+          case "calcite-layout-jumbo-title-top":
+            _this.setLayout(APP_LAYOUTS.TOPJUMBO);
+            break;
+          case "calcite-layout-jumbo-title-bottom":
+            _this.setLayout(APP_LAYOUTS.BOTTOMJUMBO);
+            break;
+          case "calcite-layout-small-title-top":
+            _this.setLayout(APP_LAYOUTS.TOPSLIMMER);
+            break;
+          case "calcite-layout-small-title-bottom":
+            _this.setLayout(APP_LAYOUTS.BOTTOMSLIMMER);
+            break;
+          case "calcite-layout-inline-left":
+            _this.setLayout(APP_LAYOUTS.TOPINLINELEFT);
+            break;
+          case "calcite-layout-inline-right":
+            _this.setLayout(APP_LAYOUTS.TOPINLINERIGHT);
+            break;
+          default:
+            _this.setLayout(APP_LAYOUTS.TOP);
+            break;
+        }
+      });
+
+      // Map widgets add/remove
+      query("#settingsMapWidget").on("change", function(e) {
+        on.emit(query("#settingsPositionMapWidget")[0], "change",  {
+          bubbles: true,
+          cancelable: true
+        });
+      });
+
+      // Scene widgets add/remove
+      query("#settingsSceneWidget").on("change", function(e) {
+        on.emit(query("#settingsPositionSceneWidget")[0], "change",  {
+          bubbles: true,
+          cancelable: true
+        });
+      });
+
+      // Map widgets position
+      query("#settingsPositionMapWidget").on("change", function(e) {
+        var name = query("#settingsMapWidget")[0].value,
+          position = e.target.value;
+        _this.setWidgetPosition(_this.app.mapView, name, position);
+      });
+
+      // Scene widgets position
+      query("#settingsPositionSceneWidget").on("change", function(e) {
+        var name = query("#settingsSceneWidget")[0].value,
+          position = e.target.value;
+        _this.setWidgetPosition(_this.app.sceneView, name, position);
+      });
+
+      query("#settingsPopup").on("change", function(e){
+        var popupOptions = {
+          position: e.target.value
+        }
+        _this.setPopupDock(_this.app.mapView, popupOptions);
+        _this.setPopupDock(_this.app.sceneView, popupOptions);
+      });
+
+      query("#settingsPanel").on("change", function(e) {
+        var body = query("body")[0],
+          panelStyle = e.target.value;
+        domClass.remove(body, "calcite-panels-left calcite-panels-right");
+        domClass.add(body, panelStyle);
+      });
+
+      query("#settingsPadding").on("keydown", function(evt) {
+        if (evt.keyCode === keys.ENTER) {
+          var str = _this.value;
+          var padding = eval("("+str+")");
+          if (padding) {
+            _this.app.mapView.padding = padding;
+            _this.app.sceneView.padding = padding;
+          }
+        }
+      });
+    },
+
+    //--------------------------------------------------------------------------
+    //
+    //  Private Functions
+    //
+    //--------------------------------------------------------------------------
+
+    _rgb2hsv: function() {
+      var rr, gg, bb,
+          r = arguments[0] / 255,
+          g = arguments[1] / 255,
+          b = arguments[2] / 255,
+          h, s,
+          v = Math.max(r, g, b),
+          diff = v - Math.min(r, g, b),
+          diffc = function(c){
+              return (v - c) / 6 / diff + 1 / 2;
+          };
+
+      if (diff == 0) {
+          h = s = 0;
+      } else {
+          s = diff / v;
+          rr = diffc(r);
+          gg = diffc(g);
+          bb = diffc(b);
+
+          if (r === v) {
+              h = bb - gg;
+          }else if (g === v) {
+              h = (1 / 3) + rr - bb;
+          }else if (b === v) {
+              h = (2 / 3) + gg - rr;
+          }
+          if (h < 0) {
+              h += 1;
+          }else if (h > 1) {
+              h -= 1;
+          }
+      }
+      return {
+          h: Math.round(h * 360),
+          s: Math.round(s * 100),
+          v: Math.round(v * 100)
+      };
+    },
+
+    _rgb2hsl: function(r, g, b){
+      r /= 255, g /= 255, b /= 255;
+      var max = Math.max(r, g, b), min = Math.min(r, g, b);
+      var h, s, l = (max + min) / 2;
+
+      if(max == min){
+          h = s = 0; // achromatic
+      }else{
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch(max){
+              case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+              case g: h = (b - r) / d + 2; break;
+              case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+      }
+      return {
+          h: h,
+          s: s,
+          l: l
+      };
+    },
+
+    _getRgbaColorFromStyle: function(calciteBgColorStyle) {
+      caliteColorStyle = "." + calciteBgColorStyle,
+        attr = "backgroundColor";
+      var ss = document.styleSheets;
+      var rgba = "";
+      for (var i = 0; i < ss.length; i++) {
+        var ss = document.styleSheets;
+        var rules = ss[i].cssRules; // || ss[i].rules;
+        if (rules) {
+          for (var j = 0; j < rules.length; j++) {
+            if (rules[j].selectorText === caliteColorStyle) {
+              rgba = rules[j].style[attr];
+            }
+          }
+        }
+      }
+      return rgba;
+    },
+
+    //--------------------------------------------------------------------------
+    //
+    //  Public Functions
+    //
+    //--------------------------------------------------------------------------
+
+    setStyles: function(bgStyle, textStyle, bgRgbaColor, applyToAll) {
       // Navbar
-      "navbar-fixed-top navbar-fixed-bottom"
-    }
-
-    ALL_THEMES = {
-      TOP: {
-          navPosition: "nav-position-top", 
-          navSpace: "", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 65, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
-          layoutName: ""
-      },
-      TOPSPACE: {
-          navPosition: "nav-position-top", 
-          navSpace: "nav-space-top", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 80, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
-          layoutName: ""
-      }, 
-      TOPSPACEALL: {
-          navPosition: "nav-position-top", 
-          navSpace: "nav-space-all", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 80, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
-          layoutName: ""
-      }, 
-      TOPFIXED: {
-          navPosition: "nav-position-top-fixed", 
-          navSpace: "", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 0, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
-          layoutName: ""
-      },
-      BOTTOM: {
-          navPosition: "nav-position-bottom", 
-          navSpace: "", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 65 }, 
-          uiPadding: { top: 30, bottom: 15 },
-          layoutName: ""
-      },
-      BOTTOMSPACE: {
-          navPosition: "nav-position-bottom", 
-          navSpace: "nav-space-bottom", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 80 }, 
-          uiPadding: { top: 30, bottom: 15 },
-          layoutName: ""
-      }, 
-      BOTTOMSPACEALL: {
-          navPosition: "nav-position-bottom", 
-          navSpace: "nav-space-all", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 80 }, 
-          uiPadding: { top: 30, bottom: 15 },
-          layoutName: ""
-      }, 
-      BOTTOMFIXED: {
-          navPosition: "nav-position-bottom-fixed", 
-          navSpace: "", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 0 }, 
-          uiPadding: { top: 30, bottom: 15 },
-          layoutName: ""
-      },
-      TOPJUMBO: {
-          navPosition: "nav-position-top", 
-          navSpace: "nav-space-none", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 120, bottom: 0 }, 
-          uiPadding: { top: 15, left: 30, bottom: 30 },
-          layoutName: "layout-jumbo-title"
-      },
-      BOTTOMJUMBO: {
-          navPosition: "nav-position-bottom", 
-          navSpace: "nav-space-none", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 120 }, 
-          uiPadding: { top: 30, bottom: 30 },
-          layoutName: "layout-jumbo-title"
-      },
-      TOPMOBILE: {
-          navPosition: "nav-position-top", 
-          navSpace: "", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 46, bottom: 0 }, 
-          uiPadding: { top: 13, left: 13, right: 13, bottom: 28 },
-          layoutName: "layout-mobile-focus"
-      },
-      BOTTOMMOBILE: {
-          navPosition: "nav-position-bottom", 
-          navSpace: "", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 46 }, 
-          uiPadding: { top: 28, left: 13, right: 13, bottom: 13 },
-          layoutName: "layout-mobile-focus"
-      },
-      TOPINLINELEFT: {
-          navPosition: "nav-position-top", 
-          navSpace: "nav-space-all", 
-          panelPosition: "panel-right", 
-          zoomPosition: "zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 0, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
-          layoutName: "layout-inline-left"
-      },
-      TOPINLINERIGHT: {
-          navPosition: "nav-position-top", 
-          navSpace: "nav-space-all", 
-          panelPosition: "panel-left", 
-          zoomPosition: "zoom-top-right", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 0, bottom: 0 }, 
-          uiPadding: { top: 15, bottom: 30 },
-          layoutName: "layout-inline-right"
+      _this.styleSettings.navbar.bgStyle = bgStyle || _this.styleSettings.navbar.bgStyle;
+      _this.styleSettings.navbar.textStyle = textStyle || _this.styleSettings.navbar.textStyle;
+      _this.styleSettings.navbar.bgRgbaColor = bgRgbaColor !== null ? bgRgbaColor : _this.styleSettings.navbar.bgRgbaColor;
+      // Navbar only - reset
+      if (!applyToAll) {
+        // Dropdown - reset
+        _this.styleSettings.dropdown.bgStyle = CALCITE_THEME_STYLES.BG_LIGHT;
+        _this.styleSettings.dropdown.textStyle = CALCITE_THEME_STYLES.TEXT_DARK;
+        _this.styleSettings.dropdown.bgRgbaColor = CALCITE_THEME_STYLES.RGBA_DEFAULT;
+        // Panel - reset
+        _this.styleSettings.panel.bgStyle = CALCITE_THEME_STYLES.BG_LIGHT;
+        _this.styleSettings.panel.textStyle = CALCITE_THEME_STYLES.TEXT_DARK;
+        _this.styleSettings.panel.bgRgbaColor = CALCITE_THEME_STYLES.RGBA_DEFAULT;
+      } else {
+        // Dropdown
+        _this.styleSettings.dropdown.bgStyle = bgStyle || _this.styleSettings.dropdown.bgStyle;
+        _this.styleSettings.dropdown.textStyle = textStyle || _this.styleSettings.dropdown.textStyle;
+        _this.styleSettings.dropdown.bgRgbaColor = bgRgbaColor !== null ? bgRgbaColor : _this.styleSettings.dropdown.bgRgbaColor;
+        // Panel
+        _this.styleSettings.panel.bgStyle = bgStyle || _this.styleSettings.panel.bgStyle;
+        _this.styleSettings.panel.textStyle = textStyle || _this.styleSettings.panel.textStyle;
+        _this.styleSettings.panel.bgRgbaColor = bgRgbaColor !== null ? bgRgbaColor : _this.styleSettings.panel.bgRgbaColor;
       }
-    }
+    },
 
-    /******************************************************************
-     * Tab - Title
-     ******************************************************************/
+    applyStyles: function(applyToAll) {
+      // Navbar
+      _this.setBgThemeStyle(CALCITE_THEME_SELECTORS.NAVBAR, _this.styleSettings.navbar.bgStyle);
+      _this.setTextThemeStyle(CALCITE_THEME_SELECTORS.NAVBAR, _this.styleSettings.navbar.textStyle);
+      _this.setBgRgbaColor(CALCITE_THEME_SELECTORS.NAVBAR, _this.styleSettings.navbar.bgRgbaColor);
+      // Dropdown
+      _this.setBgThemeStyle(CALCITE_THEME_SELECTORS.DROPDOWN, _this.styleSettings.dropdown.bgStyle);
+      _this.setTextThemeStyle(CALCITE_THEME_SELECTORS.DROPDOWN, _this.styleSettings.dropdown.textStyle);
+      _this.setBgRgbaColor(CALCITE_THEME_SELECTORS.DROPDOWN_MENU, _this.styleSettings.dropdown.bgRgbaColor);
+      // Panel
+      _this.setBgThemeStyle(CALCITE_THEME_SELECTORS.PANELS, _this.styleSettings.panel.bgStyle);
+      _this.setTextThemeStyle(CALCITE_THEME_SELECTORS.PANELS, _this.styleSettings.panel.textStyle);
+      _this.setBgRgbaColor(CALCITE_THEME_SELECTORS.PANELS, _this.styleSettings.panel.bgRgbaColor);
+    },
 
-    query("#titleButton").on("click", function() {
-      query(".navbar-main-title")[0].innerHTML = query("#settingsTitleInput")[0].value;
-      query(".navbar-sub-title")[0].innerHTML = query("#settingsSubTitleInput")[0].value;;
-    });
-
-    /******************************************************************
-     * Tab - Map
-     ******************************************************************/
-
-    // Map
-    query("#settings2dView").on("click", function(e) {
-      domClass.toggle(query("#mapNav")[0], "hidden");
-      domClass.toggle(query("#mapNavMenu")[0], "hidden");
-    });
-
-    query("#settings3dView").on("click", function(e) {
-      domClass.toggle(query("#sceneNav")[0], "hidden");
-      domClass.toggle(query("#sceneNavMenu")[0], "hidden");
-    });
-
-    query("#settingsAddLayer").on("click", function() {
-      addFeatureService();
-    });
-
-    query("#settingsLayerOpacity").on("change", function() {
-      var opacity = Number.parseFloat(this.value);
-      if (app.mapFL && app.sceneFL) {
-        app.mapFL.opacity = opacity;
-        app.sceneFL.opacity = opacity;
+    // BgColor
+    setBgColorStyle: function(cssSelector, bgColorStyle) {
+      _this.removeBgColorStyle(cssSelector);
+      if (bgColorStyle !== "default") {
+        query(cssSelector).addClass(bgColorStyle);
       }
-    }); 
+    },
 
-    /******************************************************************
-     * Tab - Theme
-     ******************************************************************/
+    setBgRgbaColor: function(cssSelector, bgColorRgba) {
+      query(cssSelector).attr("style", {"background-color": bgColorRgba});
+    },
 
-    // Theme
-    query("#settingsTheme").on("change", function(e) {    
-      var theme = e.target.value;
-      var textColor = e.target.options[e.target.selectedIndex].dataset.textcolor;
-      query("body").removeClass("calcite-theme-dark").addClass(theme);
-      // Remove calcite classes (color)
-      query(".navbar").attr("class")[0].split(" ").forEach(function(val){
-        if (val.indexOf("calcite-") > -1) {
-          query(".navbar").removeClass(val);
+    removeBgColorStyle: function(cssSelector) {
+      query(cssSelector).attr("class")[0].split(" ").forEach(function(val){
+        if (val.indexOf("calcite-bgcolor-") > -1) {
+          query(cssSelector).removeClass(val);
         }
       });
-      // Add text color
-      query(".navbar").removeClass("calcite-text-dark calcite-text-light").addClass(textColor);
-      // Update UI
-      query("#settingsNav").attr("value", "default");
-      query("#settingsNavText").attr("value", textColor);
-    });
+    },
 
-    // Nav - set custom navbar color and associated text
-    query("#settingsNav").on("change", function(e) {    
-      var bgColor = e.target.value;
-      var textColor =  e.target.options[e.target.selectedIndex].dataset.textcolor;
-      // Remove calcite classes (color)
-      query(".navbar").attr("class")[0].split(" ").forEach(function(val){
-        if (val.indexOf("calcite-") > -1) {
-          query(".navbar").removeClass(val);
-        }
-      });
-      // Add calcite classes
-      query(".navbar").addClass(textColor).addClass(bgColor);
-      if (bgColor === "default") {
-        on.emit(query("#settingsTheme")[0], "change",  { bubbles: true, cancelable: true });
-      }
-      // Update UI
-      query("#settingsNavText").attr("value", textColor);
-    });
+    // Theme - text
+    setTextThemeStyle: function(cssSelector, textColorStyle) {
+      query(cssSelector).removeClass(CALCITE_THEME_STYLES.TEXT_LIGHT + " " + CALCITE_THEME_STYLES.TEXT_DARK);
+      query(cssSelector).addClass(textColorStyle);
+    },
 
-    // Nav Text - override text
-    query("#settingsNavText").on("change", function(e) {
-      var style = e.target.value,
-      navbar = query(".navbar")[0];
-      domClass.remove(navbar, "calcite-text-light calcite-text-dark");
-      domClass.add(navbar, style);
-    });
+    // Theme - bg
+    setBgThemeStyle: function(cssSelector, bgColorStyle) {
+      query(cssSelector).removeClass(CALCITE_THEME_STYLES.BG_LIGHT + " " + CALCITE_THEME_STYLES.BG_DARK + " " + CALCITE_THEME_STYLES.BG_CUSTOM);
+      query(cssSelector).addClass(bgColorStyle)
+    },
 
-    // Widgets - set light (default) or dark theme
-    query("#settingsWidgets").on("change", function(e) {    
-      var theme = e.target.value;
-      query("body").removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
-    });
-
-    // // Opacity
-    // query("#settingsOpacity").on("change", function(e) {
-    //  var navbar = query(".navbar")[0];
-    //     var bgColor = domStyle.get(navbar, "background-color");
-    //     if(bgColor.indexOf('a') == -1){
-    //         bgColor = bgColor.replace(')', ', ' + parseFloat(e.target.value).toFixed(2) +')').replace('rgb', 'rgba');
-    //     } else {
-    //         bgColor = bgColor.replace(/[\d\.]+\)$/g, e.target.value + ')');
-    //     }
-    //     domStyle.set(navbar, {"background-color" : bgColor});
-    // });
-
-    /******************************************************************
-     * Tab - Layout
-     ******************************************************************/
-  
-    query("#settingsLayout").on("change", function(e) {
-      var theme = e.target.value;
-      // Add classes
-      switch (theme) {
-        // Default layouts
-        case "layout-top": // default
-          setLayout(ALL_THEMES.TOP);
-          break;
-        case "layout-top-space":
-          setLayout(ALL_THEMES.TOPSPACE);
-          break;
-        case "layout-top-space-all":
-          setLayout(ALL_THEMES.TOPSPACEALL);
-          break;
-        case "layout-top-fixed":
-          setLayout(ALL_THEMES.TOPFIXED);
-          break;
-        case "layout-bottom":
-          setLayout(ALL_THEMES.BOTTOM);
-          break;
-        case "layout-bottom-space":
-          setLayout(ALL_THEMES.BOTTOMSPACE);
-          break;
-        case "layout-bottom-space-all":
-          setLayout(ALL_THEMES.BOTTOMSPACEALL);
-          break;
-        case "layout-bottom-fixed":
-          setLayout(ALL_THEMES.BOTTOMFIXED);
-          break;
-        // Custom layouts
-        case "layout-jumbo-title-top":
-          setLayout(ALL_THEMES.TOPJUMBO);
-          break;
-        case "layout-jumbo-title-bottom":
-          setLayout(ALL_THEMES.BOTTOMJUMBO);
-          break;
-        case "layout-mobile-focus-top":
-          setLayout(ALL_THEMES.TOPMOBILE);
-          break;
-        case "layout-mobile-focus-bottom":
-          setLayout(ALL_THEMES.BOTTOMMOBILE);
-          break;
-        case "layout-inline-left":
-          setLayout(ALL_THEMES.TOPINLINELEFT);
-          break;
-        case "layout-inline-right":
-          setLayout(ALL_THEMES.TOPINLINERIGHT);
-          break;
-        default:
-          setLayout(ALL_THEMES.TOP);
-          break;
-      }
-    });
-
-    // Map widgets add/remove
-    query("#settingsMapWidget").on("change", function(e) {
-      on.emit(query("#settingsPositionMapWidget")[0], "change",  {
-              bubbles: true,
-              cancelable: true
-          });
-    });
-
-    // Scene widgets add/remove
-    query("#settingsSceneWidget").on("change", function(e) {
-      on.emit(query("#settingsPositionSceneWidget")[0], "change",  {
-              bubbles: true,
-              cancelable: true
-          });
-    });
-
-    // Map widgets position
-    query("#settingsPositionMapWidget").on("change", function(e) {
-      var name = query("#settingsMapWidget")[0].value,
-        position = e.target.value;
-      setWidgetPosition(app.mapView, name, position);
-    });
-
-    // Scene widgets position
-    query("#settingsPositionSceneWidget").on("change", function(e) {
-      var name = query("#settingsSceneWidget")[0].value,
-        position = e.target.value;
-      setWidgetPosition(app.sceneView, name, position);
-    });
-
-    query("#settingsPopup").on("change", function(e){
-      var popupOptions = {
-        position: e.target.value
-      }
-      setPopupDock(app.mapView, popupOptions);
-      setPopupDock(app.sceneView, popupOptions);
-    });
-
-    query("#settingsPanel").on("change", function(e) {
-      var body = query("body")[0],
-        panelStyle = e.target.value;
-      domClass.remove(body, "panel-left panel-right");
-      domClass.add(body, panelStyle);
-    });
-
-    query("#settingsPadding").on("keydown", function(evt) {
-      if (evt.keyCode === keys.ENTER) {
-        var str = this.value;
-        var padding = eval("("+str+")");
-        if (padding) {
-          app.mapView.padding = padding;
-          app.sceneView.padding = padding;
-        }
-      }
-    });
-
-    /******************************************************************
-     * Tab - Map functions
-     ******************************************************************/
+    //----------------------------------
+    // Tab - Map functions
+    //----------------------------------
 
     // Create a feature layer to get feature service
-    function addFeatureService() {
-      if (removeFeatureService()) {
+    addFeatureService: function() {
+      if (_this.removeFeatureService()) {
         //query("#settingsFeatureLayerUrl")[0].value = "";
         // Update button
         query("#settingsAddLayer").addClass("btn-primary").removeClass("btn-danger");
@@ -432,105 +769,105 @@ define([
       // Validate url
       var url = query("#settingsFeatureLayerUrl")[0].value;
       if (url === "") {
-        showErrorLoadingLayer("Sorry, please provide a valid URL.");
+        _this.showErrorLoadingLayer("Sorry, please provide a valid URL.");
         return;
       }  
 
       // Create layers - two layers because they will have different styles
-      app.mapFL = createLayer(url);
-      app.sceneFL = createLayer(url);
+      _this.app.mapFL = _this.createLayer(url);
+      _this.app.sceneFL = _this.createLayer(url);
 
       // Added to Map
-      app.mapFL.then(function(){
+      _this.app.mapFL.then(function(){
         // Create legend
-        createLegendWidget("legendDiv");
+        _this.createLegendWidget("legendDiv");
         }, function(error){
-          showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-          removeFeatureService();
+          _this.showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+          _this.removeFeatureService();
           return;
         });
 
       // Added to Scene
-      app.sceneFL.then(function(){
+      _this.app.sceneFL.then(function(){
         }, function(error){
-          showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-          removeFeatureService();
+          _this.showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+          _this.removeFeatureService();
           return;
         });
 
        // Add to map
-      app.mapView.map.add(app.mapFL);
-      app.sceneView.map.add(app.sceneFL);
+      _this.app.mapView.map.add(_this.app.mapFL);
+      _this.app.sceneView.map.add(_this.app.sceneFL);
       
       // Zoom map to extent of layer
-      app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
+      _this.app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
         if (newValue) {
           if (object.fullExtent) {
-            zoomToProjectedExtent(object.fullExtent);                           
+            _this._zoomToProjectedExtent(object.fullExtent);                           
           } else {
-            showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-            removeFeatureService();
+            _this.showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
+            _this.removeFeatureService();
           }
         }
       });
 
       // Zoom scene and tile - TODO
-      app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
-        if (newValue && app.sceneFL && !app.sceneView.__sceneZoomed) {
-          app.sceneView.__sceneZoomed = true;
-          app.sceneView.animateTo({center: app.mapView.center, scale: app.mapView.scale, tilt: 45});
+      _this.app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
+        if (newValue && _this.app.sceneFL && !_this.app.sceneView.__sceneZoomed) {
+          _this.app.sceneView.__sceneZoomed = true;
+          _this.app.sceneView.animateTo({center: _this.app.mapView.center, scale: _this.app.mapView.scale, tilt: 45});
         }
       })
-    }
+    },
 
     // Remove existing service
-    function removeFeatureService() {
-      if (app.mapFL && app.sceneFL) {
-        app.mapView.map.remove(app.mapFL);
-        app.sceneView.map.remove(app.sceneFL);
-        app.mapView.zoom = app.zoom; 
-        app.mapView.center = app.lonlat;
-        app.sceneView.zoom = app.zoom;
-        app.sceneView.center = app.lonlat;
-        app.mapFL = null;
-        app.sceneFL = null;
-        app.sceneView.__sceneZoomed = false;
-        app.mapView.popup.set({visible: false});
-        app.mapView.popup.clear();
-        app.sceneView.popup.set({visible: false});
-        app.sceneView.popup.clear();
+    removeFeatureService: function() {
+      if (_this.app.mapFL && _this.app.sceneFL) {
+        _this.app.mapView.map.remove(_this.app.mapFL);
+        _this.app.sceneView.map.remove(_this.app.sceneFL);
+        _this.app.mapView.zoom = _this.app.zoom; 
+        _this.app.mapView.center = _this.app.lonlat;
+        _this.app.sceneView.zoom = _this.app.zoom;
+        _this.app.sceneView.center = _this.app.lonlat;
+        _this.app.mapFL = null;
+        _this.app.sceneFL = null;
+        _this.app.sceneView.__sceneZoomed = false;
+        _this.app.mapView.popup.set({visible: false});
+        _this.app.mapView.popup.clear();
+        _this.app.sceneView.popup.set({visible: false});
+        _this.app.sceneView.popup.clear();
         return true;
       } else {
         return false;
       }
-    }
+    },
 
-    function zoomToProjectedExtent(extent) {
+    _zoomToProjectedExtent: function(extent) {
       var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
       var params = new ProjectParams();
       params.geometries = [extent];
-      params.outSR = app.mapView.spatialReference;
+      params.outSR = _this.app.mapView.spatialReference;
       gvsc.project(params).then(function(results) {
         if (results.length > 0){
           // Update extent
-          app.mapView.goTo(results[0].extent);
-          watchUtils.whenTrueOnce(app.sceneView, "ready").then(function(isReady) {
-            app.sceneView.goTo(results[0].extent);
+          _this.app.mapView.goTo(results[0].extent);
+          watchUtils.whenTrueOnce(_this.app.sceneView, "ready").then(function(isReady) {
+            _this.app.sceneView.goTo(results[0].extent);
           });
           // Update button
           query("#settingsAddLayer").addClass("btn-danger").removeClass("btn-primary");
           query("#settingsAddLayer")[0].innerText = "Remove";                           
         } else {
-          showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-          removeFeatureService();
+          _this.showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
+          _this.removeFeatureService();
         }
       }, function(e){
-        showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-        removeFeatureService();
+        _this.showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
+        _this.removeFeatureService();
       });
-    }
+    },
 
-    function createLayer(url) {
+    createLayer: function(url) {
       var lyr = new FeatureLayer({ 
         url: url,
         maxScale: 0,
@@ -546,69 +883,69 @@ define([
         });
       })
       return lyr;
-    }
+    },
 
-    function createLegendWidget(containerId) {
+    createLegendWidget: function(containerId) {
       var legend = new Legend({
-        view: app.mapView,
+        view: _this.app.mapView,
         layerInfos: [{
-          layer: app.mapView.map.layers.items[0],
+          layer: _this.app.mapView.map.layers.items[0],
           title: ""
         }]
       }, containerId);
       legend.startup(); 
-    }
+    },
 
-    function showErrorLoadingLayer(msg) {
+    showErrorLoadingLayer: function(msg) {
       //$("#layerErrorMsg").text(msg);
       //$("#layerError").removeClass("hidden");
       console.log(msg);
-    }
+    },
 
-    /******************************************************************
-     * Layout functions
-     ******************************************************************/
+    //----------------------------------
+    // Tab - Layout functions
+    //----------------------------------
 
-    function setLayout(layout) {
-      removeClasses();
-      addClasses(layout);
-      setPadding(layout.viewPadding, layout.uiPadding);
-      setPaddingUI(layout.viewPadding);
-      if (layout.zoomPosition === "zoom-top-right") {
-        setWidgetPosition(app.mapView, "zoom", "top-right");
-        setWidgetPosition(app.sceneView, "zoom", "top-right");
+    setLayout: function(layout) {
+      _this.removeClasses();
+      _this.addClasses(layout);
+      _this.setPadding(layout.viewPadding, layout.uiPadding);
+      _this.setPaddingUI(layout.viewPadding);
+      if (layout.zoomPosition === "calcite-zoom-top-right") {
+        _this.setWidgetPosition(_this.app.mapView, "zoom", "top-right");
+        _this.setWidgetPosition(_this.app.sceneView, "zoom", "top-right");
       } else {
-        setWidgetPosition(app.mapView, "zoom", "top-left");
-        setWidgetPosition(app.sceneView, "zoom", "top-left");
+        _this.setWidgetPosition(_this.app.mapView, "zoom", "top-left");
+        _this.setWidgetPosition(_this.app.sceneView, "zoom", "top-left");
       }
-    }
+    },
 
-    function addClasses(layout) {
+    addClasses: function(layout) {
       var body = query("body")[0],
         nav = query("nav")[0];
       domClass.add(body, layout.navPosition + " " + layout.navSpace + " " + layout.panelPosition + " " + layout.zoomPosition + " " + layout.layoutName);
       domClass.add(nav, layout.navFixedPosition);
-    }
+    },
 
-    function removeClasses() {
+    removeClasses: function() {
       var body = query("body")[0],
         nav = query("nav")[0];
-      domClass.remove(body, ALL_STYLES.body);
-      domClass.remove(nav, ALL_STYLES.nav);
-    }
+      domClass.remove(body, CALCITE_LAYOUT_STYLES.body);
+      domClass.remove(nav, CALCITE_LAYOUT_STYLES.nav);
+    },
 
-    function setPadding(viewPadding, uiPadding){
-      app.mapView.padding = viewPadding;
-      app.mapView.ui.padding = uiPadding;
-      app.sceneView.padding = viewPadding;
-      app.sceneView.ui.padding = uiPadding;
-    }
+    setPadding: function(viewPadding, uiPadding){
+      _this.app.mapView.padding = viewPadding;
+      _this.app.mapView.ui.padding = uiPadding;
+      _this.app.sceneView.padding = viewPadding;
+      _this.app.sceneView.ui.padding = uiPadding;
+    },
 
-    function setPaddingUI(viewPadding) {
+    setPaddingUI: function(viewPadding) {
       query("#settingsPadding")[0].value = JSON.stringify(viewPadding);
-    }
+    },
 
-    function setWidgetPosition(view, name, position) {
+    setWidgetPosition: function(view, name, position) {
       var component,
         exists = view.ui.find(name);
       // Remove
@@ -621,23 +958,23 @@ define([
           if (exists) {
               view.ui.move(name, position);
           } else {
-            component = createComponent(view, name);
+            component = _this.createComponent(view, name);
               view.ui.add(component, position);
           }
       }               
-    }
+    },
 
-    function createComponent(view, name) {
+    createComponent: function(view, name) {
       var component,
-        widget = createWidget(view, name);
+        widget = _this.createWidget(view, name);
       component = new Component({
         node: widget, 
         id: name
       });
       return component;
-    }
+    },
 
-    function createWidget(view, name) {
+    createWidget: function(view, name) {
       var widget,
         viewModel = {
           view: view
@@ -676,9 +1013,9 @@ define([
       }
       widget.startup();
       return widget;
-    }
+    },
 
-    function setPopupDock(view, popupOptions) {
+    setPopupDock: function(view, popupOptions) {
       view.popup.set({
         dockOptions: popupOptions
       });
@@ -686,4 +1023,7 @@ define([
       view.popup.set("dockEnabled", dock);
     }
 
+  });
+
+  return PanelSettings;
 });

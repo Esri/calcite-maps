@@ -1,0 +1,143 @@
+// ┌────────────────┐
+// │ Theme - Custom │
+// └────────────────┘
+//
+// Style overrides for custom background colors for entire ui
+
+
+// Navbar
+
+// .calcite-navbar {
+
+//   &.calcite-bg-custom {
+
+//     &.navbar {
+//       //background-color: $theme_custom_navbar_bg;
+//     }
+
+//   }
+// }
+
+// Dropdown
+
+.calcite-dropdown {
+
+  &.calcite-bg-custom {
+
+    .dropdown-menu {
+      background-color: $theme_custom_dropdown_menu_bg;
+      -webkit-box-shadow: $theme_custom_dropdown_menu_shadow;
+      box-shadow: $theme_custom_dropdown_menu_shadow;
+
+      li > a:hover, 
+      li > a:focus {
+        background-color: $theme_custom_dropdown_menu_bg_hover;
+      }
+
+      .active > a, 
+      .active > a:hover, 
+      .active > a:focus {
+        background-color: $theme_custom_dropdown_menu_bg_hover;
+      }  
+    }
+  }
+}
+
+// Panels
+
+.calcite-panels {
+    
+  &.calcite-bg-custom {
+
+    .panel {
+      background-color: $theme_custom_panel_bg;
+    }
+
+    .panel-heading {
+      background-color: $theme_custom_panel_header_bg;
+    }
+
+    .panel-heading:hover,
+    .panel-heading:focus {
+      background-color: $theme_custom_panel_header_bg_hover;
+    }
+
+    // Tabs
+
+    .nav-tabs {
+      border-bottom: none;
+    }
+
+    .nav-tabs > li > a {
+      border: 0;
+      padding-top: 4px;
+    }
+
+    .nav-tabs > li > a:hover,
+    .nav-tabs > li > a:focus {
+      padding-top: 4px;
+      border-top: 0;
+      background-color: $theme_custom_panel_control_bg_hover;
+      @include custom-theme-tab-shadow($theme_custom_panel_tab_shadow_top);
+    }
+
+    .nav-tabs > li.active > a {
+      position: relative;
+      padding-top: 4px;
+      border: 1px solid $theme_custom_panel_control_border_color;
+      border-top: 0;
+      border-bottom-color: transparent;
+      background-color: $theme_custom_panel_control_bg_hover;
+      @include custom-theme-tab-shadow(0 -2px 0 0);
+    }
+
+    .nav-tabs > li.active > a::before,
+    .nav-tabs > li.active > a::after {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      height: 0px;
+      width: 999em;
+      border-bottom: 1px solid $theme_custom_panel_control_border_color;
+      pointer-events: none;
+    }
+
+    .nav-tabs > li.active > a::before {
+      right: 100%;
+      margin-right: 1px;
+    }
+
+    .nav-tabs > li.active > a::after {
+      left: 100%;
+      margin-left: 1px;
+    }
+
+    // Controls
+
+    input, 
+    textarea,
+    select {
+      background-color: $theme_custom_panel_control_bg;
+    }
+
+    input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
+    textarea,
+    select {
+      border: 1px solid $theme_custom_panel_control_border_color;       
+    }
+
+    // Placeholder
+    
+    @include custom-theme-placholder(0.65);
+
+  }
+}
+
+.calcite-nav-bottom {
+  .calcite-bg-custom {
+    .panel-body {
+      border-bottom: 1px solid $theme_custom_panel_header_bg;
+    }
+  }
+}

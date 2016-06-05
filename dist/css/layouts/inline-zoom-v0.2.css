@@ -1,0 +1,37 @@
+.calcite-layout-inline-left .calcite-navbar {
+  left: 47px; }
+
+.calcite-layout-inline-right .calcite-navbar {
+  right: 47px; }
+
+.calcite-layout-inline-right.calcite-nav-top.calcite-margin-all .calcite-panels {
+  top: 90px; }
+
+.calcite.calcite-layout-inline-left.calcite-nav-top.calcite-margin-all .esriSimpleSlider,
+.calcite.calcite-layout-inline-left.calcite-nav-bottom.calcite-margin-all .esriSimpleSlider,
+.calcite.calcite-layout-inline-right.calcite-nav-top.calcite-margin-all .esriSimpleSlider,
+.calcite.calcite-layout-inline-right.calcite-nav-bottom.calcite-margin-all .esriSimpleSlider {
+  margin: 15px; }
+
+.calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .esriZoom.esriVertical.esriComponent,
+.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .esriZoom.esriVertical.esriComponent {
+  margin-top: 15px; }
+
+.calcite-layout-inline-left.calcite-nav-top.calcite-margin-all .leaflet-control-zoom,
+.calcite-layout-inline-left.calcite-nav-bottom.calcite-margin-all .leaflet-control-zoom,
+.calcite-layout-inline-right.calcite-nav-top.calcite-margin-all .leaflet-control-zoom,
+.calcite-layout-inline-right.calcite-nav-bottom.calcite-margin-all .leaflet-control-zoom {
+  margin: 15px; }
+
+.calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-trans .leaflet-control-zoom,
+.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .leaflet-control-zoom {
+  margin-top: 15px; }
+
+@media (max-width: 767px) {
+  .calcite-layout-inline-left .calcite-panels,
+  .calcite-layout-inline-right .calcite-panels,
+  .calcite-layout-inline-right.calcite-nav-top.calcite-margin-all .calcite-panels {
+    top: auto;
+    bottom: 0;
+    margin: auto 15px 30px 15px;
+    width: auto; } }

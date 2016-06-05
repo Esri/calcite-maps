@@ -1,0 +1,46 @@
+// ┌────────────────────────────────┐
+// │ Calcite Dropdown - Theme Light │
+// └────────────────────────────────┘
+//
+// Light background, dark text
+// Styles for text color, hover and background for dropdown
+
+.calcite-dropdown {
+
+  &.calcite-bg-light {
+
+    .dropdown-menu {
+      background-color: $theme_light_dropdown_menu_bg;
+      -webkit-box-shadow: $theme_light_dropdown_menu_shadow;
+      box-shadow: $theme_light_dropdown_menu_shadow;
+      li > a:hover, 
+      li > a:focus {
+        background-color: $theme_light_dropdown_menu_bg_hover;
+      }
+      .active > a, 
+      .active > a:hover, 
+      .active > a:focus {
+        background-color: $theme_light_dropdown_menu_bg_hover;
+      }  
+    }
+  }
+
+  &.calcite-text-dark {
+
+    .dropdown-menu {
+      li > a {
+        color: $theme_light_dropdown_menu_text_color;
+      }
+      li > a:hover, 
+      li > a:focus {
+        color: $theme_light_dropdown_menu_text_color;
+      }
+      // Optional
+      // .active > a, 
+      // .active > a:hover, 
+      // .active > a:focus {
+      //   color: $theme_light_dropdown_menu_text_color_hover;
+      // }
+    }
+  }
+}

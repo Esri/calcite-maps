@@ -1,21 +1,23 @@
-// ┌──────────────────────┐
-// │ Navbar Theme - Light │
-// └──────────────────────┘
+// ┌──────────────────────────────┐
+// │ Calcite Navbar - Theme Light │
+// └──────────────────────────────┘
 //
 // Light background, dark text
-// Styles for navbar and dropdown menu (defaults)
+// Styles for navbar and dropdown menu
+//
+// NOTE: Light theme is really default
 
-.calcite-maps {
+.calcite-navbar {
 
-  // Navbar defaults
+  &.calcite-bg-light {
 
-  .calcite-text-dark {
-
-    // Navbar
-    
     &.navbar {
       background-color: $theme_light_navbar_bg;
     }
+
+  }
+
+  &.calcite-text-dark {
     
     // Brand
 
@@ -25,108 +27,72 @@
 
     .navbar-brand:hover,
     .navbar-brand:focus {
-      background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
+      @include linear-gradient(to top, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
-    // Title/subtitle
+    // Title
 
-    .navbar-title {
+    .calcite-title-main,
+    .calcite-title-sub {
       color: $theme_light_navbar_text_color;
     } 
 
-    // .navbar-title:hover, 
-    // .navbar-title:focus {
+    // Optional
+    // .calcite-title:hover, 
+    // .calcite-title:focus {
     //   color: $theme_light_nav_bg_hover;
     // }
 
     // Toggle button
 
-    .navbar-toggle {
-      border-color: $theme_light_control_text_color;
-    }
-
-    .navbar-toggle .icon-bar {
+    .dropdown-toggle .icon-bar {
       background-color: $theme_light_control_text_color;
     }
 
-    .navbar-toggle:hover,
-    .navbar-toggle:focus {
+    .dropdown-toggle:hover,
+    .dropdown-toggle:focus {
+      @include linear-gradient(to top, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
+      transition: color 150ms linear, text-decoration 150ms linear;
+    }
+
+    // Nav
+    
+    .navbar-nav > li > a {
+      color: $theme_light_navbar_text_color;
+    }
+
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus,
+    .navbar-nav > .active > a,
+    .navbar-nav > .active > a:focus,
+    .navbar-nav > .active > a:hover,
+    .navbar-nav > .open > a,
+    .navbar-nav > .open > a:hover,
+    .navbar-nav > .open > a:focus  {
+      color: $theme_light_navbar_text_color_hover;
       background-color: transparent;
-      opacity: .75;
+      @include linear-gradient(to top, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
+      transition: color 150ms linear, text-decoration 150ms linear;
     }
 
-    // Collapse
-
-    .navbar-collapse {
-      border-top: none;
-      box-shadow: none;
-
-      // Main nav
-      
-      .navbar-nav > li > a {
-        color: $theme_light_navbar_text_color;
-      }
-
-      .navbar-nav > li > a:hover,
-      .navbar-nav > li > a:focus,
-      .navbar-nav > .active > a,
-      .navbar-nav > .active > a:focus,
-      .navbar-nav > .active > a:hover,
-      .navbar-nav > .open > a,
-      .navbar-nav > .open > a:hover,
-      .navbar-nav > .open > a:focus  {
-        color: $theme_light_navbar_text_color_hover;
-        background-color: transparent;
-        background-image: linear-gradient(to top, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
-        transition: color 150ms linear, text-decoration 150ms linear;
-      }
-
-      .navbar-nav > .disabled > a,
-      .navbar-nav > .disabled > a:hover,
-      .navbar-nav > .disabled > a:focus {
-        background-color: transparent; 
-      }
+    .navbar-nav > .disabled > a,
+    .navbar-nav > .disabled > a:hover,
+    .navbar-nav > .disabled > a:focus {
+      background-color: transparent;
+      color: $theme_light_navbar_text_color_disabled;
     }
   }
-
-  // Navbar dropdown menu (default)
-  .navbar-nav {
-    .dropdown-menu {
-      background-color: $theme_light_menu_bg;
-
-      //border: 1px solid $theme_light_menu_border_color;
-      border: none;
-
-      -webkit-box-shadow: $theme_light_menu_shadow;
-      box-shadow: $theme_light_menu_shadow;
-
-      li > a {
-        color: $theme_light_menu_text_color;
-      }
-
-      li > a:hover, 
-      li > a:focus {
-        color: $theme_light_menu_text_color;
-        background-color: $theme_light_menu_bg_hover;
-      }
-      
-      .active > a, 
-      .active > a:hover, 
-      .active > a:focus {
-        background-color: $theme_light_menu_bg_hover;
-      }   
-    }
-  }
-  
 }
 
-// Nav bottom - decoration (default)
+// Nav bottom - decoration (for light theme)
 
-.calcite-maps {
-  &.nav-position-bottom,
-  &.nav-position-bottom-fixed {
-    .calcite-text-dark {
+.calcite-nav-bottom,
+.calcite-nav-bottom-fixed {
+
+  .calcite-navbar {
+
+    &.calcite-text-dark {
       .navbar-brand:hover,
       .navbar-brand:focus,
       .navbar-nav > li > a:hover,
@@ -136,8 +102,10 @@
       .navbar-nav > .active > a:hover,
       .navbar-nav > .open > a,
       .navbar-nav > .open > a:hover,
-      .navbar-nav > .open > a:focus {
-        background-image: linear-gradient(to bottom, transparent $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color $navbar_nav_hover_decoration_height, $theme_light_navbar_decoration_color 100%);
+      .navbar-nav > .open > a:focus,
+      .dropdown-toggle:hover,
+      .dropdown-toggle:focus {
+        @include linear-gradient(to bottom, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
       }
     }
   }
