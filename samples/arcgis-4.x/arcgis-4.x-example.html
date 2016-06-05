@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="description" content="Calcite Maps - ArcGIS 4.x SDK Sample">
-<title>Calcite Maps - ArcGIS JS 4.0 Example</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="Calcite Maps - ArcGIS 4.x SDK Sample">
+  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <title>Calcite Maps - ArcGIS JS 4.0 Example</title>
 
-<!-- Calcite Maps -->
-<link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min.css">
+  <!-- Calcite Bootstrap -->
+  <link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.2.css">
+  <!--link rel="stylesheet" href="http:/esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css"-->
 
-<!-- ArcGIS API for JavaScript -->
-<link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+  <!-- Calcite Maps -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+  <!--link rel="stylesheet" href="http:/esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css"-->
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-</style>
+  <!-- ArcGIS JS 4.0 -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  </style>
 
 </head>
 
-<body class="calcite-maps nav-position-top">
+<body class="calcite-nav-top">
 
   <!-- Navbar -->
 
-  <nav class="navbar navbar-fixed-top calcite-text-light calcite-dark-blue">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand">
-          <span class="esri-icon esri-icon-map-pin"></span>
-        </a>
-        <div class="navbar-title">
-          <div class="navbar-main-title text-overflow">Greater Los Angeles Demographics</div>
-          <div class="navbar-sub-title text-overflow">Explore population, age, income and housing values</div> 
-        </div>
-      </div>
-    </div><!--/.container-fluid -->
+  <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
+    <!-- Header -->
+    <div class="navbar-header">
+      <a class="navbar-brand">
+        <span class="esri-icon esri-icon-map-pin"></span>
+      </a>
+    </div>
+    <!-- Title -->
+    <div class="calcite-title">
+      <div class="calcite-title-main calcite-overflow-hidden">Greater Los Angeles Demographics</div>
+      <div class="calcite-title-sub calcite-overflow-hidden">Explore population, age, income and housing values</div> 
+    </div>
+    <!-- Nav -->
+    <ul class="nav navbar-nav">                    
+      <li><a role="button" data-target=".esri-legend" data-toggle="collapse" aria-expanded="true"><span class="glyphicon glyphicon-list"></span></a></li>          
+    </ul>
   </nav><!--/.navbar -->
 
   <!-- Map Container  -->
 
-  <div class="map-container map-position-absolute">
-      <div id="mapViewDiv"></div>
+  <div class="calcite-map calcite-map-absolute">
+    <div id="mapViewDiv"></div>
   </div><!-- /.container -->
 
   <script type="text/javascript">
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+        //location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+        location: "http:/esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
       },
       {
         name: "calcite-maps",
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+        // location: "http:/esri.github.com/calcite-maps/dist/js/dojo"
       }]
     };
   </script>
@@ -70,17 +82,15 @@
       "esri/views/MapView",
       "esri/WebMap",
       "esri/widgets/Legend",
+      "dojo/query",
 
       // Bootstrap
       "bootstrap/Collapse", 
-      "bootstrap/Dropdown",
-      "bootstrap/Tab",
-      "bootstrap/Tooltip",
 
       // Calcite-maps
-      "calcite-maps/calcitemaps",
+      "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-    ], function(MapView, WebMap, Legend) {
+    ], function(MapView, WebMap, Legend, query) {
         
       // Webmap 
       var webmap = new WebMap({
@@ -108,9 +118,10 @@
           }]
         });
         view.ui.add(legend, "top-right");
+        query("#" + legend.id).addClass("collapse in");
       });
 
-    });<!-- dojo -->
+    });
   </script>
 
 </body>
