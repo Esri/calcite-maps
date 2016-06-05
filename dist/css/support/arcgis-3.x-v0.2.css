@@ -1,0 +1,128 @@
+.calcite .arcgisSearch {
+  font-size: 13px; }
+
+.calcite .calcite-navbar .calcite .arcgisSearch .searchGroup .searchInput {
+  width: 100%; }
+
+.calcite.calcite-zoom-top-left .esriSimpleSlider {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0; }
+
+.calcite.calcite-zoom-top-right .esriSimpleSlider {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto; }
+
+.calcite.calcite-zoom-bottom-right .esriSimpleSlider {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto; }
+
+.calcite.calcite-zoom-bottom-left .esriSimpleSlider {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0; }
+
+.calcite .esriSimpleSlider {
+  margin: 15px; }
+
+.calcite.calcite-nav-top .esriSimpleSlider {
+  margin-top: 80px; }
+
+.calcite.calcite-nav-top-fixed .esriSimpleSlider {
+  margin-top: 15px; }
+
+.calcite.calcite-nav-top.calcite-margin-top .esriSimpleSlider {
+  margin-top: 95px; }
+
+.calcite.calcite-nav-top.calcite-margin-all .esriSimpleSlider {
+  margin-top: 95px; }
+
+.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-nav-transparent .esriSimpleSlider {
+  margin-top: 15px; }
+
+.calcite.calcite-nav-top.calcite-zoom-top-right.calcite-nav-transparent .esriSimpleSlider {
+  margin-top: 15px; }
+
+.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-margin-top.calcite-nav-transparent .esriSimpleSlider,
+.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .esriSimpleSlider {
+  margin-top: 15px; }
+
+.calcite.calcite-nav-bottom .esriSimpleSlider {
+  margin-bottom: 80px; }
+
+.calcite.calcite-nav-bottom-fixed .esriSimpleSlider {
+  margin-bottom: 15px; }
+
+.calcite.calcite-nav-bottom.calcite-margin-bottom .esriSimpleSlider {
+  margin-bottom: 95px; }
+
+.calcite.calcite-nav-bottom.calcite-margin-all .esriSimpleSlider {
+  margin-bottom: 95px; }
+
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-nav-transparent .esriSimpleSlider {
+  margin-bottom: 80px; }
+
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-right.calcite-nav-transparent .esriSimpleSlider {
+  margin-bottom: 15px; }
+
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-margin-bottom.calcite-nav-transparent .esriSimpleSlider,
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-margin-all.calcite-nav-transparent .esriSimpleSlider {
+  margin-bottom: 95px; }
+
+.calcite-nav-bottom-fixed .esriMenu.esriSuggestMenu,
+.calcite-nav-bottom .esriMenu.esriSuggestMenu {
+  bottom: 100%;
+  top: auto; }
+
+.calcite-nav-top-fixed .esriCorner.esriBottom.esriRight,
+.calcite-nav-top .esriCorner.esriBottom.esriRight {
+  top: auto;
+  right: 4px;
+  bottom: 1px;
+  left: auto; }
+
+.calcite-nav-bottom-fixed .esriCorner.esriBottom.esriRight,
+.calcite-nav-bottom .esriCorner.esriBottom.esriRight {
+  top: -2px;
+  bottom: auto;
+  right: 4px; }
+
+.calcite-nav-bottom.calcite-margin-all .esriCorner.esriBottom.esriRight {
+  right: 15px; }
+
+.esriUI .esriCorner.esriBottom.esriRight .esriAttribution.esriComponent {
+  margin: -1px 0; }
+
+.esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriComponent {
+  margin: 0; }
+
+.esriUI .esriCorner.esriBottom.esriRight .esriLogo.esriImage.esriComponent > a > img {
+  width: 40px; }
+
+/* -------------- */
+/* Medium screens */
+/* -------------- */
+/*@media (max-width: 992px) {
+    .esriSearch .esriContainer .esriInput {
+        width: 120px !important;
+    }
+}*/
+/* -------------- */
+/* Mobile screens */
+/* -------------- */
+@media (max-width: 767px) {
+  .calcite-maps.calcite .arcgisSearch .searchExpandContainer {
+    width: calc(100% - 33px) !important; }
+  .calcite-maps.calcite .arcgisSearch .searchGroup .searchInput,
+  .calcite-maps.calcite .arcgisSearch .searchInputGroup {
+    width: 100%; }
+  .calcite-maps.calcite .esriPopup .titleButton.maximize {
+    display: none; }
+  .calcite-maps.calcite-nav-top.calcite-margin-all .calcite-panels, .calcite-maps.calcite-nav-top.calcite-margin-bottom .calcite-panels {
+    margin: 15px; } }
