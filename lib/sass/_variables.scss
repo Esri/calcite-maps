@@ -1,100 +1,113 @@
 // ┌───────────┐
 // │ Variables │
 // └───────────┘
-// Main variables for navbar, panel and themes
+//
+// Main variables
 
-// Bootstrap
-//$icon-font-path: '../fonts/' !default;
+@import "colors"; // Calcite color variables
 
-// Calcite Maps
-@import "colors"; // Calcite colors
+// ---------------------------------------------------------------
+// UI
+// ---------------------------------------------------------------
 
-// --------------------------------------------------
+$base_ui_margin: 15px !default;
+$base_ui_position_absolute: 15px !default;
+
+// ---------------------------------------------------------------
+// Media breaks
+// ---------------------------------------------------------------
+
+// Mobile devices smaller than iPad
+$base_breakpoint_height_mobile: 767px;
+
+// Mobile devices including iPad portrait
+$base_breakpoint_width_mobile: 768px;
+
+// ---------------------------------------------------------------
 // Map
-// --------------------------------------------------
+// ---------------------------------------------------------------
 
-$map_fixed_width: 768px;
-$map_fixed_height: 500px;    
+$map_fixed_width: 768px !default;
+$map_fixed_height: 500px !default;    
 
-// --------------------------------------------------
+// ---------------------------------------------------------------
 // Navbar
-// --------------------------------------------------
+// ---------------------------------------------------------------
 
-// Navbar
-
-$navbar_height: 65px;
-$navbar_margin: 15px;
-
-// Navbar collapse
-$navbar_collapse_max_height_mobile: 260px;
-
-// Dropdown menu
-$navbar_dropdown_menu_font_size: 15px;
-
-// Title
-$navbar_brand_font_size: 42px;
-$navbar_title_font_size: 25px;
-$navbar_title_font_weight: 300;
-$navbar_subtitle_font_size: 13px;
-$navbar_subtitle_font_weight: 300;
-$navbar_subtitle_font_size_mobile: 12px;
-$navbar_dropdown_toggle_font_size: 15px;
-
-// Title breaks
-$navbar_info_max_width_xs: calc(100% - 130px);
-$navbar_info_max_width_md: calc(100% - 380px);
-$navbar_info_max_width_lg: calc(100% - 515px);
-
-// --------------------------------------------------
-// Panel
-// --------------------------------------------------
-
-// Width and height
-$panel_width: 350px;
-$panel_width_mobile: 100%;
-$panel_body_min_height: 50px;
-$panel_body_max_height: 300px;
-$panel_body_min_height_mobile: 50px;
-$panel_body_max_height_mobile: 250px;
-
+// Size
+$navbar_height: 65px !default;
+$navbar_margin: $base_ui_margin !default;
 // Font
-$panel_font_size: 15px;
-$panel_title_font_size: 15px;
-$panel_title_font_weight: 400;
+$navbar_brand_font_size: 42px !default;
+$navbar_title_font_size: 25px !default;
+$navbar_title_font_weight: 300 !default;
+$navbar_subtitle_font_size: 13px !default;
+$navbar_subtitle_font_weight: 300 !default;
+$navbar_subtitle_font_size_mobile: 12px !default;
+// Breakpoints
+$navbar_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
+$navbar_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
 
-// Form elements
-$panel_form_control_height: 34px;
+// ---------------------------------------------------------------
+// Dropdown
+// ---------------------------------------------------------------
 
-// --------------------------------------------------
-// Theme - All
-// --------------------------------------------------
+$dropdown_toggle_font_size: 15px !default;
+$dropdown_menu_font_size: 15px !default;
+// Size
+$dropdown_menu_max_height: 500px;
+$dropdown_menu_max_height_mobile: 215px !default;
+// Breakpoints
+$dropdown_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
 
-// Navbar
-$navbar_nav_hover_decoration_height: 97% !default;
-
+// ---------------------------------------------------------------
 // Panel
-$panel_top_decoration_height: 98% !default;
+// ---------------------------------------------------------------
 
-// --------------------------------------------------
+// Position
+$panel_position_top: $base_ui_position_absolute;
+$panel_position_right: $base_ui_position_absolute;
+$panel_position_left: $base_ui_position_absolute;
+// Size
+$panel_width: 350px !default;
+$panel_width_mobile: 100% !default;
+$panel_body_min_height: 50px !default;
+$panel_body_max_height: 350px !default;
+$panel_body_max_height_mobile: 170px !default;
+$panel_body_max_height_expanded: 250px !default;
+// Font
+$panel_font_size: 15px !default;
+$panel_title_font_size: 15px !default;
+$panel_title_font_weight: 400 !default;
+// Form elements
+$panel_form_control_height: 34px !default;
+// Breakpoints
+$panels_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
+$panels_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
+
+// ---------------------------------------------------------------
+// Theme - All
+// ---------------------------------------------------------------
+
+$navbar_decoration_height: 2px !default;
+$panel_decoration_height: 1px !default;
+
+// ---------------------------------------------------------------
 // Theme - Light (light background, dark text)
-// --------------------------------------------------
-
-// Body (optional)
-// $theme_light_body_bg:                  #ffffff;
-// $theme_light_body_text_color:          $Calcite_Gray_650;
+// ---------------------------------------------------------------
 
 // Navbar
 $theme_light_navbar_bg:                 $Calcite_Gray_050;
 $theme_light_navbar_text_color:         $Calcite_Gray_700;
 $theme_light_navbar_text_color_hover:   $Calcite_True_Black;
+$theme_light_navbar_text_color_disabled: $Calcite_Gray_550;
 $theme_light_navbar_decoration_color:   $Calcite_Gray_700;
-// Dropdown menu
-$theme_light_menu_bg:           $Calcite_Gray_050;
-$theme_light_menu_bg_hover:     rgba($Calcite_Gray_200, 0.5);
-$theme_light_menu_text_color:   $Calcite_Gray_650;
-$theme_light_menu_border_color: $Calcite_Gray_100;
-// $theme_light_menu_shadow:		0 0 2px 1px rgba(0, 0, 0, 0.3);
-$theme_light_menu_shadow: 			none;
+// Dropdown
+$theme_light_dropdown_menu_bg:           $Calcite_Gray_050;
+$theme_light_dropdown_menu_bg_hover:     $Calcite_Gray_150;
+$theme_light_dropdown_menu_text_color:   $Calcite_Gray_650;
+$theme_light_dropdown_menu_border_color: $Calcite_Gray_100;
+$theme_light_dropdown_menu_shadow:				0 1px 3px 0 rgba(0,0,0,.175);
 // Panel
 $theme_light_panel_bg:                        $Calcite_Gray_050;
 $theme_light_panel_text_color:                $Calcite_Gray_650;
@@ -103,59 +116,81 @@ $theme_light_panel_header_close_color:				$Calcite_Gray_500;
 $theme_light_panel_header_text_color_hover:   $Calcite_Gray_700;
 $theme_light_panel_header_bg:                 $Calcite_Gray_150;
 $theme_light_panel_header_bg_hover:           $Calcite_Gray_200;
-$theme_light_panel_header_bg_active:          $Calcite_Gray_250;
+$theme_light_panel_header_bg_active:          $Calcite_Gray_200;
 $theme_light_panel_border_color:              $Calcite_Gray_250;
 $theme_light_panel_decoration_color:					$Calcite_Gray_650;
 // Panel - Controls
-$theme_light_control_bg:                $Calcite_Gray_050;
-$theme_light_control_bg_hover:          $Calcite_Gray_200;
-$theme_light_control_bg_active:         $Calcite_Gray_250;
-$theme_light_control_text_color:        $Calcite_Gray_650;
-$theme_light_control_text_color_hover:  $Calcite_Gray_700;
-$theme_light_control_border_color:      $Calcite_Gray_450;
+$theme_light_control_bg:                	$Calcite_Gray_050;
+$theme_light_control_bg_hover:          	$Calcite_Gray_200;
+$theme_light_control_bg_active:         	$Calcite_Gray_050;
+$theme_light_control_text_color:        	$Calcite_Gray_650;
+$theme_light_control_text_color_hover:  	$Calcite_Gray_700;
+$theme_light_control_border_color:      	$Calcite_Gray_450;
+$theme_light_control_border_color_hover:	$Calcite_Gray_700;
 // Panel - Anchors
 $theme_light_link_color:        inherit;
 $theme_light_link_color_hover:  inherit;
 
-// --------------------------------------------------
+// ---------------------------------------------------------------
 // Theme - Dark (dark background, light text)
-// --------------------------------------------------
-
-// Body (optional)
-// $theme_dark_body_bg:                   $Calcite_Gray_100_Dark;
-// $theme_dark_body_text_color:           $Calcite_Gray_650_Dark;
+// ---------------------------------------------------------------
 
 // Navbar
 $theme_dark_navbar_bg:                  $Calcite_Gray_100_Dark;
-$theme_dark_navbar_text_color:          $Calcite_Gray_100;
-$theme_dark_navbar_text_color_hover:    $Calcite_Gray_050;
-$theme_dark_navbar_decoration_color:		$Calcite_Gray_100;
-// Dropdown menu
-$theme_dark_menu_bg:            $Calcite_Gray_050_Dark;
-$theme_dark_menu_bg_hover:      rgba($Calcite_Gray_200_Dark, 0.5);
-$theme_dark_menu_text_color:    $Calcite_Gray_600_Dark;
-$theme_dark_menu_border_color: 	$Calcite_Gray_100_Dark;
-//$theme_dark_menu_shadow:			0 0 2px 1px rgba(55, 55, 55, 0.5);
-$theme_dark_menu_shadow:				none;
+$theme_dark_navbar_text_color:          $Calcite_Gray_050;
+$theme_dark_navbar_text_color_hover:    $Calcite_True_White;
+$theme_dark_navbar_decoration_color:		$Calcite_Gray_050;
+$theme_dark_navbar_text_color_disabled: $Calcite_Gray_350_Dark;
+// Dropdown
+$theme_dark_dropdown_menu_bg:            	$Calcite_Gray_100_Dark;
+$theme_dark_dropdown_menu_bg_hover:      	$Calcite_Gray_300_Dark;
+$theme_dark_dropdown_menu_text_color:			$Calcite_Gray_050;
+$theme_dark_dropdown_menu_border_color: 	$Calcite_Gray_100_Dark;
+$theme_dark_dropdown_menu_shadow:					0 1px 3px 0 rgba(0,0,0,.775);
 // Panel
-$theme_dark_panel_bg:                       $Calcite_Gray_050_Dark;
-$theme_dark_panel_text_color:               $Calcite_Gray_650_Dark; 
-$theme_dark_panel_header_text_color:        $Calcite_Gray_650_Dark;
-$theme_dark_panel_header_close_color:			$Calcite_Gray_500_Dark;
-$theme_dark_panel_header_text_color_hover:  $Calcite_Gray_700_Dark;
-$theme_dark_panel_header_bg:                $Calcite_Gray_150_Dark;
-$theme_dark_panel_header_bg_hover:          $Calcite_Gray_200_Dark;
-$theme_dark_panel_header_bg_active:         $Calcite_Gray_300_Dark;
+$theme_dark_panel_bg:                       $Calcite_Gray_100_Dark;
+$theme_dark_panel_text_color:               $Calcite_Gray_050; 
+$theme_dark_panel_header_text_color:        $Calcite_Gray_050;
+$theme_dark_panel_header_close_color:				$Calcite_Gray_050;
+$theme_dark_panel_header_text_color_hover:  $Calcite_True_White;
+$theme_dark_panel_header_bg:                $Calcite_Gray_300_Dark;
+$theme_dark_panel_header_bg_hover:          $Calcite_Gray_350_Dark;
+$theme_dark_panel_header_bg_active:         $Calcite_Gray_400_Dark;
 $theme_dark_panel_border_color:             $Calcite_Gray_300_Dark;
 $theme_dark_panel_decoration_color:					$Calcite_Gray_650_Dark;
 // Panel - Controls
-$theme_dark_control_bg:                 $Calcite_Gray_050_Dark; 
+$theme_dark_control_bg:                 $Calcite_Gray_100_Dark; 
 $theme_dark_control_bg_hover:           $Calcite_Gray_100_Dark;
-$theme_dark_control_bg_active:          $Calcite_Gray_150_Dark;
-$theme_dark_control_text_color:         $Calcite_Gray_600_Dark;
-$theme_dark_control_text_color_hover:   $Calcite_Gray_700_Dark;
-$theme_dark_control_border_color:       $Calcite_Gray_350_Dark;
+$theme_dark_control_bg_active:          $Calcite_Gray_100_Dark;
+$theme_dark_control_text_color:         $Calcite_Gray_050;
+$theme_dark_control_text_color_hover:   $Calcite_True_White;
+$theme_dark_control_border_color:       $Calcite_Gray_400_Dark;
+$theme_dark_control_border_color_hover:	$Calcite_Gray_050;
 // Panel - Anchors
 $theme_dark_link_color:         $Calcite_Highlight_Blue_350_Dark;
 $theme_dark_link_color_hover:   $Calcite_Highlight_Blue_400_Dark;
+
+// ---------------------------------------------------------------
+// Theme - Custom (single color backgrounds, light or dark text)
+// ---------------------------------------------------------------
+
+// Navbar
+$theme_custom_navbar_bg: 									inherit;
+// Dropdown Menu
+$theme_custom_dropdown_menu_bg: 					inherit;
+$theme_custom_dropdown_menu_bg_hover: 		rgba(255,255,255,0.15);
+$theme_custom_dropdown_menu_shadow:				0 1px 3px 0 rgba(0,0,0,0.25);
+// Panel
+$theme_custom_panel_bg: 									inherit;
+$theme_custom_panel_header_bg: 						rgba(255,255,255,0.15);
+$theme_custom_panel_header_bg_hover: 			rgba(255,255,255,0.25);
+$theme_custom_panel_header_bg_active: 		inherit;
+// Panel - Controls
+$theme_custom_panel_control_bg: 					inherit;
+$theme_custom_panel_control_bg_hover: 		inherit;
+$theme_custom_panel_control_bg_active: 		inherit;
+$theme_custom_panel_control_border_color:	rgba(255,255,255,0.35);
+$theme_custom_panel_tab_shadow_top:				0 -2px 0 0;
+
+
 

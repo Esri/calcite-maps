@@ -3,6 +3,9 @@
 // └───────────┘
 // Add/remove components for your app
 
+// Bootstrap variables overrides (optional)
+// $icon-font-path: '../fonts/' !default;
+
 // Calcite Bootstrap variables and mixins
 @import "calcite/colors-default"; // Loads the default calcite colors
 @import "calcite/calcite"; // Loads all the variables (required for bootstrap)

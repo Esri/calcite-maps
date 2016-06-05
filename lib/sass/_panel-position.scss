@@ -1,115 +1,104 @@
-// ┌────────────────┐
-// │ Panel Position │
-// └────────────────┘
+// ┌──────────────────────────┐
+// │ Calicte Panel - Position │
+// └──────────────────────────┘
 //
 // Top and bottom positions - top right on desktop, bottom full width on mobile
 
-.calcite-maps {
+.calcite-panels {
+  position: absolute;
+  top: $panel_position_top;
+  right: $panel_position_right;
+  width: $panel_width;
+  // z-index: 50;
+}
 
-  .panel-container {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: $panel_width;
-    z-index: 50;
-  }
-
-  &.panel-right .panel-container {
+&.calcite-panels-right {
+  .calcite-panels {
     left: auto;
-    right: 15px;
+    right: $panel_position_right;
   }
+}
 
-  &.panel-left .panel-container {
-    left: 15px;
+&.calcite-panels-left {
+  .calcite-panels {
+    left: $panel_position_left;
     right: auto;
   }
+}
 
-  // Navbar - Top 
+// Navbar - Top 
 
-  &.nav-position-top,
-  &.nav-position-top-fixed {
-    .panel-container {
-      top: 80px;
-    }
+&.calcite-nav-top,
+&.calcite-nav-top-fixed {
+  .calcite-panels {
+    top: $panel_position_top + $navbar_height;
+  }
+}
+
+&.calcite-nav-top.calcite-margin-top, 
+&.calcite-nav-top.calcite-margin-all {
+  .calcite-panels {
+    top: $panel_position_top + $navbar_height + $base_ui_margin;
+  }
+}
+
+// Navbar - Bottom
+
+&.calcite-nav-bottom,
+&.calcite-nav-bottom-fixed,
+&.calcite-nav-bottom.calcite-margin-bottom,
+&.calcite-nav-bottom.calcite-margin-all {
+  .calcite-panels {
+    top: $panel_position_top + $base_ui_margin;
+  }
+}
+
+// Mobile screens
+
+@media (max-width: $panels_breakpoint_width_mobile) {
+
+  // Panel - Reset
+
+  .calcite-panels,
+  &.calcite-panels-right .calcite-panels,
+  &.calcite-panels-left .calcite-panels {
+    right: 0;
+    left: 0;
+    width: $panel_width_mobile;
   }
 
-  &.nav-position-top.nav-space-top, 
-  &.nav-position-top.nav-space-all {
-    .panel-container {
-      top: 95px;
-    }
-  }
+  // Navbar - Top
 
-  &.nav-position-top.is-minibar {
-    .panel-container {
-      top: 15px;
-    }
-  }
-
-  &.nav-position-top.panel-left.is-minibar { 
-    .panel-container {
-      top: 80px;
+  &.calcite-nav-top,
+  &.calcite-nav-top-fixed,
+  &.calcite-nav-top.calcite-margin-top, 
+  &.calcite-nav-top.calcite-margin-all {
+    .calcite-panels {
+      top: auto;
+      bottom: 0;
     }
   }
 
   // Navbar - Bottom
 
-  &.nav-position-bottom,
-  &.nav-position-bottom-fixed,
-  &.nav-position-bottom.nav-space-bottom,
-  &.nav-position-bottom.nav-space-all {
-    .panel-container {
-      top: 30px;
+  &.calcite-nav-bottom,
+  &.calcite-nav-bottom-fixed, 
+  &.calcite-nav-bottom.calcite-margin-bottom,
+  &.calcite-nav-bottom.calcite-margin-all {
+    .calcite-panels {
+      top: auto;
+      bottom: $navbar_height;
     }
   }
+
+  // Navbar - Top/bottom + margin all
+
+  &.calcite-nav-top.calcite-margin-all,
+  &.calcite-nav-bottom.calcite-margin-all {
+    .calcite-panels {
+      margin: auto $base_ui_margin ($base_ui_margin * 2) $base_ui_margin;
+      width: auto;
+    }
+  }  
 }
 
-// XSmall screens
-
-@media (max-width: 767px) {
-  .calcite-maps {
-
-    // Panel - Reset
-
-    .panel-container,
-    &.panel-right .panel-container,
-    &.panel-left .panel-container {
-      right: 0;
-      left: 0;
-      width: $panel_width_mobile;
-    }
-
-    // Navbar - Top
-
-    &.nav-position-top,
-    &.nav-position-top-fixed,
-    &.nav-position-top.nav-space-top, 
-    &.nav-position-top.nav-space-all,
-    &.nav-position-top.is-minibar { 
-      .panel-container {
-        top: auto;
-        bottom: 0;
-      }
-    }
-
-    &.nav-position-top.nav-space-all {
-      .panel-container {
-        margin: auto 15px 30px 15px;
-        width: auto;
-      }
-    }
-      
-    // Navbar - Bottom
-    
-    &.nav-position-bottom,
-    &.nav-position-bottom-fixed, 
-    &.nav-position-bottom.nav-space-bottom,
-    &.nav-position-bottom.nav-space-all {
-      .panel-container {
-        top: 0;
-        bottom: auto;
-      }
-    }
-
-  }
-}

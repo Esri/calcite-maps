@@ -1,85 +1,55 @@
-// ┌─────────────────┐
-// │ Navbar Position │
-// └─────────────────┘
+// ┌───────────────────────────┐
+// │ Calcite Navbar - Position │
+// └───────────────────────────┘
 //
-// Nav layout positions
+// Styles for nav positions
 
-.calcite-maps {
+// Nav top
 
-  // Nav top and bottom
-
-  &.nav-position-top {
-    top: 0;
-    bottom: auto;
-  }
-
-  &.nav-position-bottom {  
-    top: auto;
-    bottom: 0;
-  }
-
-  // Map offset
-
-  &.nav-position-top-fixed, 
-  &.nav-position-top-fixed .map-position-absolute {
-    top: $navbar_height;
-    bottom: 0;
-  }
-
-  &.nav-position-bottom-fixed,
-  &.nav-position-bottom-fixed .map-position-absolute {
-    top: 0;
-    bottom: $navbar_height;
-  }
-
-  // Top spacing
-  
-  &.nav-space-top .navbar {
-    margin-top: $navbar_margin;
-    margin-bottom: 0;
-  }
-
-  // Bottom spacing
-
-  &.nav-space-bottom .navbar {
-    margin-top: 0;
-    margin-bottom: $navbar_margin;
-  }
-
-  &.nav-space-all .navbar {
-    margin: $navbar_margin;
-  }
-
-  // Navbar - Minibar
-
-  &.is-minibar .navbar,
-  &.is-minibar .navbar-collapse  {
-    right: auto;
-    background-color: transparent !important;
-  }
+.calcite-nav-top {
+  top: 0;
+  bottom: auto;
 }
 
-@media (max-width: 767px) {
-  .calcite-maps {
- 
-    // Move dropdown menu to bottom
+// Nav bottom 
 
-    &.nav-position-bottom,
-    &.nav-position-bottom-fixed {
-      .navbar-collapse {
-        position: absolute;
-        right: 15px;
-        bottom: $navbar_height;
-      }
-    }
+.calcite-nav-bottom {  
+  top: auto;
+  bottom: 0;
+}
 
-    &.nav-position-bottom,
-    &.nav-position-bottom-fixed {
-      .nav-space-bottom,
-      .nav-space-all {
-        bottom: $navbar_height + 15; 
-      } 
-    }
+// Fixed map offset - top
 
-  }
+.calcite-nav-top-fixed, 
+.calcite-nav-top-fixed .calcite-map-absolute {
+  top: $navbar_height;
+  bottom: 0;
+}
+
+// Fixed map offset - bottom
+
+.calcite-nav-bottom-fixed,
+.calcite-nav-bottom-fixed .calcite-map-absolute {
+  top: 0;
+  bottom: $navbar_height;
+}
+
+// Top margin
+
+.calcite-margin-top .calcite-navbar {
+  margin-top: $navbar_margin;
+  margin-bottom: 0;
+}
+
+// Bottom margin
+
+.calcite-margin-bottom .calcite-navbar {
+  margin-top: 0;
+  margin-bottom: $navbar_margin;
+}
+
+// All margin
+
+.calcite-margin-all .calcite-navbar {
+  margin: $navbar_margin;
 }
