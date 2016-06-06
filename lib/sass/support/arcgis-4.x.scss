@@ -9,8 +9,8 @@
 @import "../variables";
 
 $esri_widget_margin: 15px;
-$esri_search_min_width: 250px;
-$esri_search_full_width: 100%;
+$esri_widget_min_width: 250px;
+$esri_widget_full_width: 100%;
 
 // Esri light color variables
 $theme_light_esri_widget_border: rgba(55, 55, 55, 0.25);
@@ -124,7 +124,7 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
 
 .calcite-navbar {
   .calcite-navbar-search .esri-search {
-    min-width: $esri_search_min_width;
+    min-width: $esri_widget_min_width;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
@@ -136,7 +136,7 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
 
 .calcite-panels {
   .esri-search {
-    width:  $esri_search_full_width;
+    width:  $esri_widget_full_width;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
@@ -148,6 +148,13 @@ $theme_dark_esri_disabled_text_color: $Calcite_Gray_350_Dark;
   .esri-search .esri-menu {
     width: calc(100% + 2px);
     left: -1px;
+  }
+
+  .esri-legend {
+    width: $esri_widget_full_width;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 }
 
