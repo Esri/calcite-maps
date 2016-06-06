@@ -267,6 +267,12 @@
   width: calc(100% + 2px);
   left: -1px; }
 
+.calcite-panels .esri-legend {
+  width: 100%;
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
 .calcite-navbar.calcite-bg-light .esri-search,
 .calcite-panels.calcite-bg-light .esri-search {
   border: 1px solid rgba(55, 55, 55, 0.25); }

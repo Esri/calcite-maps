@@ -118,6 +118,25 @@
     }
   }
 
+  // Auto expand
+
+  .calcite-body-expander {
+    min-height: $panel_body_min_height;
+    -webkit-transition: min-height 0.25s ease-out;
+    -o-transition: min-height 0.25s ease-out;
+    transition: min-height 0.25s ease-out;
+  }
+
+  .calcite-body-expander:focus,
+  .calcite-body-expander:hover {
+    min-height: $panel_body_max_height_expanded;
+    -webkit-transition: min-height 0.25s ease-out;
+    -o-transition: min-height 0.25s ease-out;
+    transition: min-height 0.25s ease-out;
+  }
+
+  // Expand
+
   .calcite-body-expanded {
     height: $panel_body_max_height_expanded;
     -webkit-transition: height 0.25s ease-out;

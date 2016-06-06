@@ -625,6 +625,19 @@
     border-top: 2px solid;
     border-bottom-color: transparent; }
 
+.calcite-panels .calcite-body-expander {
+  min-height: 50px;
+  -webkit-transition: min-height 0.25s ease-out;
+  -o-transition: min-height 0.25s ease-out;
+  transition: min-height 0.25s ease-out; }
+
+.calcite-panels .calcite-body-expander:focus,
+.calcite-panels .calcite-body-expander:hover {
+  min-height: 250px;
+  -webkit-transition: min-height 0.25s ease-out;
+  -o-transition: min-height 0.25s ease-out;
+  transition: min-height 0.25s ease-out; }
+
 .calcite-panels .calcite-body-expanded {
   height: 250px;
   -webkit-transition: height 0.25s ease-out;
