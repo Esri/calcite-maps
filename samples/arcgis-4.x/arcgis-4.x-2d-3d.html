@@ -109,7 +109,7 @@
         </div>
       </div>
       <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
-        <div class="panel-body"> 
+        <div class="panel-body calcite-body-expander"> 
           <div id="searchPanelDiv"></div>
         </div>
       </div>
@@ -185,6 +185,7 @@
       app = {
         scale: 50000000,
         center: [-40,40],
+        initialExtent: null,
         basemap: "satellite",
         viewPadding: {
           bottom: 65
@@ -232,6 +233,10 @@
       });
 
       app.activeView = app.sceneView;
+
+      app.activeView.then(function() {
+        app.initialExtent = app.activeView.extent;
+      });
 
       // Search Widgets
       app.searchWidgetNav = createSearchWidget("searchNavDiv");
@@ -338,6 +343,11 @@
         query(".esri-popup .esri-container").toggleClass("esri-popup-collapsed");
         app.activeView.popup.reposition();
       });
+
+      // Home
+      query(".calcite-navbar .navbar-brand").on("click", function(e) {
+        app.activeView.goTo({target: app.initialExtent, rotation: 0});
+      })
 
     });
 

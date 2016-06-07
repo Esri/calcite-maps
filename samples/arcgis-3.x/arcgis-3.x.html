@@ -99,7 +99,7 @@
         </div>
       </div>
       <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
-        <div class="panel-body"> 
+        <div class="panel-body calcite-body-expander"> 
           <div id="searchPanelDiv"></div>
         </div>
       </div>
@@ -154,7 +154,7 @@
 
     <script>
 
-        var map, searchWidgetNav, searchWidgetPanel, activeView;
+        var app;
 
         require([
           // ArcGIS
@@ -172,32 +172,53 @@
 
           "dojo/domReady!"
         ], function(Map, Search, query, CalciteMaps) {
-                
-          // Map 
-          map = new Map("mapViewDiv", {
+             
+          // App 
+          app = {
+            map: null,
             basemap: "dark-gray",
             center: [-40, 40], // lon, lat
-            zoom: 3
+            zoom: 3,
+            initialExtent: null,
+            searchWidgetNav: null,
+            searchWidgetPanel: null
+          }
+
+          // Map 
+          app.map = new Map("mapViewDiv", {
+            basemap: app.basemap,
+            center: app.center,
+            zoom: app.zoom
           });
-          //map.popup.anchor = "top";
+
+          app.map.on("load", function(){
+            app.initialExtent = app.map.extent;
+          })
     
           // Search
-          searchDivNav = createSearchWidget("searchNavDiv");
-          searchWidgetPanel = createSearchWidget("searchPanelDiv");
+          app.searchDivNav = createSearchWidget("searchNavDiv");
+          app.searchWidgetPanel = createSearchWidget("searchPanelDiv");
 
           function createSearchWidget(parentId) {
             var search = new Search({
-                    map: map,
-                    enableHighlight: false
-                    }, parentId);
+              map: app.map,
+              enableHighlight: false
+              }, parentId);
             search.startup();
             return search;
           }
 
+          // Basemaps
           query("#selectBasemapPanel").on("change", function(e){
-                  map.setBasemap(e.target.options[e.target.selectedIndex].value);
+            app.map.setBasemap(e.target.options[e.target.selectedIndex].value);
           });
-        });// dojo
+
+          // Home
+          query(".calcite-navbar .navbar-brand").on("click", function(e) {
+            app.map.setExtent(app.initialExtent);
+          })
+
+        });
     </script>
 
 </body>

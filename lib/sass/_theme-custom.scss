@@ -24,6 +24,15 @@
 
   &.calcite-bg-custom {
 
+    // .dropdown-menu::before {
+    //   content: "";
+    //   background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   z-index: -1;
+    // }
+
     .dropdown-menu {
       background-color: $theme_custom_dropdown_menu_bg;
       -webkit-box-shadow: $theme_custom_dropdown_menu_shadow;
