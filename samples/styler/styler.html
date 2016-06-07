@@ -210,7 +210,7 @@
         </div>
       </div>
       <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
-        <div class="panel-body"> 
+        <div class="panel-body calcite-body-expander"> 
           <div id="searchPanelDiv"></div>
         </div>
       </div>
@@ -1023,27 +1023,6 @@
         app.searchWidgetNav = createSearchWidget("searchNavDiv", true);
         app.searchWidgetPanel = createSearchWidget("searchPanelDiv", true);
         app.searchWidgetSettings = createSearchWidget("settingsSearchDiv", false);
-        
-        // Search events
-        app.searchWidgetPanel.watch("suggestions", function(result) {
-        //app.searchWidgetPanel.watch("suggest", function(result) {
-        //query("#panelSearch .esri-search__input").on("focus", function(result) {
-          if (result && result.length > 0) {
-            query("#panelSearch .panel-body").addClass("calcite-body-expanded");
-           } else {
-             query("#panelSearch .panel-body").removeClass("calcite-body-expanded");
-           }
-        });
-
-        app.searchWidgetPanel.on("search-clear", function(result) {
-            query("#panelSearch .panel-body").removeClass("calcite-body-expanded");
-        });
-       
-        app.searchWidgetPanel.watch("selectedResult", function(result) {
-          query("#panelSearch .panel-body").removeClass("calcite-body-expanded");
-          // Mobile - remove safari bottom padding
-          document.activeElement.blur();
-        });
 
          // Create widget
         function createSearchWidget(parentId, showPopup) {
