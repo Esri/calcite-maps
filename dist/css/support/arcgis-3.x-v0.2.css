@@ -116,13 +116,14 @@
 /* -------------- */
 /* Mobile screens */
 /* -------------- */
-@media (max-width: 767px) {
-  .calcite-maps.calcite .arcgisSearch .searchExpandContainer {
+@media (max-width: 768px) {
+  .calcite-nav-top.calcite-margin-all .calcite-panels,
+  .calcite-nav-top.calcite-margin-bottom .calcite-panels {
+    margin: 15px; }
+  .calcite .calcite-panels .arcgisSearch .searchExpandContainer {
     width: calc(100% - 33px) !important; }
-  .calcite-maps.calcite .arcgisSearch .searchGroup .searchInput,
-  .calcite-maps.calcite .arcgisSearch .searchInputGroup {
+  .calcite .calcite-panels .arcgisSearch .searchGroup .searchInput,
+  .calcite .calcite-panels .arcgisSearch .searchInputGroup {
     width: 100%; }
-  .calcite-maps.calcite .esriPopup .titleButton.maximize {
-    display: none; }
-  .calcite-maps.calcite-nav-top.calcite-margin-all .calcite-panels, .calcite-maps.calcite-nav-top.calcite-margin-bottom .calcite-panels {
-    margin: 15px; } }
+  .calcite .esriPopup .titleButton.maximize {
+    display: none; } }

@@ -27,10 +27,9 @@
   // Brand
 
   .navbar-brand {
-    padding: 12px 10px 7px;
-    height: 100%;
+    padding: 12.5px;
+    height: $navbar_height;
     font-size: $navbar_brand_font_size;
-    line-height: $navbar_brand_font_size;
     cursor: pointer;
   }
 
@@ -73,6 +72,7 @@
   .navbar-nav {
     display: flex;
     order: 2;
+    flex-shrink: 0;
     margin: 0;
   }
 
