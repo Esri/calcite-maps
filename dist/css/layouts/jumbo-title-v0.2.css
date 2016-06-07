@@ -22,8 +22,6 @@
     margin-bottom: 27px; }
   .calcite-layout-jumbo-title.calcite-nav-top .calcite-panels {
     top: 135px; }
-  .calcite-layout-jumbo-title.calcite-nav-top.calcite-nav-transparent .calcite-panels {
-    top: 15px; }
   .calcite-layout-jumbo-title.calcite-nav-top.calcite-zoom-top-left .esriZoom.esriVertical.esriComponent,
   .calcite-layout-jumbo-title.calcite-nav-top.calcite-zoom-top-right .esriZoom.esriVertical.esriComponent,
   .calcite-layout-jumbo-title.calcite-nav-bottom.calcite-zoom-bottom-left .esriZoom.esriVertical.esriComponent,
