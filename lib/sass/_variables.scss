@@ -22,6 +22,7 @@ $base_breakpoint_height_mobile: 767px;
 
 // Mobile devices including iPad portrait
 $base_breakpoint_width_mobile: 768px;
+$base_breakpoint_width_mobile_xs: 544px;
 
 // ---------------------------------------------------------------
 // Map
@@ -74,7 +75,7 @@ $panel_width_mobile: 100% !default;
 $panel_body_min_height: 50px !default;
 $panel_body_max_height: 350px !default;
 $panel_body_max_height_mobile: 170px !default;
-$panel_body_max_height_expanded: 250px !default;
+$panel_body_max_height_expanded: 125px !default;
 // Font
 $panel_font_size: 15px !default;
 $panel_title_font_size: 15px !default;
@@ -100,8 +101,8 @@ $panel_decoration_height: 1px !default;
 $theme_light_navbar_bg:                 $Calcite_Gray_050;
 $theme_light_navbar_text_color:         $Calcite_Gray_700;
 $theme_light_navbar_text_color_hover:   $Calcite_True_Black;
-$theme_light_navbar_text_color_disabled: $Calcite_Gray_550;
 $theme_light_navbar_decoration_color:   $Calcite_Gray_700;
+$theme_light_navbar_text_color_disabled: $Calcite_Gray_550;
 // Dropdown
 $theme_light_dropdown_menu_bg:           $Calcite_Gray_050;
 $theme_light_dropdown_menu_bg_hover:     $Calcite_Gray_150;
@@ -125,6 +126,7 @@ $theme_light_control_bg_hover:          	$Calcite_Gray_200;
 $theme_light_control_bg_active:         	$Calcite_Gray_050;
 $theme_light_control_text_color:        	$Calcite_Gray_650;
 $theme_light_control_text_color_hover:  	$Calcite_Gray_700;
+$theme_light_control_text_color_disabled: $Calcite_Gray_550;
 $theme_light_control_border_color:      	$Calcite_Gray_450;
 $theme_light_control_border_color_hover:	$Calcite_Gray_700;
 // Panel - Anchors
@@ -140,7 +142,7 @@ $theme_dark_navbar_bg:                  $Calcite_Gray_100_Dark;
 $theme_dark_navbar_text_color:          $Calcite_Gray_050;
 $theme_dark_navbar_text_color_hover:    $Calcite_True_White;
 $theme_dark_navbar_decoration_color:		$Calcite_Gray_050;
-$theme_dark_navbar_text_color_disabled: $Calcite_Gray_350_Dark;
+$theme_dark_navbar_text_color_disabled: $Calcite_Gray_250;
 // Dropdown
 $theme_dark_dropdown_menu_bg:            	$Calcite_Gray_100_Dark;
 $theme_dark_dropdown_menu_bg_hover:      	$Calcite_Gray_300_Dark;
@@ -164,6 +166,7 @@ $theme_dark_control_bg_hover:           $Calcite_Gray_100_Dark;
 $theme_dark_control_bg_active:          $Calcite_Gray_100_Dark;
 $theme_dark_control_text_color:         $Calcite_Gray_050;
 $theme_dark_control_text_color_hover:   $Calcite_True_White;
+$theme_dark_control_text_color_disabled: $Calcite_Gray_250;
 $theme_dark_control_border_color:       $Calcite_Gray_400_Dark;
 $theme_dark_control_border_color_hover:	$Calcite_Gray_050;
 // Panel - Anchors

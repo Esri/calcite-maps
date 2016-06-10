@@ -45,7 +45,7 @@
     <ul class="nav navbar-nav">                    
       <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
       <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
-      <li><div class="calcite-navbar-search hidden-xs"><div id="searchNavDiv"></div></div></li>
+      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
     </ul>
     <!-- Dropdown -->
     <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
@@ -97,22 +97,6 @@
           <p>This is a great place to describe what your application is about.</p>
         </div>
      </div>
-    </div>
-    
-    <!-- Search Panel -->
-
-    <div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg">
-      <div id="headingSearch" class="panel-heading" role="tab">
-        <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch"  aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
-          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
-        </div>
-      </div>
-      <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
-        <div class="panel-body calcite-body-expander"> 
-          <div id="searchPanelDiv"></div>
-        </div>
-      </div>
     </div>
 
     <!-- Basemaps Panel -->
@@ -196,8 +180,7 @@
         mapView: null,
         sceneView: null,
         activeView: null,
-        searchWidgetNav: null,
-        searchWidgetPanel: null
+        searchWidgetNav: null
       };
 
       // Map 
@@ -240,7 +223,6 @@
 
       // Search Widgets
       app.searchWidgetNav = createSearchWidget("searchNavDiv");
-      app.searchWidgetPanel = createSearchWidget("searchPanelDiv");
 
       function createSearchWidget(parentId) {
         var search = new Search({
@@ -321,13 +303,9 @@
       // Search Widgets
       function syncSearch() {
         app.searchWidgetNav.viewModel.view = app.activeView;
-        app.searchWidgetPanel.viewModel.view = app.activeView;
         // Sync
         if (app.searchWidgetNav.selectedResult) {
           app.searchWidgetNav.search(app.searchWidgetNav.selectedResult.name);
-        }
-        if (app.searchWidgetPanel.selectedResult) {
-          app.searchWidgetPanel.search(app.searchWidgetPanel.selectedResult.name);
         }
         app.activeView.popup.reposition();
       }

@@ -10,7 +10,8 @@
 [class*=" esri-icon-"]:before, 
 [class^="icon-ui-"]:before, 
 [class*=" icon-ui-"]:before {
-  padding-right: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .calcite-navbar-search {
