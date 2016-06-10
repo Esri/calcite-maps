@@ -13,21 +13,25 @@
   box-shadow: #{$shadow};
 }
 
-@mixin custom-theme-placholder($opacity) {
-  ::-webkit-input-placeholder {
-    color: inherit;
-    opacity: #{opacity};
+@mixin custom-theme-placholder($color, $opacity) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: $opacity;
   }
-  :-moz-placeholder { /* Firefox 18- */
-    color: inherit;  
-    opacity: #{opacity};
+  &::-moz-placeholder {  /* Firefox 19+ */
+    color: $color;
+    opacity: $opacity;
   }
-  ::-moz-placeholder {  /* Firefox 19+ */
-    color: inherit;
-    opacity: #{opacity};
+  &:-ms-input-placeholder {  
+    color: $color; 
+    opacity: $opacity;
   }
-  :-ms-input-placeholder {  
-    color: inherit; 
-    opacity: #{opacity};
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $color;  
+    opacity: $opacity;
+  }
+  &::placeholder {
+    color: $color;  
+    opacity: $opacity; 
   }
 }

@@ -1,4 +1,4 @@
-/* calcite-maps - v0.0.1 - 2016-06-07
+/* calcite-maps - v0.0.1 - 2016-06-10
 *  https://github.com/alaframboise/calcite-maps#readme
 *  Copyright (c) 2016 Environmental Systems Research Institute, Inc.
 *  Apache 2.0 License */

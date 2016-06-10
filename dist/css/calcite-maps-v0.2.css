@@ -367,7 +367,7 @@
 .calcite-navbar.calcite-text-light .navbar-nav > .disabled > a,
 .calcite-navbar.calcite-text-light .navbar-nav > .disabled > a:hover,
 .calcite-navbar.calcite-text-light .navbar-nav > .disabled > a:focus {
-  color: #5c5c5c;
+  color: #e7e7e7;
   background-color: transparent; }
 
 .calcite-nav-bottom .calcite-navbar.calcite-text-light .navbar-brand:hover,
@@ -469,7 +469,8 @@
 
 .calcite-dropdown {
   order: 3;
-  flex-shrink: 0; }
+  flex-shrink: 0;
+  flex-grow: 0; }
   .calcite-dropdown .dropdown-toggle {
     display: block;
     margin: 0;
@@ -633,13 +634,13 @@
 
 .calcite-panels .calcite-body-expander:focus,
 .calcite-panels .calcite-body-expander:hover {
-  min-height: 250px;
+  min-height: 125px;
   -webkit-transition: min-height 0.25s ease-out;
   -o-transition: min-height 0.25s ease-out;
   transition: min-height 0.25s ease-out; }
 
 .calcite-panels .calcite-body-expanded {
-  height: 250px;
+  height: 125px;
   -webkit-transition: height 0.25s ease-out;
   -o-transition: height 0.25s ease-out;
   transition: height 0.25s ease-out; }
@@ -922,23 +923,27 @@
 .calcite-panels.calcite-bg-custom select {
   border: 1px solid rgba(255, 255, 255, 0.35); }
 
-.calcite-panels.calcite-bg-custom ::-webkit-input-placeholder {
+.calcite-panels.calcite-bg-custom::-webkit-input-placeholder {
   color: inherit;
-  opacity: opacity; }
+  opacity: 0.65; }
 
-.calcite-panels.calcite-bg-custom :-moz-placeholder {
-  /* Firefox 18- */
-  color: inherit;
-  opacity: opacity; }
-
-.calcite-panels.calcite-bg-custom ::-moz-placeholder {
+.calcite-panels.calcite-bg-custom::-moz-placeholder {
   /* Firefox 19+ */
   color: inherit;
-  opacity: opacity; }
+  opacity: 0.65; }
 
-.calcite-panels.calcite-bg-custom :-ms-input-placeholder {
+.calcite-panels.calcite-bg-custom:-ms-input-placeholder {
   color: inherit;
-  opacity: opacity; }
+  opacity: 0.65; }
+
+.calcite-panels.calcite-bg-custom:-moz-placeholder {
+  /* Firefox 18- */
+  color: inherit;
+  opacity: 0.65; }
+
+.calcite-panels.calcite-bg-custom::placeholder {
+  color: inherit;
+  opacity: 0.65; }
 
 .calcite-nav-bottom .calcite-bg-custom .panel-body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15); }

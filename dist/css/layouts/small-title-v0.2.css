@@ -431,6 +431,7 @@
     padding: 14px 15px 12px;
     font-size: 14px; }
   .calcite-layout-small-title .calcite-navbar .dropdown-toggle {
+    width: 53px;
     padding: 17.5px; }
   .calcite-layout-small-title .calcite-navbar .dropdown-menu > li > a {
     padding: 8px 10px;
