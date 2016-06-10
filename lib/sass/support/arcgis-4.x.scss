@@ -25,8 +25,8 @@ $theme_dark_arcgis_active_text_color: $Calcite_Gray_700_Dark;
 $theme_dark_arcgis_disabled_text_color: $Calcite_Gray_350_Dark;
 
 // Search expander
-$search_expander_width: 250px;
-$search_expander_width_mobile_xs: 200px;
+$search_expander_width: 254px;
+$search_expander_width_mobile_xxs: 200px;
 $text_dark_widget_border_color: rgba(0, 0, 0, 0.30);
 $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
@@ -546,14 +546,14 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
 } 
 
-@media (max-width: $base_breakpoint_width_mobile_xs) {
+@media (max-width: $base_breakpoint_width_mobile_xxs) {
   .calcite-navbar {
     .calcite-navbar-search {
       &.calcite-search-expander {
         .esri-search:hover,
         .esri-search:focus {
           .esri-search__container {
-            width: $search_expander_width_mobile_xs;
+            width: $search_expander_width_mobile_xxs;
           }
         }
       }
