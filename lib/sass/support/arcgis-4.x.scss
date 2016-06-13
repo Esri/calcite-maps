@@ -31,15 +31,23 @@ $text_dark_widget_border_color: rgba(0, 0, 0, 0.30);
 $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
 // --------------------------------------------------
-// Esri Widgets
-// --------------------------------------------------
-
 // View
+// --------------------------------------------------
 
 .esri-view {
   position: absolute;
   height: 100%;
   width: 100%;
+}
+
+// --------------------------------------------------
+// Widgets
+// --------------------------------------------------
+
+// Buttons
+
+.esri-widget-button {
+  z-index: 1;
 }
 
 // Basemaptoggle
@@ -76,6 +84,10 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 .esri-popup .esri-popup-collapsed .esri-popup-content, 
 .esri-popup .esri-popup-collapsed.esri-show-footer .esri-footer {
   display: none;
+}
+
+.esri-popup .esri-show-dock .esri-dock {
+  z-index: 1;
 }
 
 // Popup - Nav top
@@ -154,9 +166,9 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
       .esri-search .esri-search__container::before {
         content: " ";
         position: absolute;
-        top: -5px;
+        top: -10px;
         left: 0;
-        height: 5px;
+        height: 10px;
         width: 100%;
         display: block;
         background-color: transparent;
@@ -165,9 +177,9 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
       .esri-search .esri-search__container::after {
         content: " ";
         position: absolute;
-        bottom: -5px;
+        bottom: -10px;
         left: 0;
-        height: 5px;
+        height: 10px;
         width: 100%;
         display: block;
         background-color: transparent;
