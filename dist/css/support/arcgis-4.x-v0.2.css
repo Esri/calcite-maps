@@ -201,6 +201,9 @@
   height: 100%;
   width: 100%; }
 
+.esri-widget-button {
+  z-index: 1; }
+
 .esri-basemap-toggle {
   z-index: 1px; }
 
@@ -220,6 +223,9 @@
 .esri-popup .esri-popup-collapsed .esri-popup-content,
 .esri-popup .esri-popup-collapsed.esri-show-footer .esri-footer {
   display: none; }
+
+.esri-popup .esri-show-dock .esri-dock {
+  z-index: 1; }
 
 .calcite-nav-top .esri-popup .esri-docked,
 .calcite-nav-top-fixed .esri-popup .esri-docked {
@@ -257,18 +263,18 @@
   .calcite-navbar .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container::before {
     content: " ";
     position: absolute;
-    top: -5px;
+    top: -10px;
     left: 0;
-    height: 5px;
+    height: 10px;
     width: 100%;
     display: block;
     background-color: transparent; }
   .calcite-navbar .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container::after {
     content: " ";
     position: absolute;
-    bottom: -5px;
+    bottom: -10px;
     left: 0;
-    height: 5px;
+    height: 10px;
     width: 100%;
     display: block;
     background-color: transparent; }

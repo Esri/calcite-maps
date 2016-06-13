@@ -9,10 +9,17 @@
   flex-shrink: 0;
   flex-grow: 0;
 
+  // Esri fonts
+  [class^="esri-icon-"], [class*=" esri-icon-"] {
+    position: relative;
+    font-size: 15px;
+    top: 2px;
+  }
+
   .dropdown-toggle {
     display: block;
     margin: 0;
-    padding: 24px 15px 27px 15px;
+    padding: 24px 20px 27px 20px;
     border: none;
   }
 

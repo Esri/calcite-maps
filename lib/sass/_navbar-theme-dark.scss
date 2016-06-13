@@ -54,6 +54,12 @@
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
+    // Toggle menu animated
+    
+    .calcite-dropdown-toggle span {
+      background-color: $theme_dark_control_text_color;
+    }
+
     // Nav
     
     .navbar-nav > li > a {
