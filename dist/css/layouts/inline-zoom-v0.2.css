@@ -1,11 +1,25 @@
+.calcite-layout-inline-left .calcite-navbar,
+.calcite-layout-inline-right .calcite-navbar {
+  height: 65px;
+  min-height: 65px; }
+
 .calcite-layout-inline-left .calcite-navbar {
   left: 47px; }
 
 .calcite-layout-inline-right .calcite-navbar {
   right: 47px; }
 
+.calcite-layout-inline-left.calcite-nav-top.calcite-margin-all .calcite-panels,
 .calcite-layout-inline-right.calcite-nav-top.calcite-margin-all .calcite-panels {
-  top: 90px; }
+  top: 95px; }
+
+.calcite-layout-inline-left.calcite-nav-top.calcite-margin-all.calcite-nav-hidden .calcite-panels,
+.calcite-layout-inline-right.calcite-nav-top.calcite-margin-all.calcite-nav-hidden .calcite-panels {
+  top: 15px; }
+
+.calcite-layout-inline-left .calcite-dropdown .dropdown-toggle,
+.calcite-layout-inline-right .calcite-dropdown .dropdown-toggle {
+  padding: 24px 20px 27px 21px; }
 
 .calcite.calcite-layout-inline-left.calcite-nav-top.calcite-margin-all .esriSimpleSlider,
 .calcite.calcite-layout-inline-left.calcite-nav-bottom.calcite-margin-all .esriSimpleSlider,
@@ -13,8 +27,8 @@
 .calcite.calcite-layout-inline-right.calcite-nav-bottom.calcite-margin-all .esriSimpleSlider {
   margin: 15px; }
 
-.calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .esriZoom.esriVertical.esriComponent,
-.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .esriZoom.esriVertical.esriComponent {
+.calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden .esriZoom.esriVertical.esriComponent,
+.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden .esriZoom.esriVertical.esriComponent {
   margin-top: 15px; }
 
 .calcite-layout-inline-left.calcite-nav-top.calcite-margin-all .leaflet-control-zoom,
@@ -24,7 +38,7 @@
   margin: 15px; }
 
 .calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-trans .leaflet-control-zoom,
-.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .leaflet-control-zoom {
+.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden .leaflet-control-zoom {
   margin-top: 15px; }
 
 @media (max-width: 767px) {
