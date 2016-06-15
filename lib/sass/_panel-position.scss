@@ -6,22 +6,22 @@
 
 .calcite-panels {
   position: absolute;
-  top: $panel_position_top;
-  right: $panel_position_right;
-  width: $panel_width;
+  top: $panels_position_top;
+  right: $panels_position_right;
+  width: $panels_width;
   // z-index: 50;
 }
 
 &.calcite-panels-right {
   .calcite-panels {
     left: auto;
-    right: $panel_position_right;
+    right: $panels_position_right;
   }
 }
 
 &.calcite-panels-left {
   .calcite-panels {
-    left: $panel_position_left;
+    left: $panels_position_left;
     right: auto;
   }
 }
@@ -31,14 +31,14 @@
 &.calcite-nav-top,
 &.calcite-nav-top-fixed {
   .calcite-panels {
-    top: $panel_position_top + $navbar_height;
+    top: $panels_position_top + $navbar_height;
   }
 }
 
 &.calcite-nav-top.calcite-margin-top, 
 &.calcite-nav-top.calcite-margin-all {
   .calcite-panels {
-    top: $panel_position_top + $navbar_height + $base_ui_margin;
+    top: $panels_position_top + $navbar_height + $base_ui_margin;
   }
 }
 
@@ -49,7 +49,7 @@
 &.calcite-nav-bottom.calcite-margin-bottom,
 &.calcite-nav-bottom.calcite-margin-all {
   .calcite-panels {
-    top: $panel_position_top + $base_ui_margin;
+    top: $panels_position_top + $base_ui_margin;
   }
 }
 
@@ -64,7 +64,7 @@
   &.calcite-panels-left .calcite-panels {
     right: 0;
     left: 0;
-    width: $panel_width_mobile;
+    width: $panels_width_mobile;
   }
 
   // Navbar - Top

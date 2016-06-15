@@ -5,6 +5,7 @@
 // Styling for panels, panel, title and body
 
 .calcite-panels {
+  z-index: 2; // above widgets, below popup
 
   &.panel-group {
     margin-bottom: 0;
@@ -35,9 +36,13 @@
     font-weight: $panel_title_font_weight;  
   }
 
+  .panel-label {
+    padding-left: 5px;
+  }
+
   .panel-toggle {
     flex: 1;
-    padding: 9px 10px 8px;
+    padding: 8px 8px 8px 10px;
     text-decoration: none;
     .glyphicon {
       top: 2px;
@@ -46,7 +51,7 @@
   }
 
   .panel-close {
-    padding: 10px 10px 8px;
+    padding: 10px 10px 5px;
     font-size: $panel_font_size - 1;
     text-decoration: none;
   }
@@ -59,6 +64,7 @@
 
   .panel-body {
     padding: 15px;
+    width: $panel_body_width;
     min-height: $panel_body_min_height;
     max-height: $panel_body_max_height;
     font-size: $panel_font_size;
@@ -165,10 +171,36 @@
 
 // Mobile screens
 
-@media (max-height: $panels_breakpoint_height_mobile) { 
+@media (max-width: $panels_breakpoint_width_mobile) { 
   .calcite-panels {
     .panel-body {
-      max-height: $panel_body_max_height_mobile;
+      width: $panel_body_width_mobile;
     }
   }
 }
+
+@media (min-height: $panels_breakpoint_height_xs) { 
+  .calcite-panels {
+    .panel-body {
+      max-height: $panel_body_height_xs;
+    }
+  }
+}
+
+@media (min-height: $panels_breakpoint_height_sm) { 
+  .calcite-panels {
+    .panel-body {
+      max-height: $panel_body_height_sm;
+    }
+  }
+}
+
+@media (min-height: $panels_breakpoint_height_md) { 
+  .calcite-panels {
+    .panel-body {
+      max-height: $panel_body_height_md;
+    }
+  }
+}
+
+
