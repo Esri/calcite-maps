@@ -6,6 +6,14 @@
 
 // All APIs
 
+.calcite-layout-inline-left,
+.calcite-layout-inline-right {
+  .calcite-navbar {
+    height: 65px;
+    min-height: 65px;
+  }
+}
+
 .calcite-layout-inline-left .calcite-navbar {
   left: 47px;
 }
@@ -14,8 +22,24 @@
   right: 47px;
 }
 
-.calcite-layout-inline-right.calcite-nav-top.calcite-margin-all .calcite-panels {
-  top: 90px;
+.calcite-layout-inline-left,
+.calcite-layout-inline-right {
+  &.calcite-nav-top.calcite-margin-all .calcite-panels {
+    top: 95px;
+  }
+}
+
+.calcite-layout-inline-left,
+.calcite-layout-inline-right {
+  &.calcite-nav-top.calcite-margin-all.calcite-nav-hidden .calcite-panels {
+    top: 15px;
+  }
+}
+.calcite-layout-inline-left,
+.calcite-layout-inline-right {
+  .calcite-dropdown .dropdown-toggle {
+    padding: 24px 20px 27px 21px;
+  }
 }
 
 // ArcGIS 3.x
@@ -29,8 +53,8 @@
   }
 }
 
-.calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent ,
-.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent {
+.calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden ,
+.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden {
   .esriZoom.esriVertical.esriComponent {
     margin-top: 15px;
   }
@@ -48,7 +72,7 @@
 }
 
 .calcite-layout-inline-left.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-trans,
-.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent {
+.calcite-layout-inline-right.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden {
   .leaflet-control-zoom {
     margin-top: 15px;
   }
