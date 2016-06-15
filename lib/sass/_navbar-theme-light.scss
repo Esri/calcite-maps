@@ -33,10 +33,20 @@
 
     // Title
 
-    .calcite-title-main,
-    .calcite-title-sub {
+    .calcite-title-main {
       color: $theme_light_navbar_text_color;
     } 
+
+    .calcite-title-divider {
+      color: $theme_light_navbar_text_color_secondary;
+      opacity: $theme_all_navbar_opacity;
+    }
+
+    .calcite-title-sub {
+      color: $theme_light_navbar_text_color_secondary;
+    } 
+
+
 
     // Optional
     // .calcite-title:hover, 
