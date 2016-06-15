@@ -44,6 +44,12 @@
   left: 0;
 }
 
+// Popup
+
+.calcite .esriPopup .titleButton.maximize {
+  display: none;
+}
+
 // All
 
 .calcite .esriSimpleSlider {
@@ -68,16 +74,16 @@
   margin-top: 95px;  
 }
 
-.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-nav-transparent .esriSimpleSlider {
+.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-nav-hidden .esriSimpleSlider {
   margin-top: 15px;
 }
 
-.calcite.calcite-nav-top.calcite-zoom-top-right.calcite-nav-transparent .esriSimpleSlider {
+.calcite.calcite-nav-top.calcite-zoom-top-right.calcite-nav-hidden .esriSimpleSlider {
   margin-top: 15px;
 }
 
-.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-margin-top.calcite-nav-transparent .esriSimpleSlider,
-.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-transparent .esriSimpleSlider {
+.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-margin-top.calcite-nav-hidden .esriSimpleSlider,
+.calcite.calcite-nav-top.calcite-zoom-top-left.calcite-margin-all.calcite-nav-hidden .esriSimpleSlider {
   margin-top: 15px;
 }
 
@@ -99,16 +105,16 @@
   margin-bottom: 95px; 
 }
 
-.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-nav-transparent .esriSimpleSlider {
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-nav-hidden .esriSimpleSlider {
   margin-bottom: 80px;
 }
 
-.calcite.calcite-nav-bottom.calcite-zoom-bottom-right.calcite-nav-transparent .esriSimpleSlider {
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-right.calcite-nav-hidden .esriSimpleSlider {
   margin-bottom: 15px;
 }
 
-.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-margin-bottom.calcite-nav-transparent .esriSimpleSlider,
-.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-margin-all.calcite-nav-transparent .esriSimpleSlider {
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-margin-bottom.calcite-nav-hidden .esriSimpleSlider,
+.calcite.calcite-nav-bottom.calcite-zoom-bottom-left.calcite-margin-all.calcite-nav-hidden .esriSimpleSlider {
   margin-bottom: 95px;
 }
 
