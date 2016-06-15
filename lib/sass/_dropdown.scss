@@ -5,7 +5,7 @@
 // Styling for nav dropdown
 
 .calcite-dropdown {
-  order: 3;
+  order: 0;
   flex-shrink: 0;
   flex-grow: 0;
 
@@ -18,16 +18,16 @@
 
   .dropdown-toggle {
     display: block;
-    margin: 0;
-    padding: 24px 20px 27px 20px;
+    margin: $navbar_dropdown_toggle_margin;
+    padding: $navbar_dropdown_toggle_padding;
     border: none;
   }
 
   .dropdown-toggle .icon-bar {
     display: block;
     border-radius: 0;
-    height: 2px;
-    width: 18px;
+    height: $navbar_dropdown_toggle_icon_bar_height;
+    width: $navbar_dropdown_toggle_icon_bar_width;
     background-color: #4c4c4c; //default
   }
 
@@ -38,8 +38,8 @@
   .dropdown-menu {
     display: block;
     visibility: hidden;
-    left: auto;
-    right: 0;
+    left: 0;
+    right: auto;
     margin:0;
     max-height: $dropdown_menu_max_height;
     border: none;
