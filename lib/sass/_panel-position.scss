@@ -7,23 +7,18 @@
 .calcite-panels {
   position: absolute;
   top: $panels_position_top;
-  right: $panels_position_right;
   width: $panels_width;
   // z-index: 50;
 }
 
-&.calcite-panels-right {
-  .calcite-panels {
-    left: auto;
-    right: $panels_position_right;
-  }
+.calcite-panels-right {
+  left: auto;
+  right: $panels_position_right;
 }
 
-&.calcite-panels-left {
-  .calcite-panels {
-    left: $panels_position_left;
-    right: auto;
-  }
+.calcite-panels-left {
+  left: $panels_position_right;
+  right: auto;
 }
 
 // Navbar - Top 
@@ -57,14 +52,16 @@
 
 @media (max-width: $panels_breakpoint_width_mobile) {
 
-  // Panel - Reset
+  // Panel
 
-  .calcite-panels,
-  &.calcite-panels-right .calcite-panels,
-  &.calcite-panels-left .calcite-panels {
+  .calcite-panels {
+    width: $panels_width_mobile;
+  }
+
+  .calcite-panels-left,
+  .calcite-panels-right {
     right: 0;
     left: 0;
-    width: $panels_width_mobile;
   }
 
   // Navbar - Top

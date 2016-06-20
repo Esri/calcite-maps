@@ -93,14 +93,15 @@
 
 </head>
 
-<body class="calcite-nav-top calcite-layout-medium-title calcite-panels-left">
+<body class="calcite-nav-top calcite-layout-medium-title">
 
   <!-- Navbar -->
 
   <nav class="navbar navbar-fixed-top calcite-navbar calcite-bg-custom calcite-text-light" style="background-color: rgb(76, 76, 76);">
      <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
-      <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!--a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"-->
+      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="calcite-dropdown-toggle">
           <span class="sr-only">Toggle dropdown menu</span>
           <span></span>
@@ -121,7 +122,7 @@
         <li><a role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
         <li><a role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
         <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Toggle Title</a></li>
+        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div> 
     <!-- Title -->
@@ -150,7 +151,7 @@
                 <div class="text-center">
                   <h3>Welcome to Calcite Maps</h3>
                   <hr>
-                  <p>Use this application to interactively design your application and to explore the different colors, styles and layouts. When you are done, apply the CSS styles and classes to your own apps. Get started quickly by using one of the <a href="../index.html">code samples</a>.</p>
+                  <p>Use this application to interactively design your application and to explore the different colors, styles and layouts. When you are done, apply the CSS styles and classes to your own apps. Get a jump-start by starting with one of the <a href="../index.html">sample applications</a>.</p>
                   <br>
                   <div class="form-inline">
                     <div class="form-group">
@@ -182,7 +183,7 @@
 
   <!-- Panel Container -->
   
-  <div class="calcite-panels calcite-bg-custom calcite-text-light panel-group" role="tablist" aria-multiselectable="true" style="background-color: rgb(76, 76, 76);">
+  <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light panel-group" role="tablist" aria-multiselectable="true" style="background-color: rgb(76, 76, 76);">
     
     <!-- Panel - Info -->
 
@@ -488,8 +489,8 @@
                             <span class="esri-icon esri-icon-close" aria-hidden="true"></span>
                           </div>
                           <select id="settingsThemeColor" class="form-control">
-                            <option value="light" selected>Light</option>
-                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                            <option value="dark" selected>Dark</option>
                           </select>
                         </div>
                       </div>
@@ -651,12 +652,12 @@
                   <div class="col-xs-9">
                     <select id="settingsLayout" class="form-control">
                       <option value="layout-top">Top (Default)</option>
-                      <option value="layout-top-space">Top Space</option>
-                      <option value="layout-top-space-all">Top Space All</option>
+                      <option value="layout-top-space">Top Margin</option>
+                      <option value="layout-top-space-all">Top Margin All</option>
                       <option value="layout-top-fixed">Top Above Map</option>
                       <option value="layout-bottom">Bottom</option>
-                      <option value="layout-bottom-space">Bottom Space</option>
-                      <option value="layout-bottom-space-all">Bottom Space All</option>
+                      <option value="layout-bottom-space">Bottom Margin</option>
+                      <option value="layout-bottom-space-all">Bottom Margin All</option>
                       <option value="layout-bottom-fixed">Bottom Below Map</option>
                       <option value="layout-top">--- Layouts ---</option>
                       <option value="calcite-layout-medium-title-top" selected>Medium Title Top</option>
@@ -751,8 +752,8 @@
                   <label for="settingsPanel" class="col-xs-3 control-label">Panel</label>
                   <div class="col-xs-9">
                     <select id="settingsPanel" class="form-control">
-                      <option value="calcite-panels-left">PanelLeft</option>
-                      <option value="calcite-panels-right" selected>PanelRight</option>
+                      <option value="calcite-panels-left" selected>Left</option>
+                      <option value="calcite-panels-right">Right</option>
                     </select>
                   </div>
                 </div>
@@ -773,6 +774,7 @@
       {
         name: "calcite-maps",
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../lib/js/dojo"
       },
       {
         name: "calcite-settings",
@@ -807,6 +809,7 @@
 
       // Calcite Maps
       "calcite-maps/calcitemaps-v0.2",
+      // "calcite-maps/calcitemaps",
       "calcite-settings/panelsettings",
 
       // Boostrap
@@ -857,15 +860,11 @@
           autoPanEnabled: true,
           messageEnabled: false,
           spinnerEnabled: false,
-          dockEnabled: false, // no auto-docking
+          dockEnabled: true,
           dockOptions: {
             buttonEnabled: true,
-            breakpoint: false // no auto-docking
+            breakpoint: 544 // default
           }
-        },
-        screenWidthBreakpointMobile: 768,
-        activePanel: {
-          id: null
         },
         colorPickerWidget: null,
         panelSettings: null
@@ -882,6 +881,11 @@
       app.panelSettings = new PanelSettings( { app: app } );
       app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOPMEDIUM;
       app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+
+      // Set padding for navs that change height
+      if (window.innerWidth < app.activeView.breakpoints.small && app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+        app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+      }
 
       //----------------------------------
       // Map and Scene View
@@ -901,8 +905,6 @@
           visible: true
         });
 
-        app.mapView.ui.move([ "zoom"], "top-right");
-
         //Set active view
         app.activeView = app.mapView;
 
@@ -919,15 +921,20 @@
           visible: false
         });
 
-        app.sceneView.ui.move([ "zoom"], "top-right");
-            
-        app.mapView.then( function() {
-          setPopupEvents(app.mapView);
+        // Listen for view breakpoint changes and update control location
+        app.mapView.watch("widthBreakpoint", function(newVal, oldVal) {
+          function setPadding(newVal, oldVal) {
+            if (newVal === "small" && oldVal === "medium") {
+              app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+            } else if (newVal === "medium" && oldVal === "small") {
+              app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPadding, app.panelSettings.activeLayout.uiPadding);
+            }
+          }
+          // Set padding for navs that change height
+          if (app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+            setPadding(newVal, oldVal);
+          }
         });
-
-        app.sceneView.then( function() {
-          setPopupEvents(app.sceneView);
-        })
       }
 
       //----------------------------------
@@ -940,6 +947,7 @@
         setBasemapEvents();
         setSearchWidgets();
         setColorPicker();
+        setPopupPanelEvents();
       }
 
       //----------------------------------
@@ -1061,163 +1069,58 @@
       // Popups and Panels
       //----------------------------------
 
-      function setPopupEvents() {
+      function setPopupPanelEvents() {
 
-        // Popup Events
+        // Views - Listen to view size changes to show/hide panels
+        app.mapView.watch("size", viewSizeChange);
+        app.sceneView.watch("size", viewSizeChange);
+
+        function viewSizeChange(screenSize) {
+          if (app.screenWidth !== screenSize[0]) {
+            app.screenWidth = screenSize[0];
+            setPanelVisibility();
+          }
+        }
+
+        // Popups - Listen to popup changes to show/hide panels
         app.mapView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
         app.sceneView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
 
-        // Panel Events
+        // Panels - Show/hide the panel when popup is docked
+        function setPanelVisibility() {
+           var isMobileScreen = app.activeView.widthBreakpoint === "xsmall" || app.activeView.widthBreakpoint === "small",
+            isDockedVisible = app.activeView.popup.visible && app.activeView.popup.currentDockPosition,
+            isDockedBottom = app.activeView.popup.currentDockPosition && app.activeView.popup.currentDockPosition.indexOf("bottom") > -1;
+          // Mobile (xsmall/small)
+          if (isMobileScreen) {
+            if (isDockedVisible && isDockedBottom) {
+              query(".calcite-panels").addClass("invisible");
+            } else {
+              query(".calcite-panels").removeClass("invisible");
+            }
+          } else { // Desktop (medium+)
+            if (isDockedVisible) {
+              query(".calcite-panels").addClass("invisible");
+            } else {
+              query(".calcite-panels").removeClass("invisible");          
+            }
+          }
+        }
+
+        // Panels - Dock popup when panels show (desktop or mobile)
         query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-          if (app.activeView.popup.visible && window.innerWidth <= app.activeView.breakpoints.small) {
+          if (app.activeView.popup.currentDockPosition || app.activeView.widthBreakpoint === "xsmall") {
             app.activeView.popup.dockEnabled = false;
           }
         });
 
+        // Panels - Undock popup when panels hide (mobile only)
         query(".calcite-panels .panel").on("hide.bs.collapse", function(e) {
-          if (app.activeView.popup.visible && window.innerWidth <= app.activeView.breakpoints.small) {
+          if (app.activeView.widthBreakpoint === "xsmall") {
             app.activeView.popup.dockEnabled = true;
           }
         });
-
-        // Window Events
-        query(window).on("resize", function(e) {
-          setPanelVisibility();
-        });
-
-        function setPanelVisibility() {
-          var isMobileScreen = window.innerWidth <= app.activeView.breakpoints.small;
-          if (app.activeView.popup.visible && app.activeView.popup.currentDockPosition && isMobileScreen) {
-            query(".calcite-panels").addClass("invisible");
-          } else {
-            query(".calcite-panels").removeClass("invisible");
-          }
-        }
       }
-
-      // function setPopupEvents(view) {
-      //   view.popup.watch("currentDockPosition", function(result) {
-      //     setPanelDockPosition();
-      //   });        
-      // }
-
-      // function setPanelEvents() {
-      //   // Panel events
-      //   query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-      //     setActivePanel(e.target.id);
-      //     setPopupDockPosition();
-      //   });
-
-      //   query(".calcite-panels .panel .panel-close").on("click", function(e) {
-      //     setActivePanel(null);
-      //   });
-      // }
-
-      // //----------------------------------
-      // // Popup and Panel functions
-      // //----------------------------------
-
-      // function setPopupDockPosition() {
-      //   if (app.activePanel.id) {
-      //     if (windowsOverlap()) {
-      //       app.activeView.popup.dockEnabled = false;
-      //     }          
-      //   }
-      // }
-
-      // function setPanelDockPosition() {
-      //   if (app.activePanel.id) {
-      //     if (windowsOverlap()) {
-      //       query("#" + app.activePanel.id).collapse("hide");
-      //     } else {
-      //       if (!(query("#" + app.activePanel.id + ".in").length > 0)) {
-      //         query("#" + app.activePanel.id).collapse("show");
-      //       }
-      //     }
-      //   }
-      // }
-
-      // function setActivePanel(id) {
-      //   if (id) {
-      //     app.activePanel.id = id;
-      //   } else {
-      //     app.activePanel.id = null;
-      //   }
-      // }
-
-      // function findActivePanel() {
-      //   var panel = query(".calcite-panels .panel.in")[0];
-      //   if (panel) {
-      //     return panel.id;
-      //   } else {
-      //     return null;
-      //   }
-      // }
-
-      // function windowsOverlap() {
-      //   var popup = app.activeView.popup,
-      //     overlap = false;
-      //   if (app.activePanel.id && popup.visible) {
-      //     // Desktop
-      //     if (window.innerWidth > app.screenWidthBreakpointMobile) {
-      //       if (popup.currentDockPosition === "top-right") {
-      //         overlap = true;
-      //       } 
-      //     } else { // Mobile
-      //       if (popup.currentDockPosition && popup.currentDockPosition.indexOf("bottom-") !== -1) {            
-      //         overlap = true;
-      //       }
-      //     }
-      //   } 
-      //   return overlap;
-      // }
-
-      //  // Popup Events
-      // app.mapView.popup.watch("currentDockPosition", function(result) {
-      //   setPanelVisibility();
-      // });
-
-      // app.sceneView.popup.watch("currentDockPosition", function(result) {
-      //   setPanelVisibility();
-      // });
-
-      // // Panel Events
-      // query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-      //   if (app.activeView.popup.currentDockPosition) {
-      //     app.activeView.popup.dockEnabled = false;
-      //   } 
-      // });
-
-      // // Window Events
-      // query(window).on("resize", function() {
-      //   setPanelVisibility();
-      // })
-
-      // // Panel show/hide
-      // function setPanelVisibility() {
-      //   if (app.activeView.popup.visible && app.activeView.popup.currentDockPosition && !(window.innerWidth > 544 && window.innerWidth < 768)) {
-      //     if (query(".calcite-panels .panel.in").length > 0) {
-      //       query(".calcite-panels").addClass("invisible");
-      //     } else {
-      //       query(".calcite-panels").removeClass("invisible");
-      //     }
-      //   } else {
-      //     query(".calcite-panels").removeClass("invisible");
-      //   }
-      // }  
-
-      //----------------------------------
-      // Toggle nav
-      //----------------------------------
-      query("#calciteToggleNavbar").on("click", function(e) {
-        var padding;
-        if (query(".calcite-nav-hidden").length > 0) { // hidden
-          app.panelSettings.setLayout(app.panelSettings.activeLayout, true);
-          query(".calcite-panels .panel.in").collapse("hide");
-        } else {
-          app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
-        }
-      });
 
       //----------------------------------
       // Popup collapse (optional)
@@ -1227,6 +1130,32 @@
         query(".esri-popup .esri-container").toggleClass("esri-popup-collapsed");
         app.activeView.popup.reposition();
       });
+
+      //----------------------------------
+      // Toggle nav
+      //----------------------------------
+      // query("#calciteToggleNavbar").on("click", function(e) {
+      //   var padding;
+      //   if (query(".calcite-nav-hidden").length > 0) { // hidden
+      //     //app.panelSettings.setLayout(app.panelSettings.activeLayout, true);
+      //     //query(".calcite-panels .panel.in").collapse("hide");
+      //   } else {
+      //     //app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+      //   }
+      //   query(".calcite-dropdown").removeClass("open");
+      //   query(".calcite-dropdown-toggle").removeClass("open");
+      // });
+
+      //----------------------------------
+      // Manual show/hide menu dropdown (slide)
+      //----------------------------------
+
+      // query(".dropdown-toggle").on('click', function (e) {
+      //   // Show dropdown nav
+      //   query(this).parent().toggleClass("open");
+      //   // Menu animcation
+      //   query(".calcite-dropdown-toggle").toggleClass("open");
+      // });
 
     });
   </script>

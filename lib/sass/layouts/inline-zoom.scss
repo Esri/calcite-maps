@@ -4,6 +4,8 @@
 //
 // Simple theme that brings zoom and nav inline
 
+@import "../variables";
+
 // All APIs
 
 .calcite-layout-inline-left,
@@ -26,15 +28,17 @@
 .calcite-layout-inline-right {
   &.calcite-nav-top.calcite-margin-all .calcite-panels {
     top: 95px;
+    bottom: auto;
   }
 }
 
-.calcite-layout-inline-left,
-.calcite-layout-inline-right {
+.calcite-layout-inline-left{
   &.calcite-nav-top.calcite-margin-all.calcite-nav-hidden .calcite-panels {
     top: 15px;
+    bottom: auto;
   }
 }
+
 .calcite-layout-inline-left,
 .calcite-layout-inline-right {
   .calcite-dropdown .dropdown-toggle {
@@ -78,15 +82,16 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: $base_breakpoint_width_mobile) {
   .calcite-layout-inline-left,
-  .calcite-layout-inline-right,
-  .calcite-layout-inline-right.calcite-nav-top.calcite-margin-all {
-    .calcite-panels {
-      top: auto;
-      bottom: 0;
-      margin: auto 15px 30px 15px;
-      width: auto;
+  .calcite-layout-inline-right {
+    &.calcite-nav-top.calcite-margin-all,
+    &.calcite-nav-top.calcite-margin-all.calcite-nav-hidden {
+      .calcite-panels {
+        top: auto;
+        bottom: 0;
+        margin: auto 15px 30px 15px;
+      }
     }
   }
 }
