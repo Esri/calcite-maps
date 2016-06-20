@@ -52,6 +52,10 @@ define([
             var parentNode = _getParent(this)[0];
             if (parentNode) {
                 var target = query(toggleSelector, parentNode);
+                // Fix for not setting dropdown target
+                if (target.length < 1) {
+                    target = [e.target.parentElement];
+                } 
                 on.emit(target[0], 'select', { bubbles:true, cancelable:true, selectedItem: query(e.target).closest('li') });
             }
         },

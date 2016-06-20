@@ -196,14 +196,19 @@
 .calcite-bgcolor-dark-brown {
   background-color: #8c5e2a !important; }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .calcite-layout-large-title .calcite-navbar {
     height: 85px;
     min-height: 85px; }
+    .calcite-layout-large-title .calcite-navbar .navbar-brand {
+      padding: 17px 7px;
+      font-size: 50px; }
     .calcite-layout-large-title .calcite-navbar .navbar-nav {
       margin-top: 16.5px; }
   .calcite-layout-large-title .calcite-dropdown {
-    margin: 16.5px 5px 15px 5px; }
+    margin: 16px 0 15px 0; }
+  .calcite-layout-large-title .calcite-dropdown .dropdown-toggle {
+    padding: 18px 20px 18px 21px; }
   .calcite-layout-large-title .calcite-dropdown .dropdown-menu {
     margin: 15px auto 17px -5px; }
   .calcite-layout-large-title .calcite-title-main {
@@ -211,8 +216,8 @@
     font-size: 48px;
     line-height: 1.1; }
   .calcite-layout-large-title .calcite-title-divider {
-    margin: 0 20px;
-    height: 140px; }
+    height: 100px;
+    margin: 0 20px; }
   .calcite-layout-large-title .calcite-title-sub {
     font-size: 14px;
     line-height: 1.1; }
