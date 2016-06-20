@@ -5,7 +5,7 @@
 // Styling for nav dropdown
 
 .calcite-dropdown {
-  order: 3;
+  order: 0;
   flex-shrink: 0;
   flex-grow: 0;
 
@@ -16,18 +16,22 @@
     top: 2px;
   }
 
+  &.right {
+    order: 2;
+  }
+
   .dropdown-toggle {
     display: block;
-    margin: 0;
-    padding: 24px 20px 27px 20px;
+    margin: $navbar_dropdown_toggle_margin;
+    padding: $navbar_dropdown_toggle_padding;
     border: none;
   }
 
   .dropdown-toggle .icon-bar {
     display: block;
     border-radius: 0;
-    height: 2px;
-    width: 18px;
+    height: $navbar_dropdown_toggle_icon_bar_height;
+    width: $navbar_dropdown_toggle_icon_bar_width;
     background-color: #4c4c4c; //default
   }
 
@@ -35,30 +39,42 @@
     margin-top: 4px;
   }
 
-  .dropdown-menu {
-    display: block;
-    visibility: hidden;
-    left: auto;
-    right: 0;
-    margin:0;
-    max-height: $dropdown_menu_max_height;
-    border: none;
-    border-radius: 0;
-    overflow: scroll;
-    opacity: 0;
-    -moz-transition:    opacity .15s ease-out;
-    -webkit-transition: opacity .15s ease-out;
-    transition:         opacity .15s ease-out;
-    font-size: $dropdown_menu_font_size;
-  }
-
   &.open .dropdown-menu {
+    //left: 0;
     visibility: visible;
     opacity: 1;
   }
+  .dropdown-menu {
+    position: absolute;
+    //position: fixed; // For full drawer
+    //left: -250px;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    right: auto;
+    max-height: $dropdown_menu_max_height;
+    padding: $dropdown_menu_padding;
+    border: none;
+    border-radius: 0;
+    overflow-y: scroll;
+    font-size: $dropdown_menu_font_size;
+    // -moz-transition: left .25s ease-out;
+    // -webkit-transition: left .25s ease-out;
+    // transition: left .25s ease-out;
+    -moz-transition: visibility, opacity .35s ease-out;
+    -webkit-transition: visibility, opacity .35s ease-out;
+    transition: visibility, opacity .35s ease-out;
+  }
+
+  &.calcite-right {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
 
   .dropdown-menu > li > a {
-    padding: 9px 12px;
+    padding: $dropdown_menu_li_a_padding;
   }
 
   // Offset dropdown menu
@@ -71,6 +87,10 @@
 
 @media (max-height: $dropdown_breakpoint_height_mobile) {
   .calcite-navbar {
+    .dropdown-toggle {
+      padding: $navbar_dropdown_toggle_padding_mobile;
+    }
+
     .dropdown-menu {
       max-height: $dropdown_menu_max_height_mobile;
     }  

@@ -21,11 +21,11 @@
   border-radius: 0; }
 
 .calcite-nav-top .calcite-map .leaflet-control-zoom {
-  margin-top: 80px; }
+  margin-top: 65px; }
 
 .calcite-nav-top.calcite-margin-top .calcite-map .leaflet-control-zoom,
 .calcite-nav-top.calcite-margin-all .calcite-map .leaflet-control-zoom {
-  margin-top: 95px; }
+  margin-top: 80px; }
 
 .calcite-nav-bottom .calcite-map .leaflet-control-zoom,
 .calcite-nav-bottom-fixed .calcite-map .leaflet-control-zoom {
