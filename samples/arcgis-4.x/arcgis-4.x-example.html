@@ -9,11 +9,11 @@
   <title>Calcite Maps - ArcGIS JS 4.0 Example</title>
 
   <!-- Calcite Bootstrap -->
-  <!--link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.2.css"-->
+  <link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.2.css">
   <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
 
   <!-- Calcite Maps -->
-  <!--link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.2.css"-->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.2.css"-->
   <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
 
   <!-- ArcGIS JS 4.0 -->
@@ -24,6 +24,9 @@
       margin: 0;
       padding: 0;
       height: 100%;
+    }
+    .esri-legend {
+      overflow: hidden;
     }
   </style>
 
@@ -36,7 +39,7 @@
   <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
     <!-- Header -->
     <div class="navbar-header">
-      <a class="navbar-brand">
+      <a class="navbar-brand" role="button" id="calciteToggleNavbar" aria-haspopup="true">
         <span class="esri-icon esri-icon-map-pin"></span>
       </a>
     </div>
@@ -44,7 +47,7 @@
     <div class="calcite-title calcite-overflow-hidden">
       <span class="calcite-title-main">Greater Los Angeles Demographics</span>
       <span class="calcite-title-divider hidden-xs"></span>
-      <span class="calcite-title-sub">Explore population, age, income and housing values</span> 
+      <span class="calcite-title-sub hidden-xs">Explore population, age, income and housing values</span> 
     </div>
     <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
@@ -62,7 +65,7 @@
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        //location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
         location: "http://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
       },
       {
@@ -105,7 +108,7 @@
         map: webmap,
         container: "mapViewDiv",
         padding: {
-            top: 65
+            top: 50
           }
       });
 

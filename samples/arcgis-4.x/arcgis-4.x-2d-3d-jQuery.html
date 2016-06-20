@@ -34,7 +34,7 @@
   <nav class="navbar calcite-navbar navbar-fixed-bottom calcite-text-light calcite-bg-dark calcite-bgcolor-dark-red">
      <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
-      <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="calcite-dropdown-toggle">
           <span class="sr-only">Toggle dropdown menu</span>
           <span></span>
@@ -48,7 +48,7 @@
         <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
         <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
         <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
-        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Toggle Title</a></li>
+        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div>
     <!-- Title -->
@@ -178,6 +178,10 @@
       });
 
       app.mapView.ui.move([ "zoom", "compass"], "top-right");
+
+      app.mapView.then(function() {
+        app.mapView.popup.dockOptions.position = "top-left";
+      });
    
       // Scene
       var mapScene = new Map({
@@ -196,6 +200,10 @@
       });
 
       app.sceneView.ui.move([ "zoom", "compass"], "top-right");
+
+      app.sceneView.then(function() {
+        app.sceneView.popup.dockOptions.position = "top-left";
+      });
 
       app.activeView = app.sceneView;
 
@@ -219,39 +227,57 @@
         return search;
       }
 
-      // Popup Events
-      app.mapView.popup.watch("currentDockPosition", function(result) {
-        setPanelVisibility();
-      });
+      // Popup and Panel Events
+      
+      // Views - Listen to view size changes to show/hide panels
+      app.mapView.watch("size", viewSizeChange);
+      app.sceneView.watch("size", viewSizeChange);
 
-      app.sceneView.popup.watch("currentDockPosition", function(result) {
-        setPanelVisibility();
-      });
+      function viewSizeChange(screenSize) {
+        if (app.screenWidth !== screenSize[0]) {
+          app.screenWidth = screenSize[0];
+          setPanelVisibility();
+        }
+      }
 
-      // Panel Events
-      query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-        if (app.activeView.popup.currentDockPosition) {
-          app.activeView.popup.dockEnabled = false;
-        } 
-      });
+      // Popups - Listen to popup changes to show/hide panels
+      app.mapView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
+      app.sceneView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
 
-      // Window Events
-      query(window).on("resize", function() {
-        setPanelVisibility();
-      })
-
-      // Panel show/hide
+      // Panels - Show/hide the panel when popup is docked
       function setPanelVisibility() {
-        if (app.activeView.popup.visible && app.activeView.popup.currentDockPosition && !(window.innerWidth > 544 && window.innerWidth < 768)) {
-          if (query(".calcite-panels .panel.in").length > 0) {
+         var isMobileScreen = app.activeView.widthBreakpoint === "xsmall" || app.activeView.widthBreakpoint === "small",
+          isDockedVisible = app.activeView.popup.visible && app.activeView.popup.currentDockPosition,
+          isDockedBottom = app.activeView.popup.currentDockPosition && app.activeView.popup.currentDockPosition.indexOf("bottom") > -1;
+        // Mobile (xsmall/small)
+        if (isMobileScreen) {
+          if (isDockedVisible && isDockedBottom) {
             query(".calcite-panels").addClass("invisible");
           } else {
             query(".calcite-panels").removeClass("invisible");
           }
-        } else {
-          query(".calcite-panels").removeClass("invisible");
+        } else { // Desktop (medium+)
+          if (isDockedVisible) {
+            query(".calcite-panels").addClass("invisible");
+          } else {
+            query(".calcite-panels").removeClass("invisible");          
+          }
         }
       }
+
+      // Panels - Dock popup when panels show (desktop or mobile)
+      query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
+        if (app.activeView.popup.currentDockPosition || app.activeView.widthBreakpoint === "xsmall") {
+          app.activeView.popup.dockEnabled = false;
+        }
+      });
+
+      // Panels - Undock popup when panels hide (mobile only)
+      query(".calcite-panels .panel").on("hide.bs.collapse", function(e) {
+        if (app.activeView.widthBreakpoint === "xsmall") {
+          app.activeView.popup.dockEnabled = true;
+        }
+      });
 
      // Tab Events (Views)
       query(".calcite-navbar li a[data-toggle='tab']").on("click", function(e) {
