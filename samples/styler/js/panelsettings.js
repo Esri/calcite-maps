@@ -45,7 +45,8 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
     NAVBAR: ".calcite-navbar",
     DROPDOWN: ".calcite-dropdown",
     DROPDOWN_MENU: ".calcite-dropdown .dropdown-menu",
-    PANELS: ".calcite-panels"
+    PANELS: ".calcite-panels",
+    MAP: ".calcite-map"
   }
 
   var CALCITE_THEME_STYLES = {
@@ -62,168 +63,185 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
   var CALCITE_LAYOUT_STYLES = {
     body: 
     // Custom themes
-    "calcite-layout-jumbo-title calcite-layout-small-title calcite-layout-inline-right calcite-layout-inline-left " +
+    "calcite-layout-large-title calcite-layout-medium-title calcite-layout-inline-right calcite-layout-inline-left " +
     // Nav
     "calcite-nav-top calcite-nav-bottom calcite-nav-top-fixed calcite-nav-bottom-fixed " +
     // Nav space
     "calcite-margin-top calcite-margin-bottom calcite-margin-all " + 
     // Zoom
     "calcite-zoom-top-left calcite-zoom-top-right calcite-zoom-bottom-left calcite-zoom-bottom-right " +
-    // Panel
-    "calcite-panels-right calcite-panels-left " +
     // Minibar
-    "minibar",
+    "calcite-nav-transparent",
     nav:
     // Navbar
-    "navbar-fixed-top navbar-fixed-bottom"
+    "navbar-fixed-top navbar-fixed-bottom",
+    // Panels
+    panels: "calcite-panels-right calcite-panels-left"
   }
-
-  var APP_LAYOUTS = {
-    TOP: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 65, bottom: 0 }, 
-        uiPadding: { top: 15, bottom: 30 },
-        layoutName: ""
-    },
-    TOPSPACE: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "calcite-margin-top", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 80, bottom: 0 }, 
-        uiPadding: { top: 15, bottom: 30 },
-        layoutName: ""
-    }, 
-    TOPSPACEALL: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "calcite-margin-all", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 80, bottom: 0 }, 
-        uiPadding: { top: 15, bottom: 30 },
-        layoutName: ""
-    }, 
-    TOPFIXED: {
-        navPosition: "calcite-nav-top-fixed", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 0, bottom: 0 }, 
-        uiPadding: { top: 15, bottom: 30 },
-        layoutName: ""
-    },
-    BOTTOM: {
-        navPosition: "calcite-nav-bottom", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-bottom",
-        viewPadding: { top: 0, bottom: 65 }, 
-        uiPadding: { top: 30, bottom: 15 },
-        layoutName: ""
-    },
-    BOTTOMSPACE: {
-        navPosition: "calcite-nav-bottom", 
-        navSpace: "calcite-margin-bottom", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-bottom",
-        viewPadding: { top: 0, bottom: 80 }, 
-        uiPadding: { top: 30, bottom: 15 },
-        layoutName: ""
-    }, 
-    BOTTOMSPACEALL: {
-        navPosition: "calcite-nav-bottom", 
-        navSpace: "calcite-margin-all", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-bottom",
-        viewPadding: { top: 0, bottom: 80 }, 
-        uiPadding: { top: 30, bottom: 15 },
-        layoutName: ""
-    }, 
-    BOTTOMFIXED: {
-        navPosition: "calcite-nav-bottom-fixed", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-bottom",
-        viewPadding: { top: 0, bottom: 0 }, 
-        uiPadding: { top: 30, bottom: 15 },
-        layoutName: ""
-    },
-    TOPJUMBO: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 120, bottom: 0 }, 
-        uiPadding: { top: 15, left: 30, bottom: 30 },
-        layoutName: "calcite-layout-jumbo-title"
-    },
-    BOTTOMJUMBO: {
-        navPosition: "calcite-nav-bottom", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-bottom",
-        viewPadding: { top: 0, bottom: 120 }, 
-        uiPadding: { top: 30, bottom: 30 },
-        layoutName: "calcite-layout-jumbo-title"
-    },
-    TOPSLIMMER: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 50, bottom: 0 }, 
-        uiPadding: { top: 15, left: 15, right: 15, bottom: 30 },
-        layoutName: "calcite-layout-small-title"
-    },
-    BOTTOMSLIMMER: {
-        navPosition: "calcite-nav-bottom", 
-        navSpace: "", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-bottom",
-        viewPadding: { top: 0, bottom: 45 }, 
-        uiPadding: { top: 30, left: 15, right: 15, bottom: 15 },
-        layoutName: "calcite-layout-small-title"
-    },
-    TOPINLINELEFT: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "calcite-margin-all", 
-        panelPosition: "calcite-panels-right", 
-        zoomPosition: "calcite-zoom-top-left", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 0, bottom: 0 }, 
-        uiPadding: { top: 15, bottom: 30 },
-        layoutName: "calcite-layout-inline-left"
-    },
-    TOPINLINERIGHT: {
-        navPosition: "calcite-nav-top", 
-        navSpace: "calcite-margin-all", 
-        panelPosition: "calcite-panels-left", 
-        zoomPosition: "calcite-zoom-top-right", 
-        navFixedPosition: "navbar-fixed-top",
-        viewPadding: { top: 0, bottom: 0 }, 
-        uiPadding: { top: 15, bottom: 30 },
-        layoutName: "calcite-layout-inline-right"
-    }
-  };
 
   var PanelSettings = declare(null, {
     
+    APP_LAYOUTS: {
+      TOP: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 50 , bottom: 0 },
+          viewPaddingNavHidden: { top: 0 , bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      },
+      TOPSPACE: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "calcite-margin-top", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 65, bottom: 0 }, 
+          viewPaddingNavHidden: { top: 0 , bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      }, 
+      TOPSPACEALL: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "calcite-margin-all", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 65, bottom: 0 }, 
+          viewPaddingNavHidden: { top: 0 , bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      }, 
+      TOPFIXED: {
+          navPosition: "calcite-nav-top-fixed", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 0, bottom: 0 }, 
+          viewPaddingNavHidden: { top: 0 , bottom: 0 },
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: ""
+      },
+      BOTTOM: {
+          navPosition: "calcite-nav-bottom", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 50  },
+          viewPaddingNavHidden: { top: 0 , bottom: 0 },
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      },
+      BOTTOMSPACE: {
+          navPosition: "calcite-nav-bottom", 
+          navSpace: "calcite-margin-bottom", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 65 },
+          viewPaddingNavHidden: { top: 0 , bottom: 0 }, 
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      }, 
+      BOTTOMSPACEALL: {
+          navPosition: "calcite-nav-bottom", 
+          navSpace: "calcite-margin-all", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 65 },
+          viewPaddingNavHidden: { top: 0 , bottom: 0 }, 
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      }, 
+      BOTTOMFIXED: {
+          navPosition: "calcite-nav-bottom-fixed", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 0 }, 
+          viewPaddingNavHidden: { top: 0 , bottom: 0 },
+          uiPadding: { top: 30, bottom: 15 },
+          layoutName: ""
+      },
+      // Custom layouts...
+      TOPMEDIUM: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 60, bottom: 0 }, 
+          viewPaddingSmallScreen: { top: 60, bottom: 0 }, 
+          uiPadding: { top: 15, left: 15, right: 15, bottom: 30 },
+          layoutName: "calcite-layout-medium-title"
+      },
+      BOTTOMMEDIUM: {
+          navPosition: "calcite-nav-bottom", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 60 },
+          viewPaddingSmallScreen: { top: 0, bottom: 60 }, 
+          uiPadding: { top: 30, left: 15, right: 15, bottom: 15 },
+          layoutName: "calcite-layout-medium-title"
+      },
+      TOPLARGE: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 85, bottom: 0 }, 
+          viewPaddingNavHidden: { top: 0 , bottom: 0 },
+          viewPaddingSmallScreen: { top: 50, bottom: 0 }, 
+          uiPadding: { top: 15, left: 15, bottom: 30 },
+          layoutName: "calcite-layout-large-title"
+      },
+      BOTTOMLARGE: {
+          navPosition: "calcite-nav-bottom", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 85 }, 
+          viewPaddingNavHidden: { top: 0 , bottom: 0 },
+          viewPaddingSmallScreen: { top: 0, bottom: 50 }, 
+          uiPadding: { top: 30, bottom: 30 },
+          layoutName: "calcite-layout-large-title"
+      },
+      TOPINLINELEFT: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "calcite-margin-all", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 0, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: "calcite-layout-inline-left"
+      },
+      TOPINLINERIGHT: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "calcite-margin-all", 
+          panelPosition: "calcite-panels-left", 
+          zoomPosition: "calcite-zoom-top-right", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 0, bottom: 0 }, 
+          uiPadding: { top: 15, bottom: 30 },
+          layoutName: "calcite-layout-inline-right"
+      }
+    },
+
     _this: null,
+
+    activeLayout: null,
     
     // TODO
     defaultOptions: {
@@ -261,6 +279,8 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
         _this.options = lang.mixin(lang.clone(_this.defaultOptions), (options || {}));
         
         _this.app = options.app;
+
+        _this.activeLayout = _this.APP_LAYOUTS.TOP; //default
 
         _this._initUIHandlers();
     },
@@ -465,7 +485,7 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
 
       query("#settingsWidgets").on("change", function(e) {    
         var theme = e.target.value;
-        query("body").removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
+        query(CALCITE_THEME_SELECTORS.MAP).removeClass("calcite-widgets-dark calcite-widgets-light").addClass(theme);
       });
 
       //--------------------------------------------------------------------
@@ -478,50 +498,50 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
         switch (theme) {
           // Default APP_LAYOUTS
           case "layout-top": // default
-            _this.setLayout(APP_LAYOUTS.TOP);
+            _this.setLayout(_this.APP_LAYOUTS.TOP);
             break;
           case "layout-top-space":
-            _this.setLayout(APP_LAYOUTS.TOPSPACE);
+            _this.setLayout(_this.APP_LAYOUTS.TOPSPACE);
             break;
           case "layout-top-space-all":
-            _this.setLayout(APP_LAYOUTS.TOPSPACEALL);
+            _this.setLayout(_this.APP_LAYOUTS.TOPSPACEALL);
             break;
           case "layout-top-fixed":
-            _this.setLayout(APP_LAYOUTS.TOPFIXED);
+            _this.setLayout(_this.APP_LAYOUTS.TOPFIXED);
             break;
           case "layout-bottom":
-            _this.setLayout(APP_LAYOUTS.BOTTOM);
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOM);
             break;
           case "layout-bottom-space":
-            _this.setLayout(APP_LAYOUTS.BOTTOMSPACE);
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOMSPACE);
             break;
           case "layout-bottom-space-all":
-            _this.setLayout(APP_LAYOUTS.BOTTOMSPACEALL);
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOMSPACEALL);
             break;
           case "layout-bottom-fixed":
-            _this.setLayout(APP_LAYOUTS.BOTTOMFIXED);
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOMFIXED);
             break;
           // Custom APP_LAYOUTS
-          case "calcite-layout-jumbo-title-top":
-            _this.setLayout(APP_LAYOUTS.TOPJUMBO);
+          case "calcite-layout-large-title-top":
+            _this.setLayout(_this.APP_LAYOUTS.TOPLARGE);
             break;
-          case "calcite-layout-jumbo-title-bottom":
-            _this.setLayout(APP_LAYOUTS.BOTTOMJUMBO);
+          case "calcite-layout-large-title-bottom":
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOMLARGE);
             break;
-          case "calcite-layout-small-title-top":
-            _this.setLayout(APP_LAYOUTS.TOPSLIMMER);
+          case "calcite-layout-medium-title-top":
+            _this.setLayout(_this.APP_LAYOUTS.TOPMEDIUM);
             break;
-          case "calcite-layout-small-title-bottom":
-            _this.setLayout(APP_LAYOUTS.BOTTOMSLIMMER);
+          case "calcite-layout-medium-title-bottom":
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOMMEDIUM);
             break;
           case "calcite-layout-inline-left":
-            _this.setLayout(APP_LAYOUTS.TOPINLINELEFT);
+            _this.setLayout(_this.APP_LAYOUTS.TOPINLINELEFT);
             break;
           case "calcite-layout-inline-right":
-            _this.setLayout(APP_LAYOUTS.TOPINLINERIGHT);
+            _this.setLayout(_this.APP_LAYOUTS.TOPINLINERIGHT);
             break;
           default:
-            _this.setLayout(APP_LAYOUTS.TOP);
+            _this.setLayout(_this.APP_LAYOUTS.TOP);
             break;
         }
       });
@@ -565,10 +585,10 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
       });
 
       query("#settingsPanel").on("change", function(e) {
-        var body = query("body")[0],
+        var panels = query(CALCITE_THEME_SELECTORS.PANELS)[0],
           panelStyle = e.target.value;
-        domClass.remove(body, "calcite-panels-left calcite-panels-right");
-        domClass.add(body, panelStyle);
+        domClass.remove(panels, "calcite-panels-left calcite-panels-right");
+        domClass.add(panels, panelStyle);
       });
 
       query("#settingsPadding").on("keydown", function(evt) {
@@ -906,11 +926,18 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
     // Tab - Layout functions
     //----------------------------------
 
-    setLayout: function(layout) {
+    setLayout: function(layout, hiddenNav) {
+      // Update layout
+      _this.activeLayout = layout;
+      // Remove classes
       _this.removeClasses();
       _this.addClasses(layout);
-      _this.setPadding(layout.viewPadding, layout.uiPadding);
-      _this.setPaddingUI(layout.viewPadding);
+      if (hiddenNav) {
+        _this.setPadding(layout.viewPaddingHidden, layout.uiPadding);  
+      } else {
+        _this.setPadding(layout.viewPadding, layout.uiPadding);  
+      }
+      _this.setPaddingUI(layout.viewPadding); //update UI
       if (layout.zoomPosition === "calcite-zoom-top-right") {
         _this.setWidgetPosition(_this.app.mapView, "zoom", "top-right");
         _this.setWidgetPosition(_this.app.sceneView, "zoom", "top-right");
@@ -922,19 +949,26 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
 
     addClasses: function(layout) {
       var body = query("body")[0],
-        nav = query("nav")[0];
-      domClass.add(body, layout.navPosition + " " + layout.navSpace + " " + layout.panelPosition + " " + layout.zoomPosition + " " + layout.layoutName);
+        nav = query("nav")[0],
+        panels = query(CALCITE_THEME_SELECTORS.PANELS)[0];
+      domClass.add(body, layout.navPosition + " " + layout.navSpace + " " + layout.zoomPosition + " " + layout.layoutName);
       domClass.add(nav, layout.navFixedPosition);
+      domClass.add(panels, layout.panelPosition);
     },
 
     removeClasses: function() {
       var body = query("body")[0],
-        nav = query("nav")[0];
+        nav = query("nav")[0],
+        panels = query(CALCITE_THEME_SELECTORS.PANELS)[0];
       domClass.remove(body, CALCITE_LAYOUT_STYLES.body);
       domClass.remove(nav, CALCITE_LAYOUT_STYLES.nav);
+      domClass.remove(panels, CALCITE_LAYOUT_STYLES.panels);
     },
 
-    setPadding: function(viewPadding, uiPadding){
+    setPadding: function(viewPadding, uiPadding) {
+      if (window.innerWidth <= 768 && _this.activeLayout.viewPaddingSmallScreen) {
+        viewPadding = _this.activeLayout.viewPaddingSmallScreen;
+      }
       _this.app.mapView.padding = viewPadding;
       _this.app.mapView.ui.padding = uiPadding;
       _this.app.sceneView.padding = viewPadding;

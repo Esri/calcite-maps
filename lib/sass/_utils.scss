@@ -34,3 +34,13 @@
 .calcite-width-full {
   width: 100%;
 }
+
+.visible-xs-flex {
+   display: none !important;
+}
+
+@media (max-width: 767px) {
+	.visible-xs-flex {
+	   display: flex !important;
+	}
+}

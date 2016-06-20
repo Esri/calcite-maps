@@ -12,6 +12,7 @@
 
 $base_ui_margin: 15px !default;
 $base_ui_position_absolute: 15px !default;
+$base_ui_font_size: 14px;
 
 // ---------------------------------------------------------------
 // Media breaks
@@ -30,21 +31,41 @@ $base_breakpoint_width_mobile_xxs: 320px;
 // ---------------------------------------------------------------
 
 $map_fixed_width: 768px !default;
-$map_fixed_height: 500px !default;    
+$map_fixed_height: 500px !default;
+$map_attribution_height: 16px !default; 
 
 // ---------------------------------------------------------------
 // Navbar
 // ---------------------------------------------------------------
 
 // Size
-$navbar_height: 65px !default;
+$navbar_height: 50px !default;
 $navbar_margin: $base_ui_margin !default;
-// Font
-$navbar_brand_font_size: 40px !default;
-$navbar_title_font_size: 25px !default;
+// Nav
+$navbar_nav_li_a_padding: 13px 15px 12px !default;
+$navbar_nav_font_size: $base_ui_font_size;
+// Menu dropdown toggle
+$navbar_dropdown_toggle_margin: 0;
+$navbar_dropdown_toggle_padding: 17px 20px 20px 22px !default;
+$navbar_dropdown_toggle_padding_mobile: 17px 18px 19px 20px !default;
+$navbar_dropdown_toggle_icon_bar_height: 14px !default;
+$navbar_dropdown_toggle_icon_bar_width: 17px !default;
+// Brand
+$navbar_brand_padding: 10px 15px !default;
+$navbar_brand_font_size: 32px !default;
+// Title - main
+$navbar_title_margin: 0 !default;
+$navbar_title_padding: 1px 0 2px !default;
+$navbar_title_font_size: 22px !default;
 $navbar_title_font_weight: 300 !default;
-$navbar_subtitle_font_size: 13px !default;
-$navbar_subtitle_font_weight: 300 !default;
+$navbar_title_font_size_mobile: 20px !default;
+// Title - divider
+$navbar_title_divider_margin: 0 15px;
+// Title - sub
+$navbar_subtitle_margin: 0 !default;
+$navbar_subtitle_padding: 1px 0 0 !default;
+$navbar_subtitle_font_size: 12px !default;
+$navbar_subtitle_font_weight: 400 !default;
 $navbar_subtitle_font_size_mobile: 12px !default;
 // Breakpoints
 $navbar_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
@@ -54,8 +75,10 @@ $navbar_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
 // Dropdown
 // ---------------------------------------------------------------
 
-$dropdown_toggle_font_size: 15px !default;
-$dropdown_menu_font_size: 15px !default;
+$dropdown_menu_padding: 0;
+$dropdown_menu_li_a_padding: 9px 20px;
+$dropdown_toggle_font_size: $base_ui_font_size !default;
+$dropdown_menu_font_size: $base_ui_font_size !default;
 // Size
 $dropdown_menu_max_height: 500px;
 $dropdown_menu_max_height_mobile: 215px !default;
@@ -67,24 +90,34 @@ $dropdown_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
 // ---------------------------------------------------------------
 
 // Position
-$panel_position_top: $base_ui_position_absolute;
-$panel_position_right: $base_ui_position_absolute;
-$panel_position_left: $base_ui_position_absolute;
+$panels_position_top: $base_ui_position_absolute;
+$panels_position_right: $base_ui_position_absolute;
+$panels_position_left: $base_ui_position_absolute;
 // Size
-$panel_width: 350px !default;
-$panel_width_mobile: 100% !default;
+$panels_width: auto;
+$panels_width_mobile: 100% !default;
+// Body
+$panel_body_width: 350px !default; // controls width
+$panel_body_width_mobile: 100% !default;
 $panel_body_min_height: 50px !default;
 $panel_body_max_height: 350px !default;
+$panel_body_height_xs: 180px !default;
+$panel_body_height_sm: 350px !default;
+$panel_body_height_md: 650px !default;
 $panel_body_max_height_mobile: 170px !default;
 $panel_body_max_height_expanded: 125px !default;
 // Font
-$panel_font_size: 15px !default;
+$panel_font_size: 14px !default;
 $panel_title_font_size: 15px !default;
 $panel_title_font_weight: 400 !default;
 // Form elements
 $panel_form_control_height: 34px !default;
 // Breakpoints
-$panels_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
+// $panels_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
+$panels_breakpoint_height_xs: 320px !default;
+$panels_breakpoint_height_sm: 544px !default;
+$panels_breakpoint_height_md: 767px !default;
+
 $panels_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
 
 // ---------------------------------------------------------------
@@ -93,6 +126,7 @@ $panels_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
 
 $navbar_decoration_height: 2px !default;
 $panel_decoration_height: 1px !default;
+$theme_all_navbar_opacity: 0.75;
 
 // ---------------------------------------------------------------
 // Theme - Light (light background, dark text)
@@ -104,6 +138,7 @@ $theme_light_navbar_text_color:         $Calcite_Gray_700;
 $theme_light_navbar_text_color_hover:   $Calcite_True_Black;
 $theme_light_navbar_decoration_color:   $Calcite_Gray_700;
 $theme_light_navbar_text_color_disabled: $Calcite_Gray_550;
+$theme_light_navbar_text_color_secondary: $Calcite_Gray_600;
 // Dropdown
 $theme_light_dropdown_menu_bg:           $Calcite_Gray_050;
 $theme_light_dropdown_menu_bg_hover:     $Calcite_Gray_150;
@@ -144,6 +179,7 @@ $theme_dark_navbar_text_color:          $Calcite_Gray_050;
 $theme_dark_navbar_text_color_hover:    $Calcite_True_White;
 $theme_dark_navbar_decoration_color:		$Calcite_Gray_050;
 $theme_dark_navbar_text_color_disabled: $Calcite_Gray_250;
+$theme_dark_navbar_text_color_secondary: $Calcite_Gray_250;
 // Dropdown
 $theme_dark_dropdown_menu_bg:            	$Calcite_Gray_100_Dark;
 $theme_dark_dropdown_menu_bg_hover:      	$Calcite_Gray_300_Dark;

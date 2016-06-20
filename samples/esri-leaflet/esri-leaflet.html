@@ -37,27 +37,14 @@
   </style>
 
 </head>
-<body class="calcite-nav-top calcite-layout-jumbo-title">
+<body class="calcite-nav-top">
 
   <!-- Navbar -->
 
-  <nav class="navbar calcite-navbar navbar-fixed-top calcite-bg-dark calcite-text-light calcite-bgcolor-green-75">
-    <!-- Header -->
-    <div class="navbar-header">
-      <a class="navbar-brand"><span class="esri-icon esri-icon-map-pin"></span></a>
-    </div>
-    <!-- Title -->
-    <div class="calcite-title calcite-overflow-hidden">
-      <div class="calcite-title-main">Calcite Maps</div>
-      <div class="calcite-title-sub">A modern framework for building apps with Calcite styles and Bootstrap (Esri Leaflet)</div> 
-    </div>
-     <!-- Nav -->
-    <ul class="nav navbar-nav">                    
-      <li><div class="calcite-navbar-search hidden-xs"><div id="geocode"></div></div></li>
-    </ul>
-    <!-- Dropdown -->
+  <nav class="navbar calcite-navbar navbar-fixed-top calcite-bg-dark calcite-text-light calcite-bgcolor-green">
+     <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-bg-custom calcite-text-light" role="presentation">
-      <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="calcite-dropdown-toggle">
           <span class="sr-only">Toggle dropdown menu</span>
           <span></span>
@@ -66,13 +53,23 @@
           <span></span>
         </div>
       </a>
-      <ul class="dropdown-menu calcite-bgcolor-green-75">
+      <ul class="dropdown-menu calcite-bgcolor-green">
         <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
         <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
         <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
-        <li><a role="button" data-target="toggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Toggle Title</a></li>
+        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div>
+    <!-- Title -->
+    <div class="calcite-title calcite-overflow-hidden">
+      <span class="calcite-title-main">Calcite Maps</span>
+      <span class="calcite-title-divider hidden-xs"></span>
+      <span class="calcite-title-sub hidden-xs">A modern framework for building map apps (Esri Leaflet)</span> 
+    </div>
+     <!-- Nav -->
+    <ul class="calcite-nav nav navbar-nav">                    
+      <li><div class="calcite-navbar-search hidden-xs"><div id="geocode"></div></div></li>
+    </ul>
   </nav><!--/.navbar -->
 
   <!-- Map Container  -->
@@ -83,14 +80,14 @@
 
   <!-- Panel -->
 
-  <div class="calcite-panels calcite-bg-custom calcite-text-light panel-group calcite-bgcolor-green-75" role="tablist" aria-multiselectable="true">
+  <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light panel-group calcite-bgcolor-green" role="tablist" aria-multiselectable="true">
   
     <!-- Info Panel -->
 
     <div id="panelInfo" class="panel collapse">
       <div id="headingInfo" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><span class="panel-label">Info</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>
@@ -106,7 +103,7 @@
     <div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg"> 
       <div id="headingSearch" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch"  aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch"  aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="panel-label">Search</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
         </div>
       </div>
@@ -122,7 +119,7 @@
     <div id="panelBasemaps" class="panel collapse">
       <div id="headingBasemaps" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false"   aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false"   aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="panel-label">Basemaps</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>

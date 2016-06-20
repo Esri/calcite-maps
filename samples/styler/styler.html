@@ -93,29 +93,15 @@
 
 </head>
 
-<body class="calcite-nav-top">
+<body class="calcite-nav-top calcite-layout-medium-title">
 
   <!-- Navbar -->
 
-  <nav class="navbar navbar-fixed-top calcite-navbar calcite-bg-light calcite-text-dark">
-    <!-- Header -->
-    <div class="navbar-header">
-      <a class="navbar-brand" data-toggle="modal" data-target="#modalSplash"><span class="esri-icon esri-icon-map-pin"></span></a>
-    </div>
-    <!-- Title -->
-    <div class="calcite-title calcite-overflow-hidden">
-      <div class="calcite-title-main">Styler</div>
-      <div class="calcite-title-sub">Design map apps and explore styles</div> 
-    </div>
-    <!-- Nav -->
-    <ul class="nav navbar-nav">                    
-      <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
-      <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
-      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
-    </ul>
-    <!-- Dropdown Menu -->
+  <nav class="navbar navbar-fixed-top calcite-navbar calcite-bg-custom calcite-text-light" style="background-color: rgb(76, 76, 76);">
+     <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
-      <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!--a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"-->
+      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
         <div class="calcite-dropdown-toggle">
           <span class="sr-only">Toggle dropdown menu</span>
           <span></span>
@@ -125,6 +111,7 @@
         </div>
       </a>
       <ul class="dropdown-menu">
+        <li><a role="button" data-target="#modalSplash" data-toggle="modal" aria-haspopup="true"> About</a></li>
         <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
         <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
         <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
@@ -135,10 +122,21 @@
         <li><a role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
         <li><a role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
         <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-        <li><a role="button" data-target="toggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Toggle Title</a></li>
+        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div> 
-
+    <!-- Title -->
+    <div class="calcite-title calcite-overflow-hidden">
+      <span class="calcite-title-main">Styler</span>
+      <span class="calcite-title-divider hidden-xs"></span>
+      <span class="calcite-title-sub hidden-xs">Design map apps and explore styles</span> 
+    </div>
+    <!-- Nav -->
+    <ul class="calcite-nav nav navbar-nav">                    
+      <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+      <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
+      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+    </ul>
   </nav><!--/.navbar -->
 
   <!-- Modal Window -->
@@ -153,7 +151,7 @@
                 <div class="text-center">
                   <h3>Welcome to Calcite Maps</h3>
                   <hr>
-                  <p>Calcite maps is a modern framework for designing web map apps with Calcite styles and Bootstrap. Use Styler to explore the different colors, styles and layouts possible. When you are done, apply the styles to your own application. See the <a href="../index.html">samples</a> for examples.</p>
+                  <p>Use this application to interactively design your application and to explore the different colors, styles and layouts. When you are done, apply the CSS styles and classes to your own apps. Get a jump-start by starting with one of the <a href="../index.html">sample applications</a>.</p>
                   <br>
                   <div class="form-inline">
                     <div class="form-group">
@@ -185,14 +183,14 @@
 
   <!-- Panel Container -->
   
-  <div class="calcite-panels calcite-bg-light calcite-text-dark panel-group" role="tablist" aria-multiselectable="true">
+  <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light panel-group" role="tablist" aria-multiselectable="true" style="background-color: rgb(76, 76, 76);">
     
     <!-- Panel - Info -->
 
     <div id="panelInfo" class="panel collapse">
       <div id="headingInfo" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Info</a>
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><span class="panel-label">Info</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>
@@ -208,7 +206,7 @@
     <div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg">
       <div id="headingSearch" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a>
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="panel-label">Search</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
         </div>
       </div>
@@ -224,7 +222,7 @@
      <div id="panelBasemaps" class="panel collapse">
       <div id="headingBasemaps" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Basemaps</a>
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="panel-label">Basemaps</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>
@@ -252,7 +250,7 @@
     <div id="panelBookmarks" class="panel collapse">
       <div id="headingBookmarks" class="panel-heading" role="tab">
         <div class="panel-title">
-        <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBookmarks" aria-expanded="false" aria-controls="collapseBookmarks"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Bookmarks</a>
+        <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBookmarks" aria-expanded="false" aria-controls="collapseBookmarks"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><span class="panel-label">Bookmarks</span></a> 
         <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBookmarks"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>
@@ -303,7 +301,7 @@
     <div id="panelLegend" class="panel collapse">
       <div id="headingLegend" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Legend</a>
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="panel-label">Legend</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelLegend"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a> 
         </div>
       </div>
@@ -319,7 +317,7 @@
     <div id="panelPrint" class="panel collapse">
       <div id="headingPrint" class="panel-heading">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePrint" aria-expanded="false" aria-controls="collapsePrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</a>
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePrint" aria-expanded="false" aria-controls="collapsePrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span><span class="panel-label">Print</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelPrint"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
         </div>
       </div>
@@ -337,7 +335,7 @@
     <div id="panelShare" class="panel collapse">
       <div id="headingShare" class="panel-heading">
         <div class="panel-title">
-        <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseShare" aria-expanded="false" aria-controls="collapseShare"><span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share</a>                
+        <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseShare" aria-expanded="false" aria-controls="collapseShare"><span class="glyphicon glyphicon-share" aria-hidden="true"></span><span class="panel-label">Share</span></a>                 
         <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelShare"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>
@@ -354,7 +352,7 @@
               
       <div id="headingSettings" class="panel-heading">
         <div class="panel-title">
-          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a>
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="panel-label">Settings</span></a> 
 
           <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
         </div>
@@ -491,8 +489,8 @@
                             <span class="esri-icon esri-icon-close" aria-hidden="true"></span>
                           </div>
                           <select id="settingsThemeColor" class="form-control">
-                            <option value="light" selected>Light</option>
-                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                            <option value="dark" selected>Dark</option>
                           </select>
                         </div>
                       </div>
@@ -653,19 +651,19 @@
                   <label for="settingsLayout" class="col-xs-3 control-label">Layout</label>
                   <div class="col-xs-9">
                     <select id="settingsLayout" class="form-control">
-                      <option value="layout-top" selected>Top (Default)</option>
-                      <option value="layout-top-space">Top Space</option>
-                      <option value="layout-top-space-all">Top Space All</option>
+                      <option value="layout-top">Top (Default)</option>
+                      <option value="layout-top-space">Top Margin</option>
+                      <option value="layout-top-space-all">Top Margin All</option>
                       <option value="layout-top-fixed">Top Above Map</option>
                       <option value="layout-bottom">Bottom</option>
-                      <option value="layout-bottom-space">Bottom Space</option>
-                      <option value="layout-bottom-space-all">Bottom Space All</option>
+                      <option value="layout-bottom-space">Bottom Margin</option>
+                      <option value="layout-bottom-space-all">Bottom Margin All</option>
                       <option value="layout-bottom-fixed">Bottom Below Map</option>
-                      <option value="layout-top">--- Themes ---</option>
-                      <option value="calcite-layout-small-title-top">Small Title Top</option>
-                      <option value="calcite-layout-small-title-bottom">Small Title Bottom</option>
-                      <option value="calcite-layout-jumbo-title-top">Jumbo Title Top</option>
-                      <option value="calcite-layout-jumbo-title-bottom">Jumbo Title Bottom</option>
+                      <option value="layout-top">--- Layouts ---</option>
+                      <option value="calcite-layout-medium-title-top" selected>Medium Title Top</option>
+                      <option value="calcite-layout-medium-title-bottom">Medium Title Bottom</option>
+                      <option value="calcite-layout-large-title-top">Large Title Top</option>
+                      <option value="calcite-layout-large-title-bottom">Large Title Bottom</option>
                       <option value="calcite-layout-inline-left">Inline Zoom Left</option>
                       <option value="calcite-layout-inline-right">Inline Zoom Right</option>
                     </select>
@@ -688,8 +686,8 @@
                   </div>
                   <div class="col-xs-5">
                     <select id="settingsPositionMapWidget" class="form-control">
-                      <option value="top-left" selected>TopLeft</option>
-                      <option value="top-right">TopRight</option>
+                      <option value="top-left">TopLeft</option>
+                      <option value="top-right" selected>TopRight</option>
                       <option value="bottom-right">BottomRight</option>
                       <option value="bottom-left">BottomLeft</option>
                       <option value="none">-- Delete --</option>
@@ -713,8 +711,8 @@
                   </div>
                   <div class="col-xs-5">
                     <select id="settingsPositionSceneWidget" class="form-control">
-                      <option value="top-left" selected>TopLeft</option>
-                      <option value="top-right">TopRight</option>
+                      <option value="top-left">TopLeft</option>
+                      <option value="top-right" selected>TopRight</option>
                       <option value="bottom-right">BottomRight</option>
                       <option value="bottom-left">BottomLeft</option>
                       <option value="none">-- Delete --</option>
@@ -744,7 +742,7 @@
                 <div class="form-group">
                   <label for="settingsPopup" class="col-xs-3 control-label">Padding</label>
                   <div class="col-xs-9">
-                    <input id="settingsPadding" class="form-control" value="{top: 65, bottom: 0, right: 0, left: 0}">
+                    <input id="settingsPadding" class="form-control" value="{top: 50 , bottom: 0, right: 0, left: 0}">
                   </div>
                 </div>
 
@@ -754,8 +752,8 @@
                   <label for="settingsPanel" class="col-xs-3 control-label">Panel</label>
                   <div class="col-xs-9">
                     <select id="settingsPanel" class="form-control">
-                      <option value="calcite-panels-left">PanelLeft</option>
-                      <option value="calcite-panels-right" selected>PanelRight</option>
+                      <option value="calcite-panels-left" selected>Left</option>
+                      <option value="calcite-panels-right">Right</option>
                     </select>
                   </div>
                 </div>
@@ -776,6 +774,7 @@
       {
         name: "calcite-maps",
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../lib/js/dojo"
       },
       {
         name: "calcite-settings",
@@ -804,11 +803,13 @@
       "esri/widgets/ColorPicker",
       "esri/core/watchUtils",
       "dojo/query",
+      "dojo/dom-class",
       "dojo/dom",
       "dojo/on",
 
       // Calcite Maps
       "calcite-maps/calcitemaps-v0.2",
+      // "calcite-maps/calcitemaps",
       "calcite-settings/panelsettings",
 
       // Boostrap
@@ -822,7 +823,7 @@
       // Dojo
       "dojo/domReady!"
     ], function(Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Legend, ColorPicker, 
-      watchUtils, query, dom, on, CalciteMapsSettings, PanelSettings) {
+      watchUtils, query, domClass, dom, on, CalciteMapsSettings, PanelSettings) {
       
       app = {
         scale: 50000000,
@@ -838,15 +839,15 @@
         searchWidgetNav: null, 
         searchWidgetPanel: null, 
         searchWidgetSettings: null,
-        basemapSelected: "streets-vector",
-        basemapSelectedAlt: "streets",
-        viewUI: { 
-          top: 65,
+        basemapSelected: "gray-vector",
+        basemapSelectedAlt: "gray",
+        padding: { 
+          top: 85 ,
           right: 0,
           bottom: 0,
           left: 0
         }, 
-        widgetsUI: { 
+        uiPadding: { 
           components:["zoom", "attribution", "home"],
           padding: {
             top: 15,
@@ -859,15 +860,11 @@
           autoPanEnabled: true,
           messageEnabled: false,
           spinnerEnabled: false,
-          dockEnabled: false, // no auto-docking
+          dockEnabled: true,
           dockOptions: {
             buttonEnabled: true,
-            breakpoint: false // no auto-docking
+            breakpoint: 544 // default
           }
-        },
-        screenWidthBreakpointMobile: 768,
-        activePanel: {
-          id: null
         },
         colorPickerWidget: null,
         panelSettings: null
@@ -881,7 +878,14 @@
       initializeAppUI();
 
       // Panel settings
-      app.panelSettings = new PanelSettings({app: app});
+      app.panelSettings = new PanelSettings( { app: app } );
+      app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOPMEDIUM;
+      app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+
+      // Set padding for navs that change height
+      if (window.innerWidth < app.activeView.breakpoints.small && app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+        app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+      }
 
       //----------------------------------
       // Map and Scene View
@@ -895,8 +899,8 @@
           map: new Map( { basemap: app.basemapSelected, constraints: { snapToZoom: false } } ),
           scale: app.scale,
           center: app.lonlat, 
-          padding: app.viewUI,
-          ui: app.widgetsUI, 
+          padding: app.padding,
+          ui: app.uiPadding, 
           popup: new Popup(app.popupOptions),
           visible: true
         });
@@ -911,19 +915,26 @@
 
           scale: app.scale,
           center: app.lonlat, 
-          padding: app.viewUI,
-          ui: app.widgetsUI, 
+          padding: app.padding,
+          ui: app.uiPadding, 
           popup: new Popup(app.popupOptions),
           visible: false
         });
-            
-        app.mapView.then( function() {
-          setPopupEvents(app.mapView);
-        });
 
-        app.sceneView.then( function() {
-          setPopupEvents(app.sceneView);
-        })
+        // Listen for view breakpoint changes and update control location
+        app.mapView.watch("widthBreakpoint", function(newVal, oldVal) {
+          function setPadding(newVal, oldVal) {
+            if (newVal === "small" && oldVal === "medium") {
+              app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+            } else if (newVal === "medium" && oldVal === "small") {
+              app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPadding, app.panelSettings.activeLayout.uiPadding);
+            }
+          }
+          // Set padding for navs that change height
+          if (app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+            setPadding(newVal, oldVal);
+          }
+        });
       }
 
       //----------------------------------
@@ -936,8 +947,7 @@
         setBasemapEvents();
         setSearchWidgets();
         setColorPicker();
-        setPanelEvents();
-        setActivePanel(findActivePanel());
+        setPopupPanelEvents();
       }
 
       //----------------------------------
@@ -1059,116 +1069,58 @@
       // Popups and Panels
       //----------------------------------
 
-      function setPopupEvents(view) {
-        view.popup.watch("currentDockPosition", function(result) {
-          setPanelDockPosition();
-        });        
-      }
+      function setPopupPanelEvents() {
 
-      function setPanelEvents() {
-        // Panel events
+        // Views - Listen to view size changes to show/hide panels
+        app.mapView.watch("size", viewSizeChange);
+        app.sceneView.watch("size", viewSizeChange);
+
+        function viewSizeChange(screenSize) {
+          if (app.screenWidth !== screenSize[0]) {
+            app.screenWidth = screenSize[0];
+            setPanelVisibility();
+          }
+        }
+
+        // Popups - Listen to popup changes to show/hide panels
+        app.mapView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
+        app.sceneView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
+
+        // Panels - Show/hide the panel when popup is docked
+        function setPanelVisibility() {
+           var isMobileScreen = app.activeView.widthBreakpoint === "xsmall" || app.activeView.widthBreakpoint === "small",
+            isDockedVisible = app.activeView.popup.visible && app.activeView.popup.currentDockPosition,
+            isDockedBottom = app.activeView.popup.currentDockPosition && app.activeView.popup.currentDockPosition.indexOf("bottom") > -1;
+          // Mobile (xsmall/small)
+          if (isMobileScreen) {
+            if (isDockedVisible && isDockedBottom) {
+              query(".calcite-panels").addClass("invisible");
+            } else {
+              query(".calcite-panels").removeClass("invisible");
+            }
+          } else { // Desktop (medium+)
+            if (isDockedVisible) {
+              query(".calcite-panels").addClass("invisible");
+            } else {
+              query(".calcite-panels").removeClass("invisible");          
+            }
+          }
+        }
+
+        // Panels - Dock popup when panels show (desktop or mobile)
         query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-          setActivePanel(e.target.id);
-          setPopupDockPosition();
-        });
-
-        query(".calcite-panels .panel .panel-close").on("click", function(e) {
-          setActivePanel(null);
-        });
-      }
-
-      //----------------------------------
-      // Popup and Panel functions
-      //----------------------------------
-
-      function setPopupDockPosition() {
-        if (app.activePanel.id) {
-          if (windowsOverlap()) {
+          if (app.activeView.popup.currentDockPosition || app.activeView.widthBreakpoint === "xsmall") {
             app.activeView.popup.dockEnabled = false;
-          }          
-        }
-      }
-
-      function setPanelDockPosition() {
-        if (app.activePanel.id) {
-          if (windowsOverlap()) {
-            query("#" + app.activePanel.id).collapse("hide");
-          } else {
-            if (!(query("#" + app.activePanel.id + ".in").length > 0)) {
-              query("#" + app.activePanel.id).collapse("show");
-            }
           }
-        }
-      }
+        });
 
-      function setActivePanel(id) {
-        if (id) {
-          app.activePanel.id = id;
-        } else {
-          app.activePanel.id = null;
-        }
-      }
-
-      function findActivePanel() {
-        var panel = query(".calcite-panels .panel.in")[0];
-        if (panel) {
-          return panel.id;
-        } else {
-          return null;
-        }
-      }
-
-      function windowsOverlap() {
-        var popup = app.activeView.popup,
-          overlap = false;
-        if (app.activePanel.id && popup.visible) {
-          // Desktop
-          if (window.innerWidth > app.screenWidthBreakpointMobile) {
-            if (popup.currentDockPosition === "top-right") {
-              overlap = true;
-            } 
-          } else { // Mobile
-            if (popup.currentDockPosition && popup.currentDockPosition.indexOf("bottom-") !== -1) {            
-              overlap = true;
-            }
+        // Panels - Undock popup when panels hide (mobile only)
+        query(".calcite-panels .panel").on("hide.bs.collapse", function(e) {
+          if (app.activeView.widthBreakpoint === "xsmall") {
+            app.activeView.popup.dockEnabled = true;
           }
-        } 
-        return overlap;
+        });
       }
-
-      //  // Popup Events
-      // app.mapView.popup.watch("currentDockPosition", function(result) {
-      //   setPanelVisibility();
-      // });
-
-      // app.sceneView.popup.watch("currentDockPosition", function(result) {
-      //   setPanelVisibility();
-      // });
-
-      // // Panel Events
-      // query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-      //   if (app.activeView.popup.currentDockPosition) {
-      //     app.activeView.popup.dockEnabled = false;
-      //   } 
-      // });
-
-      // // Window Events
-      // query(window).on("resize", function() {
-      //   setPanelVisibility();
-      // })
-
-      // // Panel show/hide
-      // function setPanelVisibility() {
-      //   if (app.activeView.popup.visible && app.activeView.popup.currentDockPosition && !(window.innerWidth > 544 && window.innerWidth < 768)) {
-      //     if (query(".calcite-panels .panel.in").length > 0) {
-      //       query(".calcite-panels").addClass("invisible");
-      //     } else {
-      //       query(".calcite-panels").removeClass("invisible");
-      //     }
-      //   } else {
-      //     query(".calcite-panels").removeClass("invisible");
-      //   }
-      // }  
 
       //----------------------------------
       // Popup collapse (optional)
@@ -1178,6 +1130,32 @@
         query(".esri-popup .esri-container").toggleClass("esri-popup-collapsed");
         app.activeView.popup.reposition();
       });
+
+      //----------------------------------
+      // Toggle nav
+      //----------------------------------
+      // query("#calciteToggleNavbar").on("click", function(e) {
+      //   var padding;
+      //   if (query(".calcite-nav-hidden").length > 0) { // hidden
+      //     //app.panelSettings.setLayout(app.panelSettings.activeLayout, true);
+      //     //query(".calcite-panels .panel.in").collapse("hide");
+      //   } else {
+      //     //app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+      //   }
+      //   query(".calcite-dropdown").removeClass("open");
+      //   query(".calcite-dropdown-toggle").removeClass("open");
+      // });
+
+      //----------------------------------
+      // Manual show/hide menu dropdown (slide)
+      //----------------------------------
+
+      // query(".dropdown-toggle").on('click', function (e) {
+      //   // Show dropdown nav
+      //   query(this).parent().toggleClass("open");
+      //   // Menu animcation
+      //   query(".calcite-dropdown-toggle").toggleClass("open");
+      // });
 
     });
   </script>

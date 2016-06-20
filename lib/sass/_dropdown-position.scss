@@ -1,0 +1,119 @@
+// ┌──────────────────┐
+// │ Calcite Dropdown │
+// └──────────────────┘
+//
+// Styling for nav dropdown
+
+// Navbar - Top 
+
+// Default
+
+.calcite-nav-top,
+&.calcite-nav-top-fixed {
+  .calcite-dropdown .dropdown-menu {
+  	position: absolute;
+    top: 100%;
+    bottom: auto;
+  }
+}
+
+// Drawer
+
+&.calcite-nav-top,
+.calcite-nav-top-fixed {
+  .calcite-dropdown {
+  	&.calcite-dropdown-drawer .dropdown-menu {
+  		position: fixed;
+	    top: $navbar_height;
+	    bottom: $map_attribution_height;
+	    max-height: 100%;
+	  }
+	}
+}
+
+.calcite-nav-top.calcite-margin-top, 
+.calcite-nav-top.calcite-margin-all {
+  .calcite-dropdown {
+  	&.calcite-dropdown-drawer .dropdown-menu {
+	  	position: fixed;
+	    top: $navbar_height + $base_ui_margin;
+	    bottom: $map_attribution_height;
+	    max-height: 100%;
+	  }
+	}
+}
+
+// Navbar - Bottom
+
+// Default
+
+.calcite-nav-bottom,
+.calcite-nav-bottom-fixed {
+  .calcite-dropdown .dropdown-menu {
+  	position: absolute;
+   	top: auto;
+   	bottom: 100%;
+  }
+}
+
+// Drawer
+
+.calcite-nav-bottom,
+.calcite-nav-bottom-fixed {
+  .calcite-dropdown {
+  	&.calcite-dropdown-drawer .dropdown-menu {
+  		position: fixed;
+	  	top: $map_attribution_height;
+	    bottom: $navbar_height;
+	    max-height: 100%;
+	  }
+	}
+}
+
+.calcite-nav-bottom.calcite-margin-bottom,
+.calcite-nav-bottom.calcite-margin-all {
+  .calcite-dropdown {
+  	&.calcite-dropdown-drawer .dropdown-menu {
+  		position: fixed;
+	  	top: $map_attribution_height;
+	    bottom: $navbar_height + $base_ui_margin;
+	    max-height: 100%;
+	  }
+	}
+}
+
+// Mobile screens
+
+@media (max-width: $panels_breakpoint_width_mobile) {
+	
+	// Drawer - no drawer in mobile!
+
+	.calcite-nav-top,
+	.calcite-nav-top-fixed,
+	.calcite-nav-top.calcite-margin-top, 
+	.calcite-nav-top.calcite-margin-all {
+	  .calcite-dropdown {
+	  	&.calcite-dropdown-drawer .dropdown-menu {
+	  		position: absolute;
+		    top: 100%;
+		    bottom: auto;
+		    max-height: none;
+		  }
+		}
+	}
+
+	.calcite-nav-bottom,
+	.calcite-nav-bottom-fixed,
+	.calcite-nav-bottom.calcite-margin-top, 
+	.calcite-nav-bottom.calcite-margin-all {
+	  .calcite-dropdown {
+	  	&.calcite-dropdown-drawer .dropdown-menu {
+	  		position: absolute;
+		    top: 100%;
+		    bottom: auto;
+		    max-height: none;
+		  }
+		}
+	}
+
+}
