@@ -16,14 +16,18 @@ Calcite Maps also works seamlessly with the new [ArcGIS API for JavaScript 4.x](
   <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-dark calcite-bgcolor-dark-blue">
 ```
 
-[Explore the samples and the different types of apps you can build here](http://esri.github.io/calcite-maps/samples/index.html)
+[Check out the Styler and samples apps here](http://esri.github.io/calcite-maps/samples/index.html)
 
 ##What's included
 
-* Calcite [colors](#documentation), [styles](#documentation) and [layouts](#documentation) for map apps
-* Dark and light themes for apps and widgets (ArcGIS JS 4.x only)
-* Custom navbar, menus and panels
-* Full screen view
+* Calcite [colors](#documentation), [styles](#documentation) and [layouts](#documentation)
+* Default (50px), medium (60px) and large (85px) navbar sizes
+* Top and bottom layouts
+* Dark and light themes
+* Extended navbar, menus and panels
+* Custom dropdown menu with open/close/toggle support
+* Full map view
+* Removal of browser "bounce" effect on mobile devices to simulate native app experience
 * CSS and JS extensions for [Bootstrap](http://www.getbootstrap.com) components
 * Sass build for [Bootstrap](http://www.getbootstrap.com), [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) and Calcite Maps
 * Support for [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/) and [Esri Leaflet](https://github.com/Esri/esri-leaflet)
@@ -59,28 +63,32 @@ Here's a few ways to get started:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="description" content="Calcite-Maps - Example">
-<title>Calcite Maps - ArcGIS JS 4.0 Example</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="Calcite Maps - ArcGIS 4.x SDK Sample">
+  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <title>Calcite Maps - ArcGIS JS 4.0 Example</title>
 
-<!-- Calcite Bootstrap -->
-<link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
+  <!-- Calcite Bootstrap -->
+  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
 
-<!-- Calcite Maps -->
-<link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+  <!-- Calcite Maps -->
+  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
 
-<!-- ArcGIS JS 4.0 -->
-<link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+  <!-- ArcGIS JS 4.0 -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-</style>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .esri-legend {
+      overflow: hidden;
+    }
+  </style>
 
 </head>
 
@@ -91,17 +99,18 @@ Here's a few ways to get started:
   <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
     <!-- Header -->
     <div class="navbar-header">
-      <a class="navbar-brand">
+      <a class="navbar-brand" role="button" id="calciteToggleNavbar" aria-haspopup="true">
         <span class="esri-icon esri-icon-map-pin"></span>
       </a>
     </div>
     <!-- Title -->
-    <div class="calcite-title">
-      <div class="calcite-title-main calcite-overflow-hidden">Greater Los Angeles Demographics</div>
-      <div class="calcite-title-sub calcite-overflow-hidden">Explore population, age, income and housing values</div> 
+    <div class="calcite-title calcite-overflow-hidden">
+      <span class="calcite-title-main">Greater Los Angeles Demographics</span>
+      <span class="calcite-title-divider hidden-xs"></span>
+      <span class="calcite-title-sub hidden-xs">Explore population, age, income and housing values</span> 
     </div>
     <!-- Nav -->
-    <ul class="nav navbar-nav">                    
+    <ul class="calcite-nav nav navbar-nav">                    
       <li><a role="button" data-target=".esri-legend" data-toggle="collapse" aria-expanded="true"><span class="glyphicon glyphicon-list"></span></a></li>          
     </ul>
   </nav><!--/.navbar -->
@@ -116,11 +125,13 @@ Here's a few ways to get started:
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        location: "https://esri.github.io/calcite-maps/dist/vendor/dojo-bootstrap"
+        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+        location: "http://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
       },
       {
         name: "calcite-maps",
-        location: "https://esri.github.io/calcite-maps/dist/js/dojo"
+        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+        location: "http://esri.github.com/calcite-maps/dist/js/dojo"
       }]
     };
   </script>
@@ -135,6 +146,7 @@ Here's a few ways to get started:
       "esri/views/MapView",
       "esri/WebMap",
       "esri/widgets/Legend",
+      "dojo/query",
 
       // Bootstrap
       "bootstrap/Collapse", 
@@ -142,7 +154,7 @@ Here's a few ways to get started:
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-    ], function(MapView, WebMap, Legend) {
+    ], function(MapView, WebMap, Legend, query) {
         
       // Webmap 
       var webmap = new WebMap({
@@ -156,7 +168,7 @@ Here's a few ways to get started:
         map: webmap,
         container: "mapViewDiv",
         padding: {
-            top: 64
+            top: 50
           }
       });
 
@@ -170,10 +182,10 @@ Here's a few ways to get started:
           }]
         });
         view.ui.add(legend, "top-right");
+        query("#" + legend.id).addClass("collapse in");
       });
 
     });
-
   </script>
 
 </body>
@@ -191,21 +203,16 @@ Here's the CSS classes you can apply to different elements to create your own ap
  * `calcite-nav-margin-top`
  * `calcite-nav-margin-bottom`
  * `calcite-nav-margin-all`
+* Custom Layouts
+ * `calcite-layout-medium-title`
+ * `calcite-layout-large-title`
+ * `calcite-layout-inline-right`
+ * `calcite-layout-inline-left`
 * Zoom (ArcGIS 3.x and Esri-Leaflet only)
  * `calcite-zoom-top-left`
  * `calcite-zoom-top-right`
  * `calcite-zoom-bottom-left`
  * `calcite-zoom-bottom-right` 
-* Panel
- * `calcite-panel-right`
- * `calcite-panel-left`
-* Widget Themes (ArcGIS 4.x only)
- * `calcite-widgets-dark` 
-* Custom Layouts
- * `calcite-layout-small-title`
- * `calcite-layout-jumbo-title`
- * `calcite-layout-inline-right`
- * `calcite-layout-inline-left`
 
 #### Nav
 * Base
@@ -221,6 +228,7 @@ Here's the CSS classes you can apply to different elements to create your own ap
 * Title
  * `calcite-title`
  * `calcite-title-main`
+ * `calcite-title-divider`
  * `calcite-title-sub`
 * Search
  * `calcite-navbar-search`
@@ -242,6 +250,9 @@ Here's the CSS classes you can apply to different elements to create your own ap
 #### Panels
 * Base
  * `calcite-panels`
+* Position
+ * `calcite-panel-right`
+ * `calcite-panel-left`
 * Theme
  * `calcite-text-light`
  * `calcite-text-dark`
@@ -257,9 +268,15 @@ Here's the CSS classes you can apply to different elements to create your own ap
 * Position
  * `calcite-map-absolute`
  * `calcite-map-fixed`
+* Widget Themes (ArcGIS 4.x only)
+ * `calcite-widgets-dark` 
 
-#### Other
+#### Utils
 * `calcite-overflow-hidden`
+* `calcite-overflow-visible`
+* `calcite-btn-noborder`
+* `calcite-width-full`
+* `calcite-index-top`
 
 NOTE: See all colors [here](./lib/sass/_colors.scss)
 
