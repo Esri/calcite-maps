@@ -53,22 +53,40 @@ module.exports = function (grunt) {
 			}
 		},
 
-		// Uglify JS
-		'uglify': {
-			options: {
-					mangle: false,
-					banner: banner
-			},
-			dist: {
-				files: {
-					'dist/js/dojo/calcitemaps-v0.2.js': ['lib/js/dojo/calcitemaps.js'],
-					'dist/js/jquery/calcitemaps-v0.2.js': ['lib/js/jquery/calcitemaps.js']
-				}
-			}
-		},
+		// Uglify JS (optional)
+		// 'uglify': {
+		// 	options: {
+		// 			mangle: false,
+		// 			banner: banner
+		// 	},
+		// 	dist: {
+		// 		files: {
+		// 			'dist/js/dojo/calcitemaps-v0.2.js': ['lib/js/dojo/calcitemaps.js'],
+		// 			'dist/js/jquery/calcitemaps-v0.2.js': ['lib/js/jquery/calcitemaps.js']
+		// 		}
+		// 	}
+		// },
 
 		// Copy to dist
 		'copy': {
+			calcitemapsdojo: {
+				expand: true,
+				flatten: true,
+				src: ['./lib/js/dojo/*.js'],
+				dest:	'./dist/js/dojo/',
+				rename: function(dest, src) {
+          return dest + '/' + src.replace(/calcitemaps/, "calcitemaps-v0.2");
+    		},
+			},
+			calcitemapsjquery: {
+				expand: true,
+				flatten: true,
+				src: ['./lib/js/jquery/*.js'],
+				dest:	'./dist/js/jquery/',
+				rename: function(dest, src) {
+          return dest + '/' + src.replace(/calcitemaps/, "calcitemaps-v0.2");
+    		},
+			},
 			bootstrapfonts: {
 				expand: true,
 				flatten: true,
@@ -84,7 +102,8 @@ module.exports = function (grunt) {
 			vendor: {
 				expand: true,
 				flatten: false,
-				cwd: './bower_components/dojo-bootstrap',
+				//cwd: './bower_components/dojo-bootstrap',
+				cwd: './lib/js/dojo-bootstrap', // Get local build now
 				src: '**',
 				dest: './dist/vendor/dojo-bootstrap/'
 			}
@@ -101,5 +120,5 @@ module.exports = function (grunt) {
 
 	});  
 	// Default task.  
-	grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'copy:bootstrapfonts', 'copy:calcitefonts', 'copy:vendor']);  
+	grunt.registerTask('default', ['sass', 'cssmin', 'copy:calcitemapsdojo', 'copy:calcitemapsjquery', 'copy:bootstrapfonts', 'copy:calcitefonts', 'copy:vendor']);  
 };
