@@ -8,8 +8,8 @@
 
 $nav_height: 85px;
 $navbar_margin_top_offset: 16.5px;
-$navbar_dropdown_toggle_margin: 1px 0 15px 0;
-$navbar_dropdown_toggle_padding: 22px 20px 24px 21px;
+$navbar_dropdown_toggle_margin: 16px 0 15px 0;
+$navbar_dropdown_toggle_padding: 18px 20px 18px 21px;
 $navbar_dropdown_menu_margin: 15px auto 17px -5px;
 $navbar_title_font_size: 48px;
 $navbar_title_padding: 1px 0 4px;
@@ -39,6 +39,10 @@ $title_line_height: 1.1;
 
     .calcite-dropdown {
       margin: $navbar_dropdown_toggle_margin;
+    }
+
+    .calcite-dropdown .dropdown-toggle {
+      padding: $navbar_dropdown_toggle_padding;
     }
 
     .calcite-dropdown .dropdown-menu {

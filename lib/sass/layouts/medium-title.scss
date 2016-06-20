@@ -9,7 +9,6 @@
 $navbar_height: 60px;
 $navbar_dropdown_toggle_margin: 0 0 15px 0;
 $navbar_dropdown_toggle_padding: 22px 20px 24px 21px;
-$navbar_dropdown_menu_margin: 0 auto 0 0;
 $navbar_title_font_size: 28px;
 $navbar_title_padding: 1px 0 4px;
 $navbar_title_divider_margin: 0 20px;
@@ -41,12 +40,7 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
     padding: $navbar_dropdown_toggle_padding;
   }
 
-  .calcite-dropdown .dropdown-menu {
-    margin: $navbar_dropdown_menu_margin;
-    // top: $navbar_height; // position!
-  }
-
- .calcite-title-main {
+  .calcite-title-main {
     padding: $navbar_title_padding;
     font-size: $navbar_title_font_size;
     line-height: $title_line_height;
