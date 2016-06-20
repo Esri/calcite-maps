@@ -34,14 +34,17 @@
       padding: 0;
       height: 100%;
     }
+    .calcite-nav-bottom .calcite-map .leaflet-control-zoom {
+      margin-top: 50px;
+    }
   </style>
 
 </head>
-<body class="calcite-nav-top">
+<body class="calcite-nav-bottom calcite-layout-large-title">
 
   <!-- Navbar -->
 
-  <nav class="navbar calcite-navbar navbar-fixed-top calcite-bg-dark calcite-text-light calcite-bgcolor-green">
+  <nav class="navbar calcite-navbar navbar-fixed-bottom calcite-bg-dark calcite-text-light calcite-bgcolor-green">
      <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-bg-custom calcite-text-light" role="presentation">
       <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +83,7 @@
 
   <!-- Panel -->
 
-  <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light panel-group calcite-bgcolor-green" role="tablist" aria-multiselectable="true">
+  <div class="calcite-panels calcite-panels-left calcite-bg-custom calcite-text-light panel-group calcite-bgcolor-green" role="tablist" aria-multiselectable="true">
   
     <!-- Info Panel -->
 
@@ -147,8 +150,8 @@
     // Esri-Leaflet 
     // ============
 
-    var map = L.map('map').setView([45.52, -122.68], 12),
-      layer = L.esri.basemapLayer('NationalGeographic').addTo(map);
+    var map = L.map('map', {zoomControl: false}).setView([45.52, -122.68], 12),
+      layer = L.esri.basemapLayer('NationalGeographic').addTo(map),
       // layerLabels = L.esri.basemapLayer('xxxLabels').addTo(map);
       layerLabels = null;
 
@@ -172,6 +175,10 @@
         map.addLayer(layerLabels);
       }
     }
+
+    L.control.zoom({
+      position:'topright'
+    }).addTo(map);
 
     var searchControl = L.esri.Geocoding.Controls.geosearch({expanded: true, collapseAfterResult: false, zoomToResult: false}).addTo(map);
     
