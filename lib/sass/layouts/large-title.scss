@@ -8,24 +8,29 @@
 
 $nav_height: 85px;
 $navbar_margin_top_offset: 16.5px;
-$navbar_dropdown_toggle_margin: $navbar_margin_top_offset 5px 15px 5px;
+$navbar_dropdown_toggle_margin: 1px 0 15px 0;
+$navbar_dropdown_toggle_padding: 22px 20px 24px 21px;
 $navbar_dropdown_menu_margin: 15px auto 17px -5px;
 $navbar_title_font_size: 48px;
 $navbar_title_padding: 1px 0 4px;
 $navbar_title_divider_margin: 0 20px;
-$navbar_title_divider_height: 140px;
 $navbar_subtitle_font_size: 14px;
 $title_line_height: 1.1;
 
 // Sytles for > medium screens only
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   
   .calcite-layout-large-title {
 
     .calcite-navbar {
       height: $nav_height;
       min-height: $nav_height;
+
+      .navbar-brand {
+        padding: 17px 7px;
+        font-size: 50px;
+      }
 
       .navbar-nav {
         margin-top: $navbar_margin_top_offset;
@@ -47,8 +52,8 @@ $title_line_height: 1.1;
     }
 
     .calcite-title-divider {
+      height: $navbar_height * 2;
       margin: $navbar_title_divider_margin;
-      height: $navbar_title_divider_height;
     }
 
     .calcite-title-sub {

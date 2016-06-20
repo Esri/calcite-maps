@@ -27,8 +27,7 @@
   // Brand
 
   .navbar-brand {
-    padding: 12.5px;
-    height: $navbar_height;
+    padding: $navbar_brand_padding;
     font-size: $navbar_brand_font_size;
     cursor: pointer;
   }
@@ -79,12 +78,11 @@
   position: relative;
   top: 0;
   left: 0;
-  width: 1px;
+  height: $navbar_height * 2;
   margin: $navbar_title_divider_margin;
-  height: $navbar_title_divider_height;
-  transform: scale(0.35);
+  transform: scale(.7, .3);
   transform-origin: left;
-  border: 1px solid;
+  border-left: 1px solid;
 }
 
 .calcite-title-sub {
@@ -109,7 +107,7 @@
 // Search widget
 
 .calcite-navbar-search {
-  padding: 15px 15px;
+  padding: 7.5px 15px;
 }
 
 // Nav menu animated
@@ -195,7 +193,7 @@
   left: 50%;
 }
 
-// Navbar - Transparent
+// Navbar - Hide
 
 .calcite-nav-hidden {
   .calcite-navbar {

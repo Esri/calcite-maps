@@ -23,30 +23,46 @@
 
 // Navbar - Top 
 
-&.calcite-nav-top,
-&.calcite-nav-top-fixed {
+.calcite-nav-top,
+.calcite-nav-top-fixed {
   .calcite-panels {
     top: $panels_position_top + $navbar_height;
   }
 }
 
-&.calcite-nav-top.calcite-margin-top, 
-&.calcite-nav-top.calcite-margin-all {
+.calcite-nav-top.calcite-margin-top, 
+.calcite-nav-top.calcite-margin-all {
   .calcite-panels {
     top: $panels_position_top + $navbar_height + $base_ui_margin;
   }
 }
 
-// Navbar - Bottom
+// Navbar - Top + Hidden
 
-&.calcite-nav-bottom,
-&.calcite-nav-bottom-fixed,
-&.calcite-nav-bottom.calcite-margin-bottom,
-&.calcite-nav-bottom.calcite-margin-all {
-  .calcite-panels {
-    top: $panels_position_top + $base_ui_margin;
+.calcite-nav-top,
+.calcite-nav-top-fixed,
+.calcite-nav-top.calcite-margin-top, 
+.calcite-nav-top.calcite-margin-all {
+  &.calcite-nav-hidden {
+    .calcite-panels {
+      top: $base_ui_margin;
+    }
   }
 }
+
+// Navbar - Bottom
+
+.calcite-nav-bottom,
+.calcite-nav-bottom-fixed,
+.calcite-nav-bottom.calcite-margin-bottom,
+.calcite-nav-bottom.calcite-margin-all {
+  .calcite-panels {
+    top: $base_ui_margin + $map_attribution_height;
+  }
+}
+
+// Navbar - Top + Hidden (does not apply)
+
 
 // Mobile screens
 
@@ -66,10 +82,10 @@
 
   // Navbar - Top
 
-  &.calcite-nav-top,
-  &.calcite-nav-top-fixed,
-  &.calcite-nav-top.calcite-margin-top, 
-  &.calcite-nav-top.calcite-margin-all {
+  .calcite-nav-top,
+  .calcite-nav-top-fixed,
+  .calcite-nav-top.calcite-margin-top, 
+  .calcite-nav-top.calcite-margin-all {
     .calcite-panels {
       top: auto;
       bottom: 0;
@@ -78,10 +94,10 @@
 
   // Navbar - Bottom
 
-  &.calcite-nav-bottom,
-  &.calcite-nav-bottom-fixed, 
-  &.calcite-nav-bottom.calcite-margin-bottom,
-  &.calcite-nav-bottom.calcite-margin-all {
+  .calcite-nav-bottom,
+  .calcite-nav-bottom-fixed, 
+  .calcite-nav-bottom.calcite-margin-bottom,
+  .calcite-nav-bottom.calcite-margin-all {
     .calcite-panels {
       top: auto;
       bottom: $navbar_height;
@@ -90,11 +106,24 @@
 
   // Navbar - Top/bottom + margin all
 
-  &.calcite-nav-top.calcite-margin-all,
-  &.calcite-nav-bottom.calcite-margin-all {
+  .calcite-nav-top.calcite-margin-all,
+  .calcite-nav-bottom.calcite-margin-all {
     .calcite-panels {
       margin: auto $base_ui_margin ($base_ui_margin * 2) $base_ui_margin;
       width: auto;
+    }
+  }
+
+  // Navbar Hidden (all)
+  
+  body.calcite-nav-top,
+  body.calcite-nav-top-fixed,
+  body.calcite-nav-bottom,
+  body.calcite-nav-bottom-fixed {
+    &.calcite-nav-hidden {
+      .calcite-panels {
+        top: auto;
+      }
     }
   }  
 }

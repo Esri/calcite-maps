@@ -13,6 +13,15 @@
   .calcite-navbar {
     height: 65px;
     min-height: 65px;
+    .navbar-nav>li>a {
+      padding: 20px 15px 21px;
+    }
+  }
+  .calcite-navbar-search {
+    padding: 16px 15px;
+  }
+  .calcite-navbar-search.calcite-search-expander {
+    padding: 18px 15px;
   }
 }
 

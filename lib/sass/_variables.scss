@@ -31,7 +31,8 @@ $base_breakpoint_width_mobile_xxs: 320px;
 // ---------------------------------------------------------------
 
 $map_fixed_width: 768px !default;
-$map_fixed_height: 500px !default;    
+$map_fixed_height: 500px !default;
+$map_attribution_height: 16px !default; 
 
 // ---------------------------------------------------------------
 // Navbar
@@ -41,15 +42,17 @@ $map_fixed_height: 500px !default;
 $navbar_height: 50px !default;
 $navbar_margin: $base_ui_margin !default;
 // Nav
-$navbar_nav_li_a_padding: 14px 15px 12px !default;
+$navbar_nav_li_a_padding: 13px 15px 12px !default;
 $navbar_nav_font_size: $base_ui_font_size;
-// Dropdown toggle
+// Menu dropdown toggle
 $navbar_dropdown_toggle_margin: 0;
-$navbar_dropdown_toggle_padding: 17px 20px 20px 21px !default;
+$navbar_dropdown_toggle_padding: 17px 20px 20px 22px !default;
+$navbar_dropdown_toggle_padding_mobile: 17px 18px 19px 20px !default;
 $navbar_dropdown_toggle_icon_bar_height: 14px !default;
-$navbar_dropdown_toggle_icon_bar_width: 19px !default;
+$navbar_dropdown_toggle_icon_bar_width: 17px !default;
 // Brand
-$navbar_brand_font_size: 40px !default;
+$navbar_brand_padding: 10px 15px !default;
+$navbar_brand_font_size: 32px !default;
 // Title - main
 $navbar_title_margin: 0 !default;
 $navbar_title_padding: 1px 0 2px !default;
@@ -58,7 +61,6 @@ $navbar_title_font_weight: 300 !default;
 $navbar_title_font_size_mobile: 20px !default;
 // Title - divider
 $navbar_title_divider_margin: 0 15px;
-$navbar_title_divider_height: 90px;
 // Title - sub
 $navbar_subtitle_margin: 0 !default;
 $navbar_subtitle_padding: 1px 0 0 !default;
@@ -73,6 +75,8 @@ $navbar_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
 // Dropdown
 // ---------------------------------------------------------------
 
+$dropdown_menu_padding: 0;
+$dropdown_menu_li_a_padding: 9px 20px;
 $dropdown_toggle_font_size: $base_ui_font_size !default;
 $dropdown_menu_font_size: $base_ui_font_size !default;
 // Size
