@@ -237,7 +237,8 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
           display: none;
         }
       }
-      .esri-search--show-suggestions .esri-search__suggestions-menu {
+      .esri-search--show-suggestions .esri-search__suggestions-menu,
+      .esri-search--no-results .esri-search__no-results-menu {
         visibility: collapse;
       }
     }
@@ -259,7 +260,6 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
         .esri-search--show-suggestions .esri-search__suggestions-menu {
           display: block;
         }
-        // .esri-search--no-results .esri-search__no-results-menu,
         .esri-search--has-value .esri-search__clear-button,
         .esri-search__clear-button {
           display: flex;
@@ -268,6 +268,11 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
       .esri-search--show-suggestions .esri-search__suggestions-menu {
         visibility: visible;
       }
+      // Always hide because tap is necessary and will cause menu to open all of the time
+      .esri-search--no-results .esri-search__no-results-menu { 
+        visibility: collapse;
+      }
+
     }
   }
 } //calcite-search-expander
