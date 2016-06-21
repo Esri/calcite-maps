@@ -70,7 +70,7 @@
     min-height: $panel_body_min_height;
     max-height: $panel_body_max_height;
     font-size: $panel_font_size;
-    overflow: auto;
+    overflow-x: hidden;
 
     // Elements formatted slightly smaller for map apps
 

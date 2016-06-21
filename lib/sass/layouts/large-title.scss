@@ -6,7 +6,7 @@
 
 @import "../variables";
 
-$nav_height: 85px;
+$navbar_height: 85px;
 $navbar_margin_top_offset: 16.5px;
 $navbar_dropdown_toggle_margin: 17px 0 15px 0;
 $navbar_dropdown_toggle_padding: 17px 20px 18px 21px;
@@ -24,8 +24,8 @@ $title_line_height: 1.1;
   .calcite-layout-large-title {
 
     .calcite-navbar {
-      height: $nav_height;
-      min-height: $nav_height;
+      height: $navbar_height;
+      min-height: $navbar_height;
 
       .navbar-brand {
         padding: 17px 7px;
@@ -80,7 +80,7 @@ $title_line_height: 1.1;
 
     &.calcite-nav-top {
       .calcite-panels {
-        top: $nav_height + $base_ui_margin;
+        top: $navbar_height + $base_ui_margin;
       }
     }
 
@@ -90,13 +90,57 @@ $title_line_height: 1.1;
     &.calcite-nav-top.calcite-zoom-top-right .esriZoom.esriVertical.esriComponent,
     &.calcite-nav-bottom.calcite-zoom-bottom-left .esriZoom.esriVertical.esriComponent,
     &.calcite-nav-bottom.calcite-zoom-bottom-right .esriZoom.esriVertical.esriComponent {
-      margin: $nav_height + $base_ui_margin 25px;
+      margin: $navbar_height + $base_ui_margin 25px;
     }
 
     // Esri-Leaflet
     
     &.calcite-nav-top .calcite-map .leaflet-control-zoom {
-      margin: $nav_height + $base_ui_margin 25px 15px 30px;
+      margin: $navbar_height + $base_ui_margin 25px 15px 30px;
+    }
+
+    // Menu drawer style - top
+
+    &.calcite-nav-top,
+    &.calcite-nav-top-fixed {
+      .calcite-dropdown {
+        .calcite-menu-drawer {
+          top: $navbar_height;
+          margin: 0;
+        }
+      }
+    }
+
+    &.calcite-nav-top.calcite-margin-top, 
+    &.calcite-nav-top.calcite-margin-all {
+      .calcite-dropdown {
+        .calcite-menu-drawer  {
+          top: $navbar_height + $base_ui_margin;
+          margin: 0;
+        }
+      }
+    }
+
+    // Menu drawer - bottom
+
+    &.calcite-nav-bottom,
+    &.calcite-nav-bottom-fixed {
+      .calcite-dropdown {
+        .calcite-menu-drawer {
+          bottom: $navbar_height;
+          margin: 0;
+        }
+      }
+    }
+
+    &.calcite-nav-bottom.calcite-margin-bottom,
+    &.calcite-nav-bottom.calcite-margin-all {
+      .calcite-dropdown {
+        .calcite-menu-drawer  {
+          bottom: $navbar_height + $base_ui_margin;
+          margin: 0;
+        }
+      }
     }
   }
 }

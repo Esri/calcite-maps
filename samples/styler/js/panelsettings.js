@@ -591,6 +591,13 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
         domClass.add(panels, panelStyle);
       });
 
+      query("#settingsMenu").on("change", function(e) {
+        var menu = query(CALCITE_THEME_SELECTORS.DROPDOWN_MENU)[0],
+          menuStyle = e.target.value;
+        domClass.remove(menu, "calcite-menu-drawer");
+        domClass.add(menu, menuStyle);
+      });
+
       query("#settingsPadding").on("keydown", function(evt) {
         if (evt.keyCode === keys.ENTER) {
           var str = _this.value;

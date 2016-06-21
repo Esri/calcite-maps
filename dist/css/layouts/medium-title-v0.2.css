@@ -236,6 +236,18 @@
 .calcite-layout-medium-title.calcite-nav-top .calcite-map .leaflet-control-zoom {
   margin: 75px 25px 15px 30px; }
 
+.calcite-layout-medium-title.calcite-nav-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-medium-title.calcite-nav-top-fixed .calcite-dropdown .calcite-menu-drawer {
+  top: 60px; }
+
+.calcite-layout-medium-title.calcite-nav-top.calcite-margin-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-medium-title.calcite-nav-top.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  top: 75px; }
+
+.calcite-layout-medium-title.calcite-nav-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-medium-title.calcite-nav-bottom-fixed .calcite-dropdown .calcite-menu-drawer {
+  bottom: 60px; }
+
+.calcite-layout-medium-title.calcite-nav-bottom.calcite-margin-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-medium-title.calcite-nav-bottom.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  bottom: 75px; }
+
 @media (max-width: 768px) {
   .calcite-layout-medium-title.calcite-nav-top .calcite-panels {
     top: auto; } }

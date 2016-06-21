@@ -46,8 +46,6 @@
   }
   .dropdown-menu {
     position: absolute;
-    //position: fixed; // For full drawer
-    //left: -250px;
     display: block;
     visibility: hidden;
     opacity: 0;
@@ -58,9 +56,6 @@
     border-radius: 0;
     overflow-y: scroll;
     font-size: $dropdown_menu_font_size;
-    // -moz-transition: left .25s ease-out;
-    // -webkit-transition: left .25s ease-out;
-    // transition: left .25s ease-out;
     -moz-transition: visibility, opacity .35s ease-out;
     -webkit-transition: visibility, opacity .35s ease-out;
     transition: visibility, opacity .35s ease-out;
@@ -70,6 +65,27 @@
     .dropdown-menu {
       left: auto;
       right: 0;
+    }
+  }
+
+  // Drawer menu - full height
+
+  &.open .dropdown-menu {
+    &.calcite-menu-drawer {
+      left: 0;
+    }
+  }
+
+  .dropdown-menu {
+    &.calcite-menu-drawer {
+      position: fixed;
+      top: 50px; // Default title height
+      bottom: 0;
+      max-height: 100%;
+      left: -250px;
+      -moz-transition: left .25s ease-out;
+      -webkit-transition: left .25s ease-out;
+      transition: left .25s ease-out;
     }
   }
 
