@@ -3,7 +3,7 @@ A modern framework for building map apps with Calcite styles and Bootstrap.
 
 This project contains a small set of CSS classes specifically designed for building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly. 
 
-To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes to one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or to your own custom application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
+To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes (for now...) into one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or to your own custom application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
@@ -12,7 +12,7 @@ To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/inde
   <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
 ```
 
-[Check out the Styler and samples apps here](http://esri.github.io/calcite-maps/samples/index.html)
+[View the Styler and samples apps here](http://esri.github.io/calcite-maps/samples/index.html)
 
 ##What's included
 
@@ -124,12 +124,10 @@ Here's a few ways to get started:
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
         location: "http://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
       },
       {
         name: "calcite-maps",
-        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
         location: "http://esri.github.com/calcite-maps/dist/js/dojo"
       }]
     };
