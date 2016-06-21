@@ -629,6 +629,20 @@
   .calcite-dropdown.calcite-right .dropdown-menu {
     left: auto;
     right: 0; }
+  .calcite-dropdown.open .dropdown-menu.calcite-menu-drawer {
+    left: 0;
+    -moz-transition: left .25s ease-out;
+    -webkit-transition: left .25s ease-out;
+    transition: left .25s ease-out; }
+  .calcite-dropdown .dropdown-menu.calcite-menu-drawer {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    max-height: 100%;
+    left: -250px;
+    -moz-transition: left .25s ease-out;
+    -webkit-transition: left .25s ease-out;
+    transition: left .25s ease-out; }
   .calcite-dropdown .dropdown-menu > li > a {
     padding: 9px 20px; }
   .calcite-dropdown.dropdown .dropdown-menu {
@@ -642,61 +656,33 @@
 
 .calcite-nav-top .calcite-dropdown .dropdown-menu,
 .calcite-nav-top-fixed .calcite-dropdown .dropdown-menu {
-  position: absolute;
   top: 100%;
   bottom: auto; }
 
-.calcite-nav-top .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-.calcite-nav-top-fixed .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu {
-  position: fixed;
+.calcite-nav-top .calcite-dropdown .calcite-menu-drawer,
+.calcite-nav-top-fixed .calcite-dropdown .calcite-menu-drawer {
   top: 50px;
-  bottom: 16px;
-  max-height: 100%; }
+  bottom: 0; }
 
-.calcite-nav-top.calcite-margin-top .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-.calcite-nav-top.calcite-margin-all .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu {
-  position: fixed;
+.calcite-nav-top.calcite-margin-top .calcite-dropdown .calcite-menu-drawer,
+.calcite-nav-top.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
   top: 65px;
-  bottom: 16px;
-  max-height: 100%; }
+  bottom: 0; }
 
 .calcite-nav-bottom .calcite-dropdown .dropdown-menu,
 .calcite-nav-bottom-fixed .calcite-dropdown .dropdown-menu {
-  position: absolute;
   top: auto;
   bottom: 100%; }
 
-.calcite-nav-bottom .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-.calcite-nav-bottom-fixed .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu {
-  position: fixed;
-  top: 16px;
-  bottom: 50px;
-  max-height: 100%; }
+.calcite-nav-bottom .calcite-dropdown .calcite-menu-drawer,
+.calcite-nav-bottom-fixed .calcite-dropdown .calcite-menu-drawer {
+  top: 0;
+  bottom: 50px; }
 
-.calcite-nav-bottom.calcite-margin-bottom .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-.calcite-nav-bottom.calcite-margin-all .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu {
-  position: fixed;
-  top: 16px;
-  bottom: 65px;
-  max-height: 100%; }
-
-@media (max-width: 768px) {
-  .calcite-nav-top .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-  .calcite-nav-top-fixed .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-  .calcite-nav-top.calcite-margin-top .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-  .calcite-nav-top.calcite-margin-all .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    bottom: auto;
-    max-height: none; }
-  .calcite-nav-bottom .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-  .calcite-nav-bottom-fixed .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-  .calcite-nav-bottom.calcite-margin-top .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu,
-  .calcite-nav-bottom.calcite-margin-all .calcite-dropdown.calcite-dropdown-drawer .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    bottom: auto;
-    max-height: none; } }
+.calcite-nav-bottom.calcite-margin-bottom .calcite-dropdown .calcite-menu-drawer,
+.calcite-nav-bottom.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  top: 0;
+  bottom: 65px; }
 
 .calcite-dropdown.calcite-bg-dark .dropdown-menu {
   background-color: #333333;
@@ -778,7 +764,7 @@
     min-height: 50px;
     max-height: 350px;
     font-size: 14px;
-    overflow: auto; }
+    overflow-x: hidden; }
     .calcite-panels .panel-body button {
       font-size: 14px; }
     .calcite-panels .panel-body input,

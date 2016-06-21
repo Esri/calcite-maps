@@ -216,7 +216,7 @@
     font-size: 48px;
     line-height: 1.1; }
   .calcite-layout-large-title .calcite-title-divider {
-    height: 100px;
+    height: 170px;
     margin: 0 20px; }
   .calcite-layout-large-title .calcite-title-sub {
     font-size: 14px;
@@ -229,4 +229,16 @@
   .calcite-layout-large-title.calcite-nav-bottom.calcite-zoom-bottom-right .esriZoom.esriVertical.esriComponent {
     margin: 100px 25px; }
   .calcite-layout-large-title.calcite-nav-top .calcite-map .leaflet-control-zoom {
-    margin: 100px 25px 15px 30px; } }
+    margin: 100px 25px 15px 30px; }
+  .calcite-layout-large-title.calcite-nav-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-large-title.calcite-nav-top-fixed .calcite-dropdown .calcite-menu-drawer {
+    top: 85px;
+    margin: 0; }
+  .calcite-layout-large-title.calcite-nav-top.calcite-margin-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-large-title.calcite-nav-top.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+    top: 100px;
+    margin: 0; }
+  .calcite-layout-large-title.calcite-nav-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-large-title.calcite-nav-bottom-fixed .calcite-dropdown .calcite-menu-drawer {
+    bottom: 85px;
+    margin: 0; }
+  .calcite-layout-large-title.calcite-nav-bottom.calcite-margin-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-large-title.calcite-nav-bottom.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+    bottom: 100px;
+    margin: 0; } }

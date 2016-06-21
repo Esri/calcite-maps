@@ -241,6 +241,8 @@ Here's the CSS classes you can apply to different elements to create your own ap
  * `calcite-bg-custom`
 
 #### Dropdown-menu
+* Style
+ * `calcite-menu-drawer`
 * Background Color
  * `calcite-bgcolor-xxx`
 
@@ -257,7 +259,7 @@ Here's the CSS classes you can apply to different elements to create your own ap
  * `calcite-bg-dark`
  * `calcite-bg-custom`
 * Background Color
- *`calcite-bgcolor-xxx`
+ * `calcite-bgcolor-xxx`
 
 #### Map
 * Base
