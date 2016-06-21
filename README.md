@@ -3,7 +3,7 @@ A modern framework for building map apps with Calcite styles and Bootstrap.
 
 This project contains a small set of CSS classes specifically designed for building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly. 
 
-To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes (for now...) into one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or to your own custom application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
+To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes (for now...) into one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or into your own application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
@@ -191,9 +191,9 @@ Here's a few ways to get started:
 
 ## Documentation
 
-Here's the CSS classes you can apply to different elements to create your own app layouts.
+Here's the CSS classes you can apply to different elements to create your own designs.
 
-#### Body
+#### `<body class="calcite-nav-top"/>`
 * Layout
  * `calcite-nav-top`
  * `calcite-nav-bottom`
@@ -211,7 +211,7 @@ Here's the CSS classes you can apply to different elements to create your own ap
  * `calcite-zoom-bottom-left`
  * `calcite-zoom-bottom-right` 
 
-#### Nav
+#### `<nav class="calcite-navbar"/>`
 * Base
  * `calcite-navbar`
 * Theme
@@ -229,8 +229,9 @@ Here's the CSS classes you can apply to different elements to create your own ap
  * `calcite-title-sub`
 * Search
  * `calcite-navbar-search`
+ * `calcite-search-expander`
 
-#### Dropdown
+#### `<div class="dropdown"/>`
 * Base
  * `calcite-dropdown`
 * Theme
@@ -240,13 +241,13 @@ Here's the CSS classes you can apply to different elements to create your own ap
  * `calcite-bg-dark`
  * `calcite-bg-custom`
 
-#### Dropdown-menu
+#### `<div class="dropdown-menu"/>`
 * Style
  * `calcite-menu-drawer`
 * Background Color
  * `calcite-bgcolor-xxx`
 
-#### Panels
+#### `<div class="calcite-panels"/>`
 * Base
  * `calcite-panels`
 * Position
@@ -261,7 +262,7 @@ Here's the CSS classes you can apply to different elements to create your own ap
 * Background Color
  * `calcite-bgcolor-xxx`
 
-#### Map
+#### `<div class="calcite-map"/>`
 * Base
  * `calcite-map`
 * Position
@@ -270,7 +271,7 @@ Here's the CSS classes you can apply to different elements to create your own ap
 * Widget Themes (ArcGIS 4.x only)
  * `calcite-widgets-dark` 
 
-#### Utils
+#### `Utils`
 * `calcite-overflow-hidden`
 * `calcite-overflow-visible`
 * `calcite-btn-noborder`
