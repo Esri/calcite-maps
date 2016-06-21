@@ -55,7 +55,7 @@
     <div class="calcite-title calcite-overflow-hidden">
       <span class="calcite-title-main">Calcite Maps</span>
       <span class="calcite-title-divider hidden-xs"></span>
-      <span class="calcite-title-sub hidden-xs">A modern framework for building map apps (ArcGIS JS 4.x 2D-3D)</span> 
+      <span class="calcite-title-sub hidden-xs">Starter app for the ArcGIS API for JS 4.x (jQuery)</span> 
     </div>
      <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
@@ -80,7 +80,7 @@
 
   <!-- Panel Container -->
 
-  <div class="calcite-panels calcite-panels-left calcite-bg-custom calcite-text-light calcite-bgcolor-dark-red panel-group"  role="tablist" aria-multiselectable="true">
+  <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light calcite-bgcolor-dark-red panel-group"  role="tablist" aria-multiselectable="true">
       
     <!-- Info Panel -->
     
@@ -93,7 +93,20 @@
       </div>
       <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
         <div class="panel-body">
-          <p>This is a great place to describe what your application is about.</p>
+          <p>The main styles used in this app are:</p>
+          Body
+          <li>calcite-nav-bottom</li>
+          <br>
+          Nav
+          <li>calcite-bgcolor-dark-red</li>
+          <li>calcite-text-light</li>
+          <br>
+          Dropdown
+          <li>calcite-menu-drawer</li>
+          <br>
+          Panels
+          <li>calcite-panels-right</li>
+          <li>calcite-bg-custom</li>
         </div>
       </div>
     </div>
@@ -177,10 +190,8 @@
         }
       });
 
-      app.mapView.ui.move([ "zoom", "compass"], "top-right");
-
       app.mapView.then(function() {
-        app.mapView.popup.dockOptions.position = "top-left";
+        app.mapView.popup.dockOptions.position = "top-right";
       });
    
       // Scene
@@ -199,10 +210,8 @@
         }
       });
 
-      app.sceneView.ui.move([ "zoom", "compass"], "top-right");
-
       app.sceneView.then(function() {
-        app.sceneView.popup.dockOptions.position = "top-left";
+        app.sceneView.popup.dockOptions.position = "top-right";
       });
 
       app.activeView = app.sceneView;
