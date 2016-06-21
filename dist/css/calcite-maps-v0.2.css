@@ -640,9 +640,11 @@
     bottom: 0;
     max-height: 100%;
     left: -250px;
-    -moz-transition: left .25s ease-out;
-    -webkit-transition: left .25s ease-out;
-    transition: left .25s ease-out; }
+    visibility: visible;
+    opacity: 1;
+    -moz-transition: left .5s ease-out;
+    -webkit-transition: left .5s ease-out;
+    transition: left .5s ease-out; }
   .calcite-dropdown .dropdown-menu > li > a {
     padding: 9px 20px; }
   .calcite-dropdown.dropdown .dropdown-menu {
