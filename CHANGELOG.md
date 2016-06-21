@@ -5,9 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Upcoming changes][unreleased]
 
-* Re-write of CSS to Sass
-* Build system
-* Tighter integration with Bootstrap and Calcite-Bootstrap
+* Improved build system
+* Tighter integration with Bootstrap/Calcite-Bootstrap
+* Better integration with ArcGIS JS 4.0 Sass
 
 ## [0.0.2-beta]
 
