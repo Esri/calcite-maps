@@ -82,8 +82,47 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
   &.calcite-nav-top .calcite-map .leaflet-control-zoom {
     margin: $navbar_height + $base_ui_margin 25px 15px 30px;
   }
+
+  // Menu drawer style - top
+
+  &.calcite-nav-top,
+  &.calcite-nav-top-fixed {
+    .calcite-dropdown {
+      .calcite-menu-drawer {
+        top: $navbar_height;
+      }
+    }
+  }
+
+  &.calcite-nav-top.calcite-margin-top, 
+  &.calcite-nav-top.calcite-margin-all {
+    .calcite-dropdown {
+      .calcite-menu-drawer  {
+        top: $navbar_height + $base_ui_margin;
+      }
+    }
+  }
+
+  // Menu drawer - bottom
+
+  &.calcite-nav-bottom,
+  &.calcite-nav-bottom-fixed {
+    .calcite-dropdown {
+      .calcite-menu-drawer {
+        bottom: $navbar_height;
+      }
+    }
+  }
+
+  &.calcite-nav-bottom.calcite-margin-bottom,
+  &.calcite-nav-bottom.calcite-margin-all {
+    .calcite-dropdown {
+      .calcite-menu-drawer  {
+        bottom: $navbar_height + $base_ui_margin;
+      }
+    }
+  }
 }
-// }
 
 @media (max-width: 768px) {
   .calcite-layout-medium-title {
