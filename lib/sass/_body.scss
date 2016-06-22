@@ -1,0 +1,10 @@
+// ┌─────────────────────┐
+// │ Calcite Maps - Body │
+// └─────────────────────┘
+// Body-specific overrides
+
+.calcite-maps {
+	overflow: hidden;
+	// IE fixes
+	-ms-overflow-style: none;
+}
