@@ -47,6 +47,14 @@
     select {
       background-color: transparent;
       border: 1px solid $theme_dark_control_border_color;
+      color: $theme_dark_panel_text_color;
+    }
+    // option {
+    //   background-color: $theme_dark_panel_bg;
+    // }
+    option {
+      color: $theme_light_panel_text_color;
+      background-color: $theme_light_panel_bg;
     }
     
   }
