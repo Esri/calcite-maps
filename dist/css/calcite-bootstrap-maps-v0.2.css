@@ -5830,6 +5830,10 @@ blockquote {
   .visible-xs-flex {
     display: flex !important; } }
 
+.calcite-maps {
+  overflow: hidden;
+  -ms-overflow-style: none; }
+
 .calcite-map {
   width: auto;
   height: auto; }
@@ -6037,7 +6041,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-light .navbar-brand:hover,
 .calcite-navbar.calcite-text-light .navbar-brand:focus {
-  background-image: linear-gradient(to top, transparent calc(100% - 2px), #ffffff 2px);
+  background-image: linear-gradient(to top, transparent 95%, #ffffff 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-light .calcite-title-main {
@@ -6055,7 +6059,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-light .dropdown-toggle:hover,
 .calcite-navbar.calcite-text-light .dropdown-toggle:focus {
-  background-image: linear-gradient(to top, transparent calc(100% - 2px), #ffffff 2px);
+  background-image: linear-gradient(to top, transparent 95%, #ffffff 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-light .calcite-dropdown-toggle span {
@@ -6074,7 +6078,7 @@ blockquote {
 .calcite-navbar.calcite-text-light .navbar-nav > .open > a:focus {
   color: #ffffff;
   background-color: transparent;
-  background-image: linear-gradient(to top, transparent calc(100% - 2px), #ffffff 2px);
+  background-image: linear-gradient(to top, transparent 95%, #ffffff 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-light .navbar-nav > .disabled > a,
@@ -6107,7 +6111,7 @@ blockquote {
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-light .navbar-nav > .open > a:focus,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-light .dropdown-toggle:hover,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-light .dropdown-toggle:focus {
-  background-image: linear-gradient(to bottom, transparent calc(100% - 2px), #ffffff 2px); }
+  background-image: linear-gradient(to bottom, transparent 95%, #ffffff 2px); }
 
 .calcite-navbar.calcite-bg-light.navbar {
   background-color: #ffffff; }
@@ -6117,7 +6121,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-dark .navbar-brand:hover,
 .calcite-navbar.calcite-text-dark .navbar-brand:focus {
-  background-image: linear-gradient(to top, transparent calc(100% - 2px), #000000 2px);
+  background-image: linear-gradient(to top, transparent 95%, #000000 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-dark .calcite-title-main {
@@ -6135,7 +6139,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-dark .dropdown-toggle:hover,
 .calcite-navbar.calcite-text-dark .dropdown-toggle:focus {
-  background-image: linear-gradient(to top, transparent calc(100% - 2px), #000000 2px);
+  background-image: linear-gradient(to top, transparent 95%, #000000 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-dark .calcite-dropdown-toggle span {
@@ -6154,7 +6158,7 @@ blockquote {
 .calcite-navbar.calcite-text-dark .navbar-nav > .open > a:focus {
   color: #000000;
   background-color: transparent;
-  background-image: linear-gradient(to top, transparent calc(100% - 2px), #000000 2px);
+  background-image: linear-gradient(to top, transparent 95%, #000000 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-dark .navbar-nav > .disabled > a,
@@ -6187,7 +6191,7 @@ blockquote {
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-dark .navbar-nav > .open > a:focus,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-dark .dropdown-toggle:hover,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-dark .dropdown-toggle:focus {
-  background-image: linear-gradient(to bottom, transparent calc(100% - 2px), #000000 2px); }
+  background-image: linear-gradient(to bottom, transparent 95%, #000000 2px); }
 
 .calcite-dropdown {
   order: 0;
@@ -6353,7 +6357,8 @@ blockquote {
   .calcite-panels .panel-toggle {
     flex: 1;
     padding: 8px 8px 8px 10px;
-    text-decoration: none; }
+    text-decoration: none;
+    min-width: 34px; }
     .calcite-panels .panel-toggle .glyphicon {
       top: 2px;
       margin: 0;
@@ -6387,6 +6392,8 @@ blockquote {
       background-size: 18px;
       outline: none;
       padding-right: 22px; }
+    .calcite-panels .panel-body select::-ms-expand {
+      display: none; }
     .calcite-panels .panel-body .form-control {
       height: 34px;
       padding: 4px 8px; }
@@ -6531,7 +6538,11 @@ blockquote {
   .calcite-panels.calcite-bg-dark textarea,
   .calcite-panels.calcite-bg-dark select {
     background-color: transparent;
-    border: 1px solid #666666; }
+    border: 1px solid #666666;
+    color: #ffffff; }
+  .calcite-panels.calcite-bg-dark option {
+    color: #4c4c4c;
+    background-color: #ffffff; }
 
 .calcite-panels.calcite-text-light .panel {
   color: #ffffff; }
@@ -6601,7 +6612,11 @@ blockquote {
   .calcite-panels.calcite-bg-light textarea,
   .calcite-panels.calcite-bg-light select {
     background-color: transparent;
-    border: 1px solid #959595; }
+    border: 1px solid #959595;
+    color: #4c4c4c; }
+  .calcite-panels.calcite-bg-light option {
+    color: #4c4c4c;
+    background-color: #ffffff; }
 
 .calcite-panels.calcite-text-dark .panel {
   color: #4c4c4c; }
@@ -6711,7 +6726,11 @@ blockquote {
 .calcite-panels.calcite-bg-custom input,
 .calcite-panels.calcite-bg-custom textarea,
 .calcite-panels.calcite-bg-custom select {
-  background-color: inherit; }
+  background-color: transparent; }
+
+.calcite-panels.calcite-bg-custom option {
+  color: #4c4c4c;
+  background-color: #ffffff; }
 
 .calcite-panels.calcite-bg-custom input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
 .calcite-panels.calcite-bg-custom textarea,

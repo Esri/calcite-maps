@@ -127,8 +127,15 @@
     input, 
     textarea,
     select {
-      background-color: $theme_custom_panel_control_bg;
+      //background-color: $theme_custom_panel_control_bg;
+      background-color: transparent;
     }
+
+    option {
+      color: $theme_light_panel_text_color;
+      background-color: $theme_light_panel_bg;
+    }
+
 
     input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
     textarea,
