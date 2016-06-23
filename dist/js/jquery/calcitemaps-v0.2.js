@@ -5,19 +5,22 @@
  *
  * ======================================================================== */
 
-(function ($) {
-  'use strict';
-  
-  var navbarSelector = ".calcite-navbar .calcite-dropdown li > a",
-    navbarToggleTarget = "toggleNavbar",
-    preventOverscrolling = true;
+(function(calciteMaps, $, undefined) {  
+
+  // Public
+  calciteMaps.navbarSelector = ".calcite-navbar .calcite-dropdown li > a",
+  calciteMaps.navbarToggleTarget = "toggleNavbar",
+  calciteMaps.preventOverscrolling = true,
+  calciteMaps.stickyDropdownDesktop = true,
+  calciteMaps.stickyDropdownMobile = false;
+  _stickyDropdownBreakpoint = 768;
 
   //----------------------------------
-  // Navbar and Panel Events
+  // Nav Dropdown Events
   //----------------------------------
 
   // Show/hide panels
-  $(navbarSelector).on("click", function(e) {
+  $(calciteMaps.navbarSelector).on("click", function(e) {
     var isPanel = false,
       panel = null,
       panelBody = null,
@@ -48,6 +51,12 @@
         panelBody.collapse("hide");
         panel.collapse("show");
         panelBody.collapse("show");
+      }
+      // Dismiss dropdown automatically
+      var isMobile = window.innerWidth < calciteMaps._stickyDropdownBreakpoint;
+      if (isMobile && !calciteMaps.stickyDropdownMobile || !isMobile && !calciteMaps.stickyDropdownDesktop) {
+        var toggle = $(".calcite-dropdown .dropdown-toggle");
+        toggle.trigger("click");
       }
     } 
   });
@@ -112,7 +121,7 @@
 
   // Stops browser overscroll/bouncing effect on mobile
   $(".calcite-map").on("touchmove", function(e) {
-    if (preventOverscrolling) {    
+    if (calciteMaps.preventOverscrolling) {    
       e.preventDefault();
     }
   });
@@ -129,5 +138,4 @@
     $(".calcite-dropdown-toggle").removeClass("open");
   });
 
-
-}(jQuery));
+}(window.calciteMaps = window.calciteMaps || {}, jQuery));

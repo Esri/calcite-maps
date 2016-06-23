@@ -6260,9 +6260,19 @@ blockquote {
 
 @media (max-height: 767px) {
   .calcite-navbar .dropdown-toggle {
-    padding: 17px 18px 19px 20px; }
+    padding: 17px 18px 19px 20px; } }
+
+@media (min-height: 320px) {
   .calcite-navbar .dropdown-menu {
-    max-height: 215px; } }
+    max-height: 260px; } }
+
+@media (min-height: 544px) {
+  .calcite-navbar .dropdown-menu {
+    max-height: 484px; } }
+
+@media (min-height: 767px) {
+  .calcite-navbar .dropdown-menu {
+    max-height: 707px; } }
 
 .calcite-nav-top .calcite-dropdown .dropdown-menu,
 .calcite-nav-top-fixed .calcite-dropdown .dropdown-menu {
@@ -6373,7 +6383,7 @@ blockquote {
     padding: 15px;
     width: 350px;
     min-height: 50px;
-    max-height: 350px;
+    max-height: 500px;
     font-size: 14px;
     overflow-x: hidden; }
     .calcite-panels .panel-body button {
@@ -6441,15 +6451,19 @@ blockquote {
 
 @media (min-height: 320px) {
   .calcite-panels .panel-body {
-    max-height: 180px; } }
+    max-height: 160px; } }
 
 @media (min-height: 544px) {
   .calcite-panels .panel-body {
-    max-height: 350px; } }
+    max-height: 272px; } }
 
 @media (min-height: 767px) {
   .calcite-panels .panel-body {
-    max-height: 650px; } }
+    max-height: 383.5px; } }
+
+@media (min-height: 992px) {
+  .calcite-panels .panel-body {
+    max-height: 496px; } }
 
 .calcite-panels {
   position: absolute;

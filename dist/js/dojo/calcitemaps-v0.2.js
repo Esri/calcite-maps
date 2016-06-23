@@ -42,16 +42,20 @@ define([
 
     activePanel: null,
 
+    stickyDropdownDesktop: true,
+
+    stickyDropdownMobile: false,
+
     //--------------------------------------------------------------------------
     //
     //  Private
     //
     //--------------------------------------------------------------------------
 
-    _breakpoint: 768,
+    _stickyDropdownBreakpoint: 768,
 
     //----------------------------------
-    // Navbar Events
+    // Nav Dropdown Events
     //----------------------------------
 
     // Show/hide Panels
@@ -89,6 +93,12 @@ define([
               query(panelBody[0]).removeClass("in");
               panel.collapse("show");
               query(panelBody[0]).collapse("show");
+            }
+            // Dismiss dropdown automatically
+            var isMobile = window.innerWidth < this._stickyDropdownBreakpoint;
+            if (isMobile && !this.stickyDropdownMobile || !isMobile && !this.stickyDropdownDesktop) {
+              var toggle = query(".calcite-dropdown .dropdown-toggle")[0];
+              on.emit(toggle, "click", { bubbles: true, cancelable: true });
             }
           } 
           _this.activePanel = panel;
