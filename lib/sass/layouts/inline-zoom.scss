@@ -91,7 +91,7 @@
   }
 }
 
-@media (max-width: $base_breakpoint_width_mobile) {
+@media (max-width: $base_breakpoint_max_width_sm) {
   .calcite-layout-inline-left,
   .calcite-layout-inline-right {
     &.calcite-nav-top.calcite-margin-all,

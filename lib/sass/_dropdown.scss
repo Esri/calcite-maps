@@ -111,8 +111,33 @@
       padding: $navbar_dropdown_toggle_padding_mobile;
     }
 
-    .dropdown-menu {
-      max-height: $dropdown_menu_max_height_mobile;
-    }  
+    // .dropdown-menu {
+    //   max-height: $dropdown_menu_max_height_mobile;
+    // }  
   }
 }
+
+@media (min-height: $base_breakpoint_min_height_xxs) { 
+  .calcite-navbar {
+    .dropdown-menu {
+      max-height: $base_breakpoint_min_height_xxs - $navbar_height - 10px; // accomodate up to medium, padding?
+    }
+  }
+}
+
+@media (min-height: $base_breakpoint_min_height_xs) { 
+  .calcite-navbar {
+    .dropdown-menu {
+      max-height: $base_breakpoint_min_height_xs - $navbar_height - 10px; // accomodate up to medium, padding?
+    }
+  }
+}
+
+@media (min-height: $base_breakpoint_min_height_sm) { 
+  .calcite-navbar {
+    .dropdown-menu {
+      max-height: $base_breakpoint_min_height_sm - $navbar_height - 10px; // accomodate up to medium, padding?
+    }
+  }
+}
+
