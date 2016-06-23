@@ -5891,9 +5891,9 @@ blockquote {
   flex-shrink: 0;
   margin: 0;
   padding: 1px 0 2px;
+  overflow: hidden;
   font-size: 22px;
-  font-weight: 300;
-  overflow: hidden; }
+  font-weight: 300; }
 
 .calcite-title-divider {
   position: relative;
@@ -6041,7 +6041,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-light .navbar-brand:hover,
 .calcite-navbar.calcite-text-light .navbar-brand:focus {
-  background-image: linear-gradient(to top, transparent 95%, #ffffff 2px);
+  background-image: linear-gradient(to top, transparent 96%, #ffffff 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-light .calcite-title-main {
@@ -6059,7 +6059,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-light .dropdown-toggle:hover,
 .calcite-navbar.calcite-text-light .dropdown-toggle:focus {
-  background-image: linear-gradient(to top, transparent 95%, #ffffff 2px);
+  background-image: linear-gradient(to top, transparent 96%, #ffffff 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-light .calcite-dropdown-toggle span {
@@ -6078,7 +6078,7 @@ blockquote {
 .calcite-navbar.calcite-text-light .navbar-nav > .open > a:focus {
   color: #ffffff;
   background-color: transparent;
-  background-image: linear-gradient(to top, transparent 95%, #ffffff 2px);
+  background-image: linear-gradient(to top, transparent 96%, #ffffff 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-light .navbar-nav > .disabled > a,
@@ -6111,7 +6111,7 @@ blockquote {
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-light .navbar-nav > .open > a:focus,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-light .dropdown-toggle:hover,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-light .dropdown-toggle:focus {
-  background-image: linear-gradient(to bottom, transparent 95%, #ffffff 2px); }
+  background-image: linear-gradient(to bottom, transparent 96%, #ffffff 2px); }
 
 .calcite-navbar.calcite-bg-light.navbar {
   background-color: #ffffff; }
@@ -6121,7 +6121,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-dark .navbar-brand:hover,
 .calcite-navbar.calcite-text-dark .navbar-brand:focus {
-  background-image: linear-gradient(to top, transparent 95%, #000000 2px);
+  background-image: linear-gradient(to top, transparent 96%, #000000 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-dark .calcite-title-main {
@@ -6139,7 +6139,7 @@ blockquote {
 
 .calcite-navbar.calcite-text-dark .dropdown-toggle:hover,
 .calcite-navbar.calcite-text-dark .dropdown-toggle:focus {
-  background-image: linear-gradient(to top, transparent 95%, #000000 2px);
+  background-image: linear-gradient(to top, transparent 96%, #000000 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-dark .calcite-dropdown-toggle span {
@@ -6158,7 +6158,7 @@ blockquote {
 .calcite-navbar.calcite-text-dark .navbar-nav > .open > a:focus {
   color: #000000;
   background-color: transparent;
-  background-image: linear-gradient(to top, transparent 95%, #000000 2px);
+  background-image: linear-gradient(to top, transparent 96%, #000000 2px);
   transition: color 150ms linear, text-decoration 150ms linear; }
 
 .calcite-navbar.calcite-text-dark .navbar-nav > .disabled > a,
@@ -6191,7 +6191,7 @@ blockquote {
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-dark .navbar-nav > .open > a:focus,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-dark .dropdown-toggle:hover,
 .calcite-nav-bottom-fixed .calcite-navbar.calcite-text-dark .dropdown-toggle:focus {
-  background-image: linear-gradient(to bottom, transparent 95%, #000000 2px); }
+  background-image: linear-gradient(to bottom, transparent 96%, #000000 2px); }
 
 .calcite-dropdown {
   order: 0;

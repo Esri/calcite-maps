@@ -25,8 +25,9 @@ $theme_dark_arcgis_disabled_text_color: $Calcite_Gray_350_Dark;
 
 // Search expander
 $arcgis_search_font_size: 13px;
-$search_expander_width: 180px;
-$search_expander_width_mobile_xxs: 200px;
+$search_expander_width_start: 32px;
+$search_expander_width_expanded: 240px;
+$search_expander_width_expanded_mobile_xxs: 200px;
 $text_dark_widget_border_color: rgba(0, 0, 0, 0.30);
 $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
@@ -222,21 +223,30 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
     // Default state
     .esri-search {
-      // width: 28px;
-      width: 100%;
+      -webkit-transition: width .5s ease-out;
+      -moz-transition: width .5s ease-out;
+      -o-transition: width .5s ease-out;
+      -ms-transition: width .5s ease-out;
+      transition: width .5s ease-out;
+
+      width: $search_expander_width_start;
+
       .esri-search__container {
-        flex-basis: 28px;
-        .esri-search__input {
-          display: none;
-        }
+        
         .esri-search__form {
-          -webkit-transition: width .5s ease-out;
-          -moz-transition: width .5s ease-out;
-          -o-transition: width .5s ease-out;
-          -ms-transition: width .5s ease-out;
-          transition: width .5s ease-out;
+          -webkit-transition: visibility .45s ease-out;
+          -moz-transition: visibility .45s ease-out;
+          -o-transition: visibility .45s ease-out;
+          -ms-transition: visibility .45s ease-out;
+          transition: visibility .45s ease-out;
+
+          visibility: collapse;
+        }
+
+        .esri-search__input-container {
           width: 0;
         }
+
         .esri-search--show-suggestions .esri-search__suggestions-menu,
         .esri-search--sources .esri-search__sources-menu,
         .esri-search--no-results .esri-search__no-results-menu,
@@ -245,6 +255,7 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
           display: none;
         }
       }
+
       .esri-search--show-suggestions .esri-search__suggestions-menu,
       .esri-search--no-results .esri-search__no-results-menu {
         visibility: collapse;
@@ -254,19 +265,16 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
     // Hover/focus state
     .esri-search:hover,
     .esri-search:focus {
-      width: 245px;
+      width: $search_expander_width_expanded;
+
       .esri-search__container {
-        .esri-search__input {
-          display: block;
-        }
         .esri-search__form {
-          -webkit-transition: width .25s ease-out;
-          -moz-transition: width .25s ease-out;
-          -o-transition: width .25s ease-out;
-          -ms-transition: width .5s ease-out;
-          transition: width .25s ease-out;
-          width: $search_expander_width; 
+          visibility: visible;
         }
+
+        .esri-search__input-container {
+        }
+
         .esri-search--show-suggestions .esri-search__suggestions-menu {
           display: block;
         }
@@ -630,7 +638,7 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
         .esri-search:hover,
         .esri-search:focus {
           .esri-search__container {
-            width: $search_expander_width_mobile_xxs;
+            width: $search_expander_width_expanded_mobile_xxs;
           }
         }
       }

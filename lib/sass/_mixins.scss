@@ -3,9 +3,9 @@
 // └────────┘
 // 
 
-@mixin linear-gradient($direction, $height, $color) {
+@mixin linear-gradient($direction, $trans_percentage_height, $color) {
   //background-image: linear-gradient($direction, #{transparent calc(100% - #{$height}}, #{$color $height});
-  background-image: linear-gradient($direction, #{transparent $height}, #{$color 2px});
+  background-image: linear-gradient($direction, #{transparent $trans_percentage_height}, #{$color $navbar_decoration_color_height});
 
     //linear-gradient(to top,transparent 92%,#3b8fc4 93%,#3b8fc4 100%)
 }

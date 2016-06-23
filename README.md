@@ -8,7 +8,7 @@ To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/inde
 ```html
 <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
 
-<body class="calcite-nav-top theme-widgets-dark">
+<body class="calcite-maps calcite-nav-top theme-widgets-dark">
   <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
 ```
 
@@ -91,7 +91,7 @@ Here's a few ways to get started:
 
 </head>
 
-<body class="calcite-nav-top">
+<body class="calcite-maps calcite-nav-top">
 
   <!-- Navbar -->
 
