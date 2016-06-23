@@ -631,7 +631,7 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
 } 
 
-@media (max-width: $base_breakpoint_width_mobile_xxs) {
+@media (max-width: $base_breakpoint_max_width_xxs) {
   .calcite-navbar {
     .calcite-navbar-search {
       &.calcite-search-expander {
@@ -646,7 +646,7 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
   }
 }
 
-@media (max-width: $base_breakpoint_width_mobile) {
+@media (max-width: $base_breakpoint_max_width_sm) {
   .calcite-map {
     .esri-popup .esri-docked-bottom-center .esri-popup-main {
       width: 100%;

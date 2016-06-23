@@ -18,13 +18,16 @@ $base_ui_font_size: 14px;
 // Media breaks
 // ---------------------------------------------------------------
 
-// Mobile devices smaller than iPad
-$base_breakpoint_height_mobile: 767px;
+// Width - Devices including iPad portrait
+$base_breakpoint_max_width_xxs: 320px;
+$base_breakpoint_max_width_xs: 544px;
+$base_breakpoint_max_width_sm: 768px;
 
-// Mobile devices including iPad portrait
-$base_breakpoint_width_mobile: 768px;
-$base_breakpoint_width_mobile_xs: 544px;
-$base_breakpoint_width_mobile_xxs: 320px;
+// Height - Devices smaller than iPad landscape
+$base_breakpoint_min_height_xxs: 320px;
+$base_breakpoint_min_height_xs: 544px;
+$base_breakpoint_min_height_sm: 767px;
+$base_breakpoint_min_height_md: 992px;
 
 // ---------------------------------------------------------------
 // Map
@@ -39,7 +42,7 @@ $map_attribution_height: 16px !default;
 // ---------------------------------------------------------------
 
 // Size
-$navbar_height: 50px !default;
+$navbar_height: 50px !default;  // small 50px, medium 60px, large 85px
 $navbar_margin: $base_ui_margin !default;
 // Nav
 $navbar_nav_li_a_padding: 13px 15px 12px !default;
@@ -68,8 +71,7 @@ $navbar_subtitle_font_size: 12px !default;
 $navbar_subtitle_font_weight: 400 !default;
 $navbar_subtitle_font_size_mobile: 12px !default;
 // Breakpoints
-$navbar_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
-$navbar_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
+$navbar_breakpoint_width_mobile: $base_breakpoint_max_width_sm !default;
 
 // ---------------------------------------------------------------
 // Dropdown
@@ -83,7 +85,7 @@ $dropdown_menu_font_size: $base_ui_font_size !default;
 $dropdown_menu_max_height: 500px;
 $dropdown_menu_max_height_mobile: 215px !default;
 // Breakpoints
-$dropdown_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
+$dropdown_breakpoint_height_mobile: $base_breakpoint_min_height_sm !default;
 
 // ---------------------------------------------------------------
 // Panel
@@ -97,14 +99,17 @@ $panels_position_left: $base_ui_position_absolute;
 $panels_width: auto;
 $panels_width_mobile: 100% !default;
 // Body
-$panel_body_width: 350px !default; // controls width
-$panel_body_width_mobile: 100% !default;
+$panel_body_width: 350px !default; // controls width of all panels
+$panel_body_width_mobile: 100% !default; // full width in mobile
 $panel_body_min_height: 50px !default;
-$panel_body_max_height: 350px !default;
-$panel_body_height_xs: 180px !default;
-$panel_body_height_sm: 350px !default;
-$panel_body_height_md: 650px !default;
-$panel_body_max_height_mobile: 170px !default;
+$panel_body_max_height: 500px !default; // default
+// Only use half of the height available
+$panel_body_height_xxs: $base_breakpoint_min_height_xxs / 2 !default; 
+$panel_body_height_xs: $base_breakpoint_min_height_xs / 2 !default;
+$panel_body_height_sm: $base_breakpoint_min_height_sm / 2 !default;
+$panel_body_height_md: $base_breakpoint_min_height_md / 2 !default;
+// Optional - Perform max height calculations (nav - title - margin)
+// $panel_space: $navbar_height + 38px + $base_ui_margin; 
 $panel_body_max_height_expanded: 125px !default;
 // Font
 $panel_font_size: 14px !default;
@@ -113,12 +118,11 @@ $panel_title_font_weight: 400 !default;
 // Form elements
 $panel_form_control_height: 34px !default;
 // Breakpoints
-// $panels_breakpoint_height_mobile: $base_breakpoint_height_mobile !default;
-$panels_breakpoint_height_xs: 320px !default;
-$panels_breakpoint_height_sm: 544px !default;
-$panels_breakpoint_height_md: 767px !default;
-
-$panels_breakpoint_width_mobile: $base_breakpoint_width_mobile !default;
+$panels_breakpoint_width_mobile: $base_breakpoint_max_width_sm !default;
+$panels_breakpoint_height_xxs: $base_breakpoint_min_height_xxs !default;
+$panels_breakpoint_height_xs: $base_breakpoint_min_height_xs !default;
+$panels_breakpoint_height_sm: $base_breakpoint_min_height_sm !default;
+$panels_breakpoint_height_md: $base_breakpoint_min_height_md !default;
 
 // ---------------------------------------------------------------
 // Theme - All
