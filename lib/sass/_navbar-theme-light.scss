@@ -27,7 +27,7 @@
 
     .navbar-brand:hover,
     .navbar-brand:focus {
-      @include linear-gradient(to top, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
+      @include linear-gradient(to top, $navbar_decoration_trans_percentage, $theme_light_navbar_text_color_hover);
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
@@ -62,7 +62,7 @@
 
     .dropdown-toggle:hover,
     .dropdown-toggle:focus {
-      @include linear-gradient(to top, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
+      @include linear-gradient(to top, $navbar_decoration_trans_percentage, $theme_light_navbar_text_color_hover);
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
@@ -88,7 +88,7 @@
     .navbar-nav > .open > a:focus  {
       color: $theme_light_navbar_text_color_hover;
       background-color: transparent;
-      @include linear-gradient(to top, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
+      @include linear-gradient(to top, $navbar_decoration_trans_percentage, $theme_light_navbar_text_color_hover);
       transition: color 150ms linear, text-decoration 150ms linear;
     }
 
@@ -121,7 +121,7 @@
       .navbar-nav > .open > a:focus,
       .dropdown-toggle:hover,
       .dropdown-toggle:focus {
-        @include linear-gradient(to bottom, $navbar_decoration_height, $theme_light_navbar_text_color_hover);
+        @include linear-gradient(to bottom, $navbar_decoration_trans_percentage, $theme_light_navbar_text_color_hover);
       }
     }
   }

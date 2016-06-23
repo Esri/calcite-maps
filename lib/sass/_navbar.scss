@@ -69,9 +69,9 @@
   flex-shrink: 0;
   margin: $navbar_title_margin;
   padding: $navbar_title_padding;
+  overflow: hidden;  
   font-size: $navbar_title_font_size;
   font-weight: $navbar_title_font_weight;
-  overflow: hidden;  
 }
 
 .calcite-title-divider {
