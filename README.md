@@ -1,7 +1,7 @@
 # Calcite Maps
-A modern framework for building map apps with Calcite styles and Bootstrap. 
+A modern framework for designing map apps with Calcite styles and Bootstrap. 
 
-This project contains a small set of CSS classes specifically designed for building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly. 
+This project contains a small set of CSS classes specifically for designing and building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly. 
 
 To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes (for now...) into one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or into your own application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
@@ -12,7 +12,7 @@ To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/inde
   <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
 ```
 
-[View the Styler and samples apps here](http://esri.github.io/calcite-maps/samples/index.html)
+[View the Styler and sample starter apps here](http://esri.github.io/calcite-maps/samples/index.html)
 
 ##What's included
 
@@ -325,7 +325,7 @@ Layout 4: Navbar Top - Inline Left Layout - Dark Text - White 75% (custom theme 
 
 ## Issues
 
-Find a bug or want to request a new feature?  Please let us know by submitting an issue.  Thank you!
+Find a bug or want to request a new feature? Please let us know by submitting an issue.  Thank you!
 
 ## Contributing
 
