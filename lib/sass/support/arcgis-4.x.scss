@@ -66,6 +66,7 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 .esri-legend {
   overflow: hidden;
   padding: 0;
+  max-width: 100%;
 }
 
 // ColorPicker
