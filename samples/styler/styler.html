@@ -135,7 +135,7 @@
     <div class="calcite-title calcite-overflow-hidden">
       <span class="calcite-title-main">Styler</span>
       <span class="calcite-title-divider hidden-xs"></span>
-      <span class="calcite-title-sub hidden-xs">Prototype and design map apps interactively</span> 
+      <span class="calcite-title-sub hidden-xs">Design map apps and explore styles interactively</span> 
     </div>
     <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
@@ -237,12 +237,12 @@
       <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
         <div class="panel-body">
           <select id="selectBasemapPanel" class="form-control"> 
-            <option value="streets" data-vector="streets-vector" selected>Streets</option>
+            <option value="streets" data-vector="streets-vector">Streets</option>
             <option value="satellite" data-vector="satellite">Satellite</option>
             <option value="hybrid" data-vector="hybrid">Hybrid</option>
             <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
             <option value="topo" data-vector="topo-vector">Topographic</option>
-            <option value="gray" data-vector="gray-vector">Gray</option>
+            <option value="gray" data-vector="gray-vector" selected>Gray</option>
             <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
             <option value="osm" data-vector="osm">Open Street Map</option>
             <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
@@ -332,7 +332,7 @@
       <div id="collapsePrint" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPrint">
         <div class="panel-body">
         <div class="form-group">
-           <button type="button" class="btn btn-default">Print</button>
+           <button type="button" class="btn btn-default">Print [Coming soon!]</button>
         </div>
         </div>
       </div>
@@ -349,7 +349,7 @@
       </div>
       <div id="collapseShare" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingShare">
         <div class="panel-body">
-          <p>Share  [Coming soon!]</p>
+          <p>Share [Coming soon!]</p>
         </div>
       </div>
     </div>
@@ -418,12 +418,12 @@
                   <label for="settingsSelectBasemap" class="col-xs-3 control-label">Basemap</label>
                   <div class="col-xs-9">
                     <select id="settingsSelectBasemap" class="form-control">                            
-                      <option value="streets" data-vector="streets-vector" selected>Streets</option>
+                      <option value="streets" data-vector="streets-vector">Streets</option>
                       <option value="satellite" data-vector="satellite">Satellite</option>
                       <option value="hybrid" data-vector="hybrid">Hybrid</option>
                       <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
                       <option value="topo" data-vector="topo-vector">Topographic</option>
-                      <option value="gray" data-vector="gray-vector">Gray</option>
+                      <option value="gray" data-vector="gray-vector" selected>Gray</option>
                       <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
                       <option value="osm" data-vector="osm">Open Street Map</option>
                       <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
@@ -627,8 +627,8 @@
                   <label for="settingsTextColor" class="col-xs-4 control-label">Text</label>
                   <div class="col-xs-8">
                     <select id="settingsTextColor" class="form-control control-padding-top">
-                      <option value="calcite-text-dark" selected>Dark Text</option>
-                      <option value="calcite-text-light">Light Text</option>
+                      <option value="calcite-text-dark">Dark Text</option>
+                      <option value="calcite-text-light" selected>Light Text</option>
                     </select>
                   </div>
                 </div>
@@ -694,8 +694,8 @@
                   </div>
                   <div class="col-xs-5">
                     <select id="settingsPositionMapWidget" class="form-control">
-                      <option value="top-left">TopLeft</option>
-                      <option value="top-right" selected>TopRight</option>
+                      <option value="top-left" selected>TopLeft</option>
+                      <option value="top-right">TopRight</option>
                       <option value="bottom-right">BottomRight</option>
                       <option value="bottom-left">BottomLeft</option>
                       <option value="none">-- Delete --</option>
@@ -719,8 +719,8 @@
                   </div>
                   <div class="col-xs-5">
                     <select id="settingsPositionSceneWidget" class="form-control">
-                      <option value="top-left">TopLeft</option>
-                      <option value="top-right" selected>TopRight</option>
+                      <option value="top-left" selected>TopLeft</option>
+                      <option value="top-right">TopRight</option>
                       <option value="bottom-right">BottomRight</option>
                       <option value="bottom-left">BottomLeft</option>
                       <option value="none">-- Delete --</option>
@@ -760,8 +760,8 @@
                   <label for="settingsPanel" class="col-xs-3 control-label">Panel</label>
                   <div class="col-xs-9">
                     <select id="settingsPanel" class="form-control">
-                      <option value="calcite-panels-left" selected>Left</option>
-                      <option value="calcite-panels-right">Right</option>
+                      <option value="calcite-panels-left">Left</option>
+                      <option value="calcite-panels-right" selected>Right</option>
                     </select>
                   </div>
                 </div>
@@ -820,6 +820,7 @@
       "esri/views/SceneView",
       "esri/widgets/Search",
       "esri/widgets/Popup",
+      "esri/widgets/Home",
       "esri/widgets/Legend",
       "esri/widgets/ColorPicker",
       "esri/core/watchUtils",
@@ -843,7 +844,7 @@
 
       // Dojo
       "dojo/domReady!"
-    ], function(Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Legend, ColorPicker, 
+    ], function(Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker, 
       watchUtils, query, domClass, dom, on, CalciteMapsSettings, PanelSettings) {
       
       app = {
@@ -926,6 +927,8 @@
           visible: true
         });
 
+        //app.mapView.ui.add(new Home({view: app.mapView}), "top-left");
+
         //Set active view
         app.activeView = app.mapView;
 
@@ -941,6 +944,8 @@
           popup: new Popup(app.popupOptions),
           visible: false
         });
+
+        //app.sceneView.ui.add(new Home({view: app.sceneView}), "top-left");
 
         // Listen for view breakpoint changes and update control location
         app.mapView.watch("widthBreakpoint", function(newVal, oldVal) {

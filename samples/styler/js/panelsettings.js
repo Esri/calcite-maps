@@ -322,7 +322,7 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
       });
 
       query("#settingsLayerOpacity").on("change", function() {
-        var opacity = Number.parseFloat(_this.value);
+        var opacity = Number.parseFloat(this.value);
         if (_this.app.mapFL && _this.app.sceneFL) {
           _this.app.mapFL.opacity = opacity;
           _this.app.sceneFL.opacity = opacity;
@@ -600,7 +600,7 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
 
       query("#settingsPadding").on("keydown", function(evt) {
         if (evt.keyCode === keys.ENTER) {
-          var str = _this.value;
+          var str = this.value;
           var padding = eval("("+str+")");
           if (padding) {
             _this.app.mapView.padding = padding;
@@ -913,14 +913,17 @@ function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Lege
     },
 
     createLegendWidget: function(containerId) {
-      var legend = new Legend({
+      if (_this.app.legend) {
+        _this.app.legend.destroy();
+      }
+      _this.app.legend = new Legend({
         view: _this.app.mapView,
         layerInfos: [{
           layer: _this.app.mapView.map.layers.items[0],
           title: ""
         }]
       }, containerId);
-      legend.startup(); 
+      _this.app.legend.startup(); 
     },
 
     showErrorLoadingLayer: function(msg) {
