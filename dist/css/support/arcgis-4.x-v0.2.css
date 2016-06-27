@@ -212,7 +212,8 @@
 
 .esri-legend {
   overflow: hidden;
-  padding: 0; }
+  padding: 0;
+  max-width: 100%; }
 
 .calcite-panels .esri-color-picker {
   width: 100%; }
