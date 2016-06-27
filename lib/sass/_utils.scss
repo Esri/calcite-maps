@@ -44,3 +44,9 @@
 	   display: flex !important;
 	}
 }
+
+@media (min-width: 769px) {
+	.visible-mobile-only {
+		display: none !important;
+	}
+}

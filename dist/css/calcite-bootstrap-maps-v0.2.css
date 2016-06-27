@@ -5830,6 +5830,10 @@ blockquote {
   .visible-xs-flex {
     display: flex !important; } }
 
+@media (min-width: 769px) {
+  .visible-mobile-only {
+    display: none !important; } }
+
 .calcite-maps {
   overflow: hidden;
   -ms-overflow-style: none; }
