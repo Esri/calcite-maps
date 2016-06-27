@@ -162,11 +162,11 @@ define([
       if (this.autoCollapsePanel) {
         // Hide
         query(".calcite-panels .panel .panel-collapse").on("hidden.bs.collapse", function(e) {
-          query(e.target.parentNode).query(".panel-label, .panel-close").addClass("visible-xs-inline-block");
+          query(e.target.parentNode).query(".panel-label, .panel-close").addClass("visible-mobile-only");
         });
         //Show
         query(".calcite-panels .panel .panel-collapse").on("show.bs.collapse", function(e) {
-          query(e.target.parentNode).query(".panel-label, .panel-close").removeClass("visible-xs-inline-block");
+          query(e.target.parentNode).query(".panel-label, .panel-close").removeClass("visible-mobile-only");
         });
       }
     },
