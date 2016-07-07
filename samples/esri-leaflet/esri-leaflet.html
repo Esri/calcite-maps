@@ -165,7 +165,8 @@
     var map = L.map('map', {zoomControl: false}).setView([45.52, -122.68], 12),
       layer = L.esri.basemapLayer('NationalGeographic').addTo(map),
       // layerLabels = L.esri.basemapLayer('xxxLabels').addTo(map);
-      layerLabels = null;
+      layerLabels = null,
+      worldTransportation = L.esri.basemapLayer('ImageryTransportation');      
 
     function setBasemap(basemap) {
       if (layer) {
@@ -185,6 +186,14 @@
       if (basemap === 'ShadedRelief' || basemap === 'Oceans' || basemap === 'Gray' || basemap === 'DarkGray' || basemap === 'Imagery' || basemap === 'Terrain') {
         layerLabels = L.esri.basemapLayer(basemap + 'Labels');
         map.addLayer(layerLabels);
+      }
+        
+      // add world transportation service to Imagery basemap
+      if (basemap === 'Imagery') {
+        worldTransportation.addTo(map);            
+      } else if (map.hasLayer(worldTransportation)) {
+        // remove world transportation if Imagery basemap is not selected    
+        map.removeLayer(worldTransportation);
       }
     }
 
