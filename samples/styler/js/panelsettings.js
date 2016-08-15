@@ -6,8 +6,6 @@
  * ======================================================================== */
 
 define([ 
-  "dojo/_base/declare",
-  "dojo/_base/lang",
   "esri/widgets/Zoom",
   "esri/widgets/Home",
   "esri/widgets/Locate",
@@ -18,6 +16,7 @@ define([
   "esri/views/ui/Component",
   "esri/layers/FeatureLayer",
   "esri/PopupTemplate",
+
   "esri/geometry/Extent",
   "esri/geometry/support/webMercatorUtils",
   "esri/tasks/GeometryService",
@@ -30,10 +29,14 @@ define([
   "dojo/touch",
   "dojo/on",
   "dojo/keys",
+  "dojo/_base/lang",
+  "dojo/_base/declare",
+
   "dojo/domReady!"
 ], 
-function(declare, lang, Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
-  Extent, ProjectUtils, GeometryService, ProjectParams, watchUtils, query, domClass, domStyle, touch, on, keys) {
+function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
+  Extent, ProjectUtils, GeometryService, ProjectParams, watchUtils, 
+  query, domClass, domStyle, touch, on, keys, lang, declare) {
 
   //--------------------------------------------------------------------------
   //
