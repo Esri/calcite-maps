@@ -4,6 +4,12 @@
 .calcite-bgcolor-transparent {
   background-color: transparent !important; }
 
+.calcite-bgcolor-light {
+  background-color: #ffffff !important; }
+
+.calcite-bgcolor-dark {
+  background-color: #323232 !important; }
+
 .calcite-bgcolor-true-white {
   background-color: #ffffff !important; }
 
@@ -208,8 +214,11 @@
 .calcite-layout-medium-title .calcite-dropdown .dropdown-toggle {
   padding: 22px 20px 24px 21px; }
 
+.calcite-layout-medium-title .calcite-dropdown-toggle {
+  margin-left: 2px; }
+
 .calcite-layout-medium-title .calcite-title-main {
-  padding: 1px 0 4px;
+  padding: 3px 0 4px;
   font-size: 28px;
   line-height: 1.1; }
 
@@ -226,6 +235,9 @@
 
 .calcite-layout-medium-title.calcite-nav-top .calcite-panels {
   top: 75px; }
+
+.calcite-layout-medium-title.calcite-nav-hidden.calcite-nav-top .calcite-panels, .calcite-layout-medium-title.calcite-nav-hidden.calcite-nav-bottom .calcite-panels {
+  top: 15px; }
 
 .calcite-layout-medium-title.calcite-nav-top.calcite-zoom-top-left .esriZoom.esriVertical.esriComponent,
 .calcite-layout-medium-title.calcite-nav-top.calcite-zoom-top-right .esriZoom.esriVertical.esriComponent,

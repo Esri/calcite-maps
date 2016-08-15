@@ -45,6 +45,16 @@ $Calcite_True_Black:       #000000;
   background-color: rgba($Calcite_True_Black, 0) !important;
 }
 
+// Theme base
+
+.calcite-bgcolor-light {
+  background-color: $Calcite_True_White !important;
+}
+
+.calcite-bgcolor-dark {
+  background-color: $Calcite_Gray_700 !important;
+}
+
 // White
 
 .calcite-bgcolor-true-white {

@@ -4,6 +4,12 @@
 .calcite-bgcolor-transparent {
   background-color: transparent !important; }
 
+.calcite-bgcolor-light {
+  background-color: #ffffff !important; }
+
+.calcite-bgcolor-dark {
+  background-color: #323232 !important; }
+
 .calcite-bgcolor-true-white {
   background-color: #ffffff !important; }
 
