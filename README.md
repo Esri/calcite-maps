@@ -1,7 +1,7 @@
 # Calcite Maps
-A modern framework for designing map apps with Calcite styles and Bootstrap. 
+A modern framework for designing map apps with Calcite styles and Bootstrap.
 
-This project contains a small set of CSS classes specifically for designing and building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly. 
+This project contains a small set of CSS classes specifically for designing and building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly.
 
 To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes (for now...) into one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or into your own application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
 
@@ -40,7 +40,7 @@ Here's a few ways to get started:
 
 1. **Explore the styles** - Use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to explore the different colors, styles and layouts. When you find a design you like, inspect the HTML and apply the styles to your app.
 
-2. **Start with a sample** - Create your own app from the [samples](./samples/index.html) or the [example](#example) below by downloading the latest release or just referencing the [calcite-maps-xxx.min.css](./dist/css) and [calcite-maps.js](./dist/js) pre-compiled librares. 
+2. **Start with a sample** - Create your own app from the [samples](./samples/index.html) or the [example](#example) below by downloading the latest release or just referencing the [calcite-maps-xxx.min.css](./dist/css) and [calcite-maps.js](./dist/js) pre-compiled librares.
 
 3. **Create a local build** - Fork and clone the repo to create a local build. The default build includes the Bootstrap components for the framework (scaffolding, navbar, panels...), but you can customize further by overriding variables, adding or removing style files, or adding/removing other Bootstrap components.
 
@@ -106,7 +106,7 @@ Here's a few ways to get started:
     <div class="calcite-title calcite-overflow-hidden">
       <span class="calcite-title-main">Greater Los Angeles Demographics</span>
       <span class="calcite-title-divider hidden-xs"></span>
-      <span class="calcite-title-sub hidden-xs">Explore population, age, income and housing values</span> 
+      <span class="calcite-title-sub hidden-xs">Explore population, age, income and housing values</span>
     </div>
     <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
@@ -146,14 +146,14 @@ Here's a few ways to get started:
       "dojo/query",
 
       // Bootstrap
-      "bootstrap/Collapse", 
+      "bootstrap/Collapse",
 
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
     ], function(MapView, WebMap, Legend, query) {
-        
-      // Webmap 
+
+      // Webmap
       var webmap = new WebMap({
         portalItem: {
           id: "d0260a4512d0431b84d628e000b9d25e"
@@ -209,7 +209,7 @@ Here's the CSS classes you can apply to different elements to create your own de
  * `calcite-zoom-top-left`
  * `calcite-zoom-top-right`
  * `calcite-zoom-bottom-left`
- * `calcite-zoom-bottom-right` 
+ * `calcite-zoom-bottom-right`
 
 #### `<nav class="calcite-navbar"/>`
 * Base
@@ -269,7 +269,7 @@ Here's the CSS classes you can apply to different elements to create your own de
  * `calcite-map-absolute`
  * `calcite-map-fixed`
 * Widget Themes (ArcGIS 4.x only)
- * `calcite-widgets-dark` 
+ * `calcite-widgets-dark`
 
 #### `Utils`
 * `calcite-overflow-hidden`
@@ -318,9 +318,9 @@ Layout 4: Navbar Top - Inline Left Layout - Dark Text - White 75% (custom theme 
 
 * [ArcGIS for JavaScript API](http://developers.arcgis.com)
 * [Esri-Leafllet](http://github.com/esri/esri-leaflet)
-* [Calcite-Bootstrap](http://github.com/calcite-bootstrap)
-* [Calcite-Web](http://github.com/calcite-web)
-* [Calcite-Colors](http://github.com/calcite-colors)
+* [Calcite-Bootstrap](http://github.com/esri/calcite-bootstrap)
+* [Calcite-Web](http://github.com/esri/calcite-web)
+* [Calcite-Colors](http://github.com/esri/calcite-colors)
 * [Bootstrap](http://getbootstrap.com)
 
 ## Issues
