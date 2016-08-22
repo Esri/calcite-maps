@@ -511,9 +511,9 @@
 .calcite-panels.calcite-bg-dark .esri-search {
   border: 1px solid rgba(209, 209, 209, 0.2); }
 
+.calcite-widgets-dark .esri-widget:not(.esri-legend),
 .calcite-widgets-dark .esri-widget.esri-search,
 .calcite-widgets-dark .esri-widget .esri-popup,
-.calcite-widgets-dark .esri-widget.esri-legend,
 .calcite-widgets-dark .esri-widget .esri-menu,
 .calcite-widgets-dark .esri-widget-button,
 .calcite-widgets-dark .esri-popup .esri-popup-main,
@@ -566,7 +566,7 @@
   color: #ffffff; }
 
 .calcite-widgets-dark .esri-widget table tr:nth-child(even) {
-  background-color: rgba(51, 51, 51, 0.7); }
+  background-color: rgba(105, 105, 105, 0.7); }
 
 .calcite-widgets-dark .esri-widget table tr:nth-child(odd) {
   background-color: rgba(250, 250, 250, 0.1); }
