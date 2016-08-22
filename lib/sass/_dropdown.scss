@@ -53,7 +53,7 @@
     padding: $dropdown_menu_padding;
     border: none;
     border-radius: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     font-size: $dropdown_menu_font_size;
     -moz-transition: visibility, opacity .2s ease-out;
     -webkit-transition: visibility, opacity .2s ease-out;
