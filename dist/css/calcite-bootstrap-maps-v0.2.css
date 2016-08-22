@@ -6301,7 +6301,7 @@ blockquote {
     padding: 0;
     border: none;
     border-radius: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     font-size: 14px;
     -moz-transition: visibility, opacity .2s ease-out;
     -webkit-transition: visibility, opacity .2s ease-out;
