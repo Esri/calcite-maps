@@ -521,9 +521,10 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 
 .calcite-widgets-dark {
 
+  .esri-widget:not(.esri-legend),
   .esri-widget.esri-search,
   .esri-widget .esri-popup,
-  .esri-widget.esri-legend,
+  //.esri-widget.esri-legend,
   .esri-widget .esri-menu,
   .esri-widget-button,
   .esri-popup .esri-popup-main,
@@ -615,7 +616,7 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
   }
 
   .esri-widget table tr:nth-child(even) {
-    background-color: rgba(51,51,51,0.7)
+    background-color: rgba(105,105,105,0.7)
   }
 
   .esri-widget table tr:nth-child(odd) {
