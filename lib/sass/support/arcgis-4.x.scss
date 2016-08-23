@@ -30,6 +30,8 @@ $search_expander_width_expanded: 240px;
 $search_expander_width_expanded_mobile_xxs: 200px;
 $text_dark_widget_border_color: rgba(0, 0, 0, 0.30);
 $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
+$text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
+
 
 // --------------------------------------------------
 // View
@@ -123,6 +125,11 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 }
 
 // Attribution - Top and bottom
+
+.calcite-maps .esri-attribution {
+  box-shadow: none;
+  -webkit-box-shadow: none
+}
 
 .calcite-nav-top .esri-attribution,
 .calcite-nav-top-fixed .esri-attribution {
@@ -353,9 +360,14 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
     
     .calcite-search-expander {  
 
-      .esri-search {
+      .esri-widget.esri-search {
         background-color: transparent;
-        border: 1px solid $text_dark_widget_border_color; 
+        border: 1px solid $text_light_widget_border_color_trans;
+      }
+
+      .esri-widget.esri-search:hover,
+        .esri-widget.esri-search:active {
+          border: 1px solid $text_dark_widget_border_color; 
       }
 
       .esri-widget, 
@@ -408,9 +420,14 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
     
     .calcite-search-expander {  
 
-      .esri-search {
+      .esri-widget.esri-search {
         background-color: transparent;
-        border: 1px solid $text_light_widget_border_color; 
+        border: 1px solid $text_light_widget_border_color_trans;
+      }
+
+      .esri-widget.esri-search:hover,
+        .esri-widget.esri-search:active {
+          border: 1px solid $text_light_widget_border_color; 
       }
 
       .esri-widget, 
@@ -520,11 +537,9 @@ $text_light_widget_border_color: rgba(255, 255, 255, 0.7);
 // --------------------------------------------------
 
 .calcite-widgets-dark {
-
-  .esri-widget:not(.esri-legend),
+  .esri-widget:not(.esri-legend):not(.esri-attribution),
   .esri-widget.esri-search,
   .esri-widget .esri-popup,
-  //.esri-widget.esri-legend,
   .esri-widget .esri-menu,
   .esri-widget-button,
   .esri-popup .esri-popup-main,

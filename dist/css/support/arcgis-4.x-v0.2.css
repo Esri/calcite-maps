@@ -248,6 +248,10 @@
 .calcite-nav-bottom-fixed .esri-popup .esri-docked {
   margin: 30px 15px 15px 15px !important; }
 
+.calcite-maps .esri-attribution {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+
 .calcite-nav-top .esri-attribution,
 .calcite-nav-top-fixed .esri-attribution {
   position: absolute;
@@ -379,8 +383,12 @@
   .calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget.esri-search:focus .esri-search__submit-button {
     border-color: rgba(255, 255, 255, 0.7); }
 
-.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search {
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget.esri-search {
   background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0); }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget.esri-search:hover,
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget.esri-search:active {
   border: 1px solid rgba(0, 0, 0, 0.3); }
 
 .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget,
@@ -432,8 +440,12 @@
   background-color: #f4f4f4;
   color: #323232; }
 
-.calcite-navbar.calcite-text-light .calcite-search-expander .esri-search {
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget.esri-search {
   background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0); }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget.esri-search:hover,
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget.esri-search:active {
   border: 1px solid rgba(255, 255, 255, 0.7); }
 
 .calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget,
@@ -511,7 +523,7 @@
 .calcite-panels.calcite-bg-dark .esri-search {
   border: 1px solid rgba(209, 209, 209, 0.2); }
 
-.calcite-widgets-dark .esri-widget:not(.esri-legend),
+.calcite-widgets-dark .esri-widget:not(.esri-legend):not(.esri-attribution),
 .calcite-widgets-dark .esri-widget.esri-search,
 .calcite-widgets-dark .esri-widget .esri-popup,
 .calcite-widgets-dark .esri-widget .esri-menu,
