@@ -16,6 +16,7 @@ $arcgis_widget_full_width: 100%;
 $theme_light_arcgis_widget_border: rgba(0, 0, 0, 0.25);
 
 // Widget dark color variables
+$theme_dark_arcgis_widget_color: $Calcite_Gray_100;
 $theme_dark_arcgis_widget_border: rgba($Calcite_Gray_700_Dark, 0.2);
 // $theme_dark_arcgis_widget_border: rgba(125, 125, 125, 0.75);
 $theme_dark_arcgis_widget_shadow: rgba(55, 55, 55, 0.5);
@@ -86,17 +87,25 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
     z-index: 3; // on top of panels
   }
 
-  .esri-popup .esri-show-title .esri-title {
+ .esri-popup__header-title {
+    padding: 8px 15px 6px;
     cursor: pointer;
   }
 
-  .esri-popup .esri-popup-collapsed .esri-popup-header .esri-popup-header-buttons {
-    padding-top: 3px;
-  }
-
-  .esri-popup .esri-popup-collapsed .esri-popup-content, 
-  .esri-popup .esri-popup-collapsed.esri-show-footer .esri-footer {
-    display: none;
+  .esri-popup .esri-popup-collapsed {
+    .esri-popup__content, 
+      .esri-popup__footer {
+        display: none;
+      }
+    .esri-widget h1 {
+      margin: 0;
+    }
+    .esri-popup__header-title {
+      padding: 8px 15px 6px;
+    }
+    .esri-popup__header .esri-popup__button {
+      padding: 11px 7px;
+    }
   }
 
   .esri-popup .esri-show-dock .esri-dock {
@@ -361,7 +370,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
     .calcite-search-expander {  
 
       .esri-widget.esri-search {
-        background-color: transparent;
+        background-color: transparent !important;
         border: 1px solid $text_light_widget_border_color_trans;
       }
 
@@ -421,7 +430,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
     .calcite-search-expander {  
 
       .esri-widget.esri-search {
-        background-color: transparent;
+        background-color: transparent !important;
         border: 1px solid $text_light_widget_border_color_trans;
       }
 
@@ -432,7 +441,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
       .esri-widget, 
       .esri-widget-button {
-        color: $theme_dark_control_text_color;
+        color: $theme_dark_arcgis_widget_color;
       }
 
       .esri-widget-button {
@@ -444,13 +453,13 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
       }
 
       .esri-search__input {
-        @include custom-theme-placholder($theme_dark_control_text_color, .5); 
-        color: $theme_dark_control_text_color;
+        @include custom-theme-placholder($theme_dark_arcgis_widget_color, .5); 
+        color: $theme_dark_arcgis_widget_color;
       }
 
       .esri-search__submit-button {
         //border-left: solid 1px $text_light_widget_border_color;
-        color: $theme_dark_control_text_color;
+        color: $theme_dark_arcgis_widget_color;
       }
 
       .esri-widget-button:active,
@@ -537,16 +546,17 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 // --------------------------------------------------
 
 .calcite-widgets-dark {
-  .esri-widget:not(.esri-legend):not(.esri-attribution),
+  .esri-widget:not(.esri-legend):not(.esri-attribution):not(.esri-spinner),
   .esri-widget.esri-search,
   .esri-widget .esri-popup,
   .esri-widget .esri-menu,
   .esri-widget-button,
   .esri-popup .esri-popup-main,
   .esri-popup .esri-pointer .esri-pointer-direction,
-  .esri-popup .esri-button {
+  .esri-popup .esri-button,
+  .esri-popup .esri-popup__main-container {
     background-color: $theme_dark_control_bg;
-    color: $theme_dark_control_text_color;
+    color: $theme_dark_arcgis_widget_color;
   }
 
   .esri-widget-button:focus,
@@ -621,8 +631,18 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
   // Popup
 
+  .esri-popup__button {
+    color: $theme_dark_arcgis_widget_color;
+  }
+
+  .esri-popup__pointer-direction {
+    background-color: $theme_dark_control_bg;
+  }
+
   .esri-popup .esri-button:focus,
-  .esri-popup .esri-button:hover {
+  .esri-popup .esri-button:hover,
+  .esri-popup__button:focus,
+  .esri-popup__button:hover {
     color: $theme_dark_control_text_color_hover;  
   }
 
