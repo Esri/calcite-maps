@@ -16,15 +16,9 @@ define([
 
   var CalciteMaps = declare(null, {
 
-    _this: null,
-
     constructor: function () {
-
-      _this = this;
       
-      this._setNavbarEvents();
-      this._setPanelEvents();
-      this._setTouchEvents();
+      this.initEvents();
 
     },
 
@@ -34,7 +28,7 @@ define([
     //
     //--------------------------------------------------------------------------
 
-    navbarSelector: ".calcite-navbar .calcite-dropdown li > a",
+    dropdownMenuItemSelector: ".calcite-navbar .calcite-dropdown li > a",
 
     autoCollapsePanel: true,
 
@@ -46,21 +40,28 @@ define([
 
     stickyDropdownMobile: false,
 
-    //--------------------------------------------------------------------------
-    //
-    //  Private
-    //
-    //--------------------------------------------------------------------------
-
-    _stickyDropdownBreakpoint: 768,
+    stickyDropdownBreakpoint: 768,
 
     //----------------------------------
-    // Nav Dropdown Events
+    // Initialize Handlers
     //----------------------------------
 
-    // Show/hide Panels
+    initEvents: function() {
 
-    _setNavbarEvents: function() {
+      this.setDropdownItemEvents();
+      this.setDropdownToggleEvents();
+      this.setToggleNavbarClick();
+      this.setPanelEvents();
+      this.setTouchEvents();
+
+    },
+
+    //----------------------------------
+    // Dropdown Menu Item Events
+    //----------------------------------
+
+    setDropdownItemEvents: function() {
+
       var funcContext = function setNavbarEvents(e) {
 
         var isPanel = false,
@@ -70,48 +71,80 @@ define([
 
         if (e.currentTarget.dataset.target) {
           panel = query(e.currentTarget.dataset.target);
-          isPanel = domClass.contains(panel[0], "panel");
+          if (panel.length > 0) {
+            isPanel = domClass.contains(panel[0], "panel");
+          }
         }
 
         // Toggle panels
         if (isPanel) {
-          if (panel.length) {
-            panelBody = query(panel).query(".panel-collapse");
-            // Show
-            if (!domClass.contains(panel[0], "in")) {
-              // Close panels
-              panels = query(panel).parent().query(".panel.in");
-              panels.collapse("hide");
-              // Close bodies
-              query(panels).query(".panel-collapse").collapse("hide");
-              // Show panel
-              panel.collapse("show");
-              // Show body
-              query(panelBody[0]).collapse("show");
-            } else { // Re-show
-              panel.removeClass("in");
-              query(panelBody[0]).removeClass("in");
-              panel.collapse("show");
-              query(panelBody[0]).collapse("show");
-            }
-            // Dismiss dropdown automatically
-            var isMobile = window.innerWidth < this._stickyDropdownBreakpoint;
-            if (isMobile && !this.stickyDropdownMobile || !isMobile && !this.stickyDropdownDesktop) {
-              var toggle = query(".calcite-dropdown .dropdown-toggle")[0];
-              on.emit(toggle, "click", { bubbles: true, cancelable: true });
-            }
-          } 
-          _this.activePanel = panel;
+          panelBody = query(panel).query(".panel-collapse");
+          // Show
+          if (!domClass.contains(panel[0], "in")) {
+            // Close panels
+            panels = query(panel).parent().query(".panel.in");
+            panels.collapse("hide");
+            // Close bodies
+            query(panels).query(".panel-collapse").collapse("hide");
+            // Show panel
+            panel.collapse("show");
+            // Show body
+            query(panelBody[0]).collapse("show");
+          } else { // Re-show
+            panel.removeClass("in");
+            query(panelBody[0]).removeClass("in");
+            panel.collapse("show");
+            query(panelBody[0]).collapse("show");
+          }
+          // Dismiss dropdown automatically
+          var isMobile = window.innerWidth < this.stickyDropdownBreakpoint;
+          if (isMobile && !this.stickyDropdownMobile || !isMobile && !this.stickyDropdownDesktop) {
+            var toggle = query(".calcite-dropdown .dropdown-toggle")[0];
+            on.emit(toggle, "click", { bubbles: true, cancelable: true });
+          }
+          this.activePanel = panel;
         }
-      }
+      }.bind(this);
 
       // Show/hide panels
 
-      query(this.navbarSelector).on("click", lang.hitch(this, funcContext)); 
+      query(this.dropdownMenuItemSelector).on("click", lang.hitch(this, funcContext)); 
 
-      //----------------------------------
-      // Toggle navbar hidden
-      //----------------------------------
+    },
+
+    //----------------------------------
+    // Manually show/hide the dropdown
+    //----------------------------------
+
+    setDropdownToggleEvents: function() {
+      
+      // Manually show/hide the dropdown
+      query(".calcite-dropdown .dropdown-toggle").on('click', function (e) {
+        query(this).parent().toggleClass("open");
+        query(".calcite-dropdown-toggle").toggleClass("open");
+      });
+
+      query(".calcite-dropdown").on("hide.bs.dropdown", function () {
+        query(".calcite-dropdown-toggle").removeClass("open");
+      });
+
+      // Dismiss dropdown menu
+      query(window).on("click", function (e) {
+        var menu = query(".calcite-dropdown.open")[0];
+        if (menu) {
+          if (query(e.target).closest(".calcite-dropdown").length === 0) {
+            query(menu).removeClass("open");
+            query(".calcite-dropdown-toggle").removeClass("open");
+          }
+        }
+      });
+    },
+
+    //----------------------------------
+    // Toggle navbar hidden
+    //----------------------------------
+
+    setToggleNavbarClick: function() {
 
       query("#calciteToggleNavbar").on("click", function(e) {
         if (!domClass.contains(query("body")[0],"calcite-nav-hidden")) {
@@ -125,40 +158,14 @@ define([
         }
       });
 
-      //----------------------------------
-      // Manually show/hide the dropdown
-      //----------------------------------
-
-      query(".calcite-dropdown .dropdown-toggle").on('click', function (e) {
-        query(this).parent().toggleClass("open");
-        query(".calcite-dropdown-toggle").toggleClass("open");
-      });
-
-      query(".calcite-dropdown").on("hide.bs.dropdown", function () {
-        query(".calcite-dropdown-toggle").removeClass("open");
-      });
-
-      //----------------------------------
-      // Dismiss dropdown menu
-      //----------------------------------
-
-      query(window).on("click", function (e) {
-        var menu = query(".calcite-dropdown.open")[0];
-        if (menu) {
-          if (query(e.target).closest(".calcite-dropdown").length === 0) {
-            query(menu).removeClass("open");
-            query(".calcite-dropdown-toggle").removeClass("open");
-          }
-        }
-      });
-
     },
 
     //----------------------------------
     // Panel Collapse Events
     //----------------------------------
 
-    _setPanelEvents: function() {
+    setPanelEvents: function() {
+
       if (this.autoCollapsePanel) {
         // Hide
         query(".calcite-panels .panel .panel-collapse").on("hidden.bs.collapse", function(e) {
@@ -169,13 +176,14 @@ define([
           query(e.target.parentNode).query(".panel-label, .panel-close").removeClass("visible-mobile-only");
         });
       }
+      
     },
 
     //----------------------------------
     // Map Touch Events
     //----------------------------------
 
-    _setTouchEvents: function() {
+    setTouchEvents: function() {
 
       var funcContext = function setTouchEvents(e) {
         if (this.preventOverscrolling) {
@@ -191,6 +199,6 @@ define([
     }
 
   });
-
+      
   return new CalciteMaps();
 });
