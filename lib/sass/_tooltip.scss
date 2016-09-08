@@ -7,4 +7,22 @@
   .tooltip {
     min-width: 75px;
   }
+
+}
+
+.calcite-maps {
+
+	.tooltip-inner {
+	  color: #dcdcdc;
+	  background-color: #191919;
+	}
+
+	.tooltip .tooltip-arrow {
+	  border-bottom-color: #191919;
+	}
+
+	.tooltip.in {
+	  opacity: 1;
+	}
+
 }
