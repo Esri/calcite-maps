@@ -1,26 +1,27 @@
 // ┌───────────────────────┐
-// │ Layout - Medium Title │
+// │ Layout - Small Title │
 // └───────────────────────┘
 //
-// Simple layout for medium banner style map apps
+// Simple layout for small banner style map apps
 
 @import "../variables";
 
-$navbar_height: 60px;
+$navbar_height: 40px;
 $navbar_dropdown_toggle_margin: 0 0 15px 0;
-$navbar_dropdown_toggle_padding: 22px 20px 24px 21px;
-$navbar_title_font_size: 28px;
+$navbar_dropdown_toggle_padding: 12px 20px 14px 21px;
+$navbar_dropdown_toggle_padding_mobile: 12px 15px 14px 18px;
+$navbar_title_font_size: 19px;
 $navbar_title_padding: 3px 0 4px;
-$navbar_title_divider_margin: 0 20px;
-$navbar_subtitle_font_size: 13px;
+$navbar_title_divider_margin: 0 13px;
+$navbar_subtitle_font_size: 12px;
 $title_line_height: 1.1;
-$navbar_nav_li_a_padding: 18px 15px 18px;
+$navbar_nav_li_a_padding: 9px 15px 7px;
 
-// Sytles for > medium screens only
+// Sytles for > small screens only
 
 // @media (min-width: 769px) {
   
-  .calcite-layout-medium-title {
+  .calcite-layout-small-title {
 
     .calcite-navbar {
       height: $navbar_height;
@@ -42,6 +43,7 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
 
     .calcite-dropdown-toggle {
       margin-left: 2px;
+      width: 15px;
     }
 
     .calcite-title-main {
@@ -61,7 +63,7 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
     }
 
     .calcite-navbar-search.calcite-search-expander {
-      padding: 15px 15px;
+      padding: 5px 10px 4px;
     }
 
     // Panel
@@ -138,11 +140,21 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
 // }
 
 @media (max-width: 768px) {
-  .calcite-layout-medium-title {
+  .calcite-layout-small-title {
     &.calcite-nav-top {
       .calcite-panels {
         top: auto;
       }
+    }
+    .calcite-dropdown .dropdown-toggle {
+      padding: $navbar_dropdown_toggle_padding_mobile;
+    }
+
+    &.calcite-nav-bottom .calcite-panels, 
+    &.calcite-nav-bottom-fixed .calcite-panels, 
+    &.calcite-nav-bottom.calcite-margin-all .calcite-panels, 
+    &.calcite-nav-bottom.calcite-margin-bottom .calcite-panels {
+      bottom: $navbar_height;
     }
   }
 }

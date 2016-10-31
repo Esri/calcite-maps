@@ -12,7 +12,7 @@
 
 $base_ui_margin: 15px !default;
 $base_ui_position_absolute: 15px !default;
-$base_ui_font_size: 14px;
+$base_ui_font_size: 13px;
 
 // ---------------------------------------------------------------
 // Media breaks
@@ -46,7 +46,7 @@ $navbar_height: 50px !default;  // small 50px, medium 60px, large 85px
 $navbar_margin: $base_ui_margin !default;
 // Nav
 $navbar_nav_li_a_padding: 13px 15px 13px !default;
-$navbar_nav_font_size: $base_ui_font_size;
+$navbar_nav_font_size: $base_ui_font_size + 1;
 // Menu dropdown toggle
 $navbar_dropdown_toggle_margin: 0;
 $navbar_dropdown_toggle_padding: 17px 20px 19px 22px !default;
@@ -60,7 +60,7 @@ $navbar_brand_font_size: 32px !default;
 $navbar_title_margin: 0 !default;
 $navbar_title_padding: 1px 0 2px !default;
 $navbar_title_font_size: 22px !default;
-$navbar_title_font_weight: 300 !default;
+$navbar_title_font_weight: 400;
 $navbar_title_font_size_mobile: 20px !default;
 // Title - divider
 $navbar_title_divider_margin: 0 15px;
@@ -80,7 +80,7 @@ $navbar_breakpoint_width_mobile: $base_breakpoint_max_width_sm !default;
 $dropdown_menu_padding: 0;
 $dropdown_menu_li_a_padding: 9px 20px;
 $dropdown_toggle_font_size: $base_ui_font_size !default;
-$dropdown_menu_font_size: $base_ui_font_size !default;
+$dropdown_menu_font_size: $base_ui_font_size + 1 !default;
 // Size
 $dropdown_menu_max_height: 500px;
 $dropdown_menu_max_height_mobile: 215px !default;
@@ -99,6 +99,7 @@ $panels_position_left: $base_ui_position_absolute;
 // Size
 $panels_width: auto;
 $panels_width_mobile: 100% !default;
+$panel_title_height: 33px !default;  // controls minimized size
 // Body
 $panel_body_width: 350px !default; // controls width of all panels
 $panel_body_width_mobile: 100% !default; // full width in mobile
@@ -113,8 +114,8 @@ $panel_body_height_md: $base_breakpoint_min_height_md / 2 !default;
 // $panel_space: $navbar_height + 38px + $base_ui_margin; 
 $panel_body_max_height_expanded: 125px !default;
 // Font
-$panel_font_size: 14px !default;
-$panel_title_font_size: 15px !default;
+$panel_font_size: 13px !default;
+$panel_title_font_size: 14px !default;
 $panel_title_font_weight: 400 !default;
 // Form elements
 $panel_form_control_height: 34px !default;

@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 					'dist/css/calcite-bootstrap-maps-v0.2.css': 'lib/sass/build-all.scss',
 					'dist/css/layouts/inline-zoom-v0.2.css': 'lib/sass/layouts/inline-zoom.scss',
 					'dist/css/layouts/large-title-v0.2.css': 'lib/sass/layouts/large-title.scss',
-					'dist/css/layouts/medium-title-v0.2.css': 'lib/sass/layouts/medium-title.scss',
+					'dist/css/layouts/small-title-v0.2.css': 'lib/sass/layouts/small-title.scss',
 					'dist/css/support/arcgis-3.x-v0.2.css': 'lib/sass/support/arcgis-3.x.scss',
 					'dist/css/support/arcgis-4.x-v0.2.css': 'lib/sass/support/arcgis-4.x.scss',
 					'dist/css/support/esri-leaflet-v0.2.css': 'lib/sass/support/esri-leaflet.scss'
@@ -46,9 +46,9 @@ module.exports = function (grunt) {
 					'dist/css/calcite-maps.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css'],
 					'dist/css/calcite-bootstrap.min-v0.2.css': ['dist/css/calcite-bootstrap-v0.2.css'],
 					'dist/css/calcite-bootstrap-maps.min-v0.2.css': ['dist/css/calcite-bootstrap-maps-v0.2.css'],
-					'dist/css/calcite-maps-arcgis-3.x.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/large-title-v0.2.css', 'dist/css/layouts/medium-title-v0.2.css', 'dist/css/support/arcgis-3.x-v0.2.css'],
-					'dist/css/calcite-maps-arcgis-4.x.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/large-title-v0.2.css', 'dist/css/layouts/medium-title-v0.2.css','dist/css/support/arcgis-4.x-v0.2.css'],
-					'dist/css/calcite-maps-esri-leaflet.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/large-title-v0.2.css', 'dist/css/layouts/medium-title-v0.2.css','dist/css/support/esri-leaflet-v0.2.css']
+					'dist/css/calcite-maps-arcgis-3.x.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/large-title-v0.2.css', 'dist/css/layouts/small-title-v0.2.css', 'dist/css/support/arcgis-3.x-v0.2.css'],
+					'dist/css/calcite-maps-arcgis-4.x.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/large-title-v0.2.css', 'dist/css/layouts/small-title-v0.2.css','dist/css/support/arcgis-4.x-v0.2.css'],
+					'dist/css/calcite-maps-esri-leaflet.min-v0.2.css': ['dist/css/calcite-maps-v0.2.css', 'dist/css/layouts/inline-zoom-v0.2.css', 'dist/css/layouts/large-title-v0.2.css', 'dist/css/layouts/small-title-v0.2.css', 'dist/css/support/esri-leaflet-v0.2.css']
 				}
 			}
 		},
@@ -93,11 +93,17 @@ module.exports = function (grunt) {
 				src: ['./node_modules/bootstrap-sass/assets/fonts/bootstrap/*'],
 				dest: './dist/fonts/bootstrap/'
 			},
-			calcitefonts: {
+			calciteiconfonts: {
 				expand: true,
 				flatten: true,
 				src: ['./lib/fonts/calcite/*'],
 				dest: './dist/fonts/calcite/'
+			},
+			calcitefonts: {
+				expand: true,
+				flatten: true,
+				src: ['./lib/fonts/avenir-next/*'],
+				dest: './dist/fonts/avenir-next/'
 			},
 			vendor: {
 				expand: true,
@@ -120,5 +126,5 @@ module.exports = function (grunt) {
 
 	});  
 	// Default task.  
-	grunt.registerTask('default', ['sass', 'cssmin', 'copy:calcitemapsdojo', 'copy:calcitemapsjquery', 'copy:bootstrapfonts', 'copy:calcitefonts', 'copy:vendor']);  
+	grunt.registerTask('default', ['sass', 'cssmin', 'copy:calcitemapsdojo', 'copy:calcitemapsjquery', 'copy:bootstrapfonts', 'copy:calciteiconfonts', 'copy:calcitefonts', 'copy:vendor']);  
 };

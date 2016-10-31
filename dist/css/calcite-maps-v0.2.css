@@ -299,7 +299,7 @@
   padding: 1px 0 2px;
   overflow: hidden;
   font-size: 22px;
-  font-weight: 300; }
+  font-weight: 400; }
 
 .calcite-title-divider {
   position: relative;
@@ -756,7 +756,7 @@
     margin-top: 0;
     border: none;
     border-radius: 0;
-    font-size: 14px;
+    font-size: 12px;
     background-color: inherit; }
   .calcite-panels .panel + .panel {
     margin-top: 0; }
@@ -765,23 +765,25 @@
     border-radius: 0; }
   .calcite-panels .panel-title {
     display: flex;
-    font-size: 15px;
+    height: 33px;
+    font-size: 14px;
     font-weight: 400; }
   .calcite-panels .panel-label {
     display: inline-block;
     padding-left: 5px; }
   .calcite-panels .panel-toggle {
     flex: 1;
-    padding: 8px 8px 8px 10px;
+    padding: 7px 0px 0 10px;
     text-decoration: none;
-    min-width: 34px; }
+    min-width: 32px; }
     .calcite-panels .panel-toggle .glyphicon {
-      top: 2px;
+      top: 1px;
       margin: 0;
-      padding-right: 2px; }
+      padding-right: 2px;
+      font-size: 13px; }
   .calcite-panels .panel-close {
-    padding: 10px 10px 5px;
-    font-size: 13px;
+    padding: 9px 10px 0;
+    font-size: 12px;
     text-decoration: none; }
   .calcite-panels .panel-heading + .panel-collapse > .panel-body {
     border-top: none; }
@@ -790,15 +792,15 @@
     width: 350px;
     min-height: 50px;
     max-height: 500px;
-    font-size: 14px;
+    font-size: 13px;
     overflow-x: hidden; }
     .calcite-panels .panel-body button {
-      font-size: 14px; }
+      font-size: 13px; }
     .calcite-panels .panel-body input,
     .calcite-panels .panel-body select,
     .calcite-panels .panel-body textarea,
     .calcite-panels .panel-body select {
-      font-size: 14px; }
+      font-size: 13px; }
     .calcite-panels .panel-body select {
       -webkit-appearance: none;
       appearance: none;

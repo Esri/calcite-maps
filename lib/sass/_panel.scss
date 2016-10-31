@@ -15,7 +15,7 @@
     margin-top: 0;
     border: none;
     border-radius: 0;
-    font-size: $panel_font_size;
+    font-size: $panel_font_size - 1;
     background-color: inherit;
   }
 
@@ -32,6 +32,7 @@
 
   .panel-title {
     display: flex;
+    height: $panel_title_height;
     font-size: $panel_title_font_size;
     font-weight: $panel_title_font_weight;  
   }
@@ -43,18 +44,19 @@
 
   .panel-toggle {
     flex: 1;
-    padding: 8px 8px 8px 10px;
+    padding: 7px 0px 0 10px;
     text-decoration: none;
-    min-width: 34px;
+    min-width: $panel_title_height - 1;
     .glyphicon {
-      top: 2px;
+      top: 1px;
       margin: 0;
       padding-right: 2px;
+      font-size: $panel_font_size;
     }
   }
 
   .panel-close {
-    padding: 10px 10px 5px;
+    padding: 9px 10px 0;
     font-size: $panel_font_size - 1;
     text-decoration: none;
   }
