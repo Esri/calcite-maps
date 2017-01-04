@@ -12,9 +12,9 @@ $navbar_dropdown_toggle_padding: 22px 20px 24px 21px;
 $navbar_title_font_size: 28px;
 $navbar_title_padding: 3px 0 4px;
 $navbar_title_divider_margin: 0 20px;
-$navbar_subtitle_font_size: 13px;
+$navbar_subtitle_font_size: 14px;
 $title_line_height: 1.1;
-$navbar_nav_li_a_padding: 18px 15px 18px;
+$navbar_nav_li_a_padding: 20px 15px;
 
   
 .calcite-layout-large-title {
@@ -57,23 +57,9 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
     line-height: $title_line_height;
   }
 
-  .calcite-navbar-search.calcite-search-expander {
-    padding: 15px 15px;
-  }
-
-  // Panel
-
-  &.calcite-nav-top {
-    .calcite-panels {
-      top: $navbar_height + $base_ui_margin;
-    }
-  }
-
-  &.calcite-nav-hidden {
-    &.calcite-nav-top, &.calcite-nav-bottom {
-      .calcite-panels {
-        top: $base_ui_margin;
-      }
+  .calcite-navbar-search {
+    &.calcite-search-expander {
+      margin: 15px;
     }
   }
 
@@ -128,6 +114,29 @@ $navbar_nav_li_a_padding: 18px 15px 18px;
     .calcite-dropdown {
       .calcite-menu-drawer  {
         bottom: $navbar_height + $base_ui_margin;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  // Panel
+  .calcite-layout-large-title {
+    &.calcite-nav-top {
+      .calcite-panels {
+        top: $navbar_height + $base_ui_margin;
+      }
+    }
+    &.calcite-nav-hidden {
+      &.calcite-nav-top {
+        .calcite-panels {
+          top: $navbar_height + $base_ui_margin;
+        }
+      },
+      &.calcite-nav-bottom {
+        .calcite-panels {
+          top: $base_ui_margin + $base_ui_margin;
+        }
       }
     }
   }

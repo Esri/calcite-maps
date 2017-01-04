@@ -11,17 +11,23 @@
 .calcite-layout-inline-left,
 .calcite-layout-inline-right {
   .calcite-navbar {
-    height: 65px;
-    min-height: 65px;
+    height: 60px;
+    min-height: 60px;
     .navbar-nav>li>a {
       padding: 20px 15px 21px;
     }
   }
+  .calcite-title-main {
+    font-size: 26px;
+  }
+  .calcite-title-sub {
+    font-size: 14px;
+  }
   .calcite-navbar-search {
-    padding: 16px 15px;
+    margin: 16px 15px;
   }
   .calcite-navbar-search.calcite-search-expander {
-    padding: 18px 15px;
+    margin: 15px 15px;
   }
 }
 
@@ -36,7 +42,7 @@
 .calcite-layout-inline-left,
 .calcite-layout-inline-right {
   &.calcite-nav-top.calcite-margin-all .calcite-panels {
-    top: 95px;
+    top: 90px;
     bottom: auto;
   }
 }
@@ -51,11 +57,18 @@
 .calcite-layout-inline-left,
 .calcite-layout-inline-right {
   .calcite-dropdown .dropdown-toggle {
-    padding: 24px 20px 27px 21px;
+    padding: 22px 20px 24px 21px
   }
 }
 
 // ArcGIS 3.x
+
+.calcite-layout-inline-left,
+.calcite-layout-inline-right {
+  .calcite-navbar-search {
+    margin: 15px;
+  }
+}
 
 .calcite.calcite-layout-inline-left.calcite-nav-top.calcite-margin-all,
 .calcite.calcite-layout-inline-left.calcite-nav-bottom.calcite-margin-all,
