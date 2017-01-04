@@ -33,6 +33,8 @@
     .nav-tabs > li > a:focus {
       background-color: transparent;
       border-top-color: $theme_light_control_border_color_hover;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
     }
 
     .nav-tabs > li.active > a {
@@ -128,10 +130,12 @@
   }
 }
 
-.calcite-nav-bottom {
-  .calcite-bg-light {
-    .panel-body {
-      border-bottom: 1px solid $theme_light_panel_header_bg;
+@media (max-width: $panels_breakpoint_width_mobile) {
+  .calcite-nav-bottom {
+    .calcite-bg-light {
+      .panel-body {
+        border-bottom: 1px solid $theme_light_panel_header_bg;
+      }
     }
-  }
+  }  
 }

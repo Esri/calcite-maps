@@ -15,7 +15,7 @@
     margin-top: 0;
     border: none;
     border-radius: 0;
-    font-size: $panel_font_size - 1;
+    font-size: $panel_font_size;
     background-color: inherit;
   }
 
@@ -57,7 +57,7 @@
 
   .panel-close {
     padding: 9px 10px 0;
-    font-size: $panel_font_size - 1;
+    font-size: $panel_font_size;
     text-decoration: none;
   }
 
@@ -121,6 +121,7 @@
     }
     .nav-tabs > li > a {
       padding: 6px 12px 4px;
+      border-top: 1px solid transparent;
     }
     .nav-tabs > li > a:hover,
     .nav-tabs > li > a:focus, {
@@ -185,30 +186,6 @@
   }
 }
 
-@media (min-height: $panels_breakpoint_height_xxs) { 
-  .calcite-panels {
-    .panel-body {
-      max-height: $panel_body_height_xxs;
-    }
-  }
-}
-
-@media (min-height: $panels_breakpoint_height_xs) { 
-  .calcite-panels {
-    .panel-body {
-      max-height: $panel_body_height_xs;
-    }
-  }
-}
-
-@media (min-height: $panels_breakpoint_height_sm) { 
-  .calcite-panels {
-    .panel-body {
-      max-height: $panel_body_height_sm;
-    }
-  }
-}
-
 @media (min-height: $panels_breakpoint_height_md) { 
   .calcite-panels {
     .panel-body {
@@ -217,3 +194,26 @@
   }
 }
 
+@media (max-height: $panels_breakpoint_height_sm) { 
+  .calcite-panels {
+    .panel-body {
+      max-height: $panel_body_height_sm;
+    }
+  }
+}
+
+@media (max-height: $panels_breakpoint_height_xs) { 
+  .calcite-panels {
+    .panel-body {
+      max-height: $panel_body_height_xs;
+    }
+  }
+}
+
+@media (max-height: $panels_breakpoint_height_xxs) { 
+  .calcite-panels {
+    .panel-body {
+      max-height: $panel_body_height_xxs;
+    }
+  }
+}

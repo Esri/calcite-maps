@@ -97,6 +97,10 @@
     padding: $dropdown_menu_li_a_padding;
   }
 
+  .dropdown-menu a > span {
+    padding-right: 3px;
+  }
+
   // Offset dropdown menu
   &.dropdown .dropdown-menu {
 		margin: 0;
