@@ -12,12 +12,12 @@ To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/inde
   <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
 ```
 
-[View the Styler and sample starter apps here](http://esri.github.io/calcite-maps/samples/index.html)
+[View the samples here](http://esri.github.io/calcite-maps/samples/index.html)
 
 ##What's included
 
 * Calcite [colors](#documentation), [styles](#documentation) and [layouts](#documentation)
-* Default (50px), medium (60px) and large (85px) navbar sizes
+* Small (40px), medium (50px) and large (65px) navbar sizes
 * 14 different top and bottom layouts
 * Dark and light color themes
 * Extended navbar
@@ -25,12 +25,12 @@ To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/inde
 * Custom collapsable panels (right and left orientation)
 * Full map view
 * Mobile friendly including the removal of browser "bounce" effect on devices
-* CSS and JS extensions for [Bootstrap](http://www.getbootstrap.com) components
-* Sass build for [Bootstrap](http://www.getbootstrap.com), [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) and Calcite Maps
+* CSS and JS mapping extensions for [Bootstrap](http://www.getbootstrap.com) components
+* Sass build for [Bootstrap](http://www.getbootstrap.com) and Calcite Maps
 * Support for [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/) and [Esri Leaflet](https://github.com/Esri/esri-leaflet)
 * Dojo and jQuery options
 
-NOTE: The framework is compatile with [Bootstrap 3.x](http://www.getbootstrap.com), [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap) and custom builds of Bootstrap.
+NOTE: The framework is compatile with [Bootstrap 3.x](http://www.getbootstrap.com) and custom builds of Bootstrap.
 
 ![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
 
@@ -46,8 +46,8 @@ Here's a few ways to get started:
 
  Run the commands below:
 
- * Run `npm install` (node_modules/bootstrap and calcite-bootstrap)
- * Run `bower install` (bower_components/dojo-bootstrap)
+ * Run `npm install` (node_modules/bootstrap)
+ * Run `bower install` (bower_components/dojo-bootstrap - optional)
  * Run `grunt` (build out project to ./dist/**)
 
  NOTE: To start customizing, check out the [gruntfile.js](gruntfile.js), [build.scss](./lib/sass/build.scss) and [_variables.scss](./lib/sass/_variables.scss) files.
@@ -67,16 +67,16 @@ Here's a few ways to get started:
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="Calcite Maps - ArcGIS 4.x SDK Sample">
   <link rel="icon" href="http://www.esri.com/favicon.ico">
-  <title>Calcite Maps - ArcGIS JS 4.0 Example</title>
+  <title>Calcite Maps - ArcGIS JS 4 Example</title>
 
   <!-- Calcite Bootstrap -->
-  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
+  <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.3.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+  <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
 
-  <!-- ArcGIS JS 4.0 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+  <!-- ArcGIS JS 4.x -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
 
   <style>
     html, body {
@@ -124,17 +124,17 @@ Here's a few ways to get started:
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        location: "http://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
+        location: "https://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
       },
       {
         name: "calcite-maps",
-        location: "http://esri.github.com/calcite-maps/dist/js/dojo"
+        location: "https://esri.github.com/calcite-maps/dist/js/dojo"
       }]
     };
   </script>
 
-  <!-- ArcGIS JS 4.0 -->
-  <script src="https://js.arcgis.com/4.0/"></script>
+  <!-- ArcGIS JS 4.x -->
+  <script src="https://js.arcgis.com/4.2/"></script>
 
   <script>
 
@@ -149,7 +149,7 @@ Here's a few ways to get started:
       "bootstrap/Collapse",
 
       // Calcite-maps
-      "calcite-maps/calcitemaps-v0.2",
+      "calcite-maps/calcitemaps-v0.3",
       "dojo/domReady!"
     ], function(MapView, WebMap, Legend, query) {
 
@@ -312,13 +312,12 @@ Layout 4: Navbar Top - Inline Left Layout - Dark Text - White 75% (custom theme 
 
 ## Requirements
 
-* [Bootstrap](http://getbootstrap.com) or [Calcite Bootstrap](https://github.com/Esri/calcite-bootstrap)
+* [Bootstrap](http://getbootstrap.com)
 
 ## Resources
 
 * [ArcGIS for JavaScript API](http://developers.arcgis.com)
 * [Esri-Leafllet](http://github.com/esri/esri-leaflet)
-* [Calcite-Bootstrap](http://github.com/esri/calcite-bootstrap)
 * [Calcite-Web](http://github.com/esri/calcite-web)
 * [Calcite-Colors](http://github.com/esri/calcite-colors)
 * [Bootstrap](http://getbootstrap.com)
