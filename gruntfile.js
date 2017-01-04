@@ -24,8 +24,6 @@ module.exports = function (grunt) {
 				files: {
 					'dist/css/calcite-bootstrap-v0.3.css': 'lib/sass/build-calcite-bootstrap.scss',
 					'dist/css/calcite-maps-v0.3.css': 'lib/sass/build-calcite-maps.scss',
-					'dist/css/arcgis/themes/light/main.css': 'lib/sass/arcgis/light/main.scss',
-					'dist/css/arcgis/themes/dark/main.css': 'lib/sass/arcgis/dark/main.scss',
 					'dist/css/layouts/inline-zoom-v0.3.css': 'lib/sass/layouts/inline-zoom.scss',
 					'dist/css/layouts/large-title-v0.3.css': 'lib/sass/layouts/large-title.scss',
 					'dist/css/layouts/small-title-v0.3.css': 'lib/sass/layouts/small-title.scss',
@@ -45,8 +43,6 @@ module.exports = function (grunt) {
 				files: {
 					'dist/css/calcite-maps.min-v0.3.css': ['dist/css/calcite-maps-v0.3.css'],
 					'dist/css/calcite-bootstrap.min-v0.3.css': ['dist/css/calcite-bootstrap-v0.3.css'],
-					'dist/css/arcgis/themes/light/main.min.css': ['dist/css/arcgis/themes/light/main.css'],
-					'dist/css/arcgis/themes/dark/main.min.css': ['dist/css/arcgis/themes/dark/main.css'],
 					'dist/css/calcite-maps-arcgis-3.x.min-v0.3.css': ['dist/css/calcite-maps-v0.3.css', 'dist/css/layouts/inline-zoom-v0.3.css', 'dist/css/layouts/large-title-v0.3.css', 'dist/css/layouts/small-title-v0.3.css', 'dist/css/support/arcgis-3.x-v0.3.css'],
 					'dist/css/calcite-maps-arcgis-4.x.min-v0.3.css': ['dist/css/calcite-maps-v0.3.css', 'dist/css/layouts/inline-zoom-v0.3.css', 'dist/css/layouts/large-title-v0.3.css', 'dist/css/layouts/small-title-v0.3.css','dist/css/support/arcgis-4.x-v0.3.css'],
 					'dist/css/calcite-maps-esri-leaflet.min-v0.3.css': ['dist/css/calcite-maps-v0.3.css', 'dist/css/layouts/inline-zoom-v0.3.css', 'dist/css/layouts/large-title-v0.3.css', 'dist/css/layouts/small-title-v0.3.css', 'dist/css/support/esri-leaflet-v0.3.css']
@@ -106,13 +102,6 @@ module.exports = function (grunt) {
 				src: ['./lib/fonts/avenir-next/*'],
 				dest: './dist/fonts/avenir-next/'
 			},
-			// arcgis: {
-			// 	expand: true,
-			// 	flatten: false,
-			// 	cwd: './lib/sass/arcgis/base/',
-			// 	src: ['fonts/**','icons/**','images/**'],
-			// 	dest: './dist/css/arcgis/'
-			// },
 			vendor: {
 				expand: true,
 				flatten: false,
@@ -133,7 +122,6 @@ module.exports = function (grunt) {
     // }
 
 	});  
-	// Default tasks - option to build arcgis
-	//grunt.registerTask('default', ['sass', 'cssmin', 'copy:calcitemapsdojo', 'copy:calcitemapsjquery', 'copy:bootstrapfonts', 'copy:calciteiconfonts', 'copy:calcitefonts', 'copy:arcgis', 'copy:vendor']);  
+	// Default tasks
 	grunt.registerTask('default', ['sass', 'cssmin', 'copy:calcitemapsdojo', 'copy:calcitemapsjquery', 'copy:bootstrapfonts', 'copy:calciteiconfonts', 'copy:calcitefonts', 'copy:vendor']);
 };
