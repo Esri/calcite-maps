@@ -65,8 +65,8 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
 
   var CALCITE_LAYOUT_STYLES = {
     body: 
-    // Custom themes
-    "calcite-layout-large-title calcite-layout-medium-title calcite-layout-inline-right calcite-layout-inline-left " +
+    // Custom layouts
+    "calcite-layout-large-title calcite-layout-small-title calcite-layout-inline-right calcite-layout-inline-left " +
     // Nav
     "calcite-nav-top calcite-nav-bottom calcite-nav-top-fixed calcite-nav-bottom-fixed " +
     // Nav space
@@ -174,7 +174,29 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
           layoutName: ""
       },
       // Custom layouts...
-      TOPMEDIUM: {
+      TOPSMALL: {
+          navPosition: "calcite-nav-top", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-top",
+          viewPadding: { top: 40, bottom: 0 }, 
+          viewPaddingSmallScreen: { top: 40, bottom: 0 }, 
+          uiPadding: { top: 15, left: 15, right: 15, bottom: 30 },
+          layoutName: "calcite-layout-small-title"
+      },
+      BOTTOMSMALL: {
+          navPosition: "calcite-nav-bottom", 
+          navSpace: "", 
+          panelPosition: "calcite-panels-right", 
+          zoomPosition: "calcite-zoom-top-left", 
+          navFixedPosition: "navbar-fixed-bottom",
+          viewPadding: { top: 0, bottom: 40 }, 
+          viewPaddingSmallScreen: { top: 0, bottom: 40 }, 
+          uiPadding: { top: 30, left: 15, right: 15, bottom: 15 },
+          layoutName: "calcite-layout-small-title"
+      },
+      TOPLARGE: {
           navPosition: "calcite-nav-top", 
           navSpace: "", 
           panelPosition: "calcite-panels-right", 
@@ -183,29 +205,6 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
           viewPadding: { top: 60, bottom: 0 }, 
           viewPaddingSmallScreen: { top: 60, bottom: 0 }, 
           uiPadding: { top: 15, left: 15, right: 15, bottom: 30 },
-          layoutName: "calcite-layout-medium-title"
-      },
-      BOTTOMMEDIUM: {
-          navPosition: "calcite-nav-bottom", 
-          navSpace: "", 
-          panelPosition: "calcite-panels-right", 
-          zoomPosition: "calcite-zoom-top-left", 
-          navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 60 },
-          viewPaddingSmallScreen: { top: 0, bottom: 60 }, 
-          uiPadding: { top: 30, left: 15, right: 15, bottom: 15 },
-          layoutName: "calcite-layout-medium-title"
-      },
-      TOPLARGE: {
-          navPosition: "calcite-nav-top", 
-          navSpace: "", 
-          panelPosition: "calcite-panels-right", 
-          zoomPosition: "calcite-zoom-top-left", 
-          navFixedPosition: "navbar-fixed-top",
-          viewPadding: { top: 85, bottom: 0 }, 
-          viewPaddingNavHidden: { top: 0 , bottom: 0 },
-          viewPaddingSmallScreen: { top: 50, bottom: 0 }, 
-          uiPadding: { top: 15, left: 15, bottom: 30 },
           layoutName: "calcite-layout-large-title"
       },
       BOTTOMLARGE: {
@@ -214,10 +213,9 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
           panelPosition: "calcite-panels-right", 
           zoomPosition: "calcite-zoom-top-left", 
           navFixedPosition: "navbar-fixed-bottom",
-          viewPadding: { top: 0, bottom: 85 }, 
-          viewPaddingNavHidden: { top: 0 , bottom: 0 },
-          viewPaddingSmallScreen: { top: 0, bottom: 50 }, 
-          uiPadding: { top: 30, bottom: 30 },
+          viewPadding: { top: 0, bottom: 60 },
+          viewPaddingSmallScreen: { top: 0, bottom: 60 }, 
+          uiPadding: { top: 30, left: 15, right: 15, bottom: 15 },
           layoutName: "calcite-layout-large-title"
       },
       TOPINLINELEFT: {
@@ -525,17 +523,17 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
             _this.setLayout(_this.APP_LAYOUTS.BOTTOMFIXED);
             break;
           // Custom APP_LAYOUTS
+          case "calcite-layout-small-title-top":
+            _this.setLayout(_this.APP_LAYOUTS.TOPSMALL);
+            break;
+          case "calcite-layout-small-title-bottom":
+            _this.setLayout(_this.APP_LAYOUTS.BOTTOMSMALL);
+            break;
           case "calcite-layout-large-title-top":
             _this.setLayout(_this.APP_LAYOUTS.TOPLARGE);
             break;
           case "calcite-layout-large-title-bottom":
             _this.setLayout(_this.APP_LAYOUTS.BOTTOMLARGE);
-            break;
-          case "calcite-layout-medium-title-top":
-            _this.setLayout(_this.APP_LAYOUTS.TOPMEDIUM);
-            break;
-          case "calcite-layout-medium-title-bottom":
-            _this.setLayout(_this.APP_LAYOUTS.BOTTOMMEDIUM);
             break;
           case "calcite-layout-inline-left":
             _this.setLayout(_this.APP_LAYOUTS.TOPINLINELEFT);
@@ -873,7 +871,7 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
     },
 
     _zoomToProjectedExtent: function(extent) {
-      var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
+      var gvsc = new GeometryService({url: "https://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
       var params = new ProjectParams();
       params.geometries = [extent];
       params.outSR = _this.app.mapView.spatialReference;

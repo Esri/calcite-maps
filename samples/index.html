@@ -7,14 +7,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="Calcite Maps - A modern framework for designing modern map apps">
   <meta name="author" content="">
-  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <link rel="icon" href="https://www.esri.com/favicon.ico">
   <title>Calcite Maps - A modern framework for designing map apps</title>
 
   <!-- Calcite Maps + Bootstrap -->
-  <link rel="stylesheet" href="../dist/css/calcite-bootstrap-maps-v0.2.css">
+  <link rel="stylesheet" href="../dist/css/calcite-bootstrap-v0.3.css">
 
   <!-- Calcite (icons) -->
   <link rel="stylesheet" href="../dist/fonts/calcite/calcite-ui.css">
+
+  <link rel="stylesheet" href="../dist/css/calcite-maps-v0.3.css">
 
   <style>
 
@@ -82,9 +84,121 @@
       font-size: 34px;
     }
 
+    /* Cards */
+
     .container-cards {
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
+
+    .cards-list {
+      margin: 0;
+      padding: 0; }
+      .cards-list > li {
+        float: left;
+        padding: 0 13px; }
+      .cards-list li {
+        list-style: none; }
+
+    .card {
+      position: relative;
+      display: inline-block;
+      padding: 20px;
+      margin-bottom: 40px;
+      background-color: white;
+      border: 1px solid #cccccc;
+      text-align: center;
+      width: 255px;
+      height: 296px; }
+      .card img {
+        height: 133px;
+        max-width: 200px; }
+      .card hr {
+        margin: 1.7rem -1.7rem;
+        border-top: 1px solid #e7e7e7; }
+      .card h6 {
+        font-weight: 400;
+        color: #4c4c4c;
+        display: block;
+        display: -webkit-box;
+        height: 4rem;
+        line-height: 1.55rem;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+
+    .card-info {
+      left: 0;
+      padding: 0 2px;
+      margin: 0;
+      width: 100%;
+      line-height: 1.7rem;
+      color: #6e6e6e;
+      font-size: 1.3rem; }
+      .card-info li {
+        display: inline; }
+        .card-info li:first-of-type:after {
+          content: " • "; }
+
+    .card-options {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      color: white;
+      opacity: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.6) 172px, transparent 173px, rgba(255, 255, 255, 0) 100%);
+      transition: opacity ease-in-out 400ms; }
+      .card-options .glyphicon {
+        visibility: hidden;
+        right: -30px;
+        margin-left: 10px;
+        transition: 600ms; }
+        .card-options .glyphicon:nth-child(2) {
+          transition: 900ms; }
+        .card-options .glyphicon:nth-child(3) {
+          transition: 1200ms; }
+        .card-options .glyphicon:nth-child(4) {
+          transition: 1500ms; }
+      .card-options:hover, .card-options:active, .card-options:focus {
+        opacity: 1;
+        cursor: pointer;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2); }
+        .card-options:hover > .btn-open, .card-options:active > .btn-open, .card-options:focus > .btn-open {
+          visibility: visible; }
+        .card-options:hover .glyphicon, .card-options:active .glyphicon, .card-options:focus .glyphicon {
+          transform: translateX(-30px);
+          visibility: visible; }
+        .card-options:hover li, .card-options:active li, .card-options:focus li {
+          visibility: visible; }
+      .card-options ul {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        color: white;
+        font-size: rem(17px); }
+        .card-options ul li {
+          visibility: hidden;
+          width: 1.7rem;
+          float: right;
+          margin-right: -.12rem;
+          cursor: pointer;
+          visibility: hidden; }
+      .card-options .btn-open {
+        margin-top: 65px;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        transition: 300ms;
+        visibility: hidden;}
+        .card-options .btn-open:hover, .card-options .btn-open:active, .card-options .btn-open:focus {
+          text-decoration: none;
+          border: 1px solid white;
+          color: white;
+        }
 
     .card-options .glyphicon:nth-child(2) {
       display: none;  
@@ -110,14 +224,6 @@
     .card a {
       text-decoration: none;
       color: #f8f8f8;
-    }
-
-    .card-options .open-btn:hover {
-      background-color: rgba(0,0,0,.65);
-    }
-
-    .card-options .glyphicon:hover {
-      color: #000;
     }
 
     @media (max-width: 768px) {
@@ -152,7 +258,7 @@
   
   <div class="fluid-container">
 
-    <a href="https://github.com/esri/calcite-maps"><img style="position: absolute; top: 0; right: 0; border: 0; width: 129px; height: 129px;" src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/esri/calcite-maps"><img style="position: absolute; top: 0; right: 0; border: 0; width: 129px; height: 129px;" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"></a>
 
     <div class="jumbotron center-text">
         <h1>Calcite Maps</h1>
@@ -169,11 +275,11 @@
         </div>
     </div>
 
-    <div class="row calcite-off-white">
+    <div class="row calcite-bgcolor-off-white"">
       <div class="col-sm-8 col-sm-push-4">
         <div class="container-text padding-right">
           <span class="text-header">Design Apps</span>
-          <p>Explore Calcite Maps colors, styles and layouts with the Styler. Design layouts interactively and then use the styles and CSS classes to create your own apps with your own custom layouts.</p>
+          <p>Explore Calcite Maps colors, styles and layouts with the Styler. Design layouts interactively and then use the CSS classes to create your own apps.</p>
         </div>
       </div>
       <div class="col-sm-4 col-sm-pull-8">  
@@ -184,7 +290,7 @@
                 <a href="https://github.com/esri/calcite-maps/blob/gh-pages/samples/styler/styler.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
               </ul>
-              <button class="open-btn"><a href="./styler/styler.html">Open App</a></button>
+              <a class="btn btn-primary btn-open" href="./styler/styler.html">Open App</a>
             </div>
             <hr>
             <h6>Styler</h6>
@@ -202,7 +308,7 @@
       <div class="col-sm-4">
         <div class="container-text padding-left">
           <span class="text-header">Build ArcGIS Apps</span>
-          <p>Use the ArcGIS JS 3.x and 4.x API sample starter apps to build apps quickly. Use Dojo or jQuery libraries for Bootstrap for easy integration. Also see the <a href="./arcgis-4.x/arcgis-4.x-2d-3d-jQuery.html">jQuery version</a> and the <a href="http://alaframboise.github.io/calcite-maps-apps/show-code/">ArcGIS JS 4.0 | Show Code Starter App</a>.</p>
+          <p>Use the ArcGIS JS 3.x and 4.x API sample starter apps to build apps quickly. Use Dojo or jQuery libraries for Bootstrap for easy integration. Also see the <a href="./arcgis-4.x/arcgis-4.x-2d-3d-jQuery.html">jQuery version</a> and the <a href="https://alaframboise.github.io/calcite-maps-apps/show-code/">ArcGIS JS 4.0 | Show Code Starter App</a>.</p>
         </div>
       </div>
       <div class="col-sm-8">  
@@ -212,7 +318,7 @@
               <ul>
                 <a href="https://github.com/esri/calcite-maps/blob/gh-pages/samples/arcgis-3.x/arcgis-3.x.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
               </ul>
-              <button class="open-btn"><a href="./arcgis-3.x/arcgis-3.x.html">Open App</a></button>
+              <a class="btn btn-primary btn-open" href="./arcgis-3.x/arcgis-3.x.html">Open App</a>
             </div>
             <hr>
             <h6>ArcGIS JS 3.x (Dojo)</h6>
@@ -227,7 +333,7 @@
               <ul>
                 <a href="https://github.com/esri/calcite-maps/blob/gh-pages/samples/arcgis-4.x/arcgis-4.x-2-3d.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
               </ul>
-              <button class="open-btn"><a href="./arcgis-4.x/arcgis-4.x-2d-3d.html">Open App</a></button>
+              <a class="btn btn-primary btn-open" href="./arcgis-4.x/arcgis-4.x-2d-3d.html">Open App</a>
             </div>
             <hr>
             <h6>ArcGIS JS 4.x (Dojo)</h6>
@@ -241,7 +347,7 @@
       </div>
     </div>
 
-    <div class="row calcite-off-white">
+    <div class="row calcite-bgcolor-off-white"">
       <div class="col-sm-8 col-sm-push-4">
          <div class="container-text padding-right">
           <span class="text-header">Build Esri Leaflet Apps</span>
@@ -255,7 +361,7 @@
               <ul>
                 <a href="https://github.com/esri/calcite-maps/blob/gh-pages/samples/esri-leaflet/esri-leaflet.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
               </ul>
-              <button class="open-btn"><a href="./esri-leaflet/esri-leaflet.html">Open App</a></button>
+              <a class="btn btn-primary btn-open" href="./esri-leaflet/esri-leaflet.html">Open App</a>
             </div>
             <hr>
             <h6>Esri Leaflet (jQuery)</h6>
@@ -273,7 +379,7 @@
       <div class="col-sm-8">
         <div class="container-text padding-left">
           <span class="text-header">Sass Build</span>
-          <p> If you are an advanced user, try out the custom Sass build. Use the custom build to load bower and npm components, for continuous integration and to generate the smallest builds possible. Add or remove Calcite Bootstrap and/or Bootstrap components as necessary.</p>
+          <p> If you are an advanced user, try out the custom Sass build. Use the custom build to load bower and npm components, for continuous integration and to generate the smallest builds possible. Add or remove Calcite and Bootstrap components as necessary.</p>
         </div>
       </div>
       <div class="col-sm-4">  
@@ -283,7 +389,7 @@
               <ul>
                 <a href="https://github.com/esri/calcite-maps/blob/master/gruntfile.js"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
               </ul>
-              <button class="open-btn"><a href="https://github.com/esri/calcite-maps/blob/master/gruntfile.js">Open File</a></button>
+              <a class="btn btn-primary btn-open" href="https://github.com/esri/calcite-maps/blob/master/gruntfile.js">Open File</a>
             </div>
             <hr>
             <h6>Gruntfile</h6>

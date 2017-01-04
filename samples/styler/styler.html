@@ -7,20 +7,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="Calcite Maps Demo - ArcGIS">
   <meta name="author" content="">
-  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <link rel="icon" href="https://www.esri.com/favicon.ico">
   <title>Calcite Maps - Styler</title>
 
   <!-- Bootstrap - For testing only -->
-  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"-->
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
 
   <!-- Calcite Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.2.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-bootstrap-v0.3.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
   
-  <!-- ArcGIS JS 4.0 -->
-  <link rel="stylesheet" href="http://js.arcgis.com/4.0/esri/css/main.css">
+  <!-- ArcGIS JS 4.x -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
+  <!--link rel="stylesheet" href="../../dist/css/arcgis/themes/light/main.css"-->
 
   <style>
     html, body {
@@ -35,7 +36,11 @@
 
     #panelInfo .esri-icon.esri-icon-map-pin {
       margin-right: 10px;
-      font-size: 32px;
+      font-size: 25px;
+    }
+
+    #panelInfo .info-title {
+      font-size: 20px;
     }
 
     .form-box {
@@ -63,6 +68,11 @@
 
     .padding-right-none {
       padding-right: 0;
+    }
+
+    .info-title {
+      font-size: 25px;
+      margin-bottom: 10px;
     }
 
     /* Color Widget */
@@ -102,7 +112,7 @@
 
 </head>
 
-<body class="calcite-nav-top calcite-layout-medium-title">
+<body class="calcite-nav-top">
 
   <!-- Navbar -->
 
@@ -205,9 +215,9 @@
       </div>
       <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
         <div class="panel-body">
-          <span class="esri-icon esri-icon-map-pin pull-left"></span><h3>Calcite Maps</h3>
+          <p><span class="esri-icon esri-icon-map-pin pull-left"></span><span class="info-title">Calcite Maps</span</p>
           <p>Use this application to quickly prototype and design map applications interactively.</p>
-          <p>Learn more about building custom<a href="http://github.com/esri/calcite-maps"> Calcite Maps apps here</a>.</p>
+          <p>Learn more about building custom<a href="https://github.com/esri/calcite-maps"> Calcite Maps apps here</a>.</p>
         </div>
       </div>
     </div>
@@ -447,7 +457,7 @@
                 <div class="form-group">
                   <label for="settingsAddLayer" class="col-xs-3 control-label">Layer</label>
                   <div class="col-xs-9">
-                    <input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="e.g. http://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0" value="http://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0">
+                    <input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="e.g. https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0" value="https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0">
                   </div>
                 </div>
                 <div class="form-group">
@@ -661,7 +671,7 @@
                   <label for="settingsLayout" class="col-xs-3 control-label">Layout</label>
                   <div class="col-xs-9">
                     <select id="settingsLayout" class="form-control">
-                      <option value="layout-top">Top (Default)</option>
+                      <option value="layout-top" selected>Top (Default)</option>
                       <option value="layout-top-space">Top Margin</option>
                       <option value="layout-top-space-all">Top Margin All</option>
                       <option value="layout-top-fixed">Top Above Map</option>
@@ -670,8 +680,8 @@
                       <option value="layout-bottom-space-all">Bottom Margin All</option>
                       <option value="layout-bottom-fixed">Bottom Below Map</option>
                       <option value="layout-top">--- Layouts ---</option>
-                      <option value="calcite-layout-medium-title-top" selected>Medium Title Top</option>
-                      <option value="calcite-layout-medium-title-bottom">Medium Title Bottom</option>
+                      <option value="calcite-layout-small-title-top">Small Title Top</option>
+                      <option value="calcite-layout-small-title-bottom">Small Title Bottom</option>
                       <option value="calcite-layout-large-title-top">Large Title Top</option>
                       <option value="calcite-layout-large-title-bottom">Large Title Bottom</option>
                       <option value="calcite-layout-inline-left">Inline Zoom Left</option>
@@ -797,7 +807,7 @@
       {
         name: "calcite-maps",
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
-        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../lib/js/dojo"
+        //location: location.pathname.replace(/\/[^/]+$/, "") + "./../../lib/js/dojo"
       },
       {
         name: "calcite-settings",
@@ -806,8 +816,8 @@
     };
   </script>
 
-  <!-- ArcGIS JS 4.0 -->
-  <script src="http://js.arcgis.com/4.0/"></script>
+  <!-- ArcGIS JS 4.x -->
+  <script src="https://js.arcgis.com/4.2/"></script>
 
   <script>
     
@@ -832,8 +842,8 @@
       "dojo/on",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.2",
-      // "calcite-maps/calcitemaps",
+      "calcite-maps/calcitemaps-v0.3",
+      //"calcite-maps/calcitemaps",
       "calcite-settings/panelsettings",
 
       // Boostrap
@@ -903,7 +913,7 @@
 
       // Panel settings
       app.panelSettings = new PanelSettings( { app: app } );
-      app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOPMEDIUM;
+      app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOP;
       app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
 
       // Set padding for navs that change height

@@ -4,203 +4,11 @@
 .calcite-bgcolor-transparent {
   background-color: transparent !important; }
 
-.calcite-bgcolor-true-white {
+.calcite-bgcolor-light {
   background-color: #ffffff !important; }
 
-.calcite-bgcolor-off-white {
-  background-color: #f8f8f8 !important; }
-
-.calcite-bgcolor-white {
-  background-color: #ffffff !important; }
-
-.calcite-bgcolor-white-25 {
-  background-color: rgba(255, 255, 255, 0.25) !important; }
-
-.calcite-bgcolor-white-50 {
-  background-color: rgba(255, 255, 255, 0.5) !important; }
-
-.calcite-bgcolor-white-75 {
-  background-color: rgba(255, 255, 255, 0.75) !important; }
-
-.calcite-bgcolor-lightest-grey {
-  background-color: #efefef !important; }
-
-.calcite-bgcolor-lighter-grey {
-  background-color: #cccccc !important; }
-
-.calcite-bgcolor-light-grey {
-  background-color: #a9a9a9 !important; }
-
-.calcite-bgcolor-grey {
-  background-color: #959595 !important; }
-
-.calcite-bgcolor-grey-25 {
-  background-color: rgba(149, 149, 149, 0.25) !important; }
-
-.calcite-bgcolor-grey-50 {
-  background-color: rgba(149, 149, 149, 0.5) !important; }
-
-.calcite-bgcolor-grey-75 {
-  background-color: rgba(149, 149, 149, 0.75) !important; }
-
-.calcite-bgcolor-dark-grey {
-  background-color: #828282 !important; }
-
-.calcite-bgcolor-darker-grey {
-  background-color: #6e6e6e !important; }
-
-.calcite-bgcolor-darkest-grey {
-  background-color: #595959 !important; }
-
-.calcite-bgcolor-true-black {
-  background-color: #000000 !important; }
-
-.calcite-bgcolor-off-black {
-  background-color: #4c4c4c !important; }
-
-.calcite-bgcolor-black {
+.calcite-bgcolor-dark {
   background-color: #323232 !important; }
-
-.calcite-bgcolor-black-25 {
-  background-color: rgba(0, 0, 0, 0.25) !important; }
-
-.calcite-bgcolor-black-50 {
-  background-color: rgba(0, 0, 0, 0.5) !important; }
-
-.calcite-bgcolor-black-75 {
-  background-color: rgba(0, 0, 0, 0.75) !important; }
-
-.calcite-bgcolor-light-blue {
-  background-color: #d2e9f9 !important; }
-
-.calcite-bgcolor-blue {
-  background-color: #56a5d8 !important; }
-
-.calcite-bgcolor-blue-25 {
-  background-color: rgba(86, 165, 216, 0.25) !important; }
-
-.calcite-bgcolor-blue-50 {
-  background-color: rgba(86, 165, 216, 0.5) !important; }
-
-.calcite-bgcolor-blue-75 {
-  background-color: rgba(86, 165, 216, 0.75) !important; }
-
-.calcite-bgcolor-dark-blue {
-  background-color: #196fa6 !important; }
-
-.calcite-bgcolor-light-green {
-  background-color: #ddeedb !important; }
-
-.calcite-bgcolor-green {
-  background-color: #5a9359 !important; }
-
-.calcite-bgcolor-green-25 {
-  background-color: rgba(90, 147, 89, 0.25) !important; }
-
-.calcite-bgcolor-green-50 {
-  background-color: rgba(90, 147, 89, 0.5) !important; }
-
-.calcite-bgcolor-green-75 {
-  background-color: rgba(90, 147, 89, 0.75) !important; }
-
-.calcite-bgcolor-dark-green {
-  background-color: #275e26 !important; }
-
-.calcite-bgcolor-light-red {
-  background-color: #e4a793 !important; }
-
-.calcite-bgcolor-red {
-  background-color: #c6542d !important; }
-
-.calcite-bgcolor-red-25 {
-  background-color: rgba(198, 84, 45, 0.25) !important; }
-
-.calcite-bgcolor-red-50 {
-  background-color: rgba(198, 84, 45, 0.5) !important; }
-
-.calcite-bgcolor-red-75 {
-  background-color: rgba(198, 84, 45, 0.75) !important; }
-
-.calcite-bgcolor-dark-red {
-  background-color: #8c2907 !important; }
-
-.calcite-bgcolor-light-orange {
-  background-color: #f6ca92 !important; }
-
-.calcite-bgcolor-orange {
-  background-color: #d17e21 !important; }
-
-.calcite-bgcolor-orange-25 {
-  background-color: rgba(209, 126, 33, 0.25) !important; }
-
-.calcite-bgcolor-orange-50 {
-  background-color: rgba(209, 126, 33, 0.5) !important; }
-
-.calcite-bgcolor-orange-75 {
-  background-color: rgba(209, 126, 33, 0.75) !important; }
-
-.calcite-bgcolor-dark-orange {
-  background-color: #e8912e !important; }
-
-.calcite-bgcolor-light-yellow {
-  background-color: #efe397 !important; }
-
-.calcite-bgcolor-yellow {
-  background-color: #e4d154 !important; }
-
-.calcite-bgcolor-yellow-25 {
-  background-color: rgba(228, 209, 84, 0.25) !important; }
-
-.calcite-bgcolor-yellow-50 {
-  background-color: rgba(228, 209, 84, 0.5) !important; }
-
-.calcite-bgcolor-yellow-75 {
-  background-color: rgba(228, 209, 84, 0.75) !important; }
-
-.calcite-bgcolor-dark-yellow {
-  background-color: #d9bf2b !important; }
-
-.calcite-bgcolor-light-purple {
-  background-color: #c4bcdc !important; }
-
-.calcite-bgcolor-purple {
-  background-color: #9081bc !important; }
-
-.calcite-bgcolor-purple-25 {
-  background-color: rgba(144, 129, 188, 0.25) !important; }
-
-.calcite-bgcolor-purple-50 {
-  background-color: rgba(144, 129, 188, 0.5) !important; }
-
-.calcite-bgcolor-purple-75 {
-  background-color: rgba(144, 129, 188, 0.75) !important; }
-
-.calcite-bgcolor-dark-purple {
-  background-color: #7461a8 !important; }
-
-.calcite-bgcolor-light-brown {
-  background-color: #d2b38f !important; }
-
-.calcite-bgcolor-brown {
-  background-color: #a57946 !important; }
-
-.calcite-bgcolor-brown-25 {
-  background-color: rgba(165, 121, 70, 0.25) !important; }
-
-.calcite-bgcolor-brown-50 {
-  background-color: rgba(165, 121, 70, 0.5) !important; }
-
-.calcite-bgcolor-brown-75 {
-  background-color: rgba(165, 121, 70, 0.75) !important; }
-
-.calcite-bgcolor-dark-brown {
-  background-color: #8c5e2a !important; }
-
-.calcite-bgcolor-custom {
-  background-color: inherit; }
-
-.calcite-bgcolor-transparent {
-  background-color: transparent !important; }
 
 .calcite-bgcolor-true-white {
   background-color: #ffffff !important; }
@@ -393,78 +201,73 @@
 
 .calcite-bgcolor-dark-brown {
   background-color: #8c5e2a !important; }
-
-.calcite-layout-small-title .esri-widget-button {
-  width: 28px;
-  height: 28px;
-  font-size: 12px; }
-
-.calcite-layout-small-title .esri-search,
-.calcite-layout-small-title .esri-search .esri-search__input {
-  font-size: 13px;
-  line-height: 1.5;
-  font-weight: 400; }
-
-.calcite-layout-small-title .esri-widget .esri-menu li {
-  padding: .6em 1em;
-  font-size: 13px; }
 
 .calcite-layout-small-title .calcite-navbar {
-  min-height: 50px;
-  height: 50px; }
+  height: 40px;
+  min-height: 40px; }
   .calcite-layout-small-title .calcite-navbar .navbar-brand {
-    padding: 9px 13px;
-    font-size: 32px;
-    height: 50px; }
-  .calcite-layout-small-title .calcite-navbar .calcite-title-main {
-    padding: 0;
-    font-size: 20px;
-    line-height: 1.3;
-    font-weight: 400; }
-  .calcite-layout-small-title .calcite-navbar .calcite-title-sub {
-    padding: 5px 0;
-    font-size: 10px;
-    font-weight: 400; }
-  .calcite-layout-small-title .calcite-navbar .calcite-navbar-search {
-    padding: 10px 15px; }
+    padding: 12px 14px;
+    font-size: 36px; }
   .calcite-layout-small-title .calcite-navbar .navbar-nav > li > a {
-    padding: 14px 15px 12px;
-    font-size: 14px; }
-  .calcite-layout-small-title .calcite-navbar .dropdown-toggle {
-    padding: 18px; }
-  .calcite-layout-small-title .calcite-navbar .dropdown-menu > li > a {
-    padding: 8px 10px;
-    font-size: 14px; }
+    padding: 9px 15px 7px; }
 
-.calcite-layout-small-title .calcite-panels .panel,
-.calcite-layout-small-title .calcite-panels .panel-body,
-.calcite-layout-small-title .calcite-panels .panel-body .form-control,
-.calcite-layout-small-title .calcite-panels .panel-body .btn {
-  font-size: 14px; }
+.calcite-layout-small-title .calcite-dropdown .dropdown-toggle {
+  padding: 12px 20px 14px 21px; }
 
-.calcite-layout-small-title .calcite-panels .panel-toggle {
-  padding: 8px 10px 7px; }
+.calcite-layout-small-title .calcite-dropdown-toggle {
+  margin-left: 2px;
+  width: 15px; }
 
-.calcite-layout-small-title .calcite-panels .panel-close {
-  padding: 10px 10px 5px; }
+.calcite-layout-small-title .calcite-title-main {
+  padding: 3px 0 4px;
+  font-size: 19px;
+  line-height: 1.1; }
 
-.calcite-layout-small-title .calcite-panels .form-control {
-  height: 30px; }
+.calcite-layout-small-title .calcite-title-divider {
+  height: 80px;
+  margin: 0 13px; }
 
-.calcite-layout-small-title.calcite-nav-top .calcite-panels, .calcite-layout-small-title.calcite-nav-top-fixed .calcite-panels {
-  top: 65px;
-  right: 15px; }
+.calcite-layout-small-title .calcite-title-sub {
+  font-size: 12px;
+  line-height: 1.1; }
 
-.calcite-layout-small-title.calcite-nav-bottom .calcite-panels, .calcite-layout-small-title.calcite-nav-bottom-fixed .calcite-panels {
-  right: 15px; }
+.calcite-layout-small-title .calcite-navbar-search.calcite-search-expander {
+  padding: 5px 10px 4px; }
+
+.calcite-layout-small-title.calcite-nav-top .calcite-panels {
+  top: 55px; }
+
+.calcite-layout-small-title.calcite-nav-hidden.calcite-nav-top .calcite-panels, .calcite-layout-small-title.calcite-nav-hidden.calcite-nav-bottom .calcite-panels {
+  top: 15px; }
+
+.calcite-layout-small-title.calcite-nav-top.calcite-zoom-top-left .esriZoom.esriVertical.esriComponent,
+.calcite-layout-small-title.calcite-nav-top.calcite-zoom-top-right .esriZoom.esriVertical.esriComponent,
+.calcite-layout-small-title.calcite-nav-bottom.calcite-zoom-bottom-left .esriZoom.esriVertical.esriComponent,
+.calcite-layout-small-title.calcite-nav-bottom.calcite-zoom-bottom-right .esriZoom.esriVertical.esriComponent {
+  margin: 55px 25px; }
+
+.calcite-layout-small-title.calcite-nav-top .calcite-map .leaflet-control-zoom {
+  margin: 55px 25px 15px 30px; }
+
+.calcite-layout-small-title.calcite-nav-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-top-fixed .calcite-dropdown .calcite-menu-drawer {
+  top: 40px; }
+
+.calcite-layout-small-title.calcite-nav-top.calcite-margin-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-top.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  top: 55px; }
+
+.calcite-layout-small-title.calcite-nav-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-bottom-fixed .calcite-dropdown .calcite-menu-drawer {
+  bottom: 40px; }
+
+.calcite-layout-small-title.calcite-nav-bottom.calcite-margin-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-bottom.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  bottom: 55px; }
 
 @media (max-width: 768px) {
-  .calcite-layout-small-title .calcite-navbar .calcite-title-main {
-    padding: 2px 0 0 0;
-    font-size: 18px; }
-  .calcite-layout-small-title.calcite-nav-top .calcite-panels, .calcite-layout-small-title.calcite-nav-top-fixed .calcite-panels {
-    top: auto;
-    bottom: 0; }
-  .calcite-layout-small-title.calcite-nav-bottom .calcite-panels, .calcite-layout-small-title.calcite-nav-bottom-fixed .calcite-panels {
-    top: auto;
-    bottom: 50px; } }
+  .calcite-layout-small-title.calcite-nav-top .calcite-panels {
+    top: auto; }
+  .calcite-layout-small-title .calcite-dropdown .dropdown-toggle {
+    padding: 12px 15px 14px 18px; }
+  .calcite-layout-small-title.calcite-nav-bottom .calcite-panels,
+  .calcite-layout-small-title.calcite-nav-bottom-fixed .calcite-panels,
+  .calcite-layout-small-title.calcite-nav-bottom.calcite-margin-all .calcite-panels,
+  .calcite-layout-small-title.calcite-nav-bottom.calcite-margin-bottom .calcite-panels {
+    bottom: 40px; } }

@@ -58,10 +58,45 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
   z-index: 2;
 }
 
+.esri-widget {
+  .esri-widget-button, &.esri-widget-button {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+
+.esri-search,
+.esri-search .esri-search__input {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.esri-search .esri-search__container {
+  z-index: 1;
+}
+
+.esri-widget .esri-menu li {
+  padding: .6em 1em;
+  font-size: 13px;
+}
+
 // Basemaptoggle
 
 .esri-basemap-toggle {
   z-index: 1;
+}
+
+.esri-widget {
+  .esri-basemap-toggle__container, .esri-basemap-toggle__image {
+    width: 48px;
+    height: 48px;
+  }
+  &.esri-basemap-toggle {
+    width: 49px;
+    height: 49px;
+  }
 }
 
 // Legend
@@ -83,12 +118,13 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 // Popup - Enable body collapse
 
 .calcite-map {
-  .esri-popup .esri-container {
+  .esri-popup__position-container {
     z-index: 3; // on top of panels
   }
 
  .esri-popup__header-title {
     padding: 8px 15px 6px;
+    font-size: 15px;
     cursor: pointer;
   }
 
@@ -101,15 +137,42 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
       margin: 0;
     }
     .esri-popup__header-title {
-      padding: 8px 15px 6px;
+      padding: 9px 15px 5px;
     }
     .esri-popup__header .esri-popup__button {
-      padding: 11px 7px;
+      padding: 11px 7px 10px;
     }
   }
 
   .esri-popup .esri-show-dock .esri-dock {
     z-index: 1;
+  }
+
+  // Force horizontal widget stacking - TODO
+  .esri-ui-bottom-left, 
+  .esri-ui-bottom-right {
+    flex-flow: column nowrap;
+  }
+  .esri-ui-bottom-left .esri-widget.esri-component, 
+  .esri-ui-bottom-right .esri-widget.esri-component {
+    margin-top: 9px;
+  }
+  .esri-ui-top-left .esri-component, 
+  .esri-ui-top-right .esri-component {
+    margin-bottom: 9px;
+  }
+
+}
+
+// Bug - should respect view padding
+
+@media (min-width: 768px) {
+  .calcite-nav-bottom {
+    .esri-popup--is-docked-top-left .esri-popup__main-container, 
+    .esri-popup--is-docked-top-center .esri-popup__main-container, 
+    .esri-popup--is-docked-top-right .esri-popup__main-container {
+      margin-top: 15px;
+    }      
   }
 }
 
@@ -189,7 +252,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
 .calcite-navbar-search {
   &.calcite-search-expander {
-    padding: 10px 15px;
+    // padding: 10px 15px;
 
     .esri-search {
       // min-width: 60px;

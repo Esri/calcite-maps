@@ -1,0 +1,169 @@
+// ┌───────────────────────┐
+// │ Layout - Small Title │
+// └───────────────────────┘
+//
+// Simple layout for small banner style map apps
+
+@import "../variables";
+
+$navbar_height: 40px;
+$navbar_dropdown_toggle_margin: 0 0 15px 0;
+$navbar_dropdown_toggle_padding: 12px 20px 14px 21px;
+$navbar_dropdown_toggle_padding_mobile: 12px 15px 14px 18px;
+$navbar_title_font_size: 19px;
+$navbar_title_padding: 3px 0 4px;
+$navbar_title_divider_margin: 0 13px;
+$navbar_subtitle_font_size: 12px;
+$title_line_height: 1.1;
+$navbar_nav_li_a_padding: 10px 12px;
+
+// Sytles for > small screens only
+
+// @media (min-width: 769px) {
+  
+.calcite-layout-small-title {
+
+  .calcite-navbar {
+    height: $navbar_height;
+    min-height: $navbar_height;
+
+    .navbar-brand {
+      padding: 12px 14px;
+      font-size: 36px;
+    }
+
+    .navbar-nav > li > a {
+      padding: $navbar_nav_li_a_padding;
+    }
+  }
+
+  .calcite-dropdown .dropdown-toggle {
+    padding: $navbar_dropdown_toggle_padding;
+  }
+
+  .calcite-dropdown-toggle {
+    margin-left: 2px;
+    width: 15px;
+  }
+
+  .calcite-title-main {
+    padding: $navbar_title_padding;
+    font-size: $navbar_title_font_size;
+    line-height: $title_line_height;
+  }
+
+  .calcite-title-divider {
+    height: $navbar_height * 2;
+    margin: $navbar_title_divider_margin;
+  }
+
+  .calcite-title-sub {
+    font-size: $navbar_subtitle_font_size;
+    line-height: $title_line_height;
+  }
+
+  .calcite-navbar-search {
+    &.calcite-search-expander {
+      margin: 5px;
+    }
+  }
+
+  // ArcGIS 3.x support
+
+  &.calcite-nav-top.calcite-zoom-top-left .esriZoom.esriVertical.esriComponent,
+  &.calcite-nav-top.calcite-zoom-top-right .esriZoom.esriVertical.esriComponent,
+  &.calcite-nav-bottom.calcite-zoom-bottom-left .esriZoom.esriVertical.esriComponent,
+  &.calcite-nav-bottom.calcite-zoom-bottom-right .esriZoom.esriVertical.esriComponent {
+    margin: $navbar_height + $base_ui_margin 25px;
+  }
+
+  // Esri-Leaflet
+  
+  &.calcite-nav-top .calcite-map .leaflet-control-zoom {
+    margin: $navbar_height + $base_ui_margin 25px 15px 30px;
+  }
+
+  // Menu drawer style - top
+
+  &.calcite-nav-top,
+  &.calcite-nav-top-fixed {
+    .calcite-dropdown {
+      .calcite-menu-drawer {
+        top: $navbar_height;
+      }
+    }
+  }
+
+  &.calcite-nav-top.calcite-margin-top, 
+  &.calcite-nav-top.calcite-margin-all {
+    .calcite-dropdown {
+      .calcite-menu-drawer  {
+        top: $navbar_height + $base_ui_margin;
+      }
+    }
+  }
+
+  // Menu drawer - bottom
+
+  &.calcite-nav-bottom,
+  &.calcite-nav-bottom-fixed {
+    .calcite-dropdown {
+      .calcite-menu-drawer {
+        bottom: $navbar_height;
+      }
+    }
+  }
+
+  &.calcite-nav-bottom.calcite-margin-bottom,
+  &.calcite-nav-bottom.calcite-margin-all {
+    .calcite-dropdown {
+      .calcite-menu-drawer  {
+        bottom: $navbar_height + $base_ui_margin;
+      }
+    }
+  }
+}
+// }
+
+@media (min-width: 769px) {
+  // Panel
+  .calcite-layout-small-title {
+    &.calcite-nav-top {
+      .calcite-panels {
+        top: $navbar_height + $base_ui_margin;
+      }
+    }
+    &.calcite-nav-hidden {
+      &.calcite-nav-top {
+        .calcite-panels {
+          top: $navbar_height + $base_ui_margin;
+        }
+      },
+      &.calcite-nav-bottom {
+        .calcite-panels {
+          top: $base_ui_margin + $base_ui_margin;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .calcite-layout-small-title {
+    &.calcite-nav-top {
+      .calcite-panels {
+        top: auto;
+      }
+    }
+    .calcite-dropdown .dropdown-toggle {
+      padding: $navbar_dropdown_toggle_padding_mobile;
+    }
+
+    &.calcite-nav-bottom .calcite-panels, 
+    &.calcite-nav-bottom-fixed .calcite-panels, 
+    &.calcite-nav-bottom.calcite-margin-all .calcite-panels, 
+    &.calcite-nav-bottom.calcite-margin-bottom .calcite-panels {
+      bottom: $navbar_height;
+    }
+  }
+}

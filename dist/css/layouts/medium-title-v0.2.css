@@ -262,4 +262,9 @@
 
 @media (max-width: 768px) {
   .calcite-layout-medium-title.calcite-nav-top .calcite-panels {
-    top: auto; } }
+    top: auto; }
+  .calcite-layout-medium-title.calcite-nav-bottom .calcite-panels,
+  .calcite-layout-medium-title.calcite-nav-bottom-fixed .calcite-panels,
+  .calcite-layout-medium-title.calcite-nav-bottom.calcite-margin-all .calcite-panels,
+  .calcite-layout-medium-title.calcite-nav-bottom.calcite-margin-bottom .calcite-panels {
+    bottom: 60px; } }

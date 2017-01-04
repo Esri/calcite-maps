@@ -4,7 +4,7 @@
 //
 // Main variables
 
-@import "colors"; // Calcite color variables
+@import "color-variables"; // Calcite color variables
 
 // ---------------------------------------------------------------
 // UI
@@ -45,7 +45,7 @@ $map_attribution_height: 16px !default;
 $navbar_height: 50px !default;  // small 50px, medium 60px, large 85px
 $navbar_margin: $base_ui_margin !default;
 // Nav
-$navbar_nav_li_a_padding: 13px 15px 13px !default;
+$navbar_nav_li_a_padding: 15px 15px !default;
 $navbar_nav_font_size: $base_ui_font_size;
 // Menu dropdown toggle
 $navbar_dropdown_toggle_margin: 0;
@@ -60,14 +60,14 @@ $navbar_brand_font_size: 32px !default;
 $navbar_title_margin: 0 !default;
 $navbar_title_padding: 1px 0 2px !default;
 $navbar_title_font_size: 22px !default;
-$navbar_title_font_weight: 300 !default;
+$navbar_title_font_weight: 400;
 $navbar_title_font_size_mobile: 20px !default;
 // Title - divider
 $navbar_title_divider_margin: 0 15px;
 // Title - sub
 $navbar_subtitle_margin: 0 !default;
 $navbar_subtitle_padding: 1px 0 0 !default;
-$navbar_subtitle_font_size: 12px !default;
+$navbar_subtitle_font_size: 13px !default;
 $navbar_subtitle_font_weight: 400 !default;
 $navbar_subtitle_font_size_mobile: 12px !default;
 // Breakpoints
@@ -78,7 +78,7 @@ $navbar_breakpoint_width_mobile: $base_breakpoint_max_width_sm !default;
 // ---------------------------------------------------------------
 
 $dropdown_menu_padding: 0;
-$dropdown_menu_li_a_padding: 9px 20px;
+$dropdown_menu_li_a_padding: 9px 15px;
 $dropdown_toggle_font_size: $base_ui_font_size !default;
 $dropdown_menu_font_size: $base_ui_font_size !default;
 // Size
@@ -99,6 +99,7 @@ $panels_position_left: $base_ui_position_absolute;
 // Size
 $panels_width: auto;
 $panels_width_mobile: 100% !default;
+$panel_title_height: 33px !default;  // controls minimized size
 // Body
 $panel_body_width: 350px !default; // controls width of all panels
 $panel_body_width_mobile: 100% !default; // full width in mobile
@@ -113,8 +114,8 @@ $panel_body_height_md: $base_breakpoint_min_height_md / 2 !default;
 // $panel_space: $navbar_height + 38px + $base_ui_margin; 
 $panel_body_max_height_expanded: 125px !default;
 // Font
-$panel_font_size: 14px !default;
-$panel_title_font_size: 15px !default;
+$panel_font_size: 13px !default;
+$panel_title_font_size: 14px !default;
 $panel_title_font_weight: 400 !default;
 // Form elements
 $panel_form_control_height: 34px !default;
@@ -149,7 +150,7 @@ $theme_light_dropdown_menu_bg:           $Calcite_Gray_050;
 $theme_light_dropdown_menu_bg_hover:     $Calcite_Gray_150;
 $theme_light_dropdown_menu_text_color:   $Calcite_Gray_650;
 $theme_light_dropdown_menu_border_color: $Calcite_Gray_100;
-$theme_light_dropdown_menu_shadow:				1px 1px 2px 0 rgba(0,0,0,.175);
+$theme_light_dropdown_menu_shadow:				1px 1px 1px 0 rgba(0,0,0,.1);
 // Panel
 $theme_light_panel_bg:                        $Calcite_Gray_050;
 $theme_light_panel_text_color:                $Calcite_Gray_650;
@@ -190,7 +191,7 @@ $theme_dark_dropdown_menu_bg:            	$Calcite_Gray_100_Dark;
 $theme_dark_dropdown_menu_bg_hover:      	$Calcite_Gray_300_Dark;
 $theme_dark_dropdown_menu_text_color:			$Calcite_Gray_050;
 $theme_dark_dropdown_menu_border_color: 	$Calcite_Gray_100_Dark;
-$theme_dark_dropdown_menu_shadow:					1px 1px 2px 0 rgba(0,0,0,.775);
+$theme_dark_dropdown_menu_shadow:					1px 1px 1px 0 rgba(0,0,0,.1);
 // Panel
 $theme_dark_panel_bg:                       $Calcite_Gray_100_Dark;
 $theme_dark_panel_text_color:               $Calcite_Gray_050; 
@@ -224,7 +225,7 @@ $theme_custom_navbar_bg: 									inherit;
 // Dropdown Menu
 $theme_custom_dropdown_menu_bg: 					inherit;
 $theme_custom_dropdown_menu_bg_hover: 		rgba(255,255,255,0.15);
-$theme_custom_dropdown_menu_shadow:				1px 1px 2px 0 rgba(0,0,0,0.25);
+$theme_custom_dropdown_menu_shadow:				1px 1px 1px 0 rgba(0,0,0,0.1);
 // Panel
 $theme_custom_panel_bg: 									inherit;
 $theme_custom_panel_header_bg: 						rgba(255,255,255,0.15);

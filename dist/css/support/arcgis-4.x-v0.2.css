@@ -213,8 +213,31 @@
 .esri-widget-button:focus {
   z-index: 2; }
 
+.esri-widget .esri-widget-button, .esri-widget.esri-widget-button {
+  width: 30px;
+  height: 30px;
+  font-size: 13px; }
+
+.esri-search,
+.esri-search .esri-search__input {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400; }
+
+.esri-widget .esri-menu li {
+  padding: .6em 1em;
+  font-size: 13px; }
+
 .esri-basemap-toggle {
   z-index: 1; }
+
+.esri-widget .esri-basemap-toggle__container, .esri-widget .esri-basemap-toggle__image {
+  width: 48px;
+  height: 48px; }
+
+.esri-widget.esri-basemap-toggle {
+  width: 49px;
+  height: 49px; }
 
 .esri-legend {
   overflow: hidden;
@@ -246,6 +269,12 @@
 
 .calcite-map .esri-popup .esri-show-dock .esri-dock {
   z-index: 1; }
+
+@media (min-width: 768px) {
+  .calcite-nav-bottom .esri-popup--is-docked-top-left .esri-popup__main-container,
+  .calcite-nav-bottom .esri-popup--is-docked-top-center .esri-popup__main-container,
+  .calcite-nav-bottom .esri-popup--is-docked-top-right .esri-popup__main-container {
+    margin-top: 15px; } }
 
 .calcite-nav-top .esri-popup .esri-docked,
 .calcite-nav-top-fixed .esri-popup .esri-docked {
