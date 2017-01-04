@@ -871,7 +871,7 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
     },
 
     _zoomToProjectedExtent: function(extent) {
-      var gvsc = new GeometryService({url: "http://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
+      var gvsc = new GeometryService({url: "https://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
       var params = new ProjectParams();
       params.geometries = [extent];
       params.outSR = _this.app.mapView.spatialReference;

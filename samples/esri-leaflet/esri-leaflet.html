@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="Calcite Maps Demo - Esri-Leaflet">
   <meta name="author" content="">
-  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <link rel="icon" href="https://www.esri.com/favicon.ico">
   <title>Calcite Maps - Esri-Leaflet</title>
 
   <!-- Calcite Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.2.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.3.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-esri-leaflet.min-v0.2.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-esri-leaflet.min-v0.3.css">
   <link rel="stylesheet" href="../../dist/fonts/calcite/calcite-ui.css">
 
   <!-- Leaflet from CDN-->
@@ -173,7 +173,7 @@
         map.removeLayer(layer);
       }
       if (basemap === 'OpenStreetMap') {
-        layer = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+        layer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
       }
       else {
         layer = L.esri.basemapLayer(basemap);
@@ -219,10 +219,10 @@
   <!-- jQuery --> 
   <!-- ====== -->
 
-  <!--script src="http://esri.github.io/calcite-bootstrap/scripts/vendor.js"></script-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!--script src="https://esri.github.io/calcite-bootstrap/scripts/vendor.js"></script-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all plugins or individual files as needed -->
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
   <script type="text/javascript">
@@ -277,9 +277,9 @@
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
   
-  <!--script src="http://esri.github.io/calcite-bootstrap/scripts/vendor.js"></script-->
-  <!--script src="http://esri.github.io/calcite-bootstrap/scripts/plugins.js"></script-->
-  <script src="../../dist/js/jquery/calcitemaps-v0.2.js"></script>
+  <!--script src="https://esri.github.io/calcite-bootstrap/scripts/vendor.js"></script-->
+  <!--script src="https://esri.github.io/calcite-bootstrap/scripts/plugins.js"></script-->
+  <script src="../../dist/js/jquery/calcitemaps-v0.3.js"></script>
 
 </body>
 </html>
