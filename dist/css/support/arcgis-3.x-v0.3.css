@@ -36,7 +36,8 @@
 
 .calcite.calcite-maps .esriSimpleSlider div {
   width: 30px;
-  height: 30px; }
+  height: 30px;
+  line-height: 2.5; }
 
 .calcite.calcite-nav-top .esriSimpleSlider {
   margin-top: 80px; }
