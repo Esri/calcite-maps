@@ -1,26 +1,13 @@
 # Calcite Maps
-A theme for Bootstrap that makes it easy to design, style and create modern map apps.
+A theme for [Bootstrap](https://www.getbootstrap.com) that makes it easy to design, style and create modern map apps.
 
-This project contains CSS classes specifically for styling and building responsive map apps with [Bootstrap](https://www.getbootstrap.com). The [classes](#documentation) can be used to create a wide variety of apps with different themes, layouts and colors. This includes light and dark themes, a number of top and bottom layouts, and either Calcite colors or your own custom colors. A number of the Bootstrap components have been extended to make them more map app-friendly including the navbar, dropdown menu and panels. The theme works with the ArcGIS JS 3.x, 4.x and Esri-Leaflet API.
+This project contains a Sass framework and a set of [CSS classes](#documentation) that can be used to quickly build a wide variety of apps with different themes, layouts and colors. Apps are styled simply by applying the CSS classes to Bootstrap HTML elements. A number of Bootstrap components have been extended to make them more map app-friendly including the navbar, dropdown menu and panels. The framework is fully responsive and is designed to work with the ArcGIS JS 3.x, 4.x and Esri-Leaflet API.
 
-To get started you typically 1) Build a Bootstrap HTML page, 2) Add references to Bootstrap and Calcite Maps, and 3) Apply Calcite Maps classes to the elements to style the app with the layout and colors desired.
+To [get started](#getting-started) you typically 1) Build a Bootstrap HTML page, 2) Add references to Bootstrap and Calcite Maps, and 3) Apply Calcite Maps classes to the elements to style the app with the layout and colors desired.
 
-```html
-  <!-- Calcite Maps Bootstrap or Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.3.css">
+To see what types of apps you can build, check out the [live samples here](https://esri.github.io/calcite-maps/samples/index.html).
 
-  <!-- Calcite Maps Theme -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
-
-  <!-- Body -->
-  <body class="calcite-maps calcite-nav-top theme-widgets-dark">
-
-    <!-- Nav -->
-    <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
-    ...
-```
-
-To see what types of apps you can build, try the [Styler app](https://esri.github.io/calcite-maps/samples/index.html) or the other samples [here](https://esri.github.io/calcite-maps/samples/index.html).
+![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
 
 ##What's included
 
@@ -40,15 +27,13 @@ To see what types of apps you can build, try the [Styler app](https://esri.githu
 
 NOTE: The framework is compatile with [Bootstrap 3.x](https://www.getbootstrap.com) and custom builds of Bootstrap.
 
-![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
-
 ##Getting started
 
-Here's a few ways to get started:
+There are a few ways to get started:
 
 1. **Explore the styles** - Use the [Styler](https://esri.github.io/calcite-maps/samples/index.html) to explore the different colors, styles and layouts. When you find a design you like, inspect the HTML and apply the styles to your app.
 
-2. **Start with a sample** - Create your own app from the [samples](./samples/index.html) or the [example](#example) below by downloading the latest release or just referencing the [calcite-maps-xxx.min.css](./dist/css) and [calcite-maps.js](./dist/js) pre-compiled librares.
+2. **Start with a sample** - Create your own app from the [samples](./samples/index.html) or the [example](#example) below.
 
 3. **Create a local build** - Fork and clone the repo to create a local build. The default build includes the Bootstrap components for the framework (scaffolding, navbar, panels...), but you can customize further by overriding variables, adding or removing style files, or adding/removing other Bootstrap components.
 
