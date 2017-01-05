@@ -2,10 +2,7 @@
 // │ Color Variables │
 // └─────────────────┘
 
-// Calcite Light (default) - see node_modules/calcite-bootstrap/dist/sass/calcite/_colors-default.scss
 @import "colors-default"; 
-// Calcite Dark - see node_modules/calcite-bootstrap/dist/sass/calcite/_colors-dark.scss
-//@import "calcite/_colors-dark.scss"; 
 
 // Calcite Dark var subset defined here so we compile dark theme
 $Calcite_Gray_050_Dark:    #242424;
