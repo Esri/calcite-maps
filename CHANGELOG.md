@@ -5,9 +5,26 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Upcoming changes][unreleased]
 
-* Improved build system
-* Tighter integration with Bootstrap/Calcite-Bootstrap
-* Better integration with ArcGIS JS 4.0 Sass
+* Better integration with ArcGIS JS 4 Sass
+
+## [0.0.3-beta]
+
+### Changed
+
+* Removed dependency on Calcite Bootstrap and simplified build
+* Removed overscroll work-around
+* Updated http to https refs
+* Fine-tuned styles and navbar heights
+* Fixed some layout panel positioning
+* Updated themes to support ArcGIS JS 3.19 and 4.2
+* Updated Bootstrap Sass
+* Renamed calcite-bootstrap to calcite-maps-bootstrap for Bootstrap build
+* Updated all samples to ref v0.3
+
+### Added
+
+* Calcite fonts
+* Sass refs to local fonts
 
 ## [0.0.2-beta]
 
@@ -41,7 +58,7 @@ Samples
 * Samples - 4.x - Added panel/popup collision logic
 
 Build
-* Separated calcite-maps from calcite-bootstrap build (now can be referenced independently)
+* Separated calcite maps from calcite bootstrap build (now can be referenced independently)
 * Pure bootstrap builds can be referenced alongside calcite-maps
 
 ### Added

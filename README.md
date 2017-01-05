@@ -1,18 +1,26 @@
 # Calcite Maps
-A modern framework for designing map apps with Calcite styles and Bootstrap.
+A theme for Bootstrap that makes it easy to design, style and create modern map apps.
 
-This project contains a small set of CSS classes specifically for designing and building responsive map apps with [Bootstrap](http://www.getbootstrap.com). The classes extend Bootstrap and make the components more map app-friendly.
+This project contains CSS classes specifically for styling and building responsive map apps with [Bootstrap](https://www.getbootstrap.com). The [classes](#documentation) can be used to create a wide variety of apps with different themes, layouts and colors. This includes light and dark themes, a number of top and bottom layouts, and either Calcite colors or your own custom colors. A number of the Bootstrap components have been extended to make them more map app-friendly including the navbar, dropdown menu and panels. The theme works with the ArcGIS JS 3.x, 4.x and Esri-Leaflet API.
 
-To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to design your applications interactively and explore the different layouts, themes and colors. Once you find a design you like, just copy/paste the CSS classes (for now...) into one of the [samples](http://esri.github.io/calcite-maps/samples/index.html) or into your own application. If you want to integrate deeper, fork and clone the repo and use the [custom Sass build](#getting-started). Calcite Maps is also designed to work seamlessly with the new [ArcGIS API for JavaScript 4.x](https://developers.arcgis.com/javascript/).
+To get started you typically 1) Build a Bootstrap HTML page, 2) Add references to Bootstrap and Calcite Maps, and 3) Apply Calcite Maps classes to the elements to style the app with the layout and colors desired.
 
 ```html
-<link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
+  <!-- Calcite Maps Bootstrap or Bootstrap -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.3.css">
 
-<body class="calcite-maps calcite-nav-top theme-widgets-dark">
-  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
+  <!-- Calcite Maps Theme -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
+
+  <!-- Body -->
+  <body class="calcite-maps calcite-nav-top theme-widgets-dark">
+
+    <!-- Nav -->
+    <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bgcolor-dark-blue">
+    ...
 ```
 
-[View the samples here](http://esri.github.io/calcite-maps/samples/index.html)
+To see what types of apps you can build, try the [Styler app](https://esri.github.io/calcite-maps/samples/index.html) or the other samples [here](https://esri.github.io/calcite-maps/samples/index.html).
 
 ##What's included
 
@@ -21,16 +29,16 @@ To get started, use the [Styler](http://esri.github.io/calcite-maps/samples/inde
 * 14 different top and bottom layouts
 * Dark and light color themes
 * Extended navbar
-* Custom dropdown menu
+* Custom dropdown menu (with drawer capabilities)
 * Custom collapsable panels (right and left orientation)
 * Full map view
 * Mobile friendly including the removal of browser "bounce" effect on devices
-* CSS and JS mapping extensions for [Bootstrap](http://www.getbootstrap.com) components
-* Sass build for [Bootstrap](http://www.getbootstrap.com) and Calcite Maps
+* CSS and JS mapping extensions for [Bootstrap](https://www.getbootstrap.com) components
+* Sass build for [Bootstrap](https://www.getbootstrap.com) and Calcite Maps
 * Support for [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/) and [Esri Leaflet](https://github.com/Esri/esri-leaflet)
 * Dojo and jQuery options
 
-NOTE: The framework is compatile with [Bootstrap 3.x](http://www.getbootstrap.com) and custom builds of Bootstrap.
+NOTE: The framework is compatile with [Bootstrap 3.x](https://www.getbootstrap.com) and custom builds of Bootstrap.
 
 ![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
 
@@ -38,7 +46,7 @@ NOTE: The framework is compatile with [Bootstrap 3.x](http://www.getbootstrap.co
 
 Here's a few ways to get started:
 
-1. **Explore the styles** - Use the [Styler](http://esri.github.io/calcite-maps/samples/index.html) to explore the different colors, styles and layouts. When you find a design you like, inspect the HTML and apply the styles to your app.
+1. **Explore the styles** - Use the [Styler](https://esri.github.io/calcite-maps/samples/index.html) to explore the different colors, styles and layouts. When you find a design you like, inspect the HTML and apply the styles to your app.
 
 2. **Start with a sample** - Create your own app from the [samples](./samples/index.html) or the [example](#example) below by downloading the latest release or just referencing the [calcite-maps-xxx.min.css](./dist/css) and [calcite-maps.js](./dist/js) pre-compiled librares.
 
@@ -54,7 +62,7 @@ Here's a few ways to get started:
 
 ## Example
 
-[Try it live](http://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
+[Try it live](https://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
 
 ![calcite-maps-example.png](./calcite-maps-example.png?raw=true "Calcite Maps")
 
@@ -66,11 +74,11 @@ Here's a few ways to get started:
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="Calcite Maps - ArcGIS 4.x SDK Sample">
-  <link rel="icon" href="http://www.esri.com/favicon.ico">
+  <link rel="icon" href="https://www.esri.com/favicon.ico">
   <title>Calcite Maps - ArcGIS JS 4 Example</title>
 
-  <!-- Calcite Bootstrap -->
-  <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.3.css">
+  <!-- Calcite Maps Bootstrap -->
+  <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.3.css">
 
   <!-- Calcite Maps -->
   <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
@@ -104,9 +112,9 @@ Here's a few ways to get started:
     </div>
     <!-- Title -->
     <div class="calcite-title calcite-overflow-hidden">
-      <span class="calcite-title-main">Greater Los Angeles Demographics</span>
+      <span class="calcite-title-main">Missing Migrants</span>
       <span class="calcite-title-divider hidden-xs"></span>
-      <span class="calcite-title-sub hidden-xs">Explore population, age, income and housing values</span>
+      <span class="calcite-title-sub hidden-xs">Incident reports from around the world</span>
     </div>
     <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
@@ -156,7 +164,7 @@ Here's a few ways to get started:
       // Webmap
       var webmap = new WebMap({
         portalItem: {
-          id: "d0260a4512d0431b84d628e000b9d25e"
+          id: "742e3546ff1e4e0bba3360ae5004d0e1"
         }
       });
 
@@ -171,6 +179,7 @@ Here's a few ways to get started:
 
       // Legend
       view.then(function(result) {
+        view.zoom = 2;
         var legend = new Legend({
           view: view,
           layerInfos: [{
@@ -312,15 +321,15 @@ Layout 4: Navbar Top - Inline Left Layout - Dark Text - White 75% (custom theme 
 
 ## Requirements
 
-* [Bootstrap](http://getbootstrap.com)
+* [Bootstrap](https://getbootstrap.com)
 
 ## Resources
 
-* [ArcGIS for JavaScript API](http://developers.arcgis.com)
-* [Esri-Leafllet](http://github.com/esri/esri-leaflet)
-* [Calcite-Web](http://github.com/esri/calcite-web)
-* [Calcite-Colors](http://github.com/esri/calcite-colors)
-* [Bootstrap](http://getbootstrap.com)
+* [ArcGIS for JavaScript API](https://developers.arcgis.com)
+* [Esri-Leafllet](https://github.com/esri/esri-leaflet)
+* [Calcite-Web](https://github.com/esri/calcite-web)
+* [Calcite-Colors](https://github.com/esri/calcite-colors)
+* [Bootstrap](https://getbootstrap.com)
 
 ## Issues
 
@@ -331,8 +340,8 @@ Find a bug or want to request a new feature? Please let us know by submitting an
 Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Credits
-[Kevin Armstrong](https://github.com/xsokev) - [dojo-bootstrap](http://xsokev.github.io/Dojo-Bootstrap/)
-[Bootstrap](http://getbootstrap.com/)
+[Kevin Armstrong](https://github.com/xsokev) - [dojo-bootstrap](https://xsokev.github.io/Dojo-Bootstrap/)
+[Bootstrap](https://getbootstrap.com/)
 
 ## Licensing
 Copyright 2015 Esri
@@ -341,7 +350,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+   https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -351,5 +360,5 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](https://github.com/Esri/calcite-maps/blob/master/license.txt) file.
 
-[](Esri Tags: Web Mapping ArcGIS Leaflet CSS Sass Frameworks esri-leaflet Design Basemaps Bootstrap Calcite Calcite-Maps JavaScript Calcite-Bootstrap Grunt)
+[](Esri Tags: Web Mapping ArcGIS Leaflet CSS Sass Frameworks esri-leaflet Design Basemaps Bootstrap Calcite Calcite Maps JavaScript Grunt)
 [](Esri Language: CSS)
