@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="description" content="Calcite Maps - ArcGIS 4.x SDK Sample">
   <link rel="icon" href="https://www.esri.com/favicon.ico">
-  <title>Calcite Maps - ArcGIS JS 4.0 Example</title>
+  <title>Calcite Maps - ArcGIS JS 4 Example</title>
 
-  <!-- Calcite Bootstrap -->
-  <!--link rel="stylesheet" href="../../dist/css/calcite-bootstrap.min-v0.2.css"-->
-  <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.3.css">
+  <!-- Calcite Maps Bootstrap -->
+  <!--link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.3.css"-->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.3.css">
 
   <!-- Calcite Maps -->
-  <!--link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.2.css"-->
-  <link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
+  <!--link rel="stylesheet" href="https://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css"-->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
 
-  <!-- ArcGIS JS 4.0 -->
+  <!-- ArcGIS JS 4.x -->
   <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
 
   <style>
@@ -45,9 +45,9 @@
     </div>
     <!-- Title -->
     <div class="calcite-title calcite-overflow-hidden">
-      <span class="calcite-title-main">Greater Los Angeles Demographics</span>
+      <span class="calcite-title-main">Missing Migrants</span>
       <span class="calcite-title-divider hidden-xs"></span>
-      <span class="calcite-title-sub hidden-xs">Explore population, age, income and housing values</span> 
+      <span class="calcite-title-sub hidden-xs">Incident reports from around the world</span>
     </div>
     <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
@@ -65,18 +65,18 @@
     var dojoConfig = {
       packages: [{
         name: "bootstrap",
-        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
-        location: "https://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
+        //location: "https://esri.github.com/calcite-maps/dist/vendor/dojo-bootstrap"
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
       },
       {
         name: "calcite-maps",
-        // location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
-        location: "https://esri.github.com/calcite-maps/dist/js/dojo"
+        //location: "https://esri.github.com/calcite-maps/dist/js/dojo"
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
       }]
     };
   </script>
 
-  <!-- ArcGIS JS 4.0 -->
+  <!-- ArcGIS JS 4.x -->
   <script src="https://js.arcgis.com/4.2/"></script>
 
   <script>
@@ -89,17 +89,17 @@
       "dojo/query",
 
       // Bootstrap
-      "bootstrap/Collapse", 
+      "bootstrap/Collapse",
 
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.3",
       "dojo/domReady!"
     ], function(MapView, WebMap, Legend, query) {
-        
-      // Webmap 
+
+      // Webmap
       var webmap = new WebMap({
         portalItem: {
-          id: "d0260a4512d0431b84d628e000b9d25e"
+          id: "742e3546ff1e4e0bba3360ae5004d0e1"
         }
       });
 
@@ -114,6 +114,7 @@
 
       // Legend
       view.then(function(result) {
+        view.zoom = 2;
         var legend = new Legend({
           view: view,
           layerInfos: [{
