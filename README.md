@@ -44,7 +44,16 @@ Here's a few ways to get started:
 
 ## Example
 
-This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS files. It has a top layout, with the default theme, a drop-down menu with a basemap panel. It also synchronizes the popup and Bootstrap panels.
+This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS files. It has a top layout, with the default theme, a drop-down menu with a basemap panel. It also synchronizes the popup and Bootstrap panels. Here are the main calcite-maps classes used:
+
+```
+<body class="calcite-maps calcite-nav-top">
+
+  <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
+
+    <div class="dropdown calcite-dropdown calcite-text-dark calcite-bg-light" role="presentation">
+ 
+```
 
 [Try it live](http://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
 
@@ -275,6 +284,36 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
 </html>
 ```
 
+## More Examples
+
+Layout 1: Navbar Top - Dark Text - Light Background (default - light theme)
+
+```html
+<body class="calcite-nav-top">
+  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-dark calcite-bg-light">
+```
+
+Layout 2: Navbar Top - Light Text - Dark Background (dark theme)
+
+```html
+<body class="calcite-nav-top">
+  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
+```
+
+Layout 3: Navbar Bottom - Margin - Light Text - Dark Blue 75% (custom theme)
+
+```html
+<body class="calcite-nav-bottom calcite-nav-margin-bottom">
+  <nav class="calcite-navbar navbar navbar-fixed-bottom calcite-text-light calcite-bg-custom calcite-bgcolor-blue-75">
+```
+
+Layout 4: Navbar Top - Inline Left Layout - Dark Text - White 75% (custom theme and layout)
+
+```html
+<body class="calcite-nav-top calcite-layout-inline-left">
+  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-dark calcite-white-75">
+```
+
 ## Documentation
 
 Here's are the CSS classes you can apply to different elements to create your own custom map apps.
@@ -365,36 +404,6 @@ Here's are the CSS classes you can apply to different elements to create your ow
 * `calcite-index-top`
 
 NOTE: See all colors [here](./lib/sass/_colors.scss)
-
-## More Examples
-
-Layout 1: Navbar Top - Dark Text - Light Background (default - light theme)
-
-```html
-<body class="calcite-nav-top">
-  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-dark calcite-bg-light">
-```
-
-Layout 2: Navbar Top - Light Text - Dark Background (dark theme)
-
-```html
-<body class="calcite-nav-top">
-  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
-```
-
-Layout 3: Navbar Bottom - Margin - Light Text - Dark Blue 75% (custom theme)
-
-```html
-<body class="calcite-nav-bottom calcite-nav-margin-bottom">
-  <nav class="calcite-navbar navbar navbar-fixed-bottom calcite-text-light calcite-bg-custom calcite-bgcolor-blue-75">
-```
-
-Layout 4: Navbar Top - Inline Left Layout - Dark Text - White 75% (custom theme and layout)
-
-```html
-<body class="calcite-nav-top calcite-layout-inline-left">
-  <nav class="calcite-navbar navbar navbar-fixed-top calcite-text-dark calcite-white-75">
-```
 
 ## Requirements
 
