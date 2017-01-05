@@ -1,9 +1,9 @@
 # Calcite Maps
-A theme for [Bootstrap](https://www.getbootstrap.com) that makes it easy to design, style and create modern map apps.
+A theme for [Bootstrap](https://www.getbootstrap.com) for designing, styling and creating modern map apps.
 
-This project contains a Sass framework and a set of [CSS classes](#documentation) that can be used to quickly build a wide variety of apps with different themes, layouts and colors. Apps are styled simply by applying the CSS classes to Bootstrap HTML elements. A number of Bootstrap components have been extended to make them more map app-friendly including the navbar, dropdown menu and panels. The framework is fully responsive and is designed to work with the ArcGIS JS 3.x, 4.x and Esri-Leaflet API.
+This project contains a CSS/JS theme that can be used to quickly assemble a wide variety of map apps. You can create apps with different themes, layouts and colors simply by applying the `calcite-maps-xxx` classes to existing Bootstrap elements. A number of Bootstrap components including the navbar, dropdown menu and panels have been extended to make the framework more map app-friendly. Dropdown menus can be easily synchronized with panels. The framework is also designed to work well with mapping UI components such as zoom in/out controls, legends and attribution. The Sass build creates a Calcite Maps CSS library as well as an optimized build of Bootstrap - which is optional to use. The framework is fully responsive and is designed to work with the ArcGIS JS 3.x, 4.x and Esri-Leaflet API.
 
-To [get started](#getting-started) you typically 1) Build a Bootstrap HTML page, 2) Add references to Bootstrap and Calcite Maps, and 3) Apply Calcite Maps classes to the elements to style the app with the layout and colors desired.
+To [get started](#getting-started) you typically: 1) Build a Bootstrap HTML page, 2) Add references to Bootstrap and Calcite Maps, and 3) Apply Calcite Maps classes to the elements to style the app with the layout and colors desired.
 
 To see what types of apps you can build, check out the [live samples here](https://esri.github.io/calcite-maps/samples/index.html).
 
