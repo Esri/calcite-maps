@@ -5,7 +5,7 @@
   "authors": [
     "Allan Laframboise <alaframboise@esri.com>"
   ],
-  "description": "A framework for building map apps with Calcite styles and Bootstrap.",
+  "description": "A theme for Bootstrap that makes it easy to design, style and create modern map apps.",
   "main": ["dist/js",
     "dist/css",
     "dist/fonts"
@@ -20,8 +20,7 @@
     "Map App",
     "Calcite",
     "Bootstrap",
-    "Calcite-Bootstrap",
-    "Calcite-Maps"
+    "Calcite Maps"
   ],
   "license": "Apache2",
   "ignore": [
