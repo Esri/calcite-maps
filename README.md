@@ -47,7 +47,7 @@ There are a few ways to get started:
 
 ## Example
 
-[Try it live](https://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
+[Try it live](http://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
 
 ![calcite-maps-example.png](./calcite-maps-example.png?raw=true "Calcite Maps")
 
