@@ -142,21 +142,23 @@
 .calcite-navbar-search.calcite-search-expander .esri-search__input {
   background-color: transparent; }
 
-.calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container::before {
+.calcite-navbar-search.calcite-search-expander .esri-search::before {
   content: " ";
   position: absolute;
-  top: -15px;
-  left: -15px;
+  top: 0;
+  left: 0;
+  right: -15px;
   height: 15px;
   width: 100%;
   display: block;
   background-color: transparent; }
 
-.calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container::after {
+.calcite-navbar-search.calcite-search-expander .esri-search::after {
   content: " ";
   position: absolute;
-  bottom: -15px;
-  left: -15px;
+  bottom: 0;
+  left: 0;
+  right: -15px;
   height: 15px;
   width: 100%;
   display: block;

@@ -17,16 +17,16 @@
   <link rel="stylesheet" href="../../dist/css/calcite-maps-esri-leaflet.min-v0.3.css">
   <link rel="stylesheet" href="../../dist/fonts/calcite/calcite-ui.css">
 
-  <!-- Leaflet from CDN-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
-  <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+  <!-- Load Leaflet from CDN-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
 
-  <!-- Esri Leaflet from CDN -->
-  <script src="//cdn.jsdelivr.net/leaflet.esri/1.0.0/esri-leaflet.js"></script>
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@2.0.7"></script>
 
-  <!-- Esri Leaflet Geocoder -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet.esri.geocoder/1.0.2/esri-leaflet-geocoder.css">
-  <script src="//cdn.jsdelivr.net/leaflet.esri.geocoder/1.0.2/esri-leaflet-geocoder.js"></script>
+  <!-- Load Esri Leaflet Geocoder from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.3/dist/esri-leaflet-geocoder.css">
+  <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.3"></script>
 
   <style>
     html, body {
@@ -35,12 +35,32 @@
       height: 100%;
     }
     .calcite-nav-bottom .calcite-map .leaflet-control-zoom {
-      margin-top: 50px;
+      margin-top: 28px;
+    }
+
+    .calcite-navbar-search {
+      margin-top: 0;
+      margin-right: 5px;
+      padding: 5px 0;
+    }
+
+    .calcite-nav-bottom .panel-body .geocoder-control-suggestions.leaflet-bar {
+      top: 25px;
+      bottom: auto;
+    }
+
+    .calcite-maps .esri-truncated-attribution {
+      max-width: 100% !important;
+      width: 100%;
+    }
+
+    .leaflet-touch .leaflet-bar {
+      border: none;
     }
   </style>
 
 </head>
-<body class="calcite-maps calcite-nav-bottom calcite-layout-large-title">
+<body class="calcite-maps calcite-nav-bottom calcite-layout-small-title">
 
   <!-- Navbar -->
 
@@ -201,7 +221,8 @@
       position:'topright'
     }).addTo(map);
 
-    var searchControl = L.esri.Geocoding.Controls.geosearch({expanded: true, collapseAfterResult: false, zoomToResult: false}).addTo(map);
+    //var searchControl = L.esri.Geocoding.Controls.geosearch({expanded: true, collapseAfterResult: false, zoomToResult: false}).addTo(map);
+    var searchControl = L.esri.Geocoding.geosearch({expanded: true, collapseAfterResult: false, zoomToResult: false}).addTo(map);
     
     searchControl.on('results', function(data){ 
       if (data.results.length > 0) {
