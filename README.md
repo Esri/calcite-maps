@@ -76,7 +76,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.2/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
 
   <style>
     html,
@@ -182,7 +182,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   </script>
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.2/"></script>
+  <script src="https://js.arcgis.com/4.3/"></script>
 
   <script>
     

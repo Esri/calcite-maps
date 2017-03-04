@@ -273,11 +273,12 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
     }
 
      // Prevent lost focus on mouse move
-    .esri-search .esri-search__container::before {
+    .esri-search::before {
       content: " ";
       position: absolute;
-      top: -15px;
-      left: -15px;
+      top: 0;
+      left: 0;
+      right: -15px;
       height: 15px;
       width: 100%;
       display: block;
@@ -285,11 +286,12 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
       background-color: transparent;
     }
     // Prevent lost focus on mouse move
-    .esri-search .esri-search__container::after {
+    .esri-search::after {
       content: " ";
       position: absolute;
-      bottom: -15px;
-      left: -15px;
+      bottom: 0;
+      left: 0;
+      right: -15px;
       height: 15px;
       width: 100%;
       display: block;
