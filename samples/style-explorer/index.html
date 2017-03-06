@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Lock viewport to prevent scaling -->
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="Calcite Maps Demo - ArcGIS">
+  <meta name="author" content="">
+  <link rel="icon" href="https://www.esri.com/favicon.ico">
+  <title>Calcite Maps - Style Explorer</title>
+
+  <!-- Bootstrap - For testing only -->
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+
+  <!-- Calcite Maps Bootstrap -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-v0.3.css">
+
+  <!-- Calcite Maps -->
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
+  
+  <!-- ArcGIS JS 4.x -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <!--link rel="stylesheet" href="../../dist/css/arcgis/themes/light/main.css"-->
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    #panelLegend .panel-body {
+      background-color: white;
+    }
+
+    #panelInfo .esri-icon.esri-icon-map-pin {
+      margin-right: 10px;
+      font-size: 25px;
+    }
+
+    #panelInfo .info-title {
+      font-size: 20px;
+    }
+
+    .form-box {
+      display: flex;
+      margin: 0px 15px;
+      padding: 15px 0;
+      border: 1px solid rgba(255,255,255,.35);
+      background-color: rgba(130,130,130,.1);
+    }
+
+    .btn-color-close {
+      margin-top: -17px;
+      margin-right: -21px;
+      font-size: 14px;
+      color: #828282;
+    }
+    .btn-color-close:hover,
+    .btn-color-close:focus {
+      color: #000;
+    }
+
+    .control-padding-top {
+      padding-top: 5px;
+    }
+
+    .padding-right-none {
+      padding-right: 0;
+    }
+
+    .info-title {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    /* Color Widget */
+
+    .esri-color-picker .esri-swatch-preview.esri-container,
+    .esri-color-picker .esri-header,
+    .esri-color-picker .esri-footer,
+    .esri-color-picker .esri-palette-options .esri-palette-toggle > input,
+    .dijitReset .dijitToggleButtonIconChar,
+    .esri-color-picker .esri-palette-options .esri-palette-toggle {
+      display: none;
+    }
+    .esri-color-picker.esri-container {
+      border: 0;
+      padding: 0;
+      border-radius: 0;
+      background-color: transparent;
+    }
+    .esri-color-picker .esri-hex-input {
+      border: 0;
+      width: 100%;
+    }
+    .esri-color-picker .esri-swatch-row {
+      line-height: 1;
+    }
+    .esri-color-picker .esri-swatch {
+      width: 13px;
+      height: 13px;
+    }
+    .esri-color-picker .esri-hex-input .dijitInputInner {
+      font-size: 12px;
+      width: 100%;
+      padding: 2px 4px;
+    }
+
+  </style>
+
+</head>
+
+<body class="calcite-nav-top">
+
+  <!-- Navbar -->
+
+  <nav class="navbar navbar-fixed-top calcite-navbar calcite-bg-custom calcite-text-light" style="background-color: rgb(76, 76, 76);">
+     <!-- Menu -->
+    <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
+      <!--a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"-->
+      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+        <div class="calcite-dropdown-toggle">
+          <span class="sr-only">Toggle dropdown menu</span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a role="button" data-target="#modalSplash" data-toggle="modal" aria-haspopup="true"> About</a></li>
+        <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
+        <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
+        <li><a role="button" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
+        <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+        <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
+        <li><a role="button" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-book"></span> Bookmarks</a></li>
+        <li><a role="button" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Legend</a></li>
+        <li><a role="button" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
+        <li><a role="button" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
+        <li><a role="button" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
+      </ul>
+    </div> 
+    <!-- Title -->
+    <div class="calcite-title calcite-overflow-hidden">
+      <span class="calcite-title-main">Style Explorer</span>
+      <span class="calcite-title-divider hidden-xs"></span>
+      <span class="calcite-title-sub hidden-xs">Design map apps and explore styles interactively</span> 
+    </div>
+    <!-- Nav -->
+    <ul class="calcite-nav nav navbar-nav">                    
+      <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+      <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
+      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+    </ul>
+  </nav><!--/.navbar -->
+
+  <!-- Modal Window -->
+
+  <div class="modal fade" id="modalSplash" tabindex="-1" role="dialog" aria-labelledby="splashlModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="splash-body">
+                <div class="text-center">
+                  <h3>Welcome to Calcite Maps</h3>
+                  <hr>
+                  <p>Use this application to interactively design your application and to explore the different colors, styles and layouts. When you are done, apply the CSS styles and classes to your own apps. Get a jump-start by starting with one of the <a href="../index.html">sample applications</a>.</p>
+                  <br>
+                  <div class="form-inline">
+                    <div class="form-group">
+                      <button type="button" class="btn btn-success btn-lg"  data-dismiss="modal">Get started</a>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Container  -->
+
+  <div class="calcite-map calcite-map-absolute">
+    <div id="tabContainer" class="tab-content">
+      <div id="2dTab" class="tab-pane fade in active" role="tabpanel">
+        <div id="mapViewDiv"></div>
+      </div>
+      <div id="3dTab" class="tab-pane fade" role="tabpanel">
+        <div id="sceneViewDiv"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel Container -->
+  
+  <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light panel-group" role="tablist" aria-multiselectable="true" style="background-color: rgb(76, 76, 76);">
+    
+    <!-- Panel - Info -->
+
+    <div id="panelInfo" class="panel collapse">
+      <div id="headingInfo" class="panel-heading" role="tab">
+        <div class="panel-title">
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo" aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><span class="panel-label">Info</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+        </div>
+      </div>
+      <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
+        <div class="panel-body">
+          <p><span class="esri-icon esri-icon-map-pin pull-left"></span><span class="info-title">Calcite Maps</span</p>
+          <p>Use this application to quickly prototype and design map applications interactively.</p>
+          <p>Learn more about building custom<a href="https://github.com/esri/calcite-maps"> Calcite Maps apps here</a>.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Panel - Search -->
+
+    <div id="panelSearch" class="panel collapse hidden-sm hidden-md hidden-lg">
+      <div id="headingSearch" class="panel-heading" role="tab">
+        <div class="panel-title">
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="panel-label">Search</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSearch"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>        
+        </div>
+      </div>
+      <div id="collapseSearch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSearch">
+        <div class="panel-body calcite-body-expander"> 
+          <div id="searchPanelDiv"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel - Basemaps -->
+
+     <div id="panelBasemaps" class="panel collapse">
+      <div id="headingBasemaps" class="panel-heading" role="tab">
+        <div class="panel-title">
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps" aria-expanded="false" aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="panel-label">Basemaps</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+        </div>
+      </div>
+      <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
+        <div class="panel-body">
+          <select id="selectBasemapPanel" class="form-control"> 
+            <option value="streets" data-vector="streets-vector">Streets</option>
+            <option value="satellite" data-vector="satellite">Satellite</option>
+            <option value="hybrid" data-vector="hybrid">Hybrid</option>
+            <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
+            <option value="topo" data-vector="topo-vector">Topographic</option>
+            <option value="gray" data-vector="gray-vector" selected>Gray</option>
+            <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
+            <option value="osm" data-vector="osm">Open Street Map</option>
+            <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
+            <option value="streets" data-vector="streets-navigation-vector">Streets Navigation</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Panel - Bookmarks -->
+
+    <div id="panelBookmarks" class="panel collapse">
+      <div id="headingBookmarks" class="panel-heading" role="tab">
+        <div class="panel-title">
+        <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBookmarks" aria-expanded="false" aria-controls="collapseBookmarks"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><span class="panel-label">Bookmarks</span></a> 
+        <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBookmarks"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+        </div>
+      </div>
+      <div id="collapseBookmarks" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBookmarks">
+        <div class="panel-body">          
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97200&w=300&h=200" alt="...">
+              <div class="carousel-caption">
+              <!-- Your caption goes here -->
+              </div>
+            </div>
+            <div class="item">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97200&w=300&h=200" alt="...">
+              <div class="carousel-caption">
+              <!-- Your caption goes here -->
+              </div>
+            </div>
+            <div class="item">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=300%C3%97200&w=300&h=200" alt="...">
+              <div class="carousel-caption">
+              <!-- Your caption goes here -->                            
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="ntglyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel - Legend -->
+
+    <div id="panelLegend" class="panel collapse">
+      <div id="headingLegend" class="panel-heading" role="tab">
+        <div class="panel-title">
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="panel-label">Legend</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelLegend"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a> 
+        </div>
+      </div>
+      <div id="collapseLegend" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLegend">
+        <div class="panel-body">            
+          <div id="legendDiv"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Panel - Print -->
+
+    <div id="panelPrint" class="panel collapse">
+      <div id="headingPrint" class="panel-heading">
+        <div class="panel-title">
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePrint" aria-expanded="false" aria-controls="collapsePrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span><span class="panel-label">Print</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelPrint"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <div id="collapsePrint" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPrint">
+        <div class="panel-body">
+        <div class="form-group">
+           <button type="button" class="btn btn-default">Print [Coming soon!]</button>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel - Share -->
+
+    <div id="panelShare" class="panel collapse">
+      <div id="headingShare" class="panel-heading">
+        <div class="panel-title">
+        <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseShare" aria-expanded="false" aria-controls="collapseShare"><span class="glyphicon glyphicon-share" aria-hidden="true"></span><span class="panel-label">Share</span></a>                 
+        <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelShare"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
+        </div>
+      </div>
+      <div id="collapseShare" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingShare">
+        <div class="panel-body">
+          <p>Share [Coming soon!]</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel - Settings -->
+
+    <div id="panelSettings" class="panel collapse in">
+              
+      <div id="headingSettings" class="panel-heading">
+        <div class="panel-title">
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="panel-label">Settings</span></a> 
+
+          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelSettings"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      
+      <div id="collapseSettings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSettings">
+        <div class="panel-body">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#title" aria-controls="title" role="tab" data-toggle="tab">Name</a></li>
+            <li role="presentation"><a href="#map" aria-controls="map" role="tab" data-toggle="tab">Map</a></li>
+            <li role="presentation"><a href="#theme" aria-controls="theme" role="tab" data-toggle="tab">Theme</a></li>
+            <li role="presentation"><a href="#custom" aria-controls="custom" role="tab" data-toggle="tab">Layout</a></li>
+          </ul>
+
+          <div class="tab-content">
+
+            <!-- Tab -Title -->
+          
+            <div role="tabpanel" class="tab-pane active" id="title">  
+              <div class="calcite-form-title">1. Set the map name and call to action</div>  
+              <div class="form-horizontal calcite-form-padding">
+                <div class="form-group">
+                  <label for="settingsTitleInput" class="col-xs-3 control-label">Title</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="settingsTitleInput" placeholder="{Map Name}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="settingsSubTitleInput" class="col-xs-3 control-label">SubTitle</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="settingsSubTitleInput" placeholder="{Subtitle - Call to action}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-9 col-xs-offset-3">
+                    <button id="titleButton" type="button" class="btn btn-primary btn-block">Apply</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Tab - Map -->
+
+            <div role="tabpanel" class="tab-pane" id="map">
+              <div class="calcite-form-title">2. Set the location, basemap and layer</div>  
+              <div class="form-horizontal calcite-form-padding">
+                <div class="form-group">
+                  <label for="settingsSearch" class="col-xs-3 control-label">Location</label>
+                  <div class="col-xs-9">
+                    <div id="settingsSearchDiv" class="calcite-form-search"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="settingsSelectBasemap" class="col-xs-3 control-label">Basemap</label>
+                  <div class="col-xs-9">
+                    <select id="settingsSelectBasemap" class="form-control">                            
+                      <option value="streets" data-vector="streets-vector">Streets</option>
+                      <option value="satellite" data-vector="satellite">Satellite</option>
+                      <option value="hybrid" data-vector="hybrid">Hybrid</option>
+                      <option value="national-geographic" data-vector="national-geographic">National Geographic</option>
+                      <option value="topo" data-vector="topo-vector">Topographic</option>
+                      <option value="gray" data-vector="gray-vector" selected>Gray</option>
+                      <option value="dark-gray" data-vector="dark-gray-vector">Dark Gray</option>
+                      <option value="osm" data-vector="osm">Open Street Map</option>
+                      <option value="dark-gray" data-vector="streets-night-vector">Streets Night</option>
+                      <option value="streets" data-vector="streets-navigation-vector">Streets Navigation</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="settingsView" class="col-xs-3 control-label">View</label>
+                  <div class="col-xs-9">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="settings2dView" checked> 2D
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="settings3dView" checked> 3D
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="settingsAddLayer" class="col-xs-3 control-label">Layer</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="e.g. https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0" value="https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="settingsLayerOpacity" class="col-xs-3 control-label">Opacity</label>
+                  <div class="col-xs-9">
+                    <select id="settingsLayerOpacity" class="form-control">
+                      <option value="0.25">0.25</option>
+                      <option value="0.50">0.5</option>
+                      <option value="0.75">0.75</option>
+                      <option value="1.0" selected>1.0</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-9 col-xs-offset-3">
+                    <button id="settingsAddLayer" type="button" class="btn btn-primary btn-block">Add Layer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab - Theme -->
+
+            <div role="tabpanel" class="tab-pane" id="theme">
+              <div class="calcite-form-title">3. Set background and text color</div>  
+              <div class="form-horizontal calcite-form-padding">
+    
+                <!-- Color -->
+
+                <div class="form-group">
+                  <label for="settingsColor" class="col-xs-4 control-label">Color</label>
+                  <div class="col-xs-8">
+                    <select id="settingsColor" class="form-control">
+                      <option value="theme">Calcite Themes</option>
+                      <option value="calcite">Calcite Colors</option>
+                      <option value="custom">More Colors...</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Color Picker - Collapse -->
+
+                <div id="colorThemeCollapse" class="form-group collapse in">
+                  <div class="col-xs-offset-4 col-xs-8">
+                    <div class="row">
+                      <div class="form-box">
+                        <div class="col-xs-12">
+                          <div class="btn btn-color-close pull-right" role="button" data-target="#colorThemeCollapse" data-toggle="collapse" aria-label="Left Align">
+                            <span class="esri-icon esri-icon-close" aria-hidden="true"></span>
+                          </div>
+                          <select id="settingsThemeColor" class="form-control">
+                            <option value="light">Light</option>
+                            <option value="dark" selected>Dark</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Color Picker - Collapse -->
+
+                <div id="colorCalciteCollapse" class="form-group collapse">
+                  <div class="col-xs-offset-4 col-xs-8">
+                    <div class="row">
+                      <div class="form-box">
+                        <div class="col-xs-12">
+                          <div class="btn btn-color-close pull-right" role="button" data-target="#colorCalciteCollapse" data-toggle="collapse" aria-label="Left Align">
+                            <span class="esri-icon esri-icon-close" aria-hidden="true"></span>
+                          </div>
+                          <select id="settingsCalciteColor" class="form-control control-padding-top">
+                            <option value="calcite-bgcolor-white" data-textcolor="calcite-text-dark">--- White ---</option>
+                            <option value="calcite-bgcolor-transparent" data-textcolor="calcite-text-dark">Transparent</option>
+                            <option value="calcite-bgcolor-white" data-textcolor="calcite-text-dark">Calcite White</option>
+                            <option value="calcite-bgcolor-white-75" data-textcolor="calcite-text-dark">Calcite White 75%</option>
+                            <option value="calcite-bgcolor-white-50" data-textcolor="calcite-text-dark">Calcite White 50%</option>
+                            <option value="calcite-bgcolor-white-25" data-textcolor="calcite-text-dark">Calcite White 25%</option>
+                            <option value="calcite-bgcolor-off-white" data-textcolor="calcite-text-dark">Calcite Off White</option>
+                            <option value="calcite-bgcolor-grey" data-textcolor="calcite-text-light">--- Grey ---</option>
+                            <option value="calcite-bgcolor-lightest-grey" data-textcolor="calcite-text-dark">Calcite Lightest Grey</option>
+                            <option value="calcite-bgcolor-lighter-grey" data-textcolor="calcite-text-dark">Calcite Lighter Grey</option>
+                            <option value="calcite-bgcolor-light-grey" data-textcolor="calcite-text-dark">Calcite Light Grey</option>
+                            <option value="calcite-bgcolor-grey" data-textcolor="calcite-text-light">Calcite Grey</option>
+                            <option value="calcite-bgcolor-grey-75" data-textcolor="calcite-text-light">Calcite Grey 75%</option>
+                            <option value="calcite-bgcolor-grey-50" data-textcolor="calcite-text-dark">Calcite Grey 50%</option>
+                            <option value="calcite-bgcolor-grey-25" data-textcolor="calcite-text-dark">Calcite Grey 25%</option>
+                            <option value="calcite-bgcolor-dark-grey" data-textcolor="calcite-text-light">Calcite Dark Grey</option>
+                            <option value="calcite-bgcolor-darker-grey" data-textcolor="calcite-text-light">Calcite Darker Grey</option>
+                            <option value="calcite-bgcolor-darkest-grey" data-textcolor="calcite-text-light">Calcite Darkest Grey</option>
+                            <option value="calcite-bgcolor-black" data-textcolor="calcite-text-light">--- Black ---</option>
+                            <option value="calcite-bgcolor-true-black" data-textcolor="calcite-text-light">Calcite True Black</option>
+                            <option value="calcite-bgcolor-off-black" data-textcolor="calcite-text-light">Calcite Off Black</option>
+                            <option value="calcite-bgcolor-black" data-textcolor="calcite-text-light">Calcite Black</option>
+                            <option value="calcite-bgcolor-black-75" data-textcolor="calcite-text-light">Calcite Black 75%</option>
+                            <option value="calcite-bgcolor-black-50" data-textcolor="calcite-text-light">Calcite Black 50%</option>
+                            <option value="calcite-bgcolor-black-25" data-textcolor="calcite-text-light">Calcite Black 25%</option>
+                            <option value="calcite-bgcolor-dark-blue" data-textcolor="calcite-text-light">--- Blue ---</option>
+                            <option value="calcite-bgcolor-dark-blue" data-textcolor="calcite-text-light">Calcite Dark Blue</option>
+                            <option value="calcite-bgcolor-blue" data-textcolor="calcite-text-light">Calcite Blue</option>
+                            <option value="calcite-bgcolor-blue-75" data-textcolor="calcite-text-light">Calcite Blue 75%</option>
+                            <option value="calcite-bgcolor-blue-50" data-textcolor="calcite-text-light">Calcite Blue 50%</option>
+                            <option value="calcite-bgcolor-blue-25" data-textcolor="calcite-text-dark">Calcite Blue 25%</option>
+                            <option value="calcite-bgcolor-light-blue" data-textcolor="calcite-text-dark">Calcite Light Blue</option>
+                            <option value="calcite-bgcolor-dark-green" data-textcolor="calcite-text-light">--- Green ---</option>
+                            <option value="calcite-bgcolor-dark-green" data-textcolor="calcite-text-light">Calcite Dark Green</option>
+                            <option value="calcite-bgcolor-green" data-textcolor="calcite-text-light">Calcite Green</option>
+                            <option value="calcite-bgcolor-green-75" data-textcolor="calcite-text-light">Calcite Green 75%</option>
+                            <option value="calcite-bgcolor-green-50" data-textcolor="calcite-text-light">Calcite Green 50%</option>
+                            <option value="calcite-bgcolor-green-25" data-textcolor="calcite-text-dark">Calcite Green 25%</option>
+                            <option value="calcite-bgcolor-light-green" data-textcolor="calcite-text-dark">Calcite Light Green</option>
+                            <option value="calcite-bgcolor-red" data-textcolor="calcite-text-light">--- Red ---</option>
+                            <option value="calcite-bgcolor-dark-red" data-textcolor="calcite-text-light">Calcite Dark Red</option>
+                            <option value="calcite-bgcolor-red" data-textcolor="calcite-text-light">Calcite Red</option>
+                            <option value="calcite-bgcolor-red-75" data-textcolor="calcite-text-light">Calcite Red 75%</option>
+                            <option value="calcite-bgcolor-red-50" data-textcolor="calcite-text-light">Calcite Red 50%</option>
+                            <option value="calcite-bgcolor-red-25" data-textcolor="calcite-text-dark">Calcite Red 25%</option>
+                            <option value="calcite-bgcolor-light-red" data-textcolor="calcite-text-dark">Calcite Light Red</option>
+                            <option value="calcite-bgcolor-orange" data-textcolor="calcite-text-light">--- Orange ---</option>
+                            <option value="calcite-bgcolor-dark-orange" data-textcolor="calcite-text-light">Calcite Dark Orange</option>
+                            <option value="calcite-bgcolor-orange" data-textcolor="calcite-text-light">Calcite Orange</option>
+                            <option value="calcite-bgcolor-orange-75" data-textcolor="calcite-text-light">Calcite Orange 75%</option>
+                            <option value="calcite-bgcolor-orange-50" data-textcolor="calcite-text-light">Calcite Orange 50%</option>
+                            <option value="calcite-bgcolor-orange-25" data-textcolor="calcite-text-dark">Calcite Orange 25%</option>
+                            <option value="calcite-bgcolor-light-orange" data-textcolor="calcite-text-dark">Calcite Light Orange</option>
+                            <option value="calcite-bgcolor-yellow" data-textcolor="calcite-text-dark">--- Yellow ---</option>
+                            <option value="calcite-bgcolor-dark-yellow" data-textcolor="calcite-text-dark">Calcite Dark Yellow</option>
+                            <option value="calcite-bgcolor-yellow" data-textcolor="calcite-text-dark">Calcite Yellow</option>
+                            <option value="calcite-bgcolor-yellow-75" data-textcolor="calcite-text-dark">Calcite Yellow 75%</option>
+                            <option value="calcite-bgcolor-yellow-50" data-textcolor="calcite-text-dark">Calcite Yellow 50%</option>
+                            <option value="calcite-bgcolor-yellow-25" data-textcolor="calcite-text-dark">Calcite Yellow 25%</option>
+                            <option value="calcite-bgcolor-light-yellow" data-textcolor="calcite-text-dark">Calcite Light Yellow</option>
+                            <option value="calcite-bgcolor-purple" data-textcolor="calcite-text-light">--- Purple ---</option>
+                            <option value="calcite-bgcolor-dark-purple" data-textcolor="calcite-text-light">Calcite Dark Purple</option>
+                            <option value="calcite-bgcolor-purple" data-textcolor="calcite-text-light">Calcite Purple</option>
+                            <option value="calcite-bgcolor-purple-75" data-textcolor="calcite-text-dark">Calcite Purple 75%</option>
+                            <option value="calcite-bgcolor-purple-50" data-textcolor="calcite-text-dark">Calcite Purple 50%</option>
+                            <option value="calcite-bgcolor-purple-25" data-textcolor="calcite-text-dark">Calcite Purple 25%</option>
+                            <option value="calcite-bgcolor-light-purple" data-textcolor="calcite-text-dark">Calcite Light Purple</option>
+                            <option value="calcite-bgcolor-brown" data-textcolor="calcite-text-light">--- Brown ---</option>
+                            <option value="calcite-bgcolor-dark-brown" data-textcolor="calcite-text-light">Calcite Dark Brown</option>
+                            <option value="calcite-bgcolor-brown" data-textcolor="calcite-text-light">Calcite Brown</option>
+                            <option value="calcite-bgcolor-brown-75" data-textcolor="calcite-text-light">Calcite Brown 75%</option>
+                            <option value="calcite-bgcolor-brown-50" data-textcolor="calcite-text-dark">Calcite Brown 50%</option>
+                            <option value="calcite-bgcolor-brown-25" data-textcolor="calcite-text-dark">Calcite Brown 25%</option>
+                            <option value="calcite-bgcolor-light-brown" data-textcolor="calcite-text-dark">Calcite Light Brown</option>
+                          </select>
+                          <label class="checkbox-inline control-padding-top">
+                            <input type="checkbox" id="settingsCalciteColorAll"> Apply to all
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Color Picker - Collapse -->
+
+                <div id="colorPickerCollapse" class="form-group collapse">
+                  <div class="col-xs-offset-4 col-xs-8">
+                    <div class="row">
+                      <div class="form-box">
+                        <div class="col-xs-12">
+                          <div id="colorPickerToggle" role="button" class="btn btn-color-close margin-top-neg pull-right" data-target="#colorPickerCollapse" data-toggle="collapse" aria-label="Left Align">
+                            <span class="esri-icon esri-icon-close" aria-hidden="true"></span>
+                          </div>
+                          <div id="colorPickerDiv"></div>
+                          <label class="checkbox-inline control-padding-top">
+                            <input type="checkbox" id="settingsPickerColorAll"> Apply to all
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text Color -->
+
+                <div class="form-group">
+                  <label for="settingsTextColor" class="col-xs-4 control-label">Text</label>
+                  <div class="col-xs-8">
+                    <select id="settingsTextColor" class="form-control control-padding-top">
+                      <option value="calcite-text-dark">Dark Text</option>
+                      <option value="calcite-text-light" selected>Light Text</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <!-- Widget Theme -->
+                
+                <div class="form-group">
+                  <label for="settingsWidgets" class="col-xs-4 control-label">Widgets</label>
+                  <div class="col-xs-8">
+                    <select id="settingsWidgets" class="form-control">
+                      <option value="calcite-widgets-light" selected>Calcte Light</option>
+                      <option value="calcite-widgets-dark">Calcite Dark</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab - Layout -->
+
+            <div role="tabpanel" class="tab-pane" id="custom">
+              <div class="calcite-form-title">4. Set the layout and widget position</div>  
+              <div class="form-horizontal calcite-form-padding">
+                
+                <!-- Layout -->
+
+                <div class="form-group">
+                  <label for="settingsLayout" class="col-xs-3 control-label">Layout</label>
+                  <div class="col-xs-9">
+                    <select id="settingsLayout" class="form-control">
+                      <option value="layout-top" selected>Top (Default)</option>
+                      <option value="layout-top-space">Top Margin</option>
+                      <option value="layout-top-space-all">Top Margin All</option>
+                      <option value="layout-top-fixed">Top Above Map</option>
+                      <option value="layout-bottom">Bottom</option>
+                      <option value="layout-bottom-space">Bottom Margin</option>
+                      <option value="layout-bottom-space-all">Bottom Margin All</option>
+                      <option value="layout-bottom-fixed">Bottom Below Map</option>
+                      <option value="layout-top">--- Layouts ---</option>
+                      <option value="calcite-layout-small-title-top">Small Title Top</option>
+                      <option value="calcite-layout-small-title-bottom">Small Title Bottom</option>
+                      <option value="calcite-layout-large-title-top">Large Title Top</option>
+                      <option value="calcite-layout-large-title-bottom">Large Title Bottom</option>
+                      <option value="calcite-layout-inline-left">Inline Zoom Left</option>
+                      <option value="calcite-layout-inline-right">Inline Zoom Right</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Map Widgets -->
+
+                <div class="form-group">
+                  <label for="settingsMap" class="col-xs-3 control-label">Map</label>
+                  <div class="col-xs-4">
+                    <select id="settingsMapWidget" class="form-control">
+                      <option value="zoom" selected>Zoom</option>
+                      <option value="home">Home</option>
+                      <option value="locate">Locate</option>
+                      <option value="compass">Compass</option>
+                      <option value="basemaptoggle">Basemaptoggle</option>
+                      <option value="search">Search</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-5">
+                    <select id="settingsPositionMapWidget" class="form-control">
+                      <option value="top-left" selected>TopLeft</option>
+                      <option value="top-right">TopRight</option>
+                      <option value="bottom-right">BottomRight</option>
+                      <option value="bottom-left">BottomLeft</option>
+                      <option value="none">-- Delete --</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Scene Widgets -->
+
+                <div class="form-group">
+                  <label for="settingsScene" class="col-xs-3 control-label">Scene</label>
+                  <div class="col-xs-4">
+                    <select id="settingsSceneWidget" class="form-control">
+                      <option value="zoom" selected>Zoom</option>
+                      <option value="home">Home</option>
+                      <option value="locate">Locate</option>
+                      <option value="compass">Compass</option>
+                      <option value="basemaptoggle">Basemaptoggle</option>
+                      <option value="search">Search</option>
+                    </select>
+                  </div>
+                  <div class="col-xs-5">
+                    <select id="settingsPositionSceneWidget" class="form-control">
+                      <option value="top-left" selected>TopLeft</option>
+                      <option value="top-right">TopRight</option>
+                      <option value="bottom-right">BottomRight</option>
+                      <option value="bottom-left">BottomLeft</option>
+                      <option value="none">-- Delete --</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <!-- Popup Docking -->
+
+                <div class="form-group">
+                  <label for="settingsPopup" class="col-xs-3 control-label">Popup</label>
+                  <div class="col-xs-9">
+                    <select id="settingsPopup" class="form-control">
+                      <option value="auto" selected>Auto</option>
+                      <option value="top-left">Top Left</option>
+                      <option value="top-center">Top Center</option>
+                      <option value="top-right">Top Right</option>
+                      <option value="bottom-right">Bottom Right</option>
+                      <option value="bottom-center">Bottom Center</option>
+                      <option value="bottom-left">Bottom Left</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Padding (map and scene) -->
+
+                <div class="form-group">
+                  <label for="settingsPopup" class="col-xs-3 control-label">Padding</label>
+                  <div class="col-xs-9">
+                    <input id="settingsPadding" class="form-control" value="{top: 50 , bottom: 0, right: 0, left: 0}">
+                  </div>
+                </div>
+
+                <!-- Panel (left/right) -->
+
+                <div class="form-group">
+                  <label for="settingsPanel" class="col-xs-3 control-label">Panel</label>
+                  <div class="col-xs-9">
+                    <select id="settingsPanel" class="form-control">
+                      <option value="calcite-panels-left">Left</option>
+                      <option value="calcite-panels-right" selected>Right</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Menu style -->
+
+                <div class="form-group">
+                  <label for="settingsMenu" class="col-xs-3 control-label">Menu</label>
+                  <div class="col-xs-9">
+                    <select id="settingsMenu" class="form-control">
+                      <option value="" selected>Dropdown</option>
+                      <option value="calcite-menu-drawer">Drawer</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div> 
+            </div>
+          </div><!-- /.tab-content -->
+        </div><!-- /.panel-body -->
+      </div><!-- /.panel-collapse --> 
+    </div><!-- /.panel -->
+  </div> <!-- /.calcite-panels group-->
+
+  <script type="text/javascript">
+    var dojoConfig = {
+      packages: [{
+        name: "bootstrap",
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
+      },
+      {
+        name: "calcite-maps",
+        location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/js/dojo"
+        //location: location.pathname.replace(/\/[^/]+$/, "") + "./../../lib/js/dojo"
+      },
+      {
+        name: "calcite-settings",
+        location: location.pathname.replace(/\/[^/]+$/, "") + "/js"
+      }]
+    };
+  </script>
+
+  <!-- ArcGIS JS 4.x -->
+  <script src="https://js.arcgis.com/4.3/"></script>
+
+  <script>
+    
+    var app;
+
+    require([
+      // ArcGIS
+      "esri/Map",
+      "esri/Basemap",
+      "esri/layers/VectorTileLayer",
+      "esri/views/MapView",
+      "esri/views/SceneView",
+      "esri/widgets/Search",
+      "esri/widgets/Popup",
+      "esri/widgets/Home",
+      "esri/widgets/Legend",
+      "esri/widgets/ColorPicker",
+      "esri/core/watchUtils",
+      "dojo/query",
+      "dojo/dom-class",
+      "dojo/dom",
+      "dojo/on",
+
+      // Calcite Maps
+      "calcite-maps/calcitemaps-v0.3",
+      //"calcite-maps/calcitemaps",
+      "calcite-settings/panelsettings",
+
+      // Boostrap
+      "bootstrap/Collapse", 
+      "bootstrap/Dropdown",
+      "bootstrap/Tab",
+      "bootstrap/Carousel",
+      "bootstrap/Tooltip",
+      "bootstrap/Modal",
+
+      // Dojo
+      "dojo/domReady!"
+    ], function(Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker, 
+      watchUtils, query, domClass, dom, on, CalciteMapsSettings, PanelSettings) {
+      
+      app = {
+        scale: 50000000,
+        lonlat: [-40,40],
+        mapView: null, 
+        mapDiv: "mapViewDiv",
+        mapFL: null,
+        vectorLayer: null,
+        sceneView: null, 
+        sceneDiv: "sceneViewDiv",
+        sceneFL: null,
+        activeView: null,
+        searchWidgetNav: null, 
+        searchWidgetPanel: null, 
+        searchWidgetSettings: null,
+        basemapSelected: "gray-vector",
+        basemapSelectedAlt: "gray",
+        padding: { 
+          top: 85 ,
+          right: 0,
+          bottom: 0,
+          left: 0
+        }, 
+        uiPadding: { 
+          components:["zoom", "attribution", "home"],
+          padding: {
+            top: 15,
+            right: 15,
+            bottom: 30,
+            left: 15
+          }
+        },
+        popupOptions: {
+          autoPanEnabled: true,
+          messageEnabled: false,
+          spinnerEnabled: false,
+          dockEnabled: true,
+          dockOptions: {
+            buttonEnabled: true,
+            breakpoint: 544 // default
+          }
+        },
+        colorPickerWidget: null,
+        panelSettings: null
+      }
+
+      //----------------------------------
+      // App
+      //----------------------------------
+
+      initializeMapViews();
+      initializeAppUI();
+
+      // Panel settings
+      app.panelSettings = new PanelSettings( { app: app } );
+      app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOP;
+      app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+
+      // Set padding for navs that change height
+      if (window.innerWidth < app.activeView.breakpoints.small && app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+        app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+      }
+
+      //----------------------------------
+      // Map and Scene View
+      //----------------------------------
+
+      function initializeMapViews() {
+
+        //2D - MapView
+        app.mapView = new MapView({
+          container: app.mapDiv,
+          map: new Map( { basemap: app.basemapSelected, constraints: { snapToZoom: false } } ),
+          scale: app.scale,
+          center: app.lonlat, 
+          padding: app.padding,
+          ui: app.uiPadding, 
+          popup: new Popup(app.popupOptions),
+          visible: true
+        });
+
+        //app.mapView.ui.add(new Home({view: app.mapView}), "top-left");
+
+        //Set active view
+        app.activeView = app.mapView;
+
+        //3D - SceneView
+        app.sceneView = new SceneView({ 
+          container: app.sceneDiv,
+          map: new Map( { basemap: app.basemapSelectedAlt, ground: "world-elevation", constraints: { snapToZoom: false } } ),
+
+          scale: app.scale,
+          center: app.lonlat, 
+          padding: app.padding,
+          ui: app.uiPadding, 
+          popup: new Popup(app.popupOptions),
+          visible: false
+        });
+
+        //app.sceneView.ui.add(new Home({view: app.sceneView}), "top-left");
+
+        // Listen for view breakpoint changes and update control location
+        app.mapView.watch("widthBreakpoint", function(newVal, oldVal) {
+          function setPadding(newVal, oldVal) {
+            if (newVal === "small" && oldVal === "medium") {
+              app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+            } else if (newVal === "medium" && oldVal === "small") {
+              app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPadding, app.panelSettings.activeLayout.uiPadding);
+            }
+          }
+          // Set padding for navs that change height
+          if (app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+            setPadding(newVal, oldVal);
+          }
+        });
+      }
+
+      //----------------------------------
+      // App UI Handlers
+      //----------------------------------
+
+      function initializeAppUI() {
+        // App UI
+        setTabEvents();
+        setBasemapEvents();
+        setSearchWidgets();
+        setColorPicker();
+        setPopupPanelEvents();
+        setPopupEvents();
+      }
+
+      //----------------------------------
+      // View Tabs
+      //----------------------------------
+
+      function setTabEvents() {
+
+        // Tab event
+        query(".calcite-navbar li a[data-toggle='tab']").on("show.bs.tab", function(e) {  
+          // Tabs
+          syncTabs(e);
+          // Views
+          if (e.target.text.indexOf("Map") > -1) {
+            syncViews(app.sceneView, app.mapView);
+            app.activeView = app.mapView;
+          } else {
+            syncViews(app.mapView, app.sceneView);
+            app.activeView = app.sceneView; 
+          }
+          // Search
+          syncSearch();
+          // Hide popup - TODO
+          app.activeView.popup.set({
+            visible: false
+          });
+        });
+
+        // Tabs
+        function syncTabs(e) {
+          query(".calcite-navbar li.active").removeClass("active");       
+          query(e.target).addClass("active");
+        }
+
+        // Views
+        function syncViews(fromView, toView) {
+          watchUtils.whenTrueOnce(toView, "ready").then(function(result) {
+            watchUtils.whenTrueOnce(toView, "stationary").then(function(result) {
+              toView.goTo(fromView.viewpoint);
+              toView.popup.reposition();
+            });
+          });
+        }
+
+        // Search
+        function syncSearch() {
+          app.searchWidgetNav.view = app.activeView;
+          app.searchWidgetPanel.view = app.activeView;
+          app.searchWidgetSettings.view = app.activeView;
+          // Sync
+          if (app.searchWidgetNav.selectedResult) {
+            app.searchWidgetNav.search(app.searchWidgetNav.selectedResult.name);
+          }
+          if (app.searchWidgetPanel.selectedResult) {
+            app.searchWidgetPanel.search(app.searchWidgetPanel.selectedResult.name);
+          }
+        }
+      }
+
+      //----------------------------------
+      // Basemaps
+      //----------------------------------
+
+      function setBasemapEvents() {
+
+        // Sync basemaps for map and scene
+        query("#selectBasemapPanel, #settingsSelectBasemap").on("change", function(e){
+          app.basemapSelected = e.target.options[e.target.selectedIndex].dataset.vector;
+          app.basemapSelectedAlt = e.target.value;
+          setBasemaps();               
+        });
+
+        function setBasemaps() {
+          app.mapView.map.basemap = app.basemapSelected;
+          app.sceneView.map.basemap = app.basemapSelectedAlt;
+        } 
+      }
+
+      //----------------------------------
+      // Search Widgets
+      //----------------------------------
+
+      function setSearchWidgets() {
+        
+        //TODO - Search Nav + Panel (detach/attach)
+        app.searchWidgetNav = createSearchWidget("searchNavDiv", true);
+        app.searchWidgetPanel = createSearchWidget("searchPanelDiv", true);
+        app.searchWidgetSettings = createSearchWidget("settingsSearchDiv", false);
+
+         // Create widget
+        function createSearchWidget(parentId, showPopup) {
+          var search = new Search({
+            viewModel: {
+              view: app.activeView,
+              showPopupOnSelect: showPopup,
+              highlightEnabled: false,
+              maxSuggestions: 4
+            },
+            }, parentId);
+          search.startup();
+          return search;
+        } 
+      }
+
+      //----------------------------------
+      // Colorpicker Widget
+      //----------------------------------
+
+      function setColorPicker() {
+        app.colorPickerWidget = new ColorPicker({
+            required: false,
+            showRecentColors: false,
+            showTransparencySlider: false
+          }, "colorPickerDiv");
+        app.colorPickerWidget.startup();
+      }
+
+      //----------------------------------
+      // Popups and Panels
+      //----------------------------------
+
+      function setPopupPanelEvents() {
+
+        // Views - Listen to view size changes to show/hide panels
+        app.mapView.watch("size", viewSizeChange);
+        app.sceneView.watch("size", viewSizeChange);
+
+        function viewSizeChange(screenSize) {
+          if (app.screenWidth !== screenSize[0]) {
+            app.screenWidth = screenSize[0];
+            setPanelVisibility();
+          }
+        }
+
+        // Popups - Listen to popup changes to show/hide panels
+        app.mapView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
+        app.sceneView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
+
+        // Panels - Show/hide the panel when popup is docked
+        function setPanelVisibility() {
+           var isMobileScreen = app.activeView.widthBreakpoint === "xsmall" || app.activeView.widthBreakpoint === "small",
+            isDockedVisible = app.activeView.popup.visible && app.activeView.popup.currentDockPosition,
+            isDockedBottom = app.activeView.popup.currentDockPosition && app.activeView.popup.currentDockPosition.indexOf("bottom") > -1;
+          // Mobile (xsmall/small)
+          if (isMobileScreen) {
+            if (isDockedVisible && isDockedBottom) {
+              query(".calcite-panels").addClass("invisible");
+            } else {
+              query(".calcite-panels").removeClass("invisible");
+            }
+          } else { // Desktop (medium+)
+            if (isDockedVisible) {
+              query(".calcite-panels").addClass("invisible");
+            } else {
+              query(".calcite-panels").removeClass("invisible");          
+            }
+          }
+        }
+
+        // Panels - Dock popup when panels show (desktop or mobile)
+        query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
+          if (app.activeView.popup.currentDockPosition || app.activeView.widthBreakpoint === "xsmall") {
+            app.activeView.popup.dockEnabled = false;
+          }
+        });
+
+        // Panels - Undock popup when panels hide (mobile only)
+        query(".calcite-panels .panel").on("hide.bs.collapse", function(e) {
+          if (app.activeView.widthBreakpoint === "xsmall") {
+            app.activeView.popup.dockEnabled = true;
+          }
+        });
+      }
+
+      //----------------------------------
+      // Popup collapse (optional)
+      //----------------------------------
+
+      function setPopupEvents() {      
+        query(".esri-popup__header-title").on("click", function(e){
+          query(".esri-popup__main-container").toggleClass("esri-popup-collapsed");
+          app.activeView.popup.reposition();
+        }.bind(this));
+      }
+
+      //----------------------------------
+      // Toggle nav
+      //----------------------------------
+      // query("#calciteToggleNavbar").on("click", function(e) {
+      //   var padding;
+      //   if (query(".calcite-nav-hidden").length > 0) { // hidden
+      //     //app.panelSettings.setLayout(app.panelSettings.activeLayout, true);
+      //     //query(".calcite-panels .panel.in").collapse("hide");
+      //   } else {
+      //     //app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+      //   }
+      //   query(".calcite-dropdown").removeClass("open");
+      //   query(".calcite-dropdown-toggle").removeClass("open");
+      // });
+
+      //----------------------------------
+      // Manual show/hide menu dropdown (slide)
+      //----------------------------------
+
+      // query(".dropdown-toggle").on('click', function (e) {
+      //   // Show dropdown nav
+      //   query(this).parent().toggleClass("open");
+      //   // Menu animcation
+      //   query(".calcite-dropdown-toggle").toggleClass("open");
+      // });
+
+    });
+  </script>
+
+</body>
+</html>
+

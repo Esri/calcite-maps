@@ -28,7 +28,7 @@ NOTE: The framework is compatile with standard or custom builds of [Bootstrap 3.
 
 Here's a few ways to get started:
 
-1. **Explore the styles** - Use the [Styler](https://esri.github.io/calcite-maps/samples/index.html) to explore the different colors, styles and layouts. When you find a design you like, inspect the HTML and apply the styles (CSS classes) to your app.
+1. **Explore the styles** - Use the [Style Explorer](https://esri.github.io/calcite-maps/samples/index.html) to explore the different colors, styles and layouts. When you find a design you like, inspect the HTML and apply the styles (CSS classes) to your app.
 
 2. **Start with a sample** - Create your own app from one of the [samples](./samples/index.html). Typically you reference Bootstrap, Calcite Maps and the appropriate JS library. [See example below](#example).
 
