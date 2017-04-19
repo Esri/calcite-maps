@@ -9,7 +9,7 @@ To see what types of apps you can build check out the [live samples here](https:
 
 ![calcite-maps.png](./calcite-maps.png?raw=true "Calcite Maps")
 
-##What's included
+## What's included
 
 * 14 different top and bottom layouts
 * Small (40px), medium (50px) and large (65px) navbar sizes
@@ -24,7 +24,7 @@ To see what types of apps you can build check out the [live samples here](https:
 
 NOTE: The framework is compatile with standard or custom builds of [Bootstrap 3.x](https://www.getbootstrap.com).
 
-##Getting started
+## Getting started
 
 Here's a few ways to get started:
 
