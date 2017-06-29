@@ -92,18 +92,8 @@
       </div>
       <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
         <div class="panel-body">
-          <select id="selectBasemapPanel" class="form-control">
-            <option value="streets-vector">Streets</option>
-            <option value="satellite">Satellite</option>
-            <option value="hybrid">Hybrid</option>
-            <option value="national-geographic">National Geographic</option>
-            <option value="topo-vector">Topographic</option>
-            <option value="gray-vector">Gray</option>
-            <option value="dark-gray-vector">Dark Gray</option>
-            <option value="osm">Open Street Map</option>
-            <option value="streets-night-vector">Streets Night</option>
-            <option value="streets-navigation-vector" selected="">Streets Navigation</option>
-          </select>
+          <div id="basemapGalleryDiv">
+          </div>
         </div>
       </div>
     </div>
@@ -186,16 +176,13 @@
       "esri/views/MapView",
 
       // Widgets
+      "esri/widgets/BasemapGallery",
       "esri/widgets/Search",
       "esri/widgets/Legend",
       "esri/widgets/LayerList",
       "esri/widgets/Print",
       "esri/widgets/BasemapToggle",
       "esri/widgets/ScaleBar",
-      "esri/core/watchUtils",
-
-      // Dojo
-      "dojo/query",
 
       // Bootstrap
       "bootstrap/Collapse",
@@ -205,7 +192,7 @@
       "calcite-maps/calcitemaps-v0.4",
       
       "dojo/domReady!"
-    ], function(WebMap, MapView, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, watchUtils, query) {
+    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar) {
 
       /******************************************************************
        *
@@ -227,22 +214,28 @@
         padding: {
           top: 50,
           bottom: 0
-        }, 
-        breakpoints: {
-          xsmall: 768,
-          small: 769,
-          medium: 992,
-          large: 1200
         }
       });
 
+      // Popup
+      mapView.then(function(){
+        mapView.popup.dockEnabled = false;
+        mapView.popup.dockOptions = {
+          buttonEnabled: false
+        }
+      });
+
+      // Basemaps
+      var basemaps = new Basemaps({
+        container: "basemapGalleryDiv",
+        view: mapView
+      })
+
       // Search - add to navbar
       var searchWidget = new Search({
+        container: "searchWidgetDiv",
         view: mapView
-      }, "searchWidgetDiv");
-      
-      // Zoom to New York and show popup
-      //searchWidget.search("New York City");
+      });
       
       // Legend
       var legendWidget = new Legend({
@@ -275,43 +268,6 @@
         view: mapView
       });
       mapView.ui.add(scaleBar, "bottom-left");
-
-      // Change basemaps with panel
-      query("#selectBasemapPanel").on("change", function(e) {
-        mapView.map.basemap = e.target.value;
-      });
-
-      /******************************************************************
-       *
-       * Synchronize popup and Bootstrap panels
-       * 
-       ******************************************************************/
-
-      // Popup - dock top-right desktop, bottom for mobile
-      mapView.watch("widthBreakpoint", function(breakPoint){        
-        if (breakPoint === "medium" || breakPoint === "large" || breakPoint === "xlarge") {
-         mapView.popup.dockOptions.position = "top-right";
-        } else {
-         mapView.popup.dockOptions.position = "bottom-center";
-        }
-      });
-      
-      // Popup - show/hide panels when popup is docked
-      mapView.popup.watch(["visible", "currentDockPosition"], function(){
-        var docked = mapView.popup.visible && mapView.popup.currentDockPosition;
-        if (docked) {
-          query(".calcite-panels").addClass("invisible");
-        } else {
-          query(".calcite-panels").removeClass("invisible");
-        }
-      });
-
-      // Panels - undock popup when panel shows
-      query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-        if (mapView.popup.currentDockPosition) {
-          mapView.popup.dockEnabled = false;
-        }
-      });
 
     });
   </script>

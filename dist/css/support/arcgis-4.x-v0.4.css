@@ -27,6 +27,9 @@
   padding: .6em 1em;
   font-size: 13px; }
 
+.calcite-maps .esri-basemap-gallery {
+  width: 100%; }
+
 .calcite-maps .esri-basemap-toggle {
   z-index: 1; }
 
