@@ -107,7 +107,7 @@
           
     // Form controls
     
-    input:not(.esri-search__input), 
+    input, 
     textarea,
     select {
       color: $theme_dark_control_text_color;
