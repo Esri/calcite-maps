@@ -70,13 +70,13 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   <title>ArcGIS JS v4, Calcite Maps and Bootstrap Example</title>
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.3.css">
+  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.4.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.3.css">
+  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.4.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
 
   <style>
     html,
@@ -96,7 +96,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark">
     <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-text-dark calcite-bg-light" role="presentation">
-      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+      <a class="dropdown-toggle" role="menubutton" aria-haspopup="true" aria-expanded="false" tabindex="0">
         <div class="calcite-dropdown-toggle">
           <span class="sr-only">Toggle dropdown menu</span>
           <span></span>
@@ -106,8 +106,8 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         </div>
       </a>
       <ul class="dropdown-menu">
-        <li><a role="button" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
-        <li><a role="button" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
+        <li><a role="menuitem" tabindex="0" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
+        <li><a role="menuitem" tabindex="0" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div>
     <!-- Title -->
@@ -145,7 +145,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         <div class="panel-title">
           <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps"
             aria-expanded="false" aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="panel-label">Basemaps</span></a>
-          <a class="panel-close" role="button" data-toggle="collapse" data-target="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
         </div>
       </div>
       <div id="collapseBasemaps" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingBasemaps">
@@ -182,7 +182,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   </script>
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.3/"></script>
+  <script src="https://js.arcgis.com/4.4/"></script>
 
   <script>
     
@@ -198,7 +198,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       "bootstrap/Collapse",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.3",
+      "calcite-maps/calcitemaps-v0.4",
       
       "dojo/domReady!"
     ], function(Map, MapView, Search, Popup, query) {
