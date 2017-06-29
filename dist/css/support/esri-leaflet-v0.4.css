@@ -1,0 +1,90 @@
+[class^="esri-icon-"]:before,
+[class*=" esri-icon-"]:before,
+[class^="icon-ui-"]:before,
+[class*=" icon-ui-"]:before {
+  padding: 0;
+  line-height: 1; }
+
+.calcite-navbar-search {
+  margin-top: 15px; }
+
+.calcite-panels {
+  z-index: 1000; }
+
+.calcite-map .leaflet-control-zoom.leaflet-control {
+  margin: 15px 15px 30px 15px; }
+
+.calcite-map .leaflet-control-zoom.leaflet-bar > a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 0; }
+
+.calcite-nav-top .calcite-map .leaflet-control-zoom {
+  margin-top: 65px; }
+
+.calcite-nav-top.calcite-margin-top .calcite-map .leaflet-control-zoom,
+.calcite-nav-top.calcite-margin-all .calcite-map .leaflet-control-zoom {
+  margin-top: 80px; }
+
+.calcite-nav-bottom .calcite-map .leaflet-control-zoom,
+.calcite-nav-bottom-fixed .calcite-map .leaflet-control-zoom {
+  margin-top: 30px; }
+
+.calcite-map .esri-leaflet-logo.leaflet-control {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 16px 2px !important; }
+
+.calcite-map .esri-leaflet-logo > a > img {
+  max-width: 43px !important; }
+
+.calcite-map .leaflet-control-attribution {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 15px; }
+
+.calcite-nav-bottom .leaflet-control-attribution,
+.calcite-nav-bottom .esri-leaflet-logo.leaflet-control,
+.calcite-nav-bottom-fixed .leaflet-control-attribution,
+.calcite-nav-bottom-fixed .esri-leaflet-logo.leaflet-control {
+  top: 0;
+  bottom: auto; }
+
+.geocoder-control .geocoder-control-input {
+  padding: 7px;
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px #959595 solid; }
+
+.geocoder-control .geocoder-control-suggestions {
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid #ccc; }
+
+.calcite-navbar .geocoder-control {
+  margin-top: 0; }
+
+.calcite-panels .geocoder-control {
+  margin: 4px 0 6px;
+  width: 100%; }
+  .calcite-panels .geocoder-control .geocoder-control-input {
+    padding: 9px; }
+  .calcite-panels .geocoder-control .geocoder-control-suggestions .geocoder-control-suggestion {
+    color: #000; }
+
+.calcite-nav-bottom .geocoder-control-suggestions.leaflet-bar,
+.calcite-nav-bottom-fixed .geocoder-control-suggestions.leaflet-bar {
+  top: auto;
+  bottom: 101%; }
+
+.calcite-map .leaflet-popup-content-wrapper {
+  border-radius: 0; }
+
+.calcite-map .leaflet-popup-content {
+  min-width: 100px; }
