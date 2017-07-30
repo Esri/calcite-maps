@@ -5,7 +5,7 @@
  *
  * ======================================================================== */
 
-define([ 
+define([
   "dojo/_base/declare",
   "dojo/_base/lang",
   "dojo/query",
@@ -17,7 +17,7 @@ define([
   var CalciteMaps = declare(null, {
 
     constructor: function () {
-      
+
       this.initEvents();
 
     },
@@ -36,8 +36,6 @@ define([
 
     activePanel: null,
 
-    activeMenuItem: null,
-    
     stickyDropdownDesktop: false,
 
     stickyDropdownMobile: false,
@@ -72,16 +70,10 @@ define([
         var isPanel = false,
           panel = null,
           panelBody = null,
-          panels = null;
+          panels = null,
+          menuItem = null;
 
         if (e.currentTarget.dataset.target) {
-          //toggle active status for menu items
-          var menuItem = query(e.currentTarget);
-          menuItem.closest('li').addClass('active');
-          if (this.activeMenuItem) {           
-            this.activeMenuItem.closest('li').removeClass('active');           
-          }
-          this.activeMenuItem = menuItem;
           panel = query(e.currentTarget.dataset.target);
           if (panel.length > 0) {
             isPanel = domClass.contains(panel[0], "panel");
@@ -102,6 +94,10 @@ define([
             panel.collapse("show");
             // Show body
             query(panelBody[0]).collapse("show");
+            //Activate panel menu-item if not a bootstrap tab
+            menuItem = query(e.currentTarget);
+            menuItem.closest('li').addClass('active-panel');
+
           } else { // Re-show
             panel.removeClass("in");
             query(panelBody[0]).removeClass("in");
@@ -125,7 +121,7 @@ define([
 
       // Show/hide panels
 
-      query(this.dropdownMenuItemSelector).on(["click","keydown"], lang.hitch(this, funcContext)); 
+      query(this.dropdownMenuItemSelector).on(["click","keydown"], lang.hitch(this, funcContext));
 
     },
 
@@ -134,7 +130,7 @@ define([
     //----------------------------------
 
     setDropdownToggleEvents: function() {
-      
+
       // Manually show/hide the dropdown
       query(".calcite-dropdown .dropdown-toggle").on(["click","keydown"], function (e) {
         if (e.type === "keydown" && e.keyCode !== 13) {
@@ -199,17 +195,18 @@ define([
         });
       }
 
-      //remove active menu item on panel closed
+      //Remove panel menu item active status on panel closed
       query(".calcite-panels .panel").on("hidden.bs.collapse",lang.hitch(this,function(e){
-        if(this.activeMenuItem){
-          this.activeMenuItem.closest('li').removeClass('active');
+        var targetId = '#' + e.currentTarget.id;
+        var menuItem = query('[data-target="' + targetId + '"]');
+        if (menuItem.length) {
+          menuItem.closest('li').removeClass('active active-panel');
         }
-        this.activeMenuItem = null;
       }));
-      
+
     }
 
   });
-      
+
   return new CalciteMaps();
 });
