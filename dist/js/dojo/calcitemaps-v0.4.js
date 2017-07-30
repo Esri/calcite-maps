@@ -199,7 +199,7 @@ define([
       query(".calcite-panels .panel").on("hidden.bs.collapse",lang.hitch(this,function(e){
         var targetId = '#' + e.currentTarget.id;
         var menuItem = query('[data-target="' + targetId + '"]');
-        if (menuItem.length) {
+        if (menuItem.length > 0) {
           menuItem.closest('li').removeClass('active active-panel');
         }
       }));
