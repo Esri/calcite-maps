@@ -11,6 +11,7 @@ define([
   "dojo/query",
   "dojo/dom-class",
   "dojo/on",
+  "dojo/NodeList-traverse",
   "dojo/domReady!"
 ], function(declare, lang, query, domClass, on) {
 
@@ -47,7 +48,8 @@ define([
     //----------------------------------
 
     initEvents: function() {
-
+      this.setPanelActiveState();
+      this.setTabActiveState();
       this.setDropdownItemEvents();
       this.setDropdownToggleEvents();
       this.setToggleNavbarClick();
@@ -94,9 +96,6 @@ define([
             panel.collapse("show");
             // Show body
             query(panelBody[0]).collapse("show");
-            //Activate panel menu-item
-            menuItem = query(e.currentTarget);
-            menuItem.closest('li').addClass('active-panel');
 
           } else { // Re-show
             panel.removeClass("in");
@@ -202,8 +201,42 @@ define([
         if (menuItem.length > 0) {
           menuItem.closest('li').removeClass('active active-panel');
         }
+        this.activePanel = null;
       }));
 
+      //Add panel menu item active status on panel active
+      query(".calcite-panels .panel").on("show.bs.collapse",lang.hitch(this,function(e){
+        var targetId = '#' + e.currentTarget.id;
+        var menuItem = query('[data-target="' + targetId + '"]');
+        if (menuItem.length > 0) {
+          menuItem.closest('li').addClass('active-panel');
+        }
+        this.activePanel = query(e.currentTarget);
+      }));
+
+    },
+
+    setPanelActiveState: function () {
+      var activePanels = query(".calcite-panels .panel.in");
+        var panelNode = activePanels[0];
+        if (panelNode && (id = panelNode.id)) {
+          var selector = this.dropdownMenuItemSelector + '[data-target="#' + id + '"],' +
+            this.dropdownMenuItemSelector + '[href="#' + id + '"]';
+          var menuItem = query(selector);
+          (menuItem.length > 0) && menuItem.closest('li').addClass('active-panel');
+        }
+      this.activePanel = activePanels.length > 0 ? activePanels : null;
+
+    },
+
+    setTabActiveState:function(){
+      var activeTab = query(".calcite-nav li.active")[0];
+        var a = (activeTab) && query(activeTab).children('a')[0];
+        id = (a) && (a.dataset.target || a.href.substr(a.href.indexOf('#') + 1));
+        var selector = this.dropdownMenuItemSelector + '[data-target="#' + id + '"],' +
+          this.dropdownMenuItemSelector + '[href="#' + id + '"]';
+        var menuItem = query(selector);
+        (menuItem.length > 0) && menuItem.closest('li').addClass('active');
     }
 
   });
