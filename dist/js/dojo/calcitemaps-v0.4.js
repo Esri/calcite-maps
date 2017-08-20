@@ -230,13 +230,13 @@ define([
     _activateMenuItem:function(id,activeClass){
       var activeClass = activeClass || 'active-panel';
       var menuItem = this._queryMenuItem(id);
-      (menuItem.length > 0) && menuItem.closest('li').addClass(activeClass);
+      (menuItem.length > 0) && menuItem.parent('li').addClass(activeClass);
     },
 
     _deactivateMenuItem:function(id,activeClass){
       var activeClass = activeClass || 'active active-panel';
       var menuItem = this._queryMenuItem(id);
-      (menuItem.length > 0) && menuItem.closest('li').removeClass(activeClass);
+      (menuItem.length > 0) && menuItem.parent('li').removeClass(activeClass);
     },
     
     _queryMenuItem: function(id){
