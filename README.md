@@ -427,8 +427,8 @@ Here's are the CSS classes you can apply to different elements to create your ow
 * Base
  * `calcite-panels`
 * Position
- * `calcite-panel-right`
- * `calcite-panel-left`
+ * `calcite-panels-right`
+ * `calcite-panels-left`
 * Theme
  * `calcite-text-light`
  * `calcite-text-dark`
