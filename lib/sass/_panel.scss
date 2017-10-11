@@ -63,6 +63,10 @@
 
   // Body - specific Bootstrap overrides for map apps
 
+  .panel-overflow-hidden {
+    overflow: hidden;
+  }
+
   .panel-heading + .panel-collapse > .panel-body {
     border-top: none;
   }
