@@ -276,9 +276,9 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         }
       });
 
-      // Popup
+      // Popup and panel sync
       mapView.then(function(){
-        CalciteMapArcGISSupport.syncPopupPanels(mapView);
+        CalciteMapArcGISSupport.setPopupPanelSync(mapView);
       });
 
       // Search - add to navbar
