@@ -9,13 +9,13 @@
   <title>Calcite Maps - ArcGIS 4.x 2D - 3D</title>
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.4.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.5.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.4.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.5.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
 
   <style>
     html, body {
@@ -61,7 +61,11 @@
     <ul class="calcite-nav nav navbar-nav">                    
       <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
       <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
-      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+      <li>
+        <div class="calcite-navbar-search calcite-search-expander" role="presentation" tabindex="-1">
+          <div id="searchNavDiv" tabindex="0"></div>
+        </div>
+      </li>
     </ul>
   </nav><!--/.navbar -->
 
@@ -153,7 +157,7 @@
   </script>
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.4/"></script>
+  <script src="https://js.arcgis.com/4.5/"></script>
 
   <script>
 
@@ -167,21 +171,22 @@
       "esri/core/watchUtils",
       "dojo/query",
 
+      // Calcite-maps
+      "calcite-maps/calcitemaps-v0.5",
+      "calcite-maps/calcitemaps-arcgis-support-v0.5",
+
       // Bootstrap
       "bootstrap/Collapse", 
       "bootstrap/Dropdown",
-      "bootstrap/Tab",
-      
-      // Calcite-maps
-      "calcite-maps/calcitemaps-v0.4",
+      "bootstrap/Tab",      
+
       "dojo/domReady!"
-    ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query) {
+    ], function(Map, Basemap, MapView, SceneView, Search, watchUtils, query, CalciteMaps, CalciteMapsArcGIS) {
         
       // App
       app = {
-        scale: 50000000,
+        zoom: 1,
         center: [-40,40],
-        initialExtent: null,
         basemap: "satellite",
         viewPadding: {
           top: 50, bottom: 0
@@ -189,20 +194,26 @@
         uiPadding: {
           top: 15, bottom: 15
         },
+        map: null,
         mapView: null,
         sceneView: null,
         activeView: null,
-        searchWidgetNav: null
+        searchWidgetNav: null,
+        containerMap: "mapViewDiv",
+        containerScene: "sceneViewDiv"
       };
 
       // Map 
-      var map = new Map({
-        basemap: app.basemap
+      app.map = new Map({
+        basemap: app.basemap,
+        ground: "world-elevation"
       });
+
+      // 2D View
       app.mapView = new MapView({
-        container: "mapViewDiv",
-        map: map,
-        scale: app.scale,
+        container: null, // deactivate
+        map: app.map,
+        zooom: app.zoom,
         center: app.center,
         padding: app.viewPadding,
         ui: {
@@ -211,15 +222,11 @@
         }
       });
 
-      // Scene
-      var mapScene = new Map({
-        basemap: app.basemap,
-        ground: "world-elevation"
-      });
+      // 3D View
       app.sceneView = new SceneView({
-        container: "sceneViewDiv",
-        map: mapScene,
-        scale: app.scale,
+        container: app.containerScene, // activate
+        map: app.map,
+        zoom: app.zoom,
         center: app.center,
         padding: app.viewPadding,
         ui: {
@@ -227,145 +234,67 @@
         }
       });
 
-      app.activeView = app.sceneView;
+      // Active view is scene
+      setActiveView(app.sceneView);
 
-      app.activeView.then(function() {
-        app.initialExtent = app.activeView.extent;
+      // Create search widget
+      app.searchWidgetNav = new Search({
+        container: "searchNavDiv",
+        view: app.activeView
       });
 
-      // Search Widgets
-      app.searchWidgetNav = createSearchWidget("searchNavDiv");
+      // Wire-up expand events
+      CalciteMapsArcGIS.setSearchExpandEvents(app.searchWidgetNav);
+      CalciteMapsArcGIS.setPopupPanelSync(app.mapView);
+      CalciteMapsArcGIS.setPopupPanelSync(app.sceneView);
 
-      function createSearchWidget(parentId) {
-        var search = new Search({
-          viewModel: {
-            view: app.activeView,
-            highlightEnabled: false,
-            popupEnabled: true,
-            showPopupOnSelect: true
-          }
-          }, parentId);
-        search.startup();
-        return search;
-      }
-
-      // Popup and Panel Events
-      
-      // Views - Listen to view size changes to show/hide panels
-      app.mapView.watch("size", viewSizeChange);
-      app.sceneView.watch("size", viewSizeChange);
-
-      function viewSizeChange(screenSize) {
-        if (app.screenWidth !== screenSize[0]) {
-          app.screenWidth = screenSize[0];
-          setPanelVisibility();
-        }
-      }
-
-      // Popups - Listen to popup changes to show/hide panels
-      app.mapView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
-      app.sceneView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
-
-      // Panels - Show/hide the panel when popup is docked
-      function setPanelVisibility() {
-         var isMobileScreen = app.activeView.widthBreakpoint === "xsmall" || app.activeView.widthBreakpoint === "small",
-          isDockedVisible = app.activeView.popup.visible && app.activeView.popup.currentDockPosition,
-          isDockedBottom = app.activeView.popup.currentDockPosition && app.activeView.popup.currentDockPosition.indexOf("bottom") > -1;
-        // Mobile (xsmall/small)
-        if (isMobileScreen) {
-          if (isDockedVisible && isDockedBottom) {
-            query(".calcite-panels").addClass("invisible");
-          } else {
-            query(".calcite-panels").removeClass("invisible");
-          }
-        } else { // Desktop (medium+)
-          if (isDockedVisible) {
-            query(".calcite-panels").addClass("invisible");
-          } else {
-            query(".calcite-panels").removeClass("invisible");          
-          }
-        }
-      }
-
-      // Panels - Dock popup when panels show (desktop or mobile)
-      query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-        if (app.activeView.popup.currentDockPosition || app.activeView.widthBreakpoint === "xsmall") {
-          app.activeView.popup.dockEnabled = false;
-        }
-      });
-
-      // Panels - Undock popup when panels hide (mobile only)
-      query(".calcite-panels .panel").on("hide.bs.collapse", function(e) {
-        if (app.activeView.widthBreakpoint === "xsmall") {
-          app.activeView.popup.dockEnabled = true;
-        }
-      });
-
-      // Tab Events (Views)
-      query(".calcite-navbar li a[data-toggle='tab']").on("click", function(e) {
-        syncTabs(e);
-        if (e.target.text.indexOf("Map") > -1) {
-          syncViews(app.sceneView, app.mapView);                  
-          app.activeView = app.mapView;  
-        } else {
-          syncViews(app.mapView, app.sceneView);                  
-          app.activeView = app.sceneView;
-        }
-        syncSearch();     
-      }); 
-
-      // Tabs
-      function syncTabs(e) {
-        query(".calcite-navbar li.active").removeClass("active");       
-        query(e.target).addClass("active");
-      }
-
-      // Views
-      function syncViews(fromView, toView) {
-        watchUtils.whenTrueOnce(toView, "ready").then(function(result) {
-          watchUtils.whenTrueOnce(toView, "stationary").then(function(result) {
-            toView.goTo(fromView.viewpoint);
-            toView.popup.reposition();
-          });
-        });
-      }
-
-      // Search Widgets
-      function syncSearch() {
-        app.searchWidgetNav.viewModel.view = app.activeView;
-        // Sync
-        if (app.searchWidgetNav.selectedResult) {
-          app.searchWidgetNav.search(app.searchWidgetNav.selectedResult.name);
-        }
-        app.activeView.popup.reposition();
-      }
-
-      // Basemap events
+      // Menu UI - change Basemaps
       query("#selectBasemapPanel").on("change", function(e){
         app.mapView.map.basemap = e.target.options[e.target.selectedIndex].dataset.vector;
         app.sceneView.map.basemap = e.target.value;
       });  
 
-      // Collapsible popup (optional)
-      query(".esri-popup .esri-title").on("click", function(e){
-        query(".esri-popup .esri-container").toggleClass("esri-popup-collapsed");
-        app.activeView.popup.reposition();
-      });
+      // Tab UI - switch views
+      query(".calcite-navbar li a[data-toggle='tab']").on("click", function(e) {
+        if (e.target.text.indexOf("Map") > -1) {
+          syncViews(app.sceneView, app.mapView);
+          setActiveView(app.mapView);
+        } else {
+          syncViews(app.mapView, app.sceneView);
+          setActiveView(app.sceneView);
+        }
+        syncSearch(app.activeView);
+      }); 
 
-      // Toggle nav
-      function closeMenu() {
-        if (query(".calcite-dropdown.open")[0]) {
-          query(".calcite-dropdown, .calcite-dropdown-toggle").removeClass("open");
+      // Views
+      function syncViews(fromView, toView) {
+        var viewPt = fromView.viewpoint.clone();
+        fromView.container = null;
+        if (fromView.type === "3d") {          
+          toView.container = app.containerMap;
+        } else {
+          toView.container = app.containerScene;
+        }
+        toView.viewpoint = viewPt;
+        toView.padding = app.viewPadding;
+      }
+
+      // Search Widget
+      function syncSearch(view) {
+        app.searchWidgetNav.view = view;
+        if (app.searchWidgetNav.selectedResult) {
+          watchUtils.whenTrueOnce(view,"ready",function(){
+            app.searchWidgetNav.autoSelect = false;
+            app.searchWidgetNav.search(app.searchWidgetNav.selectedResult.name);
+            app.searchWidgetNav.autoSelect = true;            
+          });
         }
       }
-      // Listen for clicks away from menu
-      app.mapView.on("click", function(e) {
-        closeMenu();
-      });
 
-      app.sceneView.on("click", function(e) {
-        closeMenu();
-      });
+      // Active view
+      function setActiveView(view) {
+        app.activeView = view;
+      }
 
     });
 

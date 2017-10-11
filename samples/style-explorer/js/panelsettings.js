@@ -11,6 +11,7 @@ define([
   "esri/widgets/Locate",
   "esri/widgets/Compass",
   "esri/widgets/BasemapToggle",
+  "esri/widgets/NavigationToggle",
   "esri/widgets/Search",
   "esri/widgets/Legend",
   "esri/views/ui/Component",
@@ -34,7 +35,7 @@ define([
 
   "dojo/domReady!"
 ], 
-function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
+function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
   Extent, ProjectUtils, GeometryService, ProjectParams, watchUtils, 
   query, domClass, domStyle, touch, on, keys, lang, declare) {
 
@@ -1027,6 +1028,11 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, Search, Legend, Component, 
       switch (name) {
         case "zoom":
           widget = new Zoom({
+            viewModel: viewModel
+          });
+          break;
+        case "navtoggle":
+          widget = new NavToggle({
             viewModel: viewModel
           });
           break;

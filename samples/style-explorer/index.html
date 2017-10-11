@@ -14,13 +14,13 @@
   <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-v0.4.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-v0.5.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.4.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.5.css">
   
   <!-- ArcGIS JS 4.x -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
   <!--link rel="stylesheet" href="../../dist/css/arcgis/themes/light/main.css"-->
 
   <style>
@@ -154,7 +154,7 @@
     <ul class="calcite-nav nav navbar-nav">                    
       <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
       <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
-      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+      <li><div class="calcite-navbar-search calcite-search-expander" tabindex="-1"><div id="searchNavDiv" tabindex="0"></div></div></li>
     </ul>
   </nav><!--/.navbar -->
 
@@ -722,6 +722,7 @@
                   <div class="col-xs-4">
                     <select id="settingsSceneWidget" class="form-control">
                       <option value="zoom" selected>Zoom</option>
+                      <option value="navtoggle">Nav Toggle</option>
                       <option value="home">Home</option>
                       <option value="locate">Locate</option>
                       <option value="compass">Compass</option>
@@ -817,7 +818,7 @@
   </script>
 
   <!-- ArcGIS JS 4.x -->
-  <script src="https://js.arcgis.com/4.4/"></script>
+  <script src="https://js.arcgis.com/4.5/"></script>
 
   <script>
     
@@ -842,7 +843,8 @@
       "dojo/on",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.4",
+      "calcite-maps/calcitemaps-v0.5",
+      "calcite-maps/calcitemaps-arcgis-support-v0.5",
       //"calcite-maps/calcitemaps",
       "calcite-settings/panelsettings",
 
@@ -857,7 +859,7 @@
       // Dojo
       "dojo/domReady!"
     ], function(Map, Basemap, VectorTileLayer, MapView, SceneView, Search, Popup, Home, Legend, ColorPicker, 
-      watchUtils, query, domClass, dom, on, CalciteMapsSettings, PanelSettings) {
+      watchUtils, query, domClass, dom, on, CalciteMapsSettings, CalciteMapsArcGISSupport, PanelSettings) {
       
       app = {
         scale: 50000000,
@@ -873,7 +875,7 @@
         searchWidgetNav: null, 
         searchWidgetPanel: null, 
         searchWidgetSettings: null,
-        basemapSelected: "gray-vector",
+        basemapSelected: "gray",
         basemapSelectedAlt: "gray",
         padding: { 
           top: 85 ,
@@ -897,7 +899,7 @@
           dockEnabled: true,
           dockOptions: {
             buttonEnabled: true,
-            breakpoint: 544 // default
+            //breakpoint: 544 // default
           }
         },
         colorPickerWidget: null,
@@ -985,8 +987,10 @@
         setBasemapEvents();
         setSearchWidgets();
         setColorPicker();
-        setPopupPanelEvents();
-        setPopupEvents();
+        CalciteMapsArcGISSupport.setPopupPanelSync(app.mapView);
+        CalciteMapsArcGISSupport.setPopupPanelSync(app.sceneView);
+        CalciteMapsArcGISSupport.setSearchExpandEvents(app.searchWidgetNav);
+
       }
 
       //----------------------------------
@@ -1108,68 +1112,13 @@
       // Popups and Panels
       //----------------------------------
 
-      function setPopupPanelEvents() {
-
-        // Views - Listen to view size changes to show/hide panels
-        app.mapView.watch("size", viewSizeChange);
-        app.sceneView.watch("size", viewSizeChange);
-
-        function viewSizeChange(screenSize) {
-          if (app.screenWidth !== screenSize[0]) {
-            app.screenWidth = screenSize[0];
-            setPanelVisibility();
-          }
-        }
-
-        // Popups - Listen to popup changes to show/hide panels
-        app.mapView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
-        app.sceneView.popup.watch(["visible", "currentDockPosition"], setPanelVisibility);
-
-        // Panels - Show/hide the panel when popup is docked
-        function setPanelVisibility() {
-           var isMobileScreen = app.activeView.widthBreakpoint === "xsmall" || app.activeView.widthBreakpoint === "small",
-            isDockedVisible = app.activeView.popup.visible && app.activeView.popup.currentDockPosition,
-            isDockedBottom = app.activeView.popup.currentDockPosition && app.activeView.popup.currentDockPosition.indexOf("bottom") > -1;
-          // Mobile (xsmall/small)
-          if (isMobileScreen) {
-            if (isDockedVisible && isDockedBottom) {
-              query(".calcite-panels").addClass("invisible");
-            } else {
-              query(".calcite-panels").removeClass("invisible");
-            }
-          } else { // Desktop (medium+)
-            if (isDockedVisible) {
-              query(".calcite-panels").addClass("invisible");
-            } else {
-              query(".calcite-panels").removeClass("invisible");          
-            }
-          }
-        }
-
-        // Panels - Dock popup when panels show (desktop or mobile)
-        query(".calcite-panels .panel").on("show.bs.collapse", function(e) {
-          if (app.activeView.popup.currentDockPosition || app.activeView.widthBreakpoint === "xsmall") {
-            app.activeView.popup.dockEnabled = false;
-          }
-        });
-
-        // Panels - Undock popup when panels hide (mobile only)
-        query(".calcite-panels .panel").on("hide.bs.collapse", function(e) {
-          if (app.activeView.widthBreakpoint === "xsmall") {
-            app.activeView.popup.dockEnabled = true;
-          }
-        });
-      }
-
       //----------------------------------
       // Popup collapse (optional)
       //----------------------------------
 
-      function setPopupEvents() {      
-        query(".esri-popup__header-title").on("click", function(e){
-          query(".esri-popup__main-container").toggleClass("esri-popup-collapsed");
-          app.activeView.popup.reposition();
-        }.bind(this));
+      function setSearchEvents() {   
+
+
       }
 
       //----------------------------------

@@ -8,13 +8,13 @@
   <title>ArcGIS JS v4, Calcite Maps and Bootstrap Example</title>
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.4.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.5.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.4.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.5.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
 
   <style>
     html,
@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="calcite-maps calcite-nav-top">
+<body class="calcite-maps calcite-nav-top calcite-widgets-dark">
 
   <!-- Navbar -->
 
@@ -43,7 +43,7 @@
           <span></span>
         </div>
       </a>
-      <ul class="dropdown-menu" role="menu">
+      <ul class="dropdown-menu" tabindex="0" role="menu">
         <li><a role="menuitem" tabindex="0" href="#" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
         <li><a role="menuitem" tabindex="0" href="#" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list-alt"></span> Legend</a></li>
         <li><a role="menuitem" tabindex="0" href="#" data-target="#panelLayers" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Layers</a></li>
@@ -60,8 +60,8 @@
     <!-- Nav -->
     <ul class="nav navbar-nav calcite-nav">
       <li>
-        <div class="calcite-navbar-search calcite-search-expander">
-          <div id="searchWidgetDiv"></div>
+        <div class="calcite-navbar-search calcite-search-expander" role="presentation" tabindex="-1">
+          <div id="searchWidgetDiv" tabindex="0"></div>
         </div>
       </li>
     </ul>
@@ -91,7 +91,7 @@
         </div>
       </div>
       <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
-        <div class="panel-body">
+        <div class="panel-body panel-overflow-hidden">
           <div id="basemapGalleryDiv">
           </div>
         </div>
@@ -166,7 +166,7 @@
 
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.4/"></script>
+  <script src="https://js.arcgis.com/4.5/"></script>
 
   <script>
     
@@ -184,15 +184,17 @@
       "esri/widgets/BasemapToggle",
       "esri/widgets/ScaleBar",
 
+      // Calcite Maps
+      "calcite-maps/calcitemaps-v0.5",
+      // Calcite Maps ArcGIS Support
+      "calcite-maps/calcitemaps-arcgis-support-v0.5",
+
       // Bootstrap
       "bootstrap/Collapse",
       "bootstrap/Dropdown",
-
-      // Calcite Maps
-      "calcite-maps/calcitemaps-v0.4",
       
       "dojo/domReady!"
-    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar) {
+    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, CalciteMaps, CalciteMapArcGISSupport) {
 
       /******************************************************************
        *
@@ -214,15 +216,13 @@
         padding: {
           top: 50,
           bottom: 0
-        }
+        },
+        ui: {components: ["zoom", "compass", "attribution"]}
       });
 
       // Popup
       mapView.then(function(){
-        mapView.popup.dockEnabled = false;
-        mapView.popup.dockOptions = {
-          buttonEnabled: false
-        }
+        CalciteMapArcGISSupport.syncPopupPanels(mapView);
       });
 
       // Basemaps
@@ -236,6 +236,8 @@
         container: "searchWidgetDiv",
         view: mapView
       });
+
+      CalciteMapArcGISSupport.setSearchExpandEvents(searchWidget);
       
       // Legend
       var legendWidget = new Legend({
