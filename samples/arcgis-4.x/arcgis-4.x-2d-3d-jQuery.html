@@ -9,13 +9,13 @@
   <title>Calcite Maps - ArcGIS 4.x 2D - 3D (jQuery)</title>
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.5.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap.min-v0.6.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.5.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.6.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
 
   <style>
     html, body {
@@ -31,7 +31,7 @@
 
   <!-- Navbar -->
 
-  <nav class="navbar calcite-navbar navbar-fixed-bottom calcite-text-light calcite-bg-dark calcite-bgcolor-dark-red">
+  <nav class="navbar calcite-navbar navbar-fixed-bottom calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
      <!-- Menu -->
     <div class="dropdown calcite-dropdown calcite-bg-light calcite-text-dark" role="presentation">
       <a class="dropdown-toggle" role="menubutton" aria-haspopup="true" aria-expanded="false" tabindex="0">
@@ -44,8 +44,8 @@
         </div>
       </a>
       <ul class="dropdown-menu calcite-menu-drawer">
-        <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
-        <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
+        <li><a class="hidden-md hidden-lg" href="#mapTab" aria-controls="mapTab" role="tab" data-toggle="tab"> Map</a></li>
+        <li><a class="hidden-md hidden-lg" href="#sceneTab" aria-controls="sceneTab" role="tab" data-toggle="tab"> Scene</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
         <li><a role="menuitem" tabindex="0" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
@@ -59,9 +59,9 @@
     </div>
      <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
-      <li><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
-      <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
-      <li><div class="calcite-navbar-search calcite-search-expander"><div id="searchNavDiv"></div></div></li>
+      <li><a id="mapNav" class="hidden-xs hidden-sm" href="#mapTab" aria-controls="mapTab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+      <li class="active"><a id="sceneNav" class="hidden-xs hidden-sm" href="#sceneTab" aria-controls="sceneTab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
+      <li><div class="calcite-navbar-search"><div id="searchNavDiv"></div></div></li>
     </ul>
   </nav><!--/.navbar -->
 
@@ -69,10 +69,10 @@
 
   <div class="calcite-map calcite-map-absolute">
     <div id="tabContainer" class="tab-content">
-      <div id="2dTab" class="tab-pane fade" role="tabpanel">
+      <div id="mapTab" class="tab-pane fade" role="tabpanel">
          <div id="mapViewDiv"></div>
       </div>
-      <div id="3dTab" class="tab-pane fade in active" role="tabpanel">
+      <div id="sceneTab" class="tab-pane fade in active" role="tabpanel">
         <div id="sceneViewDiv"></div>
       </div>
     </div>
@@ -140,7 +140,7 @@
   </div> <!-- /.calcite-panels -->
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.4/"></script>
+  <script src="https://js.arcgis.com/4.6/"></script>
 
   <script>
 
@@ -361,7 +361,7 @@
   <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
 
   <!-- Calcite Maps -->
-  <script src="../../dist/js/jquery/calcitemaps-v0.5.js"></script>
+  <script src="../../dist/js/jquery/calcitemaps-v0.6.js"></script>
 
 </body>
 </html>
