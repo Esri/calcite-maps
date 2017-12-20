@@ -14,13 +14,13 @@
   <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-v0.5.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-bootstrap-v0.6.css">
 
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.5.css">
+  <link rel="stylesheet" href="../../dist/css/calcite-maps-arcgis-4.x.min-v0.6.css">
   
   <!-- ArcGIS JS 4.x -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
   <!--link rel="stylesheet" href="../../dist/css/arcgis/themes/light/main.css"-->
 
   <style>
@@ -131,8 +131,8 @@
       </a>
       <ul class="dropdown-menu">
         <li><a role="menuitem" tabindex="0" data-target="#modalSplash" data-toggle="modal" aria-haspopup="true"> About</a></li>
-        <li><a class="hidden-md hidden-lg" href="#2dTab" aria-controls="2Dtab" role="tab" data-toggle="tab"> Map</a></li>
-        <li><a class="hidden-md hidden-lg" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab"> Scene</a></li>
+        <li><a class="hidden-md hidden-lg" href="#mapTab" aria-controls="mapTab" role="tab" data-toggle="tab"> Map</a></li>
+        <li><a class="hidden-md hidden-lg" href="#sceneTab" aria-controls="sceneTab" role="tab" data-toggle="tab"> Scene</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
         <li><a class="visible-xs" role="button" data-target="#panelSearch" aria-haspopup="true"><span class="glyphicon glyphicon-search"></span> Search</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
@@ -152,8 +152,8 @@
     </div>
     <!-- Nav -->
     <ul class="calcite-nav nav navbar-nav">                    
-      <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#2dTab" aria-controls="2Dtab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
-      <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#3dTab" aria-controls="3Dtab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
+      <li class="active"><a id="mapNav" class="hidden-xs hidden-sm" href="#mapTab" aria-controls="mapTab" aria-expanded="true" role="tab" data-toggle="tab" data-tooltip="tip" title="2D View" data-placement="bottom">Map</a></li>
+      <li><a id="sceneNav" class="hidden-xs hidden-sm" href="#sceneTab" aria-controls="sceneTab" role="tab" data-toggle="tab" data-tooltip="tip" title="3D View" data-placement="bottom">Scene</a></li>                  
       <li><div class="calcite-navbar-search calcite-search-expander" tabindex="-1"><div id="searchNavDiv" tabindex="0"></div></div></li>
     </ul>
   </nav><!--/.navbar -->
@@ -191,10 +191,10 @@
 
   <div class="calcite-map calcite-map-absolute">
     <div id="tabContainer" class="tab-content">
-      <div id="2dTab" class="tab-pane fade in active" role="tabpanel">
+      <div id="mapTab" class="tab-pane fade in active" role="tabpanel">
         <div id="mapViewDiv"></div>
       </div>
-      <div id="3dTab" class="tab-pane fade" role="tabpanel">
+      <div id="sceneTab" class="tab-pane fade" role="tabpanel">
         <div id="sceneViewDiv"></div>
       </div>
     </div>
@@ -818,7 +818,7 @@
   </script>
 
   <!-- ArcGIS JS 4.x -->
-  <script src="https://js.arcgis.com/4.5/"></script>
+  <script src="https://js.arcgis.com/4.6/"></script>
 
   <script>
     
