@@ -248,12 +248,12 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       "bootstrap/Dropdown",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.5",
+      "calcite-maps/calcitemaps-v0.6",
       // Calcite Maps ArcGIS Support
       "calcite-maps/calcitemaps-arcgis-support-v0.6",
 
       "dojo/domReady!"
-    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {
+    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, Collapse, Dropdown, CalciteMaps, CalciteMapsArcGISSupport) {
 
       /******************************************************************
        *
@@ -280,7 +280,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
 
       // Popup and panel sync
       mapView.then(function(){
-        CalciteMapArcGISSupport.setPopupPanelSync(mapView);
+        CalciteMapsArcGISSupport.setPopupPanelSync(mapView);
       });
 
       // Search - add to navbar
@@ -288,7 +288,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         container: "searchWidgetDiv",
         view: mapView
       });
-      CalciteMapArcGISSupport.setSearchExpandEvents(searchWidget);
+      CalciteMapsArcGISSupport.setSearchExpandEvents(searchWidget);
 
       // Basemaps
       var basemaps = new Basemaps({

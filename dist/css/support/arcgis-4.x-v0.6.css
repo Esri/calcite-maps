@@ -3,13 +3,13 @@
   height: 100%;
   width: 100%; }
 
-.calcite-maps .esri-widget .esri-widget-button, .calcite-maps .esri-widget.esri-widget-button {
+.esri-widget .calcite-mapsdiv:not(.esri-directions) .esri-widget-button, .esri-widget .calcite-mapsdiv:not(.esri-directions).esri-widget-button {
   width: 30px;
   height: 30px;
   font-size: 13px; }
 
-.calcite-maps .esri-search,
-.calcite-maps .esri-search .esri-search__input {
+.calcite-mapsdiv:not(.esri-directions) .esri-search,
+.calcite-mapsdiv:not(.esri-directions) .esri-search .esri-search__input {
   font-size: 13px;
   line-height: 1.5;
   font-weight: 400; }
