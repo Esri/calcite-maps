@@ -250,7 +250,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       // Calcite Maps
       "calcite-maps/calcitemaps-v0.5",
       // Calcite Maps ArcGIS Support
-      "calcite-maps/calcitemaps-arcgis-support-v0.5",
+      "calcite-maps/calcitemaps-arcgis-support-v0.6",
 
       "dojo/domReady!"
     ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {
