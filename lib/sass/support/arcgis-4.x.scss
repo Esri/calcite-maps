@@ -52,7 +52,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
   // Buttons
 
-  .esri-widget {
+  .esri-widget &div:not(.esri-directions) {
     .esri-widget-button, &.esri-widget-button {
       width: 30px;
       height: 30px;
