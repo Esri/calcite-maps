@@ -67,13 +67,15 @@ define([
             }
         },
         activate:function (element, container, callback) {
-            var active = query('* > .active', container)[0];
+            //var active = query('* > .active', container)[0];
+            var active = query('.active', container)[0];
             var transition = callback && support.trans && active && domClass.contains(active, 'fade');
 
             function next() {
                 if (active) {
                     domClass.remove(active, 'active');
-                    query('* > .dropdown-menu > .active', active).removeClass('active');                    
+                    // query('* > .dropdown-menu > .active', active).removeClass('active');                    
+                    query('.dropdown-menu > .active', active).removeClass('active');                    
                 }
                 domClass.add(element, 'active');
 
