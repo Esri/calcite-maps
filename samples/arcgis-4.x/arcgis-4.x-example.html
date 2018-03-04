@@ -8,13 +8,13 @@
   <title>ArcGIS JS v4, Calcite Maps and Bootstrap Example</title>
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.6.css">
-
+  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.7.css">
+  
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.6.css">
+  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.7.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
 
   <style>
     html,
@@ -163,7 +163,7 @@
   </script>
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.6/"></script>
+  <script src="https://js.arcgis.com/4.7/"></script>
 
   <script>
     
@@ -173,11 +173,13 @@
       "esri/views/MapView",
 
       // Widgets
+      "esri/widgets/Home",
+      "esri/widgets/Compass",
       "esri/widgets/BasemapGallery",
       "esri/widgets/Search",
       "esri/widgets/Legend",
       "esri/widgets/LayerList",
-      "esri/widgets/Print",
+      "esri/widgets/Directions",
       "esri/widgets/BasemapToggle",
       "esri/widgets/ScaleBar",
 
@@ -191,7 +193,7 @@
       "calcite-maps/calcitemaps-arcgis-support-v0.6",
 
       "dojo/domReady!"
-    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {
+    ], function(WebMap, MapView, Home, Compass, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {
 
       /******************************************************************
        *
@@ -227,6 +229,16 @@
         view: mapView
       });
       CalciteMapArcGISSupport.setSearchExpandEvents(searchWidget);
+
+      var home = new Home({
+        view: mapView
+      });
+      mapView.ui.add(home, "top-left");
+
+      var compass = new Compass({
+        view: mapView
+      });
+      mapView.ui.add(compass, "top-left");
 
       // Basemaps
       var basemaps = new Basemaps({

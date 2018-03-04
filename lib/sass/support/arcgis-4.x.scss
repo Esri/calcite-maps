@@ -9,6 +9,10 @@
 @import "../variables";
 @import "../mixins";
 
+$arcgis_widget_button_size: 30px;
+$arcgis_widget_font_size: 13px;
+$arcgis_widget_icon_size: 14px;
+
 $arcgis_widget_margin: 15px;
 $arcgis_widget_full_width: 100%;
 
@@ -25,7 +29,6 @@ $theme_dark_arcgis_active_text_color: $Calcite_Gray_700_Dark;
 $theme_dark_arcgis_disabled_text_color: $Calcite_Gray_350_Dark;
 
 // Search expander
-$arcgis_search_font_size: 13px;
 $search_expander_width_start: 32px;
 $search_expander_width_expanded: 240px;
 $search_expander_width_expanded_mobile_xxs: 200px;
@@ -52,11 +55,20 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
   // Buttons
 
-  .esri-widget &div:not(.esri-directions) {
+  .esri-widget {
     .esri-widget-button, &.esri-widget-button {
-      width: 30px;
-      height: 30px;
-      font-size: 13px;
+      width: $arcgis_widget_button_size;
+      height: $arcgis_widget_button_size;
+      font-size: $arcgis_widget_font_size;
+    }
+    [class*="esri-icon"],
+    [role="button"] [class*="esri-icon"] {
+      font-size: $arcgis_widget_icon_size;  
+    }
+    &.esri-compass {
+      .esri-compass__icon  {
+        font-size: $arcgis_widget_font_size + 5;
+      }
     }
   }
 
@@ -64,14 +76,19 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
   .esri-search,
   .esri-search .esri-search__input {
-    font-size: 13px;
+    font-size: $arcgis_widget_font_size;
     line-height: 1.5;
     font-weight: 400;
   }
 
+  .esri-widget .esri-menu {
+    background-color: $theme_light_dropdown_menu_bg;
+    color: $theme_light_control_text_color;
+  }
+
   .esri-widget .esri-menu li {
     padding: .6em 1em;
-    font-size: 13px;
+    font-size: $arcgis_widget_font_size;
   }
 
   // BasemapGallery
@@ -242,7 +259,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
       // z-index: 1;
       -webkit-box-shadow: none;
       box-shadow: none;
-      font-size: $arcgis_search_font_size;
+      font-size: $arcgis_widget_font_size;
     }
 
     .esri-widget-button {
@@ -567,6 +584,12 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
       color: $theme_dark_control_text_color;
       background-color: $theme_dark_control_bg;
     }
+
+    .esri-widget .esri-menu {
+      color: $theme_light_control_text_color;
+      background-color: $theme_light_control_bg;
+    }
+
     // Search
     .esri-search {
       border: 1px solid $theme_dark_arcgis_widget_border;

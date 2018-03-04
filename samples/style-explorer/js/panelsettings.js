@@ -687,16 +687,20 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, 
         attr = "backgroundColor";
       var ss = document.styleSheets;
       var rgba = "";
-      for (var i = 0; i < ss.length; i++) {
+      for (var i = 0; i < ss.length && !rgba; i++) {
         var ss = document.styleSheets;
-        var rules = ss[i].cssRules; // || ss[i].rules;
-        if (rules) {
-          for (var j = 0; j < rules.length; j++) {
-            if (rules[j].selectorText === caliteColorStyle) {
-              rgba = rules[j].style[attr];
+        var s = ss[i];
+        try {
+          var rules = s.cssRules ? s.cssRules : null; //ss[i].cssRules; //  || ss[i].rules;
+          if (s && rules) {
+            for (var j = 0; j < rules.length; j++) {
+              if (rules[j].selectorText === caliteColorStyle) {
+                rgba = rules[j].style[attr];
+                break;
+              }
             }
           }
-        }
+        } catch (err){}
       }
       return rgba;
     },
