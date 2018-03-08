@@ -55,7 +55,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
  
 ```
 
-[Try it live](http://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-webmap.html)
+[Try it live](http://esri.github.io/calcite-maps/samples/arcgis-4.x/arcgis-4.x-example.html)
 
 ![calcite-maps-example.png](./calcite-maps-example.png?raw=true "Calcite Maps")
 
@@ -71,7 +71,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
 
   <!-- Calcite Maps Bootstrap -->
   <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.7.css">
-
+  
   <!-- Calcite Maps -->
   <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.7.css">
 
@@ -84,6 +84,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
     }
   </style>
 
@@ -105,10 +106,8 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         </div>
       </a>
       <ul class="dropdown-menu" role="menu">
-        <li><a role="menuitem" tabindex="0" href="#" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
+        <li><a role="menuitem" tabindex="0" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
         <li><a role="menuitem" tabindex="0" href="#" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list-alt"></span> Legend</a></li>
-        <li><a role="menuitem" tabindex="0" href="#" data-target="#panelLayers" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Layers</a></li>
-        <li><a role="menuitem" tabindex="0" href="#" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
         <li><a role="menuitem" tabindex="0" href="#" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div>
@@ -127,6 +126,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       </li>
     </ul>
   </nav>
+
   <!--/.calcite-navbar -->
 
   <!-- Map  -->
@@ -143,66 +143,32 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
 
     <!-- Panel - Basemaps -->
 
-    <div id="panelBasemaps" class="panel collapse">
-      <div id="headingBasemaps" class="panel-heading" role="tab">
+    <div id="panelInfo" class="panel collapse in">
+      <div id="headingInfo" class="panel-heading" role="tab">
         <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseBasemaps"
-            aria-expanded="false" aria-controls="collapseBasemaps"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="panel-label">Basemaps</span></a>
-          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelBasemaps"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
+          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseInfo"  aria-expanded="true" aria-controls="collapseInfo"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><span class="panel-label">About</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelInfo"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>  
         </div>
       </div>
-      <div id="collapseBasemaps" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBasemaps">
+      <div id="collapseInfo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingInfo">
         <div class="panel-body">
-          <div id="basemapGalleryDiv">
-          </div>
+          <p>This is my map app!</p>
         </div>
-      </div>
+     </div>
     </div>
 
     <!-- Panel - Legend -->
 
-    <div id="panelLegend" class="panel collapse in">
+    <div id="panelLegend" class="panel collapse">
       <div id="headingLegend" class="panel-heading" role="tab">
         <div class="panel-title">
           <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span class="panel-label">Legend</span></a> 
           <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelLegend"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a> 
         </div>
       </div>
-      <div id="collapseLegend" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingLegend">
+      <div id="collapseLegend" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLegend">
         <div class="panel-body">            
           <div id="legendDiv"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel - Layers -->
-
-    <div id="panelLayers" class="panel collapse">
-      <div id="headingLayers" class="panel-heading" role="tab">
-        <div class="panel-title">
-          <a class="panel-toggle" role="button" data-toggle="collapse" href="#collapseLayers" aria-expanded="false" aria-controls="collapseLayers"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="panel-label">Layers</span></a> 
-          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelLayers"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a> 
-        </div>
-      </div>
-      <div id="collapseLayers" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLayers">
-        <div class="panel-body">            
-          <div id="layersDiv"></div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Panel - Print -->
-
-    <div id="panelPrint" class="panel collapse">
-      <div id="headingPrint" class="panel-heading">
-        <div class="panel-title">
-          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapsePrint" aria-expanded="false" aria-controls="collapsePrint"><span class="glyphicon glyphicon-print" aria-hidden="true"></span><span class="panel-label">Print</span></a> 
-          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelPrint"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a>
-        </div>
-      </div>
-      <div id="collapsePrint" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPrint">
-        <div class="panel-body">
-           <div id="printDiv"></div>
         </div>
       </div>
     </div>
@@ -235,25 +201,26 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       "esri/views/MapView",
 
       // Widgets
-      "esri/widgets/BasemapGallery",
+      "esri/widgets/Home",
+      "esri/widgets/Zoom",
+      "esri/widgets/Compass",
       "esri/widgets/Search",
       "esri/widgets/Legend",
-      "esri/widgets/LayerList",
-      "esri/widgets/Print",
       "esri/widgets/BasemapToggle",
       "esri/widgets/ScaleBar",
+      "esri/widgets/Attribution",
 
       // Bootstrap
       "bootstrap/Collapse",
       "bootstrap/Dropdown",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.6",
+      "calcite-maps/calcitemaps-v0.7",
       // Calcite Maps ArcGIS Support
-      "calcite-maps/calcitemaps-arcgis-support-v0.6",
+      "calcite-maps/calcitemaps-arcgis-support-v0.7",
 
       "dojo/domReady!"
-    ], function(WebMap, MapView, Basemaps, Search, Legend, LayerList, Print, BasemapToggle, ScaleBar, Collapse, Dropdown, CalciteMaps, CalciteMapsArcGISSupport) {
+    ], function(WebMap, MapView, Home, Zoom, Compass, Search, Legend, BasemapToggle, ScaleBar, Attribution,Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {
 
       /******************************************************************
        *
@@ -275,12 +242,13 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         padding: {
           top: 50,
           bottom: 0
-        }
+        },
+        ui: {components: []}
       });
 
       // Popup and panel sync
       mapView.then(function(){
-        CalciteMapsArcGISSupport.setPopupPanelSync(mapView);
+        CalciteMapArcGISSupport.setPopupPanelSync(mapView);
       });
 
       // Search - add to navbar
@@ -288,45 +256,45 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
         container: "searchWidgetDiv",
         view: mapView
       });
-      CalciteMapsArcGISSupport.setSearchExpandEvents(searchWidget);
+      CalciteMapArcGISSupport.setSearchExpandEvents(searchWidget);
 
-      // Basemaps
-      var basemaps = new Basemaps({
-        container: "basemapGalleryDiv",
+      // Map widgets
+      var home = new Home({
         view: mapView
-      })
+      });
+      mapView.ui.add(home, "top-left");
+
+      var zoom = new Zoom({
+        view: mapView
+      });
+      mapView.ui.add(zoom, "top-left");
+
+      var compass = new Compass({
+        view: mapView
+      });
+      mapView.ui.add(compass, "top-left");
       
-      // Legend
-      var legendWidget = new Legend({
-        container: "legendDiv",
-        view: mapView
-      });
-
-      // LayerList
-      var layerWidget = new LayerList({
-        container: "layersDiv",
-        view: mapView
-      });
-
-      // Print
-      var printWidget = new Print({
-        container: "printDiv",
-        view: mapView,
-        printServiceUrl: "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task"
-      });
-
-      // BasemapToggle
       var basemapToggle = new BasemapToggle({
         view: mapView,
         secondBasemap: "satellite"
       });
       mapView.ui.add(basemapToggle, "bottom-right");          
       
-      // Scalebar
       var scaleBar = new ScaleBar({
         view: mapView
       });
       mapView.ui.add(scaleBar, "bottom-left");
+
+      var attribution = new Attribution({
+        view: mapView
+      });
+      mapView.ui.add(attribution, "manual");
+
+      // Panel widgets - add legend
+      var legendWidget = new Legend({
+        container: "legendDiv",
+        view: mapView
+      });
 
     });
   </script>
