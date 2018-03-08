@@ -313,7 +313,8 @@
     -webkit-box-shadow: none;
     box-shadow: none; }
   .calcite-panels .esri-search .esri-search__input {
-    border: none; }
+    border: none;
+    color: #4c4c4c; }
   .calcite-panels .esri-search .esri-menu {
     width: calc(100% + 2px);
     left: -1px; }
