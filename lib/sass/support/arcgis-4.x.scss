@@ -56,7 +56,8 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
   // Buttons
 
   .esri-widget {
-    .esri-widget-button, &.esri-widget-button {
+    .esri-widget-button, 
+    &.esri-widget-button {
       width: $arcgis_widget_button_size;
       height: $arcgis_widget_button_size;
       font-size: $arcgis_widget_font_size;
@@ -97,9 +98,13 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
   }
 
   .esri-widget {
-    .esri-basemap-toggle__container, .esri-basemap-toggle__image {
+    .esri-basemap-toggle__container, 
+    .esri-basemap-toggle__image {
       width: 48px;
       height: 48px;
+    }
+    .esri-basemap-toggle__container {
+      z-index: 0;
     }
     &.esri-basemap-toggle {
       width: 49px;

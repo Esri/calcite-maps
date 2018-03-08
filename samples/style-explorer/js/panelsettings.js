@@ -14,9 +14,13 @@ define([
   "esri/widgets/NavigationToggle",
   "esri/widgets/Search",
   "esri/widgets/Legend",
+  "esri/widgets/LayerList",
+  "esri/widgets/Track",
+  "esri/widgets/Print",
   "esri/views/ui/Component",
   "esri/layers/FeatureLayer",
   "esri/PopupTemplate",
+  "esri/WebMap",
 
   "esri/geometry/Extent",
   "esri/geometry/support/webMercatorUtils",
@@ -35,7 +39,7 @@ define([
 
   "dojo/domReady!"
 ], 
-function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, Component, FeatureLayer, PopupTemplate, 
+function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, LayerList, Track, Print, Component, FeatureLayer, PopupTemplate, WebMap,
   Extent, ProjectUtils, GeometryService, ProjectParams, watchUtils, 
   query, domClass, domStyle, touch, on, keys, lang, declare) {
 
@@ -311,25 +315,19 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, 
       // Map
       query("#settings2dView").on("click", function(e) {
         domClass.toggle(query("#mapNav")[0], "hidden");
-        domClass.toggle(query("#mapNavMenu")[0], "hidden");
       });
 
       query("#settings3dView").on("click", function(e) {
         domClass.toggle(query("#sceneNav")[0], "hidden");
-        domClass.toggle(query("#sceneNavMenu")[0], "hidden");
       });
 
-      query("#settingsAddLayer").on("click", function() {
-        _this.addFeatureService();
+      query("#settingsAddWebmap").on("click", function() {
+        _this.addWebmap();
       });
 
-      query("#settingsLayerOpacity").on("change", function() {
-        var opacity = Number.parseFloat(this.value);
-        if (_this.app.mapFL && _this.app.sceneFL) {
-          _this.app.mapFL.opacity = opacity;
-          _this.app.sceneFL.opacity = opacity;
-        }
-      }); 
+      query("#settingsClearWebmap").on("click", function() {
+        _this.clearWebmap();
+      });
 
       //--------------------------------------------------------------------
       // Tab - Theme
@@ -789,153 +787,34 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, 
     // Tab - Map functions
     //----------------------------------
 
-    // Create a feature layer to get feature service
-    addFeatureService: function() {
-      if (_this.removeFeatureService()) {
-        //query("#settingsFeatureLayerUrl")[0].value = "";
-        // Update button
-        query("#settingsAddLayer").addClass("btn-primary").removeClass("btn-danger");
-        query("#settingsAddLayer")[0].innerText = "Add Layer";      
-        return;
-      }
-      
-      // Validate url
-      var url = query("#settingsFeatureLayerUrl")[0].value;
-      if (url === "") {
-        _this.showErrorLoadingLayer("Sorry, please provide a valid URL.");
+    addWebmap: function() {
+      var id = query("#settingsWebmapId")[0].value;
+      if (id === "") {
+        _this.showErrorLoadingLayer("Sorry, please provide a valid webmap ID.");
         return;
       }  
+      _this.loadWebmap(id);
+    },
 
-      // Create layers - two layers because they will have different styles
-      _this.app.mapFL = _this.createLayer(url);
-      _this.app.sceneFL = _this.createLayer(url);
+    clearWebmap: function() {
+      _this.loadWebmap(_this.app.webmapId);
+    },
 
-      // Added to Map
-      _this.app.mapFL.then(function(){
-        // Create legend
-        _this.createLegendWidget("legendDiv");
+    loadWebmap: function(id) {
+      var webmap = new WebMap({
+        portalItem: {
+          id: id
+        }
+      });
+
+      webmap.load()
+        .then(function(map){
+          _this.app.webmap = map;
+          _this.app.mapView.map = map;
+          _this.app.sceneView.map = map;
         }, function(error){
-          _this.showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-          _this.removeFeatureService();
-          return;
+          _this.showErrorLoadingLayer("Sorry, the webmap could not be loaded. Check the ID.");
         });
-
-      // Added to Scene
-      _this.app.sceneFL.then(function(){
-        }, function(error){
-          _this.showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-          _this.removeFeatureService();
-          return;
-        });
-
-       // Add to map
-      _this.app.mapView.map.add(_this.app.mapFL);
-      _this.app.sceneView.map.add(_this.app.sceneFL);
-      
-      // Zoom map to extent of layer
-      _this.app.mapFL.watch("loaded", function(newValue, oldValue, property, object) {
-        if (newValue) {
-          if (object.fullExtent) {
-            _this._zoomToProjectedExtent(object.fullExtent);                           
-          } else {
-            _this.showErrorLoadingLayer("Sorry, the layer could not be loaded. Check the URL.");
-            _this.removeFeatureService();
-          }
-        }
-      });
-
-      // Zoom scene and tile - TODO
-      _this.app.sceneView.watch("updating", function(newValue, oldValue, property, object) {
-        if (newValue && _this.app.sceneFL && !_this.app.sceneView.__sceneZoomed) {
-          _this.app.sceneView.__sceneZoomed = true;
-          _this.app.sceneView.animateTo({center: _this.app.mapView.center, scale: _this.app.mapView.scale, tilt: 45});
-        }
-      })
-    },
-
-    // Remove existing service
-    removeFeatureService: function() {
-      if (_this.app.mapFL && _this.app.sceneFL) {
-        _this.app.mapView.map.remove(_this.app.mapFL);
-        _this.app.sceneView.map.remove(_this.app.sceneFL);
-        _this.app.mapView.zoom = _this.app.zoom; 
-        _this.app.mapView.center = _this.app.lonlat;
-        _this.app.sceneView.zoom = _this.app.zoom;
-        _this.app.sceneView.center = _this.app.lonlat;
-        _this.app.mapFL = null;
-        _this.app.sceneFL = null;
-        _this.app.sceneView.__sceneZoomed = false;
-        _this.app.mapView.popup.set({visible: false});
-        _this.app.mapView.popup.clear();
-        _this.app.sceneView.popup.set({visible: false});
-        _this.app.sceneView.popup.clear();
-        return true;
-      } else {
-        return false;
-      }
-    },
-
-    _zoomToProjectedExtent: function(extent) {
-      var gvsc = new GeometryService({url: "https://sampleserver6.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"});
-      var params = new ProjectParams();
-      params.geometries = [extent];
-      params.outSR = _this.app.mapView.spatialReference;
-      gvsc.project(params).then(function(results) {
-        if (results.length > 0){
-          // Update extent
-          _this.app.mapView.goTo(results[0].extent);
-          watchUtils.whenTrueOnce(_this.app.sceneView, "ready").then(function(isReady) {
-            _this.app.sceneView.goTo(results[0].extent);
-          });
-          // Update button
-          query("#settingsAddLayer").addClass("btn-danger").removeClass("btn-primary");
-          query("#settingsAddLayer")[0].innerText = "Remove";                           
-        } else {
-          _this.showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-          _this.removeFeatureService();
-        }
-      }, function(e){
-        _this.showErrorLoadingLayer("Sorry, the layer could not be projected for this map.");
-        _this.removeFeatureService();
-      });
-    },
-
-    createLayer: function(url) {
-      var lyr = new FeatureLayer({ 
-        url: url,
-        maxScale: 0,
-        minScale: 0,
-        outFields: ["*"]
-      });
-      lyr.then(function(e){
-        lyr.set({
-          popupTemplate: new PopupTemplate({
-            title: lyr.title,
-            content: "{*}"
-          })
-        });
-      })
-      return lyr;
-    },
-
-    createLegendWidget: function(containerId) {
-      if (_this.app.legend) {
-        _this.app.legend.destroy();
-      }
-      _this.app.legend = new Legend({
-        view: _this.app.mapView,
-        layerInfos: [{
-          layer: _this.app.mapView.map.layers.items[0],
-          title: ""
-        }]
-      }, containerId);
-      _this.app.legend.startup(); 
-    },
-
-    showErrorLoadingLayer: function(msg) {
-      //$("#layerErrorMsg").text(msg);
-      //$("#layerError").removeClass("hidden");
-      console.log(msg);
     },
 
     //----------------------------------
@@ -995,28 +874,34 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, 
       query("#settingsPadding")[0].value = JSON.stringify(viewPadding);
     },
 
-    setWidgetPosition: function(view, name, position) {
+    setWidgetPosition: function(view, name, position, index, id) {
       var component,
         exists = view.ui.find(name);
       // Remove
       if (position === "none") {
           view.ui.remove(name);
-          if (exists) {
-            exists.destroy();
-        }
+          // if (exists) {
+          //   exists.destroy();
+          // }
       } else { // Add/Move
           if (exists) {
               view.ui.move(name, position);
           } else {
-            component = _this.createComponent(view, name);
-              view.ui.add(component, position);
+            component = _this.createComponent(view, name, id);
+            if (!id) {
+              view.ui.add([{ 
+                component: component, 
+                position: position, 
+                index: index 
+              }]);
+            }
           }
       }               
     },
 
-    createComponent: function(view, name) {
+    createComponent: function(view, name, id) {
       var component,
-        widget = _this.createWidget(view, name);
+        widget = _this.createWidget(view, name, id);
       component = new Component({
         node: widget, 
         id: name
@@ -1024,7 +909,7 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, 
       return component;
     },
 
-    createWidget: function(view, name) {
+    createWidget: function(view, name, id) {
       var widget,
         viewModel = {
           view: view
@@ -1062,11 +947,37 @@ function(Zoom, Home, Locate, Compass, BasemapToggle, NavToggle, Search, Legend, 
           break;
         case "search":
           widget = new Search({
-            viewModel: viewModel
+            viewModel: viewModel,
+            container: id
           });
           break;
+        case "layerlist":
+          widget = new LayerList({
+            viewModel: viewModel,
+            container: id
+          });
+          break;
+        case "legend":
+          widget = new Legend({
+            viewModel: viewModel,
+            container: id
+          });
+          break;
+        case "track":
+          widget = new Track({
+            viewModel: viewModel,
+            container: id
+          });
+          break;
+        case "print":
+          widget = new Print({
+            viewModel: viewModel,
+            container: id,
+            printServiceUrl: "https://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task"
+          });
+          break;
+
       }
-      widget.startup();
       return widget;
     },
 

@@ -30,7 +30,7 @@
       height: 100%;
     }
 
-    #panelLegend .panel-body {
+    .body-light {
       background-color: white;
     }
 
@@ -112,7 +112,7 @@
 
 </head>
 
-<body class="calcite-nav-top">
+<body class="calcite-maps calcite-nav-top">
 
   <!-- Navbar -->
 
@@ -138,6 +138,7 @@
         <li><a role="menuitem" tabindex="0" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Basemaps</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-book"></span> Bookmarks</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Legend</a></li>
+         <li><a role="menuitem" tabindex="0" data-target="#panelLayerlist" aria-haspopup="true"><span class="glyphicon glyphicon-list-alt"></span> LayerList</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Print</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelShare" aria-haspopup="true"><span class="glyphicon glyphicon-share"></span> Share</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelSettings" aria-haspopup="true"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
@@ -326,8 +327,24 @@
         </div>
       </div>
       <div id="collapseLegend" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLegend">
-        <div class="panel-body">            
+        <div class="panel-body body-light">            
           <div id="legendDiv"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel - LayerList -->
+
+    <div id="panelLayerlist" class="panel collapse">
+      <div id="headingLayerlist" class="panel-heading" role="tab">
+        <div class="panel-title">
+          <a class="panel-toggle collapsed" role="button" data-toggle="collapse" href="#collapseLayerlist" aria-expanded="false" aria-controls="collapseLayerlist"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><span class="panel-label">Layerlist</span></a> 
+          <a class="panel-close" role="button" data-toggle="collapse" tabindex="0" href="#panelLayerlist"><span class="esri-icon esri-icon-close" aria-hidden="true"></span></a> 
+        </div>
+      </div>
+      <div id="collapseLayerlist" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLayerlist">
+        <div class="panel-body body-light">            
+          <div id="layerlistDiv"></div>
         </div>
       </div>
     </div>
@@ -342,10 +359,8 @@
         </div>
       </div>
       <div id="collapsePrint" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPrint">
-        <div class="panel-body">
-        <div class="form-group">
-           <button type="button" class="btn btn-default">Print [Coming soon!]</button>
-        </div>
+        <div class="panel-body body-light">
+          <div id="printDiv"></div>
         </div>
       </div>
     </div>
@@ -455,25 +470,19 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="settingsAddLayer" class="col-xs-3 control-label">Layer</label>
+                  <label for="settingsAddLayer" class="col-xs-3 control-label">Webmap</label>
                   <div class="col-xs-9">
-                    <input type="text" class="form-control" id="settingsFeatureLayerUrl" placeholder="e.g. https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0" value="https://services.arcgis.com/uCXeTVveQzP4IIcx/arcgis/rest/services/GreaterLosAngelesAreaDemographics/FeatureServer/0">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="settingsLayerOpacity" class="col-xs-3 control-label">Opacity</label>
-                  <div class="col-xs-9">
-                    <select id="settingsLayerOpacity" class="form-control">
-                      <option value="0.25">0.25</option>
-                      <option value="0.50">0.5</option>
-                      <option value="0.75">0.75</option>
-                      <option value="1.0" selected>1.0</option>
-                    </select>
+                    <input type="text" class="form-control" id="settingsWebmapId" placeholder="df5b4bad631d4209b6ef7a88493dac7d">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-xs-9 col-xs-offset-3">
-                    <button id="settingsAddLayer" type="button" class="btn btn-primary btn-block">Add Layer</button>
+                    <button id="settingsAddWebmap" type="button" class="btn btn-primary btn-block">Add Webmap</button>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-9 col-xs-offset-3">
+                    <button id="settingsClearWebmap" type="button" class="btn btn-primary btn-block">Clear</button>
                   </div>
                 </div>
               </div>
@@ -700,6 +709,9 @@
                       <option value="home">Home</option>
                       <option value="locate">Locate</option>
                       <option value="compass">Compass</option>
+                      <option value="legend">Legend</option>
+                      <option value="layerlist">LayerList</option>
+                      <option value="track">Track</option>
                       <option value="basemaptoggle">Basemaptoggle</option>
                       <option value="search">Search</option>
                     </select>
@@ -726,6 +738,9 @@
                       <option value="home">Home</option>
                       <option value="locate">Locate</option>
                       <option value="compass">Compass</option>
+                      <option value="legend">Legend</option>
+                      <option value="layerlist">LayerList</option>
+                      <option value="track">Track</option>
                       <option value="basemaptoggle">Basemaptoggle</option>
                       <option value="search">Search</option>
                     </select>
@@ -801,6 +816,9 @@
 
   <script type="text/javascript">
     var dojoConfig = {
+      has: {
+          "esri-promise-compatibility-deprecation-warnings": 0 // TODO
+      },
       packages: [{
         name: "bootstrap",
         location: location.pathname.replace(/\/[^/]+$/, "") + "./../../dist/vendor/dojo-bootstrap"
@@ -863,8 +881,8 @@
       watchUtils, query, domClass, dom, on, CalciteMapsSettings, CalciteMapsArcGISSupport, PanelSettings) {
       
       app = {
-        scale: 50000000,
-        lonlat: [-40,40],
+        zoom: 2,
+        lonlat: [-40,0],
         mapView: null, 
         mapDiv: "mapViewDiv",
         mapFL: null,
@@ -878,7 +896,8 @@
         searchWidgetSettings: null,
         basemapSelected: "gray",
         basemapSelectedAlt: "gray",
-        webmapId: "dcbd2324154c4df78373a568184e63e5",
+        webmap: null,
+        webmapId: "df5b4bad631d4209b6ef7a88493dac7d",
         padding: { 
           top: 50 ,
           right: 0,
@@ -886,7 +905,7 @@
           left: 0
         }, 
         uiPadding: { 
-          components:["zoom", "attribution", "home"],
+          components: ["zoom","attribution"],
           padding: {
             top: 15,
             right: 15,
@@ -912,57 +931,42 @@
       // App
       //----------------------------------
 
+      //app.panelSettings = new PanelSettings( { app: app } );
+
       initializeMapViews();
       initializeAppUI();
-
-      // Panel settings
-      app.panelSettings = new PanelSettings( { app: app } );
-      app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOP;
-      app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
-
-      // Set padding for navs that change height
-      if (window.innerWidth < app.activeView.breakpoints.small && app.panelSettings.activeLayout.viewPaddingSmallScreen) {
-        app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
-      }
-
+      initializeAppSettings();
+      initializeWidgets();
+      
       //----------------------------------
       // Map and Scene View
       //----------------------------------
 
       function initializeMapViews() {
-
         // Webmap
-
         app.webmap = new Webmap({
           portalItem: {
             id: app.webmapId
           }
         });
-
-
-        //2D - MapView
+        // 2D - MapView
         app.mapView = new MapView({
           container: app.mapDiv,
-          map: app.webmap, //new Map( { basemap: app.basemapSelected, constraints: { snapToZoom: false } } ),
-          scale: app.scale,
+          map: app.webmap,
+          zoom: app.zoom,
           center: app.lonlat, 
           padding: app.padding,
           ui: app.uiPadding, 
           popup: new Popup(app.popupOptions),
-          visible: true
+          visible: true        
         });
-
-        //app.mapView.ui.add(new Home({view: app.mapView}), "top-left");
-
-        //Set active view
+        // Set active view
         app.activeView = app.mapView;
-
-        //3D - SceneView
+        // 3D - SceneView
         app.sceneView = new SceneView({ 
           container: app.sceneDiv,
-          map: app.webmap, //new Map( { basemap: app.basemapSelectedAlt, ground: "world-elevation", constraints: { snapToZoom: false } } ),
-
-          scale: app.scale,
+          map: app.webmap, 
+          zoom: app.zoom,
           center: app.lonlat, 
           padding: app.padding,
           ui: app.uiPadding, 
@@ -970,11 +974,12 @@
           visible: false
         });
 
-        //app.sceneView.ui.add(new Home({view: app.sceneView}), "top-left");
-
         // Listen for view breakpoint changes and update control location
         app.mapView.watch("widthBreakpoint", function(newVal, oldVal) {
           function setPadding(newVal, oldVal) {
+            if (!app.panelSettings) {
+              return;
+            }
             if (newVal === "small" && oldVal === "medium") {
               app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
             } else if (newVal === "medium" && oldVal === "small") {
@@ -986,6 +991,47 @@
             setPadding(newVal, oldVal);
           }
         });
+      }
+
+      //----------------------------------
+      // View widgets
+      //----------------------------------
+
+      function initializeWidgets() {
+        app.mapView.when(function() {
+          app.panelSettings.setWidgetPosition(app.mapView, "home", "top-left", 0);
+          //app.panelSettings.setWidgetPosition(app.mapView, "zoom", "top-left", 1);
+          app.panelSettings.setWidgetPosition(app.mapView, "compass", "top-left");          
+        });
+        
+        app.sceneView.when(function() {
+          app.panelSettings.setWidgetPosition(app.sceneView, "home", "top-left", 0);
+          //app.panelSettings.setWidgetPosition(app.sceneView, "zoom", "top-left");
+          app.panelSettings.setWidgetPosition(app.sceneView, "compass", "top-left");
+          app.panelSettings.setWidgetPosition(app.sceneView, "navtoggle", "top-left");
+        });
+
+        // Panel widgets
+        app.panelSettings.setWidgetPosition(app.mapView, "legend", "top-left", 0, "legendDiv");
+        app.panelSettings.setWidgetPosition(app.mapView, "layerlist", "top-left", 0, "layerlistDiv");
+        app.panelSettings.setWidgetPosition(app.mapView, "print", "top-left", 0, "printDiv");
+
+      }
+
+      //----------------------------------
+      // App panel settings
+      //----------------------------------
+
+      function initializeAppSettings() {
+        // Panel settings
+        app.panelSettings = new PanelSettings( { app: app } );
+        app.panelSettings.activeLayout = app.panelSettings.APP_LAYOUTS.TOP;
+        app.panelSettings.setLayout(app.panelSettings.activeLayout, false);
+
+        // Set padding for navs that change height
+        if (window.innerWidth < app.activeView.breakpoints.small && app.panelSettings.activeLayout.viewPaddingSmallScreen) {
+          app.panelSettings.setPadding(app.panelSettings.activeLayout.viewPaddingSmallScreen, app.panelSettings.activeLayout.uiPadding);
+        }        
       }
 
       //----------------------------------
@@ -1030,15 +1076,17 @@
 
         // Views
         function syncViews(fromView, toView) {
-          var viewPt = fromView.viewpoint.clone();
-          fromView.container = null;
-          if (fromView.type === "3d") {          
-            toView.container = app.mapDiv;
-          } else {
-            toView.container = app.sceneDiv;
-          }
-          toView.viewpoint = viewPt;
-          toView.padding = fromView.padding;
+          watchUtils.once(fromView, "ready", function(){
+            var viewPt = fromView.viewpoint.clone();
+            fromView.container = null;
+            if (fromView.type === "3d") {          
+              toView.container = app.mapDiv;
+            } else {
+              toView.container = app.sceneDiv;
+            }
+            toView.viewpoint = viewPt;
+            toView.padding = fromView.padding;
+          });
         } 
 
         // Search
@@ -1096,7 +1144,6 @@
               maxSuggestions: 4
             },
             }, parentId);
-          search.startup();
           return search;
         } 
       }
@@ -1111,20 +1158,6 @@
             showRecentColors: false,
             showTransparencySlider: false
           }, "colorPickerDiv");
-        app.colorPickerWidget.startup();
-      }
-
-      //----------------------------------
-      // Popups and Panels
-      //----------------------------------
-
-      //----------------------------------
-      // Popup collapse (optional)
-      //----------------------------------
-
-      function setSearchEvents() {   
-
-
       }
 
       //----------------------------------
