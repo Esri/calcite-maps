@@ -1076,7 +1076,7 @@
 
         // Views
         function syncViews(fromView, toView) {
-          watchUtils.once(fromView, "ready", function(){
+          watchUtils.whenTrueOnce(fromView, "ready", function(){
             var viewPt = fromView.viewpoint.clone();
             fromView.container = null;
             if (fromView.type === "3d") {          

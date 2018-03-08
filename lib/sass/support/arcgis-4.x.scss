@@ -524,6 +524,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
   
   .esri-search .esri-search__input {
     border: none;
+    color: $theme_light_control_text_color;
   }
 
   .esri-search .esri-menu {
