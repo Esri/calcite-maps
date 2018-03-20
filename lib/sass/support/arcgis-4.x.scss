@@ -80,6 +80,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
     font-size: $arcgis_widget_font_size;
     line-height: 1.5;
     font-weight: 400;
+    height: auto;
   }
 
   .esri-widget .esri-menu {
@@ -275,9 +276,11 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
     .esri-search__input {
       background-color: transparent;
+      height: auto;
+      border: 0;
     }
 
-     // Prevent lost focus on mouse move
+    // Prevent lost focus on mouse move
     .esri-search::before {
       content: " ";
       position: absolute;

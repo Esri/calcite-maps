@@ -19,7 +19,8 @@
 .calcite-maps .esri-search .esri-search__input {
   font-size: 13px;
   line-height: 1.5;
-  font-weight: 400; }
+  font-weight: 400;
+  height: auto; }
 
 .calcite-maps .esri-widget .esri-menu {
   background-color: #ffffff;
@@ -134,7 +135,9 @@
   font-size: 14px; }
 
 .calcite-navbar-search.calcite-search-expander .esri-search__input {
-  background-color: transparent; }
+  background-color: transparent;
+  height: auto;
+  border: 0; }
 
 .calcite-navbar-search.calcite-search-expander .esri-search::before {
   content: " ";
