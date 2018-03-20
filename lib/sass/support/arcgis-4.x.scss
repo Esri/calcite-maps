@@ -80,6 +80,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
     font-size: $arcgis_widget_font_size;
     line-height: 1.5;
     font-weight: 400;
+    height: auto;
   }
 
   .esri-widget .esri-menu {
@@ -206,7 +207,10 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
 .calcite-maps .esri-attribution {
   box-shadow: none;
-  -webkit-box-shadow: none
+  -webkit-box-shadow: none;
+  .esri-attribution__powered-by, .esri-attribution__sources {
+    padding: 2px 5px;
+  }
 }
 
 .calcite-nav-top .esri-attribution,
@@ -275,9 +279,11 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
     .esri-search__input {
       background-color: transparent;
+      height: auto;
+      border: 0;
     }
 
-     // Prevent lost focus on mouse move
+    // Prevent lost focus on mouse move
     .esri-search::before {
       content: " ";
       position: absolute;
