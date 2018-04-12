@@ -104,9 +104,6 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
       width: 48px;
       height: 48px;
     }
-    .esri-basemap-toggle__container {
-      z-index: 0;
-    }
     &.esri-basemap-toggle {
       width: 49px;
       height: 49px;
@@ -135,7 +132,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
 .calcite-map {
 
-  .esri-popup__position-container {
+  .esri-ui .esri-popup {
     z-index: 3; // Under panel, big number otherwise will disappear behind map
   }
 
@@ -208,9 +205,6 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 .calcite-maps .esri-attribution {
   box-shadow: none;
   -webkit-box-shadow: none;
-  .esri-attribution__powered-by, .esri-attribution__sources {
-    padding: 2px 5px;
-  }
 }
 
 .calcite-nav-top .esri-attribution,
