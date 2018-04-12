@@ -38,9 +38,6 @@
   width: 48px;
   height: 48px; }
 
-.calcite-maps .esri-widget .esri-basemap-toggle__container {
-  z-index: 0; }
-
 .calcite-maps .esri-widget.esri-basemap-toggle {
   width: 49px;
   height: 49px; }
@@ -53,7 +50,7 @@
 .calcite-panels .esri-color-picker {
   width: 100%; }
 
-.calcite-map .esri-popup__position-container {
+.calcite-map .esri-ui .esri-popup {
   z-index: 3; }
 
 .calcite-map .esri-popup__header h1 {
@@ -95,8 +92,6 @@
 .calcite-maps .esri-attribution {
   box-shadow: none;
   -webkit-box-shadow: none; }
-  .calcite-maps .esri-attribution .esri-attribution__powered-by, .calcite-maps .esri-attribution .esri-attribution__sources {
-    padding: 2px 5px; }
 
 .calcite-nav-top .esri-attribution,
 .calcite-nav-top-fixed .esri-attribution {

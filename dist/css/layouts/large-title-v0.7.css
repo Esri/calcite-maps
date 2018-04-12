@@ -55,7 +55,7 @@
     top: 75px; }
   .calcite-layout-large-title.calcite-nav-hidden.calcite-nav-top .calcite-panels {
     top: 75px; }
-  .calcite-layout-large-title.calcite-nav-hidden .calcite-panels, .calcite-layout-large-title.calcite-nav-hidden.calcite-nav-bottom .calcite-panels {
+  .calcite-layout-large-title.calcite-nav-hidden.calcite-nav-bottom .calcite-panels {
     top: 30px; } }
 
 @media (max-width: 768px) {
