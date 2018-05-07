@@ -59,7 +59,7 @@ define([
         show:function (e) {
             var _this = this;
             on.emit(this.domNode, 'show.bs.modal', {bubbles:false, cancelable:false});
-            if (this.isShown && e.defaultPrevented) { return; }
+            if (this.isShown && e && e.defaultPrevented) { return; }
             this.isShown = true;
 
             _escape.call(this);
@@ -91,7 +91,7 @@ define([
             var _this = this;
             on.emit(this.domNode, 'hide.bs.modal', {bubbles:false, cancelable:false});
             if (e) { e.preventDefault(); }
-            if (!this.isShown && e.defaultPrevented) {
+            if (!this.isShown &&  e.defaultPrevented) {
                 return;
             }
 
@@ -134,8 +134,9 @@ define([
     function _hideModal() {
         var _this = this;
         domStyle.set(_this.domNode, 'display', 'none');
-        on.emit(_this.domNode, 'hidden.bs.modal', {bubbles:false, cancelable:false});
-        _backdrop.call(_this);
+        _backdrop.call(_this, function(){
+          on.emit(_this.domNode, 'hidden.bs.modal', {bubbles:false, cancelable:false});
+        });
     }
 
     function _backdrop(callback) {
@@ -158,11 +159,15 @@ define([
                 callback();
             }
         } else if (!_this.isShown && _this.backdropNode) {
-            domClass.remove(_this.backdropNode, 'in');
             if (support.trans && domClass.contains(_this.domNode, 'fade')) {
-                on.once(_this.backdropNode, support.trans.end, lang.hitch(_this, _removeBackdrop));
+                on.once(_this.backdropNode, support.trans.end, function(){
+                  _removeBackdrop.call(_this);
+                  callback();
+                });
+                domClass.remove(_this.backdropNode, 'in');
             } else {
                 _removeBackdrop.call(_this);
+                callback();
             }
         } else if (callback) {
             callback();
