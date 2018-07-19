@@ -59,6 +59,9 @@
     padding: 9px 10px 0;
     font-size: $panel_font_size;
     text-decoration: none;
+    .esri-icon.esri-icon-close {
+      font-size: $panel_font_size;
+    }
   }
 
   // Body - specific Bootstrap overrides for map apps
