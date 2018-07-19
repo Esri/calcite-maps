@@ -190,7 +190,7 @@
         }
       });
 
-      app.mapView.then(function() {
+      app.mapView.when(function() {
         app.mapView.popup.dockOptions.position = "top-right";
       });
    
@@ -210,13 +210,13 @@
         }
       });
 
-      app.sceneView.then(function() {
+      app.sceneView.when(function() {
         app.sceneView.popup.dockOptions.position = "top-right";
       });
 
       app.activeView = app.sceneView;
 
-      app.activeView.then(function() {
+      app.activeView.when(function() {
         app.initialExtent = app.activeView.extent;
       });
 

@@ -247,7 +247,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       });
 
       // Popup and panel sync
-      mapView.then(function(){
+      mapView.when(function(){
         CalciteMapArcGISSupport.setPopupPanelSync(mapView);
       });
 
