@@ -759,7 +759,10 @@ body {
     background-color: #4c4c4c; }
   .calcite-dropdown.calcite-bg-dark .dropdown-menu .active > a,
   .calcite-dropdown.calcite-bg-dark .dropdown-menu .active > a:hover,
-  .calcite-dropdown.calcite-bg-dark .dropdown-menu .active > a:focus {
+  .calcite-dropdown.calcite-bg-dark .dropdown-menu .active > a:focus,
+  .calcite-dropdown.calcite-bg-dark .dropdown-menu .active-panel > a,
+  .calcite-dropdown.calcite-bg-dark .dropdown-menu .active-panel > a:hover,
+  .calcite-dropdown.calcite-bg-dark .dropdown-menu .active-panel > a:focus {
     background-color: #4c4c4c; }
 
 .calcite-dropdown.calcite-text-light .dropdown-menu li > a {
@@ -778,7 +781,10 @@ body {
     background-color: #f4f4f4; }
   .calcite-dropdown.calcite-bg-light .dropdown-menu .active > a,
   .calcite-dropdown.calcite-bg-light .dropdown-menu .active > a:hover,
-  .calcite-dropdown.calcite-bg-light .dropdown-menu .active > a:focus {
+  .calcite-dropdown.calcite-bg-light .dropdown-menu .active > a:focus,
+  .calcite-dropdown.calcite-bg-light .dropdown-menu .active-panel > a,
+  .calcite-dropdown.calcite-bg-light .dropdown-menu .active-panel > a:hover,
+  .calcite-dropdown.calcite-bg-light .dropdown-menu .active-panel > a:focus {
     background-color: #f4f4f4; }
 
 .calcite-dropdown.calcite-text-dark .dropdown-menu li > a {

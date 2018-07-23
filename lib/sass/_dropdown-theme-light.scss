@@ -19,7 +19,10 @@
       }
       .active > a, 
       .active > a:hover, 
-      .active > a:focus {
+      .active > a:focus,
+      .active-panel > a, 
+      .active-panel > a:hover, 
+      .active-panel > a:focus {
         background-color: $theme_light_dropdown_menu_bg_hover;
       }  
     }

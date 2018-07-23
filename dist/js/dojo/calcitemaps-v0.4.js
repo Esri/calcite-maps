@@ -5,19 +5,20 @@
  *
  * ======================================================================== */
 
-define([ 
+define([
   "dojo/_base/declare",
   "dojo/_base/lang",
   "dojo/query",
   "dojo/dom-class",
   "dojo/on",
+  "dojo/NodeList-traverse",
   "dojo/domReady!"
 ], function(declare, lang, query, domClass, on) {
 
   var CalciteMaps = declare(null, {
 
     constructor: function () {
-      
+
       this.initEvents();
 
     },
@@ -47,7 +48,8 @@ define([
     //----------------------------------
 
     initEvents: function() {
-
+      this.setPanelActiveState();
+      this.setTabActiveState();
       this.setDropdownItemEvents();
       this.setDropdownToggleEvents();
       this.setToggleNavbarClick();
@@ -70,7 +72,8 @@ define([
         var isPanel = false,
           panel = null,
           panelBody = null,
-          panels = null;
+          panels = null,
+          menuItem = null;
 
         if (e.currentTarget.dataset.target) {
           panel = query(e.currentTarget.dataset.target);
@@ -93,6 +96,7 @@ define([
             panel.collapse("show");
             // Show body
             query(panelBody[0]).collapse("show");
+
           } else { // Re-show
             panel.removeClass("in");
             query(panelBody[0]).removeClass("in");
@@ -116,7 +120,7 @@ define([
 
       // Show/hide panels
 
-      query(this.dropdownMenuItemSelector).on(["click","keydown"], lang.hitch(this, funcContext)); 
+      query(this.dropdownMenuItemSelector).on(["click","keydown"], lang.hitch(this, funcContext));
 
     },
 
@@ -125,7 +129,7 @@ define([
     //----------------------------------
 
     setDropdownToggleEvents: function() {
-      
+
       // Manually show/hide the dropdown
       query(".calcite-dropdown .dropdown-toggle").on(["click","keydown"], function (e) {
         if (e.type === "keydown" && e.keyCode !== 13) {
@@ -189,10 +193,61 @@ define([
           query(e.target.parentNode).query(".panel-label, .panel-close").removeClass("visible-mobile-only");
         });
       }
-      
+
+      //Remove panel menu item active status on panel closed
+      query(".calcite-panels .panel").on("hidden.bs.collapse",lang.hitch(this,function(e){
+        var id = e.currentTarget.id;
+        this._deactivateMenuItem(id);
+        this.activePanel = null;
+      }));
+
+      //Add panel menu item active status on panel active
+      query(".calcite-panels .panel").on("show.bs.collapse",lang.hitch(this,function(e){
+        var id = e.currentTarget.id;
+        this._activateMenuItem(id);
+        this.activePanel = query(e.currentTarget);
+      }));
+
+    },
+
+    setPanelActiveState: function () {
+      var activePanels = query(".calcite-panels .panel.in");
+        var panelNode = activePanels[0];
+        if (panelNode && (id = panelNode.id)) {
+          this._activateMenuItem(id);
+        }
+      this.activePanel = activePanels.length > 0 ? activePanels : null;
+
+    },
+
+    setTabActiveState:function(){
+      var activeTab = query(".calcite-nav li.active")[0];
+        var a = (activeTab) && query(activeTab).children('a')[0];
+        id = (a) && (a.dataset.target || a.href.substr(a.href.indexOf('#')));
+        this._activateMenuItem(id,'active');
+    },
+
+    _activateMenuItem:function(id,activeClass){
+      var activeClass = activeClass || 'active-panel';
+      var menuItem = this._queryMenuItem(id);
+      (menuItem.length > 0) && menuItem.parent('li').addClass(activeClass);
+    },
+
+    _deactivateMenuItem:function(id,activeClass){
+      var activeClass = activeClass || 'active active-panel';
+      var menuItem = this._queryMenuItem(id);
+      (menuItem.length > 0) && menuItem.parent('li').removeClass(activeClass);
+    },
+    
+    _queryMenuItem: function(id){
+      var id = id && id.slice(id.indexOf('#') + 1);
+      var selector = this.dropdownMenuItemSelector + '[data-target="#' + id + '"],' +
+        this.dropdownMenuItemSelector + '[href="#' + id + '"]';
+      var menuItem = query(selector);
+      return menuItem;
     }
 
   });
-      
+
   return new CalciteMaps();
 });
