@@ -70,13 +70,13 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   <title>ArcGIS JS v4, Calcite Maps and Bootstrap Example</title>
 
   <!-- Calcite Maps Bootstrap -->
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.7.css">
+  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-bootstrap.min-v0.8.css">
   
   <!-- Calcite Maps -->
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.7.css">
+  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.8.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
 
   <style>
     html,
@@ -191,7 +191,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   </script>
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.7/"></script>
+  <script src="https://js.arcgis.com/4.8/"></script>
 
   <script>
     
@@ -215,9 +215,9 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       "bootstrap/Dropdown",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.7",
+      "calcite-maps/calcitemaps-v0.8",
       // Calcite Maps ArcGIS Support
-      "calcite-maps/calcitemaps-arcgis-support-v0.7",
+      "calcite-maps/calcitemaps-arcgis-support-v0.8",
 
       "dojo/domReady!"
     ], function(WebMap, MapView, Home, Zoom, Compass, Search, Legend, BasemapToggle, ScaleBar, Attribution,Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {
@@ -247,7 +247,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       });
 
       // Popup and panel sync
-      mapView.then(function(){
+      mapView.when(function(){
         CalciteMapArcGISSupport.setPopupPanelSync(mapView);
       });
 
