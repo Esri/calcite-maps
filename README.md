@@ -22,7 +22,7 @@ To see what types of apps you can build check out the [live samples here](https:
 * Support for [ArcGIS JS 3.x](https://developers.arcgis.com/javascript/), [ArcGIS JS 4.x](https://developers.arcgis.com/javascript/) and [Esri Leaflet](https://github.com/Esri/esri-leaflet)
 * Dojo and jQuery support
 
-NOTE: The framework is compatile with standard or custom builds of [Bootstrap 3.x](https://www.getbootstrap.com).
+NOTE: The framework is compatible with standard or custom builds of [Bootstrap 3.x](https://www.getbootstrap.com).
 
 ## Getting started
 
