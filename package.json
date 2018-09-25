@@ -1,10 +1,11 @@
 {
   "name": "calcite-maps",
-  "version": "0.0.1",
+  "version": "0.9.0",
   "description": "Web map app design framework",
   "main": "\"\"",
   "dependencies": {
-    "grunt-cli": "^0.1.13"
+    "grunt-cli": "^0.1.13",
+    "npm": "^6.4.1"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
@@ -33,7 +34,7 @@
     "Bootstrap"
   ],
   "author": "Allan Laframboise",
-  "license": "ISC",
+  "license": "Apache2",
   "bugs": {
     "url": "https://github.com/alaframboise/calcite-maps/issues"
   },

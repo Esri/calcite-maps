@@ -37,10 +37,10 @@ Here's a few ways to get started:
  Run the commands below:
 
  * Run `npm install` (node_modules/bootstrap)
- * Run `bower install` (bower_components/dojo-bootstrap - optional)
+ * Run `bower install` (bower_components/dojo-bootstrap - optional, it's local)
  * Run `grunt` (build out project to ./dist/**)
 
- NOTE: To start customizing, check out the [gruntfile.js](gruntfile.js), [build.scss](./lib/sass/build.scss) and [_variables.scss](./lib/sass/_variables.scss) files.
+ NOTE: To start customizing, check out the [gruntfile.js](gruntfile.js), [build.scss](./lib/sass/build.scss) and [_variables.scss](./lib/sass/_variables.scss) files. You can also create a custom (smaller) build of bootstrap with [build-calicte-maps-bootstrap.scss](./lib/sass/build-calicte-maps-bootstrap.scss) by adding/removing components.
 
 ## Example
 
