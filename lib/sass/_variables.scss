@@ -180,7 +180,7 @@ $theme_light_link_color_hover:  inherit;
 // ---------------------------------------------------------------
 
 // Navbar
-$theme_dark_navbar_bg:                  $Calcite_Gray_100_Dark;
+$theme_dark_navbar_bg:                  $Calcite_Gray_300_Dark;
 $theme_dark_navbar_text_color:          $Calcite_Gray_050;
 $theme_dark_navbar_text_color_hover:    $Calcite_True_White;
 $theme_dark_navbar_decoration_color:		$Calcite_Gray_050;
@@ -193,7 +193,7 @@ $theme_dark_dropdown_menu_text_color:			$Calcite_Gray_050;
 $theme_dark_dropdown_menu_border_color: 	$Calcite_Gray_100_Dark;
 $theme_dark_dropdown_menu_shadow:					1px 1px 1px 0 rgba(0,0,0,.1);
 // Panel
-$theme_dark_panel_bg:                       $Calcite_Gray_100_Dark;
+$theme_dark_panel_bg:                       $Calcite_Gray_300_Dark;
 $theme_dark_panel_text_color:               $Calcite_Gray_050; 
 $theme_dark_panel_header_text_color:        $Calcite_Gray_050;
 $theme_dark_panel_header_close_color:				$Calcite_Gray_050;
@@ -228,7 +228,7 @@ $theme_custom_dropdown_menu_bg_hover: 		rgba(255,255,255,0.15);
 $theme_custom_dropdown_menu_shadow:				1px 1px 1px 0 rgba(0,0,0,0.1);
 // Panel
 $theme_custom_panel_bg: 									inherit;
-$theme_custom_panel_header_bg: 						rgba(255,255,255,0.15);
+$theme_custom_panel_header_bg: 						transparent; //rgba(255,255,255,0); //rgba(255,255,255,0.15);
 $theme_custom_panel_header_bg_hover: 			rgba(255,255,255,0.25);
 $theme_custom_panel_header_bg_active: 		inherit;
 // Panel - Controls
