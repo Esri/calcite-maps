@@ -76,7 +76,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.8.css">
 
   <!-- ArcGIS JS 4 -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
 
   <style>
     html,
@@ -191,7 +191,7 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
   </script>
 
   <!-- ArcGIS JS 4 -->
-  <script src="https://js.arcgis.com/4.8/"></script>
+  <script src="https://js.arcgis.com/4.9/"></script>
 
   <script>
     
@@ -215,9 +215,9 @@ This example references Bootstrap, Calcite Maps, ArcGIS and the appropriate JS f
       "bootstrap/Dropdown",
 
       // Calcite Maps
-      "calcite-maps/calcitemaps-v0.8",
+      "calcite-maps/calcitemaps-v0.9",
       // Calcite Maps ArcGIS Support
-      "calcite-maps/calcitemaps-arcgis-support-v0.8",
+      "calcite-maps/calcitemaps-arcgis-support-v0.9",
 
       "dojo/domReady!"
     ], function(WebMap, MapView, Home, Zoom, Compass, Search, Legend, BasemapToggle, ScaleBar, Attribution,Collapse, Dropdown, CalciteMaps, CalciteMapArcGISSupport) {

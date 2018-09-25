@@ -8,14 +8,6 @@
 .calcite-panels {
   
   &.calcite-bg-light {
-    background-color: $theme_light_panel_bg;
-
-    //.panel {
-      // background-color: $theme_light_panel_bg;
-    //}
-    .panel {
-      background-color: inherit;
-    }
 
     .panel-heading {
       background-color: $theme_light_panel_header_bg;
@@ -25,46 +17,13 @@
       background-color: $theme_light_panel_header_bg_hover;
     }
 
-    .nav-tabs {
-      border-bottom: 1px solid $theme_light_control_border_color;
-    }
-
-    .nav-tabs > li > a:hover,
-    .nav-tabs > li > a:focus {
-      background-color: transparent;
-      border-top-color: $theme_light_control_border_color_hover;
-      border-left: 1px solid transparent;
-      border-right: 1px solid transparent;
-    }
-
-    .nav-tabs > li.active > a {
-      background-color: $theme_light_control_bg_active;
-      border-color: $theme_light_control_border_color;
-      border-top-color: $theme_light_control_border_color_hover;
-      border-bottom-color: transparent;
-      border-top-width: 2px;
-      padding-top: 5px;
-    }
-
-    input, 
-    textarea,
-    select {
-      background-color: transparent;
-      border: 1px solid $theme_light_control_border_color;  
-      color: $theme_light_panel_text_color;     
-    }
-    option {
-      color: $theme_light_panel_text_color;
-      background-color: $theme_light_panel_bg;
-    }
-
   }
 
   &.calcite-text-dark {
 
-    .panel {
-      color: $theme_light_panel_text_color;
-    }
+    // .panel {
+    //   color: $theme_light_panel_text_color;
+    // }
 
     // Header
 
@@ -94,36 +53,6 @@
       color: $theme_light_panel_header_text_color_hover;
     }
     
-    // Tabs
-    
-    .nav-tabs > li > a {
-      color: $theme_light_control_text_color;
-    }
-
-    .nav-tabs > li.active > a {
-      color: $theme_light_control_text_color;
-    }
-
-    // Form controls
-    input, 
-    textarea,
-    select {
-      color: $theme_light_control_text_color;
-    }
-
-    select {
-      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PGcgZmlsbD0iIzU5NTk1OSI+PHBhdGggZD0iTTU2Ljc1IDM3LjQ2NmMuNDI1LjQyNS41NTIgMS4wNjMuMzIyIDEuNjE4LS4yMy41NTUtLjc3LjkxNi0xLjM3Mi45MTZINi4zYy0uNiAwLTEuMTQzLS4zNjItMS4zNzItLjkxNy0uMjMtLjU1NS0uMTAzLTEuMTkzLjMyMi0xLjYxOGwyMy40NC0yMy40NGMxLjI3Ni0xLjI3NiAzLjM0My0xLjI3NiA0LjYyIDBsMjMuNDQgMjMuNDR6TTUuMjUgNjIuNTM0Yy0uNDI2LS40MjUtLjU1My0xLjA2My0uMzIzLTEuNjE4LjIzLS41NTUuNzctLjkxNiAxLjM3LS45MTZoNDkuNDA0Yy42MDIgMCAxLjE0My4zNiAxLjM3My45MTYuMjMuNTU1LjEwMyAxLjE5My0uMzIyIDEuNjE4TDMzLjMxIDg1Ljk3N2MtMS4yNzUgMS4yNzUtMy4zNDQgMS4yNzQtNC42MiAwTDUuMjUgNjIuNTM0eiIvPjwvZz48L3N2Zz4=");
-    }
-
-    // Links - optional
-
-    // a {
-    //  color: $theme_light_link_color;
-    // }
-    // a:hover {
-    //  color: $theme_light_link_color_hover;
-    // }
-  // }
   }
 }
 

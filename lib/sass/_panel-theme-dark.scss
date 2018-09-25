@@ -8,12 +8,6 @@
 .calcite-panels {
   
   &.calcite-bg-dark {
-    background-color: $theme_dark_panel_bg;
-
-    .panel {
-      //background-color: $theme_dark_panel_bg;
-      background-color: inherit;
-    }
 
     .panel-heading {
       background-color: $theme_dark_panel_header_bg;
@@ -22,50 +16,14 @@
     .panel-heading:hover {
       background-color: $theme_dark_panel_header_bg_hover;
     }
-
-    .nav-tabs {
-      border-bottom: 1px solid $theme_dark_control_border_color;
-    }
-
-    .nav-tabs > li > a:hover,
-    .nav-tabs > li > a:focus {
-      background-color: transparent;
-      border-top-color: $theme_dark_control_border_color_hover;
-      border-left: 1px solid transparent;
-      border-right: 1px solid transparent;
-    }
-
-    .nav-tabs > li.active > a {
-      background-color: $theme_dark_control_bg_active;
-      border-color: $theme_dark_control_border_color;
-      border-top-color: $theme_dark_control_border_color_hover;
-      border-bottom-color: transparent;
-      border-top-width: 2px;
-      padding-top: 5px;
-    }
-
-    input, 
-    textarea,
-    select {
-      background-color: transparent;
-      border: 1px solid $theme_dark_control_border_color;
-      color: $theme_dark_panel_text_color;
-    }
-    // option {
-    //   background-color: $theme_dark_panel_bg;
-    // }
-    option {
-      color: $theme_light_panel_text_color;
-      background-color: $theme_light_panel_bg;
-    }
     
   }
 
   &.calcite-text-light {
 
-    .panel {
-      color: $theme_dark_panel_text_color;
-    }
+    // .panel {
+    //   color: $theme_dark_panel_text_color;
+    // }
     
     // Header
     
@@ -95,37 +53,6 @@
       color: $theme_dark_panel_header_text_color_hover;
     }
     
-    // Tabs
-    
-    .nav-tabs > li > a {
-      color: $theme_dark_control_text_color;
-    }
-    
-    .nav-tabs > li.active > a {
-      color: $theme_dark_control_text_color;
-    }
-          
-    // Form controls
-    
-    input, 
-    textarea,
-    select {
-      color: $theme_dark_control_text_color;
-    }
-
-    select {
-      background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAgMTAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiNGOEY4RjgiIGQ9Ik01Ni43NSwzNy40NjZjMC40MjUsMC40MjUsMC41NTIsMS4wNjMsMC4zMjIsMS42MThDNTYuODQyLDM5LjYzOSw1Ni4zMDIsNDAsNTUuNyw0MEg2LjMNCgkJYy0wLjYsMC0xLjE0My0wLjM2Mi0xLjM3Mi0wLjkxN2MtMC4yMy0wLjU1NS0wLjEwMy0xLjE5MywwLjMyMi0xLjYxOGwyMy40NC0yMy40NGMxLjI3Ni0xLjI3NiwzLjM0My0xLjI3Niw0LjYyLDBMNTYuNzUsMzcuNDY2DQoJCUw1Ni43NSwzNy40NjZ6IE01LjI1LDYyLjUzNGMtMC40MjYtMC40MjUtMC41NTMtMS4wNjMtMC4zMjMtMS42MThDNS4xNTcsNjAuMzYxLDUuNjk3LDYwLDYuMjk3LDYwaDQ5LjQwNA0KCQljMC42MDIsMCwxLjE0MywwLjM1OSwxLjM3MywwLjkxNmMwLjIzLDAuNTU1LDAuMTAzLDEuMTkzLTAuMzIyLDEuNjE4TDMzLjMxLDg1Ljk3N2MtMS4yNzUsMS4yNzUtMy4zNDQsMS4yNzQtNC42MiwwTDUuMjUsNjIuNTM0eiINCgkJLz4NCjwvZz4NCjwvc3ZnPg0K");
-    }
-     
-    // Links - required
-    
-    a {
-      color: $theme_dark_link_color;
-    }
-    
-    a:hover {
-      color: $theme_dark_link_color_hover;
-    }
   }
 }
 
