@@ -413,6 +413,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
       .esri-search__submit-button {
         border-left: solid 1px $text_light_widget_border_color_trans;
+        border-right: solid 1px $text_light_widget_border_color_trans;
         color: $theme_light_control_text_color_hover;
       }
 
@@ -472,6 +473,7 @@ $text_light_widget_border_color_trans: rgba(255, 255, 255, 0);
 
       .esri-search__submit-button {
         border-left: solid 1px $text_light_widget_border_color_trans;
+        border-right: solid 1px $text_light_widget_border_color_trans;
         color: $theme_dark_arcgis_widget_color;
       }
 

@@ -1,11 +1,5 @@
 /* ========================================================================
- * Calcite Maps (http://github.com/esri/calcite-maps)
- * Copyright 2016 Esri
- * Licensed under Apache (http://www.apache.org/licenses/LICENSE-2.0)
- * ======================================================================== */
-
-/* ========================================================================
- * Calcite Maps: calcitemaps-arcgis-support.js (dojo)
+ * Calcite Maps: calcitemaps-arcgis-support.js v0.4 (dojo)
  * ========================================================================
  * Generic handlers for mapping-specific UI
  *
