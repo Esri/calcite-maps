@@ -1,0 +1,70 @@
+.calcite-layout-small-title .calcite-navbar {
+  height: 40px;
+  min-height: 40px; }
+  .calcite-layout-small-title .calcite-navbar .navbar-brand {
+    padding: 12px 14px;
+    font-size: 36px; }
+  .calcite-layout-small-title .calcite-navbar .navbar-nav > li > a {
+    padding: 10px 12px; }
+
+.calcite-layout-small-title .calcite-dropdown .dropdown-toggle {
+  padding: 12px 20px 14px 21px; }
+
+.calcite-layout-small-title .calcite-dropdown-toggle {
+  width: 15px; }
+
+.calcite-layout-small-title .calcite-title-main {
+  padding: 3px 0 4px;
+  font-size: 19px;
+  line-height: 1.1; }
+
+.calcite-layout-small-title .calcite-title-divider {
+  height: 80px;
+  margin: 0 13px; }
+
+.calcite-layout-small-title .calcite-title-sub {
+  font-size: 12px;
+  line-height: 1.1; }
+
+.calcite-layout-small-title .calcite-navbar-search.calcite-search-expander {
+  margin: 5px; }
+
+.calcite-layout-small-title.calcite-nav-top.calcite-zoom-top-left .esriZoom.esriVertical.esriComponent,
+.calcite-layout-small-title.calcite-nav-top.calcite-zoom-top-right .esriZoom.esriVertical.esriComponent,
+.calcite-layout-small-title.calcite-nav-bottom.calcite-zoom-bottom-left .esriZoom.esriVertical.esriComponent,
+.calcite-layout-small-title.calcite-nav-bottom.calcite-zoom-bottom-right .esriZoom.esriVertical.esriComponent {
+  margin: 55px 25px; }
+
+.calcite-layout-small-title.calcite-nav-top .calcite-map .leaflet-control-zoom {
+  margin: 55px 25px 15px 30px; }
+
+.calcite-layout-small-title.calcite-nav-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-top-fixed .calcite-dropdown .calcite-menu-drawer {
+  top: 40px; }
+
+.calcite-layout-small-title.calcite-nav-top.calcite-margin-top .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-top.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  top: 55px; }
+
+.calcite-layout-small-title.calcite-nav-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-bottom-fixed .calcite-dropdown .calcite-menu-drawer {
+  bottom: 40px; }
+
+.calcite-layout-small-title.calcite-nav-bottom.calcite-margin-bottom .calcite-dropdown .calcite-menu-drawer, .calcite-layout-small-title.calcite-nav-bottom.calcite-margin-all .calcite-dropdown .calcite-menu-drawer {
+  bottom: 55px; }
+
+@media (min-width: 769px) {
+  .calcite-layout-small-title.calcite-nav-top .calcite-panels {
+    top: 55px; }
+  .calcite-layout-small-title.calcite-nav-hidden.calcite-nav-top .calcite-panels {
+    top: 55px; }
+  .calcite-layout-small-title.calcite-nav-hidden.calcite-nav-bottom .calcite-panels {
+    top: 30px; } }
+
+@media (max-width: 768px) {
+  .calcite-layout-small-title.calcite-nav-top .calcite-panels {
+    top: auto; }
+  .calcite-layout-small-title .calcite-dropdown .dropdown-toggle {
+    padding: 12px 15px 14px 18px; }
+  .calcite-layout-small-title.calcite-nav-bottom .calcite-panels,
+  .calcite-layout-small-title.calcite-nav-bottom-fixed .calcite-panels,
+  .calcite-layout-small-title.calcite-nav-bottom.calcite-margin-all .calcite-panels,
+  .calcite-layout-small-title.calcite-nav-bottom.calcite-margin-bottom .calcite-panels {
+    bottom: 40px; } }

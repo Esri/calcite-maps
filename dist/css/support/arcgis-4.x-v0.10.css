@@ -1,0 +1,532 @@
+.esri-view {
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
+.calcite-maps .esri-icon-close:before,
+.calcite-maps .esri-icon-search:before,
+.calcite-maps .esri-icon-cancel:before {
+  color: unset; }
+
+.calcite-maps :not(.panel-body) > .esri-widget .esri-widget--button, .calcite-maps :not(.panel-body) > .esri-widget.esri-widget--button {
+  width: 30px;
+  height: 30px;
+  font-size: 13px; }
+
+.calcite-maps :not(.panel-body) > .esri-widget [class*="esri-icon"],
+.calcite-maps :not(.panel-body) > .esri-widget [role="button"] [class*="esri-icon"] {
+  font-size: 14px; }
+
+.calcite-maps :not(.panel-body) > .esri-widget.esri-compass .esri-compass__icon {
+  font-size: 18px; }
+
+.calcite-maps :not(.panel-body) > .esri-search,
+.calcite-maps :not(.panel-body) > .esri-search .esri-search__input {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 400;
+  height: auto; }
+
+.calcite-maps :not(.panel-body) > .esri-widget .esri-menu li {
+  padding: .6em 1em;
+  font-size: 13px; }
+
+.calcite-maps :not(.panel-body) > .esri-menu {
+  color: #4c4c4c; }
+
+.calcite-maps :not(.panel-body) > .esri-basemap-gallery {
+  width: 100%; }
+
+.calcite-maps .esri-widget .esri-basemap-toggle__container,
+.calcite-maps .esri-widget .esri-basemap-toggle__image {
+  width: 48px;
+  height: 48px; }
+
+.calcite-maps .esri-widget.esri-basemap-toggle {
+  width: 49px;
+  height: 49px; }
+
+.calcite-maps .esri-scale-bar {
+  margin-bottom: -5px; }
+  .calcite-maps .esri-scale-bar .esri-scale-bar__label {
+    padding: 0.5em 0 0 0; }
+
+.calcite-panels .esri-color-picker {
+  width: 100%; }
+
+.calcite-map .esri-ui .esri-popup {
+  z-index: 3; }
+
+.calcite-map .esri-popup__header h1 {
+  margin: 0; }
+
+.calcite-map .esri-popup__header .esri-popup__button {
+  padding: 12px 7px 10px; }
+
+.calcite-map .esri-popup .esri-popup-collapsed .esri-popup__content,
+.calcite-map .esri-popup .esri-popup-collapsed .esri-popup__footer {
+  display: none; }
+
+.calcite-map .esri-popup .esri-popup-collapsed .esri-widget h1 {
+  margin: 0; }
+
+.calcite-map .esri-ui-bottom-left,
+.calcite-map .esri-ui-bottom-right {
+  flex-flow: column nowrap; }
+
+.calcite-map .esri-ui-bottom-left .esri-widget.esri-component,
+.calcite-map .esri-ui-bottom-right .esri-widget.esri-component {
+  margin-top: 9px; }
+
+.calcite-map .esri-ui-top-left .esri-component,
+.calcite-map .esri-ui-top-right .esri-component {
+  margin-bottom: 9px; }
+
+.calcite-nav-bottom .esri-popup--is-docked {
+  margin-top: 30px; }
+
+.calcite-nav-top .esri-popup .esri-docked,
+.calcite-nav-top-fixed .esri-popup .esri-docked {
+  margin: 15px 15px 30px 15px !important; }
+
+.calcite-nav-bottom .esri-popup .esri-docked,
+.calcite-nav-bottom-fixed .esri-popup .esri-docked {
+  margin: 30px 15px 15px 15px !important; }
+
+.calcite-maps .esri-attribution {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+
+.calcite-nav-top .esri-attribution,
+.calcite-nav-top-fixed .esri-attribution {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.calcite-nav-bottom .esri-ui .esri-attribution,
+.calcite-nav-bottom-fixed .esri-ui .esri-attribution {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  right: 0; }
+
+.calcite-nav-bottom .navbar .esri-widget .esri-menu,
+.calcite-nav-bottom-fixed .navbar .esri-widget .esri-menu {
+  top: auto;
+  bottom: 36px; }
+
+.esri-search .esri-search__input {
+  line-height: 1; }
+
+.calcite-navbar-search .esri-search {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.calcite-navbar-search.calcite-search-expander .esri-search {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 13px; }
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-widget--button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    background-color: transparent; }
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__input {
+    background-color: transparent;
+    height: auto;
+    border: 0; }
+
+.calcite-navbar-search.calcite-search-expander .esri-search::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 9px;
+  right: 0;
+  height: 15px;
+  width: calc(100% - 18px);
+  display: block;
+  background-color: transparent; }
+
+.calcite-navbar-search.calcite-search-expander .esri-search::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 9px;
+  right: 0;
+  height: 15px;
+  width: calc(100% - 18px);
+  display: block;
+  background-color: transparent; }
+
+.calcite-navbar-search.calcite-search-expander .esri-search {
+  width: 30px; }
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-widget__loader {
+    display: none; }
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-search__input-container,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-search__form,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-input.esri-search__input,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-search--no-results .esri-search__no-results-menu,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-menu.esri-search__warning-menu,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-search--has-value .esri-search__clear-button,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-search__clear-button,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-menu.esri-search__sources-menu,
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container .esri-menu.esri-search__suggestions-menu {
+    display: none; }
+  .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container:before, .calcite-navbar-search.calcite-search-expander .esri-search .esri-search__container:after {
+    animation: none;
+    background-color: transparent; }
+
+.calcite-navbar-search.calcite-search-expander .calcite-search-expanded {
+  width: 240px; }
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-search__input-container,
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-search__form,
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-search--no-results .esri-search__no-results-menu,
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-search--has-value .esri-search__clear-button,
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-search__clear-button {
+    display: flex; }
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-input.esri-search__input,
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-menu.esri-search__warning-menu,
+  .calcite-navbar-search.calcite-search-expander .calcite-search-expanded .esri-search__container .esri-menu.esri-search__suggestions-menu {
+    display: block; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget.esri-search {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0); }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget,
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget--button {
+  color: #4c4c4c; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget--button {
+  background-color: transparent; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget--button.esri-disabled {
+  color: #6e6e6e; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__input {
+  color: #4c4c4c; }
+  .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__input::-webkit-input-placeholder {
+    color: #4c4c4c;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #4c4c4c;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__input:-ms-input-placeholder {
+    color: #4c4c4c;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #4c4c4c;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__input::placeholder {
+    color: #4c4c4c;
+    opacity: 0.5; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-search__submit-button {
+  border-left: solid 1px rgba(255, 255, 255, 0);
+  border-right: solid 1px rgba(255, 255, 255, 0);
+  color: #323232; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-menu li {
+  background-color: #ffffff;
+  color: #4c4c4c; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-menu li:focus,
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-menu li:hover {
+  background-color: #f4f4f4;
+  color: #323232; }
+
+.calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget.esri-search.calcite-search-expanded {
+  border-color: rgba(0, 0, 0, 0.3); }
+  .calcite-navbar.calcite-text-dark .calcite-search-expander .esri-widget.esri-search.calcite-search-expanded .esri-search__submit-button {
+    border-color: transparent;
+    color: #323232; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget.esri-search {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0); }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget,
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget--button {
+  color: #f8f8f8; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget--button {
+  background-color: transparent; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-widget--button.esri-disabled {
+  color: #e7e7e7; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__input {
+  color: #f8f8f8; }
+  .calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__input::-webkit-input-placeholder {
+    color: #f8f8f8;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #f8f8f8;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__input:-ms-input-placeholder {
+    color: #f8f8f8;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #f8f8f8;
+    opacity: 0.5; }
+  .calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__input::placeholder {
+    color: #f8f8f8;
+    opacity: 0.5; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-search__submit-button {
+  border-left: solid 1px rgba(255, 255, 255, 0);
+  border-right: solid 1px rgba(255, 255, 255, 0);
+  color: #f8f8f8; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-menu li {
+  background-color: #ffffff;
+  color: #4c4c4c; }
+
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-menu li:focus,
+.calcite-navbar.calcite-text-light .calcite-search-expander .esri-menu li:hover {
+  background-color: #f4f4f4;
+  color: #323232; }
+
+.calcite-navbar.calcite-text-light .esri-widget.esri-search.calcite-search-expanded {
+  border-color: rgba(255, 255, 255, 0.7); }
+  .calcite-navbar.calcite-text-light .esri-widget.esri-search.calcite-search-expanded .esri-search__submit-button {
+    border-color: transparent;
+    color: #ffffff; }
+
+.calcite-panels {
+  z-index: 4; }
+  .calcite-panels .esri-search {
+    width: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .calcite-panels .esri-search .esri-search__input {
+    border: none;
+    color: #4c4c4c; }
+  .calcite-panels .esri-search .esri-menu {
+    width: calc(100% + 2px);
+    left: -1px; }
+  .calcite-panels .esri-legend {
+    width: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+  .calcite-panels .esri-layer-list {
+    width: 100%; }
+  .calcite-panels .esri-print {
+    width: 100%; }
+  .calcite-panels .esri-print.esri-widget {
+    padding: 10px; }
+  .calcite-panels .esri-print__header-title {
+    display: none; }
+
+.calcite-navbar.calcite-bg-light .esri-search,
+.calcite-panels.calcite-bg-light .esri-search {
+  border: 1px solid rgba(0, 0, 0, 0.25); }
+
+.calcite-navbar.calcite-bg-light .esri-print__panel--error,
+.calcite-panels.calcite-bg-light .esri-print__panel--error {
+  color: #4c4c4c; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container {
+  background-color: #4c4c4c;
+  color: #f8f8f8; }
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button .esri-widget--button,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container .esri-widget--button {
+    background-color: #4c4c4c;
+    color: #f8f8f8; }
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home.esri-widget--button:not(.esri-search__submit-button):active, .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button .esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container.esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container.esri-widget--button:not(.esri-search__submit-button):hover,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container .esri-widget--button:not(.esri-search__submit-button):active,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container .esri-widget--button:not(.esri-search__submit-button):hover {
+    background-color: #333333 !important;
+    color: #d1d1d1 !important; }
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-home .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-zoom .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-compass .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-locate .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget.esri-track .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle.esri-widget .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-widget .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search.esri-widget .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__input .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-main .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-pointer .esri-pointer-direction .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button .esri-widget--button.esri-disabled,
+  .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup__main-container .esri-widget--button.esri-disabled {
+    color: #5c5c5c; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-zoom .esri-widget--button:last-child {
+  border-top: solid 1px rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__submit-button {
+  border-left: solid 1px rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-input.esri-search__input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #787878; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-input.esri-search__input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #787878; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-input.esri-search__input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #787878; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-input.esri-search__input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #787878; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-menu li:active,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-menu li:focus,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-menu li:hover,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-search .esri-search__clear-button:hover {
+  background-color: #333333;
+  color: #d1d1d1; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget .esri-menu li {
+  border-top: solid 1px rgba(209, 209, 209, 0.2); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup__button {
+  color: #f8f8f8; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup__pointer-direction {
+  background-color: #4c4c4c; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button:focus,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-button:hover,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup__button:focus,
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup__button:hover {
+  color: #ffffff; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget table {
+  color: #ffffff; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget table tr:nth-child(even) {
+  background-color: rgba(105, 105, 105, 0.7); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-widget table tr:nth-child(odd) {
+  background-color: rgba(250, 250, 250, 0.1); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-content::-webkit-scrollbar {
+  background-color: rgba(200, 200, 200, 0.2); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-popup .esri-popup-content::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 200, 200, 0.6); }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle:hover .esri-navigation-toggle__button, .calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle:focus .esri-navigation-toggle__button {
+  color: #ffffff; }
+
+.calcite-widgets-dark :not(.calcite-navbar-search) > .esri-navigation-toggle__button:before {
+  border-color: transparent #ffffff transparent transparent; }
+
+@media (max-width: 320px) {
+  .calcite-navbar .calcite-navbar-search.calcite-search-expander .esri-search:hover .esri-search__container,
+  .calcite-navbar .calcite-navbar-search.calcite-search-expander .esri-search:focus .esri-search__container {
+    width: 200px; } }
+
+@media (max-width: 768px) {
+  .calcite-map .esri-popup .esri-docked-bottom-center .esri-popup-main {
+    width: 100%; }
+  .calcite-map .esri-widget--button {
+    width: 28px;
+    height: 28px;
+    font-size: 12px; }
+  .calcite-map .esri-search,
+  .calcite-map .esri-search .esri-search__input {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400; }
+  .calcite-map .esri-widget .esri-menu li {
+    padding: .6em 1em;
+    font-size: 13px; } }
