@@ -1,4 +1,4 @@
-NOTE: This project is depreciated and no longer maintained. It is not recommended for future development.
+> NOTE: This project is depreciated and is not recommended for future development. It will be replaced with a newer version. Coming soon!
 
 # Calcite Maps
 A theme for [Bootstrap](https://www.getbootstrap.com) for designing, styling and creating modern map apps.
